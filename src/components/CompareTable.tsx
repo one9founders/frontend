@@ -16,13 +16,11 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
   };
 
   const getPricingDisplay = (tool: Tool) => {
-    if (tool.pricing_model === 'Free') return 'Free';
+    if (tool.pricing_models?.includes('Free')) return 'Free';
     if (tool.pricing_from) {
-      const frequency = tool.billing_frequency === 'Monthly' ? '/mo' : 
-                       tool.billing_frequency === 'Yearly' ? '/yr' : '';
-      return `$${tool.pricing_from}${frequency}`;
+      return `$${tool.pricing_from}`;
     }
-    return tool.pricing_model || 'Contact for pricing';
+    return tool.pricing_models?.join(', ') || 'Contact for pricing';
   };
 
   return (
@@ -42,12 +40,12 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                       ×
                     </button>
                     <img
-                      src={tool.image_url}
+                      src={tool.logo_url || '/logo.svg'}
                       alt={tool.name}
                       className="w-16 h-16 object-cover rounded-lg mx-auto mb-2"
                     />
                     <h3 className="text-white font-bold text-lg">{tool.name}</h3>
-                    <p className="text-gray-400 text-sm">{tool.category}</p>
+                    <p className="text-gray-400 text-sm">{tool.categories?.map((c: any) => c.name).join(', ')}</p>
                   </div>
                 </td>
               ))}
@@ -140,7 +138,7 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                 <td key={tool.id} className="p-4 text-center">
                   <div className="space-y-2">
                     <a
-                      href={tool.url}
+                      href={tool.website || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
@@ -148,7 +146,7 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                       Visit Tool
                     </a>
                     <a
-                      href={`/tool/${tool.id}`}
+                      href={`/tool/${tool.slug}`}
                       className="block w-full py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600 text-sm"
                     >
                       View Details

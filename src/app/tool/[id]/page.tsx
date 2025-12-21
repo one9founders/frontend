@@ -1,10 +1,10 @@
-import { getToolById } from '@/app/actions';
+import { toolsAPI } from '@/lib/apiClient';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
 export default async function ToolPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const tool = await getToolById(parseInt(id));
+  const tool = await toolsAPI.getBySlug(id);
   
   if (!tool) {
     notFound();
@@ -22,7 +22,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
         <div className="bg-gray-900 rounded-lg p-8">
           <div className="flex flex-col md:flex-row gap-8">
             <img
-              src={tool.image_url}
+              src={tool.logo_url || '/logo.svg'}
               alt={tool.name}
               className="w-full md:w-64 h-48 object-cover rounded-lg"
             />
@@ -35,9 +35,14 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                     Verified
                   </span>
                 )}
-                {tool.featured && (
+                {tool.is_featured && (
                   <span className="bg-purple-600 text-white px-2 py-1 rounded text-sm">
                     Featured
+                  </span>
+                )}
+                {tool.startup_friendly && (
+                  <span className="bg-green-600 text-white px-2 py-1 rounded text-sm">
+                    Startup Friendly
                   </span>
                 )}
               </div>
@@ -46,8 +51,10 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
               
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div>
-                  <span className="text-gray-400">Category:</span>
-                  <span className="text-white ml-2">{tool.category}</span>
+                  <span className="text-gray-400">Categories:</span>
+                  <span className="text-white ml-2">
+                    {tool.categories?.map((c: any) => c.name).join(', ') || 'N/A'}
+                  </span>
                 </div>
                 <div>
                   <span className="text-gray-400">Rating:</span>
@@ -55,12 +62,12 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                     ★ {tool.rating} ({tool.review_count} reviews)
                   </span>
                 </div>
-                {tool.pricing_model && (
+                {tool.pricing_models?.length > 0 && (
                   <div>
                     <span className="text-gray-400">Pricing:</span>
                     <span className="text-white ml-2">
-                      {tool.pricing_model}
-                      {tool.pricing_from && ` from $${tool.pricing_from}/${tool.billing_frequency?.toLowerCase()}`}
+                      {tool.pricing_models.join(', ')}
+                      {tool.pricing_from && ` from $${tool.pricing_from}`}
                     </span>
                   </div>
                 )}
@@ -73,7 +80,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
               </div>
               
               <a
-                href={tool.url}
+                href={tool.affiliate_url || tool.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary inline-block px-8 py-3 font-semibold"
@@ -107,6 +114,24 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                   <li key={index}>{useCase}</li>
                 ))}
               </ul>
+            </div>
+          )}
+          
+          {tool.features && tool.features.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-white mb-4">Features</h3>
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
+                {tool.features.map((feature: string, index: number) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {tool.startup_benefits && (
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-white mb-4">Startup Benefits</h3>
+              <p className="text-gray-300">{tool.startup_benefits}</p>
             </div>
           )}
         </div>

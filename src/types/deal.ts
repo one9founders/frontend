@@ -4,7 +4,7 @@ export interface Deal {
   offer_title: string;
   tool_name: string;
   tool_short_desc: string;
-  image_url: string;
+  tool_logo?: string;
   old_price?: number;
   new_price?: number;
   discount_percentage?: number;

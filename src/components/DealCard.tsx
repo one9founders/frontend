@@ -46,7 +46,7 @@ export default function DealCard({ deal }: DealCardProps) {
         </div>
 
         <img
-          src={deal.image_url}
+          src={deal.tool_logo || '/logo.svg'}
           alt={deal.tool_name}
           className="w-full h-48 object-cover"
         />

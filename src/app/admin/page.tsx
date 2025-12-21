@@ -15,26 +15,21 @@ export default function AdminPage() {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    category: '',
-    url: '',
-    image_url: '',
-    pricing_model: '',
+    short_description: '',
+    categories: [] as number[],
+    website: '',
+    logo_url: '',
+    pricing_models: [] as string[],
     pricing_from: '',
-    billing_frequency: '',
     free_trial_days: '',
     tags: '',
     video_demo_url: '',
-    use_cases: ''
+    use_cases: '',
+    features: '',
+    startup_benefits: ''
   });
 
-  const categories = [
-    'AI', 'Productivity', 'Design', 'Development', 'Content', 
-    'Video', 'Writing', 'Analytics', 'Marketing', 'Sales', 
-    'Customer Support', 'Finance', 'HR', 'Project Management'
-  ];
 
-  const pricingModels = ['Free', 'Freemium', 'Paid', 'Free Trial'];
-  const billingFrequencies = ['Monthly', 'Yearly', 'One-time', 'Usage-based'];
 
   useEffect(() => {
     loadTools();
@@ -50,12 +45,13 @@ export default function AdminPage() {
         pricing_from: formData.pricing_from ? parseFloat(formData.pricing_from) : undefined,
         free_trial_days: formData.free_trial_days ? parseInt(formData.free_trial_days) : undefined,
         tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()) : [],
-        use_cases: formData.use_cases ? formData.use_cases.split(',').map(uc => uc.trim()) : []
+        use_cases: formData.use_cases ? formData.use_cases.split(',').map(uc => uc.trim()) : [],
+        features: formData.features ? formData.features.split(',').map(f => f.trim()) : []
       };
       
       let result;
       if (editingTool) {
-        result = await updateTool(editingTool.id, processedData);
+        result = await updateTool(editingTool.slug, processedData);
       } else {
         result = await addTool(processedData);
       }
@@ -65,10 +61,12 @@ export default function AdminPage() {
         resetForm();
         loadTools();
       } else {
-        await showError('Error', 'Failed to save tool. Please try again.');
+        const errorMsg = (result as any).error?.message || 'Failed to save tool';
+        await showError('Error', errorMsg);
       }
-    } catch (error) {
-      await showError('Error', 'An error occurred. Please try again.');
+    } catch (error: any) {
+      const errorMsg = error?.message || 'An error occurred';
+      await showError('Error', errorMsg);
     } finally {
       setLoading(false);
     }
@@ -78,16 +76,18 @@ export default function AdminPage() {
     setFormData({
       name: '',
       description: '',
-      category: '',
-      url: '',
-      image_url: '',
-      pricing_model: '',
+      short_description: '',
+      categories: [],
+      website: '',
+      logo_url: '',
+      pricing_models: [],
       pricing_from: '',
-      billing_frequency: '',
       free_trial_days: '',
       tags: '',
       video_demo_url: '',
-      use_cases: ''
+      use_cases: '',
+      features: '',
+      startup_benefits: ''
     });
     setEditingTool(null);
   };
@@ -102,23 +102,25 @@ export default function AdminPage() {
     setFormData({
       name: tool.name,
       description: tool.description,
-      category: tool.category,
-      url: tool.url || '',
-      image_url: tool.image_url || '',
-      pricing_model: tool.pricing_model || '',
+      short_description: tool.short_description || '',
+      categories: tool.categories?.map(c => c.id) || [],
+      website: tool.website || '',
+      logo_url: tool.logo_url || '',
+      pricing_models: tool.pricing_models || [],
       pricing_from: tool.pricing_from?.toString() || '',
-      billing_frequency: tool.billing_frequency || '',
       free_trial_days: tool.free_trial_days?.toString() || '',
       tags: tool.tags?.join(', ') || '',
       video_demo_url: tool.video_demo_url || '',
-      use_cases: tool.use_cases?.join(', ') || ''
+      use_cases: tool.use_cases?.join(', ') || '',
+      features: tool.features?.join(', ') || '',
+      startup_benefits: tool.startup_benefits || ''
     });
     setActiveTab('single');
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (slug: string) => {
     if (confirm('Are you sure you want to delete this tool?')) {
-      const result = await deleteTool(id);
+      const result = await deleteTool(slug);
       if (result.success) {
         await showSuccess('Success!', 'Tool deleted successfully!');
         loadTools();
@@ -172,10 +174,10 @@ export default function AdminPage() {
   };
 
   const downloadTemplate = () => {
-    const headers = ['name', 'description', 'category', 'url', 'image_url', 'pricing_model', 'pricing_from', 'billing_frequency', 'tags', 'use_cases'];
+    const headers = ['name', 'description', 'short_description', 'website', 'logo_url', 'pricing_from', 'free_trial_days', 'tags', 'use_cases', 'features'];
     const sampleData = [
-      'ChatGPT,AI-powered conversational assistant,AI,https://chat.openai.com,https://example.com/image.jpg,Freemium,20,Monthly,"conversational AI, content creation","content writing, customer support"',
-      'Figma,Design collaboration platform,Design,https://figma.com,https://example.com/figma.jpg,Freemium,12,Monthly,"design, collaboration","UI/UX design, prototyping"'
+      'ChatGPT,AI-powered conversational assistant,Chat with AI,https://chat.openai.com,https://example.com/image.jpg,20,7,"conversational AI, content creation","content writing, customer support","AI chat, context awareness"',
+      'Figma,Design collaboration platform,Collaborative design tool,https://figma.com,https://example.com/figma.jpg,12,14,"design, collaboration","UI/UX design, prototyping","real-time collaboration, vector editing"'
     ];
     
     const csv = [headers.join(','), ...sampleData].join('\n');
@@ -250,57 +252,38 @@ export default function AdminPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2">Category *</label>
-                  <select
-                    name="category"
-                    value={formData.category}
+                  <label className="block text-sm font-medium text-white mb-2">Short Description</label>
+                  <input
+                    type="text"
+                    name="short_description"
+                    value={formData.short_description}
                     onChange={handleChange}
+                    maxLength={200}
                     className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                     style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                    required
-                  >
-                    <option value="">Select a category</option>
-                    {categories.map((category) => (
-                      <option key={category} value={category}>{category}</option>
-                    ))}
-                  </select>
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">Website URL</label>
                   <input
                     type="url"
-                    name="url"
-                    value={formData.url}
+                    name="website"
+                    value={formData.website}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                     style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-white mb-2">Image URL</label>
+                  <label className="block text-sm font-medium text-white mb-2">Logo URL</label>
                   <input
                     type="url"
-                    name="image_url"
-                    value={formData.image_url}
+                    name="logo_url"
+                    value={formData.logo_url}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                     style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
                   />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Pricing Model</label>
-                  <select
-                    name="pricing_model"
-                    value={formData.pricing_model}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                  >
-                    <option value="">Select pricing model</option>
-                    {pricingModels.map((model) => (
-                      <option key={model} value={model}>{model}</option>
-                    ))}
-                  </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">Starting Price ($)</label>
@@ -313,21 +296,7 @@ export default function AdminPage() {
                     style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Billing Frequency</label>
-                  <select
-                    name="billing_frequency"
-                    value={formData.billing_frequency}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                  >
-                    <option value="">Select billing frequency</option>
-                    {billingFrequencies.map((freq) => (
-                      <option key={freq} value={freq}>{freq}</option>
-                    ))}
-                  </select>
-                </div>
+
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">Free Trial Days</label>
                   <input
@@ -390,6 +359,32 @@ export default function AdminPage() {
                   style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
                 />
               </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-white mb-2">Features (comma-separated)</label>
+                <input
+                  type="text"
+                  name="features"
+                  value={formData.features}
+                  onChange={handleChange}
+                  placeholder="e.g., AI-powered, Real-time collaboration"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
+                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-white mb-2">Startup Benefits</label>
+                <textarea
+                  name="startup_benefits"
+                  value={formData.startup_benefits}
+                  onChange={handleChange}
+                  rows={3}
+                  placeholder="How this tool helps startups/founders"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical"
+                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                />
+              </div>
 
               <div className="flex gap-4">
                 <button
@@ -423,9 +418,9 @@ export default function AdminPage() {
                 <h3 className="text-lg font-medium text-white mb-3">Instructions</h3>
                 <ul className="text-gray-300 space-y-2 text-sm">
                   <li>• Upload a CSV file with tool data</li>
-                  <li>• Required columns: name, description, category</li>
-                  <li>• Optional columns: url, image_url, pricing_model, pricing_from, billing_frequency, tags, use_cases</li>
-                  <li>• Use comma-separated values for tags and use_cases</li>
+                  <li>• Required columns: name, description</li>
+                  <li>• Optional columns: short_description, website, logo_url, pricing_from, free_trial_days, tags, use_cases, features</li>
+                  <li>• Use comma-separated values for tags, use_cases, and features</li>
                   <li>• Download the template below for the correct format</li>
                 </ul>
               </div>
@@ -471,7 +466,7 @@ export default function AdminPage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-semibold text-white">{tool.name}</h3>
-                    {tool.featured && (
+                    {tool.is_featured && (
                       <span className="px-2 py-1 text-xs rounded-full bg-yellow-500 text-black font-medium">
                         Featured
                       </span>
@@ -481,14 +476,19 @@ export default function AdminPage() {
                         Verified
                       </span>
                     )}
-                  </div>
-                  <p className="text-purple-400 text-sm mb-2">{tool.category}</p>
-                  <p className="text-gray-300 text-sm mb-3">{tool.description.substring(0, 150)}...</p>
-                  <div className="flex items-center gap-4 text-xs text-gray-400">
-                    {tool.pricing_model && (
-                      <span>Pricing: {tool.pricing_model}</span>
+                    {tool.startup_friendly && (
+                      <span className="px-2 py-1 text-xs rounded-full bg-green-500 text-white font-medium">
+                        Startup Friendly
+                      </span>
                     )}
-                    {tool.rating && (
+                  </div>
+                  <p className="text-purple-400 text-sm mb-2">{tool.categories?.map(c => c.name).join(', ') || 'Uncategorized'}</p>
+                  <p className="text-gray-300 text-sm mb-3">{tool.description?.substring(0, 150) || 'No description'}...</p>
+                  <div className="flex items-center gap-4 text-xs text-gray-400">
+                    {tool.pricing_models && tool.pricing_models.length > 0 && (
+                      <span>Pricing: {tool.pricing_models.join(', ')}</span>
+                    )}
+                    {tool.rating > 0 && (
                       <span>Rating: {tool.rating}/5 ({tool.review_count} reviews)</span>
                     )}
                     {tool.tags && tool.tags.length > 0 && (
@@ -504,7 +504,7 @@ export default function AdminPage() {
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(tool.id)}
+                    onClick={() => handleDelete(tool.slug)}
                     className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium transition-colors"
                   >
                     Delete

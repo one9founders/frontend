@@ -1,41 +1,115 @@
+export interface Category {
+  id: number;
+  name: string;
+  description?: string;
+  slug: string;
+  tool_count?: number;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface Tool {
   id: number;
   name: string;
+  slug: string;
+  short_description: string;
   description: string;
-  category: string;
-  url: string;
-  image_url: string;
-  similarity?: number;
-  pricing_model?: 'Free' | 'Freemium' | 'Paid' | 'Free Trial';
-  pricing_from?: number;
-  billing_frequency?: 'Monthly' | 'Yearly' | 'One-time' | 'Usage-based';
-  free_trial_days?: number;
-  tags?: string[];
+  categories: Category[];
+  website?: string;
+  affiliate_url?: string;
+  logo_url?: string;
   video_demo_url?: string;
-  rating?: number;
-  review_count?: number;
-  verified?: boolean;
-  featured?: boolean;
-  launch_date?: string;
-  company_size?: 'Solo' | 'Small Team' | 'Medium' | 'Enterprise';
-  integrations?: string[];
-  use_cases?: string[];
+  pricing_models: string[];
+  pricing_tiers?: any[];
+  pricing_from?: number;
+  free_tier_available: boolean;
+  free_trial_days?: number;
+  tags: string[];
+  use_cases: string[];
+  integrations: string[];
+  features: string[];
+  platforms: string[];
+  startup_benefits?: string;
+  ideal_for: string[];
+  rating: number;
+  review_count: number;
+  views_count: number;
+  startup_friendly: boolean;
+  verified: boolean;
+  is_featured: boolean;
+  is_active: boolean;
+  alternatives?: Tool[];
+  similarity?: number;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface Review {
   id: number;
-  tool_id: number;
+  tool: number;
+  tool_name?: string;
   user_name: string;
   user_email?: string;
   rating: number;
-  title: string;
+  title?: string;
   comment: string;
   pros?: string[];
   cons?: string[];
+  verified_purchase: boolean;
+  helpful_count: number;
   use_case?: string;
-  company_size?: 'Solo' | 'Small Team' | 'Medium' | 'Enterprise';
-  verified_purchase?: boolean;
-  helpful_count?: number;
+  company_size?: string;
   created_at: string;
-  updated_at?: string;
+  updated_at: string;
+}
+
+export interface Deal {
+  id: number;
+  tool: number;
+  tool_name?: string;
+  tool_logo?: string;
+  offer_title: string;
+  old_price: number;
+  new_price: number;
+  discount_percentage: number;
+  expiry_date?: string;
+  claims_count: number;
+  deal_url: string;
+  featured_deal: boolean;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface News {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content?: string;
+  featured_image?: string;
+  related_tools?: Tool[];
+  author: string;
+  category?: string;
+  tags: string[];
+  reading_time: number;
+  views_count: number;
+  is_featured: boolean;
+  published_at: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ToolSubmission {
+  id?: number;
+  name: string;
+  description: string;
+  website: string;
+  submitter_email: string;
+  submitter_name: string;
+  logo_url?: string;
+  short_description?: string;
+  categories?: number[];
+  pricing_info?: string;
+  created_at?: string;
 }

@@ -44,11 +44,10 @@ export default function NewsletterSignup() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
-            className="flex-1 px-4 py-3 rounded-lg text-white focus:outline-none"
+            className="flex-1 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-blue-500"
             style={{ 
               backgroundColor: 'var(--gray-800)', 
-              border: '1px solid var(--gray-700)',
-              '&:focus': { borderColor: 'var(--blue-500)' }
+              border: '1px solid var(--gray-700)'
             }}
             disabled={loading}
             required

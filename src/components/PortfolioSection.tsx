@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getAllTools, searchTools } from "@/app/actions";
+import { toolsAPI } from "@/lib/apiClient";
 import { Tool } from "@/types";
 import SearchInput from "./SearchInput";
 import ToolCard from "./ToolCard";
@@ -36,13 +36,15 @@ export default function PortfolioSection() {
     
     // Category filter
     if (selectedTag !== "All") {
-      filtered = filtered.filter(tool => tool.category === selectedTag);
+      filtered = filtered.filter(tool => 
+        tool.categories?.some(cat => cat.name === selectedTag)
+      );
     }
     
     // Pricing filter
     if (selectedPricing.length > 0) {
       filtered = filtered.filter(tool => 
-        selectedPricing.includes(tool.pricing_model || 'Paid')
+        tool.pricing_models?.some(pm => selectedPricing.includes(pm))
       );
     }
     
@@ -54,7 +56,7 @@ export default function PortfolioSection() {
         case 'rating':
           return (b.rating || 0) - (a.rating || 0);
         case 'newest':
-          return new Date(b.launch_date || '').getTime() - new Date(a.launch_date || '').getTime();
+          return new Date(b.created_at || '').getTime() - new Date(a.created_at || '').getTime();
         default:
           return a.name.localeCompare(b.name);
       }
@@ -65,8 +67,13 @@ export default function PortfolioSection() {
 
   const loadTools = async () => {
     setLoading(true);
-    const data = await getAllTools();
-    setTools(data);
+    try {
+      const data = await toolsAPI.getAll();
+      setTools(data || []);
+    } catch (error) {
+      console.error('Failed to load tools:', error);
+      setTools([]);
+    }
     setLoading(false);
   };
 
@@ -80,9 +87,14 @@ export default function PortfolioSection() {
     
     setIsSearching(true);
     setSearchLoading(true);
-    setSortBy('match'); // Auto-set to match when searching
-    const results = await searchTools(query);
-    setSearchResults(results);
+    setSortBy('match');
+    try {
+      const results = await toolsAPI.search(query);
+      setSearchResults(results);
+    } catch (error) {
+      console.error('Search failed:', error);
+      setSearchResults([]);
+    }
     setSearchLoading(false);
   };
 

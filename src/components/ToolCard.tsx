@@ -12,22 +12,19 @@ export default function ToolCard({ tool }: ToolCardProps) {
   const [showVideo, setShowVideo] = useState(false);
 
   const getPricingDisplay = () => {
-    if (tool.pricing_model === 'Free') return 'Free';
-    if (tool.pricing_model === 'Free Trial') {
-      return `${tool.free_trial_days || 7} days free trial`;
-    }
-    if (tool.pricing_from) {
-      const frequency = tool.billing_frequency === 'Monthly' ? '/mo' : 
-                       tool.billing_frequency === 'Yearly' ? '/yr' : '';
-      return `From $${tool.pricing_from}${frequency}`;
-    }
-    return tool.pricing_model || 'Contact for pricing';
+    if (tool.free_tier_available) return 'Free';
+    if (tool.free_trial_days) return `${tool.free_trial_days} days trial`;
+    if (tool.pricing_from) return `From $${tool.pricing_from}`;
+    if (tool.pricing_models?.includes('free')) return 'Free';
+    if (tool.pricing_models?.includes('freemium')) return 'Freemium';
+    return 'Paid';
   };
 
   const getRatingStars = () => {
     if (!tool.rating) return null;
+    const rating = Number(tool.rating);
     return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < tool.rating! ? 'text-yellow-400' : 'text-gray-600'}>★</span>
+      <span key={i} className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}>★</span>
     ));
   };
 
@@ -48,7 +45,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
           </div>
         ) : (
           <div className="relative">
-            <img src={tool.image_url} alt={tool.name} className="w-full h-48 object-cover" />
+            <img src={tool.logo_url || '/logo.svg'} alt={tool.name} className="w-full h-48 object-cover" />
             {tool.video_demo_url && (
               <button
                 onClick={() => setShowVideo(true)}
@@ -66,7 +63,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         
         {/* Badges */}
         <div className="absolute top-2 left-2 flex flex-col gap-1">
-          {tool.featured && (
+          {tool.is_featured && (
             <span className="px-2 py-1 text-xs rounded-full bg-yellow-500 text-black font-medium">
               Featured
             </span>
@@ -74,6 +71,11 @@ export default function ToolCard({ tool }: ToolCardProps) {
           {tool.verified && (
             <span className="px-2 py-1 text-xs rounded-full text-white font-medium" style={{ backgroundColor: 'var(--brand-primary)' }}>
               Verified
+            </span>
+          )}
+          {tool.startup_friendly && (
+            <span className="px-2 py-1 text-xs rounded-full bg-green-500 text-white font-medium">
+              Startup Friendly
             </span>
           )}
         </div>
@@ -91,10 +93,14 @@ export default function ToolCard({ tool }: ToolCardProps) {
       <div className="p-6">
         {/* Header */}
         <div className="flex justify-between items-start mb-3">
-          <span className="inline-block px-3 py-1 text-sm rounded-full" 
-                style={{ backgroundColor: 'var(--brand-light)', color: 'var(--brand-primary)' }}>
-            {tool.category}
-          </span>
+          <div className="flex flex-wrap gap-1">
+            {tool.categories?.slice(0, 2).map((cat) => (
+              <span key={cat.id} className="inline-block px-3 py-1 text-sm rounded-full" 
+                    style={{ backgroundColor: 'var(--brand-light)', color: 'var(--brand-primary)' }}>
+                {cat.name}
+              </span>
+            ))}
+          </div>
           {tool.similarity && (
             <span className="text-sm text-green-400">
               {Math.min(Math.round(tool.similarity * 100), 100)}% match
@@ -105,21 +111,21 @@ export default function ToolCard({ tool }: ToolCardProps) {
         {/* Title and Rating */}
         <div className="flex justify-between items-center mb-2">
           <h3 className="text-xl font-bold text-white">{tool.name}</h3>
-          {tool.rating && (
+          {tool.rating > 0 && (
             <div className="flex items-center gap-1">
               <div className="flex">{getRatingStars()}</div>
-              <span className="text-sm text-gray-400">({tool.review_count || 0})</span>
+              <span className="text-sm text-gray-400">{Number(tool.rating).toFixed(1)}</span>
             </div>
           )}
         </div>
 
         {/* Description */}
         <p className="mb-4 text-sm leading-relaxed" style={{ color: 'var(--gray-500)' }}>
-          {tool.description}
+          {tool.short_description || tool.description}
         </p>
 
         {/* Tags */}
-        {tool.tags && tool.tags.length > 0 && (
+        {tool.tags && Array.isArray(tool.tags) && tool.tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mb-4">
             {tool.tags.slice(0, 3).map((tag, index) => (
               <span key={index} className="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-300">
@@ -134,8 +140,18 @@ export default function ToolCard({ tool }: ToolCardProps) {
           </div>
         )}
 
+        {/* Stats */}
+        <div className="flex items-center gap-4 mb-4 text-xs text-gray-400">
+          {tool.views_count > 0 && (
+            <span>👁️ {tool.views_count.toLocaleString()} views</span>
+          )}
+          {tool.review_count > 0 && (
+            <span>💬 {tool.review_count} reviews</span>
+          )}
+        </div>
+
         {/* Use Cases */}
-        {tool.use_cases && tool.use_cases.length > 0 && (
+        {tool.use_cases && Array.isArray(tool.use_cases) && tool.use_cases.length > 0 && (
           <div className="mb-4">
             <p className="text-xs text-gray-400 mb-1">Use cases:</p>
             <p className="text-sm text-gray-300">{tool.use_cases.slice(0, 2).join(', ')}</p>
@@ -145,14 +161,14 @@ export default function ToolCard({ tool }: ToolCardProps) {
         {/* Actions */}
         <div className="flex gap-2">
           <Link
-            href={`/tool/${tool.id}`}
+            href={`/tool/${tool.slug}`}
             className="flex-1 text-center py-2 px-4 rounded-lg font-medium transition-colors bg-gray-700 text-white hover:bg-gray-600"
           >
             View Details
           </Link>
-          {tool.url && (
+          {tool.website && (
             <a
-              href={tool.url}
+              href={tool.affiliate_url || tool.website}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center py-2 px-4 rounded-lg font-medium transition-colors"

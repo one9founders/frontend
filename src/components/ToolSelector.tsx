@@ -45,13 +45,13 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
               className="flex items-center gap-3 p-3 bg-gray-800 rounded-lg cursor-pointer hover:bg-gray-700 transition-colors"
             >
               <img
-                src={tool.image_url}
+                src={tool.logo_url || '/logo.svg'}
                 alt={tool.name}
                 className="w-12 h-12 object-cover rounded"
               />
               <div>
                 <h3 className="text-white font-medium">{tool.name}</h3>
-                <p className="text-gray-400 text-sm">{tool.category}</p>
+                <p className="text-gray-400 text-sm">{tool.categories?.map((c: any) => c.name).join(', ')}</p>
               </div>
             </div>
           ))}

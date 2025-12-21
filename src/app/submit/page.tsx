@@ -2,41 +2,30 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { addTool } from '@/app/actions';
+import { submissionAPI } from '@/lib/apiClient';
 import { showSuccess, showError } from '@/lib/sweetAlert';
 
 export default function SubmitToolPage() {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    category: '',
-    url: '',
-    image_url: '',
-    pricing_model: '',
-    pricing_from: '',
-    billing_frequency: '',
-    free_trial_days: '',
-    tags: '',
-    video_demo_url: '',
-    use_cases: ''
+    website: '',
+    submitter_email: '',
+    submitter_name: '',
+    logo_url: '',
+    short_description: '',
+    pricing_info: ''
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error'>('success');
 
-  const categories = [
-    'AI', 'Productivity', 'Design', 'Development', 'Content', 
-    'Video', 'Writing', 'Analytics', 'Marketing', 'Sales', 
-    'Customer Support', 'Finance', 'HR', 'Project Management'
-  ];
 
-  const pricingModels = ['Free', 'Freemium', 'Paid', 'Free Trial'];
-  const billingFrequencies = ['Monthly', 'Yearly', 'One-time', 'Usage-based'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.description || !formData.category) {
+    if (!formData.name || !formData.description || !formData.website || !formData.submitter_email || !formData.submitter_name) {
       setMessage('Please fill in all required fields.');
       setMessageType('error');
       return;
@@ -46,37 +35,20 @@ export default function SubmitToolPage() {
     setMessage('');
 
     try {
-      const processedData = {
-        ...formData,
-        pricing_from: formData.pricing_from ? parseFloat(formData.pricing_from) : undefined,
-        free_trial_days: formData.free_trial_days ? parseInt(formData.free_trial_days) : undefined,
-        tags: formData.tags ? formData.tags.split(',').map(tag => tag.trim()) : [],
-        use_cases: formData.use_cases ? formData.use_cases.split(',').map(uc => uc.trim()) : []
-      };
-      
-      const result = await addTool(processedData);
-      
-      if (result.success) {
-        await showSuccess('Success!', 'Tool submitted successfully! It will be reviewed and added to the directory.');
-        setFormData({
-          name: '',
-          description: '',
-          category: '',
-          url: '',
-          image_url: '',
-          pricing_model: '',
-          pricing_from: '',
-          billing_frequency: '',
-          free_trial_days: '',
-          tags: '',
-          video_demo_url: '',
-          use_cases: ''
-        });
-      } else {
-        await showError('Error', 'Failed to submit tool. Please try again.');
-      }
+      await submissionAPI.submit(formData);
+      await showSuccess('Success!', 'Tool submitted successfully! It will be reviewed and added to the directory.');
+      setFormData({
+        name: '',
+        description: '',
+        website: '',
+        submitter_email: '',
+        submitter_name: '',
+        logo_url: '',
+        short_description: '',
+        pricing_info: ''
+      });
     } catch (error) {
-      await showError('Error', 'An error occurred. Please try again.');
+      await showError('Error', 'Failed to submit tool. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -138,6 +110,24 @@ export default function SubmitToolPage() {
                 />
               </div>
 
+              {/* Short Description */}
+              <div>
+                <label htmlFor="short_description" className="block text-sm font-medium text-white mb-2">
+                  Short Description
+                </label>
+                <input
+                  type="text"
+                  id="short_description"
+                  name="short_description"
+                  value={formData.short_description}
+                  onChange={handleChange}
+                  placeholder="Brief one-liner about the tool"
+                  maxLength={200}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
+                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                />
+              </div>
+
               {/* Description */}
               <div>
                 <label htmlFor="description" className="block text-sm font-medium text-white mb-2">
@@ -159,196 +149,92 @@ export default function SubmitToolPage() {
                 </p>
               </div>
 
-              {/* Category */}
-              <div>
-                <label htmlFor="category" className="block text-sm font-medium text-white mb-2">
-                  Category *
-                </label>
-                <select
-                  id="category"
-                  name="category"
-                  value={formData.category}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                  required
-                >
-                  <option value="">Select a category</option>
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
               {/* Website URL */}
               <div>
-                <label htmlFor="url" className="block text-sm font-medium text-white mb-2">
-                  Website URL
+                <label htmlFor="website" className="block text-sm font-medium text-white mb-2">
+                  Website URL *
                 </label>
                 <input
                   type="url"
-                  id="url"
-                  name="url"
-                  value={formData.url}
+                  id="website"
+                  name="website"
+                  value={formData.website}
                   onChange={handleChange}
                   placeholder="https://example.com"
                   className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                   style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  required
                 />
               </div>
 
-              {/* Image URL */}
+              {/* Logo URL */}
               <div>
-                <label htmlFor="image_url" className="block text-sm font-medium text-white mb-2">
-                  Image URL
+                <label htmlFor="logo_url" className="block text-sm font-medium text-white mb-2">
+                  Logo URL
                 </label>
                 <input
                   type="url"
-                  id="image_url"
-                  name="image_url"
-                  value={formData.image_url}
+                  id="logo_url"
+                  name="logo_url"
+                  value={formData.logo_url}
                   onChange={handleChange}
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="https://example.com/logo.jpg"
                   className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                   style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
                 />
               </div>
 
-              {/* Pricing Model */}
+              {/* Pricing Info */}
               <div>
-                <label htmlFor="pricing_model" className="block text-sm font-medium text-white mb-2">
-                  Pricing Model
+                <label htmlFor="pricing_info" className="block text-sm font-medium text-white mb-2">
+                  Pricing Information
                 </label>
-                <select
-                  id="pricing_model"
-                  name="pricing_model"
-                  value={formData.pricing_model}
+                <textarea
+                  id="pricing_info"
+                  name="pricing_info"
+                  value={formData.pricing_info}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
+                  placeholder="e.g., Free tier available, Paid plans start at $10/month"
+                  rows={2}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical"
                   style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                >
-                  <option value="">Select pricing model</option>
-                  {pricingModels.map((model) => (
-                    <option key={model} value={model}>{model}</option>
-                  ))}
-                </select>
+                />
               </div>
 
-              {/* Pricing From */}
-              {formData.pricing_model === 'Paid' && (
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="pricing_from" className="block text-sm font-medium text-white mb-2">
-                      Starting Price ($)
-                    </label>
-                    <input
-                      type="number"
-                      id="pricing_from"
-                      name="pricing_from"
-                      value={formData.pricing_from}
-                      onChange={handleChange}
-                      placeholder="19"
-                      className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                      style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="billing_frequency" className="block text-sm font-medium text-white mb-2">
-                      Billing Frequency
-                    </label>
-                    <select
-                      id="billing_frequency"
-                      name="billing_frequency"
-                      value={formData.billing_frequency}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                      style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                    >
-                      <option value="">Select frequency</option>
-                      {billingFrequencies.map((freq) => (
-                        <option key={freq} value={freq}>{freq}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-              )}
-
-              {/* Free Trial Days */}
-              {formData.pricing_model === 'Free Trial' && (
-                <div>
-                  <label htmlFor="free_trial_days" className="block text-sm font-medium text-white mb-2">
-                    Free Trial Duration (days)
-                  </label>
-                  <input
-                    type="number"
-                    id="free_trial_days"
-                    name="free_trial_days"
-                    value={formData.free_trial_days}
-                    onChange={handleChange}
-                    placeholder="7"
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                  />
-                </div>
-              )}
-
-              {/* Tags */}
+              {/* Submitter Name */}
               <div>
-                <label htmlFor="tags" className="block text-sm font-medium text-white mb-2">
-                  Tags
+                <label htmlFor="submitter_name" className="block text-sm font-medium text-white mb-2">
+                  Your Name *
                 </label>
                 <input
                   type="text"
-                  id="tags"
-                  name="tags"
-                  value={formData.tags}
+                  id="submitter_name"
+                  name="submitter_name"
+                  value={formData.submitter_name}
                   onChange={handleChange}
-                  placeholder="automation, chatbot, customer service"
+                  placeholder="John Doe"
                   className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                   style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-                />
-                <p className="text-sm text-gray-400 mt-1">
-                  Comma-separated tags that describe the tool
-                </p>
-              </div>
-
-              {/* Video Demo URL */}
-              <div>
-                <label htmlFor="video_demo_url" className="block text-sm font-medium text-white mb-2">
-                  Video Demo URL
-                </label>
-                <input
-                  type="url"
-                  id="video_demo_url"
-                  name="video_demo_url"
-                  value={formData.video_demo_url}
-                  onChange={handleChange}
-                  placeholder="https://youtube.com/embed/..."
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  required
                 />
               </div>
 
-              {/* Use Cases */}
+              {/* Submitter Email */}
               <div>
-                <label htmlFor="use_cases" className="block text-sm font-medium text-white mb-2">
-                  Use Cases
+                <label htmlFor="submitter_email" className="block text-sm font-medium text-white mb-2">
+                  Your Email *
                 </label>
                 <input
-                  type="text"
-                  id="use_cases"
-                  name="use_cases"
-                  value={formData.use_cases}
+                  type="email"
+                  id="submitter_email"
+                  name="submitter_email"
+                  value={formData.submitter_email}
                   onChange={handleChange}
-                  placeholder="content creation, social media, email marketing"
+                  placeholder="john@example.com"
                   className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
                   style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  required
                 />
-                <p className="text-sm text-gray-400 mt-1">
-                  Comma-separated use cases for this tool
-                </p>
               </div>
 
               {/* Submit Button */}

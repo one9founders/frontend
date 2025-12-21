@@ -23,6 +23,6 @@ export async function getNews(category?: string) {
 }
 
 export async function getNewsById(id: string) {
-  const data = await newsAPI.getById(parseInt(id));
+  const data = await newsAPI.getBySlug(id);
   return data as NewsArticle;
 }

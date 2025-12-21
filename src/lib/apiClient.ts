@@ -1,31 +1,53 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
 
 async function fetchAPI(endpoint: string, options: RequestInit = {}) {
-  const response = await fetch(`${API_URL}${endpoint}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
-  
-  if (!response.ok) {
-    throw new Error(`API Error: ${response.statusText}`);
+  try {
+    const response = await fetch(`${API_URL}${endpoint}`, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+    });
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      const errorMessage = errorData.detail || response.statusText;
+      
+      if (response.status === 404) {
+        return null;
+      }
+      
+      throw new Error(`API Error: ${errorMessage}`);
+    }
+    
+    const data = await response.json();
+    
+    // Handle Django paginated response
+    if (data && typeof data === 'object' && 'results' in data) {
+      return data.results;
+    }
+    
+    return data;
+  } catch (error: any) {
+    if (error.cause?.code === 'ECONNREFUSED') {
+      console.warn('Backend server is not running. Please start it with: cd backend && python manage.py runserver');
+      return [];
+    }
+    throw error;
   }
-  
-  const data = await response.json();
-  
-  // Handle Django paginated response
-  if (data && typeof data === 'object' && 'results' in data) {
-    return data.results;
-  }
-  
-  return data;
 }
 
 export const toolsAPI = {
-  getAll: () => fetchAPI('/tools/?page_size=1000'),
-  getById: (id: number) => fetchAPI(`/tools/${id}/`),
+  getAll: (params?: { category?: string; pricing?: string; featured?: boolean; startup_friendly?: boolean }) => {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.featured) query.append('featured', 'true');
+    if (params?.startup_friendly) query.append('startup_friendly', 'true');
+    return fetchAPI(`/tools/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/tools/${slug}/`),
   search: (query: string) => 
     fetchAPI('/tools/search/', {
       method: 'POST',
@@ -36,20 +58,20 @@ export const toolsAPI = {
       method: 'POST',
       body: JSON.stringify(data),
     }),
-  update: (id: number, data: any) =>
-    fetchAPI(`/tools/${id}/`, {
-      method: 'PUT',
+  update: (slug: string, data: any) =>
+    fetchAPI(`/tools/${slug}/`, {
+      method: 'PATCH',
       body: JSON.stringify(data),
     }),
-  delete: (id: number) =>
-    fetchAPI(`/tools/${id}/`, {
+  delete: (slug: string) =>
+    fetchAPI(`/tools/${slug}/`, {
       method: 'DELETE',
     }),
 };
 
 export const reviewsAPI = {
   getByToolId: (toolId: number) => 
-    fetchAPI(`/reviews/?tool_id=${toolId}&page_size=1000`),
+    fetchAPI(`/reviews/?tool=${toolId}`),
   create: (data: any) =>
     fetchAPI('/reviews/', {
       method: 'POST',
@@ -63,7 +85,7 @@ export const dealsAPI = {
 
 export const newsAPI = {
   getAll: () => fetchAPI('/news/'),
-  getById: (id: number) => fetchAPI(`/news/${id}/`),
+  getBySlug: (slug: string) => fetchAPI(`/news/${slug}/`),
 };
 
 export const newsletterAPI = {
@@ -76,4 +98,17 @@ export const newsletterAPI = {
 
 export const categoriesAPI = {
   getAll: () => fetchAPI('/categories/'),
+};
+
+export const submissionAPI = {
+  getAll: () => fetchAPI('/submissions/'),
+  submit: (data: any) =>
+    fetchAPI('/submissions/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+};
+
+export const healthAPI = {
+  check: () => fetchAPI('/health/'),
 };

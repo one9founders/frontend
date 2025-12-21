@@ -12,38 +12,23 @@ export async function searchTools(query: string) {
   }
 }
 
-export async function addTool(toolData: {
-  name: string;
-  description: string;
-  category: string;
-  url: string;
-  image_url: string;
-  pricing_model?: string;
-  pricing_from?: number;
-  billing_frequency?: string;
-  free_trial_days?: number;
-  tags?: string[];
-  video_demo_url?: string;
-  use_cases?: string[];
-}) {
+export async function addTool(toolData: any) {
   try {
     await toolsAPI.create(toolData);
     return { success: true };
-  } catch (error) {
+  } catch (error: any) {
     console.error('Add tool error:', error);
-    return { success: false, error };
+    const message = error?.message || 'Failed to add tool';
+    if (message.includes('unique') || message.includes('already exists')) {
+      return { success: false, error: { message: 'A tool with this name already exists' } };
+    }
+    return { success: false, error: { message } };
   }
 }
 
-export async function updateTool(id: number, toolData: {
-  name: string;
-  description: string;
-  category: string;
-  url: string;
-  image_url: string;
-}) {
+export async function updateTool(slug: string, toolData: any) {
   try {
-    await toolsAPI.update(id, toolData);
+    await toolsAPI.update(slug, toolData);
     return { success: true };
   } catch (error) {
     console.error('Update tool error:', error);
@@ -60,18 +45,9 @@ export async function getAllTools() {
   }
 }
 
-export async function getToolById(id: number) {
+export async function deleteTool(slug: string) {
   try {
-    return await toolsAPI.getById(id);
-  } catch (error) {
-    console.error('Get tool error:', error);
-    return null;
-  }
-}
-
-export async function deleteTool(id: number) {
-  try {
-    await toolsAPI.delete(id);
+    await toolsAPI.delete(slug);
     return { success: true };
   } catch (error) {
     console.error('Delete tool error:', error);

@@ -1,16 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { signOut } from '@/lib/auth';
-import AuthModal from './AuthModal';
-import Swal from 'sweetalert2';
 
 export default function Navbar() {
-  const { user, loading, isAuthenticated } = useAuth();
-  const [showAuthModal, setShowAuthModal] = useState(false);
-
   const scrollToTools = () => {
     const toolsSection = document.querySelector('#tools-section');
     if (toolsSection) {
@@ -20,30 +12,6 @@ export default function Navbar() {
 
   const handleSubmitTool = () => {
     window.open('/submit', '_blank');
-  };
-
-  const handleSignOut = async () => {
-    const result = await Swal.fire({
-      title: 'Sign Out?',
-      text: 'Are you sure you want to sign out?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, sign out',
-      cancelButtonText: 'Cancel'
-    });
-
-    if (result.isConfirmed) {
-      localStorage.clear();
-      sessionStorage.clear();
-      try {
-        await signOut();
-      } catch (error) {
-        console.error('Sign out error:', error);
-      }
-      window.location.href = '/';
-    }
   };
 
   return (
@@ -62,35 +30,12 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            {!loading && (
-              isAuthenticated ? (
-                <div className="flex items-center space-x-4">
-                  <span className="text-white text-sm">{user?.name || user?.email}</span>
-                  <button onClick={handleSignOut} className="text-gray-400 hover:text-white">
-                    Sign Out
-                  </button>
-                </div>
-              ) : (
-                <button 
-                  onClick={() => setShowAuthModal(true)}
-                  className="btn-primary px-4 py-2"
-                >
-                  Sign In
-                </button>
-              )
-            )}
             <button className="btn-primary" onClick={handleSubmitTool}>
               Submit Tool
             </button>
           </div>
         </div>
       </nav>
-      
-      <AuthModal 
-        isOpen={showAuthModal}
-        onClose={() => setShowAuthModal(false)}
-        onSuccess={() => setShowAuthModal(false)}
-      />
     </>
   );
 }

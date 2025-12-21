@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { addReview } from '@/app/reviews/actions';
+import { reviewsAPI } from '@/lib/apiClient';
 import { showSuccess, showError } from '@/lib/sweetAlert';
 
 interface ReviewFormProps {
@@ -40,37 +40,28 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
 
     try {
       const reviewData = {
-        tool_id: toolId,
+        tool: toolId,
         user_name: formData.user_name,
         user_email: formData.user_email || undefined,
         rating: formData.rating,
         title: formData.title,
-        comment: formData.comment,
-        pros: formData.pros ? formData.pros.split(',').map(p => p.trim()) : [],
-        cons: formData.cons ? formData.cons.split(',').map(c => c.trim()) : [],
-        use_case: formData.use_case || undefined,
-        company_size: formData.company_size || undefined
+        comment: formData.comment
       };
 
-      const result = await addReview(reviewData);
-      
-      if (result.success) {
-        await showSuccess('Success!', 'Review submitted successfully!');
-        setFormData({
-          user_name: '',
-          user_email: '',
-          rating: 5,
-          title: '',
-          comment: '',
-          pros: '',
-          cons: '',
-          use_case: '',
-          company_size: ''
-        });
-        onReviewAdded();
-      } else {
-        await showError('Error', 'Failed to submit review. Please try again.');
-      }
+      await reviewsAPI.create(reviewData);
+      await showSuccess('Success!', 'Review submitted successfully!');
+      setFormData({
+        user_name: '',
+        user_email: '',
+        rating: 5,
+        title: '',
+        comment: '',
+        pros: '',
+        cons: '',
+        use_case: '',
+        company_size: ''
+      });
+      onReviewAdded();
     } catch (error) {
       await showError('Error', 'An error occurred. Please try again.');
     } finally {
