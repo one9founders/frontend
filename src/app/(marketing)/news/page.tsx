@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Navbar from '../../components/layout/Navbar';
-import Footer from '../../components/layout/Footer';
-import NewsCard from '../../components/features/news/NewsCard';
-import NewsletterSignup from '../../components/shared/NewsletterSignup';
-import { getNews, NewsArticle } from '../../lib/api/newsService';
+import Navbar from '../../../components/layout/Navbar';
+import Footer from '../../../components/layout/Footer';
+import NewsCard from '../../../components/features/news/NewsCard';
+import NewsletterSignup from '../../../components/shared/NewsletterSignup';
+import { getNews, NewsArticle } from '../../../lib/api/newsService';
 
 const categories = ['All', 'AI Tools', 'Tips & Tricks', 'Industry News', 'Tutorials', 'Reviews'];
 
