@@ -2,9 +2,9 @@
 
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import Navbar from '../../../components/layout/Navbar';
-import Footer from '../../../components/layout/Footer';
-import { getNewsById, NewsArticle } from '../../../lib/api/newsService';
+import Navbar from '../../../../components/layout/Navbar';
+import Footer from '../../../../components/layout/Footer';
+import { getNewsById, NewsArticle } from '../../../../lib/api/newsService';
 
 export default function NewsDetailPage() {
   const params = useParams();

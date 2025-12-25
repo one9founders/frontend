@@ -1,6 +1,6 @@
 'use server';
 
-import { reviewsAPI } from '@/lib/apiClient';
+import { reviewsAPI } from '@/lib/api/apiClient';
 
 export async function addReview(reviewData: {
   tool_id: number;
