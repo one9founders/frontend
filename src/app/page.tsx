@@ -1,8 +1,8 @@
-import Navbar from "../components/Navbar";
-import HeroSection from "../components/HeroSection";
-import PortfolioSection from "../components/PortfolioSection";
-import NewsletterSignup from "../components/NewsletterSignup";
-import Footer from "../components/Footer";
+import Navbar from "../components/layout/Navbar";
+import HeroSection from "../components/layout/HeroSection";
+import PortfolioSection from "../components/shared/PortfolioSection";
+import NewsletterSignup from "../components/shared/NewsletterSignup";
+import Footer from "../components/layout/Footer";
 
 export default function Home() {
   return (
