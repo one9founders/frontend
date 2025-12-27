@@ -36,12 +36,12 @@ export async function updateTool(slug: string, toolData: any) {
   }
 }
 
-export async function getAllTools() {
+export async function getAllTools(params?: { page?: number; page_size?: number; category?: string; pricing?: string }) {
   try {
-    return await toolsAPI.getAll();
+    return await toolsAPI.getAll(params);
   } catch (error) {
     console.error('Get tools error:', error);
-    return [];
+    return { results: [], count: 0 };
   }
 }
 

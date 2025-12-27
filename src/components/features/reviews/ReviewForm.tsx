@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { reviewsAPI } from '@/lib/api/apiClient';
+import { getCurrentUser } from '@/lib/actions/auth';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
 
 interface ReviewFormProps {
@@ -11,29 +12,27 @@ interface ReviewFormProps {
 }
 
 export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFormProps) {
+  const [user, setUser] = useState<any>(null);
   const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
     rating: 5,
     title: '',
-    comment: '',
-    pros: '',
-    cons: '',
-    use_case: '',
-    company_size: ''
+    comment: ''
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const companySizes = ['Solo', 'Small Team', 'Medium', 'Enterprise'];
+  useEffect(() => {
+    const loadUser = async () => {
+      const userData = await getCurrentUser();
+      if (userData) {
+        setUser(userData);
+      }
+    };
+    loadUser();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.user_name || !formData.title || !formData.comment) {
-      setMessage('Please fill in all required fields.');
-      return;
-    }
 
     setLoading(true);
     setMessage('');
@@ -41,25 +40,19 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
     try {
       const reviewData = {
         tool: toolId,
-        user_name: formData.user_name,
-        user_email: formData.user_email || undefined,
+        user_name: user?.name || 'Anonymous',
+        user_email: user?.email || '',
         rating: formData.rating,
-        title: formData.title,
-        comment: formData.comment
+        title: formData.title || `Review by ${user?.name || 'Anonymous'}`,
+        comment: formData.comment || '' // Make comment optional
       };
 
       await reviewsAPI.create(reviewData);
       await showSuccess('Success!', 'Review submitted successfully!');
       setFormData({
-        user_name: '',
-        user_email: '',
         rating: 5,
         title: '',
-        comment: '',
-        pros: '',
-        cons: '',
-        use_case: '',
-        company_size: ''
+        comment: ''
       });
       onReviewAdded();
     } catch (error) {
@@ -69,7 +62,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -81,32 +74,6 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
       <h3 className="text-xl font-bold text-white mb-4">Write a Review for {toolName}</h3>
       
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-white mb-2">Name *</label>
-            <input
-              type="text"
-              name="user_name"
-              value={formData.user_name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 rounded-lg"
-              style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-white mb-2">Email</label>
-            <input
-              type="email"
-              name="user_email"
-              value={formData.user_email}
-              onChange={handleChange}
-              className="w-full px-3 py-2 rounded-lg"
-              style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-            />
-          </div>
-        </div>
-
         <div>
           <label className="block text-sm font-medium text-white mb-2">Rating *</label>
           <div className="flex gap-1">
@@ -124,7 +91,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-white mb-2">Review Title *</label>
+          <label className="block text-sm font-medium text-white mb-2">Title *</label>
           <input
             type="text"
             name="title"
@@ -138,7 +105,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-white mb-2">Review *</label>
+          <label className="block text-sm font-medium text-white mb-2">Review (Optional)</label>
           <textarea
             name="comment"
             value={formData.comment}
@@ -147,65 +114,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
             placeholder="Share your experience with this tool..."
             className="w-full px-3 py-2 rounded-lg resize-vertical"
             style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-            required
           />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-white mb-2">Pros</label>
-            <input
-              type="text"
-              name="pros"
-              value={formData.pros}
-              onChange={handleChange}
-              placeholder="Easy to use, Great support"
-              className="w-full px-3 py-2 rounded-lg"
-              style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-white mb-2">Cons</label>
-            <input
-              type="text"
-              name="cons"
-              value={formData.cons}
-              onChange={handleChange}
-              placeholder="Expensive, Limited features"
-              className="w-full px-3 py-2 rounded-lg"
-              style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-white mb-2">Use Case</label>
-            <input
-              type="text"
-              name="use_case"
-              value={formData.use_case}
-              onChange={handleChange}
-              placeholder="Content creation, Marketing"
-              className="w-full px-3 py-2 rounded-lg"
-              style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-white mb-2">Company Size</label>
-            <select
-              name="company_size"
-              value={formData.company_size}
-              onChange={handleChange}
-              className="w-full px-3 py-2 rounded-lg"
-              style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
-            >
-              <option value="">Select size</option>
-              {companySizes.map((size) => (
-                <option key={size} value={size}>{size}</option>
-              ))}
-            </select>
-          </div>
         </div>
 
         <button

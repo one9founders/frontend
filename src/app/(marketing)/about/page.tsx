@@ -1,19 +1,11 @@
 import Link from 'next/link';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
-      {/* Navigation */}
-      <nav className="px-6 py-4" style={{ backgroundColor: 'var(--gray-black)', borderBottom: '1px solid var(--gray-800)' }}>
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link href="/" className="flex items-center">
-            <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8" draggable={false} />
-          </Link>
-          <Link href="/" className="text-gray-400 hover:text-white">
-            ← Back to Home
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="py-20 px-6">
@@ -97,11 +89,7 @@ export default function AboutPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6" style={{ backgroundColor: 'var(--gray-black)', borderTop: '1px solid var(--gray-800)' }}>
-        <div className="max-w-7xl mx-auto text-center text-gray-400">
-          <p>&copy; 2024 One9Founders. Built for founders, by founders.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

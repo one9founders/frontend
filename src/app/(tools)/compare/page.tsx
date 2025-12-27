@@ -5,7 +5,8 @@ import { getAllTools } from '@/lib/actions/tools';
 import { Tool } from '@/types';
 import CompareTable from '@/components/features/tools/CompareTable';
 import ToolSelector from '@/components/features/tools/ToolSelector';
-import Link from 'next/link';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 export default function ComparePage() {
   const [tools, setTools] = useState<Tool[]>([]);
@@ -34,11 +35,7 @@ export default function ComparePage() {
 
   return (
     <div className="min-h-screen bg-gray-black">
-      <nav className="p-4 border-b border-gray-800">
-        <Link href="/" className="hover:opacity-80" style={{ color: 'var(--brand-light)' }}>
-          ← Back to Directory
-        </Link>
-      </nav>
+      <Navbar />
       
       <div className="max-w-7xl mx-auto p-8">
         <div className="text-center mb-12">
@@ -60,6 +57,8 @@ export default function ComparePage() {
           />
         )}
       </div>
+      
+      <Footer />
     </div>
   );
 }

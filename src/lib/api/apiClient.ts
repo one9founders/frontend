@@ -22,12 +22,6 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
     }
     
     const data = await response.json();
-    
-    // Handle Django paginated response
-    if (data && typeof data === 'object' && 'results' in data) {
-      return data.results;
-    }
-    
     return data;
   } catch (error: any) {
     if (error.cause?.code === 'ECONNREFUSED') {
@@ -39,12 +33,14 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 }
 
 export const toolsAPI = {
-  getAll: (params?: { category?: string; pricing?: string; featured?: boolean; startup_friendly?: boolean }) => {
+  getAll: (params?: { category?: string; pricing?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
     if (params?.pricing) query.append('pricing', params.pricing);
     if (params?.featured) query.append('featured', 'true');
     if (params?.startup_friendly) query.append('startup_friendly', 'true');
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
     return fetchAPI(`/tools/?${query.toString()}`);
   },
   getBySlug: (slug: string) => fetchAPI(`/tools/${slug}/`),
@@ -71,7 +67,7 @@ export const toolsAPI = {
 
 export const reviewsAPI = {
   getByToolId: (toolId: number) => 
-    fetchAPI(`/reviews/?tool=${toolId}`),
+    fetchAPI(`/reviews/?tool_id=${toolId}`),
   create: (data: any) =>
     fetchAPI('/reviews/', {
       method: 'POST',

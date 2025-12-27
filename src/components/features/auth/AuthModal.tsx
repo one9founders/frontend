@@ -73,7 +73,15 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
         const user = await googleAuth(response.credential, turnstileToken);
         onClose();
         await Swal.fire('Success', `Welcome ${user.name}!`, 'success');
-        window.location.reload();
+        
+        // Check for redirect URL
+        const redirectUrl = localStorage.getItem('redirectAfterLogin');
+        if (redirectUrl) {
+          localStorage.removeItem('redirectAfterLogin');
+          window.location.href = redirectUrl;
+        } else {
+          window.location.reload();
+        }
       } catch (error: any) {
         Swal.fire('Error', error.message, 'error');
       }
@@ -98,7 +106,15 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
         const user = mode === 'signup' ? await signUp(formData) : await login(formData);
         onClose();
         await Swal.fire('Success', `Welcome ${user.name}!`, 'success');
-        window.location.reload();
+        
+        // Check for redirect URL
+        const redirectUrl = localStorage.getItem('redirectAfterLogin');
+        if (redirectUrl) {
+          localStorage.removeItem('redirectAfterLogin');
+          window.location.href = redirectUrl;
+        } else {
+          window.location.reload();
+        }
       } catch (error: any) {
         Swal.fire('Error', error.message, 'error');
       }

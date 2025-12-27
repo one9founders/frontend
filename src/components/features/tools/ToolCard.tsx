@@ -45,7 +45,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
           </div>
         ) : (
           <div className="relative">
-            <img src={tool.logo_url || '/logo.svg'} alt={tool.name} className="w-full h-48 object-cover" />
+            <img src={tool.logo_url || '/logo.svg'} alt={tool.name} className="w-full h-48 object-contain" />
             {tool.video_demo_url && (
               <button
                 onClick={() => setShowVideo(true)}
@@ -109,7 +109,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </div>
 
         {/* Title and Rating */}
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center">
           <h3 className="text-xl font-bold text-white">{tool.name}</h3>
           {tool.rating > 0 && (
             <div className="flex items-center gap-1">
@@ -120,7 +120,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </div>
 
         {/* Description */}
-        <p className="mb-4 text-sm leading-relaxed" style={{ color: 'var(--gray-500)' }}>
+        <p className="mb-3 text-sm leading-relaxed" style={{ color: 'var(--gray-500)' }}>
           {tool.short_description || tool.description}
         </p>
 

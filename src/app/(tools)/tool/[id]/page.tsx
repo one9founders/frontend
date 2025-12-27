@@ -1,67 +1,230 @@
-import { toolsAPI } from '@/lib/api/apiClient';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
+'use client';
 
-export default async function ToolPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const tool = await toolsAPI.getBySlug(id);
-  
+import { useState, useEffect } from 'react';
+import { toolsAPI, reviewsAPI } from '@/lib/api/apiClient';
+import { getCurrentUser } from '@/lib/actions/auth';
+import { notFound } from 'next/navigation';
+import Navbar from '@/components/layout/Navbar';
+import ReviewForm from '@/components/features/reviews/ReviewForm';
+import ReviewsList from '@/components/features/reviews/ReviewsList';
+
+interface ToolPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function ToolPage({ params }: ToolPageProps) {
+  const [tool, setTool] = useState<any>(null);
+  const [reviews, setReviews] = useState<any[]>([]);
+  const [user, setUser] = useState<any>(null);
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [id, setId] = useState<string>('');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const loadParams = async () => {
+      const resolvedParams = await params;
+      setId(resolvedParams.id);
+    };
+    loadParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (id) {
+      loadData();
+    }
+  }, [id]);
+
+  const loadData = async () => {
+    try {
+      const [toolData, userData] = await Promise.all([
+        toolsAPI.getBySlug(id),
+        getCurrentUser()
+      ]);
+      
+      if (!toolData) {
+        notFound();
+        return;
+      }
+      
+      setTool(toolData);
+      setUser(userData);
+      
+      // Load reviews
+      const reviewsData = await reviewsAPI.getByToolId(toolData.id);
+      console.log('Reviews API response:', reviewsData);
+      const reviewsArray = reviewsData?.results || reviewsData || [];
+      console.log('Reviews array:', reviewsArray);
+      setReviews(reviewsArray);
+    } catch (error) {
+      console.error('Error loading data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReviewAdded = () => {
+    loadData();
+    setShowReviewForm(false);
+  };
+
+  const handleWriteReview = () => {
+    if (!user) {
+      // Store current URL for redirect after login (only on client)
+      if (mounted && typeof window !== 'undefined') {
+        localStorage.setItem('redirectAfterLogin', window.location.pathname);
+        window.location.href = '/?login=true';
+      }
+      return;
+    }
+    setShowReviewForm(true);
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+        <Navbar />
+        <div className="flex items-center justify-center h-96">
+          <div className="text-white">Loading...</div>
+        </div>
+      </div>
+    );
+  }
+
   if (!tool) {
     notFound();
   }
 
   return (
-    <div className="min-h-screen bg-gray-black">
-      <nav className="p-4 border-b border-gray-800">
-        <Link href="/" className="hover:opacity-80" style={{ color: 'var(--brand-light)' }}>
-          ← Back to Directory
-        </Link>
-      </nav>
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+      <Navbar />
       
-      <div className="max-w-4xl mx-auto p-8">
-        <div className="bg-gray-900 rounded-lg p-8">
-          <div className="flex flex-col md:flex-row gap-8">
-            <img
-              src={tool.logo_url || '/logo.svg'}
-              alt={tool.name}
-              className="w-full md:w-64 h-48 object-cover rounded-lg"
-            />
-            
-            <div className="flex-1">
-              <div className="flex items-center gap-4 mb-4">
-                <h1 className="text-4xl font-bold text-white">{tool.name}</h1>
-                {tool.verified && (
-                  <span className="bg-green-600 text-white px-2 py-1 rounded text-sm">
-                    Verified
-                  </span>
-                )}
-                {tool.is_featured && (
-                  <span className="bg-purple-600 text-white px-2 py-1 rounded text-sm">
-                    Featured
-                  </span>
-                )}
-                {tool.startup_friendly && (
-                  <span className="bg-green-600 text-white px-2 py-1 rounded text-sm">
-                    Startup Friendly
-                  </span>
-                )}
+      <div className="w-full mx-auto p-4 md:p-8">
+        <div className="bg-gray-900 rounded-lg p-4 md:p-8">
+          <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
+            {/* Left Side - 30% */}
+            <div className="lg:w-3/10">
+              {/* Top section with logo and basic info */}
+              <div className="flex gap-4 mb-6">
+                {/* Logo - 32 width */}
+                <div className="w-32 flex-shrink-0">
+                  <img
+                    src={tool.logo_url || '/logo.svg'}
+                    alt={tool.name}
+                    className="w-32 h-32 object-contain rounded-lg"
+                  />
+                </div>
+                
+                {/* Name and short description */}
+                <div className="flex-1">
+                  <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">{tool.name}</h1>
+                  {tool.short_description && (
+                    <p className="text-gray-400 text-base md:text-lg mt-1 leading-tight">{tool.short_description}</p>
+                  )}
+                </div>
               </div>
               
-              <p className="text-gray-300 text-lg mb-6">{tool.description}</p>
+              {/* Ideal For */}
+              {tool.ideal_for && tool.ideal_for.length > 0 && (
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-white mb-2">Ideal For</h3>
+                  <div className="flex flex-wrap gap-1">
+                    {tool.ideal_for.map((item: string, index: number) => (
+                      <span
+                        key={index}
+                        className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
               
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div>
-                  <span className="text-gray-400">Categories:</span>
-                  <span className="text-white ml-2">
+              {/* Tags */}
+              {tool.tags && tool.tags.length > 0 && (
+                <div className="mb-4">
+                  <h3 className="text-sm font-semibold text-white mb-2">Tags</h3>
+                  <div className="flex flex-wrap gap-1">
+                    {tool.tags.map((tag: string, index: number) => (
+                      <span
+                        key={index}
+                        className="bg-gray-800 text-gray-300 px-2 py-1 rounded-full text-xs"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Tool Info */}
+              <div className="mb-4">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {tool.verified && (
+                    <span className="bg-green-600 text-white px-2 py-1 rounded text-xs">
+                      Verified
+                    </span>
+                  )}
+                  {tool.is_featured && (
+                    <span className="bg-purple-600 text-white px-2 py-1 rounded text-xs">
+                      Featured
+                    </span>
+                  )}
+                  {tool.startup_friendly && (
+                    <span className="bg-green-600 text-white px-2 py-1 rounded text-xs">
+                      Startup Friendly
+                    </span>
+                  )}
+                </div>
+                
+                {/* Categories */}
+                <div className="mb-2">
+                  <span className="text-gray-400 text-sm">Categories: </span>
+                  <span className="text-white text-sm">
                     {tool.categories?.map((c: any) => c.name).join(', ') || 'N/A'}
                   </span>
                 </div>
-                <div>
-                  <span className="text-gray-400">Rating:</span>
-                  <span className="text-yellow-400 ml-2">
+                
+                {/* Rating */}
+                <div className="mb-4">
+                  <span className="text-gray-400 text-sm">Rating: </span>
+                  <span className="text-yellow-400 text-sm">
                     ★ {tool.rating} ({tool.review_count} reviews)
                   </span>
                 </div>
+                
+                {/* Visit Button */}
+                <a
+                  href={tool.affiliate_url || tool.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-block px-4 py-2 font-semibold text-sm"
+                >
+                  Visit {tool.name}
+                </a>
+              </div>
+            </div>
+            
+            {/* Right Side - 70% */}
+            <div className="lg:w-7/10">
+              {/* Demo Image */}
+              {tool.video_demo_url && (
+                <div className="mb-6">
+                  <img
+                    src={tool.video_demo_url}
+                    alt={`${tool.name} demo`}
+                    className="w-full rounded-lg"
+                  />
+                </div>
+              )}
+              
+              {/* Additional Info */}
+              <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4 text-sm md:text-base">
                 {tool.pricing_models?.length > 0 && (
                   <div>
                     <span className="text-gray-400">Pricing:</span>
@@ -78,34 +241,16 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
                   </div>
                 )}
               </div>
-              
-              <a
-                href={tool.affiliate_url || tool.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-block px-8 py-3 font-semibold"
-              >
-                Visit {tool.name}
-              </a>
             </div>
           </div>
           
-          {tool.tags && tool.tags.length > 0 && (
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold text-white mb-4">Tags</h3>
-              <div className="flex flex-wrap gap-2">
-                {tool.tags.map((tag: string, index: number) => (
-                  <span
-                    key={index}
-                    className="bg-gray-800 text-gray-300 px-3 py-1 rounded-full text-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Full Width Description */}
+          <div className="mt-8">
+            <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Description</h3>
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed">{tool.description}</p>
+          </div>
           
+          {/* Use Cases */}
           {tool.use_cases && tool.use_cases.length > 0 && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Use Cases</h3>
@@ -117,6 +262,7 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
             </div>
           )}
           
+          {/* Features */}
           {tool.features && tool.features.length > 0 && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Features</h3>
@@ -128,11 +274,69 @@ export default async function ToolPage({ params }: { params: Promise<{ id: strin
             </div>
           )}
           
+          {/* Startup Benefits */}
           {tool.startup_benefits && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Startup Benefits</h3>
               <p className="text-gray-300">{tool.startup_benefits}</p>
             </div>
+          )}
+        </div>
+        
+        {/* Reviews Section */}
+        <div className="mt-8 md:mt-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+            <h2 className="text-xl md:text-2xl font-bold text-white">Reviews & Comments</h2>
+            {!showReviewForm && (
+              <button
+                onClick={handleWriteReview}
+                className="btn-primary px-4 md:px-6 py-2 text-sm md:text-base"
+              >
+                Write a Review
+              </button>
+            )}
+          </div>
+          
+          {showReviewForm && user && (
+            <div className="mb-8">
+              <ReviewForm
+                toolId={tool.id}
+                toolName={tool.name}
+                onReviewAdded={handleReviewAdded}
+              />
+              <button
+                onClick={() => setShowReviewForm(false)}
+                className="mt-4 text-gray-400 hover:text-white"
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+          
+          {reviews && reviews.length === 0 ? (
+            <div className="text-center py-12 bg-gray-900 rounded-lg">
+              <p className="text-gray-400 mb-4">
+                {user ? 
+                  "Be the first to write about this tool!" : 
+                  "Become the first to write about this tool"
+                }
+              </p>
+              {!user && mounted && (
+                <button
+                  onClick={() => {
+                    if (typeof window !== 'undefined') {
+                      localStorage.setItem('redirectAfterLogin', window.location.pathname);
+                      window.location.href = '/?login=true';
+                    }
+                  }}
+                  className="text-purple-400 hover:text-purple-300 underline"
+                >
+                  Login to write a review
+                </button>
+              )}
+            </div>
+          ) : (
+            <ReviewsList reviews={reviews} />
           )}
         </div>
       </div>
