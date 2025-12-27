@@ -177,7 +177,7 @@ export default function ToolPage({ params }: ToolPageProps) {
                   )}
                   {tool.startup_friendly && (
                     <span className="bg-green-600 text-white px-2 py-1 rounded text-xs">
-                      Startup Friend
+                      Startup Friendly
                     </span>
                   )}
                 </div>
