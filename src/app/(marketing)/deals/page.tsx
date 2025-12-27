@@ -4,7 +4,8 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 export default async function DealsPage() {
-  const deals = await getAllDeals();
+  const dealsData = await getAllDeals();
+  const deals = Array.isArray(dealsData) ? dealsData : [];
   const featuredDeals = deals.filter((deal: any) => deal.featured_deal);
   const regularDeals = deals.filter((deal: any) => !deal.featured_deal);
 

@@ -53,13 +53,10 @@ export default function ReviewsList({ reviews }: ReviewsListProps) {
             {review.comment || 'No written review provided.'}
           </p>
 
-          {/* Like/Dislike Counts */}
+          {/* Helpful Count */}
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <span className="flex items-center gap-1">
-              👍 {review.likes_count || 0}
-            </span>
-            <span className="flex items-center gap-1">
-              👎 {review.dislikes_count || 0}
+              👍 Helpful: {review.helpful_count || 0}
             </span>
           </div>
         </div>
