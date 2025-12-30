@@ -6,6 +6,7 @@ import SearchInput from "./SearchInput";
 import ToolCard from "../features/tools/ToolCard";
 import PricingFilter from "../features/tools/PricingFilter";
 import Pagination from "./Pagination";
+import posthog from "posthog-js";
 
 export default function PortfolioSection() {
   const [tools, setTools] = useState<Tool[]>([]);
@@ -119,8 +120,17 @@ export default function PortfolioSection() {
     try {
       const results = await toolsAPI.search(query);
       setSearchResults(results);
+
+      // Capture search event
+      posthog.capture('tool_search_performed', {
+        search_query: query,
+        results_count: results?.length || 0,
+        selected_category: selectedTag,
+        selected_pricing: selectedPricing,
+      });
     } catch (error) {
       console.error('Search failed:', error);
+      posthog.captureException(error);
       setSearchResults([]);
     }
     setSearchLoading(false);

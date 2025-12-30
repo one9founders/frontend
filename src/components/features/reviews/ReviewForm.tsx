@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { reviewsAPI } from '@/lib/api/apiClient';
 import { getCurrentUser } from '@/lib/actions/auth';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
+import posthog from 'posthog-js';
 
 interface ReviewFormProps {
   toolId: number;
@@ -48,6 +49,16 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
       };
 
       await reviewsAPI.create(reviewData);
+
+      // Capture review submission event
+      posthog.capture('review_submitted', {
+        tool_id: toolId,
+        tool_name: toolName,
+        rating: formData.rating,
+        has_comment: !!formData.comment,
+        reviewer_name: user?.name || 'Anonymous',
+      });
+
       await showSuccess('Success!', 'Review submitted successfully!');
       setFormData({
         rating: 5,
@@ -56,6 +67,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
       });
       onReviewAdded();
     } catch (error) {
+      posthog.captureException(error);
       await showError('Error', 'An error occurred. Please try again.');
     } finally {
       setLoading(false);

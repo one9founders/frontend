@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { subscribeToNewsletter } from '@/lib/actions/tools';
+import posthog from 'posthog-js';
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('');
@@ -18,12 +19,18 @@ export default function NewsletterSignup() {
     try {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
+        // Capture newsletter subscription event
+        posthog.capture('newsletter_subscribed', {
+          email: email,
+          source: 'homepage',
+        });
         setMessage('Thanks for subscribing!');
         setEmail('');
       } else {
         setMessage(result.error || 'Something went wrong');
       }
     } catch (error) {
+      posthog.captureException(error);
       setMessage('Failed to subscribe');
     } finally {
       setLoading(false);

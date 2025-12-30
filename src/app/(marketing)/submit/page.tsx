@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { submissionAPI } from '@/lib/api/apiClient';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
+import posthog from 'posthog-js';
 
 export default function SubmitToolPage() {
   const [formData, setFormData] = useState({
@@ -36,6 +37,17 @@ export default function SubmitToolPage() {
 
     try {
       await submissionAPI.submit(formData);
+
+      // Capture tool submission event
+      posthog.capture('tool_submitted', {
+        tool_name: formData.name,
+        tool_website: formData.website,
+        submitter_email: formData.submitter_email,
+        submitter_name: formData.submitter_name,
+        has_pricing_info: !!formData.pricing_info,
+        has_logo: !!formData.logo_url,
+      });
+
       await showSuccess('Success!', 'Tool submitted successfully! It will be reviewed and added to the directory.');
       setFormData({
         name: '',
@@ -48,6 +60,7 @@ export default function SubmitToolPage() {
         pricing_info: ''
       });
     } catch (error) {
+      posthog.captureException(error);
       await showError('Error', 'Failed to submit tool. Please try again.');
     } finally {
       setLoading(false);

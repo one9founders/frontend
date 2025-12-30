@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
+import posthog from 'posthog-js';
 
 export default function Navbar() {
   const [showAuth, setShowAuth] = useState(false);
@@ -35,6 +36,10 @@ export default function Navbar() {
   };
 
   const handleLogout = async () => {
+    // Capture logout event before resetting
+    posthog.capture('user_logged_out');
+    posthog.reset();
+
     await logout();
     setUser(null);
     window.location.reload();

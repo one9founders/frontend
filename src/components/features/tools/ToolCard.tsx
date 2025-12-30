@@ -3,6 +3,7 @@
 import { Tool } from '@/types';
 import { useState } from 'react';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 
 interface ToolCardProps {
   tool: Tool;
@@ -26,6 +27,28 @@ export default function ToolCard({ tool }: ToolCardProps) {
     return Array.from({ length: 5 }, (_, i) => (
       <span key={i} className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}>★</span>
     ));
+  };
+
+  const handleViewDetails = () => {
+    posthog.capture('tool_details_viewed', {
+      tool_id: tool.id,
+      tool_name: tool.name,
+      tool_slug: tool.slug,
+      categories: tool.categories?.map(c => c.name) || [],
+      is_featured: tool.is_featured,
+      rating: tool.rating,
+    });
+  };
+
+  const handleVisitTool = () => {
+    posthog.capture('tool_visited', {
+      tool_id: tool.id,
+      tool_name: tool.name,
+      tool_slug: tool.slug,
+      tool_website: tool.website,
+      is_affiliate: !!tool.affiliate_url,
+      categories: tool.categories?.map(c => c.name) || [],
+    });
   };
 
   return (
@@ -163,6 +186,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
           <Link
             href={`/tool/${tool.slug}`}
             className="flex-1 text-center py-2 px-4 rounded-lg font-medium transition-colors bg-gray-700 text-white hover:bg-gray-600"
+            onClick={handleViewDetails}
           >
             View Details
           </Link>
@@ -173,6 +197,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
               rel="noopener noreferrer"
               className="flex-1 text-center py-2 px-4 rounded-lg font-medium transition-colors"
               style={{ backgroundColor: 'var(--brand-primary)', color: 'white' }}
+              onClick={handleVisitTool}
             >
               Visit Tool
             </a>

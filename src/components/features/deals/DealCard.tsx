@@ -1,6 +1,7 @@
 'use client';
 
 import { Deal } from '@/types/deal';
+import posthog from 'posthog-js';
 
 interface DealCardProps {
   deal: Deal;
@@ -17,6 +18,22 @@ export default function DealCard({ deal }: DealCardProps) {
 
   const daysLeft = getDaysLeft();
   const isExpired = daysLeft <= 0;
+
+  const handleClaimDeal = () => {
+    if (!isExpired) {
+      posthog.capture('deal_claimed', {
+        deal_id: deal.id,
+        tool_name: deal.tool_name,
+        offer_tag: deal.offer_tag,
+        offer_title: deal.offer_title,
+        old_price: deal.old_price,
+        new_price: deal.new_price,
+        is_featured_deal: deal.featured_deal,
+        days_until_expiry: daysLeft,
+        claims_count: deal.claims_count,
+      });
+    }
+  };
 
   return (
     <div 
@@ -109,7 +126,7 @@ export default function DealCard({ deal }: DealCardProps) {
               ? 'bg-cyan-400 text-gray-900 hover:bg-cyan-300'
               : 'bg-cyan-500 text-white hover:bg-cyan-600'
           }`}
-          onClick={isExpired ? (e) => e.preventDefault() : undefined}
+          onClick={isExpired ? (e) => e.preventDefault() : handleClaimDeal}
         >
           {isExpired ? 'Deal Expired' : 'Claim Deal 🔗'}
         </a>

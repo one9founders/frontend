@@ -7,6 +7,7 @@ import CompareTable from '@/components/features/tools/CompareTable';
 import ToolSelector from '@/components/features/tools/ToolSelector';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import posthog from 'posthog-js';
 
 export default function ComparePage() {
   const [tools, setTools] = useState<Tool[]>([]);
@@ -25,7 +26,17 @@ export default function ComparePage() {
 
   const addTool = (tool: Tool) => {
     if (selectedTools.length < 3 && !selectedTools.find(t => t.id === tool.id)) {
-      setSelectedTools([...selectedTools, tool]);
+      const newSelectedTools = [...selectedTools, tool];
+      setSelectedTools(newSelectedTools);
+
+      // Capture tool comparison event
+      posthog.capture('tool_comparison_started', {
+        tool_id: tool.id,
+        tool_name: tool.name,
+        tool_slug: tool.slug,
+        comparison_count: newSelectedTools.length,
+        tools_in_comparison: newSelectedTools.map(t => t.name),
+      });
     }
   };
 

@@ -1,7 +1,14 @@
 'use client';
 
+import posthog from 'posthog-js';
+
 export default function HeroSection() {
   const scrollToTools = () => {
+    // Capture explore tools click event
+    posthog.capture('explore_tools_clicked', {
+      source: 'hero_section',
+    });
+
     const toolsSection = document.querySelector('#tools-section');
     if (toolsSection) {
       toolsSection.scrollIntoView({ behavior: 'smooth' });
