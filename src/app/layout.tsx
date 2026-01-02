@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script src="https://t.contentsquare.net/uxa/d11fb4e793d48.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-455BX3CJP8"></script>

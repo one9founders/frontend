@@ -21,6 +21,14 @@ export default function ToolPage({ params }: ToolPageProps) {
   const [id, setId] = useState<string>('');
   const [mounted, setMounted] = useState(false);
 
+  const getRatingStars = () => {
+    if (!tool?.rating) return null;
+    const rating = Number(tool.rating);
+    return Array.from({ length: 5 }, (_, i) => (
+      <span key={i} className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}>★</span>
+    ));
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -191,11 +199,10 @@ export default function ToolPage({ params }: ToolPageProps) {
                 </div>
                 
                 {/* Rating */}
-                <div className="mb-4">
-                  <span className="text-gray-400 text-sm">Rating: </span>
-                  <span className="text-yellow-400 text-sm">
-                    ★ {tool.rating} ({tool.review_count} reviews)
-                  </span>
+                <div className="mb-4 flex items-center gap-2">
+                  <span className="text-gray-400 text-sm">Rating:</span>
+                  <div className="flex">{getRatingStars()}</div>
+                  <span className="text-gray-400 text-sm">{tool.rating} ({tool.review_count} reviews)</span>
                 </div>
                 
                 {/* Visit Button */}
