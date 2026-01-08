@@ -82,7 +82,6 @@ export default function NewsPage() {
         </div>
       </div>
 
-      <NewsletterSignup />
       <Footer />
     </div>
   );

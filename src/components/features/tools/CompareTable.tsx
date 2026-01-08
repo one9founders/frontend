@@ -1,6 +1,7 @@
 'use client';
 
 import { Tool } from '@/types';
+import { HugeiconsIcon, Cancel01Icon, StarIcon, ArrowUpRight01Icon, ViewIcon, CheckmarkCircle01Icon, Cancel02Icon } from '@/components/ui/icons';
 
 interface CompareTableProps {
   tools: Tool[];
@@ -11,7 +12,13 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
   const getRatingStars = (rating?: number) => {
     if (!rating) return 'N/A';
     return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < rating ? 'text-yellow-400' : 'text-gray-600'}>★</span>
+      <HugeiconsIcon 
+        key={i} 
+        icon={StarIcon}
+        size={16} 
+        className={i < rating ? 'text-yellow-400' : 'text-gray-600'}
+        variant={i < rating ? 'solid' : 'stroke'}
+      />
     ));
   };
 
@@ -35,9 +42,9 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                   <div className="relative">
                     <button
                       onClick={() => onRemoveTool(tool.id)}
-                      className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full text-xs hover:bg-red-600"
+                      className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full text-xs hover:bg-red-600 flex items-center justify-center"
                     >
-                      ×
+                      <HugeiconsIcon icon={Cancel01Icon} size={12} />
                     </button>
                     <img
                       src={tool.logo_url || '/logo.svg'}
@@ -90,9 +97,19 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
               <td className="p-4 text-gray-400 font-medium">Free Trial</td>
               {tools.map((tool) => (
                 <td key={tool.id} className="p-4 text-center">
-                  <span className={tool.free_trial_days ? 'text-green-400' : 'text-gray-500'}>
-                    {tool.free_trial_days ? `${tool.free_trial_days} days` : 'No'}
-                  </span>
+                  <div className="flex items-center justify-center gap-1">
+                    {tool.free_trial_days ? (
+                      <>
+                        <HugeiconsIcon icon={CheckmarkCircle01Icon} size={16} className="text-green-400" />
+                        <span className="text-green-400">{tool.free_trial_days} days</span>
+                      </>
+                    ) : (
+                      <>
+                        <HugeiconsIcon icon={Cancel02Icon} size={16} className="text-gray-500" />
+                        <span className="text-gray-500">No</span>
+                      </>
+                    )}
+                  </div>
                 </td>
               ))}
             </tr>
@@ -141,14 +158,16 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                       href={tool.website || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
+                      className="block w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm flex items-center justify-center gap-2"
                     >
+                      <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
                       Visit Tool
                     </a>
                     <a
                       href={`/tool/${tool.slug}`}
-                      className="block w-full py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600 text-sm"
+                      className="block w-full py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600 text-sm flex items-center justify-center gap-2"
                     >
+                      <HugeiconsIcon icon={ViewIcon} size={16} />
                       View Details
                     </a>
                   </div>

@@ -84,7 +84,7 @@ h4, h5, h6 {
   border-radius: 8px;
   padding: 0.5rem;
   gap: 10px;
-  background: var(--brand-primary);
+  background: linear-gradient(to top, var(--brand-primary), var(--brand-tertiary));  
   color: white;
   font-weight: 600;
   border: none;

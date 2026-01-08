@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon } from '@/components/ui/icons';
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
 import posthog from 'posthog-js';
@@ -10,6 +12,7 @@ export default function Navbar() {
   const [showAuth, setShowAuth] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     getCurrentUser().then(setUser);
@@ -61,19 +64,19 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6">
-              <button onClick={scrollToTools} style={{ color: 'var(--gray-500)', cursor: 'pointer' }} className="hover:text-white">
+              <button onClick={scrollToTools} style={{ color: pathname === '/' ? 'white' : 'var(--gray-500)', cursor: 'pointer' }} className="hover:text-white">
                 Explore
               </button>
-              <Link href="/deals" style={{ color: 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/deals" style={{ color: pathname === '/deals' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
                 Deals
               </Link>
-              <Link href="/compare" style={{ color: 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/compare" style={{ color: pathname === '/compare' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
                 Compare
               </Link>
-              <Link href="/news" style={{ color: 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/news" style={{ color: pathname === '/news' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
                 News
               </Link>
-              <Link href="/about" style={{ color: 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/about" style={{ color: pathname === '/about' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
                 About
               </Link>
             </div>
@@ -84,7 +87,8 @@ export default function Navbar() {
               {user ? (
                 <div className="flex items-center gap-4">
                   <span style={{ color: 'var(--gray-500)' }}>{user.name}</span>
-                  <button onClick={handleLogout} style={{ color: 'var(--gray-500)' }} className="hover:text-white">
+                  <button onClick={handleLogout} style={{ color: 'var(--gray-500)' }} className="hover:text-white flex items-center gap-2">
+                    <HugeiconsIcon icon={Logout01Icon} size={16} />
                     Logout
                   </button>
                 </div>
@@ -101,13 +105,11 @@ export default function Navbar() {
             className="md:hidden text-white p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {isMobileMenuOpen ? (
+              <HugeiconsIcon icon={Cancel01Icon} size={24} />
+            ) : (
+              <HugeiconsIcon icon={Menu01Icon} size={24} />
+            )}
           </button>
         </div>
 
@@ -137,7 +139,8 @@ export default function Navbar() {
                 {user ? (
                   <>
                     <span style={{ color: 'var(--gray-500)' }} className="text-sm">{user.name}</span>
-                    <button onClick={handleLogout} style={{ color: 'var(--gray-500)' }} className="hover:text-white text-left">
+                    <button onClick={handleLogout} style={{ color: 'var(--gray-500)' }} className="hover:text-white text-left flex items-center gap-2">
+                      <HugeiconsIcon icon={Logout01Icon} size={16} />
                       Logout
                     </button>
                   </>

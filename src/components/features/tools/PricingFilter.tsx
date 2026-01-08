@@ -1,5 +1,7 @@
 'use client';
 
+import { HugeiconsIcon, DollarCircleIcon } from '@/components/ui/icons';
+
 interface PricingFilterProps {
   selectedPricing: string[];
   onPricingChange: (pricing: string[]) => void;
@@ -23,7 +25,10 @@ export default function PricingFilter({ selectedPricing, onPricingChange }: Pric
 
   return (
     <div className="mb-6">
-      <h3 className="text-sm font-medium text-gray-300 mb-3">Pricing Model</h3>
+      <h3 className="text-sm font-medium text-gray-300 mb-3 flex items-center gap-2">
+        <HugeiconsIcon icon={DollarCircleIcon} size={16} />
+        Pricing Model
+      </h3>
       <div className="flex flex-wrap gap-2">
         {pricingOptions.map((option) => (
           <button

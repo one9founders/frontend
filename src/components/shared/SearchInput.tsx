@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { HugeiconsIcon, Search01Icon } from '@/components/ui/icons';
 
 interface SearchInputProps {
   onSearch: (query: string) => void;
@@ -33,9 +34,7 @@ export default function SearchInput({ onSearch, onClear }: SearchInputProps) {
           className="w-full px-6 py-4 text-lg rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
           style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-700)', color: 'white' }}
         />
-        <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 h-6 w-6" style={{ color: 'var(--gray-500)' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
+        <HugeiconsIcon icon={Search01Icon} className="absolute right-4 top-1/2 transform -translate-y-1/2 h-6 w-6" style={{ color: 'var(--gray-500)' }} />
       </div>
     </div>
   );

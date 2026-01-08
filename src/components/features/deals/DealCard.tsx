@@ -1,6 +1,7 @@
 'use client';
 
 import { Deal } from '@/types/deal';
+import { HugeiconsIcon, Time01Icon, ChartUpIcon, StarIcon, ArrowUpRight01Icon } from '@/components/ui/icons';
 import posthog from 'posthog-js';
 
 interface DealCardProps {
@@ -52,7 +53,8 @@ export default function DealCard({ deal }: DealCardProps) {
       <div className="relative">
         {deal.featured_deal && (
           <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
-            <span className="text-white text-sm font-medium">⭐ Featured Deal</span>
+            <HugeiconsIcon icon={StarIcon} size={16} className="text-white" />
+            <span className="text-white text-sm font-medium">Featured Deal</span>
           </div>
         )}
         
@@ -100,14 +102,14 @@ export default function DealCard({ deal }: DealCardProps) {
         {/* Footer Info */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
-            <span className="text-orange-400">⏰</span>
+            <HugeiconsIcon icon={Time01Icon} size={16} className="text-orange-400" />
             <span className={`text-sm ${deal.featured_deal ? 'text-white' : 'text-gray-300'}`}>
               {isExpired ? 'Expired' : `Expires in ${daysLeft} days`}
             </span>
           </div>
           
           <div className="flex items-center gap-2">
-            <span className="text-green-400">📈</span>
+            <HugeiconsIcon icon={ChartUpIcon} size={16} className="text-green-400" />
             <span className={`text-sm ${deal.featured_deal ? 'text-white' : 'text-gray-300'}`}>
               {deal.claims_count} claimed
             </span>
@@ -119,7 +121,7 @@ export default function DealCard({ deal }: DealCardProps) {
           href={deal.deal_url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`w-full py-3 px-4 rounded-lg font-semibold text-center block transition-colors ${
+          className={`w-full py-3 px-4 rounded-lg font-semibold text-center block transition-colors flex items-center justify-center gap-2 ${
             isExpired
               ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
               : deal.featured_deal
@@ -128,7 +130,12 @@ export default function DealCard({ deal }: DealCardProps) {
           }`}
           onClick={isExpired ? (e) => e.preventDefault() : handleClaimDeal}
         >
-          {isExpired ? 'Deal Expired' : 'Claim Deal 🔗'}
+          {isExpired ? 'Deal Expired' : (
+            <>
+              Claim Deal
+              <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
+            </>
+          )}
         </a>
       </div>
     </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { Review } from '@/types';
+import { HugeiconsIcon, StarIcon, ThumbsUpIcon, UserIcon } from '@/components/ui/icons';
 
 interface ReviewsListProps {
   reviews: Review[];
@@ -17,7 +18,13 @@ export default function ReviewsList({ reviews }: ReviewsListProps) {
 
   const getRatingStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < rating ? 'text-yellow-400' : 'text-gray-600'}>★</span>
+      <HugeiconsIcon 
+        key={i} 
+        icon={StarIcon}
+        size={16} 
+        className={i < rating ? 'text-yellow-400' : 'text-gray-600'}
+        variant={i < rating ? 'solid' : 'stroke'}
+      />
     ));
   };
 
@@ -37,7 +44,10 @@ export default function ReviewsList({ reviews }: ReviewsListProps) {
           {/* Header */}
           <div className="flex justify-between items-start mb-2">
             <div>
-              <div className="font-medium text-white">{review.user_name}</div>
+              <div className="font-medium text-white flex items-center gap-2">
+                <HugeiconsIcon icon={UserIcon} size={16} />
+                {review.user_name}
+              </div>
               <div className="flex items-center gap-2">
                 <div className="flex">{getRatingStars(review.rating)}</div>
               </div>
@@ -56,7 +66,8 @@ export default function ReviewsList({ reviews }: ReviewsListProps) {
           {/* Helpful Count */}
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <span className="flex items-center gap-1">
-              👍 Helpful: {review.helpful_count || 0}
+              <HugeiconsIcon icon={ThumbsUpIcon} size={16} />
+              Helpful: {review.helpful_count || 0}
             </span>
           </div>
         </div>

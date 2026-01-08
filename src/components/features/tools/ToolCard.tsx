@@ -3,6 +3,7 @@
 import { Tool } from '@/types';
 import { useState } from 'react';
 import Link from 'next/link';
+import { HugeiconsIcon, StarIcon, ArrowUpRight01Icon, ViewIcon } from '@/components/ui/icons';
 import posthog from 'posthog-js';
 
 interface ToolCardProps {
@@ -25,7 +26,13 @@ export default function ToolCard({ tool }: ToolCardProps) {
     if (!tool.rating) return null;
     const rating = Number(tool.rating);
     return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}>★</span>
+      <HugeiconsIcon 
+        key={i} 
+        icon={StarIcon}
+        size={16} 
+        className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}
+        variant={i < Math.floor(rating) ? 'solid' : 'stroke'}
+      />
     ));
   };
 
@@ -93,9 +100,10 @@ export default function ToolCard({ tool }: ToolCardProps) {
         <div className="flex gap-2 mt-3">
           <Link
             href={`/tool/${tool.slug}`}
-            className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-gray-700 text-white hover:bg-gray-600 text-sm"
+            className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-gray-700 text-white hover:bg-gray-600 text-sm flex items-center justify-center gap-2"
             onClick={handleViewDetails}
           >
+            <HugeiconsIcon icon={ViewIcon} size={16} />
             View Details
           </Link>
           {tool.website && (
@@ -103,9 +111,10 @@ export default function ToolCard({ tool }: ToolCardProps) {
               href={tool.affiliate_url || tool.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700 text-sm"
+              className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700 text-sm flex items-center justify-center gap-2"
               onClick={handleVisitTool}
             >
+              <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
               Visit Tool
             </a>
           )}

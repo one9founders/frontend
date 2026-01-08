@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { HugeiconsIcon, Time01Icon, UserIcon } from '@/components/ui/icons';
 
 interface NewsArticle {
   id: number;
@@ -59,11 +60,17 @@ export default function NewsCard({ article }: NewsCardProps) {
           {/* Meta Info */}
           <div className="flex items-center justify-between text-xs text-gray-500">
             <div className="flex items-center space-x-3">
-              <span>{article.author}</span>
+              <div className="flex items-center gap-1">
+                <HugeiconsIcon icon={UserIcon} size={12} />
+                <span>{article.author}</span>
+              </div>
               <span>•</span>
               <span>{formatDate(article.date)}</span>
             </div>
-            <span>{article.readTime}</span>
+            <div className="flex items-center gap-1">
+              <HugeiconsIcon icon={Time01Icon} size={12} />
+              <span>{article.readTime}</span>
+            </div>
           </div>
         </div>
       </div>

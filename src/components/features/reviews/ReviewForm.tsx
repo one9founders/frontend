@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { HugeiconsIcon, StarIcon, Edit01Icon } from '@/components/ui/icons';
 import { reviewsAPI } from '@/lib/api/apiClient';
 import { getCurrentUser } from '@/lib/actions/auth';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
@@ -83,7 +84,10 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
 
   return (
     <div className="rounded-lg p-6" style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }}>
-      <h3 className="text-xl font-bold text-white mb-4">Write a Review for {toolName}</h3>
+      <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+        <HugeiconsIcon icon={Edit01Icon} size={24} />
+        Write a Review for {toolName}
+      </h3>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -94,9 +98,13 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
                 key={star}
                 type="button"
                 onClick={() => setFormData({ ...formData, rating: star })}
-                className={`text-2xl ${star <= formData.rating ? 'text-yellow-400' : 'text-gray-600'}`}
+                className={`${star <= formData.rating ? 'text-yellow-400' : 'text-gray-600'}`}
               >
-                ★
+                <HugeiconsIcon 
+                  icon={StarIcon}
+                  size={24} 
+                  variant={star <= formData.rating ? 'solid' : 'stroke'}
+                />
               </button>
             ))}
           </div>
