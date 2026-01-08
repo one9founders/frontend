@@ -18,9 +18,10 @@ export default function NewsPage() {
     async function fetchNews() {
       try {
         const data = await getNews(selectedCategory);
-        setNews(data);
+        setNews(Array.isArray(data) ? data : []);
       } catch (error) {
         console.error('Error fetching news:', error);
+        setNews([]);
       } finally {
         setLoading(false);
       }

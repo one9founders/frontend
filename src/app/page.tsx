@@ -10,7 +10,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <PortfolioSection />
-      <NewsletterSignup />
+      {/* <NewsletterSignup /> */}
       <Footer />
     </div>
   );

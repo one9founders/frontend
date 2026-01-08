@@ -20,7 +20,7 @@ export default function ComparePage() {
 
   const loadTools = async () => {
     const data = await getAllTools();
-    setTools(data);
+    setTools(Array.isArray(data) ? data : []);
     setLoading(false);
   };
 

@@ -13,7 +13,7 @@ interface ToolSelectorProps {
 export default function ToolSelector({ tools, selectedTools, onAddTool, loading }: ToolSelectorProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredTools = tools.filter(tool => 
+  const filteredTools = (Array.isArray(tools) ? tools : []).filter(tool => 
     tool.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
     !selectedTools.find(selected => selected.id === tool.id)
   );
