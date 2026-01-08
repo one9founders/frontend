@@ -102,8 +102,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
               >
                 <HugeiconsIcon 
                   icon={StarIcon}
-                  size={24} 
-                  variant={star <= formData.rating ? 'solid' : 'stroke'}
+                  size={24}
                 />
               </button>
             ))}

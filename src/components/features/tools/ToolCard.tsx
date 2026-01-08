@@ -31,7 +31,6 @@ export default function ToolCard({ tool }: ToolCardProps) {
         icon={StarIcon}
         size={16} 
         className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}
-        variant={i < Math.floor(rating) ? 'solid' : 'stroke'}
       />
     ));
   };

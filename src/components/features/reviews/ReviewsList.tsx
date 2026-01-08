@@ -23,7 +23,6 @@ export default function ReviewsList({ reviews }: ReviewsListProps) {
         icon={StarIcon}
         size={16} 
         className={i < rating ? 'text-yellow-400' : 'text-gray-600'}
-        variant={i < rating ? 'solid' : 'stroke'}
       />
     ));
   };
