@@ -44,8 +44,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         disabled={currentPage === 1}
         className={`px-2 md:px-3 py-2 text-xs md:text-sm rounded-lg transition-colors flex items-center gap-1 ${
           currentPage === 1
-            ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-            : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
+            ? 'bg-[var(--gray-700)] text-[var(--gray-500)] cursor-not-allowed'
+            : 'bg-[var(--gray-700)] text-[var(--gray-300)] hover:bg-[var(--gray-600)] hover:text-white'
         }`}
       >
         <HugeiconsIcon icon={ArrowLeft01Icon} size={16} />
@@ -59,7 +59,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
           className={`px-2 md:px-3 py-2 text-xs md:text-sm rounded-lg transition-colors ${
             currentPage === page
               ? 'bg-purple-600 text-white'
-              : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
+              : 'bg-[var(--gray-700)] text-[var(--gray-300)] hover:bg-[var(--gray-600)] hover:text-white'
           }`}
         >
           {page}
@@ -71,8 +71,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         disabled={currentPage === totalPages}
         className={`px-2 md:px-3 py-2 text-xs md:text-sm rounded-lg transition-colors flex items-center gap-1 ${
           currentPage === totalPages
-            ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
-            : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
+            ? 'bg-[var(--gray-700)] text-[var(--gray-500)] cursor-not-allowed'
+            : 'bg-[var(--gray-700)] text-[var(--gray-300)] hover:bg-[var(--gray-600)] hover:text-white'
         }`}
       >
         Next

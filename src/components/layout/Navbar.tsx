@@ -54,7 +54,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="px-4 md:px-6 py-4 relative" style={{ backgroundColor: 'var(--gray-black)', borderBottom: '1px solid var(--gray-800)' }}>
+      <nav className="px-4 md:px-6 py-4 relative bg-[var(--gray-black)] border-b border-[var(--gray-800)]">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           <a href="/">
@@ -64,19 +64,19 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6">
-              <button onClick={scrollToTools} style={{ color: pathname === '/' ? 'white' : 'var(--gray-500)', cursor: 'pointer' }} className="hover:text-white">
+              <button onClick={scrollToTools} className={`hover:text-white ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Explore
               </button>
-              <Link href="/deals" style={{ color: pathname === '/deals' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/deals" className={`hover:text-white ${pathname === '/deals' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Deals
               </Link>
-              <Link href="/compare" style={{ color: pathname === '/compare' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/compare" className={`hover:text-white ${pathname === '/compare' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Compare
               </Link>
-              <Link href="/news" style={{ color: pathname === '/news' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/news" className={`hover:text-white ${pathname === '/news' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 News
               </Link>
-              <Link href="/about" style={{ color: pathname === '/about' ? 'white' : 'var(--gray-500)' }} className="hover:text-white">
+              <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
             </div>
@@ -86,14 +86,14 @@ export default function Navbar() {
               </button>
               {user ? (
                 <div className="flex items-center gap-4">
-                  <span style={{ color: 'var(--gray-500)' }}>{user.name}</span>
-                  <button onClick={handleLogout} style={{ color: 'var(--gray-500)' }} className="hover:text-white flex items-center gap-2">
+                  <span className="text-[var(--gray-500)]">{user.name}</span>
+                  <button onClick={handleLogout} className="text-[var(--gray-500)] hover:text-white flex items-center gap-2">
                     <HugeiconsIcon icon={Logout01Icon} size={16} />
                     Logout
                   </button>
                 </div>
               ) : (
-                <button onClick={() => setShowAuth(true)} style={{ color: 'var(--gray-500)' }} className="hover:text-white">
+                <button onClick={() => setShowAuth(true)} className="text-[var(--gray-500)] hover:text-white">
                   Login
                 </button>
               )}
@@ -115,37 +115,37 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full right-0 left-0 bg-gray-900 border-t border-gray-800 z-50">
+          <div className="md:hidden absolute top-full right-0 left-0 bg-[var(--gray-900)] border-t border-[var(--gray-800)] z-50">
             <div className="flex flex-col gap-4 p-4">
-              <button onClick={scrollToTools} style={{ color: 'var(--gray-500)' }} className="hover:text-white text-left">
+              <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left">
                 Explore
               </button>
-              <Link href="/deals" style={{ color: 'var(--gray-500)' }} className="hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/deals" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Deals
               </Link>
-              <Link href="/compare" style={{ color: 'var(--gray-500)' }} className="hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/compare" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Compare
               </Link>
-              <Link href="/news" style={{ color: 'var(--gray-500)' }} className="hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/news" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 News
               </Link>
-              <Link href="/about" style={{ color: 'var(--gray-500)' }} className="hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
-              <div className="flex flex-col gap-3 pt-2 border-t border-gray-800">
+              <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                 <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
                   Submit Tool
                 </button>
                 {user ? (
                   <>
-                    <span style={{ color: 'var(--gray-500)' }} className="text-sm">{user.name}</span>
-                    <button onClick={handleLogout} style={{ color: 'var(--gray-500)' }} className="hover:text-white text-left flex items-center gap-2">
+                    <span className="text-[var(--gray-500)] text-sm">{user.name}</span>
+                    <button onClick={handleLogout} className="text-[var(--gray-500)] hover:text-white text-left flex items-center gap-2">
                       <HugeiconsIcon icon={Logout01Icon} size={16} />
                       Logout
                     </button>
                   </>
                 ) : (
-                  <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }} style={{ color: 'var(--gray-500)' }} className="hover:text-white text-left">
+                  <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--gray-500)] hover:text-white text-left">
                     Login
                   </button>
                 )}

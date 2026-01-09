@@ -31,10 +31,9 @@ export default function SearchInput({ onSearch, onClear }: SearchInputProps) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search for AI tools... (e.g., 'tools for writing emails')"
-          className="w-full px-6 py-4 text-lg rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-          style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-700)', color: 'white' }}
+          className="w-full px-6 py-4 text-lg rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-900)] border border-[var(--gray-700)] text-white"
         />
-        <HugeiconsIcon icon={Search01Icon} className="absolute right-4 top-1/2 transform -translate-y-1/2 h-6 w-6" style={{ color: 'var(--gray-500)' }} />
+        <HugeiconsIcon icon={Search01Icon} className="absolute right-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[var(--gray-500)]" />
       </div>
     </div>
   );

@@ -30,14 +30,14 @@ export default function NewsPage() {
   }, [selectedCategory]);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+    <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
       
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4">News & Insights</h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-[var(--gray-400)] text-lg max-w-2xl mx-auto">
             Stay updated with the latest AI tools, tips, and industry insights for founders and entrepreneurs.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function NewsPage() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedCategory === category
                   ? 'text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  : 'bg-[var(--gray-800)] text-[var(--gray-300)] hover:bg-[var(--gray-700)]'
               }`}
               style={selectedCategory === category ? { backgroundColor: 'var(--brand-primary)' } : {}}
             >
@@ -63,7 +63,7 @@ export default function NewsPage() {
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {loading ? (
-            <div className="col-span-full text-center text-gray-400">Loading...</div>
+            <div className="col-span-full text-center text-[var(--gray-400)]">Loading...</div>
           ) : (
             news.map((article) => (
               <NewsCard key={article.id} article={{
@@ -76,7 +76,7 @@ export default function NewsPage() {
 
         {/* Load More Button */}
         <div className="text-center mt-12">
-          <button className="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+          <button className="bg-[var(--gray-800)] text-white px-6 py-3 rounded-lg hover:bg-[var(--gray-700)] transition-colors">
             Load More Articles
           </button>
         </div>

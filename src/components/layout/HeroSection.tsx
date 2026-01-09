@@ -17,8 +17,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="text-white py-20 px-6"
-      style={{ backgroundColor: "var(--gray-black)" }}
+      className="text-white py-20 px-6 bg-[var(--gray-black)]"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
@@ -27,7 +26,7 @@ export default function HeroSection() {
             <br />
             the Right AI Tools Superfast
           </h1>
-          <p className="text-md mb-8" style={{color: "var(--gray-400"}}>
+          <p className="text-md mb-8 text-[var(--gray-400)]">
             Discover the right AI tools crafted to boost your startup's
             productivity. Explore curated solutions designed to streamline
             workflows and accelerate growth. Make smarter decisions faster with

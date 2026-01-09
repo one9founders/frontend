@@ -75,14 +75,14 @@ export default function SubmitToolPage() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+    <div className="min-h-screen bg-[var(--gray-black)]">
       {/* Navigation */}
-      <nav className="px-6 py-4" style={{ backgroundColor: 'var(--gray-black)', borderBottom: '1px solid var(--gray-800)' }}>
+      <nav className="px-6 py-4 bg-[var(--gray-black)] border-b border-[var(--gray-800)]">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8" draggable={false} />
           </Link>
-          <Link href="/" className="text-gray-400 hover:text-white">
+          <Link href="/" className="text-[var(--gray-400)] hover:text-white">
             ← Back to Home
           </Link>
         </div>
@@ -94,7 +94,7 @@ export default function SubmitToolPage() {
           <h1 className="text-5xl font-bold text-white mb-6">
             Submit an AI Tool
           </h1>
-          <p className="text-xl text-gray-300 mb-12">
+          <p className="text-xl text-[var(--gray-300)] mb-12">
             Help fellow founders discover amazing AI tools by submitting your recommendations
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function SubmitToolPage() {
       {/* Form Section */}
       <section className="py-16 px-6">
         <div className="max-w-2xl mx-auto">
-          <div className="rounded-lg p-8" style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }}>
+          <div className="rounded-lg p-8 bg-[var(--gray-900)] border border-[var(--gray-800)]">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Tool Name */}
               <div>
@@ -117,8 +117,7 @@ export default function SubmitToolPage() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g., ChatGPT, Midjourney, Notion AI"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -136,8 +135,7 @@ export default function SubmitToolPage() {
                   onChange={handleChange}
                   placeholder="Brief one-liner about the tool"
                   maxLength={200}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -153,11 +151,10 @@ export default function SubmitToolPage() {
                   onChange={handleChange}
                   placeholder="Describe what this tool does and how it helps founders/startups..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
-                <p className="text-sm text-gray-400 mt-1">
+                <p className="text-sm text-[var(--gray-400)] mt-1">
                   Be specific about the tool's features and benefits for startups
                 </p>
               </div>
@@ -174,8 +171,7 @@ export default function SubmitToolPage() {
                   value={formData.website}
                   onChange={handleChange}
                   placeholder="https://example.com"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -192,8 +188,7 @@ export default function SubmitToolPage() {
                   value={formData.logo_url}
                   onChange={handleChange}
                   placeholder="https://example.com/logo.jpg"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -209,8 +204,7 @@ export default function SubmitToolPage() {
                   onChange={handleChange}
                   placeholder="e.g., Free tier available, Paid plans start at $10/month"
                   rows={2}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -226,8 +220,7 @@ export default function SubmitToolPage() {
                   value={formData.submitter_name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -244,8 +237,7 @@ export default function SubmitToolPage() {
                   value={formData.submitter_email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -255,11 +247,9 @@ export default function SubmitToolPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{ 
-                    backgroundColor: loading ? 'var(--gray-700)' : 'var(--brand-primary)',
-                    color: 'white'
-                  }}
+                  className={`w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-white ${
+                    loading ? 'bg-[var(--gray-700)]' : 'bg-[var(--brand-primary)]'
+                  }`}
                 >
                   {loading ? 'Submitting...' : 'Submit Tool'}
                 </button>
@@ -277,13 +267,13 @@ export default function SubmitToolPage() {
       </section>
 
       {/* Guidelines Section */}
-      <section className="py-16 px-6" style={{ backgroundColor: 'var(--gray-900)' }}>
+      <section className="py-16 px-6 bg-[var(--gray-900)]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white text-center mb-12">Submission Guidelines</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-xl font-bold text-white mb-4">What We're Looking For</h3>
-              <ul className="space-y-3 text-gray-300">
+              <ul className="space-y-3 text-[var(--gray-300)]">
                 <li className="flex items-start">
                   <span className="text-green-400 mr-2">✓</span>
                   AI-powered tools that solve real business problems
@@ -304,7 +294,7 @@ export default function SubmitToolPage() {
             </div>
             <div>
               <h3 className="text-xl font-bold text-white mb-4">Please Avoid</h3>
-              <ul className="space-y-3 text-gray-300">
+              <ul className="space-y-3 text-[var(--gray-300)]">
                 <li className="flex items-start">
                   <span className="text-red-400 mr-2">✗</span>
                   Duplicate submissions of existing tools
@@ -331,7 +321,7 @@ export default function SubmitToolPage() {
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Help Build the Directory</h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-[var(--gray-300)] mb-8">
             Every submission helps fellow founders discover tools that can accelerate their growth. 
             Your contribution makes a difference in the startup community.
           </p>
@@ -347,8 +337,8 @@ export default function SubmitToolPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6" style={{ backgroundColor: 'var(--gray-black)', borderTop: '1px solid var(--gray-800)' }}>
-        <div className="max-w-7xl mx-auto text-center text-gray-400">
+      <footer className="py-8 px-6 bg-[var(--gray-black)] border-t border-[var(--gray-800)]">
+        <div className="max-w-7xl mx-auto text-center text-[var(--gray-400)]">
           <p>&copy; 2024 One9Founders. Built for founders, by founders.</p>
         </div>
       </footer>

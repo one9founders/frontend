@@ -6,7 +6,7 @@ import Footer from "../components/layout/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+    <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
       <HeroSection />
       <PortfolioSection />

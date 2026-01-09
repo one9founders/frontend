@@ -28,7 +28,7 @@ export default function NewsDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+      <div className="min-h-screen bg-[var(--gray-black)]">
         <Navbar />
         <div className="max-w-4xl mx-auto px-6 py-12 text-center">
           <div className="text-white">Loading...</div>
@@ -40,7 +40,7 @@ export default function NewsDetailPage() {
 
   if (!article) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+      <div className="min-h-screen bg-[var(--gray-black)]">
         <Navbar />
         <div className="max-w-4xl mx-auto px-6 py-12 text-center">
           <h1 className="text-2xl text-white">Article not found</h1>
@@ -51,19 +51,19 @@ export default function NewsDetailPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+    <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
       
       <article className="max-w-4xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="mb-8">
           <div className="mb-4">
-            <span className="text-white text-sm px-3 py-1 rounded-full" style={{ backgroundColor: 'var(--brand-primary)' }}>
+            <span className="text-white text-sm px-3 py-1 rounded-full bg-[var(--brand-primary)]">
               {article.category}
             </span>
           </div>
           <h1 className="text-4xl font-bold text-white mb-6">{article.title}</h1>
-          <div className="flex items-center text-gray-400 text-sm space-x-4">
+          <div className="flex items-center text-[var(--gray-400)] text-sm space-x-4">
             <span>By {article.author}</span>
             <span>•</span>
             <span>{new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>

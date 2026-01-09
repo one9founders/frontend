@@ -15,50 +15,50 @@ export default function Footer() {
   };
 
   return (
-    <footer className="px-6 py-16 m-4 md:m-12 rounded-3xl" style={{ backgroundColor: 'var(--gray-900)', borderTop: '1px solid var(--gray-800)' }}>
+    <footer className="px-6 py-16 m-4 md:m-12 rounded-3xl bg-[var(--gray-900)]  border-t border-[var(--gray-800)]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left: Logo and Social Media - flex 1 */}
           <div className="lg:flex-1">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8 mb-6" draggable={false} />
-            <p className="mb-6" style={{ color: 'var(--gray-400)', maxWidth: '320px' }}>
+            <p className="mb-6 text-[var(--gray-400)] max-w-80">
               Discover, compare, and choose the right AI tools for your startup
             </p>
             <div className="flex gap-4 flex-wrap">
               <a href="https://www.facebook.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={Facebook01Icon} size={24} />
               </a>
               <a href="https://www.instagram.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={InstagramIcon} size={24} />
               </a>
               <a href="https://threads.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={ThreadsIcon} size={24} />
               </a>
               <a href="https://x.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={NewTwitterIcon} size={24} />
               </a>
               {/* <a href="https://substack.com" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={NewsIcon} size={24} />
               </a> */}
               <a href="https://www.youtube.com/@One9Founders" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={YoutubeIcon} size={24} />
               </a>
               {/* <a href="https://discord.com" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={DiscordIcon} size={24} />
               </a> */}
               {/* <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={WhatsappIcon} size={24} />
               </a> */}
               <a href="https://in.linkedin.com/company/one9founders" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={Linkedin01Icon} size={24} />
               </a>
             </div>
@@ -70,25 +70,25 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-8">
               {/* Navigation */}
               <div>
-                <h3 className="font-semibold mb-4" style={{ color: 'var(--gray-200)' }}>Navigation</h3>
+                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Navigation</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href="/#tools-section" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                    <a href="/#tools-section" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Explore
                     </a>
                   </li>
                   <li>
-                    <a href="/deals" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                    <a href="/deals" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Deals
                     </a>
                   </li>
                   <li>
-                    <a href="/compare" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                    <a href="/compare" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Compare
                     </a>
                   </li>
                   <li>
-                    <a href="/news" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                    <a href="/news" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       News
                     </a>
                   </li>
@@ -97,20 +97,20 @@ export default function Footer() {
 
               {/* Company */}
               <div>
-                <h3 className="font-semibold mb-4" style={{ color: 'var(--gray-200)' }}>Company</h3>
+                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Company</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href="/about" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                    <a href="/about" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="/terms" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                    <a href="/terms" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Terms
                     </a>
                   </li>
                   <li>
-                    <a href="/policy" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--gray-400)' }}>
+                    <a href="/policy" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Privacy Policy
                     </a>
                   </li>
@@ -121,16 +121,16 @@ export default function Footer() {
             {/* Newsletter and Copyright row */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-end">
                     {/* Copyright */}
-                <p className="text-xs" style={{ color: 'var(--gray-600)' }}>
+                <p className="text-xs text-[var(--gray-600)]">
                   © 2025 One9Founders. All rights reserved.
                 </p>
               {/* Newsletter */}
               <div>
-                <h3 className="font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--gray-200)' }}>
+                <h3 className="font-semibold mb-4 flex items-center gap-2 text-[var(--gray-200)]">
                   <HugeiconsIcon icon={Mail01Icon} size={20} />
                   Newsletter
                 </h3>
-                <p className="mb-4 text-sm" style={{ color: 'var(--gray-400)' }}>
+                <p className="mb-4 text-sm text-[var(--gray-400)]">
                   Stay updated with the latest AI tools
                 </p>
                 <form onSubmit={handleSubmit} className="flex gap-2">
@@ -140,12 +140,7 @@ export default function Footer() {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="px-4 py-2 rounded-lg border focus:outline-none focus:ring-2"
-                    style={{
-                      backgroundColor: 'var(--gray-800)',
-                      borderColor: 'var(--gray-700)',
-                      color: 'var(--gray-200)'
-                    }}
+                    className="px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-200)]"
                   />
                   <button
                     type="submit"

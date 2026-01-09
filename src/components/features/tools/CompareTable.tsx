@@ -16,7 +16,7 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
         key={i} 
         icon={StarIcon}
         size={16} 
-        className={i < rating ? 'text-yellow-400' : 'text-gray-600'}
+        className={i < rating ? 'text-yellow-400' : 'text-[var(--gray-600)]'}
       />
     ));
   };
@@ -30,12 +30,12 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
   };
 
   return (
-    <div className="bg-gray-900 rounded-lg overflow-hidden">
+    <div className="bg-[var(--gray-900)] rounded-lg overflow-hidden">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
-            <tr className="border-b border-gray-800">
-              <td className="p-4 text-gray-400 font-medium">Feature</td>
+            <tr className="border-b border-[var(--gray-800)]">
+              <td className="p-4 text-[var(--gray-400)] font-medium">Feature</td>
               {tools.map((tool) => (
                 <td key={tool.id} className="p-4 text-center min-w-64">
                   <div className="relative">
@@ -51,24 +51,24 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                       className="w-16 h-16 object-cover rounded-lg mx-auto mb-2"
                     />
                     <h3 className="text-white font-bold text-lg">{tool.name}</h3>
-                    <p className="text-gray-400 text-sm">{tool.categories?.map((c: any) => c.name).join(', ')}</p>
+                    <p className="text-[var(--gray-400)] text-sm">{tool.categories?.map((c: any) => c.name).join(', ')}</p>
                   </div>
                 </td>
               ))}
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b border-gray-800">
-              <td className="p-4 text-gray-400 font-medium">Description</td>
+            <tr className="border-b border-[var(--gray-800)]">
+              <td className="p-4 text-[var(--gray-400)] font-medium">Description</td>
               {tools.map((tool) => (
-                <td key={tool.id} className="p-4 text-gray-300 text-sm">
+                <td key={tool.id} className="p-4 text-[var(--gray-300)] text-sm">
                   {tool.description}
                 </td>
               ))}
             </tr>
             
-            <tr className="border-b border-gray-800">
-              <td className="p-4 text-gray-400 font-medium">Pricing</td>
+            <tr className="border-b border-[var(--gray-800)]">
+              <td className="p-4 text-[var(--gray-400)] font-medium">Pricing</td>
               {tools.map((tool) => (
                 <td key={tool.id} className="p-4 text-center">
                   <span className="text-cyan-400 font-bold text-lg">
@@ -78,22 +78,22 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
               ))}
             </tr>
 
-            <tr className="border-b border-gray-800">
-              <td className="p-4 text-gray-400 font-medium">Rating</td>
+            <tr className="border-b border-[var(--gray-800)]">
+              <td className="p-4 text-[var(--gray-400)] font-medium">Rating</td>
               {tools.map((tool) => (
                 <td key={tool.id} className="p-4 text-center">
                   <div className="flex justify-center mb-1">
                     {getRatingStars(tool.rating)}
                   </div>
-                  <span className="text-gray-400 text-sm">
+                  <span className="text-[var(--gray-400)] text-sm">
                     {tool.rating ? `${tool.rating}/5` : 'N/A'} ({tool.review_count || 0} reviews)
                   </span>
                 </td>
               ))}
             </tr>
 
-            <tr className="border-b border-gray-800">
-              <td className="p-4 text-gray-400 font-medium">Free Trial</td>
+            <tr className="border-b border-[var(--gray-800)]">
+              <td className="p-4 text-[var(--gray-400)] font-medium">Free Trial</td>
               {tools.map((tool) => (
                 <td key={tool.id} className="p-4 text-center">
                   <div className="flex items-center justify-center gap-1">
@@ -104,8 +104,8 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                       </>
                     ) : (
                       <>
-                        <HugeiconsIcon icon={Cancel02Icon} size={16} className="text-gray-500" />
-                        <span className="text-gray-500">No</span>
+                        <HugeiconsIcon icon={Cancel02Icon} size={16} className="text-[var(--gray-500)]" />
+                        <span className="text-[var(--gray-500)]">No</span>
                       </>
                     )}
                   </div>
@@ -114,15 +114,15 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
             </tr>
 
             {tools.some(tool => tool.tags && tool.tags.length > 0) && (
-              <tr className="border-b border-gray-800">
-                <td className="p-4 text-gray-400 font-medium">Tags</td>
+              <tr className="border-b border-[var(--gray-800)]">
+                <td className="p-4 text-[var(--gray-400)] font-medium">Tags</td>
                 {tools.map((tool) => (
                   <td key={tool.id} className="p-4">
                     <div className="flex flex-wrap gap-1 justify-center">
                       {(tool.tags || []).slice(0, 3).map((tag, index) => (
                         <span
                           key={index}
-                          className="px-2 py-1 text-xs bg-gray-700 text-gray-300 rounded-full"
+                          className="px-2 py-1 text-xs bg-[var(--gray-700)] text-[var(--gray-300)] rounded-full"
                         >
                           {tag}
                         </span>
@@ -134,11 +134,11 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
             )}
 
             {tools.some(tool => tool.use_cases && tool.use_cases.length > 0) && (
-              <tr className="border-b border-gray-800">
-                <td className="p-4 text-gray-400 font-medium">Use Cases</td>
+              <tr className="border-b border-[var(--gray-800)]">
+                <td className="p-4 text-[var(--gray-400)] font-medium">Use Cases</td>
                 {tools.map((tool) => (
                   <td key={tool.id} className="p-4">
-                    <ul className="text-gray-300 text-sm space-y-1">
+                    <ul className="text-[var(--gray-300)] text-sm space-y-1">
                       {(tool.use_cases || []).slice(0, 3).map((useCase, index) => (
                         <li key={index} className="text-center">• {useCase}</li>
                       ))}
@@ -149,7 +149,7 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
             )}
 
             <tr>
-              <td className="p-4 text-gray-400 font-medium">Actions</td>
+              <td className="p-4 text-[var(--gray-400)] font-medium">Actions</td>
               {tools.map((tool) => (
                 <td key={tool.id} className="p-4 text-center">
                   <div className="space-y-2">
@@ -164,7 +164,7 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                     </a>
                     <a
                       href={`/tool/${tool.slug}`}
-                      className="block w-full py-2 px-4 bg-gray-700 text-white rounded-lg hover:bg-gray-600 text-sm flex items-center justify-center gap-2"
+                      className="block w-full py-2 px-4 bg-[var(--gray-700)] text-white rounded-lg hover:bg-[var(--gray-600)] text-sm flex items-center justify-center gap-2"
                     >
                       <HugeiconsIcon icon={ViewIcon} size={16} />
                       View Details

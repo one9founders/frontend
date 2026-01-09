@@ -94,7 +94,7 @@ export default function AdminPage() {
 
   const loadTools = async () => {
     const allTools = await getAllTools();
-    setTools(allTools);
+    setTools(Array.isArray(allTools) ? allTools : []);
   };
 
   const handleEdit = (tool: Tool) => {
@@ -191,14 +191,14 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+    <div className="min-h-screen bg-[var(--gray-black)]">
       {/* Navigation */}
-      <nav className="px-6 py-4" style={{ backgroundColor: 'var(--gray-black)', borderBottom: '1px solid var(--gray-800)' }}>
+      <nav className="px-6 py-4 bg-[var(--gray-black)] border-b border-[var(--gray-800)]">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8" draggable={false} />
           </Link>
-          <Link href="/" className="text-gray-400 hover:text-white">
+          <Link href="/" className="text-[var(--gray-400)] hover:text-white">
             ← Back to Home
           </Link>
         </div>
@@ -214,7 +214,7 @@ export default function AdminPage() {
             className={`px-6 py-3 rounded-t-lg font-medium transition-colors ${
               activeTab === 'single' 
                 ? 'bg-purple-600 text-white' 
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                : 'bg-[var(--gray-800)] text-[var(--gray-300)] hover:bg-[var(--gray-700)]'
             }`}
           >
             Single Tool
@@ -224,7 +224,7 @@ export default function AdminPage() {
             className={`px-6 py-3 rounded-t-lg font-medium transition-colors ${
               activeTab === 'bulk' 
                 ? 'bg-purple-600 text-white' 
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                : 'bg-[var(--gray-800)] text-[var(--gray-300)] hover:bg-[var(--gray-700)]'
             }`}
           >
             Bulk Upload
@@ -233,7 +233,7 @@ export default function AdminPage() {
 
         {/* Single Tool Form */}
         {activeTab === 'single' && (
-          <div className="rounded-lg p-8 mb-8" style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }}>
+          <div className="rounded-lg p-8 mb-8 bg-[var(--gray-900)] border border-[var(--gray-800)]">
             <h2 className="text-2xl font-semibold text-white mb-6">
               {editingTool ? 'Edit Tool' : 'Add New Tool'}
             </h2>
@@ -246,8 +246,7 @@ export default function AdminPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                     required
                   />
                 </div>
@@ -259,8 +258,7 @@ export default function AdminPage() {
                     value={formData.short_description}
                     onChange={handleChange}
                     maxLength={200}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -270,8 +268,7 @@ export default function AdminPage() {
                     name="website"
                     value={formData.website}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -281,8 +278,7 @@ export default function AdminPage() {
                     name="logo_url"
                     value={formData.logo_url}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -292,8 +288,7 @@ export default function AdminPage() {
                     name="pricing_from"
                     value={formData.pricing_from}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
 
@@ -304,8 +299,7 @@ export default function AdminPage() {
                     name="free_trial_days"
                     value={formData.free_trial_days}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -315,8 +309,7 @@ export default function AdminPage() {
                     name="video_demo_url"
                     value={formData.video_demo_url}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                    style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
               </div>
@@ -328,8 +321,7 @@ export default function AdminPage() {
                   value={formData.description}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -342,8 +334,7 @@ export default function AdminPage() {
                   value={formData.tags}
                   onChange={handleChange}
                   placeholder="e.g., AI, productivity, automation"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
               
@@ -355,8 +346,7 @@ export default function AdminPage() {
                   value={formData.use_cases}
                   onChange={handleChange}
                   placeholder="e.g., content creation, customer support, data analysis"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
               
@@ -368,8 +358,7 @@ export default function AdminPage() {
                   value={formData.features}
                   onChange={handleChange}
                   placeholder="e.g., AI-powered, Real-time collaboration"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
               
@@ -381,8 +370,7 @@ export default function AdminPage() {
                   onChange={handleChange}
                   rows={3}
                   placeholder="How this tool helps startups/founders"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical"
-                  style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -398,7 +386,7 @@ export default function AdminPage() {
                   <button
                     type="button"
                     onClick={resetForm}
-                    className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 font-medium transition-colors"
+                    className="px-6 py-3 bg-[var(--gray-600)] text-white rounded-lg hover:bg-[var(--gray-700)] font-medium transition-colors"
                   >
                     Cancel
                   </button>
@@ -410,13 +398,13 @@ export default function AdminPage() {
 
         {/* Bulk Upload */}
         {activeTab === 'bulk' && (
-          <div className="rounded-lg p-8 mb-8" style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }}>
+          <div className="rounded-lg p-8 mb-8 bg-[var(--gray-900)] border border-[var(--gray-800)]">
             <h2 className="text-2xl font-semibold text-white mb-6">Bulk Upload Tools</h2>
             
             <div className="space-y-6">
-              <div className="p-4 rounded-lg" style={{ backgroundColor: 'var(--gray-800)' }}>
+              <div className="p-4 rounded-lg bg-[var(--gray-800)]">
                 <h3 className="text-lg font-medium text-white mb-3">Instructions</h3>
-                <ul className="text-gray-300 space-y-2 text-sm">
+                <ul className="text-[var(--gray-300)] space-y-2 text-sm">
                   <li>• Upload a CSV file with tool data</li>
                   <li>• Required columns: name, description</li>
                   <li>• Optional columns: short_description, website, logo_url, pricing_from, free_trial_days, tags, use_cases, features</li>
@@ -449,9 +437,9 @@ export default function AdminPage() {
         )}
 
         {/* Tools List */}
-        <div className="rounded-lg p-8" style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }}>
+        <div className="rounded-lg p-8 bg-[var(--gray-900)] border border-[var(--gray-800)]">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-semibold text-white">All Tools ({tools.length})</h2>
+            <h2 className="text-2xl font-semibold text-white">All Tools ({Array.isArray(tools) ? tools.length : 0})</h2>
             <button
               onClick={loadTools}
               className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium transition-colors"
@@ -461,8 +449,8 @@ export default function AdminPage() {
           </div>
           
           <div className="grid gap-4">
-            {tools.map((tool) => (
-              <div key={tool.id} className="p-6 rounded-lg flex justify-between items-start" style={{ backgroundColor: 'var(--gray-800)' }}>
+            {Array.isArray(tools) && tools.map((tool) => (
+              <div key={tool.id} className="p-6 rounded-lg flex justify-between items-start bg-[var(--gray-800)]">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-semibold text-white">{tool.name}</h3>
@@ -472,7 +460,7 @@ export default function AdminPage() {
                       </span>
                     )}
                     {tool.verified && (
-                      <span className="px-2 py-1 text-xs rounded-full text-white font-medium" style={{ backgroundColor: 'var(--brand-primary)' }}>
+                      <span className="px-2 py-1 text-xs rounded-full text-white font-medium bg-[var(--brand-primary)]">
                         Verified
                       </span>
                     )}
@@ -483,8 +471,8 @@ export default function AdminPage() {
                     )}
                   </div>
                   <p className="text-purple-400 text-sm mb-2">{tool.categories?.map(c => c.name).join(', ') || 'Uncategorized'}</p>
-                  <p className="text-gray-300 text-sm mb-3">{tool.description?.substring(0, 150) || 'No description'}...</p>
-                  <div className="flex items-center gap-4 text-xs text-gray-400">
+                  <p className="text-[var(--gray-300)] text-sm mb-3">{tool.description?.substring(0, 150) || 'No description'}...</p>
+                  <div className="flex items-center gap-4 text-xs text-[var(--gray-400)]">
                     {tool.pricing_models && tool.pricing_models.length > 0 && (
                       <span>Pricing: {tool.pricing_models.join(', ')}</span>
                     )}
@@ -514,8 +502,8 @@ export default function AdminPage() {
             ))}
           </div>
           
-          {tools.length === 0 && (
-            <div className="text-center text-gray-400 py-12">
+          {(!Array.isArray(tools) || tools.length === 0) && (
+            <div className="text-center text-[var(--gray-400)] py-12">
               No tools found. Add some tools to get started.
             </div>
           )}

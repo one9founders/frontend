@@ -41,7 +41,7 @@ export default function DealCard({ deal }: DealCardProps) {
       className={`rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl ${
         deal.featured_deal 
           ? 'border-2' 
-          : 'bg-gray-900 border border-gray-800'
+          : 'bg-[var(--gray-900)] border border-[var(--gray-800)]'
       }`}
       style={deal.featured_deal ? { 
         background: 'linear-gradient(to bottom right, var(--brand-primary), var(--brand-tertiary))',
@@ -77,18 +77,18 @@ export default function DealCard({ deal }: DealCardProps) {
           {deal.tool_name}
         </h3>
         
-        <p className={`text-sm mb-2 ${deal.featured_deal ? 'text-white' : ''}`} style={!deal.featured_deal ? { color: 'var(--brand-light)' } : {}}>
+        <p className={`text-sm mb-2 ${deal.featured_deal ? 'text-white' : 'text-[var(--brand-light)]'}`}>
           {deal.offer_title}
         </p>
         
-        <p className={`text-sm mb-6 ${deal.featured_deal ? 'text-white/80' : 'text-gray-300'}`}>
+        <p className={`text-sm mb-6 ${deal.featured_deal ? 'text-white/80' : 'text-[var(--gray-300)]'}`}>
           {deal.tool_short_desc}
         </p>
 
         {/* Pricing */}
         <div className="flex items-center gap-3 mb-6">
           {deal.old_price && (
-            <span className={`text-lg line-through ${deal.featured_deal ? 'text-white/60' : 'text-gray-500'}`}>
+            <span className={`text-lg line-through ${deal.featured_deal ? 'text-white/60' : 'text-[var(--gray-500)]'}`}>
               ${deal.old_price}/mo
             </span>
           )}
@@ -103,14 +103,14 @@ export default function DealCard({ deal }: DealCardProps) {
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
             <HugeiconsIcon icon={Time01Icon} size={16} className="text-orange-400" />
-            <span className={`text-sm ${deal.featured_deal ? 'text-white' : 'text-gray-300'}`}>
+            <span className={`text-sm ${deal.featured_deal ? 'text-white' : 'text-[var(--gray-300)]'}`}>
               {isExpired ? 'Expired' : `Expires in ${daysLeft} days`}
             </span>
           </div>
           
           <div className="flex items-center gap-2">
             <HugeiconsIcon icon={ChartUpIcon} size={16} className="text-green-400" />
-            <span className={`text-sm ${deal.featured_deal ? 'text-white' : 'text-gray-300'}`}>
+            <span className={`text-sm ${deal.featured_deal ? 'text-white' : 'text-[var(--gray-300)]'}`}>
               {deal.claims_count} claimed
             </span>
           </div>
@@ -123,9 +123,9 @@ export default function DealCard({ deal }: DealCardProps) {
           rel="noopener noreferrer"
           className={`w-full py-3 px-4 rounded-lg font-semibold text-center block transition-colors flex items-center justify-center gap-2 ${
             isExpired
-              ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+              ? 'bg-[var(--gray-600)] text-[var(--gray-400)] cursor-not-allowed'
               : deal.featured_deal
-              ? 'bg-cyan-400 text-gray-900 hover:bg-cyan-300'
+              ? 'bg-cyan-400 text-[var(--gray-900)] hover:bg-cyan-300'
               : 'bg-cyan-500 text-white hover:bg-cyan-600'
           }`}
           onClick={isExpired ? (e) => e.preventDefault() : handleClaimDeal}

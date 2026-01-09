@@ -30,7 +30,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         key={i} 
         icon={StarIcon}
         size={16} 
-        className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}
+        className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-[var(--gray-600)]'}
       />
     ));
   };
@@ -58,8 +58,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
   };
 
   return (
-    <div className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full" 
-         style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }}>
+    <div className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full bg-[var(--gray-900)] border border-[var(--gray-800)]">
       
       {/* Content */}
       <div className="p-2 flex-1 flex flex-col">
@@ -83,13 +82,13 @@ export default function ToolCard({ tool }: ToolCardProps) {
               {tool.rating > 0 && (
                 <div className="flex items-center gap-1 flex-shrink-0">
                   <div className="flex">{getRatingStars()}</div>
-                  <span className="text-sm text-gray-400">{Number(tool.rating).toFixed(1)}</span>
+                  <span className="text-sm text-[var(--gray-400)]">{Number(tool.rating).toFixed(1)}</span>
                 </div>
               )}
             </div>
             
             {/* Description */}
-            <p className="text-sm text-gray-400 line-clamp-2 leading-tight">
+            <p className="text-sm text-[var(--gray-400)] line-clamp-2 leading-tight">
               {tool.short_description || tool.description}
             </p>
           </div>
@@ -99,7 +98,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         <div className="flex gap-2 mt-3">
           <Link
             href={`/tool/${tool.slug}`}
-            className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-gray-700 text-white hover:bg-gray-600 text-sm flex items-center justify-center gap-2"
+            className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-[var(--gray-700)] text-white hover:bg-[var(--gray-600)] text-sm flex items-center justify-center gap-2"
             onClick={handleViewDetails}
           >
             <HugeiconsIcon icon={ViewIcon} size={16} />

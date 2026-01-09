@@ -162,7 +162,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
 
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="rounded-lg p-8 max-w-md w-full" style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }} onClick={(e) => e.stopPropagation()}>
+      <div className="rounded-lg p-8 max-w-md w-full bg-[var(--gray-900)] border border-[var(--gray-800)]" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-2xl font-bold mb-6 text-white">{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -172,8 +172,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
               name="name"
               placeholder="Full Name"
               required
-              className="w-full px-4 py-2 rounded-lg text-white"
-              style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)' }}
+              className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
             />
           )}
           
@@ -182,8 +181,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             name="email"
             placeholder="Email"
             required
-            className="w-full px-4 py-2 rounded-lg text-white"
-            style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)' }}
+            className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
           />
           
           <input
@@ -191,8 +189,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             name="password"
             placeholder="Password"
             required
-            className="w-full px-4 py-2 rounded-lg text-white"
-            style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)' }}
+            className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
           />
 
           <CloudflareCheck onVerified={(token) => setTurnstileToken(token)} />
@@ -200,8 +197,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
           <button
             type="submit"
             disabled={isPending || !turnstileToken}
-            className="w-full py-2 rounded-lg text-white disabled:opacity-50"
-            style={{ backgroundColor: 'var(--brand-primary)' }}
+            className="w-full py-2 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)]"
           >
             {isPending ? 'Processing...' : mode === 'login' ? 'Login' : 'Sign Up'}
           </button>
@@ -210,22 +206,21 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
         <div className="mt-4">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full" style={{ borderTop: '1px solid var(--gray-700)' }}></div>
+              <div className="w-full border-t border-[var(--gray-700)]"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 text-gray-500" style={{ backgroundColor: 'var(--gray-900)' }}>Or continue with</span>
+              <span className="px-2 text-gray-500 bg-[var(--gray-900)]">Or continue with</span>
             </div>
           </div>
 
-          <div id="google-signin-button" className="mt-4" style={{ opacity: turnstileToken ? 1 : 0.5, pointerEvents: turnstileToken ? 'auto' : 'none' }}></div>
+          <div id="google-signin-button" className={`mt-4 ${turnstileToken ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'}`}></div>
         </div>
 
-        <p className="mt-4 text-center text-sm" style={{ color: 'var(--gray-500)' }}>
+        <p className="mt-4 text-center text-sm text-[var(--gray-500)]">
           {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
           <button
             onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
-            className="hover:underline"
-            style={{ color: 'var(--brand-primary)' }}
+            className="hover:underline text-[var(--brand-primary)]"
           >
             {mode === 'login' ? 'Sign Up' : 'Login'}
           </button>

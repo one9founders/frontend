@@ -25,7 +25,7 @@ export default function ToolPage({ params }: ToolPageProps) {
     if (!tool?.rating) return null;
     const rating = Number(tool.rating);
     return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-600'}>★</span>
+      <span key={i} className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-[var(--gray-600)]'}>★</span>
     ));
   };
 
@@ -94,7 +94,7 @@ export default function ToolPage({ params }: ToolPageProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+      <div className="min-h-screen bg-[var(--gray-black)]">
         <Navbar />
         <div className="flex items-center justify-center h-96">
           <div className="text-white">Loading...</div>
@@ -108,11 +108,11 @@ export default function ToolPage({ params }: ToolPageProps) {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--gray-black)' }}>
+    <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
       
       <div className="w-full mx-auto p-4 md:p-8">
-        <div className="bg-gray-900 rounded-lg p-4 md:p-8">
+        <div className="bg-[var(--gray-900)] rounded-lg p-4 md:p-8">
           <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
             {/* Left Side - 30% */}
             <div className="lg:w-3/10">
@@ -131,7 +131,7 @@ export default function ToolPage({ params }: ToolPageProps) {
                 <div className="flex-1">
                   <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">{tool.name}</h1>
                   {tool.short_description && (
-                    <p className="text-gray-400 text-base md:text-lg mt-1 leading-tight">{tool.short_description}</p>
+                    <p className="text-[var(--gray-400)] text-base md:text-lg mt-1 leading-tight">{tool.short_description}</p>
                   )}
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function ToolPage({ params }: ToolPageProps) {
                     {tool.tags.map((tag: string, index: number) => (
                       <span
                         key={index}
-                        className="bg-gray-800 text-gray-300 px-2 py-1 rounded-full text-xs"
+                        className="bg-[var(--gray-800)] text-[var(--gray-300)] px-2 py-1 rounded-full text-xs"
                       >
                         {tag}
                       </span>
@@ -192,7 +192,7 @@ export default function ToolPage({ params }: ToolPageProps) {
                 
                 {/* Categories */}
                 <div className="mb-2">
-                  <span className="text-gray-400 text-sm">Categories: </span>
+                  <span className="text-[var(--gray-400)] text-sm">Categories: </span>
                   <span className="text-white text-sm">
                     {tool.categories?.map((c: any) => c.name).join(', ') || 'N/A'}
                   </span>
@@ -200,9 +200,9 @@ export default function ToolPage({ params }: ToolPageProps) {
                 
                 {/* Rating */}
                 <div className="mb-4 flex items-center gap-2">
-                  <span className="text-gray-400 text-sm">Rating:</span>
+                  <span className="text-[var(--gray-400)] text-sm">Rating:</span>
                   <div className="flex">{getRatingStars()}</div>
-                  <span className="text-gray-400 text-sm">{tool.rating} ({tool.review_count} reviews)</span>
+                  <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
                 </div>
                 
                 {/* Visit Button */}
@@ -234,7 +234,7 @@ export default function ToolPage({ params }: ToolPageProps) {
               <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4 text-sm md:text-base">
                 {tool.pricing_models?.length > 0 && (
                   <div>
-                    <span className="text-gray-400">Pricing:</span>
+                    <span className="text-[var(--gray-400)]">Pricing:</span>
                     <span className="text-white ml-2">
                       {tool.pricing_models.join(', ')}
                       {tool.pricing_from && ` from $${tool.pricing_from}`}
@@ -243,7 +243,7 @@ export default function ToolPage({ params }: ToolPageProps) {
                 )}
                 {tool.free_trial_days && (
                   <div>
-                    <span className="text-gray-400">Free Trial:</span>
+                    <span className="text-[var(--gray-400)]">Free Trial:</span>
                     <span className="text-green-400 ml-2">{tool.free_trial_days} days</span>
                   </div>
                 )}
@@ -254,14 +254,14 @@ export default function ToolPage({ params }: ToolPageProps) {
           {/* Full Width Description */}
           <div className="mt-8">
             <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Description</h3>
-            <p className="text-gray-300 text-sm md:text-base leading-relaxed">{tool.description}</p>
+            <p className="text-[var(--gray-300)] text-sm md:text-base leading-relaxed">{tool.description}</p>
           </div>
           
           {/* Use Cases */}
           {tool.use_cases && tool.use_cases.length > 0 && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Use Cases</h3>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
+              <ul className="list-disc list-inside text-[var(--gray-300)] space-y-2">
                 {tool.use_cases.map((useCase: string, index: number) => (
                   <li key={index}>{useCase}</li>
                 ))}
@@ -273,7 +273,7 @@ export default function ToolPage({ params }: ToolPageProps) {
           {tool.features && tool.features.length > 0 && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Features</h3>
-              <ul className="list-disc list-inside text-gray-300 space-y-2">
+              <ul className="list-disc list-inside text-[var(--gray-300)] space-y-2">
                 {tool.features.map((feature: string, index: number) => (
                   <li key={index}>{feature}</li>
                 ))}
@@ -285,7 +285,7 @@ export default function ToolPage({ params }: ToolPageProps) {
           {tool.startup_benefits && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Startup Benefits</h3>
-              <p className="text-gray-300">{tool.startup_benefits}</p>
+              <p className="text-[var(--gray-300)]">{tool.startup_benefits}</p>
             </div>
           )}
         </div>
@@ -313,7 +313,7 @@ export default function ToolPage({ params }: ToolPageProps) {
               />
               <button
                 onClick={() => setShowReviewForm(false)}
-                className="mt-4 text-gray-400 hover:text-white"
+                className="mt-4 text-[var(--gray-400)] hover:text-white"
               >
                 Cancel
               </button>
@@ -321,8 +321,8 @@ export default function ToolPage({ params }: ToolPageProps) {
           )}
           
           {reviews && reviews.length === 0 ? (
-            <div className="text-center py-12 bg-gray-900 rounded-lg">
-              <p className="text-gray-400 mb-4">
+            <div className="text-center py-12 bg-[var(--gray-900)] rounded-lg">
+              <p className="text-[var(--gray-400)] mb-4">
                 {user ? 
                   "Be the first to write about this tool!" : 
                   "Become the first to write about this tool"

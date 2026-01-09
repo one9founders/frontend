@@ -25,7 +25,7 @@ export default function PricingFilter({ selectedPricing, onPricingChange }: Pric
 
   return (
     <div className="mb-6">
-      <h3 className="text-sm font-medium text-gray-300 mb-3 flex items-center gap-2">
+      <h3 className="text-sm font-medium text-[var(--gray-300)] mb-3 flex items-center gap-2">
         <HugeiconsIcon icon={DollarCircleIcon} size={16} />
         Pricing Model
       </h3>
@@ -37,7 +37,7 @@ export default function PricingFilter({ selectedPricing, onPricingChange }: Pric
             className={`px-3 py-1 text-sm rounded-full transition-all ${
               selectedPricing.includes(option.value)
                 ? `${option.color} text-white`
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                : 'bg-[var(--gray-700)] text-[var(--gray-300)] hover:bg-[var(--gray-600)]'
             }`}
           >
             {option.label}

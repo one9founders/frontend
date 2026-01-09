@@ -45,6 +45,7 @@
   --gray-950: #0A0A0A;
   --gray-black: #0A0A0A;
 }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

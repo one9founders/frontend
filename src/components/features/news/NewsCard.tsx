@@ -28,9 +28,9 @@ export default function NewsCard({ article }: NewsCardProps) {
 
   return (
     <Link href={`/news/${article.id}`}>
-      <div className="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors cursor-pointer">
+      <div className="bg-[var(--gray-900)] rounded-lg overflow-hidden hover:bg-[var(--gray-800)] transition-colors cursor-pointer">
         {/* Image */}
-        <div className="aspect-video bg-gray-800 relative">
+        <div className="aspect-video bg-[var(--gray-800)] relative">
           <img 
             src={article.image} 
             alt={article.title}
@@ -41,7 +41,7 @@ export default function NewsCard({ article }: NewsCardProps) {
             }}
           />
           <div className="absolute top-3 left-3">
-            <span className="text-white text-xs px-2 py-1 rounded-full" style={{ backgroundColor: 'var(--brand-primary)' }}>
+            <span className="text-white text-xs px-2 py-1 rounded-full bg-[var(--brand-primary)]">
               {article.category}
             </span>
           </div>
@@ -53,12 +53,12 @@ export default function NewsCard({ article }: NewsCardProps) {
             {article.title}
           </h3>
           
-          <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+          <p className="text-[var(--gray-400)] text-sm mb-4 line-clamp-3">
             {article.description}
           </p>
 
           {/* Meta Info */}
-          <div className="flex items-center justify-between text-xs text-gray-500">
+          <div className="flex items-center justify-between text-xs text-[var(--gray-500)]">
             <div className="flex items-center space-x-3">
               <div className="flex items-center gap-1">
                 <HugeiconsIcon icon={UserIcon} size={12} />

@@ -144,7 +144,7 @@ export default function PortfolioSection() {
   };
 
   return (
-    <section id="tools-section" className="py-8 md:py-16 px-4 md:px-6" style={{ backgroundColor: 'var(--gray-black)' }}>
+    <section id="tools-section" className="py-8 md:py-16 px-4 md:px-6 bg-[var(--gray-black)]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-white">AI Tools Directory</h2>
         
@@ -158,15 +158,15 @@ export default function PortfolioSection() {
             {/* Category Filter */}
             {!isSearching && (
               <div className="w-full">
-                <h3 className="text-sm font-medium text-gray-300 mb-3">Categories</h3>
+                <h3 className="text-sm font-medium text-[var(--gray-300)] mb-3">Categories</h3>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
                     <button
                       key={tag}
-                      className={`px-2 md:px-3 py-1 text-xs md:text-sm rounded-full transition-colors ${
+                      className={`px-2 md:px-3 py-1 text-xs md:text-sm rounded-full transition-colors border-1 cursor-pointer ${
                         selectedTag === tag 
-                          ? 'bg-purple-600 text-white' 
-                          : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                             ? 'bg-[var(--gray-50)] border-[var(--gray-300)] text-[var(--gray-800)]' 
+                          : 'bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-300)] hover:text-gray-300 hover:bg-[var(--gray-700)] hover:border-[var(--gray-600)]'
                       }`}
                       onClick={() => handleTagChange(tag)}
                     >
@@ -187,11 +187,11 @@ export default function PortfolioSection() {
               </div>
               
               <div className="flex-1 md:max-w-xs">
-                <h3 className="text-sm font-medium text-gray-300 mb-3">Sort by</h3>
+                <h3 className="text-sm font-medium text-[var(--gray-300)] mb-3">Sort by</h3>
                 <select 
                   value={sortBy} 
                   onChange={(e) => handleSortChange(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-gray-700 text-white border border-gray-600"
+                  className="w-full px-3 py-2 rounded-lg bg-[var(--gray-700)] text-white border border-[var(--gray-600)]"
                 >
                   {isSearching && <option value="match">Best Match</option>}
                   <option value="name">Name</option>
@@ -205,7 +205,7 @@ export default function PortfolioSection() {
 
         {/* Results Count */}
         {!loading && (
-          <div className="mb-6 text-gray-400 text-sm">
+          <div className="mb-6 text-[var(--gray-400)] text-sm">
             {isSearching ? (
               `${filteredTools.length} tools found for your search`
             ) : (
@@ -227,7 +227,7 @@ export default function PortfolioSection() {
         )}
         
         {!loading && filteredTools.length === 0 && (
-          <div className="text-center text-gray-400">
+          <div className="text-center text-[var(--gray-400)]">
             {isSearching ? "No tools found for your search." : "No tools available."}
           </div>
         )}

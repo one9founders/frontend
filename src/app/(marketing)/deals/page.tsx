@@ -10,13 +10,13 @@ export default async function DealsPage() {
   const regularDeals = deals.filter((deal: any) => !deal.featured_deal);
 
   return (
-    <div className="min-h-screen bg-gray-black">
+    <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
       
       <div className="max-w-7xl mx-auto p-8">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-white mb-4">AI Tool Deals & Offers</h1>
-          <p className="text-xl text-gray-300">Save money on the best AI tools for your startup</p>
+          <p className="text-xl text-[var(--gray-300)]">Save money on the best AI tools for your startup</p>
         </div>
 
         {featuredDeals.length > 0 && (
@@ -40,7 +40,7 @@ export default async function DealsPage() {
         </section>
 
         {deals.length === 0 && (
-          <div className="text-center text-gray-400 py-16">
+          <div className="text-center text-[var(--gray-400)] py-16">
             <p>No deals available at the moment. Check back soon!</p>
           </div>
         )}

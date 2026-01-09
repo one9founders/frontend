@@ -83,7 +83,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
   };
 
   return (
-    <div className="rounded-lg p-6" style={{ backgroundColor: 'var(--gray-900)', border: '1px solid var(--gray-800)' }}>
+    <div className="rounded-lg p-6 bg-[var(--gray-900)] border border-[var(--gray-800)]">
       <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
         <HugeiconsIcon icon={Edit01Icon} size={24} />
         Write a Review for {toolName}
@@ -98,7 +98,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
                 key={star}
                 type="button"
                 onClick={() => setFormData({ ...formData, rating: star })}
-                className={`${star <= formData.rating ? 'text-yellow-400' : 'text-gray-600'}`}
+                className={`${star <= formData.rating ? 'text-yellow-400' : 'text-[var(--gray-600)]'}`}
               >
                 <HugeiconsIcon 
                   icon={StarIcon}
@@ -117,8 +117,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
             value={formData.title}
             onChange={handleChange}
             placeholder="Great tool for..."
-            className="w-full px-3 py-2 rounded-lg"
-            style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+            className="w-full px-3 py-2 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
             required
           />
         </div>
@@ -131,16 +130,14 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
             onChange={handleChange}
             rows={4}
             placeholder="Share your experience with this tool..."
-            className="w-full px-3 py-2 rounded-lg resize-vertical"
-            style={{ backgroundColor: 'var(--gray-800)', border: '1px solid var(--gray-700)', color: 'white' }}
+            className="w-full px-3 py-2 rounded-lg resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50"
-          style={{ backgroundColor: 'var(--brand-primary)', color: 'white' }}
+          className="w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 bg-[var(--brand-primary)] text-white"
         >
           {loading ? 'Submitting...' : 'Submit Review'}
         </button>
