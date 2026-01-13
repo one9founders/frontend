@@ -38,4 +38,5 @@ export default function GoogleAuthButton({ onSuccess }: GoogleAuthButtonProps) {
   }, [onSuccess]);
 
   return <div id="google-signin-button"></div>;
+  
 }
