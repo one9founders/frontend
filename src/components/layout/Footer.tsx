@@ -133,18 +133,18 @@ export default function Footer() {
                 <p className="mb-4 text-sm text-[var(--gray-400)]">
                   Stay updated with the latest AI tools
                 </p>
-                <form onSubmit={handleSubmit} className="flex gap-2">
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-200)]"
+                    className="flex-1 px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-200)]"
                   />
                   <button
                     type="submit"
-                    className="btn-primary"
+                    className="btn-primary whitespace-nowrap"
                   >
                     Subscribe
                   </button>

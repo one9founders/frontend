@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon } from '@/components/ui/icons';
 import AuthModal from '@/components/features/auth/AuthModal';
@@ -12,7 +12,9 @@ export default function Navbar() {
   const [showAuth, setShowAuth] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const profileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getCurrentUser().then(setUser);
@@ -25,6 +27,22 @@ export default function Navbar() {
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
+        setIsProfileMenuOpen(false);
+      }
+    };
+
+    if (isProfileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isProfileMenuOpen]);
 
   const scrollToTools = () => {
     const toolsSection = document.querySelector('#tools-section');
@@ -49,7 +67,17 @@ export default function Navbar() {
     await logout();
     setUser(null);
     setIsMobileMenuOpen(false);
+    setIsProfileMenuOpen(false);
     window.location.reload();
+  };
+
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
   };
 
   return (
@@ -64,7 +92,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6">
-              <button onClick={scrollToTools} className={`hover:text-white ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
+              <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Explore
               </button>
               {/* <Link href="/deals" className={`hover:text-white ${pathname === '/deals' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
@@ -81,19 +109,45 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="flex items-center gap-4">
-              <button className="btn-primary px-4 py-2" onClick={handleSubmitTool}>
+              <Link href="/campus-internship" className="relative">
+                <button className="btn-primary px-4 py-2 hover:scale-105 transition-transform cursor-pointer">
+                  Join Our Team
+                </button>
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold animate-pulse">NEW</span>
+              </Link>
+              {/* <button className="btn-primary px-4 py-2" onClick={handleSubmitTool}>
                 Submit Tool
-              </button>
+              </button> */}
               {user ? (
-                <div className="flex items-center gap-4">
-                  <span className="text-[var(--gray-500)]">{user.name}</span>
-                  <button onClick={handleLogout} className="text-[var(--gray-500)] hover:text-white flex items-center gap-2">
-                    <HugeiconsIcon icon={Logout01Icon} size={16} />
-                    Logout
+                <div className="relative" ref={profileMenuRef}>
+                  <button
+                    onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--gray-800)] hover:bg-[var(--gray-700)] transition-colors overflow-hidden cursor-pointer"
+                  >
+                    {user.picture ? (
+                      <img src={user.picture} alt={user.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-white font-semibold text-sm">{getInitials(user.name)}</span>
+                    )}
                   </button>
+                  {isProfileMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg shadow-lg py-2 z-50">
+                      <div className="px-4 py-2 border-b border-[var(--gray-800)]">
+                        <p className="text-white text-sm font-medium truncate">{user.name}</p>
+                        <p className="text-[var(--gray-500)] text-xs truncate">{user.email}</p>
+                      </div>
+                      <button
+                        onClick={handleLogout}
+                        className="w-full px-4 py-2 text-left text-[var(--gray-500)] hover:text-white hover:bg-[var(--gray-800)] flex items-center gap-2 cursor-pointer"
+                      >
+                        <HugeiconsIcon icon={Logout01Icon} size={16} />
+                        Logout
+                      </button>
+                    </div>
+                  )}
                 </div>
               ) : (
-                <button onClick={() => setShowAuth(true)} className="text-[var(--gray-500)] hover:text-white">
+                <button onClick={() => setShowAuth(true)} className="text-[var(--gray-500)] hover:text-white cursor-pointer">
                   Login
                 </button>
               )}
@@ -102,7 +156,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -117,7 +171,7 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full right-0 left-0 bg-[var(--gray-900)] border-t border-[var(--gray-800)] z-50">
             <div className="flex flex-col gap-4 p-4">
-              <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left">
+              <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
                 Explore
               </button>
               {/* <Link href="/deals" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
@@ -133,19 +187,37 @@ export default function Navbar() {
                 About
               </Link>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
-                <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
+                <Link href="/campus-internship" onClick={() => setIsMobileMenuOpen(false)}>
+                  <button className="btn-primary px-4 py-2 text-left w-full relative cursor-pointer">
+                    Join Our Team
+                    <span className="absolute top-1 right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold">NEW</span>
+                  </button>
+                </Link>
+                {/* <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
                   Submit Tool
-                </button>
+                </button> */}
                 {user ? (
-                  <>
-                    <span className="text-[var(--gray-500)] text-sm">{user.name}</span>
-                    <button onClick={handleLogout} className="text-[var(--gray-500)] hover:text-white text-left flex items-center gap-2">
+                  <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--gray-800)] overflow-hidden flex-shrink-0">
+                        {user.picture ? (
+                          <img src={user.picture} alt={user.name} className="w-full h-full object-cover" />
+                        ) : (
+                          <span className="text-white font-semibold text-sm">{getInitials(user.name)}</span>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-white text-sm font-medium truncate">{user.name}</p>
+                        <p className="text-[var(--gray-500)] text-xs truncate">{user.email}</p>
+                      </div>
+                    </div>
+                    <button onClick={handleLogout} className="text-[var(--gray-500)] hover:text-white text-left flex items-center gap-2 cursor-pointer">
                       <HugeiconsIcon icon={Logout01Icon} size={16} />
                       Logout
                     </button>
-                  </>
+                  </div>
                 ) : (
-                  <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--gray-500)] hover:text-white text-left">
+                  <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
                     Login
                   </button>
                 )}

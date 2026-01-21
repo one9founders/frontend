@@ -34,8 +34,8 @@ export async function signUp(formData: FormData) {
   const data: AuthResponse = await response.json();
   
   const cookieStore = await cookies();
-  cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax' });
-  cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax' });
+  cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
+  cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
 
   return data.user;
 }
@@ -59,8 +59,8 @@ export async function login(formData: FormData) {
   const data: AuthResponse = await response.json();
   
   const cookieStore = await cookies();
-  cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax' });
-  cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax' });
+  cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
+  cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
 
   return data.user;
 }
@@ -80,8 +80,8 @@ export async function googleAuth(credential: string, turnstileToken: string) {
   const data: AuthResponse = await response.json();
   
   const cookieStore = await cookies();
-  cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax' });
-  cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax' });
+  cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
+  cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
 
   return data.user;
 }
