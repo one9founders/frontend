@@ -87,15 +87,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
 
         onClose();
         await Swal.fire('Success', `Welcome ${user.name}!`, 'success');
-
-        // Check for redirect URL
-        const redirectUrl = localStorage.getItem('redirectAfterLogin');
-        if (redirectUrl) {
-          localStorage.removeItem('redirectAfterLogin');
-          window.location.href = redirectUrl;
-        } else {
-          window.location.reload();
-        }
+        window.location.reload();
       } catch (error: any) {
         posthog.captureException(error);
         Swal.fire('Error', error.message, 'error');
@@ -144,15 +136,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
 
         onClose();
         await Swal.fire('Success', `Welcome ${user.name}!`, 'success');
-
-        // Check for redirect URL
-        const redirectUrl = localStorage.getItem('redirectAfterLogin');
-        if (redirectUrl) {
-          localStorage.removeItem('redirectAfterLogin');
-          window.location.href = redirectUrl;
-        } else {
-          window.location.reload();
-        }
+        window.location.reload();
       } catch (error: any) {
         posthog.captureException(error);
         Swal.fire('Error', error.message, 'error');
@@ -161,7 +145,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={onClose ? onClose : undefined}>
       <div className="rounded-lg p-8 max-w-md w-full bg-[var(--gray-900)] border border-[var(--gray-800)]" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-2xl font-bold mb-6 text-white">{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
         
