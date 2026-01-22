@@ -24,6 +24,7 @@ export default function Footer() {
             <p className="mb-6 text-[var(--gray-400)] max-w-80">
               Discover, compare, and choose the right AI tools for your startup
             </p>
+      
             <div className="flex gap-4 flex-wrap">
               <a href="https://www.facebook.com/one9founders" target="_blank" rel="noopener noreferrer" 
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
@@ -61,6 +62,12 @@ export default function Footer() {
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={Linkedin01Icon} size={24} />
               </a>
+            </div>
+                  <div className="flex items-center gap-2 mt-6">
+              <img src="/iitb-logo.png" alt="IIT Bombay" className="h-6" draggable={false} />
+              <p className="text-[var(--gray-400)] text-md">
+                Supported by <span className="font-bold">IIT Bombay</span>
+              </p>
             </div>
           </div>
 

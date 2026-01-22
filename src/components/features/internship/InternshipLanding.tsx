@@ -4,10 +4,10 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { Target02Icon, Settings01Icon, BotIcon, CheckmarkCircle01Icon, Clock01Icon, Mortarboard01Icon, File01Icon, ArtboardIcon, SparklesIcon } from '@hugeicons/core-free-icons';
 
 const tracks = [
-  { id: 'product', icon: Target02Icon, title: 'PRODUCT TRACK', desc: 'Audit our platform, suggest improvements, challenge our assumptions', perfect: 'Critical thinkers who spot what\'s broken', link: 'https://typeform.com/product' },
-  { id: 'uiux', icon: ArtboardIcon, title: 'UI/UX TRACK', desc: 'Analyze user experience, find friction points, design better flows', perfect: 'Design thinkers who understand users', link: 'https://typeform.com/uiux' },
-  { id: 'design', icon: SparklesIcon, title: 'DESIGN TRACK', desc: 'Evaluate our Instagram, audit brand identity, create visual magic', perfect: 'Creative minds who see beyond pixels', link: 'https://typeform.com/design' },
-  { id: 'tech', icon: Settings01Icon, title: 'TECH TRACK', desc: 'Help rank 2,500+ AI tools, solve technical challenges, build systems', perfect: 'Problem solvers who love tech', link: 'https://typeform.com/tech' }
+  { id: 'product', icon: Target02Icon, title: 'PRODUCT TRACK', desc: 'Audit our platform, suggest improvements, challenge our assumptions', perfect: 'Critical thinkers who spot what\'s broken', link: 'https://forms.zohopublic.in/teamone9fo1/form/JobApplicationForm1/formperma/UkKjmxQ9bv0yPs9vfEG4e4lda16CszvJJLAMtq8jNIc' },
+  { id: 'uiux', icon: ArtboardIcon, title: 'UI/UX TRACK', desc: 'Analyze user experience, find friction points, design better flows', perfect: 'Design thinkers who understand users', link: 'https://forms.zohopublic.in/teamone9fo1/form/UIUXInternApplicationForm/formperma/k0pOsKFeYuBsAWpM-o6CY2DBN1mv47TvISq4t7n_DSA' },
+  { id: 'design', icon: SparklesIcon, title: 'SOCIAL MEDIA TRACK', desc: 'Evaluate our Instagram, audit brand identity, create visual magic', perfect: 'Creative minds who see beyond pixels', link: 'https://forms.zohopublic.in/teamone9fo1/form/SocialMediaInternApplicationForm/formperma/fl4E8YeKJKAo9mai1lSwsA6fG1-mxh6DGJzBj_sJjQg' },
+  { id: 'tech', icon: Settings01Icon, title: 'TECH TRACK', desc: 'Help rank 2,500+ AI tools, solve technical challenges, build systems', perfect: 'Problem solvers who love tech', link: 'https://forms.zohopublic.in/teamone9fo1/form/TechInternApplicationForm/formperma/P7o_yUluyhXhGtCYthPhwaif6duAToFzANvM7HHak6w' }
 ];
 
 export default function InternshipLanding() {
@@ -23,14 +23,13 @@ export default function InternshipLanding() {
       {/* Hero */}
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-          Work with IIT Bombay IITians
-        </h1>
+Build the Future of AI Discovery with IIT Bombay        </h1>
         <h2 className="text-2xl md:text-4xl text-[var(--gray-400)] mb-6">
-          Build the Future of AI Discovery
+Join a funded research project supported by IIT Bombay and mentored by Prof. Ramesh Kuruva
         </h2>
-        <p className="text-lg text-[var(--gray-500)] mb-8">
+        {/* <p className="text-lg text-[var(--gray-500)] mb-8">
           Get hands-on startup experience mentored by Prof. Ramesh Kuruva
-        </p>
+        </p> */}
         <div className="flex justify-center">
           <button onClick={scrollToTracks} className="btn-primary px-8 py-4 text-lg cursor-pointer">
             APPLY NOW
@@ -42,28 +41,29 @@ export default function InternshipLanding() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
         <div className="md:col-span-2 bg-gradient-to-br from-[var(--brand-primary)]/20 to-[var(--gray-900)] border border-[var(--brand-primary)]/30 rounded-2xl p-8 flex flex-col justify-center">
           <HugeiconsIcon icon={Mortarboard01Icon} className="w-12 h-12 text-[var(--brand-primary)] mb-4" />
-          <h3 className="text-2xl font-bold text-white mb-2">Work with IIT Bombay Alumni</h3>
-          <p className="text-[var(--gray-400)]">Learn from experienced founders and get mentored by Prof. Ramesh Kuruva</p>
+          <h3 className="text-2xl font-bold text-white mb-2">IIT Bombay-Backed Startup</h3>
+          <p className="text-[var(--gray-400)]">Work with the founding team under Prof. Ramesh Kuruva's mentorship</p>
         </div>
         <div className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-2xl p-6 hover:border-[var(--brand-primary)]/50 transition-colors">
           <HugeiconsIcon icon={File01Icon} className="w-10 h-10 text-[var(--brand-primary)] mb-3" />
           <h4 className="text-lg font-semibold text-white mb-1">Letter of Recommendation</h4>
-          <p className="text-sm text-[var(--gray-500)]">From Prof. Ramesh Kuruva</p>
+          <p className="text-sm text-[var(--gray-500)]">From Prof. Ramesh Kuruva for standout contributors</p>
         </div>
         <div className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-2xl p-6 hover:border-[var(--brand-primary)]/50 transition-colors">
           <HugeiconsIcon icon={BotIcon} className="w-10 h-10 text-[var(--brand-primary)] mb-3" />
           <h4 className="text-lg font-semibold text-white mb-1">Premium AI Tools</h4>
-          <p className="text-sm text-[var(--gray-500)]">₹50,000+ worth</p>
+          <p className="text-sm text-[var(--gray-500)]">
+₹50,000+ worth of cutting-edge tools. Access to the latest AI technologies</p>
         </div>
         <div className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-2xl p-6 hover:border-[var(--brand-primary)]/50 transition-colors">
           <HugeiconsIcon icon={CheckmarkCircle01Icon} className="w-10 h-10 text-[var(--brand-primary)] mb-3" />
           <h4 className="text-lg font-semibold text-white mb-1">No Resume Needed</h4>
-          <p className="text-sm text-[var(--gray-500)]">Just your passion</p>
+          <p className="text-sm text-[var(--gray-500)]">Just your passion and the out of the box thinking</p>
         </div>
         <div className="bg-gradient-to-r from-red-500/20 to-[var(--gray-900)] border border-red-500/30 rounded-2xl p-6">
           <HugeiconsIcon icon={Clock01Icon} className="w-10 h-10 text-red-400 mb-3" />
           <h4 className="text-lg font-semibold text-white mb-1">Applications Close Soon</h4>
-          <p className="text-sm text-[var(--gray-400)]">January 30, 2025 - Don't miss out!</p>
+          <p className="text-sm text-[var(--gray-400)]">January 29, 2025 - Don't miss out!</p>
         </div>
       </div>
 
