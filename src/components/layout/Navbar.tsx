@@ -109,7 +109,7 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/campus-internship" className="relative">
+              <Link href="/internship" className="relative">
                 <button className="btn-primary px-4 py-2 hover:scale-105 transition-transform cursor-pointer">
                   Join Our Team
                 </button>
@@ -187,7 +187,7 @@ export default function Navbar() {
                 About
               </Link>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
-                <Link href="/campus-internship" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/internship" onClick={() => setIsMobileMenuOpen(false)}>
                   <button className="btn-primary px-4 py-2 text-left w-full relative cursor-pointer">
                     Join Our Team
                     <span className="absolute top-1 right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full font-semibold">NEW</span>

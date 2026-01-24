@@ -62,7 +62,7 @@ export default function QuestionnaireForm({ track, user, basicDetails }: { track
         ...basicDetails,
         answers
       });
-      router.push('/campus-internship/success');
+      router.push('/internship/success');
     } catch (error) {
       alert('Submission failed. Please try again.');
       setSubmitting(false);
