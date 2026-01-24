@@ -1,14 +1,27 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+function getCookie(name: string): string | undefined {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift();
+}
+
 async function fetchAPI(endpoint: string, options: RequestInit = {}) {
   try {
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      ...options.headers as Record<string, string>,
+    };
+    
+    const csrfToken = getCookie('csrftoken');
+    if (csrfToken && ['POST', 'PUT', 'PATCH', 'DELETE'].includes(options.method || 'GET')) {
+      headers['X-CSRFToken'] = csrfToken;
+    }
+    
     const response = await fetch(`${API_URL}${endpoint}`, {
       ...options,
       credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        ...options.headers,
-      },
+      headers,
     });
     
     if (!response.ok) {
