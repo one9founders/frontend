@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Tool, Category } from '@/types';
 import { HugeiconsIcon, Search01Icon, Cancel01Icon, StarIcon, CheckmarkCircle01Icon } from '@/components/ui/icons';
+import { searchTools } from '@/lib/actions/tools';
 
 interface ToolSelectorProps {
   tools: Tool[];
@@ -16,6 +17,64 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedPricing, setSelectedPricing] = useState<string>('all');
   const [showMore, setShowMore] = useState(false);
+  const [searchResults, setSearchResults] = useState<Tool[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+
+  // Debounced server-side search
+  useEffect(() => {
+    if (!searchQuery || searchQuery.length < 2) {
+      setSearchResults([]);
+      setHasSearched(false);
+      return;
+    }
+
+    const timeoutId = setTimeout(async () => {
+      setIsSearching(true);
+      try {
+        const results = await searchTools(searchQuery);
+        // Map search results to Tool format with all required fields
+        const mappedResults: Tool[] = (Array.isArray(results) ? results : []).map((r: any) => ({
+          id: r.id,
+          name: r.name,
+          slug: r.slug || '',
+          description: r.description || '',
+          short_description: r.short_description || '',
+          logo_url: r.logo_url,
+          website: r.website,
+          rating: r.rating || 0,
+          review_count: r.review_count || 0,
+          views_count: r.views_count || 0,
+          categories: r.categories || [],
+          pricing_models: r.pricing_models || [],
+          pricing_from: r.pricing_from,
+          free_tier_available: r.free_tier_available || false,
+          free_trial_days: r.free_trial_days,
+          tags: r.tags || [],
+          use_cases: r.use_cases || [],
+          integrations: r.integrations || [],
+          features: r.features || [],
+          platforms: r.platforms || [],
+          ideal_for: r.ideal_for || [],
+          startup_friendly: r.startup_friendly || false,
+          verified: r.verified || false,
+          is_featured: r.is_featured || false,
+          is_active: r.is_active !== false,
+          created_at: r.created_at || '',
+          updated_at: r.updated_at || '',
+        }));
+        setSearchResults(mappedResults);
+        setHasSearched(true);
+      } catch (error) {
+        console.error('Search error:', error);
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 300); // 300ms debounce
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery]);
 
   // Extract unique categories from tools
   const categories = useMemo(() => {
@@ -38,19 +97,21 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
     { value: 'paid', label: 'Paid' },
   ];
 
+  // Use search results when searching, otherwise use loaded tools
+  const baseTools = useMemo(() => {
+    if (hasSearched && searchQuery.length >= 2) {
+      return searchResults;
+    }
+    return Array.isArray(tools) ? tools : [];
+  }, [tools, searchResults, hasSearched, searchQuery]);
+
   const filteredTools = useMemo(() => {
-    return (Array.isArray(tools) ? tools : []).filter(tool => {
+    return baseTools.filter(tool => {
       // Exclude already selected tools
       if (selectedTools.find(selected => selected.id === tool.id)) return false;
       
-      // Search filter
-      if (searchQuery && !tool.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
-          !tool.description?.toLowerCase().includes(searchQuery.toLowerCase())) {
-        return false;
-      }
-      
-      // Category filter
-      if (selectedCategory !== 'all' && 
+      // Category filter (only apply when not using server search)
+      if (!hasSearched && selectedCategory !== 'all' && 
           !tool.categories?.some(cat => cat.slug === selectedCategory)) {
         return false;
       }
@@ -67,7 +128,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
       
       return true;
     });
-  }, [tools, selectedTools, searchQuery, selectedCategory, selectedPricing]);
+  }, [baseTools, selectedTools, selectedCategory, selectedPricing, hasSearched]);
 
   const displayedTools = showMore ? filteredTools : filteredTools.slice(0, 12);
 
@@ -122,7 +183,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             Select Tools to Compare
           </h2>
           <span className="text-[var(--gray-400)] text-sm">
-            {filteredTools.length} tools available
+            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `${filteredTools.length} tools available`}
           </span>
         </div>
         
@@ -137,7 +198,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             />
             <input
               type="text"
-              placeholder="Search tools by name or description..."
+              placeholder="Search all 26,000+ tools by name or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-10 py-3 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-purple-500 focus:outline-none transition-colors"
