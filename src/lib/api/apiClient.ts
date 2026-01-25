@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
 function getCookie(name: string): string | null {
   if (typeof document === 'undefined') return null;

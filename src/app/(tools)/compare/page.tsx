@@ -19,13 +19,16 @@ export default function ComparePage() {
   }, []);
 
   const loadTools = async () => {
-    const data = await getAllTools();
-    setTools(Array.isArray(data) ? data : []);
+    // Load more tools for the compare page (100 per page instead of default 20)
+    const data = await getAllTools({ page_size: 100 });
+    // Handle both array and paginated response formats
+    const toolsArray = Array.isArray(data) ? data : (data?.results || []);
+    setTools(toolsArray);
     setLoading(false);
   };
 
   const addTool = (tool: Tool) => {
-    if (selectedTools.length < 3 && !selectedTools.find(t => t.id === tool.id)) {
+    if (selectedTools.length < 4 && !selectedTools.find(t => t.id === tool.id)) {
       const newSelectedTools = [...selectedTools, tool];
       setSelectedTools(newSelectedTools);
 
@@ -41,17 +44,29 @@ export default function ComparePage() {
   };
 
   const removeTool = (toolId: number) => {
+    const removedTool = selectedTools.find(t => t.id === toolId);
     setSelectedTools(selectedTools.filter(t => t.id !== toolId));
+    
+    // Capture tool removal event
+    if (removedTool) {
+      posthog.capture('tool_removed_from_comparison', {
+        tool_id: removedTool.id,
+        tool_name: removedTool.name,
+        remaining_tools: selectedTools.filter(t => t.id !== toolId).map(t => t.name),
+      });
+    }
   };
 
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
       
-      <div className="max-w-7xl mx-auto p-8">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-white mb-4">Compare AI Tools</h1>
-          <p className="text-xl text-[var(--gray-300)]">Compare features, pricing, and ratings side by side</p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center mb-10">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Compare AI Tools</h1>
+          <p className="text-lg sm:text-xl text-[var(--gray-300)] max-w-2xl mx-auto">
+            Select up to 4 AI tools to compare features, pricing, and ratings side by side
+          </p>
         </div>
 
         <ToolSelector 
@@ -66,6 +81,24 @@ export default function ComparePage() {
             tools={selectedTools}
             onRemoveTool={removeTool}
           />
+        )}
+
+        {selectedTools.length === 0 && !loading && (
+          <div className="text-center py-16 bg-[var(--gray-900)] rounded-lg border border-[var(--gray-800)]">
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-xl font-semibold text-white mb-2">No tools selected</h3>
+            <p className="text-[var(--gray-400)]">
+              Select at least 2 tools from above to start comparing
+            </p>
+          </div>
+        )}
+
+        {selectedTools.length === 1 && (
+          <div className="text-center py-8 bg-yellow-900/20 rounded-lg border border-yellow-500/30">
+            <p className="text-yellow-400">
+              Select at least one more tool to see the comparison
+            </p>
+          </div>
         )}
       </div>
       
