@@ -19,7 +19,8 @@ export default function ComparePage() {
   }, []);
 
   const loadTools = async () => {
-    const data = await getAllTools();
+    // Load more tools for the compare page (100 per page instead of default 20)
+    const data = await getAllTools({ page_size: 100 });
     // Handle both array and paginated response formats
     const toolsArray = Array.isArray(data) ? data : (data?.results || []);
     setTools(toolsArray);
