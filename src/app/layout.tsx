@@ -14,18 +14,58 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "One9Founders - AI Tool Directory",
-  description: "Discover AI tools for founders and startups through intelligent semantic search",
-  icons: [
-    {
-      url: "/logo-light.svg",
-      media: "(prefers-color-scheme: light)",
+  metadataBase: new URL('https://one9founders.com'),
+  title: {
+    default: 'One9Founders - AI Tool Directory for Startups',
+    template: '%s | One9Founders',
+  },
+  description: 'Discover AI tools for founders and startups through intelligent semantic search. Find the best AI solutions to accelerate your business growth.',
+  keywords: ['AI tools', 'startup tools', 'founder resources', 'AI directory', 'semantic search', 'business tools'],
+  authors: [{ name: 'One9Founders' }],
+  creator: 'One9Founders',
+  publisher: 'One9Founders',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/logo-light.svg', media: '(prefers-color-scheme: light)' },
+      { url: '/logo-dark.svg', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://one9founders.com',
+    siteName: 'One9Founders',
+    title: 'One9Founders - AI Tool Directory for Startups',
+    description: 'Discover AI tools for founders and startups through intelligent semantic search',
+    images: [{
+      url: '/logo-light.png',
+      width: 1200,
+      height: 628,
+      alt: 'One9Founders',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'One9Founders - AI Tool Directory for Startups',
+    description: 'Discover AI tools for founders and startups through intelligent semantic search',
+    images: ['/logo-light.png'],
+    creator: '@one9founders',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
-    {
-      url: "/logo-dark.svg",
-      media: "(prefers-color-scheme: dark)",
-    },
-  ],
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +76,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="canonical" href="https://one9founders.com" />
         <script src="https://t.contentsquare.net/uxa/d11fb4e793d48.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-455BX3CJP8"></script>
         <script dangerouslySetInnerHTML={{

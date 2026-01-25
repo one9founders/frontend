@@ -1,7 +1,16 @@
+import { Metadata } from 'next';
+import { generateSEO } from '@/lib/utils/seo';
 import { getAllDeals } from '@/lib/actions/tools';
 import DealCard from '@/components/features/deals/DealCard';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+
+export const metadata: Metadata = generateSEO({
+  title: 'AI Tool Deals & Offers for Startups',
+  description: 'Save money on the best AI tools for your startup. Exclusive deals and discounts on top AI platforms for founders and entrepreneurs.',
+  path: '/deals',
+  keywords: ['AI tool deals', 'startup discounts', 'AI tool offers', 'founder deals', 'SaaS discounts'],
+});
 
 export default async function DealsPage() {
   const dealsData = await getAllDeals();

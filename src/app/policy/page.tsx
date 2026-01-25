@@ -1,5 +1,13 @@
+import { Metadata } from 'next';
+import { generateSEO } from '@/lib/utils/seo';
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
+
+export const metadata: Metadata = generateSEO({
+  title: 'Privacy Policy',
+  description: 'Learn how One9Founders collects, uses, and protects your personal information. Read our comprehensive privacy policy.',
+  path: '/policy',
+});
 
 export default function PrivacyPolicy() {
   return (

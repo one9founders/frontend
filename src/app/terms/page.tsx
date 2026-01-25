@@ -1,5 +1,13 @@
+import { Metadata } from 'next';
+import { generateSEO } from '@/lib/utils/seo';
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
+
+export const metadata: Metadata = generateSEO({
+  title: 'Terms of Service',
+  description: 'Read the terms of service for using One9Founders AI tool directory. Understand your rights and responsibilities when using our platform.',
+  path: '/terms',
+});
 
 export default function TermsOfService() {
   return (

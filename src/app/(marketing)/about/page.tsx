@@ -1,11 +1,46 @@
+import { Metadata } from 'next';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ContactCard from '@/components/ui/ContactCard';
 
+export const metadata: Metadata = generateSEO({
+  title: 'About Us - Meet the One9Founders Team',
+  description: 'Learn about One9Founders mission to empower startup founders with intelligent AI tool discovery. Meet our team and mentor from IIT Bombay.',
+  path: '/about',
+  keywords: ['about one9founders', 'startup team', 'AI tool directory team', 'IIT Bombay', 'founder resources'],
+});
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateStructuredData({
+              '@type': 'Organization',
+              name: 'One9Founders',
+              url: 'https://one9founders.com',
+              logo: 'https://one9founders.com/logo-light.png',
+              description: 'AI Tool Directory for Startups and Founders',
+              foundingDate: '2024',
+              founders: [
+                { '@type': 'Person', name: 'Amit Bhartiya', jobTitle: 'CEO' },
+                { '@type': 'Person', name: 'Arnav Gautam', jobTitle: 'CTO' },
+                { '@type': 'Person', name: 'Dinesh Sahu', jobTitle: 'CTO' },
+                { '@type': 'Person', name: 'Shreya Nair', jobTitle: 'CMO' },
+              ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                email: 'amitbhartiya.o9f@gmail.com',
+                contactType: 'Customer Service',
+              },
+            })
+          ),
+        }}
+      />
       <Navbar />
 
       {/* Hero Section */}
