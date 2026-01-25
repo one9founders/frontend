@@ -24,11 +24,19 @@ export const metadata: Metadata = {
   authors: [{ name: 'One9Founders' }],
   creator: 'One9Founders',
   publisher: 'One9Founders',
+  manifest: '/site.webmanifest',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/logo-light.svg', media: '(prefers-color-scheme: light)' },
-      { url: '/logo-dark.svg', media: '(prefers-color-scheme: dark)' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -39,9 +47,9 @@ export const metadata: Metadata = {
     title: 'One9Founders - AI Tool Directory for Startups',
     description: 'Discover AI tools for founders and startups through intelligent semantic search',
     images: [{
-      url: '/logo-light.png',
-      width: 1200,
-      height: 628,
+      url: '/android-chrome-512x512.png',
+      width: 512,
+      height: 512,
       alt: 'One9Founders',
     }],
   },
@@ -49,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'One9Founders - AI Tool Directory for Startups',
     description: 'Discover AI tools for founders and startups through intelligent semantic search',
-    images: ['/logo-light.png'],
+    images: ['/android-chrome-512x512.png'],
     creator: '@one9founders',
   },
   robots: {
