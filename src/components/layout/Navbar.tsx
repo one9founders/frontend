@@ -95,15 +95,9 @@ export default function Navbar() {
               <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Explore
               </button>
-              {/* <Link href="/deals" className={`hover:text-white ${pathname === '/deals' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Deals
-              </Link>
               <Link href="/compare" className={`hover:text-white ${pathname === '/compare' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Compare
               </Link>
-              <Link href="/news" className={`hover:text-white ${pathname === '/news' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                News
-              </Link> */}
               <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
@@ -174,15 +168,9 @@ export default function Navbar() {
               <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
                 Explore
               </button>
-              {/* <Link href="/deals" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
-                Deals
-              </Link>
               <Link href="/compare" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Compare
               </Link>
-              <Link href="/news" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
-                News
-              </Link> */}
               <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
