@@ -5,6 +5,7 @@ import { HugeiconsIcon, StarIcon, Edit01Icon } from '@/components/ui/icons';
 import { reviewsAPI } from '@/lib/api/apiClient';
 import { getCurrentUser } from '@/lib/actions/auth';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
+import { useReCaptcha } from '@/lib/recaptcha';
 import posthog from 'posthog-js';
 
 interface ReviewFormProps {
@@ -22,6 +23,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const { executeRecaptcha } = useReCaptcha();
 
   useEffect(() => {
     const loadUser = async () => {
@@ -40,7 +42,10 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
     setMessage('');
 
     try {
-      const reviewData = {
+      // Get reCAPTCHA token
+      const recaptchaToken = await executeRecaptcha('write_review');
+
+      const reviewData: Record<string, unknown> = {
         tool: toolId,
         user_name: user?.name || 'Anonymous',
         user_email: user?.email || '',
@@ -48,6 +53,10 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
         title: formData.title || `Review by ${user?.name || 'Anonymous'}`,
         comment: formData.comment || '' // Make comment optional
       };
+
+      if (recaptchaToken) {
+        reviewData.recaptcha_token = recaptchaToken;
+      }
 
       await reviewsAPI.create(reviewData);
 
