@@ -205,7 +205,7 @@ export default function PortfolioSection() {
         </div>
 
         {/* Results Count */}
-        {!loading && (
+        {!loading && !searchLoading && (
           <div className="mb-6 text-[var(--gray-400)] text-sm">
             {isSearching ? (
               `${filteredTools.length} tools found for your search`
@@ -227,7 +227,7 @@ export default function PortfolioSection() {
           </div>
         )}
         
-        {!loading && filteredTools.length === 0 && (
+        {!loading && !searchLoading && filteredTools.length === 0 && (
           <div className="text-center text-[var(--gray-400)]">
             {isSearching ? "No tools found for your search." : "No tools available."}
           </div>
