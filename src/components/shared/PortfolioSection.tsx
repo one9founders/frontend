@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { toolsAPI } from "@/lib/api/apiClient";
+import { searchTools } from "@/lib/actions/tools";
 import { Tool } from "@/types";
 import SearchInput from "./SearchInput";
 import ToolCard from "../features/tools/ToolCard";
@@ -118,7 +119,7 @@ export default function PortfolioSection() {
     setSortBy('match');
     setCurrentPage(1);
     try {
-      const results = await toolsAPI.search(query);
+      const results = await searchTools(query);
       setSearchResults(results);
 
       // Capture search event
