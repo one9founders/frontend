@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { HugeiconsIcon, StarIcon, ArrowUpRight01Icon, ViewIcon } from '@/components/ui/icons';
 import posthog from 'posthog-js';
+import { addRefToUrl } from '@/lib/utils/url';
 
 interface ToolCardProps {
   tool: Tool;
@@ -106,9 +107,9 @@ export default function ToolCard({ tool }: ToolCardProps) {
           </Link>
           {tool.website && (
             <a
-              href={tool.affiliate_url || tool.website}
+              href={addRefToUrl(tool.affiliate_url || tool.website)}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener nofollow"
               className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700 text-sm flex items-center justify-center gap-2"
               onClick={handleVisitTool}
             >

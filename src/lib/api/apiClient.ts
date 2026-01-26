@@ -130,3 +130,38 @@ export const submissionAPI = {
 export const healthAPI = {
   check: () => fetchAPI('/health/'),
 };
+
+export const trackingAPI = {
+  trackUsage: (toolId: number, sessionId?: string) =>
+    fetchAPI('/track/usage/', {
+      method: 'POST',
+      body: JSON.stringify({ tool_id: toolId, session_id: sessionId || '' }),
+    }),
+  trackClick: (toolId: number, action: string, sessionId?: string, referrer?: string) =>
+    fetchAPI('/track/click/', {
+      method: 'POST',
+      body: JSON.stringify({
+        tool_id: toolId,
+        action,
+        session_id: sessionId || '',
+        referrer: referrer || '',
+      }),
+    }),
+  trackSearch: (query: string, resultsCount: number, filters?: Record<string, any>, sessionId?: string) =>
+    fetchAPI('/track/search/', {
+      method: 'POST',
+      body: JSON.stringify({
+        query,
+        results_count: resultsCount,
+        filters: filters || {},
+        session_id: sessionId || '',
+      }),
+    }),
+  getUsageCount: (toolId: number) => fetchAPI(`/tools/${toolId}/usage-count/`),
+  getTrendingTools: (days?: number, limit?: number) => {
+    const params = new URLSearchParams();
+    if (days) params.append('days', days.toString());
+    if (limit) params.append('limit', limit.toString());
+    return fetchAPI(`/tools/trending/?${params.toString()}`);
+  },
+};

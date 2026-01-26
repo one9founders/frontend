@@ -1,9 +1,28 @@
 import { MetadataRoute } from 'next';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
+
+interface ToolSitemapItem {
+  slug: string;
+  updated_at?: string;
+}
+
+async function getAllToolSlugs(): Promise<ToolSitemapItem[]> {
+  try {
+    const response = await fetch(`${API_URL}/tools/?page_size=100`, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    return data.results || [];
+  } catch {
+    return [];
+  }
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://one9founders.com';
   
-  // Static pages
   const staticPages = [
     '',
     '/about',
@@ -21,14 +40,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // TODO: Add dynamic tool pages when you have the data
-  // const tools = await getAllTools();
-  // const toolPages = tools.map((tool) => ({
-  //   url: `${baseUrl}/tool/${tool.id}`,
-  //   lastModified: new Date(tool.updated_at),
-  //   changeFrequency: 'monthly' as const,
-  //   priority: 0.6,
-  // }));
+  const tools = await getAllToolSlugs();
+  const toolPages = tools.map((tool) => ({
+    url: `${baseUrl}/tool/${tool.slug}`,
+    lastModified: tool.updated_at ? new Date(tool.updated_at) : new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
 
-  return [...staticPages];
+  return [...staticPages, ...toolPages];
 }

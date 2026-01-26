@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { toolsAPI, reviewsAPI } from '@/lib/api/apiClient';
+import { toolsAPI, reviewsAPI, trackingAPI } from '@/lib/api/apiClient';
 import { getCurrentUser } from '@/lib/actions/auth';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import ReviewForm from '@/components/features/reviews/ReviewForm';
 import ReviewsList from '@/components/features/reviews/ReviewsList';
+import { addRefToUrl } from '@/lib/utils/url';
 
 interface ToolPageProps {
   params: Promise<{ id: string }>;
@@ -20,6 +21,8 @@ export default function ToolPage({ params }: ToolPageProps) {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState<string>('');
   const [mounted, setMounted] = useState(false);
+  const [usageCount, setUsageCount] = useState<number>(0);
+  const [hasMarkedUsage, setHasMarkedUsage] = useState(false);
 
   const getRatingStars = () => {
     if (!tool?.rating) return null;
@@ -68,6 +71,22 @@ export default function ToolPage({ params }: ToolPageProps) {
       const reviewsArray = reviewsData?.results || reviewsData || [];
       console.log('Reviews array:', reviewsArray);
       setReviews(reviewsArray);
+
+      // Load usage count
+      try {
+        const usageData = await trackingAPI.getUsageCount(toolData.id);
+        if (usageData) {
+          setUsageCount(usageData.usage_count || 0);
+        }
+      } catch (err) {
+        console.log('Could not load usage count');
+      }
+
+      // Check if user already marked usage (stored in localStorage)
+      if (typeof window !== 'undefined') {
+        const usedTools = JSON.parse(localStorage.getItem('usedTools') || '[]');
+        setHasMarkedUsage(usedTools.includes(toolData.id));
+      }
     } catch (error) {
       console.error('Error loading data:', error);
     } finally {
@@ -78,6 +97,27 @@ export default function ToolPage({ params }: ToolPageProps) {
   const handleReviewAdded = () => {
     loadData();
     setShowReviewForm(false);
+  };
+
+  const handleIUseThis = async () => {
+    if (!tool) return;
+    
+    try {
+      await trackingAPI.trackUsage(tool.id);
+      setUsageCount(prev => prev + 1);
+      setHasMarkedUsage(true);
+      
+      // Store in localStorage to prevent duplicate clicks
+      if (typeof window !== 'undefined') {
+        const usedTools = JSON.parse(localStorage.getItem('usedTools') || '[]');
+        if (!usedTools.includes(tool.id)) {
+          usedTools.push(tool.id);
+          localStorage.setItem('usedTools', JSON.stringify(usedTools));
+        }
+      }
+    } catch (error) {
+      console.error('Error tracking usage:', error);
+    }
   };
 
   const handleWriteReview = () => {
@@ -207,13 +247,33 @@ export default function ToolPage({ params }: ToolPageProps) {
                 
                 {/* Visit Button */}
                 <a
-                  href={tool.affiliate_url || tool.website}
+                  href={addRefToUrl(tool.affiliate_url || tool.website)}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener nofollow"
                   className="btn-primary inline-block px-4 py-2 font-semibold text-sm"
                 >
                   Visit {tool.name}
                 </a>
+                
+                {/* I Use This Tool Button */}
+                <div className="mt-4">
+                  <button
+                    onClick={handleIUseThis}
+                    disabled={hasMarkedUsage}
+                    className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors ${
+                      hasMarkedUsage
+                        ? 'bg-green-600 text-white cursor-default'
+                        : 'bg-[var(--gray-800)] text-white hover:bg-[var(--gray-700)]'
+                    }`}
+                  >
+                    {hasMarkedUsage ? 'You use this tool' : 'I use this tool'}
+                  </button>
+                  {usageCount > 0 && (
+                    <span className="ml-2 text-[var(--gray-400)] text-sm">
+                      {usageCount} {usageCount === 1 ? 'user' : 'users'}
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
             
