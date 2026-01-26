@@ -94,6 +94,8 @@ export interface News {
   tags: string[];
   reading_time: number;
   views_count: number;
+  upvote_count: number;
+  has_upvoted: boolean;
   is_featured: boolean;
   published_at: string;
   created_at: string;

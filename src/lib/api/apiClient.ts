@@ -104,6 +104,16 @@ export const dealsAPI = {
 export const newsAPI = {
   getAll: () => fetchAPI('/news/'),
   getBySlug: (slug: string) => fetchAPI(`/news/${slug}/`),
+  upvote: (newsId: number, sessionId?: string) =>
+    fetchAPI(`/news/${newsId}/upvote/`, {
+      method: 'POST',
+      headers: sessionId ? { 'X-Session-ID': sessionId } : {},
+    }),
+  removeUpvote: (newsId: number, sessionId?: string) =>
+    fetchAPI(`/news/${newsId}/upvote/remove/`, {
+      method: 'DELETE',
+      headers: sessionId ? { 'X-Session-ID': sessionId } : {},
+    }),
 };
 
 export const newsletterAPI = {
