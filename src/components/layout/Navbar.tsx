@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon } from '@/components/ui/icons';
+import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon, Search01Icon } from '@/components/ui/icons';
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
 import posthog from 'posthog-js';
@@ -91,19 +91,23 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <div className="flex gap-6">
+            <div className="flex gap-6 items-center">
               <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Explore
               </button>
-              <Link href="/news" className={`hover:text-white ${pathname === '/news' || pathname.startsWith('/news/') ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                News
-              </Link>
               <Link href="/compare" className={`hover:text-white ${pathname === '/compare' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Compare
               </Link>
               <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
+              <button
+                onClick={scrollToTools}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-600)] transition-colors cursor-pointer"
+              >
+                <HugeiconsIcon icon={Search01Icon} size={16} />
+                <span className="text-xs text-[var(--gray-500)]">&#8984;K</span>
+              </button>
             </div>
             <div className="flex items-center gap-4">
               <Link href="/internship" className="relative">
@@ -171,15 +175,19 @@ export default function Navbar() {
               <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
                 Explore
               </button>
-              <Link href="/news" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
-                News
-              </Link>
               <Link href="/compare" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Compare
               </Link>
               <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
+              <button
+                onClick={scrollToTools}
+                className="flex items-center gap-2 text-[var(--gray-500)] hover:text-white text-left cursor-pointer"
+              >
+                <HugeiconsIcon icon={Search01Icon} size={16} />
+                Search Tools
+              </button>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                 <Link href="/internship" onClick={() => setIsMobileMenuOpen(false)}>
                   <button className="btn-primary px-4 py-2 text-left w-full relative cursor-pointer">
