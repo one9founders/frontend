@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Tool, Category } from '@/types';
 import { HugeiconsIcon, Search01Icon, Cancel01Icon, StarIcon, CheckmarkCircle01Icon } from '@/components/ui/icons';
 import { searchTools } from '@/lib/actions/tools';
+import ToolLogo from '@/components/shared/ToolLogo';
 
 interface ToolSelectorProps {
   tools: Tool[];
@@ -160,11 +161,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
                 key={tool.id}
                 className="flex items-center gap-2 px-3 py-2 bg-purple-600/20 border border-purple-500/40 rounded-lg"
               >
-                <img
-                  src={tool.logo_url || '/logo.svg'}
-                  alt={tool.name}
-                  className="w-6 h-6 object-cover rounded"
-                />
+                <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="xs" />
                 <span className="text-white text-sm font-medium">{tool.name}</span>
                 <HugeiconsIcon 
                   icon={CheckmarkCircle01Icon} 
@@ -276,15 +273,9 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
                       : 'cursor-pointer hover:bg-[var(--gray-700)] hover:border-purple-500/50'
                   }`}
                 >
-                  <div className="flex-shrink-0">
-                    <div className="bg-white p-1 rounded-lg">
-                      <img
-                        src={tool.logo_url || '/logo.svg'}
-                        alt={tool.name}
-                        className="w-10 h-10 object-contain"
-                      />
+                    <div className="flex-shrink-0">
+                      <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="sm" />
                     </div>
-                  </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-white font-medium truncate">{tool.name}</h3>

@@ -8,6 +8,7 @@ import Navbar from '@/components/layout/Navbar';
 import ReviewForm from '@/components/features/reviews/ReviewForm';
 import ReviewsList from '@/components/features/reviews/ReviewsList';
 import { addRefToUrl } from '@/lib/utils/url';
+import ToolLogo from '@/components/shared/ToolLogo';
 
 interface ToolPageProps {
   params: Promise<{ id: string }>;
@@ -160,11 +161,7 @@ export default function ToolPage({ params }: ToolPageProps) {
               <div className="flex gap-4 mb-6">
                 {/* Logo - 32 width */}
                 <div className="w-32 flex-shrink-0">
-                  <img
-                    src={tool.logo_url || '/logo.svg'}
-                    alt={tool.name}
-                    className="w-32 h-32 object-contain rounded-lg"
-                  />
+                  <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="xl" />
                 </div>
                 
                 {/* Name and short description */}

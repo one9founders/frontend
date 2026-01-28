@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { trackingAPI } from '@/lib/api/apiClient';
 import { addRefToUrl } from '@/lib/utils/url';
+import ToolLogo from '@/components/shared/ToolLogo';
 
 interface TrendingTool {
   id: number;
@@ -80,11 +81,7 @@ export default function TrendingTools() {
               className="bg-[var(--gray-900)] rounded-lg p-6 hover:bg-[var(--gray-800)] transition-colors"
             >
               <div className="flex items-start gap-4 mb-4">
-                <img
-                  src={tool.logo_url || '/logo.svg'}
-                  alt={tool.name}
-                  className="w-12 h-12 object-contain rounded-lg bg-white"
-                />
+                <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="md" />
                 <div className="flex-1 min-w-0">
                   <Link
                     href={`/tool/${tool.slug}`}

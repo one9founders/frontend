@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { HugeiconsIcon, StarIcon, ArrowUpRight01Icon, ViewIcon } from '@/components/ui/icons';
 import posthog from 'posthog-js';
 import { addRefToUrl } from '@/lib/utils/url';
+import ToolLogo from '@/components/shared/ToolLogo';
 
 interface ToolCardProps {
   tool: Tool;
@@ -66,13 +67,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         <div className="flex gap-3 flex-1">
           {/* Small Logo */}
           <div className="flex-shrink-0">
-            <div className="bg-white p-1 rounded-lg">
-              <img 
-                src={tool.logo_url || '/logo.svg'} 
-                alt={tool.name} 
-                className="w-10 h-10 object-contain" 
-              />
-            </div>
+            <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="sm" />
           </div>
           
           {/* Content on Right */}

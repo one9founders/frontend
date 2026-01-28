@@ -3,6 +3,7 @@
 import { Deal } from '@/types/deal';
 import { HugeiconsIcon, Time01Icon, ChartUpIcon, StarIcon, ArrowUpRight01Icon } from '@/components/ui/icons';
 import posthog from 'posthog-js';
+import ToolLogo from '@/components/shared/ToolLogo';
 
 interface DealCardProps {
   deal: Deal;
@@ -64,11 +65,9 @@ export default function DealCard({ deal }: DealCardProps) {
           </span>
         </div>
 
-        <img
-          src={deal.tool_logo || '/logo.svg'}
-          alt={deal.tool_name}
-          className="w-full h-48 object-cover"
-        />
+        <div className="w-full h-48 flex items-center justify-center bg-[var(--gray-800)]">
+          <ToolLogo logoUrl={deal.tool_logo} name={deal.tool_name} size="xl" />
+        </div>
       </div>
 
       {/* Content */}
