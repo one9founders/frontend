@@ -276,8 +276,8 @@ export default function ToolPage({ params }: ToolPageProps) {
             
             {/* Right Side - 70% */}
             <div className="lg:w-7/10">
-              {/* Landing Page Preview */}
-              {tool.landing_page_screenshot && (
+              {/* Landing Page Preview - uses landing_page_screenshot or falls back to video_demo_url */}
+              {(tool.landing_page_screenshot || tool.video_demo_url) && (
                 <div className="mb-6">
                   <a
                     href={addRefToUrl(tool.affiliate_url || tool.website)}
@@ -288,7 +288,7 @@ export default function ToolPage({ params }: ToolPageProps) {
                   >
                     <div className="relative overflow-hidden rounded-lg border border-[var(--gray-700)] hover:border-[var(--brand-primary)] transition-colors">
                       <img
-                        src={tool.landing_page_screenshot}
+                        src={tool.landing_page_screenshot || tool.video_demo_url}
                         alt={`${tool.name} landing page preview`}
                         className="w-full rounded-lg transition-transform duration-300 group-hover:scale-105"
                       />
@@ -299,17 +299,6 @@ export default function ToolPage({ params }: ToolPageProps) {
                       </div>
                     </div>
                   </a>
-                </div>
-              )}
-
-              {/* Demo Image */}
-              {tool.video_demo_url && (
-                <div className="mb-6">
-                  <img
-                    src={tool.video_demo_url}
-                    alt={`${tool.name} demo`}
-                    className="w-full rounded-lg"
-                  />
                 </div>
               )}
               
