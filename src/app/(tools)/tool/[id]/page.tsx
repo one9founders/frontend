@@ -276,6 +276,32 @@ export default function ToolPage({ params }: ToolPageProps) {
             
             {/* Right Side - 70% */}
             <div className="lg:w-7/10">
+              {/* Landing Page Preview */}
+              {tool.landing_page_screenshot && (
+                <div className="mb-6">
+                  <a
+                    href={addRefToUrl(tool.affiliate_url || tool.website)}
+                    target="_blank"
+                    rel="noopener nofollow"
+                    aria-label={`Go to the ${tool.name} website`}
+                    className="block group"
+                  >
+                    <div className="relative overflow-hidden rounded-lg border border-[var(--gray-700)] hover:border-[var(--brand-primary)] transition-colors">
+                      <img
+                        src={tool.landing_page_screenshot}
+                        alt={`${tool.name} landing page preview`}
+                        className="w-full rounded-lg transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-[var(--brand-primary)] text-white px-4 py-2 rounded-lg font-medium">
+                          Visit Website
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              )}
+
               {/* Demo Image */}
               {tool.video_demo_url && (
                 <div className="mb-6">
