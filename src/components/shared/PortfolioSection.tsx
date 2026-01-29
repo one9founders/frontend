@@ -53,7 +53,7 @@ export default function PortfolioSection() {
       }
       
       if (selectedPricing.length > 0) {
-        params.pricing = selectedPricing.join(',');
+        params.pricing_type = selectedPricing.join(',');
       }
       
       console.log('API params:', params); // Debug log
