@@ -55,10 +55,11 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 }
 
 export const toolsAPI = {
-  getAll: (params?: { category?: string; pricing?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number }) => {
+  getAll: (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
     if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.pricing_type) query.append('pricing_type', params.pricing_type);
     if (params?.featured) query.append('featured', 'true');
     if (params?.startup_friendly) query.append('startup_friendly', 'true');
     if (params?.page) query.append('page', params.page.toString());
