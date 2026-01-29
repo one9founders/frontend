@@ -3,6 +3,7 @@
 import { Tool } from '@/types';
 import { HugeiconsIcon, Cancel01Icon, StarIcon, ArrowUpRight01Icon, ViewIcon, CheckmarkCircle01Icon, Cancel02Icon } from '@/components/ui/icons';
 import Link from 'next/link';
+import ToolLogo from '@/components/shared/ToolLogo';
 
 interface CompareTableProps {
   tools: Tool[];
@@ -100,11 +101,7 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
             const tool = tools.find(t => t.id === highlight.toolId);
             return (
               <div key={index} className="flex items-center gap-2 px-3 py-2 bg-[var(--gray-800)] rounded-lg">
-                <img
-                  src={tool?.logo_url || '/logo.svg'}
-                  alt={tool?.name}
-                  className="w-6 h-6 object-contain rounded"
-                />
+                <ToolLogo logoUrl={tool?.logo_url} name={tool?.name || ''} size="xs" />
                 <span className="text-white text-sm font-medium">{tool?.name}</span>
                 <span className="px-2 py-0.5 text-xs bg-purple-600/50 text-purple-200 rounded-full">
                   {highlight.label}
@@ -133,12 +130,8 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                       >
                         <HugeiconsIcon icon={Cancel01Icon} size={12} />
                       </button>
-                      <div className="bg-white p-2 rounded-lg w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                        <img
-                          src={tool.logo_url || '/logo.svg'}
-                          alt={tool.name}
-                          className="w-12 h-12 object-contain"
-                        />
+                      <div className="mx-auto mb-3 flex items-center justify-center">
+                        <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="lg" />
                       </div>
                       <h3 className="text-white font-bold text-lg">{tool.name}</h3>
                       <p className="text-[var(--gray-400)] text-xs mt-1">
