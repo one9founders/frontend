@@ -19,6 +19,7 @@ export interface Tool {
   affiliate_url?: string;
   logo_url?: string;
   video_demo_url?: string;
+  landing_page_screenshot?: string;
   pricing_models: string[];
   pricing_tiers?: any[];
   pricing_from?: number;
