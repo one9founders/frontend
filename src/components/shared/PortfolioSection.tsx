@@ -24,7 +24,7 @@ export default function PortfolioSection() {
   const [totalCount, setTotalCount] = useState(0);
   const pageSize = 20;
 
-  const tags = ["All", "AI", "Productivity", "Design", "Development", "Content", "Video", "Writing", "Analytics", "Marketing"];
+  const tags = ["All", "Writing", "Images", "Video", "Code", "Chatbots", "Marketing", "Productivity", "Design", "Analytics"];
 
   useEffect(() => {
     loadTools();
