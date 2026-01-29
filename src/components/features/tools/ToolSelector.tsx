@@ -180,7 +180,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             Select Tools to Compare
           </h2>
           <span className="text-[var(--gray-400)] text-sm">
-            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `${filteredTools.length} tools available`}
+            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `Showing ${filteredTools.length} of 26,000+ tools`}
           </span>
         </div>
         
