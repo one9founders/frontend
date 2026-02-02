@@ -110,9 +110,9 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/internship" className="relative">
-                <button className="btn-secondary px-4 py-2 cursor-pointer text-sm">
-                  2000+ Applications Received - Closed
+              <Link href="/internship">
+                <button className="btn-primary px-4 py-2 hover:scale-105 transition-transform cursor-pointer">
+                  Internship
                 </button>
               </Link>
               {/* <button className="btn-primary px-4 py-2" onClick={handleSubmitTool}>
@@ -189,8 +189,8 @@ export default function Navbar() {
               </button>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                 <Link href="/internship" onClick={() => setIsMobileMenuOpen(false)}>
-                  <button className="btn-secondary px-4 py-2 text-left w-full cursor-pointer text-sm">
-                    2000+ Applications Received - Closed
+                  <button className="btn-primary px-4 py-2 text-left w-full cursor-pointer">
+                    Internship
                   </button>
                 </Link>
                 {/* <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
