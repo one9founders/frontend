@@ -32,8 +32,11 @@ export default function HeroSection() {
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-          The Security-First AI Tools Directory
+          One9Founders: The Security-First AI Tools Directory
         </h1>
+        <p className="text-md md:text-lg mb-4 text-[var(--gray-300)] max-w-3xl mx-auto">
+          One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools for building and scaling startups.
+        </p>
         <p className="text-md md:text-lg mb-8 text-[var(--gray-400)] max-w-3xl mx-auto">
           2,500+ AI tools tested with uniform rating criteria and zero affiliate bias.
           India&apos;s most trusted platform for startup founders to discover AI tools.
