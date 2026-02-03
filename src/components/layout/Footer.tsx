@@ -135,27 +135,31 @@ export default function Footer() {
               <div>
                 <h3 className="font-semibold mb-4 flex items-center gap-2 text-[var(--gray-200)]">
                   <HugeiconsIcon icon={Mail01Icon} size={20} />
-                  Newsletter
+                  Weekly AI Tool Intelligence
                 </h3>
                 <p className="mb-4 text-sm text-[var(--gray-400)]">
-                  Stay updated with the latest AI tools
+                  Security alerts, exclusive deals, and our top picks - free every Tuesday.
                 </p>
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
+                    placeholder="your@email.com"
                     required
+                    aria-label="Email address"
                     className="flex-1 px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-200)]"
                   />
                   <button
                     type="submit"
                     className="btn-primary whitespace-nowrap"
                   >
-                    Subscribe
+                    Subscribe Free
                   </button>
                 </form>
+                <p className="mt-2 text-xs text-[var(--gray-500)]">
+                  Join 5,000+ founders. No spam, unsubscribe anytime.
+                </p>
               </div>
 
         
