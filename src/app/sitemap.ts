@@ -5,11 +5,17 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com
 interface ToolSitemapItem {
   slug: string;
   updated_at?: string;
+  categories?: { slug: string; name: string }[];
 }
 
-async function getAllToolSlugs(): Promise<ToolSitemapItem[]> {
+interface CategoryItem {
+  slug: string;
+  name: string;
+}
+
+async function getAllTools(): Promise<ToolSitemapItem[]> {
   try {
-    const response = await fetch(`${API_URL}/tools/?page_size=100`, {
+    const response = await fetch(`${API_URL}/tools/?page_size=500`, {
       next: { revalidate: 3600 },
     });
     if (!response.ok) return [];
@@ -20,9 +26,23 @@ async function getAllToolSlugs(): Promise<ToolSitemapItem[]> {
   }
 }
 
+async function getAllCategories(): Promise<CategoryItem[]> {
+  try {
+    const response = await fetch(`${API_URL}/categories/`, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    return data.results || data || [];
+  } catch {
+    return [];
+  }
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://one9founders.com';
   
+  // Static pages with SEO-optimized priorities
   const staticPages = [
     { route: '', priority: 1.0, changeFrequency: 'daily' as const },
     { route: '/methodology', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -41,13 +61,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: page.priority,
   }));
 
-  const tools = await getAllToolSlugs();
+  // Fetch tools and categories in parallel
+  const [tools, categories] = await Promise.all([
+    getAllTools(),
+    getAllCategories(),
+  ]);
+
+  // Tool pages - high priority for individual tool SEO
   const toolPages = tools.map((tool) => ({
     url: `${baseUrl}/tool/${tool.slug}`,
     lastModified: tool.updated_at ? new Date(tool.updated_at) : new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
   }));
 
-  return [...staticPages, ...toolPages];
+  // Category pages - important for content hub strategy
+  const categoryPages = categories.map((category) => ({
+    url: `${baseUrl}/category/${category.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...categoryPages, ...toolPages];
 }
