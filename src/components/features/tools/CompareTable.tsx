@@ -64,29 +64,36 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
 
   // Calculate comparison highlights
   const getHighlights = () => {
-    const highlights: { toolId: number; type: string; label: string }[] = [];
-    
-    // Best rating
-    const bestRating = tools.reduce((best, tool) => 
-      (tool.rating || 0) > (best?.rating || 0) ? tool : best, tools[0]);
-    if (bestRating?.rating) {
-      highlights.push({ toolId: bestRating.id, type: 'rating', label: 'Highest Rated' });
-    }
-    
-    // Most affordable (has free tier)
-    const freeTool = tools.find(t => t.free_tier_available || t.pricing_models?.some(p => p.toLowerCase() === 'free'));
-    if (freeTool) {
-      highlights.push({ toolId: freeTool.id, type: 'price', label: 'Free Option' });
-    }
-    
-    // Most integrations
-    const mostIntegrations = tools.reduce((best, tool) => 
-      (tool.integrations?.length || 0) > (best?.integrations?.length || 0) ? tool : best, tools[0]);
-    if (mostIntegrations?.integrations?.length) {
-      highlights.push({ toolId: mostIntegrations.id, type: 'integrations', label: 'Most Integrations' });
-    }
+    try {
+      const highlights: { toolId: number; type: string; label: string }[] = [];
+      
+      if (!tools || tools.length === 0) return highlights;
+      
+      // Best rating
+      const bestRating = tools.reduce((best, tool) => 
+        (tool.rating || 0) > (best?.rating || 0) ? tool : best, tools[0]);
+      if (bestRating?.rating) {
+        highlights.push({ toolId: bestRating.id, type: 'rating', label: 'Highest Rated' });
+      }
+      
+      // Most affordable (has free tier)
+      const freeTool = tools.find(t => t.free_tier_available || t.pricing_models?.some(p => p.toLowerCase() === 'free'));
+      if (freeTool) {
+        highlights.push({ toolId: freeTool.id, type: 'price', label: 'Free Option' });
+      }
+      
+      // Most integrations
+      const mostIntegrations = tools.reduce((best, tool) => 
+        (tool.integrations?.length || 0) > (best?.integrations?.length || 0) ? tool : best, tools[0]);
+      if (mostIntegrations?.integrations?.length) {
+        highlights.push({ toolId: mostIntegrations.id, type: 'integrations', label: 'Most Integrations' });
+      }
 
-    return highlights;
+      return highlights;
+    } catch (error) {
+      console.error('Error calculating highlights:', error);
+      return [];
+    }
   };
 
   const highlights = getHighlights();

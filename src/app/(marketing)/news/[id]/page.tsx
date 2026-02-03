@@ -11,6 +11,7 @@ export default function NewsDetailPage() {
   const id = params.id as string;
   const [article, setArticle] = useState<NewsArticle | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchArticle() {
@@ -19,6 +20,7 @@ export default function NewsDetailPage() {
         setArticle(data);
       } catch (error) {
         console.error('Error fetching article:', error);
+        setError('Failed to load article');
       } finally {
         setLoading(false);
       }
@@ -32,6 +34,19 @@ export default function NewsDetailPage() {
         <Navbar />
         <div className="max-w-4xl mx-auto px-6 py-12 text-center">
           <div className="text-white">Loading...</div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[var(--gray-black)]">
+        <Navbar />
+        <div className="max-w-4xl mx-auto px-6 py-12 text-center">
+          <h1 className="text-2xl text-white">Error</h1>
+          <p className="text-[var(--gray-400)] mt-4">{error}</p>
         </div>
         <Footer />
       </div>
@@ -79,8 +94,12 @@ export default function NewsDetailPage() {
             alt={article.title}
             className="w-full h-64 object-cover rounded-lg"
             onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDgwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMzc0MTUxIi8+CjxwYXRoIGQ9Ik0zNTAgMTc1SDQ1MFYyMjVIMzUwVjE3NVoiIGZpbGw9IiM2QjcyODAiLz4KPHA+';
+              try {
+                const target = e.target as HTMLImageElement;
+                target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDgwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMzc0MTUxIi8+CjxwYXRoIGQ9Ik0zNTAgMTc1SDQ1MFYyMjVIMzUwVjE3NVoiIGZpbGw9IiM2QjcyODAiLz4KPHA+';
+              } catch (fallbackError) {
+                console.error('Failed to set fallback image:', fallbackError);
+              }
             }}
           />
         </div>
@@ -88,7 +107,16 @@ export default function NewsDetailPage() {
         {/* Content */}
         <div 
           className="article-content"
-          dangerouslySetInnerHTML={{ __html: article.content }}
+          dangerouslySetInnerHTML={{ 
+            __html: (() => {
+              try {
+                return article.content || '';
+              } catch (error) {
+                console.error('Error rendering article content:', error);
+                return '<p>Content could not be displayed.</p>';
+              }
+            })()
+          }}
         />
         
         <style jsx global>{`

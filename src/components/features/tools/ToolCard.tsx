@@ -32,6 +32,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         key={i} 
         icon={StarIcon}
         size={16} 
+        aria-hidden="true"
         className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-[var(--gray-600)]'}
       />
     ));
@@ -60,7 +61,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
   };
 
   return (
-    <div className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full bg-[var(--gray-900)] border border-[var(--gray-800)]">
+    <div className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-[transform,box-shadow] duration-300 group flex flex-col h-full bg-[var(--gray-900)] border border-[var(--gray-800)]">
       
       {/* Content */}
       <div className="p-2 flex-1 flex flex-col">

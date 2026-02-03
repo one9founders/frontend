@@ -27,28 +27,33 @@ export default function Footer() {
       
             <div className="flex gap-4 flex-wrap">
               <a href="https://www.facebook.com/one9founders" target="_blank" rel="noopener noreferrer" 
+                 aria-label="Follow us on Facebook"
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={Facebook01Icon} size={24} />
+                <HugeiconsIcon icon={Facebook01Icon} size={24} aria-hidden="true" />
               </a>
               <a href="https://www.instagram.com/one9founders" target="_blank" rel="noopener noreferrer" 
+                 aria-label="Follow us on Instagram"
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={InstagramIcon} size={24} />
+                <HugeiconsIcon icon={InstagramIcon} size={24} aria-hidden="true" />
               </a>
               <a href="https://threads.com/one9founders" target="_blank" rel="noopener noreferrer" 
+                 aria-label="Follow us on Threads"
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={ThreadsIcon} size={24} />
+                <HugeiconsIcon icon={ThreadsIcon} size={24} aria-hidden="true" />
               </a>
               <a href="https://x.com/one9founders" target="_blank" rel="noopener noreferrer" 
+                 aria-label="Follow us on X (Twitter)"
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={NewTwitterIcon} size={24} />
+                <HugeiconsIcon icon={NewTwitterIcon} size={24} aria-hidden="true" />
               </a>
               {/* <a href="https://substack.com" target="_blank" rel="noopener noreferrer" 
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                 <HugeiconsIcon icon={NewsIcon} size={24} />
               </a> */}
               <a href="https://www.youtube.com/@One9Founders" target="_blank" rel="noopener noreferrer" 
+                 aria-label="Subscribe to our YouTube channel"
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={YoutubeIcon} size={24} />
+                <HugeiconsIcon icon={YoutubeIcon} size={24} aria-hidden="true" />
               </a>
               {/* <a href="https://discord.com" target="_blank" rel="noopener noreferrer" 
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
@@ -59,8 +64,9 @@ export default function Footer() {
                 <HugeiconsIcon icon={WhatsappIcon} size={24} />
               </a> */}
               <a href="https://in.linkedin.com/company/one9founders" target="_blank" rel="noopener noreferrer" 
+                 aria-label="Connect with us on LinkedIn"
                  className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={Linkedin01Icon} size={24} />
+                <HugeiconsIcon icon={Linkedin01Icon} size={24} aria-hidden="true" />
               </a>
             </div>
                   <div className="flex items-center gap-2 mt-6">

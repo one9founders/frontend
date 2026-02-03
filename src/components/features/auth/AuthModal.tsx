@@ -143,7 +143,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" style={{overscrollBehavior: 'contain'}} onClick={onClose}>
       <div className="rounded-lg p-8 max-w-md w-full bg-[var(--gray-900)] border border-[var(--gray-800)]" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-2xl font-bold mb-6 text-white">{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
         
@@ -153,6 +153,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
               type="text"
               name="name"
               placeholder="Full Name"
+              aria-label="Full Name"
               required
               className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
             />
@@ -162,6 +163,8 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             type="email"
             name="email"
             placeholder="Email"
+            aria-label="Email"
+            autoComplete="email"
             required
             className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
           />
@@ -170,6 +173,8 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             type="password"
             name="password"
             placeholder="Password"
+            aria-label="Password"
+            autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
             required
             className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
           />
@@ -181,7 +186,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             disabled={isPending || !turnstileToken}
             className="w-full py-2 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)]"
           >
-            {isPending ? 'Processing...' : mode === 'login' ? 'Login' : 'Sign Up'}
+            {isPending ? 'Processing…' : mode === 'login' ? 'Login' : 'Sign Up'}
           </button>
         </form>
 

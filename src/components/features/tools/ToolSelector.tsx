@@ -23,59 +23,63 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
   const [hasSearched, setHasSearched] = useState(false);
 
   // Debounced server-side search
-  useEffect(() => {
-    if (!searchQuery || searchQuery.length < 2) {
+  const debouncedSearch = useCallback(async (query: string) => {
+    if (!query || query.length < 2) {
       setSearchResults([]);
       setHasSearched(false);
       return;
     }
 
-    const timeoutId = setTimeout(async () => {
-      setIsSearching(true);
-      try {
-        const results = await searchTools(searchQuery);
-        // Map search results to Tool format with all required fields
-        const mappedResults: Tool[] = (Array.isArray(results) ? results : []).map((r: any) => ({
-          id: r.id,
-          name: r.name,
-          slug: r.slug || '',
-          description: r.description || '',
-          short_description: r.short_description || '',
-          logo_url: r.logo_url,
-          website: r.website,
-          rating: r.rating || 0,
-          review_count: r.review_count || 0,
-          views_count: r.views_count || 0,
-          categories: r.categories || [],
-          pricing_models: r.pricing_models || [],
-          pricing_from: r.pricing_from,
-          free_tier_available: r.free_tier_available || false,
-          free_trial_days: r.free_trial_days,
-          tags: r.tags || [],
-          use_cases: r.use_cases || [],
-          integrations: r.integrations || [],
-          features: r.features || [],
-          platforms: r.platforms || [],
-          ideal_for: r.ideal_for || [],
-          startup_friendly: r.startup_friendly || false,
-          verified: r.verified || false,
-          is_featured: r.is_featured || false,
-          is_active: r.is_active !== false,
-          created_at: r.created_at || '',
-          updated_at: r.updated_at || '',
-        }));
-        setSearchResults(mappedResults);
-        setHasSearched(true);
-      } catch (error) {
-        console.error('Search error:', error);
-        setSearchResults([]);
-      } finally {
-        setIsSearching(false);
-      }
+    setIsSearching(true);
+    try {
+      const results = await searchTools(query);
+      // Map search results to Tool format with all required fields
+      const mappedResults: Tool[] = (Array.isArray(results) ? results : []).map((r: any) => ({
+        id: r.id,
+        name: r.name,
+        slug: r.slug || '',
+        description: r.description || '',
+        short_description: r.short_description || '',
+        logo_url: r.logo_url,
+        website: r.website,
+        rating: r.rating || 0,
+        review_count: r.review_count || 0,
+        views_count: r.views_count || 0,
+        categories: r.categories || [],
+        pricing_models: r.pricing_models || [],
+        pricing_from: r.pricing_from,
+        free_tier_available: r.free_tier_available || false,
+        free_trial_days: r.free_trial_days,
+        tags: r.tags || [],
+        use_cases: r.use_cases || [],
+        integrations: r.integrations || [],
+        features: r.features || [],
+        platforms: r.platforms || [],
+        ideal_for: r.ideal_for || [],
+        startup_friendly: r.startup_friendly || false,
+        verified: r.verified || false,
+        is_featured: r.is_featured || false,
+        is_active: r.is_active !== false,
+        created_at: r.created_at || '',
+        updated_at: r.updated_at || '',
+      }));
+      setSearchResults(mappedResults);
+      setHasSearched(true);
+    } catch (error) {
+      console.error('Search error:', error);
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      debouncedSearch(searchQuery);
     }, 300); // 300ms debounce
 
     return () => clearTimeout(timeoutId);
-  }, [searchQuery]);
+  }, [searchQuery, debouncedSearch]);
 
   // Extract unique categories from tools
   const categories = useMemo(() => {

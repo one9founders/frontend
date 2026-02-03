@@ -109,9 +109,10 @@ export default function Navbar() {
               </Link>
               <button
                 onClick={scrollToTools}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-600)] transition-colors cursor-pointer"
+                aria-label="Search tools"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-600)] transition-[color,border-color] cursor-pointer"
               >
-                <HugeiconsIcon icon={Search01Icon} size={16} />
+                <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
                 <span className="text-xs text-[var(--gray-500)]">&#8984;K</span>
               </button>
             </div>
@@ -128,6 +129,7 @@ export default function Navbar() {
                 <div className="relative" ref={profileMenuRef}>
                   <button
                     onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                    aria-label="Open user menu"
                     className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--gray-800)] hover:bg-[var(--gray-700)] transition-colors overflow-hidden cursor-pointer"
                   >
                     {user.picture ? (
@@ -146,7 +148,7 @@ export default function Navbar() {
                         onClick={handleLogout}
                         className="w-full px-4 py-2 text-left text-[var(--gray-500)] hover:text-white hover:bg-[var(--gray-800)] flex items-center gap-2 cursor-pointer"
                       >
-                        <HugeiconsIcon icon={Logout01Icon} size={16} />
+                        <HugeiconsIcon icon={Logout01Icon} size={16} aria-hidden="true" />
                         Logout
                       </button>
                     </div>
@@ -164,11 +166,12 @@ export default function Navbar() {
           <button
             className="md:hidden text-white p-2 cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? (
-              <HugeiconsIcon icon={Cancel01Icon} size={24} />
+              <HugeiconsIcon icon={Cancel01Icon} size={24} aria-hidden="true" />
             ) : (
-              <HugeiconsIcon icon={Menu01Icon} size={24} />
+              <HugeiconsIcon icon={Menu01Icon} size={24} aria-hidden="true" />
             )}
           </button>
         </div>
@@ -196,7 +199,7 @@ export default function Navbar() {
                 onClick={scrollToTools}
                 className="flex items-center gap-2 text-[var(--gray-500)] hover:text-white text-left cursor-pointer"
               >
-                <HugeiconsIcon icon={Search01Icon} size={16} />
+                <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
                 Search Tools
               </button>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
@@ -224,7 +227,7 @@ export default function Navbar() {
                       </div>
                     </div>
                     <button onClick={handleLogout} className="text-[var(--gray-500)] hover:text-white text-left flex items-center gap-2 cursor-pointer">
-                      <HugeiconsIcon icon={Logout01Icon} size={16} />
+                      <HugeiconsIcon icon={Logout01Icon} size={16} aria-hidden="true" />
                       Logout
                     </button>
                   </div>

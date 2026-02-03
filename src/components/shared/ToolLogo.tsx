@@ -70,7 +70,10 @@ export default function ToolLogo({
         src={logoUrl}
         alt={name}
         className={`${sizeClass} object-contain ${className}`}
-        onError={() => setImageError(true)}
+        onError={(e) => {
+          e.preventDefault();
+          setImageError(true);
+        }}
       />
     </div>
   );
