@@ -6,10 +6,10 @@ import Footer from '@/components/layout/Footer';
 import ContactCard from '@/components/ui/ContactCard';
 
 export const metadata: Metadata = generateSEO({
-  title: 'About Us - Meet the One9Founders Team',
-  description: 'Learn about One9Founders mission to empower startup founders with intelligent AI tool discovery. Meet our team and mentor from IIT Bombay.',
+  title: 'About Us - India\'s Security-First AI Tools Directory',
+  description: 'Meet the One9Founders team building India\'s first security-validated AI tools directory. IIT Bombay-backed, serving global and Indian founders with unbiased tool reviews.',
   path: '/about',
-  keywords: ['about one9founders', 'startup team', 'AI tool directory team', 'IIT Bombay', 'founder resources'],
+  keywords: ['about one9founders', 'Indian startup team', 'AI tool directory India', 'IIT Bombay startup', 'founder resources India', 'AI tools for Indian startups'],
 });
 
 export default function AboutPage() {
@@ -24,8 +24,10 @@ export default function AboutPage() {
               name: 'One9Founders',
               url: 'https://one9founders.com',
               logo: 'https://one9founders.com/logo-light.png',
-              description: 'AI Tool Directory for Startups and Founders',
+              description: 'India\'s first security-validated AI tools directory for global and Indian startup founders',
               foundingDate: '2024',
+              areaServed: ['India', 'Global'],
+              knowsAbout: ['AI Tools', 'Startup Technology', 'Security Assessment', 'Tool Evaluation'],
               founders: [
                 { '@type': 'Person', name: 'Amit Bhartiya', jobTitle: 'CEO' },
                 { '@type': 'Person', name: 'Arnav Gautam', jobTitle: 'CTO' },
@@ -49,9 +51,29 @@ export default function AboutPage() {
           <h1 className="text-5xl font-bold text-white mb-6">
             About One9Founders
           </h1>
-          <p className="text-xl text-[var(--gray-300)] mb-12">
-            Empowering founders with intelligent AI tool discovery
+          <p className="text-xl text-[var(--gray-300)] mb-6">
+            India&apos;s first security-validated AI tools directory for global and Indian founders
           </p>
+          <div className="flex items-center justify-center gap-4 text-sm text-[var(--gray-400)]">
+            <span className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              2,500+ Tools Tested
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              IIT Bombay Backed
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Serving Global Founders
+            </span>
+          </div>
         </div>
       </section>
 
@@ -62,13 +84,17 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
               <p className="text-[var(--gray-300)] mb-6">
-                In today's rapidly evolving AI landscape, founders and entrepreneurs face an overwhelming number of tools and platforms. 
-                One9Founders was created to solve this challenge by providing intelligent, semantic search capabilities that help you 
-                discover the right AI tools for your specific needs.
+                In today&apos;s rapidly evolving AI landscape, founders and entrepreneurs across India and globally face an overwhelming number of tools and platforms. 
+                One9Founders was created to solve this challenge by providing intelligent, security-first tool discovery that helps you 
+                find the right AI tools for your specific needs.
+              </p>
+              <p className="text-[var(--gray-300)] mb-6">
+                We believe that the right tools can accelerate your startup&apos;s growth, streamline workflows, and unlock new possibilities. 
+                Our platform cuts through the noise to deliver curated, security-validated recommendations tailored to your business requirements.
               </p>
               <p className="text-[var(--gray-300)]">
-                We believe that the right tools can accelerate your startup's growth, streamline workflows, and unlock new possibilities. 
-                Our platform cuts through the noise to deliver curated, relevant recommendations tailored to your business requirements.
+                Whether you&apos;re a first-time founder in Bangalore, a serial entrepreneur in Mumbai, or building your startup anywhere in the world, 
+                One9Founders helps you make informed decisions about the AI tools that power your business.
               </p>
             </div>
             <div className="flex justify-center">
@@ -120,6 +146,82 @@ export default function AboutPage() {
                 Built specifically for startup founders and entrepreneurs. Tools are categorized and described with business impact in mind.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Editorial Guidelines Section - E-E-A-T */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-white text-center mb-4">Our Editorial Standards</h2>
+          <p className="text-[var(--gray-400)] text-center mb-12 max-w-3xl mx-auto">
+            Transparency and trust are at the core of everything we do. Here&apos;s how we ensure the quality and integrity of our AI tool reviews.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-[var(--gray-900)] rounded-xl p-6 border border-[var(--gray-700)]">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Security-First Evaluation
+              </h3>
+              <p className="text-[var(--gray-300)]">
+                Every tool undergoes our 10-point security assessment before being listed. We evaluate data privacy, encryption standards, 
+                compliance certifications, and third-party data sharing practices. Security is weighted at 20% of our total score.
+              </p>
+            </div>
+            
+            <div className="bg-[var(--gray-900)] rounded-xl p-6 border border-[var(--gray-700)]">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Zero Affiliate Bias
+              </h3>
+              <p className="text-[var(--gray-300)]">
+                We do not accept affiliate commissions from any tool in our directory. Our revenue comes from optional premium listings 
+                and enterprise partnerships - never from influencing which tools rank higher. When we recommend a tool, it&apos;s because it genuinely scored well.
+              </p>
+            </div>
+            
+            <div className="bg-[var(--gray-900)] rounded-xl p-6 border border-[var(--gray-700)]">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+                Uniform Rating Criteria
+              </h3>
+              <p className="text-[var(--gray-300)]">
+                Every tool is evaluated using the same 10-point framework, ensuring fair comparisons across categories. 
+                Our criteria cover security, functionality, ease of use, pricing, reliability, integrations, support, stability, updates, and startup-friendliness.
+              </p>
+            </div>
+            
+            <div className="bg-[var(--gray-900)] rounded-xl p-6 border border-[var(--gray-700)]">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Regular Re-Evaluation
+              </h3>
+              <p className="text-[var(--gray-300)]">
+                Tools are re-evaluated quarterly and immediately after major updates or security incidents. 
+                We monitor user feedback, industry news, and tool changes to keep our ratings current and accurate.
+              </p>
+            </div>
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link 
+              href="/methodology" 
+              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium"
+            >
+              Read our full methodology
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
