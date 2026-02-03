@@ -1,170 +1,135 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { toolsAPI, reviewsAPI, trackingAPI } from '@/lib/api/apiClient';
-import { getCurrentUser } from '@/lib/actions/auth';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getToolBySlug, getReviewsByToolId, getToolUsageCount, getAllToolSlugs } from '@/lib/actions/tools';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
-import ReviewForm from '@/components/features/reviews/ReviewForm';
-import ReviewsList from '@/components/features/reviews/ReviewsList';
-import { addRefToUrl } from '@/lib/utils/url';
 import ToolLogo from '@/components/shared/ToolLogo';
+import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
+import { addRefToUrl } from '@/lib/utils/url';
+import { Tool, Review } from '@/types';
+
+export const revalidate = 3600;
 
 interface ToolPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default function ToolPage({ params }: ToolPageProps) {
-  const [tool, setTool] = useState<any>(null);
-  const [reviews, setReviews] = useState<any[]>([]);
-  const [user, setUser] = useState<any>(null);
-  const [showReviewForm, setShowReviewForm] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [id, setId] = useState<string>('');
-  const [mounted, setMounted] = useState(false);
-  const [usageCount, setUsageCount] = useState<number>(0);
-  const [hasMarkedUsage, setHasMarkedUsage] = useState(false);
+export async function generateStaticParams() {
+  const slugs = await getAllToolSlugs();
+  return slugs.map((slug: string) => ({ id: slug }));
+}
 
-  const getRatingStars = () => {
-    if (!tool?.rating) return null;
-    const rating = Number(tool.rating);
-    return Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-[var(--gray-600)]'}>★</span>
-    ));
-  };
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    const loadParams = async () => {
-      const resolvedParams = await params;
-      setId(resolvedParams.id);
+export async function generateMetadata({ params }: ToolPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const tool = await getToolBySlug(id);
+  
+  if (!tool) {
+    return {
+      title: 'Tool Not Found | One9Founders',
+      description: 'The requested tool could not be found.',
     };
-    loadParams();
-  }, [params]);
-
-  useEffect(() => {
-    if (id) {
-      loadData();
-    }
-  }, [id]);
-
-  const loadData = async () => {
-    try {
-      const [toolData, userData] = await Promise.all([
-        toolsAPI.getBySlug(id),
-        getCurrentUser()
-      ]);
-      
-      if (!toolData) {
-        notFound();
-        return;
-      }
-      
-      setTool(toolData);
-      setUser(userData);
-      
-      // Load reviews
-      const reviewsData = await reviewsAPI.getByToolId(toolData.id);
-      console.log('Reviews API response:', reviewsData);
-      const reviewsArray = reviewsData?.results || reviewsData || [];
-      console.log('Reviews array:', reviewsArray);
-      setReviews(reviewsArray);
-
-      // Load usage count
-      try {
-        const usageData = await trackingAPI.getUsageCount(toolData.id);
-        if (usageData) {
-          setUsageCount(usageData.usage_count || 0);
-        }
-      } catch (err) {
-        console.log('Could not load usage count');
-      }
-
-      // Check if user already marked usage (stored in localStorage)
-      if (typeof window !== 'undefined') {
-        const usedTools = JSON.parse(localStorage.getItem('usedTools') || '[]');
-        setHasMarkedUsage(usedTools.includes(toolData.id));
-      }
-    } catch (error) {
-      console.error('Error loading data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleReviewAdded = () => {
-    loadData();
-    setShowReviewForm(false);
-  };
-
-  const handleIUseThis = async () => {
-    if (!tool) return;
-    
-    try {
-      await trackingAPI.trackUsage(tool.id);
-      setUsageCount(prev => prev + 1);
-      setHasMarkedUsage(true);
-      
-      // Store in localStorage to prevent duplicate clicks
-      if (typeof window !== 'undefined') {
-        const usedTools = JSON.parse(localStorage.getItem('usedTools') || '[]');
-        if (!usedTools.includes(tool.id)) {
-          usedTools.push(tool.id);
-          localStorage.setItem('usedTools', JSON.stringify(usedTools));
-        }
-      }
-    } catch (error) {
-      console.error('Error tracking usage:', error);
-    }
-  };
-
-  const handleWriteReview = () => {
-    if (!user) {
-      // Store current URL for redirect after login (only on client)
-      if (mounted && typeof window !== 'undefined') {
-        localStorage.setItem('redirectAfterLogin', window.location.pathname);
-        window.location.href = '/?login=true';
-      }
-      return;
-    }
-    setShowReviewForm(true);
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="flex items-center justify-center h-96">
-          <div className="text-white">Loading...</div>
-        </div>
-      </div>
-    );
   }
 
+  const keywords = [
+    tool.name,
+    'AI tool',
+    ...(tool.categories?.map((c: { name: string }) => c.name) || []),
+    ...(tool.tags || []),
+    'startup tools',
+    'founder tools',
+  ];
+
+  return generateSEO({
+    title: `${tool.name} - AI Tool Review & Features`,
+    description: tool.short_description || tool.description?.substring(0, 160) || `Discover ${tool.name}, an AI tool for startups and founders.`,
+    path: `/tool/${tool.slug}`,
+    image: tool.logo_url || tool.landing_page_screenshot || '/logo-light.png',
+    keywords,
+  });
+}
+
+function getRatingStars(rating: number | null | undefined) {
+  if (!rating) return null;
+  const ratingNum = Number(rating);
+  return Array.from({ length: 5 }, (_, i) => (
+    <span key={i} className={i < Math.floor(ratingNum) ? 'text-yellow-400' : 'text-[var(--gray-600)]'}>
+      &#9733;
+    </span>
+  ));
+}
+
+export default async function ToolPage({ params }: ToolPageProps) {
+  const { id } = await params;
+  const tool: Tool | null = await getToolBySlug(id);
+  
   if (!tool) {
     notFound();
   }
 
+  const [reviews, usageCount] = await Promise.all([
+    getReviewsByToolId(tool.id),
+    getToolUsageCount(tool.id),
+  ]);
+
+  const structuredData = generateStructuredData({
+    '@type': 'SoftwareApplication',
+    name: tool.name,
+    description: tool.description,
+    url: tool.website,
+    applicationCategory: tool.categories?.map((c: { name: string }) => c.name).join(', ') || 'AI Tool',
+    operatingSystem: tool.platforms?.join(', ') || 'Web',
+    offers: tool.pricing_models?.includes('Free') ? {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    } : tool.pricing_from ? {
+      '@type': 'Offer',
+      price: tool.pricing_from,
+      priceCurrency: 'USD',
+    } : undefined,
+    aggregateRating: tool.review_count > 0 ? {
+      '@type': 'AggregateRating',
+      ratingValue: tool.rating,
+      reviewCount: tool.review_count,
+      bestRating: 5,
+      worstRating: 1,
+    } : undefined,
+    review: reviews.slice(0, 5).map((review: Review) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: review.user_name,
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      reviewBody: review.comment,
+      datePublished: review.created_at,
+    })),
+  });
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <Navbar />
       
       <div className="w-full mx-auto p-4 md:p-8">
         <div className="bg-[var(--gray-900)] rounded-lg p-4 md:p-8">
           <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
-            {/* Left Side - 30% */}
             <div className="lg:w-3/10">
-              {/* Top section with logo and basic info */}
               <div className="flex gap-4 mb-6">
-                {/* Logo - 32 width */}
                 <div className="w-32 flex-shrink-0">
                   <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="xl" />
                 </div>
                 
-                {/* Name and short description */}
                 <div className="flex-1">
                   <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">{tool.name}</h1>
                   {tool.short_description && (
@@ -173,7 +138,6 @@ export default function ToolPage({ params }: ToolPageProps) {
                 </div>
               </div>
               
-              {/* Ideal For */}
               {tool.ideal_for && tool.ideal_for.length > 0 && (
                 <div className="mb-4">
                   <h3 className="text-sm font-semibold text-white mb-2">Ideal For</h3>
@@ -190,7 +154,6 @@ export default function ToolPage({ params }: ToolPageProps) {
                 </div>
               )}
               
-              {/* Tags */}
               {tool.tags && tool.tags.length > 0 && (
                 <div className="mb-4">
                   <h3 className="text-sm font-semibold text-white mb-2">Tags</h3>
@@ -207,7 +170,6 @@ export default function ToolPage({ params }: ToolPageProps) {
                 </div>
               )}
               
-              {/* Tool Info */}
               <div className="mb-4">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {tool.verified && (
@@ -227,24 +189,21 @@ export default function ToolPage({ params }: ToolPageProps) {
                   )}
                 </div>
                 
-                {/* Categories */}
                 <div className="mb-2">
                   <span className="text-[var(--gray-400)] text-sm">Categories: </span>
                   <span className="text-white text-sm">
-                    {tool.categories?.map((c: any) => c.name).join(', ') || 'N/A'}
+                    {tool.categories?.map((c: { name: string }) => c.name).join(', ') || 'N/A'}
                   </span>
                 </div>
                 
-                {/* Rating */}
                 <div className="mb-4 flex items-center gap-2">
                   <span className="text-[var(--gray-400)] text-sm">Rating:</span>
-                  <div className="flex">{getRatingStars()}</div>
+                  <div className="flex">{getRatingStars(tool.rating)}</div>
                   <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
                 </div>
                 
-                {/* Visit Button */}
                 <a
-                  href={addRefToUrl(tool.affiliate_url || tool.website)}
+                  href={addRefToUrl(tool.affiliate_url || tool.website || '')}
                   target="_blank"
                   rel="noopener nofollow"
                   className="btn-primary inline-block px-4 py-2 font-semibold text-sm"
@@ -252,35 +211,19 @@ export default function ToolPage({ params }: ToolPageProps) {
                   Visit {tool.name}
                 </a>
                 
-                {/* I Use This Tool Button */}
-                <div className="mt-4">
-                  <button
-                    onClick={handleIUseThis}
-                    disabled={hasMarkedUsage}
-                    className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors ${
-                      hasMarkedUsage
-                        ? 'bg-green-600 text-white cursor-default'
-                        : 'bg-[var(--gray-800)] text-white hover:bg-[var(--gray-700)]'
-                    }`}
-                  >
-                    {hasMarkedUsage ? 'You use this tool' : 'I use this tool'}
-                  </button>
-                  {usageCount > 0 && (
-                    <span className="ml-2 text-[var(--gray-400)] text-sm">
-                      {usageCount} {usageCount === 1 ? 'user' : 'users'}
-                    </span>
-                  )}
-                </div>
+                <ToolDetailClient 
+                  tool={tool} 
+                  initialReviews={reviews} 
+                  initialUsageCount={usageCount} 
+                />
               </div>
             </div>
             
-            {/* Right Side - 70% */}
             <div className="lg:w-7/10">
-              {/* Landing Page Preview - uses landing_page_screenshot or falls back to video_demo_url */}
               {(tool.landing_page_screenshot || tool.video_demo_url) && (
                 <div className="mb-6">
                   <a
-                    href={addRefToUrl(tool.affiliate_url || tool.website)}
+                    href={addRefToUrl(tool.affiliate_url || tool.website || '')}
                     target="_blank"
                     rel="noopener nofollow"
                     aria-label={`Go to the ${tool.name} website`}
@@ -302,7 +245,6 @@ export default function ToolPage({ params }: ToolPageProps) {
                 </div>
               )}
               
-              {/* Additional Info */}
               <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4 text-sm md:text-base">
                 {tool.pricing_models?.length > 0 && (
                   <div>
@@ -323,13 +265,11 @@ export default function ToolPage({ params }: ToolPageProps) {
             </div>
           </div>
           
-          {/* Full Width Description */}
           <div className="mt-8">
             <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Description</h3>
             <p className="text-[var(--gray-300)] text-sm md:text-base leading-relaxed">{tool.description}</p>
           </div>
           
-          {/* Use Cases */}
           {tool.use_cases && tool.use_cases.length > 0 && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Use Cases</h3>
@@ -341,7 +281,6 @@ export default function ToolPage({ params }: ToolPageProps) {
             </div>
           )}
           
-          {/* Features */}
           {tool.features && tool.features.length > 0 && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Features</h3>
@@ -353,69 +292,11 @@ export default function ToolPage({ params }: ToolPageProps) {
             </div>
           )}
           
-          {/* Startup Benefits */}
           {tool.startup_benefits && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4">Startup Benefits</h3>
               <p className="text-[var(--gray-300)]">{tool.startup_benefits}</p>
             </div>
-          )}
-        </div>
-        
-        {/* Reviews Section */}
-        <div className="mt-8 md:mt-12">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-            <h2 className="text-xl md:text-2xl font-bold text-white">Reviews & Comments</h2>
-            {!showReviewForm && (
-              <button
-                onClick={handleWriteReview}
-                className="btn-primary px-4 md:px-6 py-2 text-sm md:text-base"
-              >
-                Write a Review
-              </button>
-            )}
-          </div>
-          
-          {showReviewForm && user && (
-            <div className="mb-8">
-              <ReviewForm
-                toolId={tool.id}
-                toolName={tool.name}
-                onReviewAdded={handleReviewAdded}
-              />
-              <button
-                onClick={() => setShowReviewForm(false)}
-                className="mt-4 text-[var(--gray-400)] hover:text-white"
-              >
-                Cancel
-              </button>
-            </div>
-          )}
-          
-          {reviews && reviews.length === 0 ? (
-            <div className="text-center py-12 bg-[var(--gray-900)] rounded-lg">
-              <p className="text-[var(--gray-400)] mb-4">
-                {user ? 
-                  "Be the first to write about this tool!" : 
-                  "Become the first to write about this tool"
-                }
-              </p>
-              {!user && mounted && (
-                <button
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      localStorage.setItem('redirectAfterLogin', window.location.pathname);
-                      window.location.href = '/?login=true';
-                    }
-                  }}
-                  className="text-purple-400 hover:text-purple-300 underline"
-                >
-                  Login to write a review
-                </button>
-              )}
-            </div>
-          ) : (
-            <ReviewsList reviews={reviews} />
           )}
         </div>
       </div>
