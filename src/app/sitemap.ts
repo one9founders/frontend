@@ -24,20 +24,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://one9founders.com';
   
   const staticPages = [
-    '',
-    '/about',
-    '/deals',
-    '/news',
-    '/submit',
-    '/terms',
-    '/policy',
-    '/internship',
-    '/campus-internship',
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
+    { route: '', priority: 1.0, changeFrequency: 'daily' as const },
+    { route: '/methodology', priority: 0.8, changeFrequency: 'monthly' as const },
+    { route: '/compare', priority: 0.8, changeFrequency: 'weekly' as const },
+    { route: '/deals', priority: 0.7, changeFrequency: 'weekly' as const },
+    { route: '/news', priority: 0.7, changeFrequency: 'daily' as const },
+    { route: '/about', priority: 0.6, changeFrequency: 'monthly' as const },
+    { route: '/submit', priority: 0.5, changeFrequency: 'monthly' as const },
+    { route: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
+    { route: '/policy', priority: 0.3, changeFrequency: 'yearly' as const },
+    { route: '/internship', priority: 0.5, changeFrequency: 'monthly' as const },
+  ].map((page) => ({
+    url: `${baseUrl}${page.route}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
   }));
 
   const tools = await getAllToolSlugs();

@@ -40,29 +40,34 @@ export default function NewsletterSignup() {
   return (
     <section className="py-16 px-4 bg-[var(--gray-900)]">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-white mb-4">Stay Updated</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Get Weekly AI Tool Intelligence</h2>
         <p className="mb-8 text-[var(--gray-400)]">
-          Get notified when we add new AI tools and features
+          Security alerts, exclusive deals, and our top picks - free every Tuesday.
         </p>
         
-        <form onSubmit={handleSubmit} className="flex gap-4 max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="flex-1 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-blue-500 bg-[var(--gray-800)] border border-[var(--gray-700)]"
+            placeholder="your@email.com"
+            aria-label="Email address"
+            className="flex-1 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-purple-500 bg-[var(--gray-800)] border border-[var(--gray-700)]"
             disabled={loading}
             required
           />
           <button
             type="submit"
             disabled={loading || !email}
-            className="btn-primary px-6 py-3 disabled:opacity-50"
+            className="btn-primary px-6 py-3 disabled:opacity-50 whitespace-nowrap"
           >
-            {loading ? 'Subscribing...' : 'Subscribe'}
+            {loading ? 'Subscribing...' : 'Subscribe Free'}
           </button>
         </form>
+        
+        <p className="mt-4 text-xs text-[var(--gray-500)]">
+          Join 5,000+ founders. No spam, unsubscribe anytime.
+        </p>
         
         {message && (
           <p className={`mt-4 text-sm ${message.includes('Thanks') ? 'text-green-400' : 'text-red-400'}`}>
