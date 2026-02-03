@@ -107,6 +107,11 @@ export default function Footer() {
                 <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Company</h3>
                 <ul className="space-y-3">
                   <li>
+                    <a href="/what-is-one9founders" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      What is One9Founders?
+                    </a>
+                  </li>
+                  <li>
                     <a href="/about" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       About
                     </a>
@@ -129,7 +134,7 @@ export default function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-end">
                     {/* Copyright */}
                 <p className="text-xs text-[var(--gray-600)]">
-                  © 2025 One9Founders. All rights reserved.
+                  © 2026 One9Founders. All rights reserved.
                 </p>
               {/* Newsletter */}
               <div>

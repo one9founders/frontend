@@ -17,7 +17,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL('https://one9founders.com'),
   title: {
-    default: 'One9Founders | Security-First AI Tools Directory | 2,500+ Tools Tested',
+    default: 'One9Founders – AI Tool Directory for Startup Founders',
     template: '%s | One9Founders',
   },
   description: "India's first security-validated AI tools directory. Compare 2,500+ AI tools with uniform rating criteria and zero affiliate bias. Backed by IIT Bombay.",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://one9founders.com',
     siteName: 'One9Founders',
-    title: 'One9Founders | Security-First AI Tools Directory',
-    description: "Compare 2,500+ AI tools with uniform rating criteria and zero affiliate bias. India's first security-validated AI directory backed by IIT Bombay.",
+    title: 'One9Founders – AI Tool Directory for Startup Founders',
+    description: "One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools for building and scaling startups.",
     images: [{
       url: '/og-image.png',
       width: 1200,
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@one9founders',
-    title: 'One9Founders | Security-First AI Tools Directory',
-    description: 'Compare 2,500+ AI tools with uniform rating criteria and zero affiliate bias.',
+    title: 'One9Founders – AI Tool Directory for Startup Founders',
+    description: 'One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools.',
     images: ['/og-image.png'],
     creator: '@one9founders',
   },
