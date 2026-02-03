@@ -30,18 +30,22 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     };
   }
 
+  const primaryCategory = tool.categories?.[0]?.name || 'AI';
   const keywords = [
     tool.name,
     'AI tool',
+    `${primaryCategory} tool`,
+    `best ${primaryCategory.toLowerCase()} tools`,
     ...(tool.categories?.map((c: { name: string }) => c.name) || []),
     ...(tool.tags || []),
     'startup tools',
     'founder tools',
+    'AI tools for startups',
   ];
 
   return generateSEO({
-    title: `${tool.name} - AI Tool Review & Features`,
-    description: tool.short_description || tool.description?.substring(0, 160) || `Discover ${tool.name}, an AI tool for startups and founders.`,
+    title: `${tool.name} – AI Tool for ${primaryCategory} | Review & Pricing`,
+    description: tool.short_description || tool.description?.substring(0, 160) || `Discover ${tool.name}, an AI ${primaryCategory.toLowerCase()} tool for startups and founders. Read reviews, compare features, and find pricing.`,
     path: `/tool/${tool.slug}`,
     image: tool.logo_url || tool.landing_page_screenshot || '/logo-light.png',
     keywords,
@@ -58,6 +62,52 @@ function getRatingStars(rating: number | null | undefined) {
   ));
 }
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+function generateToolFAQs(tool: Tool): FAQItem[] {
+  const primaryCategory = tool.categories?.[0]?.name || 'AI';
+  const pricingInfo = tool.pricing_models?.includes('Free') 
+    ? 'Yes, it offers a free plan.' 
+    : tool.pricing_models?.includes('Freemium')
+    ? 'Yes, it offers a freemium model with limited free features.'
+    : tool.pricing_from 
+    ? `Pricing starts from $${tool.pricing_from}/month.`
+    : 'Please check the official website for current pricing.';
+
+  const faqs: FAQItem[] = [
+    {
+      question: `What is ${tool.name} and what does it do?`,
+      answer: tool.short_description || tool.description?.substring(0, 200) || `${tool.name} is an AI-powered ${primaryCategory.toLowerCase()} tool designed to help startups and founders.`,
+    },
+    {
+      question: `Is ${tool.name} good for early-stage startups?`,
+      answer: tool.startup_friendly 
+        ? `Yes, ${tool.name} is marked as startup-friendly and is well-suited for early-stage companies.`
+        : `${tool.name} can be used by startups. Check the pricing and features to see if it fits your stage.`,
+    },
+    {
+      question: `How much does ${tool.name} cost?`,
+      answer: pricingInfo,
+    },
+    {
+      question: `Can non-technical founders use ${tool.name}?`,
+      answer: `${tool.name} is designed to be user-friendly. ${tool.ideal_for?.includes('Non-technical founders') || tool.ideal_for?.includes('Beginners') ? 'It is specifically designed for non-technical users.' : 'Most features are accessible without technical expertise.'}`,
+    },
+  ];
+
+  if (tool.free_trial_days) {
+    faqs.push({
+      question: `Does ${tool.name} offer a free trial?`,
+      answer: `Yes, ${tool.name} offers a ${tool.free_trial_days}-day free trial so you can test it before committing.`,
+    });
+  }
+
+  return faqs;
+}
+
 export default async function ToolPage({ params }: ToolPageProps) {
   const { id } = await params;
   const tool: Tool | null = await getToolBySlug(id);
@@ -70,6 +120,8 @@ export default async function ToolPage({ params }: ToolPageProps) {
     getReviewsByToolId(tool.id),
     getToolUsageCount(tool.id),
   ]);
+
+  const faqs = generateToolFAQs(tool);
 
   const structuredData = generateStructuredData({
     '@type': 'SoftwareApplication',
@@ -111,12 +163,30 @@ export default async function ToolPage({ params }: ToolPageProps) {
     })),
   });
 
+  const faqSchema = generateStructuredData({
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  });
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
         }}
       />
       <Navbar />
@@ -131,7 +201,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 </div>
                 
                 <div className="flex-1">
-                  <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">{tool.name}</h1>
+                  <h1 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                    {tool.name} – AI Tool for {tool.categories?.[0]?.name || 'Startups'}
+                  </h1>
                   {tool.short_description && (
                     <p className="text-[var(--gray-400)] text-base md:text-lg mt-1 leading-tight">{tool.short_description}</p>
                   )}
@@ -266,13 +338,13 @@ export default async function ToolPage({ params }: ToolPageProps) {
           </div>
           
           <div className="mt-8">
-            <h3 className="text-lg md:text-xl font-semibold text-white mb-2">Description</h3>
+            <h2 className="text-lg md:text-xl font-semibold text-white mb-2">What is {tool.name}?</h2>
             <p className="text-[var(--gray-300)] text-sm md:text-base leading-relaxed">{tool.description}</p>
           </div>
           
           {tool.use_cases && tool.use_cases.length > 0 && (
             <div className="mt-8">
-              <h3 className="text-xl font-semibold text-white mb-4">Use Cases</h3>
+              <h2 className="text-xl font-semibold text-white mb-4">Who Should Use {tool.name}?</h2>
               <ul className="list-disc list-inside text-[var(--gray-300)] space-y-2">
                 {tool.use_cases.map((useCase: string, index: number) => (
                   <li key={index}>{useCase}</li>
@@ -283,7 +355,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
           
           {tool.features && tool.features.length > 0 && (
             <div className="mt-8">
-              <h3 className="text-xl font-semibold text-white mb-4">Features</h3>
+              <h2 className="text-xl font-semibold text-white mb-4">Key Features</h2>
               <ul className="list-disc list-inside text-[var(--gray-300)] space-y-2">
                 {tool.features.map((feature: string, index: number) => (
                   <li key={index}>{feature}</li>
@@ -294,10 +366,33 @@ export default async function ToolPage({ params }: ToolPageProps) {
           
           {tool.startup_benefits && (
             <div className="mt-8">
-              <h3 className="text-xl font-semibold text-white mb-4">Startup Benefits</h3>
+              <h2 className="text-xl font-semibold text-white mb-4">Why Founders Love {tool.name}</h2>
               <p className="text-[var(--gray-300)]">{tool.startup_benefits}</p>
             </div>
           )}
+
+          <div className="mt-8">
+            <h2 className="text-xl font-semibold text-white mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div key={index} className="bg-[var(--gray-800)] rounded-lg p-4">
+                  <h3 className="text-white font-medium mb-2">{faq.question}</h3>
+                  <p className="text-[var(--gray-300)] text-sm">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h2 className="text-xl font-semibold text-white mb-4">Looking for Alternatives?</h2>
+            <p className="text-[var(--gray-300)]">
+              If {tool.name} doesn&apos;t fit your needs, explore other{' '}
+              <a href="/" className="text-purple-400 hover:text-purple-300 underline">
+                AI tools for {tool.categories?.[0]?.name?.toLowerCase() || 'startups'}
+              </a>{' '}
+              in our directory. We have curated over 2,500 tools to help founders find the perfect solution.
+            </p>
+          </div>
         </div>
       </div>
     </div>
