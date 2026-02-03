@@ -1,11 +1,19 @@
 import { generateStructuredData } from '@/lib/utils/seo';
+import { getAllTools } from '@/lib/actions/tools';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
 import PortfolioSection from "../components/shared/PortfolioSection";
 import NewsletterSignup from "../components/shared/NewsletterSignup";
 import Footer from "../components/layout/Footer";
 
-export default function Home() {
+export const revalidate = 3600;
+
+export default async function Home() {
+  const data = await getAllTools({ page: 1, page_size: 20 });
+  const initialTools = data?.results || data || [];
+  const initialTotalCount = data?.count || initialTools.length;
+  const initialTotalPages = Math.ceil(initialTotalCount / 20);
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
@@ -28,7 +36,11 @@ export default function Home() {
       />
       <Navbar />
       <HeroSection />
-      <PortfolioSection />
+      <PortfolioSection 
+        initialTools={initialTools}
+        initialTotalCount={initialTotalCount}
+        initialTotalPages={initialTotalPages}
+      />
       {/* <NewsletterSignup /> */}
       <Footer />
     </div>

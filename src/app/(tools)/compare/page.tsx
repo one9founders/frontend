@@ -1,64 +1,53 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
-import { Tool } from '@/types';
-import CompareTable from '@/components/features/tools/CompareTable';
-import ToolSelector from '@/components/features/tools/ToolSelector';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import posthog from 'posthog-js';
+import ComparePageClient from '@/components/features/tools/ComparePageClient';
 
-export default function ComparePage() {
-  const [tools, setTools] = useState<Tool[]>([]);
-  const [selectedTools, setSelectedTools] = useState<Tool[]>([]);
-  const [loading, setLoading] = useState(true);
+export const revalidate = 3600;
 
-  useEffect(() => {
-    loadTools();
-  }, []);
+export const metadata: Metadata = generateSEO({
+  title: 'Compare AI Tools Side by Side',
+  description: 'Compare up to 4 AI tools side by side. Evaluate features, pricing, ratings, and integrations to find the best AI tool for your startup or business.',
+  path: '/compare',
+  keywords: ['AI tool comparison', 'compare AI tools', 'AI software comparison', 'startup tools', 'founder tools', 'AI tool features'],
+});
 
-  const loadTools = async () => {
-    // Load more tools for the compare page (100 per page instead of default 20)
-    const data = await getAllTools({ page_size: 100 });
-    // Handle both array and paginated response formats
-    const toolsArray = Array.isArray(data) ? data : (data?.results || []);
-    setTools(toolsArray);
-    setLoading(false);
-  };
+export default async function ComparePage() {
+  const data = await getAllTools({ page_size: 100 });
+  const initialTools = Array.isArray(data) ? data : (data?.results || []);
 
-  const addTool = (tool: Tool) => {
-    if (selectedTools.length < 4 && !selectedTools.find(t => t.id === tool.id)) {
-      const newSelectedTools = [...selectedTools, tool];
-      setSelectedTools(newSelectedTools);
-
-      // Capture tool comparison event
-      posthog.capture('tool_comparison_started', {
-        tool_id: tool.id,
-        tool_name: tool.name,
-        tool_slug: tool.slug,
-        comparison_count: newSelectedTools.length,
-        tools_in_comparison: newSelectedTools.map(t => t.name),
-      });
-    }
-  };
-
-  const removeTool = (toolId: number) => {
-    const removedTool = selectedTools.find(t => t.id === toolId);
-    setSelectedTools(selectedTools.filter(t => t.id !== toolId));
-    
-    // Capture tool removal event
-    if (removedTool) {
-      posthog.capture('tool_removed_from_comparison', {
-        tool_id: removedTool.id,
-        tool_name: removedTool.name,
-        remaining_tools: selectedTools.filter(t => t.id !== toolId).map(t => t.name),
-      });
-    }
-  };
+  const structuredData = generateStructuredData({
+    '@type': 'WebPage',
+    name: 'Compare AI Tools',
+    description: 'Compare up to 4 AI tools side by side to find the best solution for your needs.',
+    url: 'https://one9founders.com/compare',
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'AI Tools for Comparison',
+      numberOfItems: initialTools.length,
+      itemListElement: initialTools.slice(0, 10).map((tool: { name: string; slug: string; description: string }, index: number) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'SoftwareApplication',
+          name: tool.name,
+          url: `https://one9founders.com/tool/${tool.slug}`,
+          description: tool.description,
+        },
+      })),
+    },
+  });
 
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <Navbar />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -69,37 +58,7 @@ export default function ComparePage() {
           </p>
         </div>
 
-        <ToolSelector 
-          tools={tools}
-          selectedTools={selectedTools}
-          onAddTool={addTool}
-          loading={loading}
-        />
-
-        {selectedTools.length > 0 && (
-          <CompareTable 
-            tools={selectedTools}
-            onRemoveTool={removeTool}
-          />
-        )}
-
-        {selectedTools.length === 0 && !loading && (
-          <div className="text-center py-16 bg-[var(--gray-900)] rounded-lg border border-[var(--gray-800)]">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-white mb-2">No tools selected</h3>
-            <p className="text-[var(--gray-400)]">
-              Select at least 2 tools from above to start comparing
-            </p>
-          </div>
-        )}
-
-        {selectedTools.length === 1 && (
-          <div className="text-center py-8 bg-yellow-900/20 rounded-lg border border-yellow-500/30">
-            <p className="text-yellow-400">
-              Select at least one more tool to see the comparison
-            </p>
-          </div>
-        )}
+        <ComparePageClient initialTools={initialTools} />
       </div>
       
       <Footer />
