@@ -104,10 +104,8 @@ h4, h5, h6 {
 }
 
 .btn-secondary {
-  width: 84px;
-  height: 40px;
   border-radius: 8px;
-  padding: 0 16px;
+  padding: 0.5rem 1rem;
   gap: 10px;
   background: transparent;
   color: white;
@@ -116,6 +114,7 @@ h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
 }
 
 .btn-secondary:hover {
