@@ -28,7 +28,7 @@ export default function HeroSection() {
             height={24}
             className="rounded-sm"
           />
-          <span className="text-sm text-[var(--gray-300)]">Backed by IIT Bombay</span>
+          <span className="text-sm text-[var(--gray-300)]">Supported by IIT Bombay</span>
         </div>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
