@@ -106,7 +106,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
               href={addRefToUrl(tool.affiliate_url || tool.website)}
               target="_blank"
               rel="noopener nofollow"
-              className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700 text-sm flex items-center justify-center gap-2"
+              className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-orange-600 text-white hover:bg-orange-700 text-sm flex items-center justify-center gap-2"
               onClick={handleVisitTool}
             >
               <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
