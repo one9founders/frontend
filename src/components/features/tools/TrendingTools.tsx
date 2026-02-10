@@ -43,7 +43,7 @@ export default function TrendingTools() {
     return (
       <section className="py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Trending Tools</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--gray-600)] mb-8">Trending Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
               <div key={i} className="bg-[var(--gray-900)] rounded-lg p-6 animate-pulse">
@@ -85,7 +85,7 @@ export default function TrendingTools() {
                 <div className="flex-1 min-w-0">
                   <Link
                     href={`/tool/${tool.slug}`}
-                    className="text-lg font-semibold text-white hover:text-purple-400 transition-colors block truncate"
+                    className="text-lg font-semibold text-[var(--gray-600)] hover:text-orange-600 transition-colors block truncate"
                   >
                     {tool.name}
                   </Link>
@@ -106,7 +106,7 @@ export default function TrendingTools() {
                 <div className="flex gap-2">
                   <Link
                     href={`/tool/${tool.slug}`}
-                    className="text-purple-400 hover:text-purple-300 text-sm"
+                    className="text-orange-600 hover:text-orange-500 text-sm"
                   >
                     Details
                   </Link>
