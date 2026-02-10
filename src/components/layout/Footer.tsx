@@ -159,7 +159,7 @@ export default function Footer() {
                     placeholder="your@email.com"
                     required
                     aria-label="Email address"
-                    className="flex-1 px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary)] bg-white border-[var(--gray-700)] text-[var(--gray-600)]"
+                    className="flex-1 px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-200)]"
                   />
                   <button
                     type="submit"

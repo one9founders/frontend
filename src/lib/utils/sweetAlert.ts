@@ -7,7 +7,7 @@ export const showSuccess = (title: string, text?: string) => {
     text,
     background: '#262626',
     color: '#ffffff',
-    confirmButtonColor: '#ea580c'
+    confirmButtonColor: '#7828D9'
   });
 };
 
@@ -18,7 +18,7 @@ export const showError = (title: string, text?: string) => {
     text,
     background: '#262626',
     color: '#ffffff',
-    confirmButtonColor: '#ea580c'
+    confirmButtonColor: '#7828D9'
   });
 };
 
@@ -30,7 +30,7 @@ export const showConfirm = (title: string, text?: string) => {
     showCancelButton: true,
     background: '#262626',
     color: '#ffffff',
-    confirmButtonColor: '#ea580c',
+    confirmButtonColor: '#7828D9',
     cancelButtonColor: '#6b7280',
     confirmButtonText: 'Yes',
     cancelButtonText: 'Cancel'

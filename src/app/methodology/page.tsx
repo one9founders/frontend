@@ -178,7 +178,7 @@ export default function MethodologyPage() {
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-[var(--gray-600)] mb-8 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">
           How We Rate AI Tools
         </h1>
 
@@ -212,7 +212,7 @@ export default function MethodologyPage() {
                   <h3 className="text-xl font-semibold text-white">
                     {criterion.number}. {criterion.title}
                   </h3>
-                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
+                  <span className="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm font-medium">
                     {criterion.weight}
                   </span>
                 </div>
@@ -254,7 +254,7 @@ export default function MethodologyPage() {
                 key={index}
                 className="flex gap-4 bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6"
               >
-                <div className="flex-shrink-0 w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
                   {index + 1}
                 </div>
                 <div>
@@ -272,7 +272,7 @@ export default function MethodologyPage() {
             Our Zero Affiliate Bias Commitment
           </h2>
 
-          <div className="bg-gradient-to-r from-orange-100 to-amber-50 border border-orange-200 rounded-xl p-8">
+          <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-xl p-8">
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
               One9Founders does not accept affiliate commissions from any tool listed
               in our directory. Our revenue comes from optional premium listings and
@@ -287,7 +287,7 @@ export default function MethodologyPage() {
 
         {/* Contact */}
         <section className="text-center">
-          <h2 className="text-2xl font-bold text-[var(--gray-600)] mb-4">
+          <h2 className="text-2xl font-bold text-white mb-4">
             Questions About Our Methodology?
           </h2>
           <p className="text-[var(--gray-400)] mb-6">

@@ -48,10 +48,10 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-[var(--gray-600)] mb-6">
+          <h1 className="text-5xl font-bold text-white mb-6">
             About One9Founders
           </h1>
-          <p className="text-xl text-[var(--gray-600)] mb-6">
+          <p className="text-xl text-[var(--gray-300)] mb-6">
             India&apos;s first security-validated AI tools directory for global and Indian founders
           </p>
           <div className="flex items-center justify-center gap-4 text-sm text-[var(--gray-400)]">
@@ -62,7 +62,7 @@ export default function AboutPage() {
               2,500+ Tools Tested
             </span>
             <span className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
               IIT Bombay Backed
@@ -215,7 +215,7 @@ export default function AboutPage() {
           <div className="text-center mt-8">
             <Link 
               href="/methodology" 
-              className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-500 font-medium"
+              className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium"
             >
               Read our full methodology
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
