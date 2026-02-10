@@ -163,7 +163,7 @@ export default function PortfolioSection({
   return (
     <section id="tools-section" className="py-8 md:py-16 px-4 md:px-6 bg-[var(--gray-black)]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-[var(--gray-600)]">AI Tools Directory</h2>
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-white">AI Tools Directory</h2>
         
         <div className="mb-8 md:mb-12">
           <SearchInput onSearch={handleSearch} onClear={handleClearSearch} />
@@ -208,7 +208,7 @@ export default function PortfolioSection({
                 <select 
                   value={sortBy} 
                   onChange={(e) => handleSortChange(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-[var(--gray-700)] text-[var(--gray-600)] border border-[var(--gray-600)]"
+                  className="w-full px-3 py-2 rounded-lg bg-[var(--gray-700)] text-white border border-[var(--gray-600)]"
                 >
                   {isSearching && <option value="match">Best Match</option>}
                   <option value="name">Name</option>
@@ -232,7 +232,7 @@ export default function PortfolioSection({
         )}
 
         {(loading || searchLoading) ? (
-          <div className="text-center text-[var(--gray-600)]">
+          <div className="text-center text-white">
             {searchLoading ? "Searching..." : "Loading tools..."}
           </div>
         ) : (

@@ -92,25 +92,25 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6 items-center">
-              <button onClick={scrollToTools} className={`hover:text-[var(--brand-primary)] cursor-pointer ${pathname === '/' ? 'text-[var(--gray-600)]' : 'text-[var(--gray-400)]'}`}>
+              <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Explore
               </button>
-              <Link href="/compare" className={`hover:text-[var(--brand-primary)] ${pathname === '/compare' ? 'text-[var(--gray-600)]' : 'text-[var(--gray-400)]'}`}>
+              <Link href="/compare" className={`hover:text-white ${pathname === '/compare' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Compare
               </Link>
-              <Link href="/deals" className={`hover:text-[var(--brand-primary)] ${pathname === '/deals' ? 'text-[var(--gray-600)]' : 'text-[var(--gray-400)]'}`}>
+              <Link href="/deals" className={`hover:text-white ${pathname === '/deals' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Deals
               </Link>
-              <Link href="/methodology" className={`hover:text-[var(--brand-primary)] ${pathname === '/methodology' ? 'text-[var(--gray-600)]' : 'text-[var(--gray-400)]'}`}>
+              <Link href="/methodology" className={`hover:text-white ${pathname === '/methodology' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 How We Rate
               </Link>
-              <Link href="/about" className={`hover:text-[var(--brand-primary)] ${pathname === '/about' ? 'text-[var(--gray-600)]' : 'text-[var(--gray-400)]'}`}>
+              <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
               <button
                 onClick={scrollToTools}
                 aria-label="Search tools"
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-[var(--brand-primary)] hover:border-[var(--brand-primary)] transition-[color,border-color] cursor-pointer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-600)] transition-[color,border-color] cursor-pointer"
               >
                 <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
                 <span className="text-xs text-[var(--gray-500)]">&#8984;K</span>
@@ -135,18 +135,18 @@ export default function Navbar() {
                     {user.picture ? (
                       <img src={user.picture} alt={user.name} className="w-full h-full object-cover" />
                     ) : (
-                                        <span className="text-[var(--gray-600)] font-semibold text-sm">{getInitials(user.name)}</span>
-                                      )}
-                                    </button>
-                                    {isProfileMenuOpen && (
-                                      <div className="absolute right-0 mt-2 w-48 bg-white border border-[var(--gray-700)] rounded-lg shadow-lg py-2 z-50">
-                                        <div className="px-4 py-2 border-b border-[var(--gray-700)]">
-                                          <p className="text-[var(--gray-600)] text-sm font-medium truncate">{user.name}</p>
+                      <span className="text-white font-semibold text-sm">{getInitials(user.name)}</span>
+                    )}
+                  </button>
+                  {isProfileMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg shadow-lg py-2 z-50">
+                      <div className="px-4 py-2 border-b border-[var(--gray-800)]">
+                        <p className="text-white text-sm font-medium truncate">{user.name}</p>
                         <p className="text-[var(--gray-500)] text-xs truncate">{user.email}</p>
                       </div>
                       <button
                         onClick={handleLogout}
-                        className="w-full px-4 py-2 text-left text-[var(--gray-400)] hover:text-[var(--brand-primary)] hover:bg-[var(--gray-100)] flex items-center gap-2 cursor-pointer"
+                        className="w-full px-4 py-2 text-left text-[var(--gray-500)] hover:text-white hover:bg-[var(--gray-800)] flex items-center gap-2 cursor-pointer"
                       >
                         <HugeiconsIcon icon={Logout01Icon} size={16} aria-hidden="true" />
                         Logout
@@ -155,8 +155,8 @@ export default function Navbar() {
                   )}
                 </div>
               ) : (
-                <button onClick={() => setShowAuth(true)}                className="text-[var(--gray-400)] hover:text-[var(--brand-primary)] cursor-pointer">
-                                  Login
+                <button onClick={() => setShowAuth(true)} className="text-[var(--gray-500)] hover:text-white cursor-pointer">
+                  Login
                 </button>
               )}
             </div>
@@ -164,7 +164,7 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-[var(--gray-600)] p-2 cursor-pointer"
+            className="md:hidden text-white p-2 cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
@@ -180,24 +180,24 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full right-0 left-0 bg-[var(--gray-900)] border-t border-[var(--gray-800)] z-50">
             <div className="flex flex-col gap-4 p-4">
-                            <button onClick={scrollToTools} className="text-[var(--gray-400)] hover:text-[var(--brand-primary)] text-left cursor-pointer">
-                              Explore
+              <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
+                Explore
               </button>
-              <Link href="/compare" className="text-[var(--gray-400)] hover:text-[var(--brand-primary)]" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/compare" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Compare
               </Link>
-              <Link href="/deals" className="text-[var(--gray-400)] hover:text-[var(--brand-primary)]" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/deals" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Deals
               </Link>
-              <Link href="/methodology" className="text-[var(--gray-400)] hover:text-[var(--brand-primary)]" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/methodology" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 How We Rate
               </Link>
-              <Link href="/about" className="text-[var(--gray-400)] hover:text-[var(--brand-primary)]" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
               <button
                 onClick={scrollToTools}
-                className="flex items-center gap-2 text-[var(--gray-400)] hover:text-[var(--brand-primary)] text-left cursor-pointer"
+                className="flex items-center gap-2 text-[var(--gray-500)] hover:text-white text-left cursor-pointer"
               >
                 <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
                 Search Tools
@@ -212,27 +212,27 @@ export default function Navbar() {
                   Submit Tool
                 </button> */}
                 {user ? (
-                                    <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-700)]">
-                                      <div className="flex items-center gap-3">
-                                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--gray-100)] overflow-hidden flex-shrink-0">
+                  <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--gray-800)] overflow-hidden flex-shrink-0">
                         {user.picture ? (
                           <img src={user.picture} alt={user.name} className="w-full h-full object-cover" />
                         ) : (
-                                                <span className="text-[var(--gray-600)] font-semibold text-sm">{getInitials(user.name)}</span>
-                                              )}
-                                            </div>
-                                            <div className="flex-1 min-w-0">
-                                              <p className="text-[var(--gray-600)] text-sm font-medium truncate">{user.name}</p>
+                          <span className="text-white font-semibold text-sm">{getInitials(user.name)}</span>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-white text-sm font-medium truncate">{user.name}</p>
                         <p className="text-[var(--gray-500)] text-xs truncate">{user.email}</p>
                       </div>
                     </div>
-                    <button onClick={handleLogout} className="text-[var(--gray-400)] hover:text-[var(--brand-primary)] text-left flex items-center gap-2 cursor-pointer">
+                    <button onClick={handleLogout} className="text-[var(--gray-500)] hover:text-white text-left flex items-center gap-2 cursor-pointer">
                       <HugeiconsIcon icon={Logout01Icon} size={16} aria-hidden="true" />
                       Logout
                     </button>
                   </div>
                 ) : (
-                  <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--gray-400)] hover:text-[var(--brand-primary)] text-left cursor-pointer">
+                  <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
                     Login
                   </button>
                 )}

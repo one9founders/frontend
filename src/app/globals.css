@@ -6,44 +6,44 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #fff7ed;
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ea580c;
+  background: #1e3a8a;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c2410c;
+  background: #1e40af;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ea580c #fff7ed;
+  scrollbar-color: #1e3a8a #0f172a;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #1c1917;
-  --brand-primary: #ea580c;
-  --brand-secondary: #f97316;
-  --brand-tertiary: #fb923c;
-  --brand-light: #fdba74;
+  --foreground: #171717;
+  --brand-primary: #7828D9;
+  --brand-secondary: #7C3AED;
+  --brand-tertiary: #8B5CF6;
+  --brand-light: #C4B5FD;
   --gray-white: #FFFFFF;
-  --gray-50: #FFFBF5;
-  --gray-100: #FFF5EB;
-  --gray-200: #FFE8D6;
-  --gray-300: #78716c;
-  --gray-400: #57534e;
-  --gray-500: #44403c;
-  --gray-600: #292524;
-  --gray-700: #e7e5e4;
-  --gray-800: #f5f5f4;
-  --gray-900: #fafaf9;
-  --gray-950: #ffffff;
-  --gray-black: #ffffff;
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F5;
+  --gray-200: #E5E5E5;
+  --gray-300: #D4D4D4;
+  --gray-400: #A3A3A3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  --gray-950: #0A0A0A;
+  --gray-black: #0A0A0A;
 }
 
 @theme inline {
@@ -53,6 +53,12 @@
   --font-mono: var(--font-bricolage-grotesque);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
 
 body {
   background: var(--background);
@@ -102,8 +108,8 @@ h4, h5, h6 {
   padding: 0.5rem 1rem;
   gap: 10px;
   background: transparent;
-  color: var(--gray-600);
-  border: 1px solid var(--gray-700);
+  color: white;
+  border: 1px solid var(--gray-800);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -112,11 +118,11 @@ h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-  background: var(--gray-100);
+  background: var(--gray-950);
 }
 
 .btn-secondary:active {
-  border-color: var(--gray-400);
+  border-color: var(--gray-900);
 }
 
 .btn-primary-sm {
@@ -150,8 +156,8 @@ h4, h5, h6 {
   padding: 0 12px;
   gap: 8px;
   background: transparent;
-  color: var(--gray-600);
-  border: 1px solid var(--gray-700);
+  color: white;
+  border: 1px solid var(--gray-800);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -160,11 +166,11 @@ h4, h5, h6 {
 }
 
 .btn-secondary-sm:hover {
-  background: var(--gray-100);
+  background: var(--gray-950);
 }
 
 .btn-secondary-sm:active {
-  border-color: var(--gray-400);
+  border-color: var(--gray-900);
 }
 
 /* Filter Styles */
@@ -176,8 +182,8 @@ h4, h5, h6 {
   border-style: dashed;
   gap: 20px;
   padding: 20px;
-  background: var(--gray-100);
-  color: var(--gray-600);
+  background: var(--gray-800) ;
+  color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -191,8 +197,8 @@ h4, h5, h6 {
   border: 1px solid var(--gray-400);
   gap: 20px;
   padding: 20px;
-  background: var(--gray-50);
-  color: var(--brand-primary);
+  background: var(--gray-100);
+  color: black;
   cursor: pointer;
   display: flex;
   align-items: center;

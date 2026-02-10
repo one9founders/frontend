@@ -52,7 +52,7 @@ export default async function ComparePage() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-10">
-          <h1 className="text-4xl sm:text-5xl font-bold text-[var(--gray-600)] mb-4">Compare AI Tools</h1>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Compare AI Tools</h1>
           <p className="text-lg sm:text-xl text-[var(--gray-300)] max-w-2xl mx-auto">
             Select up to 4 AI tools to compare features, pricing, and ratings side by side
           </p>
