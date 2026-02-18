@@ -7,7 +7,7 @@ import PortfolioSection from "../components/shared/PortfolioSection";
 import NewsletterSignup from "../components/shared/NewsletterSignup";
 import Footer from "../components/layout/Footer";
 
-export const revalidate = 3600;
+export const revalidate = 300; // 5 minutes - faster updates for ratings and new tools
 
 export default async function Home() {
   const data = await getAllTools({ page: 1, page_size: 20 });

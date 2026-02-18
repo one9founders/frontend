@@ -8,7 +8,7 @@ import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
 import { addRefToUrl } from '@/lib/utils/url';
 import { Tool, Review } from '@/types';
 
-export const revalidate = 3600;
+export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
 
 interface ToolPageProps {
   params: Promise<{ id: string }>;
