@@ -28,6 +28,32 @@ export default function Navbar() {
     }
   }, []);
 
+  // Cmd+K / Ctrl+K keyboard shortcut to focus search input
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        const toolsSection = document.querySelector('#tools-section');
+        if (toolsSection) {
+          toolsSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.href = '/#tools-section';
+          return;
+        }
+        // Focus the search input after scrolling
+        setTimeout(() => {
+          const searchInput = document.getElementById('search-input');
+          if (searchInput) {
+            searchInput.focus();
+          }
+        }, 300);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
