@@ -80,7 +80,7 @@ export default function Footer() {
           {/* Right: Navigation, Company, Newsletter & Copyright - flex 2 */}
           <div className="lg:flex-[2] space-y-8">
             {/* Navigation and Company in separate columns */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {/* Navigation */}
               <div>
                 <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Navigation</h3>
@@ -103,6 +103,33 @@ export default function Footer() {
                   <li>
                     <a href="/news" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       News
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Learn */}
+              <div>
+                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Learn</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a href="/learn" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Education Hub
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/learn/guides" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Guides
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/learn/workshops" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Workshops
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/learn/paths" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Learning Paths
                     </a>
                   </li>
                 </ul>
