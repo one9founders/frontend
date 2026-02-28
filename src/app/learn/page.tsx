@@ -70,44 +70,6 @@ const learningPaths = [
   },
 ];
 
-const navSections = [
-  {
-    title: 'Guides',
-    description: 'Step-by-step tutorials on using AI tools effectively.',
-    href: '/learn/guides',
-    count: 'Coming soon',
-  },
-  {
-    title: 'Hands-On Labs',
-    description: 'Interactive exercises to build real skills with AI tools.',
-    href: '/learn/labs',
-    count: 'Coming soon',
-  },
-  {
-    title: 'Workshops',
-    description: 'Live and recorded sessions led by industry experts.',
-    href: '/learn/workshops',
-    count: 'Coming soon',
-  },
-  {
-    title: 'Courses',
-    description: 'Structured multi-lesson programs for deep learning.',
-    href: '/learn/courses',
-    count: 'Coming soon',
-  },
-  {
-    title: 'Learning Paths',
-    description: 'Curated sequences of content for specific goals.',
-    href: '/learn/paths',
-    count: 'Coming soon',
-  },
-  {
-    title: 'For Organizations',
-    description: 'Team training, custom programs, and enterprise solutions.',
-    href: '/learn/for-organizations',
-    count: 'Coming soon',
-  },
-];
 
 export default function LearnPage() {
   return (
