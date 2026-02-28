@@ -204,3 +204,79 @@ h4, h5, h6 {
   align-items: center;
   justify-content: center;
 }
+
+/* Guide Content Styles */
+.guide-content {
+  color: rgb(209 213 219);
+  line-height: 1.8;
+}
+.guide-content h2 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2.5rem 0 1rem 0;
+  padding-top: 0.5rem;
+}
+.guide-content h3 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem 0;
+}
+.guide-content p {
+  margin: 1rem 0;
+  color: rgb(209 213 219);
+}
+.guide-content ul,
+.guide-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+.guide-content li {
+  margin: 0.5rem 0;
+}
+.guide-content a {
+  color: rgb(168 85 247);
+  text-decoration: underline;
+}
+.guide-content a:hover {
+  color: rgb(192 132 252);
+}
+.guide-content blockquote {
+  border-left: 4px solid rgb(168 85 247);
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background: rgba(168, 85, 247, 0.05);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.guide-content blockquote p {
+  margin: 0;
+  font-style: italic;
+}
+.guide-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+.guide-content thead {
+  background: rgba(255, 255, 255, 0.05);
+}
+.guide-content th {
+  color: white;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+.guide-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.guide-content strong {
+  color: white;
+  font-weight: 600;
+}
+.guide-content em {
+  color: rgb(156 163 175);
+}
