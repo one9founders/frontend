@@ -71,7 +71,14 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
 
     startTransition(async () => {
       try {
-        const user = await googleAuth(response.credential, turnstileToken);
+        const result = await googleAuth(response.credential, turnstileToken);
+
+        if ('error' in result) {
+          Swal.fire('Error', result.error, 'error');
+          return;
+        }
+
+        const user = result.user;
 
         // Identify user in PostHog
         posthog.identify(user.email, {
@@ -110,7 +117,19 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
     startTransition(async () => {
       try {
         const email = formData.get('email') as string;
-        const user = mode === 'signup' ? await signUp(formData) : await login(formData);
+        const result = mode === 'signup' ? await signUp(formData) : await login(formData);
+
+        if ('error' in result) {
+          if ('userExists' in result && result.userExists) {
+            await Swal.fire('Account Already Exists', 'An account with this email already exists. Please login instead.', 'info');
+            setMode('login');
+          } else {
+            Swal.fire('Error', result.error, 'error');
+          }
+          return;
+        }
+
+        const user = result.user;
 
         // Identify user in PostHog
         posthog.identify(user.email || email, {
