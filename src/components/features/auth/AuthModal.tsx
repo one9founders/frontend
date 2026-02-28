@@ -149,14 +149,24 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
         
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              aria-label="Full Name"
-              required
-              className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
-            />
+            <>
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                aria-label="Full Name"
+                required
+                className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
+              />
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="is_startup"
+                  className="w-4 h-4 accent-[var(--brand-primary)]"
+                />
+                <span className="text-sm text-white">Are you a startup?</span>
+              </label>
+            </>
           )}
           
           <input
