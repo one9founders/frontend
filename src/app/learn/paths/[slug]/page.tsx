@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PathPageProps): Promise<Metad
   const { slug } = await params;
   const path: LearningPathDetail | null = await educationAPI.getLearningPathBySlug(slug);
 
-  if (!path) {
+  if (!path || Array.isArray(path)) {
     return { title: 'Learning Path Not Found | One9Founders' };
   }
 
@@ -35,7 +35,7 @@ export default async function PathDetailPage({ params }: PathPageProps) {
   const { slug } = await params;
   const path: LearningPathDetail | null = await educationAPI.getLearningPathBySlug(slug);
 
-  if (!path) {
+  if (!path || Array.isArray(path)) {
     notFound();
   }
 

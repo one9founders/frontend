@@ -10,7 +10,7 @@ export const revalidate = 300;
 
 export async function generateMetadata(): Promise<Metadata> {
   const page: LandingPage | null = await educationAPI.getLandingPage('entrepreneurs');
-  if (!page) {
+  if (!page || Array.isArray(page)) {
     return generateSEO({
       title: 'AI Courses for Entrepreneurs',
       description: 'Build faster. Spend less. Scale smarter with AI tools.',
@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function EntrepreneursPage() {
   const page: LandingPage | null = await educationAPI.getLandingPage('entrepreneurs');
 
-  if (!page) {
+  if (!page || Array.isArray(page)) {
     notFound();
   }
 

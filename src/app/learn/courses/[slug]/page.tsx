@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: CoursePageProps): Promise<Met
   const { slug } = await params;
   const course: CourseDetail | null = await educationAPI.getCourseBySlug(slug);
 
-  if (!course) {
+  if (!course || Array.isArray(course)) {
     return { title: 'Course Not Found | One9Founders' };
   }
 
@@ -38,7 +38,7 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
   const { slug } = await params;
   const course: CourseDetail | null = await educationAPI.getCourseBySlug(slug);
 
-  if (!course) {
+  if (!course || Array.isArray(course)) {
     notFound();
   }
 
