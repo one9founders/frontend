@@ -85,15 +85,7 @@ export default function WorkshopsTabsClient({ upcomingWorkshops, pastWorkshops }
       {/* Registration Modal */}
       {registeringFor && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-xl border border-[var(--gray-700)] bg-[var(--gray-900)] p-6 relative">
-            <button
-              onClick={() => setRegisteringFor(null)}
-              className="absolute top-4 right-4 text-[var(--gray-500)] hover:text-white"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+          <div className="w-full max-w-md relative">
             <WorkshopRegisterForm
               workshopSlug={registeringFor.slug}
               workshopTitle={registeringFor.title}
