@@ -142,6 +142,57 @@ export const healthAPI = {
   check: () => fetchAPI('/health/'),
 };
 
+export const guidesAPI = {
+  getAll: (params?: { difficulty?: string; category?: string; audience?: string; pricing?: string; featured?: boolean; tool?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.featured) query.append('featured', 'true');
+    if (params?.tool) query.append('tool', params.tool);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/guides/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/guides/${slug}/`),
+  getFilters: () => fetchAPI('/guides/filters/'),
+};
+
+export const labsAPI = {
+  getAll: (params?: { difficulty?: string; category?: string; audience?: string; pricing?: string; featured?: boolean; tool?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.featured) query.append('featured', 'true');
+    if (params?.tool) query.append('tool', params.tool);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/labs/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/labs/${slug}/`),
+  getFilters: () => fetchAPI('/labs/filters/'),
+};
+
+export const workshopsAPI = {
+  getAll: (params?: { difficulty?: string; category?: string; audience?: string; pricing?: string; featured?: boolean; tool?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.featured) query.append('featured', 'true');
+    if (params?.tool) query.append('tool', params.tool);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/workshops/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/workshops/${slug}/`),
+  getFilters: () => fetchAPI('/workshops/filters/'),
+};
+
 export const trackingAPI = {
   trackUsage: (toolId: number, sessionId?: string) =>
     fetchAPI('/track/usage/', {

@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
-import { generateSEO } from '@/lib/utils/seo';
-import Link from 'next/link';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { labsAPI } from '@/lib/api/apiClient';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
+import LearnArchivePage from '@/components/shared/LearnArchivePage';
+import type { LearningContent } from '@/types';
 
 export const metadata: Metadata = generateSEO({
   title: 'Hands-On AI Labs for Founders',
@@ -10,9 +12,80 @@ export const metadata: Metadata = generateSEO({
   keywords: ['AI labs', 'hands-on AI', 'interactive AI exercises', 'AI tool practice', 'startup labs'],
 });
 
-export default function LabsPage() {
+const DIFFICULTY_OPTIONS = [
+  { value: 'beginner', label: 'Beginner' },
+  { value: 'intermediate', label: 'Intermediate' },
+  { value: 'advanced', label: 'Advanced' },
+];
+
+const CATEGORY_OPTIONS = [
+  { value: 'ai-fundamentals', label: 'AI Fundamentals' },
+  { value: 'machine-learning', label: 'Machine Learning' },
+  { value: 'natural-language-processing', label: 'Natural Language Processing' },
+  { value: 'computer-vision', label: 'Computer Vision' },
+  { value: 'automation', label: 'Automation' },
+  { value: 'data-analytics', label: 'Data & Analytics' },
+  { value: 'marketing', label: 'Marketing' },
+  { value: 'product-development', label: 'Product Development' },
+  { value: 'sales', label: 'Sales' },
+  { value: 'operations', label: 'Operations' },
+  { value: 'security', label: 'Security' },
+  { value: 'other', label: 'Other' },
+];
+
+const AUDIENCE_OPTIONS = [
+  { value: 'founders', label: 'Founders' },
+  { value: 'developers', label: 'Developers' },
+  { value: 'marketers', label: 'Marketers' },
+  { value: 'product-managers', label: 'Product Managers' },
+  { value: 'designers', label: 'Designers' },
+  { value: 'non-technical', label: 'Non-Technical' },
+  { value: 'everyone', label: 'Everyone' },
+];
+
+interface LabsPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function LabsPage({ searchParams }: LabsPageProps) {
+  const params = await searchParams;
+  const difficulty = typeof params.difficulty === 'string' ? params.difficulty : '';
+  const category = typeof params.category === 'string' ? params.category : '';
+  const audience = typeof params.audience === 'string' ? params.audience : '';
+
+  const hasActiveFilters = !!(difficulty || category || audience);
+
+  let items: LearningContent[] = [];
+  try {
+    const response = await labsAPI.getAll({
+      difficulty: difficulty || undefined,
+      category: category || undefined,
+      audience: audience || undefined,
+    });
+    items = response?.results || response || [];
+    if (!Array.isArray(items)) items = [];
+  } catch {
+    items = [];
+  }
+
+  const structuredData = generateStructuredData({
+    '@type': 'CollectionPage',
+    name: 'Hands-On AI Labs for Founders',
+    description: 'Interactive, project-based labs to build real skills with AI tools.',
+    url: 'https://one9founders.com/learn/labs',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'One9Founders',
+      url: 'https://one9founders.com',
+    },
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Breadcrumbs
         items={[
           { name: 'Home', path: '/' },
@@ -20,37 +93,22 @@ export default function LabsPage() {
           { name: 'Labs', path: '/learn/labs' },
         ]}
       />
-
-      {/* Hero */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Hands-On Labs</h1>
-          <p className="text-lg text-[var(--gray-300)] max-w-2xl mx-auto">
-            Interactive, project-based exercises to build real skills with AI tools in guided environments.
-          </p>
-        </div>
-      </section>
-
-      {/* Placeholder Content */}
-      <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center py-20 rounded-xl border border-dashed border-[var(--gray-700)] bg-[var(--gray-900)]">
-            <svg className="w-16 h-16 mx-auto mb-6 text-[var(--gray-600)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-            <h2 className="text-2xl font-bold text-white mb-3">Labs Coming Soon</h2>
-            <p className="text-[var(--gray-400)] max-w-md mx-auto mb-6">
-              We&apos;re building interactive lab environments where you can practice using AI tools hands-on. Stay tuned.
-            </p>
-            <Link href="/learn" className="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Education Hub
-            </Link>
-          </div>
-        </div>
-      </section>
+      <LearnArchivePage
+        title="Hands-On Labs"
+        description="Interactive, project-based exercises to build real skills with AI tools in guided environments."
+        basePath="/learn/labs"
+        contentType="labs"
+        icon={
+          <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        }
+        items={items}
+        difficultyOptions={DIFFICULTY_OPTIONS}
+        categoryOptions={CATEGORY_OPTIONS}
+        audienceOptions={AUDIENCE_OPTIONS}
+        hasActiveFilters={hasActiveFilters}
+      />
     </>
   );
 }
