@@ -133,6 +133,9 @@ export default function Navbar() {
               <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
+              <Link href="/learn" className={`hover:text-white ${pathname.startsWith('/learn') ? 'text-white' : 'text-[var(--gray-500)]'}`}>
+                Learn
+              </Link>
               <button
                 onClick={scrollToTools}
                 aria-label="Search tools"
@@ -220,6 +223,9 @@ export default function Navbar() {
               </Link>
               <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
+              </Link>
+              <Link href="/learn" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                Learn
               </Link>
               <button
                 onClick={scrollToTools}
