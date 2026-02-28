@@ -193,6 +193,63 @@ export const workshopsAPI = {
   getFilters: () => fetchAPI('/workshops/filters/'),
 };
 
+// Education API - matches backend education app endpoints
+export const educationAPI = {
+  getCategories: () => fetchAPI('/api/education/categories/'),
+  getAudiences: () => fetchAPI('/api/education/audiences/'),
+  getCourses: (params?: { category?: string; audience?: string; difficulty?: string; format?: string; is_featured?: boolean; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.format) query.append('format', params.format);
+    if (params?.is_featured) query.append('is_featured', 'true');
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/education/courses/?${query.toString()}`);
+  },
+  getCourseBySlug: (slug: string) => fetchAPI(`/api/education/courses/${slug}/`),
+  getGuides: (params?: { category?: string; audience?: string; difficulty?: string; is_featured?: boolean; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.is_featured) query.append('is_featured', 'true');
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/education/guides/?${query.toString()}`);
+  },
+  getGuideBySlug: (slug: string) => fetchAPI(`/api/education/guides/${slug}/`),
+  getWorkshops: (params?: { format?: string; status?: string; category?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.format) query.append('format', params.format);
+    if (params?.status) query.append('status', params.status);
+    if (params?.category) query.append('category', params.category);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/education/workshops/?${query.toString()}`);
+  },
+  getWorkshopBySlug: (slug: string) => fetchAPI(`/api/education/workshops/${slug}/`),
+  getLearningPaths: () => fetchAPI('/api/education/learning-paths/'),
+  getLearningPathBySlug: (slug: string) => fetchAPI(`/api/education/learning-paths/${slug}/`),
+  getLandingPage: (pageType: string) => fetchAPI(`/api/education/landing-pages/${pageType}/`),
+  submitCourseInquiry: (data: Record<string, unknown>) =>
+    fetchAPI('/api/education/inquiries/course/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+  submitOrgInquiry: (data: Record<string, unknown>) =>
+    fetchAPI('/api/education/inquiries/organization/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+  registerForWorkshop: (slug: string, data: Record<string, unknown>) =>
+    fetchAPI(`/api/education/workshops/${slug}/register/`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+};
+
 export const trackingAPI = {
   trackUsage: (toolId: number, sessionId?: string) =>
     fetchAPI('/track/usage/', {
