@@ -136,7 +136,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
             <div className="mt-8 flex justify-center gap-2">
               {page > 1 && (
                 <a
-                  href={`/learn/courses?page=${page - 1}${category ? `&category=${category}` : ''}${difficulty ? `&difficulty=${difficulty}` : ''}${format ? `&format=${format}` : ''}`}
+                  href={`/learn/courses?page=${page - 1}${category ? `&category=${category}` : ''}${difficulty ? `&difficulty=${difficulty}` : ''}${format ? `&format=${format}` : ''}${audience ? `&audience=${audience}` : ''}`}
                   className="px-4 py-2 rounded-lg bg-[var(--gray-800)] text-white hover:bg-[var(--gray-700)] transition-colors"
                 >
                   Previous
@@ -145,7 +145,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
               <span className="px-4 py-2 text-[var(--gray-400)]">Page {page}</span>
               {totalCount > page * 12 && (
                 <a
-                  href={`/learn/courses?page=${page + 1}${category ? `&category=${category}` : ''}${difficulty ? `&difficulty=${difficulty}` : ''}${format ? `&format=${format}` : ''}`}
+                  href={`/learn/courses?page=${page + 1}${category ? `&category=${category}` : ''}${difficulty ? `&difficulty=${difficulty}` : ''}${format ? `&format=${format}` : ''}${audience ? `&audience=${audience}` : ''}`}
                   className="px-4 py-2 rounded-lg bg-[var(--gray-800)] text-white hover:bg-[var(--gray-700)] transition-colors"
                 >
                   Next

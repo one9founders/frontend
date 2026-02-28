@@ -66,12 +66,21 @@ export default function WorkshopCard({ workshop, onRegister }: WorkshopCardProps
           {/* Actions */}
           <div className="flex items-center gap-3">
             {isUpcoming ? (
-              <button
-                onClick={() => onRegister?.(workshop.slug)}
-                className="btn-primary px-4 py-2 text-sm"
-              >
-                Register
-              </button>
+              onRegister ? (
+                <button
+                  onClick={() => onRegister(workshop.slug)}
+                  className="btn-primary px-4 py-2 text-sm"
+                >
+                  Register
+                </button>
+              ) : (
+                <Link
+                  href="/learn/workshops"
+                  className="btn-primary px-4 py-2 text-sm"
+                >
+                  Register →
+                </Link>
+              )
             ) : (
               <Link
                 href={`/learn/workshops`}
