@@ -45,8 +45,12 @@ export default function CoursesFilterClient({ categories }: CoursesFilterClientP
   );
 
   const clearFilters = useCallback(() => {
-    router.push(pathname);
-  }, [router, pathname]);
+    const params = new URLSearchParams();
+    const audience = searchParams.get('audience');
+    if (audience) params.set('audience', audience);
+    const qs = params.toString();
+    router.push(qs ? `${pathname}?${qs}` : pathname);
+  }, [router, pathname, searchParams]);
 
   const hasFilters = !!(currentCategory || currentDifficulty || currentFormat);
 
