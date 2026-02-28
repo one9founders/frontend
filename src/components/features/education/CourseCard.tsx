@@ -54,7 +54,7 @@ export default function CourseCard({ course }: CourseCardProps) {
 
         {/* Footer meta */}
         <div className="flex items-center justify-between text-xs text-[var(--gray-500)]">
-          <span>{course.duration_weeks} weeks</span>
+          {course.duration_weeks > 0 && <span>{course.duration_weeks} weeks</span>}
           {course.category && <span>{course.category.name}</span>}
         </div>
 
