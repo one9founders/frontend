@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
-import { generateSEO } from '@/lib/utils/seo';
-import Link from 'next/link';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { guidesAPI } from '@/lib/api/apiClient';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
+import LearnArchivePage from '@/components/shared/LearnArchivePage';
+import type { LearningContent } from '@/types';
 
 export const metadata: Metadata = generateSEO({
   title: 'AI Tool Guides for Startup Founders',
@@ -10,9 +12,80 @@ export const metadata: Metadata = generateSEO({
   keywords: ['AI tool guides', 'startup AI tutorials', 'how to use AI tools', 'AI implementation guides', 'founder guides'],
 });
 
-export default function GuidesPage() {
+const DIFFICULTY_OPTIONS = [
+  { value: 'beginner', label: 'Beginner' },
+  { value: 'intermediate', label: 'Intermediate' },
+  { value: 'advanced', label: 'Advanced' },
+];
+
+const CATEGORY_OPTIONS = [
+  { value: 'ai-fundamentals', label: 'AI Fundamentals' },
+  { value: 'machine-learning', label: 'Machine Learning' },
+  { value: 'natural-language-processing', label: 'Natural Language Processing' },
+  { value: 'computer-vision', label: 'Computer Vision' },
+  { value: 'automation', label: 'Automation' },
+  { value: 'data-analytics', label: 'Data & Analytics' },
+  { value: 'marketing', label: 'Marketing' },
+  { value: 'product-development', label: 'Product Development' },
+  { value: 'sales', label: 'Sales' },
+  { value: 'operations', label: 'Operations' },
+  { value: 'security', label: 'Security' },
+  { value: 'other', label: 'Other' },
+];
+
+const AUDIENCE_OPTIONS = [
+  { value: 'founders', label: 'Founders' },
+  { value: 'developers', label: 'Developers' },
+  { value: 'marketers', label: 'Marketers' },
+  { value: 'product-managers', label: 'Product Managers' },
+  { value: 'designers', label: 'Designers' },
+  { value: 'non-technical', label: 'Non-Technical' },
+  { value: 'everyone', label: 'Everyone' },
+];
+
+interface GuidesPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function GuidesPage({ searchParams }: GuidesPageProps) {
+  const params = await searchParams;
+  const difficulty = typeof params.difficulty === 'string' ? params.difficulty : '';
+  const category = typeof params.category === 'string' ? params.category : '';
+  const audience = typeof params.audience === 'string' ? params.audience : '';
+
+  const hasActiveFilters = !!(difficulty || category || audience);
+
+  let items: LearningContent[] = [];
+  try {
+    const response = await guidesAPI.getAll({
+      difficulty: difficulty || undefined,
+      category: category || undefined,
+      audience: audience || undefined,
+    });
+    items = response?.results || response || [];
+    if (!Array.isArray(items)) items = [];
+  } catch {
+    items = [];
+  }
+
+  const structuredData = generateStructuredData({
+    '@type': 'CollectionPage',
+    name: 'AI Tool Guides for Startup Founders',
+    description: 'Step-by-step guides on choosing, implementing, and getting the most out of AI tools for your startup.',
+    url: 'https://one9founders.com/learn/guides',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'One9Founders',
+      url: 'https://one9founders.com',
+    },
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Breadcrumbs
         items={[
           { name: 'Home', path: '/' },
@@ -20,37 +93,22 @@ export default function GuidesPage() {
           { name: 'Guides', path: '/learn/guides' },
         ]}
       />
-
-      {/* Hero */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Guides</h1>
-          <p className="text-lg text-[var(--gray-300)] max-w-2xl mx-auto">
-            Step-by-step tutorials on choosing, implementing, and mastering AI tools for your startup.
-          </p>
-        </div>
-      </section>
-
-      {/* Placeholder Content */}
-      <section className="py-12 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center py-20 rounded-xl border border-dashed border-[var(--gray-700)] bg-[var(--gray-900)]">
-            <svg className="w-16 h-16 mx-auto mb-6 text-[var(--gray-600)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-            <h2 className="text-2xl font-bold text-white mb-3">Guides Coming Soon</h2>
-            <p className="text-[var(--gray-400)] max-w-md mx-auto mb-6">
-              We&apos;re crafting in-depth guides on AI tools for founders. Check back soon or subscribe to get notified.
-            </p>
-            <Link href="/learn" className="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Education Hub
-            </Link>
-          </div>
-        </div>
-      </section>
+      <LearnArchivePage
+        title="Guides"
+        description="Step-by-step tutorials on choosing, implementing, and mastering AI tools for your startup."
+        basePath="/learn/guides"
+        contentType="guides"
+        icon={
+          <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+        }
+        items={items}
+        difficultyOptions={DIFFICULTY_OPTIONS}
+        categoryOptions={CATEGORY_OPTIONS}
+        audienceOptions={AUDIENCE_OPTIONS}
+        hasActiveFilters={hasActiveFilters}
+      />
     </>
   );
 }
