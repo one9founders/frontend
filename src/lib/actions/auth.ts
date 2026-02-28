@@ -18,12 +18,13 @@ export async function signUp(formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
   const name = formData.get('name') as string;
+  const isStartup = formData.get('is_startup') === 'on';
   const turnstileToken = formData.get('turnstileToken') as string;
 
   const response = await fetch(`${API_URL}/auth/register/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password, name, turnstile_token: turnstileToken }),
+    body: JSON.stringify({ email, password, name, is_startup: isStartup, turnstile_token: turnstileToken }),
   });
 
   if (!response.ok) {
