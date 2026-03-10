@@ -15,7 +15,7 @@ export default function WhySection() {
     {
       icon: "chart",
       title: "Uniform Rating Criteria",
-      description: "All 2,500+ tools evaluated using identical methodology. Apples-to-apples comparisons you can actually trust.",
+      description: "All tools evaluated using identical methodology. Apples-to-apples comparisons you can actually trust.",
     },
     {
       icon: "graduation",

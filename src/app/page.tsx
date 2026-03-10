@@ -19,7 +19,7 @@ export default async function Home() {
     '@type': 'WebSite',
     name: 'One9Founders',
     url: 'https://one9founders.com',
-    description: "India's first security-first AI tools directory with 2,500+ tools tested using uniform rating criteria",
+    description: "India's first security-first AI tools directory with 27,000+ tools listed and 2,500+ security validated using uniform rating criteria",
     potentialAction: {
       '@type': 'SearchAction',
       target: {

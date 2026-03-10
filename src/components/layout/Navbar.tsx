@@ -124,9 +124,6 @@ export default function Navbar() {
               <Link href="/compare" className={`hover:text-white ${pathname === '/compare' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Compare
               </Link>
-              <Link href="/deals" className={`hover:text-white ${pathname === '/deals' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Deals
-              </Link>
               <Link href="/methodology" className={`hover:text-white ${pathname === '/methodology' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 How We Rate
               </Link>
@@ -209,9 +206,6 @@ export default function Navbar() {
               </button>
               <Link href="/compare" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Compare
-              </Link>
-              <Link href="/deals" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
-                Deals
               </Link>
               <Link href="/methodology" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 How We Rate
