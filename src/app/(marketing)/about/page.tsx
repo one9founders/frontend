@@ -242,7 +242,7 @@ export default function AboutPage() {
       <ContactCard
         picture="https://4cqs2zpl07.ucarecd.net/906fa9be-5977-43d5-983c-fa4454db2547/-/preview/"
         name="Arnav Gautam"
-        designation="Co-Founder &amp; CTO"
+        designation="Co-Founder & CTO"
         email="arnav.o9f@gmail.com"
         linkedin="https://www.linkedin.com/in/arnav-gautam-570553289/"
         phone="+919414454858"
@@ -250,7 +250,7 @@ export default function AboutPage() {
       <ContactCard
         picture="https://4cqs2zpl07.ucarecd.net/4cc6cdfd-0552-4b72-87d6-e2f0d8b053d0/-/preview/"
         name="Dinesh Sahu"
-        designation="Co-Founder &amp; COO"
+        designation="Co-Founder & COO"
         email="dineshsahu.o9f@gmail.com"
         linkedin="https://www.linkedin.com/in/xdineshsahu/"
         phone="+918109286424"
