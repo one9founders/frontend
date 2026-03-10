@@ -30,8 +30,8 @@ export default function AboutPage() {
               knowsAbout: ['AI Tools', 'Startup Technology', 'Security Assessment', 'Tool Evaluation'],
               founders: [
                 { '@type': 'Person', name: 'Amit Bhartiya', jobTitle: 'CEO' },
-                { '@type': 'Person', name: 'Arnav Gautam', jobTitle: 'CTO' },
-                { '@type': 'Person', name: 'Dinesh Sahu', jobTitle: 'CTO' },
+                { '@type': 'Person', name: 'Arnav Gautam', jobTitle: 'Co-Founder & CTO' },
+                { '@type': 'Person', name: 'Dinesh Sahu', jobTitle: 'Co-Founder & COO' },
                 { '@type': 'Person', name: 'Shreya Nair', jobTitle: 'CMO' },
               ],
               contactPoint: {
