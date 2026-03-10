@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = generateSEO({
   title: 'How We Rate AI Tools | One9Founders Methodology',
-  description: 'Our transparent 10-point evaluation framework for rating 2,500+ AI tools. Learn how One9Founders ensures unbiased, security-first reviews with zero affiliate influence.',
+  description: 'Our transparent 10-point evaluation framework for rating AI tools. Learn how One9Founders ensures unbiased, security-first reviews with zero affiliate influence.',
   path: '/methodology',
   keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria'],
 });
@@ -163,7 +163,7 @@ export default function MethodologyPage() {
   const structuredData = generateStructuredData({
     '@type': 'WebPage',
     name: 'How We Rate AI Tools - One9Founders Methodology',
-    description: 'Our transparent 10-point evaluation framework for rating 2,500+ AI tools.',
+    description: 'Our transparent 10-point evaluation framework for rating AI tools.',
     url: 'https://one9founders.com/methodology',
   });
 
@@ -188,7 +188,7 @@ export default function MethodologyPage() {
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
               One9Founders uses a uniform, transparent methodology to evaluate every AI tool
               in our directory. Unlike other directories that rely on affiliate relationships
-              or popularity metrics alone, we apply consistent criteria across all 2,500+ tools.
+              or popularity metrics alone, we apply consistent criteria across all tools.
             </p>
             <p className="text-white font-semibold text-lg">
               Our commitment: Zero affiliate bias. Every tool rated the same way. Security first.

@@ -202,20 +202,20 @@ export default async function LearnPage() {
         </div>
       </section>
 
-      {/* Free Guides */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-2">Free Guides</h2>
-              <p className="text-[var(--gray-400)]">In-depth tutorials to help you get the most out of AI tools.</p>
+      {/* Free Guides - hidden until content is available */}
+      {featuredGuides.length > 0 && (
+        <section className="py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-2">Free Guides</h2>
+                <p className="text-[var(--gray-400)]">In-depth tutorials to help you get the most out of AI tools.</p>
+              </div>
+              <Link href="/learn/guides" className="hidden sm:inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium">
+                View all guides
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </Link>
             </div>
-            <Link href="/learn/guides" className="hidden sm:inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium">
-              View all guides
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </Link>
-          </div>
-          {featuredGuides.length > 0 ? (
             <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
               {featuredGuides.map((guide) => (
                 <div key={guide.id} className="flex-shrink-0 w-[320px] snap-start">
@@ -223,40 +223,32 @@ export default async function LearnPage() {
                 </div>
               ))}
             </div>
-          ) : (
-            <div className="text-center py-12 rounded-xl border border-dashed border-[var(--gray-700)] bg-[var(--gray-900)]">
-              <p className="text-[var(--gray-400)]">Guides coming soon. Stay tuned!</p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Upcoming Workshops */}
-      <section className="py-16 px-6 bg-[var(--gray-900)]">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-2">Upcoming Workshops</h2>
-              <p className="text-[var(--gray-400)]">Live sessions with industry experts. Learn, ask questions, and network.</p>
-            </div>
-            <Link href="/learn/workshops" className="hidden sm:inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium">
-              All workshops
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </Link>
           </div>
-          {upcomingWorkshops.length > 0 ? (
+        </section>
+      )}
+
+      {/* Upcoming Workshops - hidden until content is available */}
+      {upcomingWorkshops.length > 0 && (
+        <section className="py-16 px-6 bg-[var(--gray-900)]">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-bold text-white mb-2">Upcoming Workshops</h2>
+                <p className="text-[var(--gray-400)]">Live sessions with industry experts. Learn, ask questions, and network.</p>
+              </div>
+              <Link href="/learn/workshops" className="hidden sm:inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium">
+                All workshops
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </Link>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {upcomingWorkshops.map((workshop) => (
                 <WorkshopCard key={workshop.id} workshop={workshop} />
               ))}
             </div>
-          ) : (
-            <div className="text-center py-12 rounded-xl border border-dashed border-[var(--gray-700)] bg-[var(--gray-800)]">
-              <p className="text-[var(--gray-400)]">No upcoming workshops. Check back soon!</p>
-            </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
       {/* For Colleges & Corporates */}
       <section className="py-16 px-6">

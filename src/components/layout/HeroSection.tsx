@@ -38,15 +38,15 @@ export default function HeroSection() {
           One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools for building and scaling startups.
         </p>
         <p className="text-md md:text-lg mb-8 text-[var(--gray-400)] max-w-3xl mx-auto">
-          2,500+ AI tools tested with uniform rating criteria and zero affiliate bias.
+          27,000+ AI tools listed. 2,500+ security validated with uniform rating criteria and zero affiliate bias.
           India&apos;s most trusted platform for startup founders to discover AI tools.
         </p>
 
         {/* Stats Row */}
         <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10">
           <div className="text-center">
-            <span className="block text-3xl md:text-4xl font-bold text-purple-400">2,500+</span>
-            <span className="text-sm text-[var(--gray-400)]">Tools Tested</span>
+            <span className="block text-3xl md:text-4xl font-bold text-purple-400">27,000+</span>
+            <span className="text-sm text-[var(--gray-400)]">AI Tools Listed</span>
           </div>
           <div className="text-center">
             <span className="block text-3xl md:text-4xl font-bold text-purple-400">10-Point</span>

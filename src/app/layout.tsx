@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'One9Founders – AI Tool Directory for Startup Founders',
     template: '%s | One9Founders',
   },
-  description: "India's first security-validated AI tools directory. Compare 2,500+ AI tools with uniform rating criteria and zero affiliate bias. Supported by IIT Bombay.",
+  description: "India's first security-validated AI tools directory. 27,000+ AI tools listed, 2,500+ security validated with uniform rating criteria and zero affiliate bias. Supported by IIT Bombay.",
   keywords: ['AI tools directory', 'AI tools for startups', 'security validated AI tools', 'unbiased AI tool reviews', 'compare AI tools India', 'startup tools', 'founder resources'],
   authors: [{ name: 'One9Founders' }],
   creator: 'One9Founders',
