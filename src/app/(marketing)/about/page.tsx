@@ -28,9 +28,7 @@ export default function AboutPage() {
               foundingDate: '2024',
               founders: [
                 { '@type': 'Person', name: 'Amit Bhartiya', jobTitle: 'CEO' },
-                { '@type': 'Person', name: 'Arnav Gautam', jobTitle: 'CTO' },
                 { '@type': 'Person', name: 'Dinesh Sahu', jobTitle: 'CTO' },
-                { '@type': 'Person', name: 'Shreya Nair', jobTitle: 'CMO' },
               ],
               contactPoint: {
                 '@type': 'ContactPoint',
@@ -128,7 +126,7 @@ export default function AboutPage() {
       <section className="py-16 px-6">
   <div className="max-w-6xl mx-auto">
     <h2 className="text-3xl font-bold text-white text-center mb-12">Meet Our Team</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
       <ContactCard
         picture="https://4cqs2zpl07.ucarecd.net/fe69a771-5074-4a28-9bda-c17e8c526ac9/-/preview/"
         name="Amit Bhartiya"
@@ -138,28 +136,12 @@ export default function AboutPage() {
         phone="+917878469798"
       />
       <ContactCard
-        picture="https://4cqs2zpl07.ucarecd.net/906fa9be-5977-43d5-983c-fa4454db2547/-/preview/"
-        name="Arnav Gautam"
-        designation="CTO"
-        email="arnav.o9f@gmail.com"
-        linkedin="https://www.linkedin.com/in/arnav-gautam-570553289/"
-        phone="+919414454858"
-      />
-      <ContactCard
         picture="https://4cqs2zpl07.ucarecd.net/4cc6cdfd-0552-4b72-87d6-e2f0d8b053d0/-/preview/"
         name="Dinesh Sahu"
         designation="CTO"
         email="dineshsahu.o9f@gmail.com"
         linkedin="https://www.linkedin.com/in/xdineshsahu/"
         phone="+918109286424"
-      />
-      <ContactCard
-        picture="https://4cqs2zpl07.ucarecd.net/c4257977-8c69-4a93-bb5a-412dbe412590/-/preview/"
-        name="Shreya Nair"
-        designation="CMO" 
-        email="shreyaa.o9f@gmail.com"
-        linkedin="https://www.linkedin.com/in/shreya-nair-79597227b/"
-        phone="+919082332410"
       />
     </div>
   </div>
