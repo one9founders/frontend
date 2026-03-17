@@ -9,24 +9,40 @@ import PricingFilter from "../features/tools/PricingFilter";
 import Pagination from "./Pagination";
 import posthog from "posthog-js";
 
-export default function PortfolioSection() {
-  const [tools, setTools] = useState<Tool[]>([]);
-  const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
+interface PortfolioSectionProps {
+  initialTools?: Tool[];
+  initialTotalCount?: number;
+  initialTotalPages?: number;
+}
+
+export default function PortfolioSection({ 
+  initialTools = [], 
+  initialTotalCount = 0,
+  initialTotalPages = 1 
+}: PortfolioSectionProps) {
+  const [tools, setTools] = useState<Tool[]>(initialTools);
+  const [filteredTools, setFilteredTools] = useState<Tool[]>(initialTools);
   const [selectedTag, setSelectedTag] = useState("All");
   const [selectedPricing, setSelectedPricing] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(initialTools.length === 0);
   const [searchResults, setSearchResults] = useState<Tool[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
   const [sortBy, setSortBy] = useState<'name' | 'rating' | 'newest' | 'match'>('name');
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(initialTotalPages);
+  const [totalCount, setTotalCount] = useState(initialTotalCount);
   const pageSize = 20;
+  const [hasInitialData, setHasInitialData] = useState(initialTools.length > 0);
 
-  const tags = ["All", "AI", "Productivity", "Design", "Development", "Content", "Video", "Writing", "Analytics", "Marketing"];
+  const tags = ["All", "Writing", "Images", "Video", "Code", "Chatbots", "Marketing", "Productivity", "Design", "Analytics"];
 
   useEffect(() => {
+    // Skip initial load if we have server-provided data and no filters are applied
+    if (hasInitialData && currentPage === 1 && selectedTag === "All" && selectedPricing.length === 0) {
+      setHasInitialData(false);
+      return;
+    }
     loadTools();
   }, [currentPage, selectedTag, selectedPricing, sortBy]);
 
@@ -53,7 +69,7 @@ export default function PortfolioSection() {
       }
       
       if (selectedPricing.length > 0) {
-        params.pricing = selectedPricing.join(',');
+        params.pricing_type = selectedPricing.join(',');
       }
       
       console.log('API params:', params); // Debug log

@@ -9,10 +9,9 @@ interface PricingFilterProps {
 
 export default function PricingFilter({ selectedPricing, onPricingChange }: PricingFilterProps) {
   const pricingOptions = [
-    { value: 'Free', label: 'Free', color: 'bg-green-600' },
-    { value: 'Freemium', label: 'Freemium', color: 'bg-blue-600' },
-    { value: 'Free Trial', label: 'Free Trial', color: 'bg-purple-600' },
-    { value: 'Paid', label: 'Paid', color: 'bg-orange-600' }
+    { value: 'free', label: 'Free', color: 'bg-green-600' },
+    { value: 'freemium', label: 'Freemium', color: 'bg-blue-600' },
+    { value: 'paid', label: 'Paid', color: 'bg-orange-600' }
   ];
 
   const togglePricing = (pricing: string) => {

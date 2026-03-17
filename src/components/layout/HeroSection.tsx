@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import posthog from "posthog-js";
 
 export default function HeroSection() {
   const scrollToTools = () => {
-    // Capture explore tools click event
     posthog.capture("explore_tools_clicked", {
       source: "hero_section",
     });
@@ -16,28 +17,58 @@ export default function HeroSection() {
   };
 
   return (
-    <section
-      className="text-white py-20 px-6 bg-[var(--gray-black)]"
-    >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h1 className="text-4xl font-bold mb-6">
-            Find, Compare and Choose 
-            <br />
-            the Right AI Tools Superfast
-          </h1>
-          <p className="text-md mb-8 text-[var(--gray-400)]">
-            Discover the right AI tools crafted to boost your startup's
-            productivity. Explore curated solutions designed to streamline
-            workflows and accelerate growth. Make smarter decisions faster with
-            clarity, not clutter.
-          </p>
+    <section className="text-white py-16 md:py-20 px-6 bg-[var(--gray-black)]">
+      <div className="max-w-7xl mx-auto text-center">
+        {/* Trust Badge */}
+        <div className="inline-flex items-center gap-2 bg-[var(--gray-900)] border border-[var(--gray-700)] px-4 py-2 rounded-full mb-6">
+          <Image 
+            src="/iitb-logo.png" 
+            alt="IIT Bombay" 
+            width={24} 
+            height={24}
+            className="rounded-sm"
+          />
+          <span className="text-sm text-[var(--gray-300)]">Supported by IIT Bombay</span>
+        </div>
+
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          One9Founders: The Security-First AI Tools Directory
+        </h1>
+        <p className="text-md md:text-lg mb-4 text-[var(--gray-300)] max-w-3xl mx-auto">
+          One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools for building and scaling startups.
+        </p>
+        <p className="text-md md:text-lg mb-8 text-[var(--gray-400)] max-w-3xl mx-auto">
+          27,000+ AI tools listed. 2,500+ security validated with uniform rating criteria and zero affiliate bias.
+          India&apos;s most trusted platform for startup founders to discover AI tools.
+        </p>
+
+        {/* Stats Row */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-12 mb-10">
+          <div className="text-center">
+            <span className="block text-3xl md:text-4xl font-bold text-purple-400">27,000+</span>
+            <span className="text-sm text-[var(--gray-400)]">AI Tools Listed</span>
+          </div>
+          <div className="text-center">
+            <span className="block text-3xl md:text-4xl font-bold text-purple-400">10-Point</span>
+            <span className="text-sm text-[var(--gray-400)]">Security Check</span>
+          </div>
+          <div className="text-center">
+            <span className="block text-3xl md:text-4xl font-bold text-purple-400">0%</span>
+            <span className="text-sm text-[var(--gray-400)]">Affiliate Bias</span>
+          </div>
+          <div className="text-center">
+            <span className="block text-3xl md:text-4xl font-bold text-purple-400">9</span>
+            <span className="text-sm text-[var(--gray-400)]">Categories</span>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-4 justify-center">
           <button className="btn-primary" onClick={scrollToTools}>
             Explore Tools
           </button>
-        </div>
-        <div className="flex justify-center">
-          <img src="https://4cqs2zpl07.ucarecd.net/636b69e0-d0b7-4613-b09a-b0362f2451a0/-/preview/2912x1632/" />
+          <Link href="/methodology">
+            <button className="btn-secondary px-6 py-3">How We Rate Tools</button>
+          </Link>
         </div>
       </div>
     </section>

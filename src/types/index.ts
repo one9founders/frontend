@@ -19,6 +19,7 @@ export interface Tool {
   affiliate_url?: string;
   logo_url?: string;
   video_demo_url?: string;
+  landing_page_screenshot?: string;
   pricing_models: string[];
   pricing_tiers?: any[];
   pricing_from?: number;
@@ -38,6 +39,8 @@ export interface Tool {
   verified: boolean;
   is_featured: boolean;
   is_active: boolean;
+  security_score?: number | null;
+  security_assessed_at?: string | null;
   alternatives?: Tool[];
   similarity?: number;
   created_at: string;
@@ -114,4 +117,83 @@ export interface ToolSubmission {
   categories?: number[];
   pricing_info?: string;
   created_at?: string;
+}
+
+// --- Learning Content Types ---
+
+export type LearningDifficulty = 'beginner' | 'intermediate' | 'advanced';
+export type LearningCategory =
+  | 'ai-fundamentals'
+  | 'machine-learning'
+  | 'natural-language-processing'
+  | 'computer-vision'
+  | 'automation'
+  | 'data-analytics'
+  | 'marketing'
+  | 'product-development'
+  | 'sales'
+  | 'operations'
+  | 'security'
+  | 'other';
+export type LearningAudience =
+  | 'founders'
+  | 'developers'
+  | 'marketers'
+  | 'product-managers'
+  | 'designers'
+  | 'non-technical'
+  | 'everyone';
+export type LearningPricing = 'free' | 'paid' | 'freemium';
+
+export interface LearningContent {
+  id: number;
+  title: string;
+  slug: string;
+  short_description: string;
+  featured_image?: string;
+  author: string;
+  difficulty: LearningDifficulty;
+  estimated_time: string;
+  category: LearningCategory;
+  audience: LearningAudience;
+  tools_used: Tool[];
+  pricing: LearningPricing;
+  price_amount?: number;
+  is_featured: boolean;
+  last_updated?: string;
+  published_at?: string;
+}
+
+export interface LearningContentDetail extends LearningContent {
+  content: string;
+  meta_title?: string;
+  meta_description?: string;
+  is_published: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export type Guide = LearningContent;
+export type GuideDetail = LearningContentDetail;
+export type Lab = LearningContent;
+export type LabDetail = LearningContentDetail;
+export type Workshop = LearningContent;
+export type WorkshopDetail = LearningContentDetail;
+
+export interface FilterOption {
+  value: string;
+  label: string;
+}
+
+export interface LearningFilters {
+  difficulty: FilterOption[];
+  category: FilterOption[];
+  audience: FilterOption[];
+  pricing: FilterOption[];
+}
+
+export interface LearningContentFiltersState {
+  difficulty: string;
+  category: string;
+  audience: string;
 }

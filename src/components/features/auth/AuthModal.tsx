@@ -71,7 +71,14 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
 
     startTransition(async () => {
       try {
-        const user = await googleAuth(response.credential, turnstileToken);
+        const result = await googleAuth(response.credential, turnstileToken);
+
+        if ('error' in result) {
+          Swal.fire('Error', result.error, 'error');
+          return;
+        }
+
+        const user = result.user;
 
         // Identify user in PostHog
         posthog.identify(user.email, {
@@ -110,7 +117,19 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
     startTransition(async () => {
       try {
         const email = formData.get('email') as string;
-        const user = mode === 'signup' ? await signUp(formData) : await login(formData);
+        const result = mode === 'signup' ? await signUp(formData) : await login(formData);
+
+        if ('error' in result) {
+          if ('userExists' in result && result.userExists) {
+            await Swal.fire('Account Already Exists', 'An account with this email already exists. Please login instead.', 'info');
+            setMode('login');
+          } else {
+            Swal.fire('Error', result.error, 'error');
+          }
+          return;
+        }
+
+        const user = result.user;
 
         // Identify user in PostHog
         posthog.identify(user.email || email, {
@@ -143,25 +162,38 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50" style={{overscrollBehavior: 'contain'}} onClick={onClose}>
       <div className="rounded-lg p-8 max-w-md w-full bg-[var(--gray-900)] border border-[var(--gray-800)]" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-2xl font-bold mb-6 text-white">{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              required
-              className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
-            />
+            <>
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                aria-label="Full Name"
+                required
+                className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
+              />
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="is_startup"
+                  className="w-4 h-4 accent-[var(--brand-primary)]"
+                />
+                <span className="text-sm text-white">Are you a startup?</span>
+              </label>
+            </>
           )}
           
           <input
             type="email"
             name="email"
             placeholder="Email"
+            aria-label="Email"
+            autoComplete="email"
             required
             className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
           />
@@ -170,6 +202,8 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             type="password"
             name="password"
             placeholder="Password"
+            aria-label="Password"
+            autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
             required
             className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]"
           />
@@ -181,7 +215,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             disabled={isPending || !turnstileToken}
             className="w-full py-2 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)]"
           >
-            {isPending ? 'Processing...' : mode === 'login' ? 'Login' : 'Sign Up'}
+            {isPending ? 'Processing…' : mode === 'login' ? 'Login' : 'Sign Up'}
           </button>
         </form>
 
