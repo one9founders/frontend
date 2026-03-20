@@ -72,6 +72,7 @@ export default function AgentsDirectoryClient({
   // Fetch agents when filters change
   useEffect(() => {
     fetchGeneration.current++;
+    const gen = fetchGeneration.current;
     const fetchAgents = async () => {
       setLoading(true);
       setPage(1);
@@ -88,6 +89,7 @@ export default function AgentsDirectoryClient({
         if (search) params.search = search;
 
         const data = await agentsAPI.getAll(params as Parameters<typeof agentsAPI.getAll>[0]);
+        if (gen !== fetchGeneration.current) return;
         const response = (data || { count: 0, next: null, previous: null, results: [] }) as AgentListResponse;
         setAgents(response.results || []);
         setTotalCount(response.count || 0);
@@ -146,7 +148,7 @@ export default function AgentsDirectoryClient({
 
       const data = await agentsAPI.getAll(params as Parameters<typeof agentsAPI.getAll>[0]);
       // Discard stale results if filters changed during the fetch
-      if (gen !== fetchGeneration.current) return;
+      if (gen !== fetchGeneration.current) { setLoadingMore(false); return; }
       const response = (data || { count: 0, next: null, previous: null, results: [] }) as AgentListResponse;
       setAgents((prev) => [...prev, ...(response.results || [])]);
       setHasMore(!!(response.next));
