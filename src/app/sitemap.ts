@@ -13,6 +13,17 @@ interface CategoryItem {
   name: string;
 }
 
+interface AgentSitemapItem {
+  slug: string;
+  updated_at?: string;
+  category_slug?: string;
+}
+
+interface AgentCategoryItem {
+  slug: string;
+  label: string;
+}
+
 async function getAllTools(): Promise<ToolSitemapItem[]> {
   try {
     const response = await fetch(`${API_URL}/tools/?page_size=500`, {
@@ -34,6 +45,32 @@ async function getAllCategories(): Promise<CategoryItem[]> {
     if (!response.ok) return [];
     const data = await response.json();
     return data.results || data || [];
+  } catch {
+    return [];
+  }
+}
+
+async function getAllAgents(): Promise<AgentSitemapItem[]> {
+  try {
+    const response = await fetch(`${API_URL}/api/agents/?page_size=500`, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    return data.results || [];
+  } catch {
+    return [];
+  }
+}
+
+async function getAllAgentCategories(): Promise<AgentCategoryItem[]> {
+  try {
+    const response = await fetch(`${API_URL}/api/agents/categories/`, {
+      next: { revalidate: 3600 },
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    return data.categories || [];
   } catch {
     return [];
   }
@@ -62,10 +99,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: page.priority,
   }));
 
-  // Fetch tools and categories in parallel
-  const [tools, categories] = await Promise.all([
+  // Fetch tools, categories, agents, and agent categories in parallel
+  const [tools, categories, agents, agentCategories] = await Promise.all([
     getAllTools(),
     getAllCategories(),
+    getAllAgents(),
+    getAllAgentCategories(),
   ]);
 
   // Tool pages - high priority for individual tool SEO
@@ -84,5 +123,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...categoryPages, ...toolPages];
+  // Agent directory page
+  const agentDirectoryPage = {
+    url: `${baseUrl}/agents`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  };
+
+  // Individual agent pages
+  const agentPages = agents.map((agent) => ({
+    url: `${baseUrl}/agents/${agent.slug}`,
+    lastModified: agent.updated_at ? new Date(agent.updated_at) : new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  // Agent category pages
+  const agentCategoryPages = agentCategories.map((cat) => ({
+    url: `${baseUrl}/agents/category/${cat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...categoryPages, ...toolPages, agentDirectoryPage, ...agentCategoryPages, ...agentPages];
 }

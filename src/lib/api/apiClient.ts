@@ -250,6 +250,23 @@ export const educationAPI = {
     }),
 };
 
+export const agentsAPI = {
+  getAll: (params?: { category?: string; pricing?: string; access?: string; search?: string; sort?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.access) query.append('access', params.access);
+    if (params?.search) query.append('search', params.search);
+    if (params?.sort) query.append('sort', params.sort);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/agents/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/api/agents/${slug}/`),
+  getCategories: () => fetchAPI('/api/agents/categories/'),
+  getStats: () => fetchAPI('/api/agents/stats/'),
+};
+
 export const trackingAPI = {
   trackUsage: (toolId: number, sessionId?: string) =>
     fetchAPI('/api/track/usage/', {
