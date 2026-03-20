@@ -65,7 +65,7 @@ export default async function AgentDetailPage({ params }: AgentDetailPageProps) 
   const breadcrumbs = [
     { name: 'Home', path: '/' },
     { name: 'AI Agents', path: '/agents' },
-    ...(agent.category_slug
+    ...(agent.category_slug && agent.category_name
       ? [{ name: agent.category_name, path: `/agents/category/${agent.category_slug}` }]
       : []),
     { name: agent.name, path: `/agents/${agent.slug}` },
@@ -80,7 +80,7 @@ export default async function AgentDetailPage({ params }: AgentDetailPageProps) 
     applicationCategory: agent.category_name,
     offers: {
       '@type': 'Offer',
-      price: agent.pricing_model === 'Free' ? '0' : undefined,
+      price: agent.pricing_model?.toLowerCase() === 'free' ? '0' : undefined,
       priceCurrency: 'USD',
       availability: 'https://schema.org/OnlineOnly',
     },
