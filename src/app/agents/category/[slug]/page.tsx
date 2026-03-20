@@ -84,6 +84,7 @@ export default async function AgentCategoryPage({ params }: CategoryPageProps) {
       <main className="py-8 md:py-12 px-4 md:px-6">
         <Suspense fallback={<div className="text-center text-white py-20">Loading agents...</div>}>
           <AgentsDirectoryClient
+            key={slug}
             initialAgents={agents.results}
             initialCount={agents.count}
             initialCategories={categories}
