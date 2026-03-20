@@ -31,6 +31,7 @@ export default function SimilarAgents({ categorySlug, currentSlug }: SimilarAgen
       setLoading(false);
     }
     if (categorySlug) {
+      setLoading(true);
       load();
     } else {
       setLoading(false);

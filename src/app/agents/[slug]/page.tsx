@@ -104,7 +104,7 @@ export default async function AgentDetailPage({ params }: AgentDetailPageProps) 
       <Navbar />
       <Breadcrumbs items={breadcrumbs} />
       <main className="py-6 md:py-10 px-4 md:px-6">
-        <AgentDetailClient agent={agent} />
+        <AgentDetailClient key={agent.slug} agent={agent} />
       </main>
       <Footer />
     </div>
