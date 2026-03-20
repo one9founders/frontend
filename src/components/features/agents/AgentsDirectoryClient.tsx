@@ -105,10 +105,12 @@ export default function AgentsDirectoryClient({
         if (search) urlParams.search = search;
         updateUrl(urlParams);
       } catch (error) {
+        if (gen !== fetchGeneration.current) return;
         console.error('Failed to fetch agents:', error);
         setAgents([]);
         setTotalCount(0);
       }
+      if (gen !== fetchGeneration.current) return;
       setLoading(false);
     };
 
