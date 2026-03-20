@@ -116,7 +116,7 @@ export default function AgentsDirectoryClient({
       !search &&
       initialAgents.length > 0;
 
-    if (!isInitial || category || pricing || access || sort !== 'popular' || search) {
+    if (!isInitial) {
       fetchAgents();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
