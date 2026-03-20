@@ -1,12 +1,19 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import { HugeiconsIcon, Search01Icon } from "@/components/ui/icons";
 import posthog from "posthog-js";
 
-const CATEGORY_PILLS = [
+interface CategoryPill {
+  label: string;
+  active: boolean;
+  href?: string;
+}
+
+const CATEGORY_PILLS: CategoryPill[] = [
   { label: "AI Tools", active: true },
-  { label: "AI Agents", active: false },
+  { label: "AI Agents", active: false, href: "/agents" },
   { label: "LLMs", active: false },
   { label: "Open Source", active: false },
   { label: "RAG / Vector DBs", active: false },
@@ -15,6 +22,7 @@ const CATEGORY_PILLS = [
 ];
 
 export default function HeroSection() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -74,7 +82,9 @@ export default function HeroSection() {
       source: "hero_section",
     });
 
-    if (pill.label === "AI Tools") {
+    if (pill.href) {
+      router.push(pill.href);
+    } else if (pill.label === "AI Tools") {
       scrollToToolsAndSearch();
     } else {
       scrollToToolsAndSearch(pill.label);

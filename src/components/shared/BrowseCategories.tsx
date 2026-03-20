@@ -1,5 +1,7 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 const CATEGORIES = [
   {
     title: 'AI Tools',
@@ -12,8 +14,8 @@ const CATEGORIES = [
     title: 'AI Agents',
     description: 'Autonomous AI that takes action',
     emoji: '🤖',
-    active: false,
-    comingSoon: true,
+    active: true,
+    href: '/agents',
   },
   {
     title: 'LLMs & Foundation Models',
@@ -53,8 +55,12 @@ const CATEGORIES = [
 ];
 
 export default function BrowseCategories() {
+  const router = useRouter();
+
   const handleClick = (category: (typeof CATEGORIES)[number]) => {
-    if (category.href) {
+    if (category.href?.startsWith('/')) {
+      router.push(category.href);
+    } else if (category.href) {
       const el = document.querySelector(category.href);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
