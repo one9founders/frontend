@@ -16,7 +16,7 @@ interface CategoryPageProps {
 async function fetchCategoryData(categorySlug: string) {
   try {
     const [agentsRes, categoriesRes, statsRes] = await Promise.all([
-      fetch(`${API_URL}/api/agents/?category=${categorySlug}&page=1&page_size=24&sort=popular`, { next: { revalidate: 300 } }),
+      fetch(`${API_URL}/api/agents/?category=${encodeURIComponent(categorySlug)}&page=1&page_size=24&sort=popular`, { next: { revalidate: 300 } }),
       fetch(`${API_URL}/api/agents/categories/`, { next: { revalidate: 3600 } }),
       fetch(`${API_URL}/api/agents/stats/`, { next: { revalidate: 3600 } }),
     ]);
