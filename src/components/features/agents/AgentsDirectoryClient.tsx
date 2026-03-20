@@ -48,6 +48,7 @@ export default function AgentsDirectoryClient({
 
   const pageSize = 24;
   const hasFetched = useRef(false);
+  const fetchGeneration = useRef(0);
 
   // Debounce search
   useEffect(() => {
@@ -70,6 +71,7 @@ export default function AgentsDirectoryClient({
 
   // Fetch agents when filters change
   useEffect(() => {
+    fetchGeneration.current++;
     const fetchAgents = async () => {
       setLoading(true);
       setPage(1);
@@ -86,7 +88,7 @@ export default function AgentsDirectoryClient({
         if (search) params.search = search;
 
         const data = await agentsAPI.getAll(params as Parameters<typeof agentsAPI.getAll>[0]);
-        const response = data as AgentListResponse;
+        const response = (data || { count: 0, next: null, previous: null, results: [] }) as AgentListResponse;
         setAgents(response.results || []);
         setTotalCount(response.count || 0);
         setHasMore(!!(response.next));
@@ -128,6 +130,7 @@ export default function AgentsDirectoryClient({
   const loadMore = async () => {
     if (loadingMore || !hasMore) return;
     setLoadingMore(true);
+    const gen = fetchGeneration.current;
     const nextPage = page + 1;
     try {
       const params: Record<string, string | number> = {
@@ -142,12 +145,15 @@ export default function AgentsDirectoryClient({
       if (search) params.search = search;
 
       const data = await agentsAPI.getAll(params as Parameters<typeof agentsAPI.getAll>[0]);
-      const response = data as AgentListResponse;
+      // Discard stale results if filters changed during the fetch
+      if (gen !== fetchGeneration.current) return;
+      const response = (data || { count: 0, next: null, previous: null, results: [] }) as AgentListResponse;
       setAgents((prev) => [...prev, ...(response.results || [])]);
       setHasMore(!!(response.next));
       setPage(nextPage);
     } catch (error) {
       console.error('Failed to load more agents:', error);
+      setHasMore(false);
     }
     setLoadingMore(false);
   };
