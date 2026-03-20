@@ -85,6 +85,16 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToCorporate = () => {
+    const corporateSection = document.querySelector('#corporate-section');
+    if (corporateSection) {
+      corporateSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#corporate-section';
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const handleLogout = async () => {
     // Capture logout event before resetting
     posthog.capture('user_logged_out');
@@ -130,16 +140,8 @@ export default function Navbar() {
               <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
-              <Link href="/learn" className={`hover:text-white ${pathname.startsWith('/learn') ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Learn
-              </Link>
-              <button
-                onClick={scrollToTools}
-                aria-label="Search tools"
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-600)] transition-[color,border-color] cursor-pointer"
-              >
-                <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
-                <span className="text-xs text-[var(--gray-500)]">&#8984;K</span>
+              <button onClick={scrollToCorporate} className="text-[var(--gray-500)] hover:text-white cursor-pointer">
+                For Corporates
               </button>
             </div>
             <div className="flex items-center gap-4">
@@ -213,15 +215,8 @@ export default function Navbar() {
               <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
-              <Link href="/learn" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
-                Learn
-              </Link>
-              <button
-                onClick={scrollToTools}
-                className="flex items-center gap-2 text-[var(--gray-500)] hover:text-white text-left cursor-pointer"
-              >
-                <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
-                Search Tools
+              <button onClick={scrollToCorporate} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
+                For Corporates
               </button>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                 {/* <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
