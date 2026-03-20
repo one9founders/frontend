@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { trackingAPI } from '@/lib/api/apiClient';
 import { addRefToUrl } from '@/lib/utils/url';
+import { HugeiconsIcon, ArrowLeft01Icon, ArrowRight01Icon } from '@/components/ui/icons';
 
 interface TrendingTool {
   id: number;
@@ -22,11 +23,12 @@ interface TrendingTool {
 export default function TrendingTools() {
   const [tools, setTools] = useState<TrendingTool[]>([]);
   const [loading, setLoading] = useState(true);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const loadTrendingTools = async () => {
       try {
-        const data = await trackingAPI.getTrendingTools(7, 6);
+        const data = await trackingAPI.getTrendingTools(7, 8);
         setTools(data || []);
       } catch (error) {
         console.error('Error loading trending tools:', error);
@@ -38,19 +40,29 @@ export default function TrendingTools() {
     loadTrendingTools();
   }, []);
 
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 280;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   if (loading) {
     return (
-      <section className="py-12 px-4 md:px-8">
+      <section className="py-10 md:py-14 px-4 md:px-6 bg-[var(--gray-black)]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Trending Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-[var(--gray-900)] rounded-lg p-6 animate-pulse">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-[var(--gray-800)] rounded-lg"></div>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Trending this week</h2>
+          <div className="flex gap-4 overflow-hidden">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="min-w-[240px] bg-[var(--gray-900)] rounded-xl p-4 animate-pulse border border-[var(--gray-800)]">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-[var(--gray-800)] rounded-lg"></div>
                   <div className="flex-1">
-                    <div className="h-5 bg-[var(--gray-800)] rounded w-3/4 mb-2"></div>
-                    <div className="h-4 bg-[var(--gray-800)] rounded w-1/2"></div>
+                    <div className="h-4 bg-[var(--gray-800)] rounded w-3/4 mb-1"></div>
+                    <div className="h-3 bg-[var(--gray-800)] rounded w-1/2"></div>
                   </div>
                 </div>
               </div>
@@ -66,66 +78,56 @@ export default function TrendingTools() {
   }
 
   return (
-    <section className="py-12 px-4 md:px-8">
+    <section className="py-10 md:py-14 px-4 md:px-6 bg-[var(--gray-black)]">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-white">Trending Tools</h2>
-          <span className="text-[var(--gray-400)] text-sm">Based on recent activity</span>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tools.map((tool) => (
-            <div
-              key={tool.id}
-              className="bg-[var(--gray-900)] rounded-lg p-6 hover:bg-[var(--gray-800)] transition-colors"
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-white">Trending this week</h2>
+          <div className="hidden md:flex gap-2">
+            <button
+              onClick={() => scroll('left')}
+              className="p-1.5 rounded-lg border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-500)] transition-colors cursor-pointer"
             >
-              <div className="flex items-start gap-4 mb-4">
+              <HugeiconsIcon icon={ArrowLeft01Icon} size={18} />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="p-1.5 rounded-lg border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-500)] transition-colors cursor-pointer"
+            >
+              <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
+            </button>
+          </div>
+        </div>
+
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {tools.map((tool) => (
+            <Link
+              key={tool.id}
+              href={`/tool/${tool.slug}`}
+              className="min-w-[240px] max-w-[240px] bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-800)] hover:border-[var(--gray-600)] transition-colors snap-start flex-shrink-0"
+            >
+              <div className="flex items-center gap-3 mb-2">
                 <img
                   src={tool.logo_url || '/logo.svg'}
                   alt={tool.name}
-                  className="w-12 h-12 object-contain rounded-lg bg-white"
+                  className="w-10 h-10 object-contain rounded-lg bg-white p-0.5"
                 />
                 <div className="flex-1 min-w-0">
-                  <Link
-                    href={`/tool/${tool.slug}`}
-                    className="text-lg font-semibold text-white hover:text-purple-400 transition-colors block truncate"
-                  >
-                    {tool.name}
-                  </Link>
-                  <p className="text-[var(--gray-400)] text-sm line-clamp-2">
-                    {tool.short_description}
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-4 text-[var(--gray-400)]">
-                  <span>{tool.views_count || 0} views</span>
-                  {tool.usage_count > 0 && (
-                    <span>{tool.usage_count} users</span>
-                  )}
-                </div>
-                
-                <div className="flex gap-2">
-                  <Link
-                    href={`/tool/${tool.slug}`}
-                    className="text-purple-400 hover:text-purple-300 text-sm"
-                  >
-                    Details
-                  </Link>
-                  {tool.website && (
-                    <a
-                      href={addRefToUrl(tool.website)}
-                      target="_blank"
-                      rel="noopener nofollow"
-                      className="text-[var(--gray-400)] hover:text-white text-sm"
-                    >
-                      Visit
-                    </a>
+                  <h3 className="text-sm font-semibold text-white truncate">{tool.name}</h3>
+                  {tool.rating > 0 && (
+                    <span className="text-xs text-[var(--gray-400)]">
+                      {'★'.repeat(Math.floor(tool.rating))} {Number(tool.rating).toFixed(1)}
+                    </span>
                   )}
                 </div>
               </div>
-            </div>
+              <p className="text-xs text-[var(--gray-400)] line-clamp-2">
+                {tool.short_description}
+              </p>
+            </Link>
           ))}
         </div>
       </div>

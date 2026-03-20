@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="lg:flex-1">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8 mb-6" draggable={false} />
             <p className="mb-6 text-[var(--gray-400)] max-w-80">
-              Discover, compare, and choose the right AI tools for your startup
+              Discover, compare, and choose the right AI tools, models, agents, and startups
             </p>
       
             <div className="flex gap-4 flex-wrap">

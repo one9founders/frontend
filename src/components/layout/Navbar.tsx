@@ -59,6 +59,16 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToCorporate = () => {
+    const corporateSection = document.querySelector('#corporate-section');
+    if (corporateSection) {
+      corporateSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#corporate-section';
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const handleLogout = async () => {
     // Capture logout event before resetting
     posthog.capture('user_logged_out');
@@ -104,6 +114,9 @@ export default function Navbar() {
               <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
+              <button onClick={scrollToCorporate} className="text-[var(--gray-500)] hover:text-white cursor-pointer">
+                For Corporates
+              </button>
             </div>
             <div className="flex items-center gap-4">
               <Link href="/internship" className="relative">
@@ -180,6 +193,9 @@ export default function Navbar() {
               <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
+              <button onClick={scrollToCorporate} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
+                For Corporates
+              </button>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                 <Link href="/internship" onClick={() => setIsMobileMenuOpen(false)}>
                   <button className="btn-primary px-4 py-2 text-left w-full relative cursor-pointer">
