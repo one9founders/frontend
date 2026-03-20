@@ -79,7 +79,7 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
               <div className="flex-1">
                 <h1 className="text-2xl md:text-3xl font-bold text-white">{agent.name}</h1>
                 <div className="flex flex-wrap items-center gap-2 mt-1 text-sm text-[var(--gray-400)]">
-                  {agent.category_name && (
+                  {agent.category_name && agent.category_slug && (
                     <Link
                       href={`/agents/category/${agent.category_slug}`}
                       className="hover:text-purple-400 transition-colors"
