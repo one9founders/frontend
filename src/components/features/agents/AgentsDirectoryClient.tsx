@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { agentsAPI } from '@/lib/api/apiClient';
 import { AgentListItem, AgentCategory, AgentStats, AgentListResponse, AgentCategoriesResponse } from '@/types/agent';
@@ -47,6 +47,7 @@ export default function AgentsDirectoryClient({
   const [searchInput, setSearchInput] = useState(searchParams.get('search') || '');
 
   const pageSize = 24;
+  const hasFetched = useRef(false);
 
   // Debounce search
   useEffect(() => {
@@ -89,6 +90,7 @@ export default function AgentsDirectoryClient({
         setAgents(response.results || []);
         setTotalCount(response.count || 0);
         setHasMore(!!(response.next));
+        hasFetched.current = true;
 
         // Update URL (don't include preset category in URL params)
         const urlParams: Record<string, string> = {};
@@ -108,6 +110,7 @@ export default function AgentsDirectoryClient({
 
     // Skip on initial render if we have initial data and no filter changes
     const isInitial =
+      !hasFetched.current &&
       page === 1 &&
       (presetCategory || !category) &&
       !pricing &&

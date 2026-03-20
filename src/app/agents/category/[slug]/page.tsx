@@ -53,10 +53,10 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
       title: `Top ${label} AI Agents | One9Founders`,
       description: `Explore ${count}+ ${label} AI agents. Compare features, pricing, and ratings.`,
       type: 'website',
-      url: `https://www.one9founders.com/agents/category/${slug}`,
+      url: `https://one9founders.com/agents/category/${slug}`,
     },
     alternates: {
-      canonical: `https://www.one9founders.com/agents/category/${slug}`,
+      canonical: `https://one9founders.com/agents/category/${slug}`,
     },
   };
 }
