@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { generateStructuredData } from '@/lib/utils/seo';
+import { getAllTools } from '@/lib/actions/tools';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
 import TrendingTools from "../components/features/tools/TrendingTools";

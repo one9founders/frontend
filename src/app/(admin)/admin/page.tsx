@@ -93,8 +93,13 @@ export default function AdminPage() {
   };
 
   const loadTools = async () => {
-    const allTools = await getAllTools();
-    setTools(Array.isArray(allTools) ? allTools : []);
+    try {
+      const allTools = await getAllTools();
+      setTools(Array.isArray(allTools) ? allTools : []);
+    } catch (error) {
+      console.error('Error loading tools:', error);
+      setTools([]);
+    }
   };
 
   const handleEdit = (tool: Tool) => {

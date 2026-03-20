@@ -55,62 +55,63 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 }
 
 export const toolsAPI = {
-  getAll: (params?: { category?: string; pricing?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number }) => {
+  getAll: (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
     if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.pricing_type) query.append('pricing_type', params.pricing_type);
     if (params?.featured) query.append('featured', 'true');
     if (params?.startup_friendly) query.append('startup_friendly', 'true');
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/tools/?${query.toString()}`);
+    return fetchAPI(`/api/tools/?${query.toString()}`);
   },
-  getBySlug: (slug: string) => fetchAPI(`/tools/${slug}/`),
+  getBySlug: (slug: string) => fetchAPI(`/api/tools/${slug}/`),
   search: (query: string) => 
-    fetchAPI('/tools/search/', {
+    fetchAPI('/api/tools/search/', {
       method: 'POST',
       body: JSON.stringify({ query }),
     }),
   create: (data: any) =>
-    fetchAPI('/tools/', {
+    fetchAPI('/api/tools/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
   update: (slug: string, data: any) =>
-    fetchAPI(`/tools/${slug}/`, {
+    fetchAPI(`/api/tools/${slug}/`, {
       method: 'PATCH',
       body: JSON.stringify(data),
     }),
   delete: (slug: string) =>
-    fetchAPI(`/tools/${slug}/`, {
+    fetchAPI(`/api/tools/${slug}/`, {
       method: 'DELETE',
     }),
 };
 
 export const reviewsAPI = {
   getByToolId: (toolId: number) => 
-    fetchAPI(`/reviews/?tool_id=${toolId}`),
+    fetchAPI(`/api/reviews/?tool_id=${toolId}`),
   create: (data: any) =>
-    fetchAPI('/reviews/', {
+    fetchAPI('/api/reviews/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
 };
 
 export const dealsAPI = {
-  getAll: () => fetchAPI('/deals/'),
+  getAll: () => fetchAPI('/api/deals/'),
 };
 
 export const newsAPI = {
-  getAll: () => fetchAPI('/news/'),
-  getBySlug: (slug: string) => fetchAPI(`/news/${slug}/`),
+  getAll: () => fetchAPI('/api/news/'),
+  getBySlug: (slug: string) => fetchAPI(`/api/news/${slug}/`),
   upvote: (newsId: number, sessionId?: string) =>
-    fetchAPI(`/news/${newsId}/upvote/`, {
+    fetchAPI(`/api/news/${newsId}/upvote/`, {
       method: 'POST',
       headers: sessionId ? { 'X-Session-ID': sessionId } : {},
     }),
   removeUpvote: (newsId: number, sessionId?: string) =>
-    fetchAPI(`/news/${newsId}/upvote/remove/`, {
+    fetchAPI(`/api/news/${newsId}/upvote/remove/`, {
       method: 'DELETE',
       headers: sessionId ? { 'X-Session-ID': sessionId } : {},
     }),
@@ -118,27 +119,135 @@ export const newsAPI = {
 
 export const newsletterAPI = {
   subscribe: (email: string, source: string = 'homepage') =>
-    fetchAPI('/newsletter/subscribe/', {
+    fetchAPI('/api/newsletter/subscribe/', {
       method: 'POST',
       body: JSON.stringify({ email, source }),
     }),
 };
 
 export const categoriesAPI = {
-  getAll: () => fetchAPI('/categories/'),
+  getAll: () => fetchAPI('/api/categories/'),
 };
 
 export const submissionAPI = {
-  getAll: () => fetchAPI('/submissions/'),
+  getAll: () => fetchAPI('/api/submissions/'),
   submit: (data: any) =>
-    fetchAPI('/submissions/', {
+    fetchAPI('/api/submissions/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
 };
 
 export const healthAPI = {
-  check: () => fetchAPI('/health/'),
+  check: () => fetchAPI('/api/health/'),
+};
+
+export const guidesAPI = {
+  getAll: (params?: { difficulty?: string; category?: string; audience?: string; pricing?: string; featured?: boolean; tool?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.featured) query.append('featured', 'true');
+    if (params?.tool) query.append('tool', params.tool);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/guides/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/api/guides/${slug}/`),
+  getFilters: () => fetchAPI('/api/guides/filters/'),
+};
+
+export const labsAPI = {
+  getAll: (params?: { difficulty?: string; category?: string; audience?: string; pricing?: string; featured?: boolean; tool?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.featured) query.append('featured', 'true');
+    if (params?.tool) query.append('tool', params.tool);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/labs/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/api/labs/${slug}/`),
+  getFilters: () => fetchAPI('/api/labs/filters/'),
+};
+
+export const workshopsAPI = {
+  getAll: (params?: { difficulty?: string; category?: string; audience?: string; pricing?: string; featured?: boolean; tool?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.featured) query.append('featured', 'true');
+    if (params?.tool) query.append('tool', params.tool);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/workshops/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/api/workshops/${slug}/`),
+  getFilters: () => fetchAPI('/api/workshops/filters/'),
+};
+
+// Education API - matches backend education app endpoints
+export const educationAPI = {
+  getCategories: () => fetchAPI('/api/education/categories/'),
+  getAudiences: () => fetchAPI('/api/education/audiences/'),
+  getCourses: (params?: { category?: string; audience?: string; difficulty?: string; format?: string; is_featured?: boolean; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.format) query.append('format', params.format);
+    if (params?.is_featured) query.append('is_featured', 'true');
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/education/courses/?${query.toString()}`);
+  },
+  getCourseBySlug: (slug: string) => fetchAPI(`/api/education/courses/${slug}/`),
+  getGuides: (params?: { category?: string; audience?: string; difficulty?: string; is_featured?: boolean; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.audience) query.append('audience', params.audience);
+    if (params?.difficulty) query.append('difficulty', params.difficulty);
+    if (params?.is_featured) query.append('is_featured', 'true');
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/education/guides/?${query.toString()}`);
+  },
+  getGuideBySlug: (slug: string) => fetchAPI(`/api/education/guides/${slug}/`),
+  getWorkshops: (params?: { format?: string; status?: string; category?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.format) query.append('format', params.format);
+    if (params?.status) query.append('status', params.status);
+    if (params?.category) query.append('category', params.category);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/education/workshops/?${query.toString()}`);
+  },
+  getWorkshopBySlug: (slug: string) => fetchAPI(`/api/education/workshops/${slug}/`),
+  getLearningPaths: () => fetchAPI('/api/education/learning-paths/'),
+  getLearningPathBySlug: (slug: string) => fetchAPI(`/api/education/learning-paths/${slug}/`),
+  getLandingPage: (pageType: string) => fetchAPI(`/api/education/landing-pages/${pageType}/`),
+  submitCourseInquiry: (data: Record<string, unknown>) =>
+    fetchAPI('/api/education/inquiries/course/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+  submitOrgInquiry: (data: Record<string, unknown>) =>
+    fetchAPI('/api/education/inquiries/organization/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+  registerForWorkshop: (slug: string, data: Record<string, unknown>) =>
+    fetchAPI(`/api/education/workshops/${slug}/register/`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
 };
 
 export const trackingAPI = {

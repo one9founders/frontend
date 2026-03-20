@@ -18,17 +18,20 @@ export async function signUp(formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
   const name = formData.get('name') as string;
+  const isStartup = formData.get('is_startup') === 'on';
   const turnstileToken = formData.get('turnstileToken') as string;
 
   const response = await fetch(`${API_URL}/auth/register/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password, name, turnstile_token: turnstileToken }),
+    body: JSON.stringify({ email, password, name, is_startup: isStartup, turnstile_token: turnstileToken }),
   });
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(error.error || 'Sign up failed');
+    const errorMessage = error.error || 'Sign up failed';
+    const isUserExists = errorMessage.toLowerCase().includes('already exists');
+    return { error: errorMessage, userExists: isUserExists };
   }
 
   const data: AuthResponse = await response.json();
@@ -37,7 +40,7 @@ export async function signUp(formData: FormData) {
   cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
   cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
 
-  return data.user;
+  return { user: data.user };
 }
 
 export async function login(formData: FormData) {
@@ -53,7 +56,7 @@ export async function login(formData: FormData) {
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(error.error || 'Login failed');
+    return { error: error.error || 'Login failed' };
   }
 
   const data: AuthResponse = await response.json();
@@ -62,7 +65,7 @@ export async function login(formData: FormData) {
   cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
   cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
 
-  return data.user;
+  return { user: data.user };
 }
 
 export async function googleAuth(credential: string, turnstileToken: string) {
@@ -74,7 +77,7 @@ export async function googleAuth(credential: string, turnstileToken: string) {
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(error.error || 'Google authentication failed');
+    return { error: error.error || 'Google authentication failed' };
   }
 
   const data: AuthResponse = await response.json();
@@ -83,7 +86,7 @@ export async function googleAuth(credential: string, turnstileToken: string) {
   cookieStore.set('access_token', data.access, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
   cookieStore.set('refresh_token', data.refresh, { httpOnly: true, secure: true, sameSite: 'lax', path: '/' });
 
-  return data.user;
+  return { user: data.user };
 }
 
 export async function logout() {

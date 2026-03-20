@@ -100,3 +100,58 @@ export async function getAllDeals() {
 export async function seedDeals() {
   return { success: false, error: 'Use Django backend seed_data.py instead' };
 }
+
+export async function getToolBySlug(slug: string) {
+  try {
+    return await toolsAPI.getBySlug(slug);
+  } catch (error) {
+    console.error('Get tool by slug error:', error);
+    return null;
+  }
+}
+
+export async function getReviewsByToolId(toolId: number) {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
+  try {
+    const response = await fetch(`${API_URL}/reviews/?tool_id=${toolId}`, {
+      next: { revalidate: 300 }, // 5 minutes - faster updates for new reviews
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    return data?.results || data || [];
+  } catch (error) {
+    console.error('Get reviews error:', error);
+    return [];
+  }
+}
+
+export async function getToolUsageCount(toolId: number) {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
+  try {
+    const response = await fetch(`${API_URL}/tools/${toolId}/usage-count/`, {
+      next: { revalidate: 300 }, // 5 minutes - faster updates for usage stats
+    });
+    if (!response.ok) return 0;
+    const data = await response.json();
+    return data?.usage_count || 0;
+  } catch (error) {
+    console.error('Get usage count error:', error);
+    return 0;
+  }
+}
+
+export async function getAllToolSlugs() {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
+  try {
+    const response = await fetch(`${API_URL}/tools/?page_size=1000`, {
+      next: { revalidate: 300 }, // 5 minutes - faster updates for new tools
+    });
+    if (!response.ok) return [];
+    const data = await response.json();
+    const tools = data?.results || data || [];
+    return tools.map((tool: { slug: string }) => tool.slug);
+  } catch (error) {
+    console.error('Get all tool slugs error:', error);
+    return [];
+  }
+}
