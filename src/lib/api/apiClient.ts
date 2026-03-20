@@ -252,12 +252,12 @@ export const educationAPI = {
 
 export const trackingAPI = {
   trackUsage: (toolId: number, sessionId?: string) =>
-    fetchAPI('/track/usage/', {
+    fetchAPI('/api/track/usage/', {
       method: 'POST',
       body: JSON.stringify({ tool_id: toolId, session_id: sessionId || '' }),
     }),
   trackClick: (toolId: number, action: string, sessionId?: string, referrer?: string) =>
-    fetchAPI('/track/click/', {
+    fetchAPI('/api/track/click/', {
       method: 'POST',
       body: JSON.stringify({
         tool_id: toolId,
@@ -267,7 +267,7 @@ export const trackingAPI = {
       }),
     }),
   trackSearch: (query: string, resultsCount: number, filters?: Record<string, any>, sessionId?: string) =>
-    fetchAPI('/track/search/', {
+    fetchAPI('/api/track/search/', {
       method: 'POST',
       body: JSON.stringify({
         query,
@@ -276,11 +276,11 @@ export const trackingAPI = {
         session_id: sessionId || '',
       }),
     }),
-  getUsageCount: (toolId: number) => fetchAPI(`/tools/${toolId}/usage-count/`),
+  getUsageCount: (toolId: number) => fetchAPI(`/api/tools/${toolId}/usage-count/`),
   getTrendingTools: (days?: number, limit?: number) => {
     const params = new URLSearchParams();
     if (days) params.append('days', days.toString());
     if (limit) params.append('limit', limit.toString());
-    return fetchAPI(`/tools/trending/?${params.toString()}`);
+    return fetchAPI(`/api/tools/trending/?${params.toString()}`);
   },
 };
