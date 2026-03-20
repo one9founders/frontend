@@ -280,3 +280,12 @@ h4, h5, h6 {
 .guide-content em {
   color: rgb(156 163 175);
 }
+
+/* Hide scrollbar for horizontal scroll sections */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

@@ -80,6 +80,16 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToCorporate = () => {
+    const corporateSection = document.querySelector('#corporate-section');
+    if (corporateSection) {
+      corporateSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#corporate-section';
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const handleSubmitTool = () => {
     window.open('/submit', '_blank');
     setIsMobileMenuOpen(false);
@@ -133,6 +143,12 @@ export default function Navbar() {
               <Link href="/learn" className={`hover:text-white ${pathname.startsWith('/learn') ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Learn
               </Link>
+              <button
+                onClick={scrollToCorporate}
+                className={`hover:text-white cursor-pointer text-[var(--gray-500)]`}
+              >
+                For Corporates
+              </button>
               <button
                 onClick={scrollToTools}
                 aria-label="Search tools"
@@ -216,6 +232,9 @@ export default function Navbar() {
               <Link href="/learn" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Learn
               </Link>
+              <button onClick={() => { scrollToCorporate(); setIsMobileMenuOpen(false); }} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
+                For Corporates
+              </button>
               <button
                 onClick={scrollToTools}
                 className="flex items-center gap-2 text-[var(--gray-500)] hover:text-white text-left cursor-pointer"

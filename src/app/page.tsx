@@ -2,9 +2,12 @@ import { generateStructuredData } from '@/lib/utils/seo';
 import { getAllTools } from '@/lib/actions/tools';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
+import TrendingSection from "../components/shared/TrendingSection";
+import BrowseCategorySection from "../components/shared/BrowseCategorySection";
+import CorporateSection from "../components/shared/CorporateSection";
+import PartnersSection from "../components/shared/PartnersSection";
 import WhySection from "../components/shared/WhySection";
 import PortfolioSection from "../components/shared/PortfolioSection";
-import NewsletterSignup from "../components/shared/NewsletterSignup";
 import Footer from "../components/layout/Footer";
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and new tools
@@ -19,7 +22,7 @@ export default async function Home() {
     '@type': 'WebSite',
     name: 'One9Founders',
     url: 'https://one9founders.com',
-    description: "India's first security-first AI tools directory with 27,000+ tools listed and 2,500+ security validated using uniform rating criteria",
+    description: "India's largest AI ecosystem navigator with 27,000+ AI tools, agents, LLMs, and startups. Security-validated with zero affiliate bias.",
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -35,7 +38,7 @@ export default async function Home() {
     name: 'One9Founders',
     url: 'https://one9founders.com',
     logo: 'https://one9founders.com/logo-light.png',
-    description: 'Security-first AI tools directory backed by IIT Bombay',
+    description: "India's largest AI ecosystem navigator backed by IIT Bombay",
     foundingDate: '2024',
     founder: {
       '@type': 'Person',
@@ -64,13 +67,16 @@ export default async function Home() {
       />
       <Navbar />
       <HeroSection />
+      <TrendingSection tools={initialTools} />
+      <BrowseCategorySection />
+      <CorporateSection />
+      <PartnersSection />
       <WhySection />
       <PortfolioSection
         initialTools={initialTools}
         initialTotalCount={initialTotalCount}
         initialTotalPages={initialTotalPages}
       />
-      {/* <NewsletterSignup /> */}
       <Footer />
     </div>
   );
