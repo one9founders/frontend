@@ -52,12 +52,16 @@ async function getAllCategories(): Promise<CategoryItem[]> {
 
 async function getAllAgents(): Promise<AgentSitemapItem[]> {
   try {
-    const response = await fetch(`${API_URL}/api/agents/?page_size=500`, {
-      next: { revalidate: 3600 },
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-    return data.results || [];
+    const allAgents: AgentSitemapItem[] = [];
+    let nextUrl: string | null = `${API_URL}/api/agents/?page_size=500`;
+    while (nextUrl) {
+      const res: Response = await fetch(nextUrl, { next: { revalidate: 3600 } });
+      if (!res.ok) break;
+      const data = await res.json();
+      allAgents.push(...(data.results || []));
+      nextUrl = data.next || null;
+    }
+    return allAgents;
   } catch {
     return [];
   }

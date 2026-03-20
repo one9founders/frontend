@@ -156,6 +156,7 @@ export default function AgentsDirectoryClient({
       setHasMore(!!(response.next));
       setPage(nextPage);
     } catch (error) {
+      if (gen !== fetchGeneration.current) { setLoadingMore(false); return; }
       console.error('Failed to load more agents:', error);
       setHasMore(false);
     }
