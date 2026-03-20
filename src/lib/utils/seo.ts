@@ -27,7 +27,9 @@ export function generateSEO({
     : description;
 
   return {
-    title: fullTitle,
+    title: {
+      absolute: fullTitle,
+    },
     description: metaDescription,
     keywords: keywords.join(', '),
     authors: [{ name: 'One9Founders' }],

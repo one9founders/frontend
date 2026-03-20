@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="lg:flex-1">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8 mb-6" draggable={false} />
             <p className="mb-6 text-[var(--gray-400)] max-w-80">
-              Discover, compare, and choose the right AI tools for your startup
+              Discover, compare, and choose the right AI tools, models, agents, and startups
             </p>
       
             <div className="flex gap-4 flex-wrap">
@@ -91,11 +91,6 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a href="/deals" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Deals
-                    </a>
-                  </li>
-                  <li>
                     <a href="/compare" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Compare
                     </a>
@@ -115,16 +110,6 @@ export default function Footer() {
                   <li>
                     <a href="/learn" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Education Hub
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/learn/guides" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Guides
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/learn/workshops" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Workshops
                     </a>
                   </li>
                   <li>
@@ -196,7 +181,7 @@ export default function Footer() {
                   </button>
                 </form>
                 <p className="mt-2 text-xs text-[var(--gray-500)]">
-                  Join 5,000+ founders. No spam, unsubscribe anytime.
+                  Join our founder community. No spam, unsubscribe anytime.
                 </p>
               </div>
 

@@ -89,9 +89,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { route: '/what-is-one9founders', priority: 0.9, changeFrequency: 'monthly' as const },
     { route: '/methodology', priority: 0.8, changeFrequency: 'monthly' as const },
     { route: '/compare', priority: 0.8, changeFrequency: 'weekly' as const },
-    { route: '/deals', priority: 0.7, changeFrequency: 'weekly' as const },
     { route: '/news', priority: 0.7, changeFrequency: 'daily' as const },
+    { route: '/blog', priority: 0.7, changeFrequency: 'weekly' as const },
     { route: '/about', priority: 0.6, changeFrequency: 'monthly' as const },
+    { route: '/learn', priority: 0.6, changeFrequency: 'weekly' as const },
     { route: '/submit', priority: 0.5, changeFrequency: 'monthly' as const },
     { route: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
     { route: '/policy', priority: 0.3, changeFrequency: 'yearly' as const },
@@ -121,7 +122,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Category pages - important for content hub strategy
   const categoryPages = categories.map((category) => ({
-    url: `${baseUrl}/category/${category.slug}`,
+    url: `${baseUrl}/tools/${category.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,

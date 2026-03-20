@@ -39,6 +39,8 @@ export interface Tool {
   verified: boolean;
   is_featured: boolean;
   is_active: boolean;
+  security_score?: number | null;
+  security_assessed_at?: string | null;
   alternatives?: Tool[];
   similarity?: number;
   created_at: string;

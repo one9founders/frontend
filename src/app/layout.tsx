@@ -17,10 +17,10 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL('https://one9founders.com'),
   title: {
-    default: 'One9Founders – AI Tool Directory for Startup Founders',
+    default: 'One9Founders — India\'s Largest AI Ecosystem Navigator',
     template: '%s | One9Founders',
   },
-  description: "India's first security-validated AI tools directory. Compare 2,500+ AI tools with uniform rating criteria and zero affiliate bias. Supported by IIT Bombay.",
+  description: "Discover 27,000+ AI tools, agents, LLMs, open source models, and startups. Security-validated with zero affiliate bias. Supported by IIT Bombay.",
   keywords: ['AI tools directory', 'AI tools for startups', 'security validated AI tools', 'unbiased AI tool reviews', 'compare AI tools India', 'startup tools', 'founder resources'],
   authors: [{ name: 'One9Founders' }],
   creator: 'One9Founders',
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://one9founders.com',
     siteName: 'One9Founders',
-    title: 'One9Founders – AI Tool Directory for Startup Founders',
-    description: "One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools for building and scaling startups.",
+    title: 'One9Founders — India\'s Largest AI Ecosystem Navigator',
+    description: "Discover 27,000+ AI tools, agents, LLMs, open source models, and startups. Security-validated with zero affiliate bias. Supported by IIT Bombay.",
     images: [{
       url: '/og-image.png',
       width: 1200,
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@one9founders',
-    title: 'One9Founders – AI Tool Directory for Startup Founders',
-    description: 'One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools.',
+    title: 'One9Founders — India\'s Largest AI Ecosystem Navigator',
+    description: 'Discover 27,000+ AI tools, agents, LLMs, open source models, and startups. Security-validated with zero affiliate bias.',
     images: ['/og-image.png'],
     creator: '@one9founders',
   },
