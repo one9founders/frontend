@@ -1,106 +1,136 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HugeiconsIcon, Search01Icon } from "@/components/ui/icons";
 import posthog from "posthog-js";
 
 const CATEGORY_PILLS = [
-  { label: "AI Tools", isActive: true },
-  { label: "AI Agents", isActive: false },
-  { label: "LLMs", isActive: false },
-  { label: "Open Source", isActive: false },
-  { label: "RAG / Vector DBs", isActive: false },
-  { label: "Startups", isActive: false },
-  { label: "Research", isActive: false },
+  { label: "AI Tools", active: true },
+  { label: "AI Agents", active: false },
+  { label: "LLMs", active: false },
+  { label: "Open Source", active: false },
+  { label: "RAG / Vector DBs", active: false },
+  { label: "Startups", active: false },
+  { label: "Research", active: false },
 ];
 
 export default function HeroSection() {
-  const [activePill, setActivePill] = useState("AI Tools");
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const scrollToToolsAndSearch = (query?: string) => {
     const toolsSection = document.querySelector("#tools-section");
     if (toolsSection) {
       toolsSection.scrollIntoView({ behavior: "smooth" });
     }
-    // Focus the search input after scrolling
-    setTimeout(() => {
-      const searchInput = document.getElementById("search-input") as HTMLInputElement | null;
-      if (searchInput) {
-        searchInput.focus();
-        if (query) {
-          // Trigger a search by setting the value and dispatching input event
+    if (query) {
+      setTimeout(() => {
+        const toolsSearchInput = document.querySelector(
+          "#tools-section input[type='text']"
+        ) as HTMLInputElement;
+        if (toolsSearchInput) {
           const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
             window.HTMLInputElement.prototype,
             "value"
           )?.set;
-          if (nativeInputValueSetter) {
-            nativeInputValueSetter.call(searchInput, query);
-            searchInput.dispatchEvent(new Event("input", { bubbles: true }));
-          }
+          nativeInputValueSetter?.call(toolsSearchInput, query);
+          toolsSearchInput.dispatchEvent(
+            new Event("input", { bubbles: true })
+          );
+          toolsSearchInput.dispatchEvent(
+            new Event("change", { bubbles: true })
+          );
+          toolsSearchInput.focus();
         }
-      }
-    }, 400);
-  };
-
-  const handlePillClick = (label: string) => {
-    setActivePill(label);
-    posthog.capture("category_pill_clicked", { category: label, source: "hero_section" });
-
-    if (label === "AI Tools") {
-      scrollToToolsAndSearch();
-    } else {
-      scrollToToolsAndSearch(label);
+      }, 500);
     }
   };
 
-  const handleSearchBarClick = () => {
-    posthog.capture("hero_search_clicked", { source: "hero_section" });
-    scrollToToolsAndSearch();
+  const handleHeroSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      posthog.capture("hero_search_performed", {
+        search_query: searchQuery,
+        source: "hero_section",
+      });
+      scrollToToolsAndSearch(searchQuery);
+    }
+  };
+
+  const handlePillClick = (pill: (typeof CATEGORY_PILLS)[number]) => {
+    posthog.capture("category_pill_clicked", {
+      category: pill.label,
+      source: "hero_section",
+    });
+
+    if (pill.label === "AI Tools") {
+      scrollToToolsAndSearch();
+    } else {
+      scrollToToolsAndSearch(pill.label);
+    }
   };
 
   return (
-    <section className="text-white pt-12 pb-8 md:pt-16 md:pb-10 px-6 bg-[var(--gray-black)]">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="text-white pt-12 pb-8 md:pt-20 md:pb-12 px-4 md:px-6 bg-[var(--gray-black)]">
+      <div className="max-w-3xl mx-auto text-center">
         {/* Eyebrow */}
-        <p className="text-xs sm:text-sm uppercase tracking-widest text-purple-400 font-semibold mb-4">
+        <p className="text-xs md:text-sm uppercase tracking-widest text-purple-400 font-semibold mb-4">
           India&apos;s Largest AI Ecosystem Navigator
         </p>
 
         {/* Headline */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
           Discover AI tools, agents, models, and startups. All in one place.
         </h1>
 
         {/* Subheadline */}
-        <p className="text-sm md:text-base text-[var(--gray-400)] max-w-xl mx-auto mb-8">
+        <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
           27,000+ AI resources across tools, LLMs, agents, open source models,
           RAG frameworks, and more. Security-validated with zero affiliate bias.
         </p>
 
-        {/* Search Bar (moved above the fold) */}
-        <button
-          onClick={handleSearchBarClick}
-          className="w-full max-w-lg mx-auto flex items-center gap-3 px-5 py-3.5 rounded-xl bg-[var(--gray-900)] border border-[var(--gray-700)] hover:border-[var(--gray-600)] transition-colors cursor-text mb-6"
-        >
-          <HugeiconsIcon icon={Search01Icon} size={20} aria-hidden="true" className="text-[var(--gray-500)] flex-shrink-0" />
-          <span className="text-sm md:text-base text-[var(--gray-500)] text-left flex-1">
-            Search AI tools, models, agents, startups...
-          </span>
-          <kbd className="hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded-md font-mono">
-            &#8984;K
-          </kbd>
-        </button>
+        {/* Search Bar */}
+        <form onSubmit={handleHeroSearch} className="max-w-lg mx-auto mb-6">
+          <div className="relative flex items-center bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl px-4 py-3 focus-within:border-purple-500 transition-colors">
+            <HugeiconsIcon
+              icon={Search01Icon}
+              className="h-5 w-5 text-[var(--gray-500)] mr-3 flex-shrink-0"
+            />
+            <input
+              ref={searchInputRef}
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search AI tools, models, agents, startups..."
+              className="flex-1 bg-transparent text-white text-sm md:text-base placeholder:text-[var(--gray-500)] focus:outline-none"
+            />
+            <kbd className="hidden md:inline-flex items-center text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded px-1.5 py-0.5 font-mono ml-2">
+              ⌘K
+            </kbd>
+          </div>
+        </form>
 
         {/* Category Pills */}
-        <div className="flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-2 overflow-x-auto pb-2 md:pb-0 mb-6 -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide">
+        <div className="flex flex-wrap justify-center gap-2 mb-6 overflow-x-auto md:overflow-visible px-2">
           {CATEGORY_PILLS.map((pill) => (
             <button
               key={pill.label}
-              onClick={() => handlePillClick(pill.label)}
-              className={`flex-shrink-0 px-4 py-1.5 text-xs sm:text-sm rounded-full border transition-colors cursor-pointer ${
-                activePill === pill.label
-                  ? "bg-purple-600/20 text-purple-300 border-purple-500/50 font-medium"
-                  : "bg-transparent text-[var(--gray-400)] border-[var(--gray-700)] hover:border-[var(--gray-600)] hover:text-[var(--gray-300)]"
+              onClick={() => handlePillClick(pill)}
+              className={`whitespace-nowrap px-3 py-1.5 text-xs md:text-sm rounded-full border transition-colors cursor-pointer ${
+                pill.active
+                  ? "bg-purple-600/20 text-purple-300 border-purple-500/40 font-medium"
+                  : "bg-transparent text-[var(--gray-400)] border-[var(--gray-700)] hover:border-[var(--gray-500)] hover:text-[var(--gray-300)]"
               }`}
             >
               {pill.label}
@@ -109,7 +139,7 @@ export default function HeroSection() {
         </div>
 
         {/* Compressed Stat Bar */}
-        <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-[var(--gray-500)] border-t border-[var(--gray-800)] pt-5">
+        <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-xs md:text-sm text-[var(--gray-500)] border-t border-[var(--gray-800)] pt-4">
           <span>27,000+ resources</span>
           <span className="text-[var(--gray-700)]">&middot;</span>
           <span>2,500+ security validated</span>
