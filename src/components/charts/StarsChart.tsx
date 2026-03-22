@@ -37,7 +37,7 @@ export default function StarsChart({ data, height = 120 }: StarsChartProps) {
   const areaPath = `${linePath} L ${points[points.length - 1].x} ${padding.top + chartHeight} L ${points[0].x} ${padding.top + chartHeight} Z`;
 
   // Y-axis labels
-  const yLabels = [minStars, Math.round((minStars + maxStars) / 2), maxStars];
+  const yLabels = [...new Set([minStars, Math.round((minStars + maxStars) / 2), maxStars])];
 
   // X-axis labels (first and last dates)
   const formatDate = (dateStr: string) => {
