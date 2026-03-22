@@ -99,17 +99,17 @@ export default function ResearchFeedClient({ initialPapers, initialCount, trendi
           setPapers(data.results || []);
           setTotalCount(data.count || 0);
           setHasMore(!!data.next);
-        }
-        hasFetched.current = true;
+          hasFetched.current = true;
 
-        const urlParams: Record<string, string> = {};
-        if (tab) urlParams.tab = tab;
-        if (hasCode) urlParams.has_code = 'true';
-        if (trendingOnly) urlParams.trending = 'true';
-        if (difficulty) urlParams.difficulty = difficulty;
-        if (dateRange) urlParams.date = dateRange;
-        if (search) urlParams.search = search;
-        updateUrl(urlParams);
+          const urlParams: Record<string, string> = {};
+          if (tab) urlParams.tab = tab;
+          if (hasCode) urlParams.has_code = 'true';
+          if (trendingOnly) urlParams.trending = 'true';
+          if (difficulty) urlParams.difficulty = difficulty;
+          if (dateRange) urlParams.date = dateRange;
+          if (search) urlParams.search = search;
+          updateUrl(urlParams);
+        }
       } catch {
         if (gen !== fetchGeneration.current) return;
         setPapers([]);
