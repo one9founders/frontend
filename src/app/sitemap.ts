@@ -86,7 +86,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages with SEO-optimized priorities
   const staticPages = [
     { route: '', priority: 1.0, changeFrequency: 'daily' as const },
-    { route: '/what-is-one9founders', priority: 0.9, changeFrequency: 'monthly' as const },
     { route: '/methodology', priority: 0.8, changeFrequency: 'monthly' as const },
     { route: '/compare', priority: 0.8, changeFrequency: 'weekly' as const },
     { route: '/news', priority: 0.7, changeFrequency: 'daily' as const },
