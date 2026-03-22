@@ -15,8 +15,8 @@ export default function WhatIsOne9FoundersPage() {
   const organizationSchema = generateStructuredData({
     '@type': 'Organization',
     name: 'One9Founders',
-    url: 'https://one9founders.com',
-    logo: 'https://one9founders.com/logo-light.png',
+    url: 'https://www.one9founders.com',
+    logo: 'https://www.one9founders.com/logo-light.png',
     description: 'One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools for building and scaling startups.',
     foundingDate: '2024',
     areaServed: ['India', 'Global'],
@@ -32,7 +32,7 @@ export default function WhatIsOne9FoundersPage() {
     '@type': 'WebPage',
     name: 'What is One9Founders?',
     description: 'Learn about One9Founders, the AI-powered platform for startup founders to discover and compare AI tools.',
-    url: 'https://one9founders.com/what-is-one9founders',
+    url: 'https://www.one9founders.com/what-is-one9founders',
   });
 
   return (

@@ -41,7 +41,7 @@ export default async function WorkshopsPage() {
     '@type': 'CollectionPage',
     name: 'AI Workshops',
     description: 'Live workshops and recorded sessions led by AI experts.',
-    url: 'https://one9founders.com/learn/workshops',
+    url: 'https://www.one9founders.com/learn/workshops',
   });
 
   return (

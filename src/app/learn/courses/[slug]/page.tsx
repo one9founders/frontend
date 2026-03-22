@@ -49,9 +49,9 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
     provider: {
       '@type': 'Organization',
       name: 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
     },
-    url: `https://one9founders.com/learn/courses/${course.slug}`,
+    url: `https://www.one9founders.com/learn/courses/${course.slug}`,
     ...(course.has_certificate && {
       educationalCredentialAwarded: 'Certificate issued through IIT Bombay Educational Outreach',
     }),

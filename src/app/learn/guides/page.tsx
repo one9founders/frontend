@@ -72,11 +72,11 @@ export default async function GuidesPage({ searchParams }: GuidesPageProps) {
     '@type': 'CollectionPage',
     name: 'AI Tool Guides for Startup Founders',
     description: 'Step-by-step guides on choosing, implementing, and getting the most out of AI tools for your startup.',
-    url: 'https://one9founders.com/learn/guides',
+    url: 'https://www.one9founders.com/learn/guides',
     isPartOf: {
       '@type': 'WebSite',
       name: 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
     },
   });
 

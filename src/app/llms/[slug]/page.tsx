@@ -72,7 +72,7 @@ export default async function LLMDetailPage({
     description: model.one9_summary || `${model.name} by ${model.provider}`,
     applicationCategory: 'AI Model',
     operatingSystem: 'Cloud',
-    url: `https://one9founders.com/llms/${model.slug}`,
+    url: `https://www.one9founders.com/llms/${model.slug}`,
     author: {
       '@type': 'Organization',
       name: model.provider,

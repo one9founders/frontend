@@ -176,23 +176,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     publisher: {
       '@type': 'Organization',
       name: 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
     },
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
-    url: `https://one9founders.com/blog/${slug}`,
+    url: `https://www.one9founders.com/blog/${slug}`,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://one9founders.com/blog/${slug}`,
+      '@id': `https://www.one9founders.com/blog/${slug}`,
     },
   });
 
   const breadcrumbSchema = generateStructuredData({
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://one9founders.com' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://one9founders.com/blog' },
-      { '@type': 'ListItem', position: 3, name: post.title, item: `https://one9founders.com/blog/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.one9founders.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.one9founders.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://www.one9founders.com/blog/${slug}` },
     ],
   });
 

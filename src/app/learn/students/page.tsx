@@ -36,7 +36,7 @@ export default async function StudentsPage() {
     '@type': 'WebPage',
     name: page.hero_title,
     description: page.hero_subtitle,
-    url: 'https://one9founders.com/learn/students',
+    url: 'https://www.one9founders.com/learn/students',
   });
 
   return (
