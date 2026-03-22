@@ -52,10 +52,10 @@ export async function generateMetadata({ params }: PaperDetailPageProps): Promis
       title: `${paper.title} | One9Founders Research`,
       description: paper.ai_summary?.substring(0, 200) || description,
       type: 'article',
-      url: `https://one9founders.com/research/${paper.arxiv_id}`,
+      url: `https://www.one9founders.com/research/${paper.arxiv_id}`,
     },
     alternates: {
-      canonical: `https://one9founders.com/research/${paper.arxiv_id}`,
+      canonical: `https://www.one9founders.com/research/${paper.arxiv_id}`,
     },
   };
 }

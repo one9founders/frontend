@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: 'AI Research Papers | One9Founders',
     description: 'Stay current with the latest AI research. Updated daily from arXiv and HuggingFace.',
     type: 'website',
-    url: 'https://one9founders.com/research',
+    url: 'https://www.one9founders.com/research',
   },
   alternates: {
-    canonical: 'https://one9founders.com/research',
+    canonical: 'https://www.one9founders.com/research',
   },
 };
 
@@ -60,7 +60,7 @@ export default async function ResearchPage() {
               '@type': 'CollectionPage',
               name: 'AI Research Papers',
               description: 'Stay current with the latest AI research. Updated daily from arXiv and HuggingFace.',
-              url: 'https://one9founders.com/research',
+              url: 'https://www.one9founders.com/research',
             })
           ),
         }}

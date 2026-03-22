@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: 'RAG & Vector DB Directory | One9Founders',
     description: 'Compare 110+ vector databases, RAG frameworks, and embedding models.',
     type: 'website',
-    url: 'https://one9founders.com/rag-vector-dbs',
+    url: 'https://www.one9founders.com/rag-vector-dbs',
   },
   alternates: {
-    canonical: 'https://one9founders.com/rag-vector-dbs',
+    canonical: 'https://www.one9founders.com/rag-vector-dbs',
   },
 };
 
@@ -51,7 +51,7 @@ export default async function RagVectorDbsPage() {
               '@type': 'CollectionPage',
               name: 'RAG & Vector DB Directory',
               description: 'Compare 110+ vector databases, RAG frameworks, and embedding models.',
-              url: 'https://one9founders.com/rag-vector-dbs',
+              url: 'https://www.one9founders.com/rag-vector-dbs',
             })
           ),
         }}
