@@ -119,15 +119,18 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6 items-center">
-              <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Explore
-              </button>
-              <Link href="/llms" className={`hover:text-white ${pathname.startsWith('/llms') ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                LLMs
-              </Link>
-              <Link href="/agents" className={`hover:text-white ${pathname.startsWith('/agents') ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Agents
-              </Link>
+              <div className="relative group">
+                <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
+                  Explore
+                </button>
+                <div className="absolute left-0 top-full mt-2 w-48 bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                  <button onClick={scrollToTools} className="w-full px-4 py-2 text-left text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)] cursor-pointer">AI Tools</button>
+                  <Link href="/agents" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">AI Agents</Link>
+                  <Link href="/llms" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">LLMs</Link>
+                  <Link href="/rag-vector-dbs" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">RAG & Vector DBs</Link>
+                  <Link href="/research" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">Research</Link>
+                </div>
+              </div>
               <Link href="/compare" className={`hover:text-white ${pathname === '/compare' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Compare
               </Link>
@@ -205,6 +208,12 @@ export default function Navbar() {
               </Link>
               <Link href="/agents" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Agents
+              </Link>
+              <Link href="/rag-vector-dbs" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                RAG & Vector DBs
+              </Link>
+              <Link href="/research" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                Research
               </Link>
               <Link href="/compare" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Compare

@@ -39,9 +39,9 @@ const CATEGORIES = [
     title: 'RAG & Vector DBs',
     description: 'Build smarter retrieval systems. Compare vector databases and RAG frameworks for your AI stack.',
     emoji: '🗄️',
-    active: false,
-    comingSoon: true,
-    cta: 'Get Notified',
+    active: true,
+    href: '/rag-vector-dbs',
+    cta: 'Explore RAG Tools',
   },
   {
     title: 'AI Startups',
@@ -50,6 +50,14 @@ const CATEGORIES = [
     active: false,
     comingSoon: true,
     cta: 'Get Notified',
+  },
+  {
+    title: 'Research & Papers',
+    description: 'Stay current with AI research',
+    emoji: '📄',
+    active: true,
+    href: '/research',
+    cta: 'Browse Research',
   },
 ];
 
