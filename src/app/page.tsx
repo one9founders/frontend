@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: { absolute: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory" },
   description:
     "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. IIT Bombay backed.",
+  alternates: {
+    canonical: 'https://www.one9founders.com',
+  },
   openGraph: {
     title: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory",
     description:
