@@ -35,8 +35,8 @@ const CATEGORIES = [
     title: 'RAG & Vector DBs',
     description: 'Build smarter retrieval systems',
     emoji: '🗄️',
-    active: false,
-    comingSoon: true,
+    active: true,
+    href: '/rag-vector-dbs',
   },
   {
     title: 'AI Startups',
@@ -49,8 +49,8 @@ const CATEGORIES = [
     title: 'Research & Papers',
     description: 'Stay current with AI research',
     emoji: '📄',
-    active: false,
-    comingSoon: true,
+    active: true,
+    href: '/research',
   },
 ];
 
