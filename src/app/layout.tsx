@@ -87,7 +87,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href="https://www.one9founders.com" />
         <script src="https://t.contentsquare.net/uxa/d11fb4e793d48.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-455BX3CJP8"></script>
         <script dangerouslySetInnerHTML={{
