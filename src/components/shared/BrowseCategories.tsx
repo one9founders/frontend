@@ -19,17 +19,17 @@ const CATEGORIES = [
   },
   {
     title: 'LLMs & Foundation Models',
-    description: 'GPT, Claude, Gemini, Llama and more',
+    description: '170+ models compared with pricing & benchmarks',
     emoji: '🧠',
-    active: false,
-    comingSoon: true,
+    active: true,
+    href: '/llms',
   },
   {
     title: 'Open Source Models',
-    description: 'Self-host, fine-tune, own your AI',
+    description: '100+ open-weight models to self-host',
     emoji: '🔓',
-    active: false,
-    comingSoon: true,
+    active: true,
+    href: '/llms?type=open-weights',
   },
   {
     title: 'RAG & Vector DBs',
