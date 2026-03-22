@@ -85,8 +85,15 @@ export default function NewsPageClient() {
           {loading ? (
             <div className="col-span-full text-center text-[var(--gray-400)]">Loading...</div>
           ) : news.length === 0 ? (
-            <div className="col-span-full text-center text-[var(--gray-400)]">
-              No articles found. Check back soon for the latest news!
+            <div className="col-span-full text-center py-8">
+              <div className="max-w-md mx-auto bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-8">
+                <span className="text-4xl mb-4 block">📰</span>
+                <h3 className="text-xl font-bold text-white mb-2">AI News is Coming</h3>
+                <p className="text-[var(--gray-400)] mb-4">
+                  We&apos;re curating the most relevant AI news for startup founders. Get notified when we launch.
+                </p>
+                <p className="text-xs text-[var(--gray-500)]">Subscribe via our newsletter in the footer below.</p>
+              </div>
             </div>
           ) : (
             news.map((article) => (

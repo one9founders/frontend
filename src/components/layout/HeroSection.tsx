@@ -96,18 +96,17 @@ export default function HeroSection() {
       <div className="max-w-3xl mx-auto text-center">
         {/* Eyebrow */}
         <p className="text-xs md:text-sm uppercase tracking-widest text-purple-400 font-semibold mb-4">
-          India&apos;s Largest AI Ecosystem Navigator
+          India&apos;s #1 AI Ecosystem Navigator &middot; Backed by IIT Bombay
         </p>
 
         {/* Headline */}
         <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-          Discover AI tools, agents, models, and startups. All in one place.
+          Discover AI tools, agents, models, and startups. All rated. All in one place.
         </h1>
 
         {/* Subheadline */}
         <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          27,000+ AI resources across tools, LLMs, agents, open source models,
-          RAG frameworks, and more. Security-validated with zero affiliate bias.
+          26,000+ AI tools evaluated with our 10-point security framework. 177 LLMs compared with pricing and benchmarks. 1,200+ AI agents cataloged. The only directory startup founders need.
         </p>
 
         {/* Search Bar */}
@@ -148,11 +147,9 @@ export default function HeroSection() {
           ))}
         </div>
 
-        {/* Compressed Stat Bar */}
+        {/* Social Proof Line */}
         <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-xs md:text-sm text-[var(--gray-500)] border-t border-[var(--gray-800)] pt-4">
-          <span>27,000+ resources</span>
-          <span className="text-[var(--gray-700)]">&middot;</span>
-          <span>2,500+ security validated</span>
+          <span>Trusted by 5,000+ founders</span>
           <span className="text-[var(--gray-700)]">&middot;</span>
           <span>Zero affiliate bias</span>
           <span className="text-[var(--gray-700)]">&middot;</span>

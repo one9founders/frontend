@@ -13,8 +13,8 @@ import type { EducationAudience, CourseListItem, GuideListItem, WorkshopListItem
 export const revalidate = 300;
 
 export const metadata: Metadata = generateSEO({
-  title: 'Learn AI the Practical Way - Education Hub',
-  description: 'Free guides, hands-on labs, and certified courses. Built for India\'s next generation. Supported by IIT Bombay.',
+  title: 'Learn AI | Free Courses & Workshops for Founders | One9Founders',
+  description: 'Free AI guides, hands-on courses, and live workshops. Built for founders, students, and teams. Supported by IIT Bombay. From prompt engineering to building with agents.',
   path: '/learn',
   keywords: ['AI education', 'AI courses India', 'AI guides', 'AI workshops', 'learn AI', 'IIT Bombay', 'startup AI training'],
 });
@@ -88,7 +88,7 @@ export default async function LearnPage() {
     '@type': 'WebPage',
     name: 'Learn AI the Practical Way',
     description: 'Free guides, hands-on labs, and certified courses. Built for India\'s next generation.',
-    url: 'https://one9founders.com/learn',
+    url: 'https://www.one9founders.com/learn',
   });
 
   return (
@@ -196,7 +196,10 @@ export default async function LearnPage() {
             </div>
           ) : (
             <div className="text-center py-12 rounded-xl border border-dashed border-[var(--gray-700)] bg-[var(--gray-800)]">
-              <p className="text-[var(--gray-400)]">Courses coming soon. Stay tuned!</p>
+              <span className="text-3xl mb-3 block">📚</span>
+              <h3 className="text-lg font-bold text-white mb-2">Courses Launching Soon</h3>
+              <p className="text-[var(--gray-400)] mb-4 max-w-md mx-auto">We&apos;re building hands-on AI courses for founders. Drop your email to get early access.</p>
+              <p className="text-xs text-[var(--gray-500)]">Subscribe via our newsletter in the footer below.</p>
             </div>
           )}
         </div>

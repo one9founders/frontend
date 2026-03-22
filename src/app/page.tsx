@@ -12,18 +12,18 @@ import Top20Tools from "../components/features/tools/Top20Tools";
 import Footer from "../components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "One9Founders — India's Largest AI Ecosystem Navigator",
+  title: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory",
   description:
-    "Discover 27,000+ AI tools, agents, LLMs, open source models, and startups. Security-validated with zero affiliate bias. Supported by IIT Bombay.",
+    "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. IIT Bombay backed.",
   openGraph: {
-    title: "One9Founders — India's Largest AI Ecosystem Navigator",
+    title: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory",
     description:
-      "Discover 27,000+ AI tools, agents, LLMs, open source models, and startups. Security-validated with zero affiliate bias. Supported by IIT Bombay.",
+      "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. IIT Bombay backed.",
   },
   twitter: {
-    title: "One9Founders — India's Largest AI Ecosystem Navigator",
+    title: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory",
     description:
-      "Discover 27,000+ AI tools, agents, LLMs, open source models, and startups. Security-validated with zero affiliate bias.",
+      "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.",
   },
 };
 
@@ -37,11 +37,11 @@ export default function Home() {
             generateStructuredData({
               '@type': 'WebSite',
               name: 'One9Founders',
-              url: 'https://one9founders.com',
-              description: "India's Largest AI Ecosystem Navigator — Discover 27,000+ AI tools, agents, LLMs, open source models, and startups.",
+              url: 'https://www.one9founders.com',
+              description: "India's largest AI ecosystem navigator. 26,000+ AI tools, 177 LLMs, 1,200+ agents. Built for startup founders.",
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://one9founders.com/search?q={search_term_string}',
+                target: 'https://www.one9founders.com/search?q={search_term_string}',
                 'query-input': 'required name=search_term_string',
               },
             })

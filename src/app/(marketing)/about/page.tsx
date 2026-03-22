@@ -7,8 +7,8 @@ import ContactCard from '@/components/ui/ContactCard';
 import InternCard from '@/components/ui/InternCard';
 
 export const metadata: Metadata = generateSEO({
-  title: 'About Us - India\'s Security-First AI Tools Directory',
-  description: 'Meet the One9Founders team building India\'s first security-validated AI tools directory. IIT Bombay-backed, serving global and Indian founders with unbiased tool reviews.',
+  title: 'About One9Founders | AI Ecosystem Navigator for Founders',
+  description: 'One9Founders is India\'s largest AI ecosystem navigator. 26,000+ tools, 177 LLMs, 1,200+ agents — rated with our 10-point security framework. IIT Bombay backed. Zero affiliate bias.',
   path: '/about',
   keywords: ['about one9founders', 'Indian startup team', 'AI tool directory India', 'IIT Bombay startup', 'founder resources India', 'AI tools for Indian startups'],
 });
@@ -23,9 +23,9 @@ export default function AboutPage() {
             generateStructuredData({
               '@type': 'Organization',
               name: 'One9Founders',
-              url: 'https://one9founders.com',
-              logo: 'https://one9founders.com/logo-light.png',
-              description: 'India\'s first security-validated AI tools directory for global and Indian startup founders',
+              url: 'https://www.one9founders.com',
+              logo: 'https://www.one9founders.com/logo-light.png',
+              description: 'India\'s largest AI ecosystem navigator. 26,000+ tools, 177 LLMs, 1,200+ agents. Built for startup founders.',
               foundingDate: '2024',
               areaServed: ['India', 'Global'],
               knowsAbout: ['AI Tools', 'Startup Technology', 'Security Assessment', 'Tool Evaluation'],
@@ -58,7 +58,7 @@ export default function AboutPage() {
               <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              27,000+ Tools Listed
+              26,000+ Tools Rated
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

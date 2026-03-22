@@ -2,6 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  async redirects() {
+    return [
+      {
+        source: '/what-is-one9founders',
+        destination: '/about',
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
