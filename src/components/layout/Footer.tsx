@@ -10,6 +10,7 @@ export default function Footer() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,12 +20,15 @@ export default function Footer() {
     try {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
+        setIsSuccess(true);
         setMessage('Thanks for subscribing!');
         setEmail('');
       } else {
+        setIsSuccess(false);
         setMessage(result.error || 'Something went wrong');
       }
     } catch {
+      setIsSuccess(false);
       setMessage('Failed to subscribe');
     } finally {
       setLoading(false);
@@ -200,7 +204,7 @@ export default function Footer() {
                   </button>
                 </form>
                 {message && (
-                  <p className={`mt-2 text-xs ${message.includes('Thanks') ? 'text-green-400' : 'text-red-400'}`}>
+                  <p className={`mt-2 text-xs ${isSuccess ? 'text-green-400' : 'text-red-400'}`}>
                     {message}
                   </p>
                 )}

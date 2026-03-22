@@ -7,6 +7,7 @@ export default function DealsEmailForm() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,12 +19,15 @@ export default function DealsEmailForm() {
     try {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
+        setIsSuccess(true);
         setMessage('You\'re on the list! We\'ll notify you when deals drop.');
         setEmail('');
       } else {
+        setIsSuccess(false);
         setMessage(result.error || 'Something went wrong');
       }
     } catch {
+      setIsSuccess(false);
       setMessage('Failed to subscribe');
     } finally {
       setLoading(false);
@@ -53,7 +57,7 @@ export default function DealsEmailForm() {
       </form>
       <p className="text-xs text-[var(--gray-500)] mt-3">No spam. Only deal alerts.</p>
       {message && (
-        <p className={`mt-2 text-sm ${message.includes('list') ? 'text-green-400' : 'text-red-400'}`}>
+        <p className={`mt-2 text-sm ${isSuccess ? 'text-green-400' : 'text-red-400'}`}>
           {message}
         </p>
       )}
