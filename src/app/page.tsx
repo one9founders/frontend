@@ -12,7 +12,7 @@ import Top20Tools from "../components/features/tools/Top20Tools";
 import Footer from "../components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory",
+  title: { absolute: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory" },
   description:
     "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. IIT Bombay backed.",
   openGraph: {

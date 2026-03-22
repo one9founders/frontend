@@ -10,7 +10,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders',
+  title: { absolute: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders' },
   description: 'Browse 1,200+ AI agents that go beyond chat. Autonomous tools for coding, sales, support, research, and operations. Filtered by category, use case, and pricing. Updated weekly.',
   openGraph: {
     title: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders',
