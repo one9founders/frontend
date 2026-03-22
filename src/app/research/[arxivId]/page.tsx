@@ -38,7 +38,7 @@ async function getRelatedPapers(arxivId: string): Promise<Paper[]> {
 
 export async function generateMetadata({ params }: PaperDetailPageProps): Promise<Metadata> {
   const { arxivId } = await params;
-  const paper = await getPaper(decodeURIComponent(arxivId));
+  const paper = await getPaper(arxivId);
   if (!paper) return { title: 'Paper Not Found | One9Founders' };
 
   const description = paper.ai_summary
@@ -62,10 +62,9 @@ export async function generateMetadata({ params }: PaperDetailPageProps): Promis
 
 export default async function PaperDetailPage({ params }: PaperDetailPageProps) {
   const { arxivId } = await params;
-  const decodedId = decodeURIComponent(arxivId);
   const [paper, relatedPapers] = await Promise.all([
-    getPaper(decodedId),
-    getRelatedPapers(decodedId),
+    getPaper(arxivId),
+    getRelatedPapers(arxivId),
   ]);
 
   if (!paper) {
