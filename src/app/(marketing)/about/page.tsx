@@ -54,14 +54,10 @@ export default function AboutPage() {
           <p className="text-lg md:text-xl text-[var(--gray-300)] mb-10">
             India&apos;s Largest AI Ecosystem Navigator. Built for founders, colleges, and enterprises.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)]">
               <p className="text-2xl md:text-3xl font-bold text-white">{STATS.totalResources}</p>
               <p className="text-sm text-[var(--gray-400)]">AI Resources</p>
-            </div>
-            <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)]">
-              <p className="text-2xl md:text-3xl font-bold text-white">{STATS.securityValidated}</p>
-              <p className="text-sm text-[var(--gray-400)]">Security Validated</p>
             </div>
             <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)] flex flex-col items-center justify-center">
               <img src="/iitb-logo.png" alt="IIT Bombay" className="h-8 mb-1" draggable={false} />
@@ -86,7 +82,7 @@ export default function AboutPage() {
               Every week, hundreds of new AI tools, models, and agents launch globally. Indian founders, students, and enterprise teams face the same problem: they don&apos;t know which tools are trustworthy, which models are affordable for Indian budgets, or how to build AI into their workflows without wasting months on trial and error.
             </p>
             <p>
-              Most AI directories are simple aggregators. They list tools, take affiliate commissions, and rank based on who pays the most. Nobody was building an ecosystem navigator &mdash; something that organizes the entire AI landscape and makes it accessible with security validation, honest ratings, and zero affiliate bias.
+              Most AI directories are simple aggregators. They list tools, take affiliate commissions, and rank based on who pays the most. Nobody was building an ecosystem navigator - something that organizes the entire AI landscape and makes it accessible with security validation, honest ratings, and zero affiliate bias.
             </p>
             <p className="text-white font-semibold text-xl">
               That&apos;s why we built One9Founders.
@@ -131,21 +127,21 @@ export default function AboutPage() {
                 <Link href="/agents" className="hover:text-purple-300 transition-colors">{STATS.aiAgents} AI Agents</Link>
               </h3>
               <p className="text-[var(--gray-300)]">
-                A growing directory of autonomous AI agents organized by capability &mdash; from coding and marketing to sales and operations.
+                A growing directory of autonomous AI agents organized by capability - from coding and marketing to sales and operations.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F513;</span>
               <h3 className="text-xl font-bold text-white mb-3">{STATS.openSourceModels} Open Source Models</h3>
               <p className="text-[var(--gray-300)]">
-                Self-hostable models sorted by downloads, parameters, and provider &mdash; for teams that want to run AI on their own infrastructure.
+                Self-hostable models sorted by downloads, parameters, and provider - for teams that want to run AI on their own infrastructure.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F3AF;</span>
               <h3 className="text-xl font-bold text-white mb-3">Zero Affiliate Bias</h3>
               <p className="text-[var(--gray-300)]">
-                We do not accept affiliate commissions from any tool in our directory. Rankings are based purely on our evaluation criteria. When we recommend a tool, it&apos;s because it scored well &mdash; not because someone paid us.
+                We do not accept affiliate commissions from any tool in our directory. Rankings are based purely on our evaluation criteria. When we recommend a tool, it&apos;s because it scored well - not because someone paid us.
               </p>
             </div>
           </div>
@@ -208,14 +204,14 @@ export default function AboutPage() {
               <span className="text-3xl mb-4 block">&#x1F512;</span>
               <h3 className="text-xl font-bold text-white mb-3">Security Comes First</h3>
               <p className="text-[var(--gray-300)]">
-                Every validated tool undergoes our 10-point security check. Data privacy, encryption, compliance, and third-party data sharing are evaluated systematically. Security is weighted at 20% of our total score &mdash; the single largest factor.
+                Every validated tool undergoes our 10-point security check. Data privacy, encryption, compliance, and third-party data sharing are evaluated systematically. Security is weighted at 20% of our total score - the single largest factor.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F3AF;</span>
               <h3 className="text-xl font-bold text-white mb-3">No Affiliate Revenue</h3>
               <p className="text-[var(--gray-300)]">
-                We don&apos;t earn money when you click on a tool or sign up. Our revenue comes from AI training programs and enterprise partnerships &mdash; not from influencing what you see.
+                We don&apos;t earn money when you click on a tool or sign up. Our revenue comes from AI training programs and enterprise partnerships - not from influencing what you see.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
@@ -253,21 +249,9 @@ export default function AboutPage() {
                 <div className="flex-1 text-center lg:text-left">
                   <h3 className="text-2xl font-bold text-white mb-2">Dr. Ramesh Kuruva</h3>
                   <p className="text-brand-primary mb-4">Assistant Professor, Desai Sethi School of Entrepreneurship, IIT Bombay</p>
-                  <div className="bg-[var(--gray-700)] p-4 rounded-lg mb-4">
-                    <p className="text-[var(--gray-300)] italic">
-                      &quot;One9Founders represents an innovative approach to AI tool discovery. Their platform demonstrates
-                      the kind of entrepreneurial thinking and technological innovation that we aim to foster in the startup ecosystem.
-                      I&apos;m excited to mentor this team as they work to empower founders with better AI tool discovery solutions.&quot;
-                    </p>
-                  </div>
                   <div className="text-sm text-[var(--gray-400)] space-y-1">
-                    <p>&bull; PhD in Entrepreneurial Finance from IIT Madras</p>
                     <p>&bull; Co-founder &amp; Former CEO of YNOS Venture Engine</p>
-                    <p>&bull; Gold medalist in Bachelor&apos;s and Master&apos;s in Accounting and Finance</p>
-                    <p>&bull; Key contributor to India Venture Capital and Private Equity Reports</p>
-                    <p>&bull; Established Centre for Research on Startups (CREST) at IIT Madras</p>
-                    <p>&bull; Expert in Venture Capital, Entrepreneurship &amp; Startup Ecosystems</p>
-                    <p>&bull; Collaborated with multiple government ministries on startup initiatives</p>
+                    <p>&bull; PhD in Entrepreneurial Finance from IIT Madras</p>
                   </div>
                 </div>
               </div>
@@ -290,7 +274,6 @@ export default function AboutPage() {
                 linkedin="https://www.linkedin.com/in/amitbhartiya33/"
                 phone="+917878469798"
               />
-              <p className="text-[var(--gray-400)] text-sm mt-3 text-center italic">[Bio coming soon]</p>
             </div>
             <div>
               <ContactCard
@@ -301,7 +284,6 @@ export default function AboutPage() {
                 linkedin="https://www.linkedin.com/in/xdineshsahu/"
                 phone="+918109286424"
               />
-              <p className="text-[var(--gray-400)] text-sm mt-3 text-center italic">[Bio coming soon]</p>
             </div>
           </div>
         </div>
