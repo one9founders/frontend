@@ -327,7 +327,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 <div>
                   <span className="text-[var(--gray-400)]">Pricing:</span>
                   <span className="text-white ml-2">
-                    {tool.pricing_from != null
+                    {tool.pricing_from != null && tool.pricing_from > 0
                       ? `From $${tool.pricing_from}/mo`
                       : tool.pricing_models?.length > 0
                         ? tool.pricing_models.join(', ')

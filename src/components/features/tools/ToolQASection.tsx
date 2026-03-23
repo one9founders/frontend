@@ -34,9 +34,9 @@ function generateQAPairs(tool: Tool): QAPair[] {
   const parsed = parseFeatures(tool.features ?? []);
 
   // Pricing Q&A — specific numbers, not filler
-  const priceIndia = tool.pricing_inr != null
+  const priceIndia = tool.pricing_inr != null && tool.pricing_inr > 0
     ? `starts at ₹${tool.pricing_inr.toLocaleString('en-IN')}/month${tool.gst_applicable ? ' (plus 18% GST)' : ''}`
-    : tool.pricing_from != null
+    : tool.pricing_from != null && tool.pricing_from > 0
       ? `starts at $${tool.pricing_from}/month (approximately ₹${Math.round(tool.pricing_from * 83.5).toLocaleString('en-IN')}/month)`
       : `is ${pricingLabel}`;
 

@@ -24,9 +24,9 @@ export default function ToolTLDR({ tool }: ToolTLDRProps) {
       : 'paid';
 
   // Build price snippet
-  const priceSnippet = tool.pricing_inr != null
+  const priceSnippet = tool.pricing_inr != null && tool.pricing_inr > 0
     ? `from ₹${tool.pricing_inr.toLocaleString('en-IN')}/mo`
-    : tool.pricing_from != null
+    : tool.pricing_from != null && tool.pricing_from > 0
       ? `from $${tool.pricing_from}/mo`
       : '';
 
