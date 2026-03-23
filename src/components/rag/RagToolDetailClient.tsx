@@ -258,7 +258,7 @@ export default function RagToolDetailClient({ tool }: RagToolDetailClientProps) 
           ) : (
             <p className="text-sm text-[var(--gray-400)]">
               {tool.pricing_model === 'free' || tool.pricing_model === 'open_source'
-                ? 'This tool is free to use.'
+                ? 'Free to use.'
                 : 'Visit the website for detailed pricing information.'}
             </p>
           )}
@@ -308,7 +308,7 @@ export default function RagToolDetailClient({ tool }: RagToolDetailClientProps) 
       {/* Section 6: Similar Tools */}
       {tool.similar_tools && tool.similar_tools.length > 0 && (
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-white mb-4">Similar Tools</h2>
+          <h2 className="text-xl font-bold text-white mb-4">Similar Solutions</h2>
           <div className="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4">
             {tool.similar_tools.map((similar) => (
               <div key={similar.slug} className="flex-shrink-0 w-[280px]">

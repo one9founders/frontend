@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { RagTool } from '@/types/rag';
 import RagToolCard from './RagToolCard';
@@ -41,6 +41,7 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
   const [sort, setSort] = useState(searchParams.get('sort') || 'rating');
   const [search, setSearch] = useState(searchParams.get('search') || '');
   const [searchInput, setSearchInput] = useState(searchParams.get('search') || '');
+  const isFirstRender = useRef(true);
 
   // Debounce search
   useEffect(() => {
@@ -50,13 +51,17 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
 
   // Update URL when filters change
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     const query = new URLSearchParams();
     if (category) query.set('category', category);
     if (pricing) query.set('pricing', pricing);
     if (sort && sort !== 'rating') query.set('sort', sort);
     if (search) query.set('search', search);
     const queryString = query.toString();
-    router.push(`/rag-vector-dbs${queryString ? `?${queryString}` : ''}`, { scroll: false });
+    router.replace(`/rag-vector-dbs${queryString ? `?${queryString}` : ''}`, { scroll: false });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category, pricing, sort, search]);
 
@@ -113,7 +118,7 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
       <div className="text-center mb-8">
         <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">RAG & Vector DBs</h1>
         <p className="text-[var(--gray-400)] text-lg max-w-2xl mx-auto">
-          Build smarter retrieval systems. Compare {initialCount}+ tools across vector databases, RAG frameworks, and embedding models.
+          Build smarter retrieval systems. Explore {initialCount > 0 ? `${initialCount}+ ` : ''}vector databases, RAG frameworks, and embedding models.
         </p>
       </div>
 
@@ -124,7 +129,7 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
             type="text"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-            placeholder="Search RAG tools..."
+            placeholder="Search RAG & Vector DBs..."
             className="w-full px-6 py-4 text-lg rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-900)] border border-[var(--gray-700)] text-white"
           />
           <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-[var(--gray-500)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +185,7 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
 
       {/* Results count */}
       <div className="mb-4 text-sm text-[var(--gray-400)]">
-        Showing {filteredTools.length} tools
+        Showing {filteredTools.length} results
       </div>
 
       {/* Grid */}
@@ -193,7 +198,7 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
       ) : (
         <div className="text-center py-16">
           <p className="text-[var(--gray-400)] text-lg mb-4">
-            No tools found matching your filters. Try broadening your search.
+            No results found matching your filters. Try broadening your search.
           </p>
           <button
             onClick={clearFilters}

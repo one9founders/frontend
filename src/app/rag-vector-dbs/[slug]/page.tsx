@@ -16,7 +16,7 @@ interface RagToolDetailPageProps {
 async function getRagTool(slug: string): Promise<(RagTool & { similar_tools?: RagTool[] }) | null> {
   try {
     const response = await fetch(`${API_URL}/api/v1/rag/tools/${slug}/`, {
-      next: { revalidate: 86400 },
+      next: { revalidate: 3600 },
     });
     if (!response.ok) return null;
     return await response.json();
@@ -28,11 +28,11 @@ async function getRagTool(slug: string): Promise<(RagTool & { similar_tools?: Ra
 export async function generateMetadata({ params }: RagToolDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const tool = await getRagTool(slug);
-  if (!tool) return { title: 'Tool Not Found | One9Founders' };
+  if (!tool) return { title: 'Not Found | One9Founders' };
 
   const description = tool.description
     ? tool.description.substring(0, 155)
-    : `Discover ${tool.name} - a ${tool.category.replace('_', ' ')} tool.`;
+    : `Discover ${tool.name} - a ${tool.category.replace('_', ' ')} solution for AI workflows.`;
 
   return {
     title: `${tool.name} — RAG & Vector DB | One9Founders`,
