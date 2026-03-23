@@ -91,13 +91,6 @@ export default async function ToolPage({ params }: ToolPageProps) {
       price: '0',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
-      ...(tool.pricing_inr != null ? {
-        priceSpecification: {
-          '@type': 'UnitPriceSpecification',
-          price: tool.pricing_inr,
-          priceCurrency: 'INR',
-        },
-      } : {}),
     } : tool.pricing_from ? {
       '@type': 'Offer',
       price: tool.pricing_from,
