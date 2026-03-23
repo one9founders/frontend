@@ -181,7 +181,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
     } : {}),
     offers: tool.pricing_models?.includes('Free') || tool.pricing_from != null ? {
       '@type': 'Offer',
-      price: tool.pricing_from || 0,
+      price: tool.pricing_models?.includes('Free') ? 0 : tool.pricing_from,
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
       ...(tool.pricing_inr != null ? {

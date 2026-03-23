@@ -37,12 +37,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/', '/*?sort=', '/*?filter=', '/*?page=', '/*?search='],
       },
       {
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/', '/*?sort=', '/*?filter=', '/*?page=', '/*?search='],
       },
     ],
     sitemap: 'https://www.one9founders.com/sitemap.xml',
