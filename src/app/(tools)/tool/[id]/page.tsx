@@ -337,7 +337,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                             ? tool.pricing_type.charAt(0).toUpperCase() + tool.pricing_type.slice(1)
                             : 'Pricing not available'}
                   </span>
-                  {tool.free_tier_available && tool.pricing_from != null && (
+                  {tool.free_tier_available && tool.pricing_from != null && tool.pricing_from > 0 && (
                     <span className="text-green-400 ml-2 text-xs">(Free tier available)</span>
                   )}
                   <INRPriceDisplay tool={tool} className="mt-1" />
