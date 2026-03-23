@@ -90,10 +90,26 @@ export default async function ToolPage({ params }: ToolPageProps) {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      ...(tool.pricing_inr != null ? {
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: tool.pricing_inr,
+          priceCurrency: 'INR',
+        },
+      } : {}),
     } : tool.pricing_from ? {
       '@type': 'Offer',
       price: tool.pricing_from,
       priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      ...(tool.pricing_inr != null ? {
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: tool.pricing_inr,
+          priceCurrency: 'INR',
+        },
+      } : {}),
     } : undefined,
     aggregateRating: tool.review_count > 0 ? {
       '@type': 'AggregateRating',
@@ -160,40 +176,6 @@ export default async function ToolPage({ params }: ToolPageProps) {
     })),
   });
 
-  // Product schema for pricing
-  const productSchema = generateStructuredData({
-    '@type': 'Product',
-    name: tool.name,
-    description: tool.short_description || tool.description?.substring(0, 200),
-    image: tool.logo_url || tool.landing_page_screenshot,
-    brand: {
-      '@type': 'Organization',
-      name: 'One9Founders',
-    },
-    ...(tool.review_count > 0 ? {
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: tool.rating,
-        reviewCount: tool.review_count,
-        bestRating: 5,
-        worstRating: 1,
-      },
-    } : {}),
-    offers: tool.pricing_models?.includes('Free') || tool.pricing_from != null ? {
-      '@type': 'Offer',
-      price: tool.pricing_models?.includes('Free') ? 0 : tool.pricing_from,
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      ...(tool.pricing_inr != null ? {
-        priceSpecification: {
-          '@type': 'UnitPriceSpecification',
-          price: tool.pricing_inr,
-          priceCurrency: 'INR',
-        },
-      } : {}),
-    } : undefined,
-  });
-
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
@@ -212,12 +194,6 @@ export default async function ToolPage({ params }: ToolPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqSchema),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productSchema),
         }}
       />
       <Navbar />

@@ -41,13 +41,15 @@ export default function StackCostCalculator({ stackSlug, categories }: StackCost
     } catch {
       // ignore parse errors
     }
-    isInitialized.current = true;
   }, [storageKey]);
 
-  // Persist selections to localStorage
+  // Persist selections to localStorage (skip first render to avoid overwriting saved data)
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    if (!isInitialized.current) return;
+    if (!isInitialized.current) {
+      isInitialized.current = true;
+      return;
+    }
     localStorage.setItem(storageKey, JSON.stringify(selectedTools));
   }, [selectedTools, storageKey]);
 
