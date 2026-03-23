@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import { generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
