@@ -15,8 +15,8 @@ interface APIToolResponse {
 }
 
 export interface EnrichedToolData {
-  priceUSD: number;
-  priceINR: number;
+  priceUSD: number | null;
+  priceINR: number | null;
   freeTier: boolean;
   score: number;
   securityRating: number;
@@ -53,16 +53,18 @@ export async function fetchToolsForStack(
     const data = await fetchToolBySlug(slug);
     if (!data) return;
 
-    const priceUSD = data.pricing_from ?? 0;
-    let priceINR: number;
+    const priceUSD = data.pricing_from; // null means "unknown", 0 means "free"
+    let priceINR: number | null;
 
-    // Priority: override > API INR > computed from USD
+    // Priority: override > API INR > computed from USD > null (unknown)
     if (data.pricing_inr_override != null) {
       priceINR = data.pricing_inr_override;
     } else if (data.pricing_inr != null) {
       priceINR = data.pricing_inr;
-    } else {
+    } else if (priceUSD != null) {
       priceINR = Math.round(priceUSD * EXCHANGE_RATE);
+    } else {
+      priceINR = null;
     }
 
     results[slug] = {
