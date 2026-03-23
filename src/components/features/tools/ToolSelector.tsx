@@ -5,6 +5,7 @@ import { Tool, Category } from '@/types';
 import { HugeiconsIcon, Search01Icon, Cancel01Icon, StarIcon, CheckmarkCircle01Icon } from '@/components/ui/icons';
 import { searchTools } from '@/lib/actions/tools';
 import ToolLogo from '@/components/shared/ToolLogo';
+import { STATS } from '@/lib/constants/stats';
 
 interface ToolSelectorProps {
   tools: Tool[];
@@ -184,7 +185,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             Select Tools to Compare
           </h2>
           <span className="text-[var(--gray-400)] text-sm">
-            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `Showing ${filteredTools.length} of 26,000+ tools`}
+            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `Showing ${filteredTools.length} of ${STATS.totalResources} tools`}
           </span>
         </div>
         
@@ -199,7 +200,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             />
             <input
               type="text"
-              placeholder="Search all 26,000+ tools by name or description..."
+              placeholder={`Search all ${STATS.totalResources} tools by name or description...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-10 py-3 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-purple-500 focus:outline-none transition-colors"

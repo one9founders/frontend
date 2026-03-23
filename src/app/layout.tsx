@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { ReCaptchaProvider } from "@/lib/recaptcha";
+import { STATS } from "@/lib/constants/stats";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     default: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
     template: '%s | One9Founders',
   },
-  description: "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.",
+  description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
   keywords: ['AI tools directory', 'AI tools for startups', 'security validated AI tools', 'unbiased AI tool reviews', 'compare AI tools India', 'startup tools', 'founder resources'],
   authors: [{ name: 'One9Founders' }],
   creator: 'One9Founders',
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     url: 'https://www.one9founders.com',
     siteName: 'One9Founders',
     title: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
-    description: "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.",
+    description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
     images: [{
       url: '/og-image.png',
       width: 1200,
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@one9founders',
     title: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
-    description: 'Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.',
+    description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
     images: ['/og-image.png'],
     creator: '@one9founders',
   },

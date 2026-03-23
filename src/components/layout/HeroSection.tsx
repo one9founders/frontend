@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon, Search01Icon } from "@/components/ui/icons";
 import posthog from "posthog-js";
+import { STATS } from "@/lib/constants/stats";
 
 interface CategoryPill {
   label: string;
@@ -106,7 +107,7 @@ export default function HeroSection() {
 
         {/* Subheadline */}
         <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          26,000+ AI tools, 177 LLMs, 1,200+ agents, 110+ RAG & vector databases, and the latest AI research papers. Supported by IIT Bombay.
+          {STATS.totalResources} AI tools, {STATS.llmsCompared} LLMs, {STATS.aiAgents} agents, {STATS.ragVectorDbs} RAG & vector databases, and the latest AI research papers. Supported by IIT Bombay.
         </p>
 
         {/* Search Bar */}

@@ -3,10 +3,11 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
+import { STATS } from '@/lib/constants/stats';
 
 export const metadata: Metadata = generateSEO({
   title: 'How We Rate AI Tools | 10-Point Security Framework | One9Founders',
-  description: 'Our transparent 10-point framework rates 26,000+ AI tools on security, pricing, features, and more. Zero affiliate bias. See how we score every tool.',
+  description: `Our transparent 10-point framework rates ${STATS.totalResources} AI tools on security, pricing, features, and more. Zero affiliate bias. See how we score every tool.`,
   path: '/methodology',
   keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation'],
 });

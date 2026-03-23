@@ -1,11 +1,12 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { STATS } from '@/lib/constants/stats';
 
 const CATEGORIES = [
   {
     title: 'AI Tools',
-    description: '26,000+ tools for every use case. From writing and code to marketing and design. Every tool scored with our 10-point framework.',
+    description: `${STATS.totalResources} tools for every use case. From writing and code to marketing and design. Every tool scored with our 10-point framework.`,
     emoji: '🛠️',
     active: true,
     href: '#tools-section',
@@ -13,7 +14,7 @@ const CATEGORIES = [
   },
   {
     title: 'AI Agents',
-    description: '1,200+ autonomous AI agents. Agents that go beyond chat. Browse tools that take action, run workflows, and integrate with your stack.',
+    description: `${STATS.aiAgents} autonomous AI agents. Agents that go beyond chat. Browse tools that take action, run workflows, and integrate with your stack.`,
     emoji: '🤖',
     active: true,
     href: '/agents',

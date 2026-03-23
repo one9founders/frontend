@@ -133,6 +133,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/learn/organizations" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      For Colleges &amp; Corporates
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/methodology" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       How We Rate
                     </Link>
