@@ -267,6 +267,15 @@ export const agentsAPI = {
   getStats: () => fetchAPI('/api/agents/stats/'),
 };
 
+export const pricingAPI = {
+  getConfig: () => fetchAPI('/api/config/pricing/'),
+  reportPricing: (toolSlug: string, data: { email?: string; session_id?: string; message?: string }) =>
+    fetchAPI(`/api/tools/${toolSlug}/report-pricing/`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+};
+
 export const trackingAPI = {
   trackUsage: (toolId: number, sessionId?: string) =>
     fetchAPI('/api/track/usage/', {

@@ -43,8 +43,20 @@ export interface Tool {
   security_assessed_at?: string | null;
   alternatives?: Tool[];
   similarity?: number;
+  // INR pricing fields
+  pricing_inr_override?: number | null;
+  pricing_has_india_plan?: boolean;
+  gst_applicable?: boolean;
+  pricing_inr?: number | null;
+  pricing_inr_with_gst?: number | null;
   created_at: string;
   updated_at: string;
+}
+
+export interface PricingConfig {
+  exchange_rate: number;
+  exchange_rate_updated: string;
+  gst_rate: number;
 }
 
 export interface Review {

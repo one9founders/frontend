@@ -5,6 +5,9 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import ToolLogo from '@/components/shared/ToolLogo';
 import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
+import ToolTLDR from '@/components/features/tools/ToolTLDR';
+import ToolQASection, { generateQAPairs } from '@/components/features/tools/ToolQASection';
+import INRPriceDisplay from '@/components/shared/INRPriceDisplay';
 import { addRefToUrl } from '@/lib/utils/url';
 import { Tool, Review } from '@/types';
 
@@ -87,10 +90,19 @@ export default async function ToolPage({ params }: ToolPageProps) {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
     } : tool.pricing_from ? {
       '@type': 'Offer',
       price: tool.pricing_from,
       priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      ...(tool.pricing_inr != null ? {
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: tool.pricing_inr,
+          priceCurrency: 'INR',
+        },
+      } : {}),
     } : undefined,
     aggregateRating: tool.review_count > 0 ? {
       '@type': 'AggregateRating',
@@ -143,6 +155,20 @@ export default async function ToolPage({ params }: ToolPageProps) {
     ],
   });
 
+  // FAQPage schema from Q&A pairs
+  const qaPairs = generateQAPairs(tool);
+  const faqSchema = generateStructuredData({
+    '@type': 'FAQPage',
+    mainEntity: qaPairs.map((qa) => ({
+      '@type': 'Question',
+      name: qa.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: qa.answer,
+      },
+    })),
+  });
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
@@ -155,6 +181,12 @@ export default async function ToolPage({ params }: ToolPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
         }}
       />
       <Navbar />
@@ -299,6 +331,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                       {tool.pricing_models.join(', ')}
                       {tool.pricing_from && ` from $${tool.pricing_from}`}
                     </span>
+                    <INRPriceDisplay tool={tool} className="mt-1" />
                   </div>
                 )}
                 {tool.free_trial_days && (
@@ -310,6 +343,8 @@ export default async function ToolPage({ params }: ToolPageProps) {
               </div>
             </div>
           </div>
+          
+          <ToolTLDR tool={tool} />
           
           <div className="mt-8">
             <h2 className="text-lg md:text-xl font-semibold text-white mb-2">What is {tool.name}?</h2>
@@ -379,6 +414,13 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 </p>
               </div>
             )}
+          </div>
+
+          <ToolQASection tool={tool} />
+
+          {/* Last Updated */}
+          <div className="mt-6 text-[var(--gray-500)] text-xs">
+            Last updated: {new Date(tool.updated_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
           </div>
 
           <div className="mt-8">
