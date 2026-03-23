@@ -35,7 +35,7 @@ export default function StackCostCalculator({ stackSlug, categories }: StackCost
       if (saved) {
         const parsed = JSON.parse(saved);
         if (typeof parsed === 'object' && parsed !== null) {
-          setSelectedTools(prev => ({ ...prev, ...parsed }));
+          setSelectedTools(parsed);
         }
       }
     } catch {
