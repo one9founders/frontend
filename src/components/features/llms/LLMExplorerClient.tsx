@@ -121,8 +121,8 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
           <span className="text-purple-400">One9</span>Founders LLM Explorer
         </h1>
         <p className="text-[var(--gray-400)] text-sm sm:text-base">
-          {dataset.metadata.total_models} models compared — Pricing, benchmarks
-          &amp; Arena rankings — Updated {dataset.metadata.last_updated}
+          {dataset.metadata.total_models} models compared - Pricing, benchmarks
+          &amp; Arena rankings - Updated {dataset.metadata.last_updated}
         </p>
       </div>
 

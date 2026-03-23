@@ -321,7 +321,7 @@ export default function LLMDetailClient({
                       : 'text-[var(--gray-600)]'
                 }`}
               >
-                {value === true ? '✓' : value === false ? '✗' : '—'}
+                {value === true ? '✓' : value === false ? '✗' : '-'}
               </span>
               <span
                 className={`text-xs font-medium ${

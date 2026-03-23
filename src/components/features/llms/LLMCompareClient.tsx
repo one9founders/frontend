@@ -252,7 +252,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
                 values={selectedModels.map((m) =>
                   m.output_price_per_mtok !== null
                     ? `${formatPrice(m.output_price_per_mtok, currency)} /M`
-                    : '—'
+                    : '-'
                 )}
               />
               <CompareRow
@@ -260,7 +260,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
                 values={selectedModels.map((m) =>
                   m.aa_intelligence_index
                     ? `${m.aa_intelligence_index}/100`
-                    : '—'
+                    : '-'
                 )}
                 highlight="highest"
                 rawValues={selectedModels.map(
@@ -270,7 +270,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
               <CompareRow
                 label="Arena Overall"
                 values={selectedModels.map((m) =>
-                  m.arena_elo_overall ? `#${m.arena_elo_overall}` : '—'
+                  m.arena_elo_overall ? `#${m.arena_elo_overall}` : '-'
                 )}
                 highlight="lowest-rank"
                 rawValues={selectedModels.map(
@@ -280,7 +280,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
               <CompareRow
                 label="Arena Coding"
                 values={selectedModels.map((m) =>
-                  m.arena_elo_coding ? `#${m.arena_elo_coding}` : '—'
+                  m.arena_elo_coding ? `#${m.arena_elo_coding}` : '-'
                 )}
                 highlight="lowest-rank"
                 rawValues={selectedModels.map(
@@ -298,7 +298,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
               <CompareRow
                 label="Parameters"
                 values={selectedModels.map(
-                  (m) => m.parameter_display || '—'
+                  (m) => m.parameter_display || '-'
                 )}
               />
               <CompareRow
@@ -309,7 +309,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
               />
               <CompareRow
                 label="License"
-                values={selectedModels.map((m) => m.license || '—')}
+                values={selectedModels.map((m) => m.license || '-')}
               />
 
               {/* Capabilities section header */}
@@ -332,7 +332,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
                       ? '✓'
                       : val === false
                         ? '✗'
-                        : '—';
+                        : '-';
                   })}
                 />
               ))}
