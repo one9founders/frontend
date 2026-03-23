@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { generateStructuredData } from '@/lib/utils/seo';
 import { getAllTools } from '@/lib/actions/tools';
+import { STATS } from '@/lib/constants/stats';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
 import TrendingTools from "../components/features/tools/TrendingTools";
@@ -14,19 +15,19 @@ import Footer from "../components/layout/Footer";
 export const metadata: Metadata = {
   title: { absolute: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory" },
   description:
-    "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.",
+    `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
   alternates: {
     canonical: 'https://www.one9founders.com',
   },
   openGraph: {
     title: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory",
     description:
-      "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.",
+      `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
   },
   twitter: {
     title: "One9Founders | India's Largest AI Tools, Agents & LLMs Directory",
     description:
-      "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.",
+      `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
   },
 };
 
@@ -41,7 +42,7 @@ export default function Home() {
               '@type': 'WebSite',
               name: 'One9Founders',
               url: 'https://www.one9founders.com',
-              description: "India's largest AI ecosystem navigator. 26,000+ AI tools, 177 LLMs, 1,200+ agents. Built for startup founders.",
+              description: `India's largest AI ecosystem navigator. ${STATS.totalResources} AI tools, ${STATS.llmsCompared} LLMs, ${STATS.aiAgents} agents. Built for startup founders.`,
               potentialAction: {
                 '@type': 'SearchAction',
                 target: 'https://www.one9founders.com/search?q={search_term_string}',

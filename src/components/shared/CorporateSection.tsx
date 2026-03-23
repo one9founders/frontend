@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 const SERVICES = [
   {
     title: 'AI Consulting',
@@ -15,6 +17,7 @@ const SERVICES = [
     title: 'AI Training',
     description: 'Upskill your team with structured AI workshops',
     emoji: '🎓',
+    href: '/learn/organizations',
   },
   {
     title: 'Startup Listing',
@@ -41,6 +44,14 @@ export default function CorporateSection() {
               <span className="text-2xl mb-3 block">{service.emoji}</span>
               <h3 className="text-sm font-semibold text-white mb-1">{service.title}</h3>
               <p className="text-xs text-[var(--gray-400)] leading-relaxed">{service.description}</p>
+              {'href' in service && service.href && (
+                <Link
+                  href={service.href}
+                  className="inline-block mt-3 text-xs text-purple-400 hover:text-purple-300 font-medium"
+                >
+                  Learn More →
+                </Link>
+              )}
             </div>
           ))}
         </div>

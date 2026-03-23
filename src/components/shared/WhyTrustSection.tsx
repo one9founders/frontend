@@ -1,3 +1,5 @@
+import { STATS } from '@/lib/constants/stats';
+
 export default function WhyTrustSection() {
   const trustCards = [
     {
@@ -12,7 +14,7 @@ export default function WhyTrustSection() {
     },
     {
       title: 'Uniform Ratings',
-      description: 'All 26,000+ tools evaluated using identical methodology. Apples-to-apples comparisons you can actually trust. No favorites, no shortcuts.',
+      description: `All ${STATS.totalResources} tools evaluated using identical methodology. Apples-to-apples comparisons you can actually trust. No favorites, no shortcuts.`,
       emoji: '⭐',
     },
     {

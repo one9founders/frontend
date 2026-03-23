@@ -248,7 +248,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="mt-12 bg-[var(--gray-900)] rounded-lg p-6 text-center">
           <h3 className="text-xl font-semibold text-white mb-2">Find the Right AI Tool</h3>
           <p className="text-[var(--gray-400)] mb-4">
-            Browse our directory of 26,000+ security-validated AI tools for startup founders.
+            Browse our directory of 27,000+ security-validated AI tools for startup founders.
           </p>
           <Link
             href="/"
