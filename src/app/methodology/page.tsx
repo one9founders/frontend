@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = generateSEO({
   title: 'How We Rate AI Tools | 10-Point Security Framework | One9Founders',
-  description: 'Our transparent 10-point evaluation framework rates 26,000+ AI tools on security, pricing, features, and more. Zero affiliate bias. See exactly how we score every tool and LLM.',
+  description: 'Our transparent 10-point framework rates 26,000+ AI tools on security, pricing, features, and more. Zero affiliate bias. See how we score every tool.',
   path: '/methodology',
   keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation'],
 });

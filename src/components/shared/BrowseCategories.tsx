@@ -85,7 +85,7 @@ export default function BrowseCategories() {
             <button
               key={cat.title}
               onClick={() => handleClick(cat)}
-              className={`relative text-left p-4 rounded-xl border transition-colors cursor-pointer ${
+              className={`group relative text-left p-4 rounded-xl border transition-colors cursor-pointer ${
                 cat.active
                   ? 'bg-[var(--gray-900)] border-purple-500/40 hover:border-purple-500/60'
                   : 'bg-[var(--gray-900)] border-[var(--gray-800)] hover:border-[var(--gray-700)] opacity-80'
@@ -98,7 +98,12 @@ export default function BrowseCategories() {
               )}
               <span className="text-2xl mb-2 block">{cat.emoji}</span>
               <h3 className="text-sm font-semibold text-white mb-1">{cat.title}</h3>
-              <p className="text-xs text-[var(--gray-400)]">{cat.description}</p>
+              <p className="text-xs text-[var(--gray-400)] mb-2">{cat.description}</p>
+              {cat.cta && (
+                <span className="text-xs font-medium text-purple-400 group-hover:text-purple-300 transition-colors">
+                  {cat.cta} &rarr;
+                </span>
+              )}
             </button>
           ))}
         </div>

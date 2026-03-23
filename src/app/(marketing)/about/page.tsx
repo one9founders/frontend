@@ -8,7 +8,7 @@ import InternCard from '@/components/ui/InternCard';
 
 export const metadata: Metadata = generateSEO({
   title: 'About One9Founders | AI Ecosystem Navigator for Founders',
-  description: 'One9Founders is India\'s largest AI ecosystem navigator. 26,000+ tools, 177 LLMs, 1,200+ agents — rated with our 10-point security framework. IIT Bombay backed. Zero affiliate bias.',
+  description: 'India\'s largest AI ecosystem navigator. 26,000+ tools, 177 LLMs, 1,200+ agents rated with our 10-point security framework. IIT Bombay backed.',
   path: '/about',
   keywords: ['about one9founders', 'Indian startup team', 'AI tool directory India', 'IIT Bombay startup', 'founder resources India', 'AI tools for Indian startups'],
 });

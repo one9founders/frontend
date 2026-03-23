@@ -142,9 +142,13 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="flex items-center gap-4">
-              <kbd className="hidden lg:inline-flex items-center text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded px-1.5 py-0.5 font-mono cursor-pointer hover:border-[var(--gray-500)] transition-colors" onClick={scrollToTools}>
+              <button
+                onClick={scrollToTools}
+                aria-label="Search AI tools (⌘K)"
+                className="hidden lg:inline-flex items-center text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded px-1.5 py-0.5 font-mono cursor-pointer hover:border-[var(--gray-500)] transition-colors"
+              >
                 ⌘K
-              </kbd>
+              </button>
               {user ? (
                 <div className="relative" ref={profileMenuRef}>
                   <button

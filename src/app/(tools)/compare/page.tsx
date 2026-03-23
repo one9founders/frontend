@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ComparePageClient from '@/components/features/tools/ComparePageClient';
@@ -55,7 +56,7 @@ export default async function ComparePage() {
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Compare AI Tools</h1>
           <p className="text-lg sm:text-xl text-[var(--gray-300)] max-w-2xl mx-auto">
             Select up to 4 AI tools to compare features, pricing, and ratings side by side.
-            Looking to compare LLMs? Try our <a href="/llms" className="text-purple-400 hover:text-purple-300 underline">LLM Explorer</a> with 177 models.
+            Looking to compare LLMs? Try our <Link href="/llms" className="text-purple-400 hover:text-purple-300 underline">LLM Explorer</Link> with 177 models.
           </p>
         </div>
 

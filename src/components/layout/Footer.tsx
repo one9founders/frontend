@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { subscribeToNewsletter } from '@/lib/actions/tools';
+import posthog from 'posthog-js';
 import { HugeiconsIcon, NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon, YoutubeIcon, ThreadsIcon } from '@/components/ui/icons';
 
 export default function Footer() {
@@ -20,6 +21,10 @@ export default function Footer() {
     try {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
+        posthog.capture('newsletter_subscribed', {
+          email: email,
+          source: 'footer',
+        });
         setIsSuccess(true);
         setMessage('Thanks for subscribing!');
         setEmail('');
@@ -27,7 +32,8 @@ export default function Footer() {
         setIsSuccess(false);
         setMessage(result.error || 'Something went wrong');
       }
-    } catch {
+    } catch (error) {
+      posthog.captureException(error);
       setIsSuccess(false);
       setMessage('Failed to subscribe');
     } finally {

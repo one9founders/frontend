@@ -9,7 +9,7 @@ import llmData from '../../../public/data/llm-models.json';
 export const metadata: Metadata = generateSEO({
   title: 'Compare 177+ LLMs | Pricing, Benchmarks & Arena Rankings | One9Founders',
   description:
-    'Compare GPT-5, Claude, Gemini, Llama, DeepSeek and 177+ LLMs side by side. Pricing in USD & INR, Arena Elo rankings, context windows, and India-affordable tags. Updated weekly.',
+    'Compare GPT-5, Claude, Gemini, Llama, DeepSeek and 177+ LLMs. Pricing in USD & INR, Arena Elo rankings, context windows, and India-affordable tags.',
   path: '/llms',
   keywords: [
     'LLM comparison',

@@ -14,7 +14,7 @@ export const revalidate = 300;
 
 export const metadata: Metadata = generateSEO({
   title: 'Learn AI | Free Courses & Workshops for Founders | One9Founders',
-  description: 'Free AI guides, hands-on courses, and live workshops. Built for founders, students, and teams. Supported by IIT Bombay. From prompt engineering to building with agents.',
+  description: 'Free AI guides, hands-on courses, and live workshops for founders, students, and teams. From prompt engineering to building with agents. IIT Bombay backed.',
   path: '/learn',
   keywords: ['AI education', 'AI courses India', 'AI guides', 'AI workshops', 'learn AI', 'IIT Bombay', 'startup AI training'],
 });

@@ -14,11 +14,11 @@ interface CategoryPill {
 const CATEGORY_PILLS: CategoryPill[] = [
   { label: "AI Tools", active: true },
   { label: "AI Agents", active: false, href: "/agents" },
-  { label: "LLMs", active: false },
+  { label: "LLMs", active: false, href: "/llms" },
   { label: "Open Source", active: false },
-  { label: "RAG / Vector DBs", active: false },
+  { label: "RAG / Vector DBs", active: false, href: "/rag-vector-dbs" },
   { label: "Startups", active: false },
-  { label: "Research", active: false },
+  { label: "Research", active: false, href: "/research" },
 ];
 
 export default function HeroSection() {
