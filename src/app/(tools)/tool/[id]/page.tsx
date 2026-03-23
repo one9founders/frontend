@@ -179,7 +179,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
         worstRating: 1,
       },
     } : {}),
-    offers: {
+    offers: tool.pricing_models?.includes('Free') || tool.pricing_from != null ? {
       '@type': 'Offer',
       price: tool.pricing_from || 0,
       priceCurrency: 'USD',
@@ -191,7 +191,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
           priceCurrency: 'INR',
         },
       } : {}),
-    },
+    } : undefined,
   });
 
   return (
