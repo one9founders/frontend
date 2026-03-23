@@ -238,7 +238,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 
                 <div className="mb-4 flex items-center gap-2">
                   <span className="text-[var(--gray-400)] text-sm">Rating:</span>
-                  {tool.rating && tool.review_count > 0 ? (
+                  {tool.rating != null && tool.rating > 0 && tool.review_count > 0 ? (
                     <>
                       <div className="flex">{getRatingStars(tool.rating)}</div>
                       <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
