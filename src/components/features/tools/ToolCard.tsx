@@ -110,6 +110,19 @@ export default function ToolCard({ tool }: ToolCardProps) {
               )}
             </div>
 
+            {/* Pricing Badge */}
+            <div className="mt-0.5">
+              <span className={`inline-block text-xs font-medium px-1.5 py-0.5 rounded ${
+                tool.free_tier_available || tool.pricing_type === 'free'
+                  ? 'bg-green-600/20 text-green-400'
+                  : tool.pricing_type === 'freemium'
+                    ? 'bg-blue-600/20 text-blue-400'
+                    : 'bg-purple-600/20 text-purple-400'
+              }`}>
+                {getPricingDisplay()}
+              </span>
+            </div>
+
             {/* Description */}
             <p className="text-sm text-[var(--gray-400)] line-clamp-2 leading-tight">
               {tool.short_description || tool.description}

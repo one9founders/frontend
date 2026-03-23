@@ -324,16 +324,24 @@ export default async function ToolPage({ params }: ToolPageProps) {
               )}
               
               <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4 text-sm md:text-base">
-                {tool.pricing_models?.length > 0 && (
-                  <div>
-                    <span className="text-[var(--gray-400)]">Pricing:</span>
-                    <span className="text-white ml-2">
-                      {tool.pricing_models.join(', ')}
-                      {tool.pricing_from && ` from $${tool.pricing_from}`}
-                    </span>
-                    <INRPriceDisplay tool={tool} className="mt-1" />
-                  </div>
-                )}
+                <div>
+                  <span className="text-[var(--gray-400)]">Pricing:</span>
+                  <span className="text-white ml-2">
+                    {tool.pricing_from != null
+                      ? `From $${tool.pricing_from}/mo`
+                      : tool.pricing_models?.length > 0
+                        ? tool.pricing_models.join(', ')
+                        : tool.free_tier_available
+                          ? 'Free'
+                          : tool.pricing_type
+                            ? tool.pricing_type.charAt(0).toUpperCase() + tool.pricing_type.slice(1)
+                            : 'Pricing not available'}
+                  </span>
+                  {tool.free_tier_available && tool.pricing_from != null && (
+                    <span className="text-green-400 ml-2 text-xs">(Free tier available)</span>
+                  )}
+                  <INRPriceDisplay tool={tool} className="mt-1" />
+                </div>
                 {tool.free_trial_days && (
                   <div>
                     <span className="text-[var(--gray-400)]">Free Trial:</span>
