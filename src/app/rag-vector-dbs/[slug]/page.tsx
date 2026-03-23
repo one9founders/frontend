@@ -16,7 +16,7 @@ interface RagToolDetailPageProps {
 async function getRagTool(slug: string): Promise<(RagTool & { similar_tools?: RagTool[] }) | null> {
   try {
     const response = await fetch(`${API_URL}/api/v1/rag/tools/${slug}/`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
     if (!response.ok) return null;
     return await response.json();
