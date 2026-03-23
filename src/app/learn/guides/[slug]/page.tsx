@@ -103,24 +103,24 @@ export default async function GuideDetailPage({ params }: GuidePageProps) {
     author: {
       '@type': 'Organization',
       name: guide.author || 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://one9founders.com/logo-light.png',
+        url: 'https://www.one9founders.com/logo-light.png',
       },
     },
     datePublished: guide.published_at,
     dateModified: guide.last_updated || guide.updated_at,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://one9founders.com/learn/guides/${guide.slug}`,
+      '@id': `https://www.one9founders.com/learn/guides/${guide.slug}`,
     },
-    image: guide.featured_image || 'https://one9founders.com/logo-light.png',
+    image: guide.featured_image || 'https://www.one9founders.com/logo-light.png',
   });
 
   const faqSchema = generateStructuredData({

@@ -69,7 +69,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
     '@type': 'CollectionPage',
     name: 'AI Courses',
     description: 'Structured, hands-on courses on AI tools and strategies.',
-    url: 'https://one9founders.com/learn/courses',
+    url: 'https://www.one9founders.com/learn/courses',
   });
 
   return (

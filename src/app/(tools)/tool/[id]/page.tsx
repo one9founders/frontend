@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
   ];
 
   return generateSEO({
-    title: `${tool.name} – AI Tool for ${primaryCategory} | Review & Pricing`,
+    title: `${tool.name} | AI Tool for ${primaryCategory} | Review & Pricing`,
     description: tool.short_description || tool.description?.substring(0, 160) || `Discover ${tool.name}, an AI ${primaryCategory.toLowerCase()} tool for startups and founders. Read reviews, compare features, and find pricing.`,
     path: `/tool/${tool.slug}`,
     image: tool.logo_url || tool.landing_page_screenshot || '/logo-light.png',
@@ -126,19 +126,19 @@ export default async function ToolPage({ params }: ToolPageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://one9founders.com',
+        item: 'https://www.one9founders.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: primaryCategoryName,
-        item: `https://one9founders.com/tools/${primaryCategorySlug || 'all'}`,
+        item: `https://www.one9founders.com/tools/${primaryCategorySlug || 'all'}`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: tool.name,
-        item: `https://one9founders.com/tool/${tool.slug}`,
+        item: `https://www.one9founders.com/tool/${tool.slug}`,
       },
     ],
   });
@@ -238,8 +238,14 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 
                 <div className="mb-4 flex items-center gap-2">
                   <span className="text-[var(--gray-400)] text-sm">Rating:</span>
-                  <div className="flex">{getRatingStars(tool.rating)}</div>
-                  <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
+                  {tool.rating != null && tool.rating > 0 && tool.review_count > 0 ? (
+                    <>
+                      <div className="flex">{getRatingStars(tool.rating)}</div>
+                      <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
+                    </>
+                  ) : (
+                    <span className="text-[var(--gray-500)] text-sm">Rating Pending</span>
+                  )}
                 </div>
                 
                 <a
@@ -383,6 +389,12 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 AI tools for {tool.categories?.[0]?.name?.toLowerCase() || 'startups'}
               </a>{' '}
               in our directory.
+            </p>
+            <p className="text-[var(--gray-400)] text-sm mt-3">
+              Want to understand how we evaluate tools?{' '}
+              <a href="/methodology" className="text-purple-400 hover:text-purple-300 underline">
+                Read our 10-point rating methodology
+              </a>.
             </p>
           </div>
         </div>

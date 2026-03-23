@@ -4,7 +4,7 @@
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://one9founders.com';
+  const baseUrl = 'https://www.one9founders.com';
   
   // Static pages
   const staticPages = [

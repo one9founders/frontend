@@ -102,7 +102,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     '@type': 'CollectionPage',
     name: `Best AI ${cat.name} Tools for Startups`,
     description: cat.description,
-    url: `https://one9founders.com/tools/${category}`,
+    url: `https://www.one9founders.com/tools/${category}`,
     mainEntity: {
       '@type': 'ItemList',
       name: `AI ${cat.name} Tools`,
@@ -113,7 +113,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         item: {
           '@type': 'SoftwareApplication',
           name: tool.name,
-          url: `https://one9founders.com/tool/${tool.slug}`,
+          url: `https://www.one9founders.com/tool/${tool.slug}`,
           description: tool.short_description,
           applicationCategory: cat.name,
         },
@@ -124,8 +124,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const breadcrumbSchema = generateStructuredData({
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://one9founders.com' },
-      { '@type': 'ListItem', position: 2, name: `${cat.name} Tools`, item: `https://one9founders.com/tools/${category}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.one9founders.com' },
+      { '@type': 'ListItem', position: 2, name: `${cat.name} Tools`, item: `https://www.one9founders.com/tools/${category}` },
     ],
   });
 

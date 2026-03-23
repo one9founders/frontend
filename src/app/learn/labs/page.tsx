@@ -72,11 +72,11 @@ export default async function LabsPage({ searchParams }: LabsPageProps) {
     '@type': 'CollectionPage',
     name: 'Hands-On AI Labs for Founders',
     description: 'Interactive, project-based labs to build real skills with AI tools.',
-    url: 'https://one9founders.com/learn/labs',
+    url: 'https://www.one9founders.com/learn/labs',
     isPartOf: {
       '@type': 'WebSite',
       name: 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
     },
   });
 

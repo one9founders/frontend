@@ -85,15 +85,6 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  const scrollToCorporate = () => {
-    const corporateSection = document.querySelector('#corporate-section');
-    if (corporateSection) {
-      corporateSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/#corporate-section';
-    }
-    setIsMobileMenuOpen(false);
-  };
 
   const handleLogout = async () => {
     // Capture logout event before resetting
@@ -149,14 +140,15 @@ export default function Navbar() {
               <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
-              <button onClick={scrollToCorporate} className="text-[var(--gray-500)] hover:text-white cursor-pointer">
-                For Corporates
-              </button>
             </div>
             <div className="flex items-center gap-4">
-              {/* <button className="btn-primary px-4 py-2" onClick={handleSubmitTool}>
-                Submit Tool
-              </button> */}
+              <button
+                onClick={scrollToTools}
+                aria-label="Search AI tools (⌘K)"
+                className="hidden lg:inline-flex items-center text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded px-1.5 py-0.5 font-mono cursor-pointer hover:border-[var(--gray-500)] transition-colors"
+              >
+                ⌘K
+              </button>
               {user ? (
                 <div className="relative" ref={profileMenuRef}>
                   <button
@@ -215,6 +207,12 @@ export default function Navbar() {
               <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
                 Explore
               </button>
+              <Link href="/llms" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                LLMs
+              </Link>
+              <Link href="/agents" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                Agents
+              </Link>
               <Link href="/rag-vector-dbs" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 RAG & Vector DBs
               </Link>
@@ -230,9 +228,6 @@ export default function Navbar() {
               <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
-              <button onClick={scrollToCorporate} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
-                For Corporates
-              </button>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                 {/* <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
                   Submit Tool

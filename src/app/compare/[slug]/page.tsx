@@ -94,15 +94,15 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
     '@type': 'WebPage',
     name: `${toolA.name} vs ${toolB.name}`,
     description: `Detailed comparison of ${toolA.name} and ${toolB.name} for startup founders.`,
-    url: `https://one9founders.com/compare/${slug}`,
+    url: `https://www.one9founders.com/compare/${slug}`,
   });
 
   const breadcrumbSchema = generateStructuredData({
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://one9founders.com' },
-      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://one9founders.com/compare' },
-      { '@type': 'ListItem', position: 3, name: `${toolA.name} vs ${toolB.name}`, item: `https://one9founders.com/compare/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.one9founders.com' },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://www.one9founders.com/compare' },
+      { '@type': 'ListItem', position: 3, name: `${toolA.name} vs ${toolB.name}`, item: `https://www.one9founders.com/compare/${slug}` },
     ],
   });
 

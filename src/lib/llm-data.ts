@@ -6,7 +6,7 @@ export async function getLLMData(): Promise<LLMDataset> {
   if (cachedData) return cachedData;
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL || 'https://one9founders.com'}/data/llm-models.json`,
+    `${process.env.NEXT_PUBLIC_SITE_URL || 'https://www.one9founders.com'}/data/llm-models.json`,
     { next: { revalidate: 3600 } }
   );
 

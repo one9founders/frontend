@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ComparePageClient from '@/components/features/tools/ComparePageClient';
@@ -8,8 +9,8 @@ import ComparePageClient from '@/components/features/tools/ComparePageClient';
 export const revalidate = 3600;
 
 export const metadata: Metadata = generateSEO({
-  title: 'Compare AI Tools Side by Side',
-  description: 'Compare up to 4 AI tools side by side. Evaluate features, pricing, ratings, and integrations to find the best AI tool for your startup or business.',
+  title: 'Compare AI Tools Side by Side | One9Founders',
+  description: 'Compare up to 4 AI tools side by side. Features, pricing, security scores, and ratings. Make confident decisions for your startup stack.',
   path: '/compare',
   keywords: ['AI tool comparison', 'compare AI tools', 'AI software comparison', 'startup tools', 'founder tools', 'AI tool features'],
 });
@@ -22,7 +23,7 @@ export default async function ComparePage() {
     '@type': 'WebPage',
     name: 'Compare AI Tools',
     description: 'Compare up to 4 AI tools side by side to find the best solution for your needs.',
-    url: 'https://one9founders.com/compare',
+    url: 'https://www.one9founders.com/compare',
     mainEntity: {
       '@type': 'ItemList',
       name: 'AI Tools for Comparison',
@@ -33,7 +34,7 @@ export default async function ComparePage() {
         item: {
           '@type': 'SoftwareApplication',
           name: tool.name,
-          url: `https://one9founders.com/tool/${tool.slug}`,
+          url: `https://www.one9founders.com/tool/${tool.slug}`,
           description: tool.description,
         },
       })),
@@ -54,7 +55,8 @@ export default async function ComparePage() {
         <div className="text-center mb-10">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Compare AI Tools</h1>
           <p className="text-lg sm:text-xl text-[var(--gray-300)] max-w-2xl mx-auto">
-            Select up to 4 AI tools to compare features, pricing, and ratings side by side
+            Select up to 4 AI tools to compare features, pricing, and ratings side by side.
+            Looking to compare LLMs? Try our <Link href="/llms" className="text-purple-400 hover:text-purple-300 underline">LLM Explorer</Link> with 177 models.
           </p>
         </div>
 

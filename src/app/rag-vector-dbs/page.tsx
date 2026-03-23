@@ -12,15 +12,15 @@ export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'RAG & Vector DB Directory | One9Founders',
-  description: 'Explore and compare vector databases, RAG frameworks, and embedding models. Security-validated with zero affiliate bias. Backed by IIT Bombay.',
+  description: 'Explore and compare vector databases, RAG frameworks, and embedding models. Security-validated with zero affiliate bias. Supported by IIT Bombay.',
   openGraph: {
     title: 'RAG & Vector DB Directory | One9Founders',
     description: 'Explore and compare vector databases, RAG frameworks, and embedding models.',
     type: 'website',
-    url: 'https://one9founders.com/rag-vector-dbs',
+    url: 'https://www.one9founders.com/rag-vector-dbs',
   },
   alternates: {
-    canonical: 'https://one9founders.com/rag-vector-dbs',
+    canonical: 'https://www.one9founders.com/rag-vector-dbs',
   },
 };
 
@@ -51,7 +51,7 @@ export default async function RagVectorDbsPage() {
               '@type': 'CollectionPage',
               name: 'RAG & Vector DB Directory',
               description: 'Explore and compare vector databases, RAG frameworks, and embedding models.',
-              url: 'https://one9founders.com/rag-vector-dbs',
+              url: 'https://www.one9founders.com/rag-vector-dbs',
             })
           ),
         }}

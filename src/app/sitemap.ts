@@ -81,17 +81,20 @@ async function getAllAgentCategories(): Promise<AgentCategoryItem[]> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://one9founders.com';
+  const baseUrl = 'https://www.one9founders.com';
   
   // Static pages with SEO-optimized priorities
   const staticPages = [
     { route: '', priority: 1.0, changeFrequency: 'daily' as const },
-    { route: '/what-is-one9founders', priority: 0.9, changeFrequency: 'monthly' as const },
     { route: '/methodology', priority: 0.8, changeFrequency: 'monthly' as const },
     { route: '/compare', priority: 0.8, changeFrequency: 'weekly' as const },
     { route: '/news', priority: 0.7, changeFrequency: 'daily' as const },
     { route: '/blog', priority: 0.7, changeFrequency: 'weekly' as const },
     { route: '/about', priority: 0.6, changeFrequency: 'monthly' as const },
+    { route: '/llms', priority: 0.8, changeFrequency: 'weekly' as const },
+    { route: '/rag-vector-dbs', priority: 0.7, changeFrequency: 'weekly' as const },
+    { route: '/research', priority: 0.7, changeFrequency: 'weekly' as const },
+    { route: '/deals', priority: 0.6, changeFrequency: 'weekly' as const },
     { route: '/learn', priority: 0.6, changeFrequency: 'weekly' as const },
     { route: '/submit', priority: 0.5, changeFrequency: 'monthly' as const },
     { route: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },

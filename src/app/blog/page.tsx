@@ -46,11 +46,11 @@ export default function BlogPage() {
     '@type': 'Blog',
     name: 'One9Founders Blog',
     description: 'Expert insights on AI tools for startup founders.',
-    url: 'https://one9founders.com/blog',
+    url: 'https://www.one9founders.com/blog',
     publisher: {
       '@type': 'Organization',
       name: 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
     },
   });
 

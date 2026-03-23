@@ -35,7 +35,7 @@ export default async function PathsPage() {
     '@type': 'CollectionPage',
     name: 'AI Learning Paths',
     description: 'Curated learning paths for AI education.',
-    url: 'https://one9founders.com/learn/paths',
+    url: 'https://www.one9founders.com/learn/paths',
   });
 
   return (

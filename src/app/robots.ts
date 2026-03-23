@@ -19,6 +19,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://one9founders.com/sitemap.xml',
+    sitemap: 'https://www.one9founders.com/sitemap.xml',
   };
 }

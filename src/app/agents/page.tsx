@@ -10,16 +10,16 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com
 export const revalidate = 300;
 
 export const metadata: Metadata = {
-  title: 'AI Agents Directory - 1,200+ Agents | One9Founders',
-  description: 'Discover and compare 1,200+ AI agents across 75 categories. Security-validated, zero affiliate bias. Backed by IIT Bombay.',
+  title: { absolute: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders' },
+  description: 'Browse 1,200+ AI agents that go beyond chat. Autonomous tools for coding, sales, support, research, and operations. Filtered by category, use case, and pricing. Updated weekly.',
   openGraph: {
-    title: 'AI Agents Directory | One9Founders',
-    description: 'Discover 1,200+ autonomous AI agents across 75 categories.',
+    title: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders',
+    description: 'Browse 1,200+ AI agents that go beyond chat. Autonomous tools for coding, sales, support, research, and operations.',
     type: 'website',
-    url: 'https://one9founders.com/agents',
+    url: 'https://www.one9founders.com/agents',
   },
   alternates: {
-    canonical: 'https://one9founders.com/agents',
+    canonical: 'https://www.one9founders.com/agents',
   },
 };
 
@@ -49,6 +49,13 @@ export default async function AgentsPage() {
     <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
       <main className="py-8 md:py-12 px-4 md:px-6">
+        <div className="max-w-7xl mx-auto mb-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">AI Agents Directory</h1>
+          <p className="text-lg text-[var(--gray-300)] mb-2">1,200+ autonomous AI agents across 75+ categories</p>
+          <p className="text-sm text-[var(--gray-400)] max-w-2xl mx-auto">
+            AI agents go beyond chat. They take action, run multi-step workflows, and integrate with your existing tools. Browse agents for coding, sales, customer support, research, HR, and more.
+          </p>
+        </div>
         <Suspense fallback={<div className="text-center text-white py-20">Loading agents...</div>}>
           <AgentsDirectoryClient
             initialAgents={agents.results}

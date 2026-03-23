@@ -46,9 +46,9 @@ export default async function PathDetailPage({ params }: PathPageProps) {
     provider: {
       '@type': 'Organization',
       name: 'One9Founders',
-      url: 'https://one9founders.com',
+      url: 'https://www.one9founders.com',
     },
-    url: `https://one9founders.com/learn/paths/${path.slug}`,
+    url: `https://www.one9founders.com/learn/paths/${path.slug}`,
   });
 
   return (

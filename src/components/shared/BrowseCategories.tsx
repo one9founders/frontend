@@ -5,45 +5,51 @@ import { useRouter } from 'next/navigation';
 const CATEGORIES = [
   {
     title: 'AI Tools',
-    description: '27,000+ tools for every use case',
+    description: '26,000+ tools for every use case. From writing and code to marketing and design. Every tool scored with our 10-point framework.',
     emoji: '🛠️',
     active: true,
     href: '#tools-section',
+    cta: 'Explore Tools',
   },
   {
     title: 'AI Agents',
-    description: 'Autonomous AI that takes action',
+    description: '1,200+ autonomous AI agents. Agents that go beyond chat. Browse tools that take action, run workflows, and integrate with your stack.',
     emoji: '🤖',
     active: true,
     href: '/agents',
+    cta: 'Browse Agents',
   },
   {
     title: 'LLMs & Foundation Models',
-    description: '170+ models compared with pricing & benchmarks',
+    description: '177 models compared with pricing & benchmarks. Arena rankings, input/output costs, context windows, and India-affordable tags.',
     emoji: '🧠',
     active: true,
     href: '/llms',
+    cta: 'Open LLM Explorer',
   },
   {
     title: 'Open Source Models',
-    description: '100+ open-weight models to self-host',
+    description: '100+ open-weight models to self-host. Sorted by downloads, parameters, and provider. Full specs for every model.',
     emoji: '🔓',
     active: true,
     href: '/llms?type=open-weights',
+    cta: 'View Open Source',
   },
   {
     title: 'RAG & Vector DBs',
-    description: 'Build smarter retrieval systems',
+    description: 'Build smarter retrieval systems. Compare vector databases and RAG frameworks for your AI stack.',
     emoji: '🗄️',
     active: true,
     href: '/rag-vector-dbs',
+    cta: 'Explore RAG Tools',
   },
   {
     title: 'AI Startups',
-    description: 'Discover companies building with AI',
+    description: 'Discover companies building with AI. Indian and global AI startups, categorized by stage, sector, and funding.',
     emoji: '🚀',
     active: false,
     comingSoon: true,
+    cta: 'Get Notified',
   },
   {
     title: 'Research & Papers',
@@ -51,6 +57,7 @@ const CATEGORIES = [
     emoji: '📄',
     active: true,
     href: '/research',
+    cta: 'Browse Research',
   },
 ];
 
@@ -71,14 +78,14 @@ export default function BrowseCategories() {
   return (
     <section className="py-10 md:py-14 px-4 md:px-6 bg-[var(--gray-black)]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Browse the AI ecosystem</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Explore the full AI ecosystem</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.title}
               onClick={() => handleClick(cat)}
-              className={`relative text-left p-4 rounded-xl border transition-colors cursor-pointer ${
+              className={`group relative text-left p-4 rounded-xl border transition-colors cursor-pointer ${
                 cat.active
                   ? 'bg-[var(--gray-900)] border-purple-500/40 hover:border-purple-500/60'
                   : 'bg-[var(--gray-900)] border-[var(--gray-800)] hover:border-[var(--gray-700)] opacity-80'
@@ -91,7 +98,12 @@ export default function BrowseCategories() {
               )}
               <span className="text-2xl mb-2 block">{cat.emoji}</span>
               <h3 className="text-sm font-semibold text-white mb-1">{cat.title}</h3>
-              <p className="text-xs text-[var(--gray-400)]">{cat.description}</p>
+              <p className="text-xs text-[var(--gray-400)] mb-2">{cat.description}</p>
+              {cat.cta && (
+                <span className="text-xs font-medium text-purple-400 group-hover:text-purple-300 transition-colors">
+                  {cat.cta} &rarr;
+                </span>
+              )}
             </button>
           ))}
         </div>
