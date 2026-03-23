@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon, Search01Icon } from '@/components/ui/icons';
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
+import { useCurrency } from '@/lib/currency';
 import posthog from 'posthog-js';
 
 export default function Navbar() {
@@ -15,6 +16,7 @@ export default function Navbar() {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const pathname = usePathname();
   const profileMenuRef = useRef<HTMLDivElement>(null);
+  const { currency, toggleCurrency } = useCurrency();
 
   useEffect(() => {
     getCurrentUser().then(setUser);
@@ -143,6 +145,19 @@ export default function Navbar() {
             </div>
             <div className="flex items-center gap-4">
               <button
+                onClick={toggleCurrency}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
+                  currency === 'INR'
+                    ? 'bg-orange-600/20 text-orange-400 border border-orange-600/30'
+                    : 'bg-[var(--gray-800)] text-[var(--gray-400)] border border-[var(--gray-700)]'
+                } hover:opacity-80`}
+                aria-label={`Switch to ${currency === 'USD' ? 'INR' : 'USD'} pricing`}
+              >
+                <span className={currency === 'USD' ? 'font-bold' : 'opacity-60'}>$</span>
+                <span className="text-[var(--gray-600)]">/</span>
+                <span className={currency === 'INR' ? 'font-bold' : 'opacity-60'}>₹</span>
+              </button>
+              <button
                 onClick={scrollToTools}
                 aria-label="Search AI tools (⌘K)"
                 className="hidden lg:inline-flex items-center text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded px-1.5 py-0.5 font-mono cursor-pointer hover:border-[var(--gray-500)] transition-colors"
@@ -229,9 +244,19 @@ export default function Navbar() {
                 About
               </Link>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
-                {/* <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
-                  Submit Tool
-                </button> */}
+                <button
+                  onClick={toggleCurrency}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer self-start ${
+                    currency === 'INR'
+                      ? 'bg-orange-600/20 text-orange-400 border border-orange-600/30'
+                      : 'bg-[var(--gray-800)] text-[var(--gray-400)] border border-[var(--gray-700)]'
+                  } hover:opacity-80`}
+                  aria-label={`Switch to ${currency === 'USD' ? 'INR' : 'USD'} pricing`}
+                >
+                  <span className={currency === 'USD' ? 'font-bold' : 'opacity-60'}>$</span>
+                  <span className="text-[var(--gray-600)]">/</span>
+                  <span className={currency === 'INR' ? 'font-bold' : 'opacity-60'}>₹</span>
+                </button>
                 {user ? (
                   <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                     <div className="flex items-center gap-3">

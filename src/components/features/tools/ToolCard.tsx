@@ -7,6 +7,7 @@ import { HugeiconsIcon, StarIcon, ArrowUpRight01Icon, ViewIcon } from '@/compone
 import posthog from 'posthog-js';
 import { addRefToUrl } from '@/lib/utils/url';
 import ToolLogo from '@/components/shared/ToolLogo';
+import { useCurrency } from '@/lib/currency';
 
 interface ToolCardProps {
   tool: Tool;
@@ -14,11 +15,17 @@ interface ToolCardProps {
 
 export default function ToolCard({ tool }: ToolCardProps) {
   const [showVideo, setShowVideo] = useState(false);
+  const { currency, formatPrice } = useCurrency();
 
   const getPricingDisplay = () => {
     if (tool.free_tier_available) return 'Free';
     if (tool.free_trial_days) return `${tool.free_trial_days} days trial`;
-    if (tool.pricing_from) return `From $${tool.pricing_from}`;
+    if (tool.pricing_from) {
+      if (currency === 'INR') {
+        return `From ${formatPrice(tool.pricing_from, tool.pricing_inr)}`;
+      }
+      return `From $${tool.pricing_from}`;
+    }
     if (tool.pricing_models?.includes('free')) return 'Free';
     if (tool.pricing_models?.includes('freemium')) return 'Freemium';
     return 'Paid';
