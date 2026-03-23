@@ -5,6 +5,9 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import ToolLogo from '@/components/shared/ToolLogo';
 import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
+import ToolTLDR from '@/components/features/tools/ToolTLDR';
+import ToolQASection, { generateQAPairs } from '@/components/features/tools/ToolQASection';
+import INRPriceDisplay from '@/components/shared/INRPriceDisplay';
 import { addRefToUrl } from '@/lib/utils/url';
 import { Tool, Review } from '@/types';
 
@@ -143,6 +146,54 @@ export default async function ToolPage({ params }: ToolPageProps) {
     ],
   });
 
+  // FAQPage schema from Q&A pairs
+  const qaPairs = generateQAPairs(tool);
+  const faqSchema = generateStructuredData({
+    '@type': 'FAQPage',
+    mainEntity: qaPairs.map((qa) => ({
+      '@type': 'Question',
+      name: qa.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: qa.answer,
+      },
+    })),
+  });
+
+  // Product schema for pricing
+  const productSchema = generateStructuredData({
+    '@type': 'Product',
+    name: tool.name,
+    description: tool.short_description || tool.description?.substring(0, 200),
+    image: tool.logo_url || tool.landing_page_screenshot,
+    brand: {
+      '@type': 'Organization',
+      name: 'One9Founders',
+    },
+    ...(tool.review_count > 0 ? {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: tool.rating,
+        reviewCount: tool.review_count,
+        bestRating: 5,
+        worstRating: 1,
+      },
+    } : {}),
+    offers: {
+      '@type': 'Offer',
+      price: tool.pricing_from || 0,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      ...(tool.pricing_inr != null ? {
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: tool.pricing_inr,
+          priceCurrency: 'INR',
+        },
+      } : {}),
+    },
+  });
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
@@ -155,6 +206,18 @@ export default async function ToolPage({ params }: ToolPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
         }}
       />
       <Navbar />
@@ -299,6 +362,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                       {tool.pricing_models.join(', ')}
                       {tool.pricing_from && ` from $${tool.pricing_from}`}
                     </span>
+                    <INRPriceDisplay tool={tool} className="mt-1" />
                   </div>
                 )}
                 {tool.free_trial_days && (
@@ -310,6 +374,8 @@ export default async function ToolPage({ params }: ToolPageProps) {
               </div>
             </div>
           </div>
+          
+          <ToolTLDR tool={tool} />
           
           <div className="mt-8">
             <h2 className="text-lg md:text-xl font-semibold text-white mb-2">What is {tool.name}?</h2>
@@ -379,6 +445,13 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 </p>
               </div>
             )}
+          </div>
+
+          <ToolQASection tool={tool} />
+
+          {/* Last Updated */}
+          <div className="mt-6 text-[var(--gray-500)] text-xs">
+            Last updated: {new Date(tool.updated_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
           </div>
 
           <div className="mt-8">

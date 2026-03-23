@@ -18,6 +18,32 @@ export default function robots(): MetadataRoute.Robots {
           '/*?search=',
         ],
       },
+      // Explicitly allow AI crawlers for LLM citation optimization
+      {
+        userAgent: 'GPTBot',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+      },
+      {
+        userAgent: 'ClaudeBot',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+      },
+      {
+        userAgent: 'PerplexityBot',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+      },
+      {
+        userAgent: 'Bingbot',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+      },
     ],
     sitemap: 'https://www.one9founders.com/sitemap.xml',
   };
