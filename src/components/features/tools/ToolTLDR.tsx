@@ -4,6 +4,17 @@ interface ToolTLDRProps {
   tool: Tool;
 }
 
+/** Extract human-readable feature names from raw "Name:: Description" strings. */
+function parseFeatureNames(features: string[]): string[] {
+  return features.map(f => {
+    const sepIdx = f.indexOf('::');
+    // Take the name part before "::", or the whole string if no separator
+    const name = sepIdx > 0 ? f.substring(0, sepIdx).trim() : f.trim();
+    // Strip trailing periods/colons and lowercase it
+    return name.replace(/[.:]+$/, '').toLowerCase();
+  });
+}
+
 export default function ToolTLDR({ tool }: ToolTLDRProps) {
   const category = tool.categories?.[0]?.name || 'AI';
   const pricingLabel = tool.pricing_models?.includes('Free')
@@ -11,17 +22,39 @@ export default function ToolTLDR({ tool }: ToolTLDRProps) {
     : tool.pricing_models?.includes('Freemium')
       ? 'freemium'
       : 'paid';
-  const securityText = tool.security_score != null
-    ? `security score of ${tool.security_score}/100`
-    : 'security assessment pending';
 
-  const priceText = tool.pricing_inr != null
-    ? `Starting from ₹${tool.pricing_inr.toLocaleString('en-IN')}/mo`
+  // Build price snippet
+  const priceSnippet = tool.pricing_inr != null
+    ? `from ₹${tool.pricing_inr.toLocaleString('en-IN')}/mo`
     : tool.pricing_from != null
-      ? `Starting from $${tool.pricing_from}/mo`
+      ? `from $${tool.pricing_from}/mo`
       : '';
 
-  const summary = `${tool.name} is a ${pricingLabel} ${category.toLowerCase()} tool${tool.startup_friendly ? ' built for startups' : ''}. ${priceText ? priceText + '. ' : ''}It offers ${tool.features?.slice(0, 2).join(' and ') || 'powerful features'} with a ${securityText}. Published by One9Founders.`;
+  // Build feature snippet from cleaned feature names
+  const featureNames = parseFeatureNames(tool.features ?? []);
+  const featureSnippet = featureNames.length >= 2
+    ? `Key strengths include ${featureNames.slice(0, 3).join(', ')}.`
+    : featureNames.length === 1
+      ? `Known for ${featureNames[0]}.`
+      : '';
+
+  // Security snippet
+  const securitySnippet = tool.security_score != null
+    ? `Scores ${tool.security_score}/100 on our security framework.`
+    : '';
+
+  // Use the tool's own description as the base when available
+  const descSnippet = tool.short_description || tool.description?.substring(0, 160) || '';
+
+  // Compose summary: lead with what the tool does, then pricing + features
+  const parts = [
+    descSnippet ? `${descSnippet}${descSnippet.endsWith('.') ? '' : '.'}` : `${tool.name} is a ${pricingLabel} ${category.toLowerCase()} tool.`,
+    priceSnippet ? `Pricing starts ${priceSnippet}${tool.free_tier_available ? ' with a free tier available' : ''}.` : '',
+    featureSnippet,
+    securitySnippet,
+  ].filter(Boolean);
+
+  const summary = parts.join(' ');
 
   return (
     <div className="mt-8 bg-[var(--gray-800)] border-l-4 border-purple-500 rounded-r-lg p-5">

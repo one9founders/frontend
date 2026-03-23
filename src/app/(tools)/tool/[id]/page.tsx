@@ -366,9 +366,15 @@ export default async function ToolPage({ params }: ToolPageProps) {
             <div className="mt-8">
               <h2 className="text-xl font-semibold text-white mb-4">Key Features</h2>
               <ul className="list-disc list-inside text-[var(--gray-300)] space-y-2">
-                {tool.features.map((feature: string, index: number) => (
-                  <li key={index}>{feature}</li>
-                ))}
+                {tool.features.map((feature: string, index: number) => {
+                  const sepIdx = feature.indexOf('::');
+                  if (sepIdx > 0) {
+                    const name = feature.substring(0, sepIdx).trim();
+                    const desc = feature.substring(sepIdx + 2).trim();
+                    return <li key={index}><strong className="text-white">{name}</strong> — {desc}</li>;
+                  }
+                  return <li key={index}>{feature}</li>;
+                })}
               </ul>
             </div>
           )}
