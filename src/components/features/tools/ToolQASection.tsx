@@ -9,6 +9,20 @@ interface QAPair {
   answer: string;
 }
 
+/** Extract human-readable feature descriptions from raw "Name:: Description" strings. */
+function parseFeatures(features: string[]): { name: string; desc: string }[] {
+  return features.map(f => {
+    const sepIdx = f.indexOf('::');
+    if (sepIdx > 0) {
+      return {
+        name: f.substring(0, sepIdx).trim(),
+        desc: f.substring(sepIdx + 2).trim().replace(/\.$/, ''),
+      };
+    }
+    return { name: f.trim(), desc: '' };
+  });
+}
+
 function generateQAPairs(tool: Tool): QAPair[] {
   const category = tool.categories?.[0]?.name || 'AI';
   const pricingLabel = tool.pricing_models?.includes('Free')
@@ -16,36 +30,55 @@ function generateQAPairs(tool: Tool): QAPair[] {
     : tool.pricing_models?.includes('Freemium')
       ? 'freemium with a free tier'
       : 'a paid tool';
-  const securityText = tool.security_score != null
-    ? `scored ${tool.security_score}/100 on our security framework`
-    : 'currently undergoing our security assessment';
   const alternatives = tool.alternatives?.slice(0, 3).map(a => a.name).join(', ');
+  const parsed = parseFeatures(tool.features ?? []);
 
-  const priceIndia = tool.pricing_inr != null
+  // Pricing Q&A — specific numbers, not filler
+  const priceIndia = tool.pricing_inr != null && tool.pricing_inr > 0
     ? `starts at ₹${tool.pricing_inr.toLocaleString('en-IN')}/month${tool.gst_applicable ? ' (plus 18% GST)' : ''}`
-    : tool.pricing_from != null
+    : tool.pricing_from != null && tool.pricing_from > 0
       ? `starts at $${tool.pricing_from}/month (approximately ₹${Math.round(tool.pricing_from * 83.5).toLocaleString('en-IN')}/month)`
       : `is ${pricingLabel}`;
 
+  const pricingAnswer = [
+    `${tool.name} ${priceIndia}.`,
+    tool.pricing_has_india_plan ? `India-specific pricing plans are available.` : '',
+    tool.free_tier_available ? `A free tier is available to get started.` : '',
+  ].filter(Boolean).join(' ');
+
+  // Security Q&A — concrete details
+  const securityAnswer = tool.security_score != null
+    ? `${tool.name} scored ${tool.security_score}/100 on our 10-point security framework${tool.security_assessed_at ? ` (last assessed ${new Date(tool.security_assessed_at).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })})` : ''}. ${tool.startup_friendly ? 'It is rated startup-friendly with favorable terms for early-stage companies.' : 'Review the full security report on One9Founders before adopting it for sensitive data.'}`
+    : `${tool.name} has not yet been assessed on our security framework. We recommend checking its own security documentation and certifications (SOC 2, GDPR compliance, etc.) before using it for sensitive startup data.`;
+
+  // What-does-it-do Q&A — use actual description + parsed features
+  const descBase = tool.short_description || tool.description?.substring(0, 200) || `${tool.name} is a ${category.toLowerCase()} tool`;
+  const featureBullets = parsed.slice(0, 3).map(f => f.desc ? `${f.name} — ${f.desc}` : f.name);
+  const whatAnswer = [
+    `${descBase}${descBase.endsWith('.') ? '' : '.'}`,
+    featureBullets.length > 0 ? `Key capabilities: ${featureBullets.join('; ')}.` : '',
+    tool.use_cases?.length ? `Commonly used for ${tool.use_cases.slice(0, 3).join(', ')}.` : '',
+  ].filter(Boolean).join(' ');
+
   const pairs: QAPair[] = [
     {
+      question: `What is ${tool.name} and what does it do?`,
+      answer: whatAnswer,
+    },
+    {
       question: `What does ${tool.name} cost in India?`,
-      answer: `${tool.name} ${priceIndia}. ${tool.pricing_has_india_plan ? `${tool.name} offers India-specific pricing plans optimized for Indian startups.` : `Pricing is in USD and converted to INR at current exchange rates.`}${tool.free_tier_available ? ` A free tier is available to get started.` : ''}`,
+      answer: pricingAnswer,
     },
     {
       question: `Is ${tool.name} safe for startups?`,
-      answer: `${tool.name} has ${securityText}. ${tool.startup_friendly ? `It is rated as startup-friendly by One9Founders, meaning it offers favorable terms for early-stage companies.` : `We recommend reviewing its security documentation before adopting it for sensitive data.`}`,
-    },
-    {
-      question: `Is ${tool.name} suitable for Indian startups?`,
-      answer: `${tool.name} is a ${category.toLowerCase()} tool ${tool.startup_friendly ? 'well-suited' : 'available'} for Indian startups. ${tool.pricing_has_india_plan ? 'It offers India-specific pricing.' : 'Pricing is available in INR through One9Founders.'} ${tool.use_cases?.length ? `Common use cases include ${tool.use_cases.slice(0, 2).join(' and ')}.` : ''}`,
+      answer: securityAnswer,
     },
   ];
 
   if (alternatives) {
     pairs.push({
       question: `What are the best alternatives to ${tool.name}?`,
-      answer: `Top alternatives to ${tool.name} include ${alternatives}. Each offers similar ${category.toLowerCase()} capabilities with different pricing and feature sets. Compare them on One9Founders to find the best fit for your startup.`,
+      answer: `Top alternatives include ${alternatives}. Compare features, pricing, and security scores side-by-side on One9Founders to find the best fit.`,
     });
   }
 
@@ -53,7 +86,7 @@ function generateQAPairs(tool: Tool): QAPair[] {
   if (topAlternative) {
     pairs.push({
       question: `How does ${tool.name} compare to ${topAlternative.name}?`,
-      answer: `${tool.name} and ${topAlternative.name} are both ${category.toLowerCase()} tools. ${tool.name} ${tool.rating > (topAlternative.rating || 0) ? 'has a higher rating' : 'is competitively rated'} on One9Founders. Compare features, pricing, and security scores side-by-side on our comparison page.`,
+      answer: `Both are ${category.toLowerCase()} tools. ${tool.name} ${tool.rating > (topAlternative.rating || 0) ? `is rated higher (${tool.rating}/5)` : 'is competitively rated'} on One9Founders. See our head-to-head comparison for a detailed breakdown of features, pricing, and security.`,
     });
   }
 

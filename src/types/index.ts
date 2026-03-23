@@ -23,6 +23,7 @@ export interface Tool {
   pricing_models: string[];
   pricing_tiers?: any[];
   pricing_from?: number;
+  pricing_type?: string;
   free_tier_available: boolean;
   free_trial_days?: number;
   tags: string[];
