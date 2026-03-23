@@ -109,6 +109,10 @@ export default function ResearchFeedClient({ initialPapers, initialCount, trendi
           if (dateRange) urlParams.date = dateRange;
           if (search) urlParams.search = search;
           updateUrl(urlParams);
+        } else {
+          setPapers([]);
+          setTotalCount(0);
+          setHasMore(false);
         }
       } catch {
         if (gen !== fetchGeneration.current) return;
