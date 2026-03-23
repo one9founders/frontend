@@ -106,7 +106,7 @@ export default function HeroSection() {
 
         {/* Subheadline */}
         <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          26,000+ AI tools, 177 LLMs, 1,200+ agents, 110+ RAG & vector databases, and the latest AI research papers — all rated with our 10-point security framework. Supported by IIT Bombay.
+          26,000+ AI tools, 177 LLMs, 1,200+ agents, 110+ RAG & vector databases, and the latest AI research papers - all rated with our 10-point security framework. Supported by IIT Bombay.
         </p>
 
         {/* Search Bar */}

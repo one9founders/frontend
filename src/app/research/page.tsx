@@ -11,7 +11,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'AI Research Papers — Updated Daily | One9Founders',
+  title: 'AI Research Papers - Updated Daily | One9Founders',
   description: 'Stay current with the latest AI research. Daily-ingested papers from arXiv and HuggingFace with AI-generated summaries and difficulty ratings.',
   openGraph: {
     title: 'AI Research Papers | One9Founders',

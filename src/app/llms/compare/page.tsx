@@ -8,7 +8,7 @@ import { LLMDataset } from '@/types/llm';
 import llmData from '../../../../public/data/llm-models.json';
 
 export const metadata: Metadata = generateSEO({
-  title: 'Compare LLMs Side by Side — GPT vs Claude vs Gemini vs Llama',
+  title: 'Compare LLMs Side by Side - GPT vs Claude vs Gemini vs Llama',
   description:
     'Compare up to 4 LLMs side by side. Pricing, benchmarks, capabilities, security, and Arena rankings compared for startup founders.',
   path: '/llms/compare',

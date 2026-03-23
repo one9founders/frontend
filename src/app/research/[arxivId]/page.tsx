@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: PaperDetailPageProps): Promis
     : paper.abstract?.substring(0, 155) || `AI research paper: ${paper.title}`;
 
   return {
-    title: `${paper.title} — AI Research | One9Founders`,
+    title: `${paper.title} - AI Research | One9Founders`,
     description,
     openGraph: {
       title: `${paper.title} | One9Founders Research`,

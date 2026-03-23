@@ -99,7 +99,7 @@ export const CAPABILITY_LABELS: Record<string, string> = {
 };
 
 export function formatContext(ctx: number | null): string {
-  if (!ctx) return '—';
+  if (!ctx) return '-';
   if (ctx >= 1000000) return `${ctx / 1000000}M`;
   return `${ctx / 1000}K`;
 }
@@ -109,7 +109,7 @@ export function formatPrice(
   currency: 'usd' | 'inr' = 'usd',
   inrRate: number = 84.5
 ): string {
-  if (price === null || price === undefined) return '—';
+  if (price === null || price === undefined) return '-';
   if (currency === 'inr') {
     const inr = price * inrRate;
     if (inr < 1) return `₹${inr.toFixed(2)}`;
@@ -120,7 +120,7 @@ export function formatPrice(
 }
 
 export function formatDownloads(downloads: number | null): string {
-  if (!downloads) return '—';
+  if (!downloads) return '-';
   if (downloads >= 1000000) return `${(downloads / 1000000).toFixed(1)}M`;
   if (downloads >= 1000) return `${(downloads / 1000).toFixed(0)}K`;
   return `${downloads}`;

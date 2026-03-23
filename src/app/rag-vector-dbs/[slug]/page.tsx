@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: RagToolDetailPageProps): Prom
     : `Discover ${tool.name} - a ${tool.category.replace('_', ' ')} solution for AI workflows.`;
 
   return {
-    title: `${tool.name} — RAG & Vector DB | One9Founders`,
+    title: `${tool.name} - RAG & Vector DB | One9Founders`,
     description,
     openGraph: {
       title: `${tool.name} | One9Founders RAG Directory`,

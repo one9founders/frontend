@@ -29,7 +29,7 @@ export async function generateMetadata({
   }
 
   return generateSEO({
-    title: `${model.name} by ${model.provider} — Pricing, Benchmarks & Review`,
+    title: `${model.name} by ${model.provider} - Pricing, Benchmarks & Review`,
     description:
       model.one9_summary ||
       `${model.name} from ${model.provider}. ${model.model_type === 'open-weights' ? 'Open weights model.' : `Input: $${model.input_price_per_mtok}/M tokens.`} ${model.context_window ? `${model.context_window / 1000}K context.` : ''} Compare with other LLMs on One9Founders.`,
