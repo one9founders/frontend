@@ -8,7 +8,7 @@ import { RagToolListResponse } from '@/types/rag';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
-export const revalidate = 60;
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'RAG & Vector DB Directory | One9Founders',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 async function fetchTools() {
   try {
     const res = await fetch(`${API_URL}/api/v1/rag/tools/?status=active&page_size=200`, {
-      next: { revalidate: 60 },
+      next: { revalidate: 300 },
     });
     if (!res.ok) return { count: 0, next: null, previous: null, results: [] };
     const data: RagToolListResponse = await res.json();
