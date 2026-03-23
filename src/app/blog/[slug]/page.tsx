@@ -31,7 +31,7 @@ const BLOG_POSTS: Record<string, {
 <p>Time-to-value matters for startups. Evaluate API quality, documentation, SDK availability, and how quickly your team can get productive with the tool.</p>
 
 <h3>4. Feature Completeness (10 points)</h3>
-<p>Does the tool solve your core use case without requiring workarounds? Avoid tools that are 80% of what you need  - those last 20% will cost you in custom development.</p>
+<p>Does the tool solve your core use case without requiring workarounds? Avoid tools that are 80% of what you need - those last 20% will cost you in custom development.</p>
 
 <h3>5. Reliability & Uptime (10 points)</h3>
 <p>Check the tool's status page history, SLA commitments, and community reports. Downtime during your product launch is not an option.</p>
@@ -70,7 +70,7 @@ const BLOG_POSTS: Record<string, {
 <p>Where does the AI tool store your data? Is it encrypted at rest and in transit? Does the provider train their models on your data? These are non-negotiable questions for any AI tool evaluation.</p>
 
 <h3>Compliance Certifications</h3>
-<p>Look for SOC 2 Type II, GDPR compliance, and industry-specific certifications. These aren't just checkboxes  - they represent rigorous third-party audits of security practices.</p>
+<p>Look for SOC 2 Type II, GDPR compliance, and industry-specific certifications. These aren't just checkboxes - they represent rigorous third-party audits of security practices.</p>
 
 <h3>Access Controls</h3>
 <p>Does the tool support SSO, role-based access control, and audit logging? As your team grows, you need granular control over who can access what.</p>
@@ -83,7 +83,7 @@ const BLOG_POSTS: Record<string, {
 
 <h2>Our Security Assessment Framework</h2>
 <p>At One9Founders, every tool in our directory receives a security score from 0-100 based on our proprietary assessment framework. We evaluate data handling, encryption, compliance, access controls, and more.</p>
-<p>Tools that haven't been assessed yet show "Security: Pending"  - we're working through our database of 27,000+ tools to provide comprehensive security ratings.</p>`,
+<p>Tools that haven't been assessed yet show "Security: Pending" - we're working through our database of 27,000+ tools to provide comprehensive security ratings.</p>`,
     author: 'Arnav Gautam',
     publishedAt: '2026-02-28',
     readingTime: '6 min read',

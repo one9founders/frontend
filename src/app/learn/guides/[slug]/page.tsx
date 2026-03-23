@@ -55,12 +55,12 @@ function getGuideFAQs(guide: GuideDetail): FAQItem[] {
     {
       question: 'What is ChatGPT and how can it help my business in India?',
       answer:
-        'ChatGPT is an AI-powered conversational assistant by OpenAI. Indian entrepreneurs use it for marketing copy, customer support scripts, market research, product brainstorming, and more  - saving hours of work every week.',
+        'ChatGPT is an AI-powered conversational assistant by OpenAI. Indian entrepreneurs use it for marketing copy, customer support scripts, market research, product brainstorming, and more - saving hours of work every week.',
     },
     {
       question: 'Is ChatGPT free to use for business?',
       answer:
-        'Yes. ChatGPT offers a free tier with access to GPT-4o mini. The Plus plan at $20/month unlocks faster responses, GPT-4o, image generation with DALL-E, and file analysis  - ideal for regular business use.',
+        'Yes. ChatGPT offers a free tier with access to GPT-4o mini. The Plus plan at $20/month unlocks faster responses, GPT-4o, image generation with DALL-E, and file analysis - ideal for regular business use.',
     },
     {
       question: 'Can non-technical founders use ChatGPT effectively?',
