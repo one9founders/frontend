@@ -12,7 +12,7 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: 'RAG & Vector DB Directory | One9Founders',
-  description: 'Explore and compare vector databases, RAG frameworks, and embedding models. Security-validated with zero affiliate bias. Backed by IIT Bombay.',
+  description: 'Explore and compare vector databases, RAG frameworks, and embedding models. Security-validated with zero affiliate bias. Supported by IIT Bombay.',
   openGraph: {
     title: 'RAG & Vector DB Directory | One9Founders',
     description: 'Explore and compare vector databases, RAG frameworks, and embedding models.',

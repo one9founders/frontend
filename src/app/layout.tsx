@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
     template: '%s | One9Founders',
   },
-  description: "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. IIT Bombay backed.",
+  description: "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.",
   keywords: ['AI tools directory', 'AI tools for startups', 'security validated AI tools', 'unbiased AI tool reviews', 'compare AI tools India', 'startup tools', 'founder resources'],
   authors: [{ name: 'One9Founders' }],
   creator: 'One9Founders',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: 'https://www.one9founders.com',
     siteName: 'One9Founders',
     title: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
-    description: "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. IIT Bombay backed.",
+    description: "Discover 26,000+ AI tools, 1,200+ agents, and 177 LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.",
     images: [{
       url: '/og-image.png',
       width: 1200,

@@ -96,7 +96,7 @@ export default function HeroSection() {
       <div className="max-w-3xl mx-auto text-center">
         {/* Eyebrow */}
         <p className="text-xs md:text-sm uppercase tracking-widest text-purple-400 font-semibold mb-4">
-          India&apos;s #1 AI Ecosystem Navigator &middot; Backed by IIT Bombay
+          India&apos;s #1 AI Ecosystem Navigator &middot; Supported by IIT Bombay
         </p>
 
         {/* Headline */}
@@ -106,7 +106,7 @@ export default function HeroSection() {
 
         {/* Subheadline */}
         <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          26,000+ AI tools evaluated with our 10-point security framework. 177 LLMs compared with pricing and benchmarks. 1,200+ AI agents cataloged. The only directory startup founders need.
+          26,000+ AI tools, 177 LLMs, 1,200+ agents, 110+ RAG & vector databases, and the latest AI research papers — all rated with our 10-point security framework. Supported by IIT Bombay.
         </p>
 
         {/* Search Bar */}

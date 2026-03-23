@@ -16,7 +16,7 @@ export default function WhyTrustSection() {
       emoji: '⭐',
     },
     {
-      title: 'IIT Bombay Backed',
+      title: 'Supported by IIT Bombay',
       description: 'Supported by IIT Bombay with academic mentorship from the Desai Sethi School of Entrepreneurship. Research-grade rigor applied to every evaluation.',
       emoji: '🏛️',
     },
