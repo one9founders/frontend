@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { RagTool } from '@/types/rag';
 import RagToolCard from './RagToolCard';
@@ -41,6 +41,7 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
   const [sort, setSort] = useState(searchParams.get('sort') || 'rating');
   const [search, setSearch] = useState(searchParams.get('search') || '');
   const [searchInput, setSearchInput] = useState(searchParams.get('search') || '');
+  const isFirstRender = useRef(true);
 
   // Debounce search
   useEffect(() => {
@@ -50,13 +51,17 @@ export default function RagDirectoryClient({ initialTools, initialCount }: RagDi
 
   // Update URL when filters change
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     const query = new URLSearchParams();
     if (category) query.set('category', category);
     if (pricing) query.set('pricing', pricing);
     if (sort && sort !== 'rating') query.set('sort', sort);
     if (search) query.set('search', search);
     const queryString = query.toString();
-    router.push(`/rag-vector-dbs${queryString ? `?${queryString}` : ''}`, { scroll: false });
+    router.replace(`/rag-vector-dbs${queryString ? `?${queryString}` : ''}`, { scroll: false });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category, pricing, sort, search]);
 
