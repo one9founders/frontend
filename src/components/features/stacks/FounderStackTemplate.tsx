@@ -1,6 +1,7 @@
 import { generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import StackCostCalculator from './StackCostCalculator';
 
 export interface StackTool {
   name: string;
@@ -32,22 +33,7 @@ export interface StackPageData {
   lastUpdated: string;
 }
 
-function calculateTotalINR(categories: StackCategory[]): number {
-  return categories.reduce((total, cat) => {
-    const pick = cat.tools.find(t => t.isPick);
-    return total + (pick?.priceINR || 0);
-  }, 0);
-}
-
-function calculateTotalWithGST(total: number): number {
-  return Math.round(total * 1.18);
-}
-
 export default function FounderStackTemplate({ data }: { data: StackPageData }) {
-  const totalINR = calculateTotalINR(data.categories);
-  const totalWithGST = calculateTotalWithGST(totalINR);
-  const toolCount = data.categories.reduce((sum, cat) => sum + cat.tools.length, 0);
-
   const faqSchema = generateStructuredData({
     '@type': 'FAQPage',
     mainEntity: data.faqs.map((faq) => ({
@@ -109,21 +95,6 @@ export default function FounderStackTemplate({ data }: { data: StackPageData }) 
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{data.title}</h1>
           <p className="text-[var(--gray-300)] text-lg mb-6 leading-relaxed">{data.heroDescription}</p>
-          <div className="flex flex-wrap gap-4">
-            <div className="bg-[var(--gray-900)] rounded-lg px-5 py-3 border border-[var(--gray-700)]">
-              <div className="text-[var(--gray-500)] text-xs">Total Monthly Cost</div>
-              <div className="text-2xl font-bold text-white">&#8377;{totalINR.toLocaleString('en-IN')}<span className="text-sm text-[var(--gray-400)] font-normal">/mo</span></div>
-              <div className="text-[var(--gray-500)] text-xs">&#8377;{totalWithGST.toLocaleString('en-IN')} incl. GST</div>
-            </div>
-            <div className="bg-[var(--gray-900)] rounded-lg px-5 py-3 border border-[var(--gray-700)]">
-              <div className="text-[var(--gray-500)] text-xs">Tools in Stack</div>
-              <div className="text-2xl font-bold text-white">{toolCount}</div>
-            </div>
-            <div className="bg-[var(--gray-900)] rounded-lg px-5 py-3 border border-[var(--gray-700)]">
-              <div className="text-[var(--gray-500)] text-xs">Categories</div>
-              <div className="text-2xl font-bold text-white">{data.categories.length}</div>
-            </div>
-          </div>
         </div>
 
         {/* TL;DR */}
@@ -132,60 +103,8 @@ export default function FounderStackTemplate({ data }: { data: StackPageData }) 
           <p className="text-[var(--gray-300)] text-sm leading-relaxed">{data.tldr}</p>
         </div>
 
-        {/* Tool Categories */}
-        {data.categories.map((category, catIdx) => (
-          <div key={catIdx} className="mb-10">
-            <h2 className="text-2xl font-bold text-white mb-4">{category.name}</h2>
-            
-            {/* Comparison Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-[var(--gray-700)]">
-                    <th className="text-left py-3 px-4 text-[var(--gray-400)] font-medium">Tool</th>
-                    <th className="text-left py-3 px-4 text-[var(--gray-400)] font-medium">Price (INR)</th>
-                    <th className="text-left py-3 px-4 text-[var(--gray-400)] font-medium">Free Tier</th>
-                    <th className="text-left py-3 px-4 text-[var(--gray-400)] font-medium">Key Feature</th>
-                    <th className="text-left py-3 px-4 text-[var(--gray-400)] font-medium">Score</th>
-                    <th className="text-left py-3 px-4 text-[var(--gray-400)] font-medium">Security</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {category.tools.map((tool, toolIdx) => (
-                    <tr
-                      key={toolIdx}
-                      className={`border-b border-[var(--gray-800)] ${tool.isPick ? 'bg-purple-600/10' : ''}`}
-                    >
-                      <td className="py-3 px-4">
-                        <a href={`/tool/${tool.slug}`} className="text-white hover:text-purple-400 font-medium">
-                          {tool.name}
-                        </a>
-                        {tool.isPick && (
-                          <span className="ml-2 bg-purple-600 text-white px-1.5 py-0.5 rounded text-xs">
-                            Top Pick
-                          </span>
-                        )}
-                      </td>
-                      <td className="py-3 px-4 text-white">
-                        {tool.priceINR === 0 ? 'Free' : `₹${tool.priceINR.toLocaleString('en-IN')}/mo`}
-                      </td>
-                      <td className="py-3 px-4">
-                        {tool.freeTier ? (
-                          <span className="text-green-400">Yes</span>
-                        ) : (
-                          <span className="text-[var(--gray-500)]">No</span>
-                        )}
-                      </td>
-                      <td className="py-3 px-4 text-[var(--gray-300)]">{tool.keyFeature}</td>
-                      <td className="py-3 px-4 text-white">{tool.score}/10</td>
-                      <td className="py-3 px-4 text-white">{tool.securityRating}/100</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ))}
+        {/* Interactive Cost Calculator + Tool Tables */}
+        <StackCostCalculator categories={data.categories} />
 
         {/* Copy This Stack CTA */}
         <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 rounded-lg p-8 text-center mb-10">
