@@ -101,7 +101,7 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-          Discover AI tools, agents, models, and startups. All rated. All in one place.
+          Discover AI tools, agents, models, and startups. All in one place.
         </h1>
 
         {/* Subheadline */}
