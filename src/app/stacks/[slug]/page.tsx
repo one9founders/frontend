@@ -59,9 +59,9 @@ async function enrichStackData(data: StackPageData): Promise<StackPageData> {
 
       return {
         ...tool,
-        priceUSD: live.priceUSD || tool.priceUSD,
-        priceINR: live.priceINR || tool.priceINR,
-        freeTier: live.freeTier || tool.freeTier,
+        priceUSD: live.priceUSD ?? tool.priceUSD,
+        priceINR: live.priceINR ?? tool.priceINR,
+        freeTier: live.freeTier ?? tool.freeTier,
         score: live.score > 0 ? live.score : tool.score,
         securityRating: live.securityRating > 0 ? live.securityRating : tool.securityRating,
       };

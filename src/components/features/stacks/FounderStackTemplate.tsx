@@ -104,7 +104,7 @@ export default function FounderStackTemplate({ data }: { data: StackPageData }) 
         </div>
 
         {/* Interactive Cost Calculator + Tool Tables */}
-        <StackCostCalculator categories={data.categories} />
+        <StackCostCalculator stackSlug={data.slug} categories={data.categories} />
 
         {/* Copy This Stack CTA */}
         <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 rounded-lg p-8 text-center mb-10">

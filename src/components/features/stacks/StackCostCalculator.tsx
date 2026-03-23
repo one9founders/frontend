@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { StackCategory, StackTool } from './FounderStackTemplate';
 import { useCurrency } from '@/lib/currency';
 
@@ -8,11 +8,14 @@ const GST_RATE = 0.18;
 const EXCHANGE_RATE = 83.5;
 
 interface StackCostCalculatorProps {
+  stackSlug: string;
   categories: StackCategory[];
 }
 
-export default function StackCostCalculator({ categories }: StackCostCalculatorProps) {
+export default function StackCostCalculator({ stackSlug, categories }: StackCostCalculatorProps) {
   const { currency } = useCurrency();
+  const isInitialized = useRef(false);
+  const storageKey = `one9founders_stack_selections_${stackSlug}`;
 
   // Initialize selected tools: one per category (the isPick tool by default)
   const [selectedTools, setSelectedTools] = useState<Record<string, string>>(() => {
@@ -28,7 +31,7 @@ export default function StackCostCalculator({ categories }: StackCostCalculatorP
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
-      const saved = localStorage.getItem('one9founders_stack_selections');
+      const saved = localStorage.getItem(storageKey);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (typeof parsed === 'object' && parsed !== null) {
@@ -38,13 +41,15 @@ export default function StackCostCalculator({ categories }: StackCostCalculatorP
     } catch {
       // ignore parse errors
     }
-  }, []);
+    isInitialized.current = true;
+  }, [storageKey]);
 
   // Persist selections to localStorage
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    localStorage.setItem('one9founders_stack_selections', JSON.stringify(selectedTools));
-  }, [selectedTools]);
+    if (!isInitialized.current) return;
+    localStorage.setItem(storageKey, JSON.stringify(selectedTools));
+  }, [selectedTools, storageKey]);
 
   const handleToolSelect = useCallback((categoryName: string, toolSlug: string) => {
     setSelectedTools(prev => {
@@ -76,7 +81,8 @@ export default function StackCostCalculator({ categories }: StackCostCalculatorP
   }, 0);
 
   const totalWithGST = Math.round(totalINR * (1 + GST_RATE));
-  const selectedCount = Object.keys(selectedTools).length;
+  const categoryNames = new Set(categories.map(c => c.name));
+  const selectedCount = Object.keys(selectedTools).filter(k => categoryNames.has(k)).length;
 
   const formatPrice = (inr: number, usd: number) => {
     if (currency === 'INR') {
