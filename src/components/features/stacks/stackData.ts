@@ -118,9 +118,9 @@ export const contentCreatorIndiaStack: StackPageData = {
   slug: 'content-creator-india',
   title: 'Best AI Tool Stack for Content Creators in India (2026)',
   metaTitle: 'AI Tools for Content Creators in India — INR Pricing | One9Founders',
-  metaDescription: 'Complete AI tool stack for Indian content creators. Video editing, writing, design, and social media tools with INR pricing. Under ₹3,000/month.',
+  metaDescription: 'Complete AI tool stack for Indian content creators. Video editing, writing, design, and social media tools with INR pricing. Under ₹4,000/month.',
   heroDescription: 'The ultimate AI toolkit for Indian content creators, YouTubers, and social media managers. Create professional content at a fraction of the cost with AI-powered tools.',
-  tldr: 'Indian content creators can produce professional-quality content for under ₹3,000/month. This stack covers AI writing, video editing, thumbnail design, social scheduling, and analytics — most with free tiers.',
+  tldr: 'Indian content creators can produce professional-quality content for under ₹4,000/month. This stack covers AI writing, video editing, thumbnail design, social scheduling, and analytics — most with free tiers.',
   lastUpdated: 'March 2026',
   categories: [
     {
@@ -161,7 +161,7 @@ export const contentCreatorIndiaStack: StackPageData = {
     },
   ],
   faqs: [
-    { question: 'How much does this AI content creation stack cost in India?', answer: 'You can start completely free with the free tiers. The recommended paid stack costs under ₹3,000/month with tools like Descript and ChatGPT Plus.' },
+    { question: 'How much does this AI content creation stack cost in India?', answer: 'You can start completely free with the free tiers. The recommended paid stack costs under ₹4,000/month with tools like Descript and ChatGPT Plus.' },
     { question: 'Can I create YouTube videos with these tools?', answer: 'Yes! Use ChatGPT for scripts, Midjourney/Canva for thumbnails, Descript for editing, and Buffer for promotion. Complete YouTube workflow covered.' },
     { question: 'Are these tools available in Hindi or regional languages?', answer: 'ChatGPT supports Hindi and many Indian languages. Canva has multilingual templates. Most tools have English interfaces but support multilingual content output.' },
     { question: 'Which tools have the best free tiers for creators?', answer: 'Canva, CapCut, Buffer, Riverside, and Otter.ai all have generous free tiers. You can produce professional content without spending anything.' },
@@ -175,7 +175,7 @@ export const customerSupportIndiaStack: StackPageData = {
   metaTitle: 'AI Customer Support Tools for Indian Startups — INR Pricing | One9Founders',
   metaDescription: 'Complete AI customer support stack for Indian startups. Chatbots, helpdesk, knowledge base, and feedback tools with INR pricing and security ratings.',
   heroDescription: 'Build a world-class customer support operation for your Indian startup with AI-powered tools. Handle tickets, live chat, and self-service — all in INR.',
-  tldr: 'Indian startups can set up enterprise-grade customer support for under ₹8,000/month. This stack includes AI chatbots, helpdesk, knowledge bases, and feedback tools — many with free tiers for early-stage companies.',
+  tldr: 'Indian startups can set up enterprise-grade customer support for under ₹9,000/month. This stack includes AI chatbots, helpdesk, knowledge bases, and feedback tools — many with free tiers for early-stage companies.',
   lastUpdated: 'March 2026',
   categories: [
     {
