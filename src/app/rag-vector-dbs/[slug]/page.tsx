@@ -30,9 +30,13 @@ export async function generateMetadata({ params }: RagToolDetailPageProps): Prom
   const tool = await getRagTool(slug);
   if (!tool) return { title: 'Not Found | One9Founders' };
 
-  const description = tool.description
-    ? tool.description.substring(0, 155)
-    : `Discover ${tool.name} - a ${tool.category.replace('_', ' ')} solution for AI workflows.`;
+  const categoryLabel = tool.category ? tool.category.replace('_', ' ') : '';
+  const description = [
+    tool.description?.substring(0, 80),
+    categoryLabel ? `Category: ${categoryLabel}.` : '',
+    tool.pricing_model ? `Pricing: ${tool.pricing_model.replace('_', ' ')}.` : '',
+    'Reviewed with zero affiliate bias. Security validated by One9Founders.',
+  ].filter(Boolean).join(' ').slice(0, 155);
 
   return {
     title: `${tool.name} - RAG & Vector DB | One9Founders`,

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     canonical: 'https://www.one9founders.com',
   },
   openGraph: {
+    type: 'website',
     url: 'https://www.one9founders.com',
     title: "One9Founders | India's #1 AI Ecosystem Navigator",
     description:

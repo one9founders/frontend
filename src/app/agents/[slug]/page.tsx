@@ -30,13 +30,19 @@ export async function generateMetadata({ params }: AgentDetailPageProps): Promis
   const agent = await getAgent(slug);
   if (!agent) return { title: 'Agent Not Found | One9Founders' };
 
-  const description = agent.short_description
-    ? agent.short_description.substring(0, 155)
-    : `Discover ${agent.name} - an AI agent for ${agent.category_name || 'various tasks'}.`;
+  const description = [
+    agent.short_description,
+    agent.category_name ? `Category: ${agent.category_name}.` : '',
+    agent.pricing_model ? `Pricing: ${agent.pricing_model}.` : '',
+    'Reviewed with zero affiliate bias. Security validated by One9Founders.',
+  ].filter(Boolean).join(' ').slice(0, 155);
 
-  const ogDescription = agent.short_description
-    ? agent.short_description.substring(0, 200)
-    : description;
+  const ogDescription = [
+    agent.short_description,
+    agent.category_name ? `Category: ${agent.category_name}.` : '',
+    agent.pricing_model ? `Pricing: ${agent.pricing_model}.` : '',
+    'Reviewed with zero affiliate bias. Security validated by One9Founders.',
+  ].filter(Boolean).join(' ').slice(0, 200);
 
   return {
     title: `${agent.name} - Review, Features & Alternatives | One9Founders`,
