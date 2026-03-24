@@ -13,7 +13,7 @@ export function generateSEO({
   title,
   description,
   path = '',
-  image = '/logo-light.png',
+  image = '/og-image.png',
   type = 'website',
   keywords = [],
 }: SEOProps): Metadata {
