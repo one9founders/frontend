@@ -19,7 +19,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.one9founders.com'),
   title: {
-    default: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
+    default: 'One9Founders | India\'s #1 AI Ecosystem Navigator',
     template: '%s | One9Founders',
   },
   description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
@@ -47,19 +47,19 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.one9founders.com',
     siteName: 'One9Founders',
-    title: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
+    title: 'One9Founders | India\'s #1 AI Ecosystem Navigator',
     description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
     images: [{
       url: '/og-image.png',
       width: 1200,
       height: 630,
-      alt: 'One9Founders - Security-First AI Tools Directory',
+      alt: 'One9Founders - India\'s #1 AI Ecosystem Navigator',
     }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@one9founders',
-    title: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
+    title: 'One9Founders | India\'s #1 AI Ecosystem Navigator',
     description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
     images: ['/og-image.png'],
     creator: '@one9founders',
