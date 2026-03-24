@@ -46,11 +46,24 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     'AI tools for startups',
   ];
 
+  const pricingLabel = tool.pricing_models?.length > 0
+    ? tool.pricing_models.join(', ')
+    : tool.pricing_type
+      ? tool.pricing_type.charAt(0).toUpperCase() + tool.pricing_type.slice(1)
+      : '';
+
+  const description = [
+    tool.short_description || tool.description?.substring(0, 80),
+    primaryCategory ? `Category: ${primaryCategory}.` : '',
+    pricingLabel ? `Pricing: ${pricingLabel}.` : '',
+    'Reviewed with zero affiliate bias. Security validated by One9Founders.',
+  ].filter(Boolean).join(' ').slice(0, 155);
+
   return generateSEO({
     title: `${tool.name} | AI Tool for ${primaryCategory} | Review & Pricing`,
-    description: tool.short_description || tool.description?.substring(0, 160) || `Discover ${tool.name}, an AI ${primaryCategory.toLowerCase()} tool for startups and founders. Read reviews, compare features, and find pricing.`,
+    description,
     path: `/tool/${tool.slug}`,
-    image: tool.logo_url || tool.landing_page_screenshot || '/logo-light.png',
+    image: tool.logo_url || tool.landing_page_screenshot || '/og-image.png',
     keywords,
   });
 }
