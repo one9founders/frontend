@@ -20,8 +20,8 @@ function Top20ToolsInner() {
   const [selectedPricing, setSelectedPricing] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchResults, setSearchResults] = useState<Tool[]>([]);
-  const [isSearching, setIsSearching] = useState(false);
-  const [searchLoading, setSearchLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(!!initialQuery);
+  const [searchLoading, setSearchLoading] = useState(!!initialQuery);
   const [sortBy, setSortBy] = useState<'name' | 'rating' | 'newest' | 'match'>('name');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -31,8 +31,11 @@ function Top20ToolsInner() {
   const tags = ['All', 'Writing', 'Images', 'Video', 'Code', 'Chatbots', 'Marketing', 'Productivity', 'Design', 'Analytics'];
 
   useEffect(() => {
-    loadTools();
-  }, [currentPage, selectedTag, selectedPricing, sortBy]);
+    if (!isSearching) {
+      loadTools();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage, selectedTag, selectedPricing]);
 
   useEffect(() => {
     if (isSearching) {
@@ -115,8 +118,8 @@ function Top20ToolsInner() {
 
     setIsSearching(true);
     setSearchLoading(true);
-    setSortBy('match');
     setCurrentPage(1);
+    setSortBy('match');
     try {
       const results = await toolsAPI.smartSearch(query);
       setSearchResults(results || []);
@@ -140,6 +143,7 @@ function Top20ToolsInner() {
     setSearchResults([]);
     setSortBy('name');
     setCurrentPage(1);
+    loadTools();
   }, []);
 
   return (
