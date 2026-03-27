@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { toolsAPI } from '@/lib/api/apiClient';
-import { searchTools } from '@/lib/actions/tools';
 import { Tool } from '@/types';
 import SearchInput from '@/components/shared/SearchInput';
 import ToolCard from '@/components/features/tools/ToolCard';
@@ -10,7 +10,10 @@ import PricingFilter from '@/components/features/tools/PricingFilter';
 import Pagination from '@/components/shared/Pagination';
 import posthog from 'posthog-js';
 
-export default function Top20Tools() {
+function Top20ToolsInner() {
+  const searchParams = useSearchParams();
+  const initialQuery = searchParams.get('q') || '';
+
   const [tools, setTools] = useState<Tool[]>([]);
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
   const [selectedTag, setSelectedTag] = useState('All');
@@ -101,7 +104,7 @@ export default function Top20Tools() {
     }
   };
 
-  const handleSearch = async (query: string) => {
+  const handleSearch = useCallback(async (query: string) => {
     if (!query.trim()) {
       setIsSearching(false);
       setSearchResults([]);
@@ -115,8 +118,8 @@ export default function Top20Tools() {
     setSortBy('match');
     setCurrentPage(1);
     try {
-      const results = await searchTools(query);
-      setSearchResults(results);
+      const results = await toolsAPI.smartSearch(query);
+      setSearchResults(results || []);
 
       posthog.capture('tool_search_performed', {
         search_query: query,
@@ -130,14 +133,14 @@ export default function Top20Tools() {
       setSearchResults([]);
     }
     setSearchLoading(false);
-  };
+  }, [selectedTag, selectedPricing]);
 
-  const handleClearSearch = () => {
+  const handleClearSearch = useCallback(() => {
     setIsSearching(false);
     setSearchResults([]);
     setSortBy('name');
     setCurrentPage(1);
-  };
+  }, []);
 
   return (
     <section id="tools-section" className="py-8 md:py-16 px-4 md:px-6 bg-[var(--gray-black)]">
@@ -145,7 +148,7 @@ export default function Top20Tools() {
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-white">AI Tools Directory</h2>
 
         <div className="mb-8 md:mb-12">
-          <SearchInput onSearch={handleSearch} onClear={handleClearSearch} />
+          <SearchInput onSearch={handleSearch} onClear={handleClearSearch} loading={searchLoading} initialValue={initialQuery} />
         </div>
 
         {/* Filters and Sort */}
@@ -238,5 +241,17 @@ export default function Top20Tools() {
         )}
       </div>
     </section>
+  );
+}
+
+export default function Top20Tools() {
+  return (
+    <Suspense fallback={
+      <section id="tools-section" className="py-8 md:py-16 px-4 md:px-6 bg-[var(--gray-black)]">
+        <div className="max-w-7xl mx-auto text-center text-white">Loading tools...</div>
+      </section>
+    }>
+      <Top20ToolsInner />
+    </Suspense>
   );
 }

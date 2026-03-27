@@ -38,32 +38,8 @@ export default function HeroSection() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const scrollToToolsAndSearch = (query?: string) => {
-    const toolsSection = document.querySelector("#tools-section");
-    if (toolsSection) {
-      toolsSection.scrollIntoView({ behavior: "smooth" });
-    }
-    if (query) {
-      setTimeout(() => {
-        const toolsSearchInput = document.querySelector(
-          "#tools-section input[type='text']"
-        ) as HTMLInputElement;
-        if (toolsSearchInput) {
-          const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-            window.HTMLInputElement.prototype,
-            "value"
-          )?.set;
-          nativeInputValueSetter?.call(toolsSearchInput, query);
-          toolsSearchInput.dispatchEvent(
-            new Event("input", { bubbles: true })
-          );
-          toolsSearchInput.dispatchEvent(
-            new Event("change", { bubbles: true })
-          );
-          toolsSearchInput.focus();
-        }
-      }, 500);
-    }
+  const navigateToSearch = (query: string) => {
+    router.push("/?q=" + encodeURIComponent(query) + "#tools-section");
   };
 
   const handleHeroSearch = (e: React.FormEvent) => {
@@ -73,7 +49,7 @@ export default function HeroSection() {
         search_query: searchQuery,
         source: "hero_section",
       });
-      scrollToToolsAndSearch(searchQuery);
+      navigateToSearch(searchQuery);
     }
   };
 
@@ -86,9 +62,12 @@ export default function HeroSection() {
     if (pill.href) {
       router.push(pill.href);
     } else if (pill.label === "AI Tools") {
-      scrollToToolsAndSearch();
+      const toolsSection = document.querySelector("#tools-section");
+      if (toolsSection) {
+        toolsSection.scrollIntoView({ behavior: "smooth" });
+      }
     } else {
-      scrollToToolsAndSearch(pill.label);
+      navigateToSearch(pill.label);
     }
   };
 
