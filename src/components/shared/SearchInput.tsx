@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { HugeiconsIcon, Search01Icon } from '@/components/ui/icons';
 
 interface SearchInputProps {
@@ -12,6 +12,11 @@ interface SearchInputProps {
 
 export default function SearchInput({ onSearch, onClear, loading, initialValue }: SearchInputProps) {
   const [query, setQuery] = useState(initialValue || '');
+  const onSearchRef = useRef(onSearch);
+  const onClearRef = useRef(onClear);
+
+  useEffect(() => { onSearchRef.current = onSearch; }, [onSearch]);
+  useEffect(() => { onClearRef.current = onClear; }, [onClear]);
 
   useEffect(() => {
     if (initialValue !== undefined && initialValue !== query) {
@@ -25,9 +30,9 @@ export default function SearchInput({ onSearch, onClear, loading, initialValue }
     const timer = setTimeout(() => {
       try {
         if (query.trim()) {
-          onSearch(query);
+          onSearchRef.current(query);
         } else {
-          onClear();
+          onClearRef.current();
         }
       } catch (error) {
         console.error('Error in search callback:', error);
@@ -35,7 +40,7 @@ export default function SearchInput({ onSearch, onClear, loading, initialValue }
     }, 400);
 
     return () => clearTimeout(timer);
-  }, [query, onSearch, onClear]);
+  }, [query]);
 
   const handleClear = () => {
     setQuery('');
