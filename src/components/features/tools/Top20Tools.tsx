@@ -18,7 +18,7 @@ function Top20ToolsInner() {
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
   const [selectedTag, setSelectedTag] = useState('All');
   const [selectedPricing, setSelectedPricing] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!initialQuery);
   const [searchResults, setSearchResults] = useState<Tool[]>([]);
   const [isSearching, setIsSearching] = useState(!!initialQuery);
   const [searchLoading, setSearchLoading] = useState(!!initialQuery);
@@ -35,7 +35,7 @@ function Top20ToolsInner() {
       loadTools();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, selectedTag, selectedPricing]);
+  }, [currentPage, selectedTag, selectedPricing, isSearching]);
 
   useEffect(() => {
     if (isSearching) {
@@ -143,7 +143,6 @@ function Top20ToolsInner() {
     setSearchResults([]);
     setSortBy('name');
     setCurrentPage(1);
-    loadTools();
   }, []);
 
   return (
