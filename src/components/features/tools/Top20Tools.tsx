@@ -144,6 +144,8 @@ function Top20ToolsInner() {
     setSearchLoading(false);
     setSortBy('name');
     setCurrentPage(1);
+    // Clear ?q= from URL so refresh doesn't re-trigger search
+    window.history.replaceState({}, '', window.location.pathname);
   }, []);
 
   return (
