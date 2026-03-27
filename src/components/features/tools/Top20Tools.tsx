@@ -22,7 +22,7 @@ function Top20ToolsInner() {
   const [searchResults, setSearchResults] = useState<Tool[]>([]);
   const [isSearching, setIsSearching] = useState(!!initialQuery);
   const [searchLoading, setSearchLoading] = useState(!!initialQuery);
-  const [sortBy, setSortBy] = useState<'name' | 'rating' | 'newest' | 'match'>('name');
+  const [sortBy, setSortBy] = useState<'name' | 'rating' | 'newest' | 'match'>(initialQuery ? 'match' : 'name');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
