@@ -141,6 +141,7 @@ function Top20ToolsInner() {
   const handleClearSearch = useCallback(() => {
     setIsSearching(false);
     setSearchResults([]);
+    setSearchLoading(false);
     setSortBy('name');
     setCurrentPage(1);
   }, []);
