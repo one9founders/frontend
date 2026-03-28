@@ -118,10 +118,9 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
   }, [isOpen]);
 
   const handleGoogleResponse = useCallback((response: any) => {
-    if (!turnstileToken) { Swal.fire('Error', 'Please complete the verification first', 'error'); return; }
     startTransition(async () => {
       try {
-        const result = await googleAuth(response.credential, turnstileToken);
+        const result = await googleAuth(response.credential);
         if ('error' in result) { Swal.fire('Error', result.error, 'error'); return; }
         const user = result.user;
         posthog.identify(user.email, { email: user.email, name: user.name });
@@ -130,7 +129,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
         onClose();
       } catch (error: any) { posthog.captureException(error); Swal.fire('Error', error.message, 'error'); }
     });
-  }, [turnstileToken, onClose, startTransition]);
+  }, [onClose, startTransition]);
 
   useEffect(() => {
     if (!isOpen || (mode === 'signup' && step !== 'account')) return;
@@ -150,7 +149,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
       );
     };
     return () => { if (document.head.contains(script)) document.head.removeChild(script); };
-  }, [isOpen, turnstileToken, mode, step, handleGoogleResponse]);
+  }, [isOpen, mode, step, handleGoogleResponse]);
 
   const togglePill = (arr: string[], setArr: (v: string[]) => void, val: string, max?: number) => {
     if (arr.includes(val)) { setArr(arr.filter(v => v !== val)); }
@@ -255,7 +254,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
               <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-[var(--gray-700)]"></div></div>
               <div className="relative flex justify-center text-sm"><span className="px-2 text-gray-500 bg-[var(--gray-900)]">Or continue with</span></div>
             </div>
-            <div id="google-signin-button" className={`mt-4 ${turnstileToken ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'}`}></div>
+            <div id="google-signin-button" className="mt-4"></div>
           </div>
           <p className="mt-4 text-center text-sm text-[var(--gray-500)]">
             Don&apos;t have an account?{' '}
@@ -322,7 +321,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
 
           {step === 'account' && (
             <>
-              <div id="google-signin-button" className={`mb-4 ${turnstileToken ? 'opacity-100 pointer-events-auto' : 'opacity-50 pointer-events-none'}`}></div>
+              <div id="google-signin-button" className="mb-4"></div>
               <div className="relative mb-4">
                 <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-[var(--gray-700)]"></div></div>
                 <div className="relative flex justify-center text-sm"><span className="px-2 text-gray-500 bg-[var(--gray-900)]">OR</span></div>
