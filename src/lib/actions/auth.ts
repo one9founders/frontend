@@ -48,6 +48,7 @@ export async function signUp(formData: FormData) {
       user_role:       userRole,
       turnstile_token: turnstileToken,
       referral_source: (formData.get('referral_source') as string) || '',
+      profile_completed: true,
       ...founderFields,
     }),
   });
