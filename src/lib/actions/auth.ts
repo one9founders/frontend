@@ -92,11 +92,11 @@ export async function login(formData: FormData) {
   return { user: data.user };
 }
 
-export async function googleAuth(credential: string, turnstileToken: string) {
+export async function googleAuth(credential: string) {
   const response = await fetch(`${API_URL}/auth/google/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ credential, turnstile_token: turnstileToken }),
+    body: JSON.stringify({ credential }),
   });
 
   if (!response.ok) {
