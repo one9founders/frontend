@@ -1,12 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface CloudflareCheckProps {
   onVerified: (token: string) => void;
 }
 
 export default function CloudflareCheck({ onVerified }: CloudflareCheckProps) {
+  const callbackRef = useRef(onVerified);
+  callbackRef.current = onVerified;
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
@@ -15,7 +18,7 @@ export default function CloudflareCheck({ onVerified }: CloudflareCheckProps) {
 
     // @ts-ignore
     window.onTurnstileCallback = (token: string) => {
-      onVerified(token);
+      callbackRef.current(token);
     };
 
     return () => {
@@ -23,7 +26,7 @@ export default function CloudflareCheck({ onVerified }: CloudflareCheckProps) {
         document.head.removeChild(script);
       }
     };
-  }, [onVerified]);
+  }, []);
 
   return (
     <div className="mb-4">
