@@ -50,6 +50,11 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
       console.warn('Backend server is not running. Please start it with: cd backend && python manage.py runserver');
       return [];
     }
+    // During build / SSR, network errors should not crash page generation
+    if (typeof window === 'undefined') {
+      console.error(`API fetch failed for ${endpoint}:`, error.message);
+      return null;
+    }
     throw error;
   }
 }
