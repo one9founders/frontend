@@ -115,6 +115,7 @@ export default function ProfileCompletionModal({ onComplete }: ProfileCompletion
   const handleSubmit = () => {
     const data: Record<string, unknown> = {
       user_role: selectedRole || '',
+      is_startup: isFounder,
       referral_source: referralSource,
       profile_completed: true,
     };
@@ -160,7 +161,7 @@ export default function ProfileCompletionModal({ onComplete }: ProfileCompletion
                   </button>
                 ))}
               </div>
-              <button disabled={!selectedRole} onClick={() => { if (isFounder) { setStep('startup_profile'); } else { handleSubmit(); } }}
+              <button disabled={!selectedRole || isPending} onClick={() => { if (isFounder) { setStep('startup_profile'); } else { handleSubmit(); } }}
                 className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
                 {isFounder ? 'Continue' : 'Save'}
               </button>
