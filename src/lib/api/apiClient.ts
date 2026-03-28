@@ -50,6 +50,13 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
       console.warn('Backend server is not running. Please start it with: cd backend && python manage.py runserver');
       return [];
     }
+    // During build / SSR, errors on GET requests should not crash page generation.
+    // Mutations (POST/PUT/DELETE) always re-throw so server actions handle errors.
+    const method = (options.method || 'GET').toUpperCase();
+    if (typeof window === 'undefined' && method === 'GET') {
+      console.error(`API fetch failed for ${endpoint}:`, error.message);
+      return null;
+    }
     throw error;
   }
 }
