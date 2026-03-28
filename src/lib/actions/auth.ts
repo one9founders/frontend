@@ -30,9 +30,9 @@ export async function signUp(formData: FormData) {
     website:             formData.get('website') as string,
     startup_stage:       formData.get('startup_stage') as string,
     team_size:           formData.get('team_size') as string,
-    industry:            formData.get('industry') as string,
-    challenges:          formData.get('challenges') as string,
-    ai_tasks:            formData.get('ai_tasks') as string,
+    industry:            JSON.parse((formData.get('industry') as string) || '[]'),
+    challenges:          JSON.parse((formData.get('challenges') as string) || '[]'),
+    ai_tasks:            JSON.parse((formData.get('ai_tasks') as string) || '[]'),
     time_lost_per_week:  formData.get('time_lost_per_week') as string,
     ai_comfort_level:    formData.get('ai_comfort_level') as string,
   } : {};
