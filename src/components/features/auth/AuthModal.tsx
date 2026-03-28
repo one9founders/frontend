@@ -110,7 +110,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
     if (isOpen && mode === 'signup') setStep('role');
   }, [isOpen, mode]);
 
-  useEffect(() => { setMode(defaultMode); }, [defaultMode]);
+  useEffect(() => { if (isOpen) setMode(defaultMode); }, [isOpen, defaultMode]);
 
   useEffect(() => {
     if (isOpen) { document.body.style.overflow = 'hidden'; } else { document.body.style.overflow = 'unset'; }

@@ -116,6 +116,7 @@ export default function ProfileCompletionModal({ onComplete }: ProfileCompletion
     const data: Record<string, unknown> = {
       user_role: selectedRole || '',
       referral_source: referralSource,
+      profile_completed: true,
     };
     if (isFounder) {
       data.startup_name = startupName;
