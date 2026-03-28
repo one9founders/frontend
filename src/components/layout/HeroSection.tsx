@@ -110,6 +110,14 @@ export default function HeroSection() {
           </div>
         </form>
 
+        {/* CTA Button */}
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('open-auth-modal', { detail: { mode: 'signup' } }))}
+          className="mb-6 px-6 py-2.5 rounded-lg text-sm font-medium text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer"
+        >
+          Join free &mdash; it takes 2 minutes
+        </button>
+
         {/* Category Pills */}
         <div className="flex flex-wrap justify-center gap-2 mb-6 overflow-x-auto md:overflow-visible px-2">
           {CATEGORY_PILLS.map((pill) => (
