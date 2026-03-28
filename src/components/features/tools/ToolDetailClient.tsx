@@ -80,8 +80,7 @@ export default function ToolDetailClient({
   const handleWriteReview = () => {
     if (!user) {
       if (mounted && typeof window !== 'undefined') {
-        localStorage.setItem('redirectAfterLogin', window.location.pathname);
-        window.location.href = '/?login=true';
+        window.dispatchEvent(new CustomEvent('open-auth-modal', { detail: { mode: 'login' } }));
       }
       return;
     }
@@ -149,10 +148,7 @@ export default function ToolDetailClient({
             {!user && mounted && (
               <button
                 onClick={() => {
-                  if (typeof window !== 'undefined') {
-                    localStorage.setItem('redirectAfterLogin', window.location.pathname);
-                    window.location.href = '/?login=true';
-                  }
+                  window.dispatchEvent(new CustomEvent('open-auth-modal', { detail: { mode: 'login' } }));
                 }}
                 className="text-purple-400 hover:text-purple-300 underline"
               >

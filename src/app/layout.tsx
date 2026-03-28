@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReCaptchaProvider } from "@/lib/recaptcha";
 import { CurrencyProvider } from "@/lib/currency";
 import { STATS } from "@/lib/constants/stats";
+import ProfileCompletionCheck from "@/components/features/auth/ProfileCompletionCheck";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -103,6 +104,7 @@ export default function RootLayout({
         <CurrencyProvider>
           <ReCaptchaProvider>
             {children}
+            <ProfileCompletionCheck />
           </ReCaptchaProvider>
         </CurrencyProvider>
       </body>

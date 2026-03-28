@@ -11,6 +11,7 @@ import posthog from 'posthog-js';
 
 export default function Navbar() {
   const [showAuth, setShowAuth] = useState(false);
+  const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
   const [user, setUser] = useState<any>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -24,10 +25,19 @@ export default function Navbar() {
     // Check for login query parameter
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('login') === 'true') {
+      setAuthMode('login');
       setShowAuth(true);
       // Clean up URL
       window.history.replaceState({}, document.title, window.location.pathname);
     }
+
+    const handleOpenAuthModal = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      setAuthMode(detail?.mode === 'signup' ? 'signup' : 'login');
+      setShowAuth(true);
+    };
+    window.addEventListener('open-auth-modal', handleOpenAuthModal);
+    return () => window.removeEventListener('open-auth-modal', handleOpenAuthModal);
   }, []);
 
   // Cmd+K / Ctrl+K keyboard shortcut to focus search input
@@ -195,9 +205,14 @@ export default function Navbar() {
                   )}
                 </div>
               ) : (
-                <button onClick={() => setShowAuth(true)} className="text-[var(--gray-500)] hover:text-white cursor-pointer">
-                  Login
-                </button>
+                <>
+                  <button onClick={() => { setAuthMode('signup'); setShowAuth(true); }} className="px-4 py-1.5 rounded-lg text-sm font-medium text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
+                    Sign up free
+                  </button>
+                  <button onClick={() => { setAuthMode('login'); setShowAuth(true); }} className="text-[var(--gray-500)] hover:text-white cursor-pointer">
+                    Login
+                  </button>
+                </>
               )}
             </div>
           </div>
@@ -282,16 +297,21 @@ export default function Navbar() {
                     </button>
                   </div>
                 ) : (
-                  <button onClick={() => { setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
-                    Login
-                  </button>
+                  <>
+                    <button onClick={() => { setAuthMode('signup'); setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--brand-primary)] hover:text-white text-left cursor-pointer">
+                      Sign up free
+                    </button>
+                    <button onClick={() => { setAuthMode('login'); setShowAuth(true); setIsMobileMenuOpen(false); }} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
+                      Login
+                    </button>
+                  </>
                 )}
               </div>
             </div>
           </div>
         )}
       </nav>
-      <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} />
+      <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} defaultMode={authMode} />
     </>
   );
 }
