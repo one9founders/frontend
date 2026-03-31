@@ -1,3 +1,5 @@
+import { Tool, Review, ToolSubmission } from '@/types';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
 function getCookie(name: string): string | null {
@@ -79,12 +81,12 @@ export const toolsAPI = {
       method: 'POST',
       body: JSON.stringify({ query }),
     }),
-  create: (data: any) =>
+  create: (data: Partial<Tool>) =>
     fetchAPI('/tools/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
-  update: (slug: string, data: any) =>
+  update: (slug: string, data: Partial<Tool>) =>
     fetchAPI(`/tools/${slug}/`, {
       method: 'PATCH',
       body: JSON.stringify(data),
@@ -108,7 +110,7 @@ export const toolsAPI = {
 export const reviewsAPI = {
   getByToolId: (toolId: number) => 
     fetchAPI(`/reviews/?tool_id=${toolId}`),
-  create: (data: any) =>
+  create: (data: Partial<Review>) =>
     fetchAPI('/reviews/', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -148,7 +150,7 @@ export const categoriesAPI = {
 
 export const submissionAPI = {
   getAll: () => fetchAPI('/submissions/'),
-  submit: (data: any) =>
+  submit: (data: ToolSubmission) =>
     fetchAPI('/submissions/', {
       method: 'POST',
       body: JSON.stringify(data),

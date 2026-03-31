@@ -21,7 +21,7 @@ export interface Tool {
   video_demo_url?: string;
   landing_page_screenshot?: string;
   pricing_models: string[];
-  pricing_tiers?: any[];
+  pricing_tiers?: unknown[];
   pricing_from?: number;
   pricing_type?: string;
   free_tier_available: boolean;
