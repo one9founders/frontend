@@ -245,7 +245,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             <input type="email" name="email" placeholder="Email" aria-label="Email" autoComplete="email" required className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]" />
             <input type="password" name="password" placeholder="Password" aria-label="Password" autoComplete="current-password" required className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]" />
             <CloudflareCheck onVerified={(token) => setTurnstileToken(token)} />
-            <button type="submit" disabled={isPending || !turnstileToken} className="w-full py-2 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)]">
+            <button type="submit" disabled={isPending} className="w-full py-2 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
               {isPending ? 'Processing\u2026' : 'Login'}
             </button>
           </form>
@@ -346,7 +346,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
                   </div>
                 </div>
                 <CloudflareCheck onVerified={(token) => setTurnstileToken(token)} />
-                <button disabled={isPending || !turnstileToken} onClick={() => { if (!validateAccount()) return; if (isFounder) { setStep('startup_profile'); } else { handleSubmit(); } }}
+                <button disabled={isPending} onClick={() => { if (!turnstileToken) { Swal.fire('Error', 'Please complete the verification checkbox above', 'error'); return; } if (!validateAccount()) return; if (isFounder) { setStep('startup_profile'); } else { handleSubmit(); } }}
                   className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
                   {isPending ? 'Processing\u2026' : isFounder ? 'Continue' : 'Create account'}
                 </button>
@@ -419,7 +419,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
                   <PillGroup options={REFERRAL_OPTIONS} selected={referralSource ? [referralSource] : []} onToggle={(v) => setReferralSource(referralSource === v ? '' : v)} />
                 </div>
               </div>
-              <button disabled={isPending || !turnstileToken} onClick={handleSubmit}
+              <button disabled={isPending} onClick={() => { if (!turnstileToken) { Swal.fire('Error', 'Please complete the verification checkbox above', 'error'); return; } handleSubmit(); }}
                 className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">
                 {isPending ? 'Creating account\u2026' : 'Create account'}
               </button>
