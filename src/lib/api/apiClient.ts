@@ -94,12 +94,12 @@ export const toolsAPI = {
       method: 'DELETE',
     }),
   smartSearch: (query: string) =>
-    fetchAPI('/api/tools/smart-search/', {
+    fetchAPI('/tools/smart-search/', {
       method: 'POST',
       body: JSON.stringify({ query }),
     }),
   decomposeSearch: (query: string) =>
-    fetchAPI('/api/tools/decompose-search/', {
+    fetchAPI('/tools/decompose-search/', {
       method: 'POST',
       body: JSON.stringify({ query }),
     }),
