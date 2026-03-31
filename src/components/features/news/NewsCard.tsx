@@ -4,23 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { HugeiconsIcon, Time01Icon, UserIcon, ThumbsUpIcon } from '@/components/ui/icons';
 import { newsAPI } from '@/lib/api/apiClient';
-
-interface NewsArticle {
-  id: number;
-  title: string;
-  description: string;
-  excerpt?: string;
-  author: string;
-  date: string;
-  published_at?: string;
-  readTime: string;
-  reading_time?: number;
-  category?: string;
-  image: string;
-  featured_image?: string;
-  upvote_count?: number;
-  has_upvoted?: boolean;
-}
+import { NewsArticle } from '@/lib/api/newsService';
 
 interface NewsCardProps {
   article: NewsArticle;
@@ -76,7 +60,7 @@ export default function NewsCard({ article, sessionId }: NewsCardProps) {
 
   return (
     <div className="bg-[var(--gray-900)] rounded-lg overflow-hidden hover:bg-[var(--gray-800)] transition-colors">
-      <Link href={`/news/${article.id}`}>
+      <Link href={`/news/${article.slug}`}>
         <div className="aspect-video bg-[var(--gray-800)] relative">
           <img 
             src={displayImage} 
