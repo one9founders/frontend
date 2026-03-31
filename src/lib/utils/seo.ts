@@ -17,7 +17,7 @@ export function generateSEO({
   type = 'website',
   keywords = [],
 }: SEOProps): Metadata {
-  const baseUrl = 'https://one9founders.com';
+  const baseUrl = 'https://www.one9founders.com';
   const url = `${baseUrl}${path}`;
   const fullTitle = title.includes('One9Founders') ? title : `${title} | One9Founders`;
   
@@ -27,7 +27,9 @@ export function generateSEO({
     : description;
 
   return {
-    title: fullTitle,
+    title: {
+      absolute: fullTitle,
+    },
     description: metaDescription,
     keywords: keywords.join(', '),
     authors: [{ name: 'One9Founders' }],

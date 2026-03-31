@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import { ReCaptchaProvider } from "@/lib/recaptcha";
+import { CurrencyProvider } from "@/lib/currency";
+import { STATS } from "@/lib/constants/stats";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,12 +17,12 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://one9founders.com'),
+  metadataBase: new URL('https://www.one9founders.com'),
   title: {
-    default: 'One9Founders – AI Tool Directory for Startup Founders',
+    default: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
     template: '%s | One9Founders',
   },
-  description: "India's first security-validated AI tools directory. Compare 2,500+ AI tools with uniform rating criteria and zero affiliate bias. Supported by IIT Bombay.",
+  description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
   keywords: ['AI tools directory', 'AI tools for startups', 'security validated AI tools', 'unbiased AI tool reviews', 'compare AI tools India', 'startup tools', 'founder resources'],
   authors: [{ name: 'One9Founders' }],
   creator: 'One9Founders',
@@ -43,10 +45,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://one9founders.com',
+    url: 'https://www.one9founders.com',
     siteName: 'One9Founders',
-    title: 'One9Founders – AI Tool Directory for Startup Founders',
-    description: "One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools for building and scaling startups.",
+    title: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
+    description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
     images: [{
       url: '/og-image.png',
       width: 1200,
@@ -57,8 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@one9founders',
-    title: 'One9Founders – AI Tool Directory for Startup Founders',
-    description: 'One9Founders is an AI-powered platform built for startup founders to discover, compare, and use the best AI tools.',
+    title: 'One9Founders | India\'s Largest AI Tools, Agents & LLMs Directory',
+    description: `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
     images: ['/og-image.png'],
     creator: '@one9founders',
   },
@@ -87,7 +89,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href="https://one9founders.com" />
         <script src="https://t.contentsquare.net/uxa/d11fb4e793d48.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-455BX3CJP8"></script>
         <script dangerouslySetInnerHTML={{
@@ -102,9 +103,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${bricolageGrotesque.variable} antialiased`}
       >
-        <ReCaptchaProvider>
-          {children}
-        </ReCaptchaProvider>
+        <CurrencyProvider>
+          <ReCaptchaProvider>
+            {children}
+          </ReCaptchaProvider>
+        </CurrencyProvider>
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import ToolCard from "../features/tools/ToolCard";
 import PricingFilter from "../features/tools/PricingFilter";
 import Pagination from "./Pagination";
 import posthog from "posthog-js";
+import { useCurrency } from '@/lib/currency';
 
 interface PortfolioSectionProps {
   initialTools?: Tool[];
@@ -34,6 +35,7 @@ export default function PortfolioSection({
   const [totalCount, setTotalCount] = useState(initialTotalCount);
   const pageSize = 20;
   const [hasInitialData, setHasInitialData] = useState(initialTools.length > 0);
+  const { currency, toggleCurrency } = useCurrency();
 
   const tags = ["All", "Writing", "Images", "Video", "Code", "Chatbots", "Marketing", "Productivity", "Design", "Analytics"];
 
@@ -203,6 +205,23 @@ export default function PortfolioSection({
                 />
               </div>
               
+              <div className="flex items-end">
+                <button
+                  onClick={toggleCurrency}
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
+                    currency === 'INR'
+                      ? 'bg-orange-600/20 text-orange-400 border border-orange-600/30'
+                      : 'bg-[var(--gray-800)] text-[var(--gray-400)] border border-[var(--gray-700)]'
+                  } hover:opacity-80`}
+                  aria-label={`Switch to ${currency === 'USD' ? 'INR' : 'USD'} pricing`}
+                >
+                  <span className={currency === 'USD' ? 'font-bold' : 'opacity-60'}>$</span>
+                  <span className="text-[var(--gray-600)]">/</span>
+                  <span className={currency === 'INR' ? 'font-bold' : 'opacity-60'}>&#8377;</span>
+                  <span className="ml-1">{currency}</span>
+                </button>
+              </div>
+
               <div className="flex-1 md:max-w-xs">
                 <h3 className="text-sm font-medium text-[var(--gray-300)] mb-3">Sort by</h3>
                 <select 

@@ -22,6 +22,7 @@ export interface Tool {
   landing_page_screenshot?: string;
   pricing_models: string[];
   pricing_tiers?: any[];
+  pricing_type?: string;
   pricing_from?: number;
   free_tier_available: boolean;
   free_trial_days?: number;
@@ -39,6 +40,13 @@ export interface Tool {
   verified: boolean;
   is_featured: boolean;
   is_active: boolean;
+  pricing_inr?: number;
+  pricing_inr_with_gst?: number;
+  pricing_inr_override?: number;
+  pricing_has_india_plan?: boolean;
+  gst_applicable?: boolean;
+  security_score?: number;
+  security_assessed_at?: string;
   alternatives?: Tool[];
   similarity?: number;
   created_at: string;

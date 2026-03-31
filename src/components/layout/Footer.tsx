@@ -2,135 +2,123 @@
 'use client';
 
 import { useState } from 'react';
-import { HugeiconsIcon, NewTwitterIcon, Linkedin01Icon, GithubIcon, Mail01Icon, Facebook01Icon, InstagramIcon, YoutubeIcon, DiscordIcon, WhatsappIcon, ThreadsIcon, NewsIcon } from '@/components/ui/icons';
+import Link from 'next/link';
+import { subscribeToNewsletter } from '@/lib/actions/tools';
+import posthog from 'posthog-js';
+import { HugeiconsIcon, NewTwitterIcon, Linkedin01Icon, Facebook01Icon, InstagramIcon, YoutubeIcon, ThreadsIcon } from '@/components/ui/icons';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter signup
-    console.log('Newsletter signup:', email);
-    setEmail('');
+    if (!email) return;
+    setLoading(true);
+    setMessage('');
+    try {
+      const result = await subscribeToNewsletter(email);
+      if (result.success) {
+        posthog.capture('newsletter_subscribed', {
+          email: email,
+          source: 'footer',
+        });
+        setIsSuccess(true);
+        setMessage('Thanks for subscribing!');
+        setEmail('');
+      } else {
+        setIsSuccess(false);
+        setMessage(result.error || 'Something went wrong');
+      }
+    } catch (error) {
+      posthog.captureException(error);
+      setIsSuccess(false);
+      setMessage('Failed to subscribe');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <footer className="px-6 py-16 m-4 md:m-12 rounded-3xl bg-[var(--gray-900)]  border-t border-[var(--gray-800)]">
+    <footer className="px-6 py-16 m-4 md:m-12 rounded-3xl bg-[var(--gray-900)] border-t border-[var(--gray-800)]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* Left: Logo and Social Media - flex 1 */}
+          {/* Left: Logo, tagline, IIT Bombay */}
           <div className="lg:flex-1">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8 mb-6" draggable={false} />
             <p className="mb-6 text-[var(--gray-400)] max-w-80">
-              Discover, compare, and choose the right AI tools for your startup
+              India&apos;s largest AI ecosystem navigator for startup founders.
             </p>
-      
-            <div className="flex gap-4 flex-wrap">
-              <a href="https://www.facebook.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 aria-label="Follow us on Facebook"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={Facebook01Icon} size={24} aria-hidden="true" />
-              </a>
-              <a href="https://www.instagram.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 aria-label="Follow us on Instagram"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={InstagramIcon} size={24} aria-hidden="true" />
-              </a>
-              <a href="https://threads.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 aria-label="Follow us on Threads"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={ThreadsIcon} size={24} aria-hidden="true" />
-              </a>
-              <a href="https://x.com/one9founders" target="_blank" rel="noopener noreferrer" 
-                 aria-label="Follow us on X (Twitter)"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={NewTwitterIcon} size={24} aria-hidden="true" />
-              </a>
-              {/* <a href="https://substack.com" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={NewsIcon} size={24} />
-              </a> */}
-              <a href="https://www.youtube.com/@One9Founders" target="_blank" rel="noopener noreferrer" 
-                 aria-label="Subscribe to our YouTube channel"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={YoutubeIcon} size={24} aria-hidden="true" />
-              </a>
-              {/* <a href="https://discord.com" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={DiscordIcon} size={24} />
-              </a> */}
-              {/* <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" 
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={WhatsappIcon} size={24} />
-              </a> */}
-              <a href="https://in.linkedin.com/company/one9founders" target="_blank" rel="noopener noreferrer" 
-                 aria-label="Connect with us on LinkedIn"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                <HugeiconsIcon icon={Linkedin01Icon} size={24} aria-hidden="true" />
-              </a>
-            </div>
-                  <div className="flex items-center gap-2 mt-6">
+
+            <div className="flex items-center gap-2 mb-6">
               <img src="/iitb-logo.png" alt="IIT Bombay" className="h-6" draggable={false} />
               <p className="text-[var(--gray-400)] text-md">
                 Supported by <span className="font-bold">IIT Bombay</span>
               </p>
             </div>
+
+            <div className="flex gap-4 flex-wrap">
+              <a href="https://www.facebook.com/one9founders" target="_blank" rel="noopener noreferrer"
+                 aria-label="Follow us on Facebook"
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                <HugeiconsIcon icon={Facebook01Icon} size={24} aria-hidden="true" />
+              </a>
+              <a href="https://www.instagram.com/one9founders" target="_blank" rel="noopener noreferrer"
+                 aria-label="Follow us on Instagram"
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                <HugeiconsIcon icon={InstagramIcon} size={24} aria-hidden="true" />
+              </a>
+              <a href="https://threads.com/one9founders" target="_blank" rel="noopener noreferrer"
+                 aria-label="Follow us on Threads"
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                <HugeiconsIcon icon={ThreadsIcon} size={24} aria-hidden="true" />
+              </a>
+              <a href="https://x.com/one9founders" target="_blank" rel="noopener noreferrer"
+                 aria-label="Follow us on X (Twitter)"
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                <HugeiconsIcon icon={NewTwitterIcon} size={24} aria-hidden="true" />
+              </a>
+              <a href="https://www.youtube.com/@One9Founders" target="_blank" rel="noopener noreferrer"
+                 aria-label="Subscribe to our YouTube channel"
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                <HugeiconsIcon icon={YoutubeIcon} size={24} aria-hidden="true" />
+              </a>
+              <a href="https://in.linkedin.com/company/one9founders" target="_blank" rel="noopener noreferrer"
+                 aria-label="Connect with us on LinkedIn"
+                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                <HugeiconsIcon icon={Linkedin01Icon} size={24} aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
-          {/* Right: Navigation, Company, Newsletter & Copyright - flex 2 */}
+          {/* Right: Navigation columns + Newsletter */}
           <div className="lg:flex-[2] space-y-8">
-            {/* Navigation and Company in separate columns */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              {/* Navigation */}
+              {/* Navigate */}
               <div>
-                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Navigation</h3>
+                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Navigate</h3>
                 <ul className="space-y-3">
                   <li>
                     <a href="/#tools-section" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Explore
+                      Explore AI Tools
                     </a>
                   </li>
                   <li>
-                    <a href="/deals" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Deals
-                    </a>
+                    <Link href="/llms" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      LLM Explorer
+                    </Link>
                   </li>
                   <li>
-                    <a href="/compare" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Compare
-                    </a>
+                    <Link href="/agents" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      AI Agents
+                    </Link>
                   </li>
                   <li>
-                    <a href="/news" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      News
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Learn */}
-              <div>
-                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Learn</h3>
-                <ul className="space-y-3">
-                  <li>
-                    <a href="/learn" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Education Hub
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/learn/guides" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Guides
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/learn/workshops" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Workshops
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/learn/paths" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Learning Paths
-                    </a>
+                    <Link href="/compare" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Compare Tools
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -140,43 +128,72 @@ export default function Footer() {
                 <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Company</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href="/what-is-one9founders" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      What is One9Founders?
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/about" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/about" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/terms" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/learn/organizations" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      For Colleges &amp; Corporates
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/methodology" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      How We Rate
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/terms" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Terms
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/policy" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* More */}
+              <div>
+                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">More</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a href="/#corporate-section" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      For Corporates
                     </a>
                   </li>
                   <li>
-                    <a href="/policy" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      Privacy Policy
+                    <Link href="/learn" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      AI Training
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/submit" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Submit a Tool
+                    </Link>
+                  </li>
+                  <li>
+                    <a href="mailto:hello@one9founders.com" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Contact Us
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
 
-            {/* Newsletter and Copyright row */}
+            {/* Newsletter and Copyright */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-end">
-                    {/* Copyright */}
-                <p className="text-xs text-[var(--gray-600)]">
-                  © 2026 One9Founders. All rights reserved.
-                </p>
-              {/* Newsletter */}
+              <p className="text-xs text-[var(--gray-600)]">
+                &copy; 2026 One9Founders. All rights reserved.
+              </p>
               <div>
-                <h3 className="font-semibold mb-4 flex items-center gap-2 text-[var(--gray-200)]">
-                  <HugeiconsIcon icon={Mail01Icon} size={20} />
-                  Weekly AI Tool Intelligence
+                <h3 className="font-semibold mb-2 text-xs uppercase tracking-widest text-[var(--gray-200)]">
+                  Get Smarter About AI Tools. Every Tuesday.
                 </h3>
                 <p className="mb-4 text-sm text-[var(--gray-400)]">
-                  Security alerts, exclusive deals, and our top picks - free every Tuesday.
+                  Join 5,000+ founders getting weekly security alerts, exclusive deals, and our honest picks.
                 </p>
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
                   <input
@@ -186,21 +203,23 @@ export default function Footer() {
                     placeholder="your@email.com"
                     required
                     aria-label="Email address"
+                    disabled={loading}
                     className="flex-1 px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-200)]"
                   />
                   <button
                     type="submit"
-                    className="btn-primary whitespace-nowrap"
+                    disabled={loading || !email}
+                    className="btn-primary whitespace-nowrap disabled:opacity-50"
                   >
-                    Subscribe Free
+                    {loading ? 'Subscribing...' : 'Subscribe Free'}
                   </button>
                 </form>
-                <p className="mt-2 text-xs text-[var(--gray-500)]">
-                  Join 5,000+ founders. No spam, unsubscribe anytime.
-                </p>
+                {message && (
+                  <p className={`mt-2 text-xs ${isSuccess ? 'text-green-400' : 'text-red-400'}`}>
+                    {message}
+                  </p>
+                )}
               </div>
-
-        
             </div>
           </div>
         </div>

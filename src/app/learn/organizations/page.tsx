@@ -43,7 +43,7 @@ export default async function OrganizationsPage() {
     '@type': 'WebPage',
     name: heroTitle,
     description: heroSubtitle,
-    url: 'https://one9founders.com/learn/organizations',
+    url: 'https://www.one9founders.com/learn/organizations',
   });
 
   return (

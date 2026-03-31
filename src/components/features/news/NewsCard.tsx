@@ -7,6 +7,7 @@ import { newsAPI } from '@/lib/api/apiClient';
 
 interface NewsArticle {
   id: number;
+  slug?: string;
   title: string;
   description: string;
   excerpt?: string;
@@ -76,7 +77,7 @@ export default function NewsCard({ article, sessionId }: NewsCardProps) {
 
   return (
     <div className="bg-[var(--gray-900)] rounded-lg overflow-hidden hover:bg-[var(--gray-800)] transition-colors">
-      <Link href={`/news/${article.id}`}>
+      <Link href={`/news/${article.slug || article.id}`}>
         <div className="aspect-video bg-[var(--gray-800)] relative">
           <img 
             src={displayImage} 

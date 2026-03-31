@@ -64,54 +64,54 @@ export const toolsAPI = {
     if (params?.startup_friendly) query.append('startup_friendly', 'true');
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/tools/?${query.toString()}`);
+    return fetchAPI(`/api/tools/?${query.toString()}`);
   },
-  getBySlug: (slug: string) => fetchAPI(`/tools/${slug}/`),
+  getBySlug: (slug: string) => fetchAPI(`/api/tools/${slug}/`),
   search: (query: string) => 
-    fetchAPI('/tools/search/', {
+    fetchAPI('/api/tools/search/', {
       method: 'POST',
       body: JSON.stringify({ query }),
     }),
   create: (data: any) =>
-    fetchAPI('/tools/', {
+    fetchAPI('/api/tools/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
   update: (slug: string, data: any) =>
-    fetchAPI(`/tools/${slug}/`, {
+    fetchAPI(`/api/tools/${slug}/`, {
       method: 'PATCH',
       body: JSON.stringify(data),
     }),
   delete: (slug: string) =>
-    fetchAPI(`/tools/${slug}/`, {
+    fetchAPI(`/api/tools/${slug}/`, {
       method: 'DELETE',
     }),
 };
 
 export const reviewsAPI = {
   getByToolId: (toolId: number) => 
-    fetchAPI(`/reviews/?tool_id=${toolId}`),
+    fetchAPI(`/api/reviews/?tool_id=${toolId}`),
   create: (data: any) =>
-    fetchAPI('/reviews/', {
+    fetchAPI('/api/reviews/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
 };
 
 export const dealsAPI = {
-  getAll: () => fetchAPI('/deals/'),
+  getAll: () => fetchAPI('/api/deals/'),
 };
 
 export const newsAPI = {
-  getAll: () => fetchAPI('/news/'),
-  getBySlug: (slug: string) => fetchAPI(`/news/${slug}/`),
+  getAll: () => fetchAPI('/api/news/'),
+  getBySlug: (slug: string) => fetchAPI(`/api/news/${slug}/`),
   upvote: (newsId: number, sessionId?: string) =>
-    fetchAPI(`/news/${newsId}/upvote/`, {
+    fetchAPI(`/api/news/${newsId}/upvote/`, {
       method: 'POST',
       headers: sessionId ? { 'X-Session-ID': sessionId } : {},
     }),
   removeUpvote: (newsId: number, sessionId?: string) =>
-    fetchAPI(`/news/${newsId}/upvote/remove/`, {
+    fetchAPI(`/api/news/${newsId}/upvote/remove/`, {
       method: 'DELETE',
       headers: sessionId ? { 'X-Session-ID': sessionId } : {},
     }),
@@ -119,27 +119,27 @@ export const newsAPI = {
 
 export const newsletterAPI = {
   subscribe: (email: string, source: string = 'homepage') =>
-    fetchAPI('/newsletter/subscribe/', {
+    fetchAPI('/api/newsletter/subscribe/', {
       method: 'POST',
       body: JSON.stringify({ email, source }),
     }),
 };
 
 export const categoriesAPI = {
-  getAll: () => fetchAPI('/categories/'),
+  getAll: () => fetchAPI('/api/categories/'),
 };
 
 export const submissionAPI = {
-  getAll: () => fetchAPI('/submissions/'),
+  getAll: () => fetchAPI('/api/submissions/'),
   submit: (data: any) =>
-    fetchAPI('/submissions/', {
+    fetchAPI('/api/submissions/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
 };
 
 export const healthAPI = {
-  check: () => fetchAPI('/health/'),
+  check: () => fetchAPI('/api/health/'),
 };
 
 export const guidesAPI = {
@@ -153,10 +153,10 @@ export const guidesAPI = {
     if (params?.tool) query.append('tool', params.tool);
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/guides/?${query.toString()}`);
+    return fetchAPI(`/api/guides/?${query.toString()}`);
   },
-  getBySlug: (slug: string) => fetchAPI(`/guides/${slug}/`),
-  getFilters: () => fetchAPI('/guides/filters/'),
+  getBySlug: (slug: string) => fetchAPI(`/api/guides/${slug}/`),
+  getFilters: () => fetchAPI('/api/guides/filters/'),
 };
 
 export const labsAPI = {
@@ -170,10 +170,10 @@ export const labsAPI = {
     if (params?.tool) query.append('tool', params.tool);
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/labs/?${query.toString()}`);
+    return fetchAPI(`/api/labs/?${query.toString()}`);
   },
-  getBySlug: (slug: string) => fetchAPI(`/labs/${slug}/`),
-  getFilters: () => fetchAPI('/labs/filters/'),
+  getBySlug: (slug: string) => fetchAPI(`/api/labs/${slug}/`),
+  getFilters: () => fetchAPI('/api/labs/filters/'),
 };
 
 export const workshopsAPI = {
@@ -187,16 +187,16 @@ export const workshopsAPI = {
     if (params?.tool) query.append('tool', params.tool);
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/workshops/?${query.toString()}`);
+    return fetchAPI(`/api/workshops/?${query.toString()}`);
   },
-  getBySlug: (slug: string) => fetchAPI(`/workshops/${slug}/`),
-  getFilters: () => fetchAPI('/workshops/filters/'),
+  getBySlug: (slug: string) => fetchAPI(`/api/workshops/${slug}/`),
+  getFilters: () => fetchAPI('/api/workshops/filters/'),
 };
 
 // Education API - matches backend education app endpoints
 export const educationAPI = {
-  getCategories: () => fetchAPI('/education/categories/'),
-  getAudiences: () => fetchAPI('/education/audiences/'),
+  getCategories: () => fetchAPI('/api/education/categories/'),
+  getAudiences: () => fetchAPI('/api/education/audiences/'),
   getCourses: (params?: { category?: string; audience?: string; difficulty?: string; format?: string; is_featured?: boolean; page?: number; page_size?: number }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
@@ -206,9 +206,9 @@ export const educationAPI = {
     if (params?.is_featured) query.append('is_featured', 'true');
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/education/courses/?${query.toString()}`);
+    return fetchAPI(`/api/education/courses/?${query.toString()}`);
   },
-  getCourseBySlug: (slug: string) => fetchAPI(`/education/courses/${slug}/`),
+  getCourseBySlug: (slug: string) => fetchAPI(`/api/education/courses/${slug}/`),
   getGuides: (params?: { category?: string; audience?: string; difficulty?: string; is_featured?: boolean; page?: number; page_size?: number }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
@@ -217,9 +217,9 @@ export const educationAPI = {
     if (params?.is_featured) query.append('is_featured', 'true');
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/education/guides/?${query.toString()}`);
+    return fetchAPI(`/api/education/guides/?${query.toString()}`);
   },
-  getGuideBySlug: (slug: string) => fetchAPI(`/education/guides/${slug}/`),
+  getGuideBySlug: (slug: string) => fetchAPI(`/api/education/guides/${slug}/`),
   getWorkshops: (params?: { format?: string; status?: string; category?: string; page?: number; page_size?: number }) => {
     const query = new URLSearchParams();
     if (params?.format) query.append('format', params.format);
@@ -227,24 +227,50 @@ export const educationAPI = {
     if (params?.category) query.append('category', params.category);
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
-    return fetchAPI(`/education/workshops/?${query.toString()}`);
+    return fetchAPI(`/api/education/workshops/?${query.toString()}`);
   },
-  getWorkshopBySlug: (slug: string) => fetchAPI(`/education/workshops/${slug}/`),
-  getLearningPaths: () => fetchAPI('/education/learning-paths/'),
-  getLearningPathBySlug: (slug: string) => fetchAPI(`/education/learning-paths/${slug}/`),
-  getLandingPage: (pageType: string) => fetchAPI(`/education/landing-pages/${pageType}/`),
+  getWorkshopBySlug: (slug: string) => fetchAPI(`/api/education/workshops/${slug}/`),
+  getLearningPaths: () => fetchAPI('/api/education/learning-paths/'),
+  getLearningPathBySlug: (slug: string) => fetchAPI(`/api/education/learning-paths/${slug}/`),
+  getLandingPage: (pageType: string) => fetchAPI(`/api/education/landing-pages/${pageType}/`),
   submitCourseInquiry: (data: Record<string, unknown>) =>
-    fetchAPI('/education/inquiries/course/', {
+    fetchAPI('/api/education/inquiries/course/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
   submitOrgInquiry: (data: Record<string, unknown>) =>
-    fetchAPI('/education/inquiries/organization/', {
+    fetchAPI('/api/education/inquiries/organization/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),
   registerForWorkshop: (slug: string, data: Record<string, unknown>) =>
-    fetchAPI(`/education/workshops/${slug}/register/`, {
+    fetchAPI(`/api/education/workshops/${slug}/register/`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+};
+
+export const agentsAPI = {
+  getAll: (params?: { category?: string; pricing?: string; access?: string; search?: string; sort?: string; page?: number; page_size?: number }) => {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.pricing) query.append('pricing', params.pricing);
+    if (params?.access) query.append('access', params.access);
+    if (params?.search) query.append('search', params.search);
+    if (params?.sort) query.append('sort', params.sort);
+    if (params?.page) query.append('page', params.page.toString());
+    if (params?.page_size) query.append('page_size', params.page_size.toString());
+    return fetchAPI(`/api/agents/?${query.toString()}`);
+  },
+  getBySlug: (slug: string) => fetchAPI(`/api/agents/${slug}/`),
+  getCategories: () => fetchAPI('/api/agents/categories/'),
+  getStats: () => fetchAPI('/api/agents/stats/'),
+};
+
+export const pricingAPI = {
+  getConfig: () => fetchAPI('/api/config/pricing/'),
+  reportPricing: (toolSlug: string, data: { email?: string; session_id?: string; message?: string }) =>
+    fetchAPI(`/api/tools/${toolSlug}/report-pricing/`, {
       method: 'POST',
       body: JSON.stringify(data),
     }),
@@ -252,12 +278,12 @@ export const educationAPI = {
 
 export const trackingAPI = {
   trackUsage: (toolId: number, sessionId?: string) =>
-    fetchAPI('/track/usage/', {
+    fetchAPI('/api/track/usage/', {
       method: 'POST',
       body: JSON.stringify({ tool_id: toolId, session_id: sessionId || '' }),
     }),
   trackClick: (toolId: number, action: string, sessionId?: string, referrer?: string) =>
-    fetchAPI('/track/click/', {
+    fetchAPI('/api/track/click/', {
       method: 'POST',
       body: JSON.stringify({
         tool_id: toolId,
@@ -267,7 +293,7 @@ export const trackingAPI = {
       }),
     }),
   trackSearch: (query: string, resultsCount: number, filters?: Record<string, any>, sessionId?: string) =>
-    fetchAPI('/track/search/', {
+    fetchAPI('/api/track/search/', {
       method: 'POST',
       body: JSON.stringify({
         query,
@@ -276,11 +302,11 @@ export const trackingAPI = {
         session_id: sessionId || '',
       }),
     }),
-  getUsageCount: (toolId: number) => fetchAPI(`/tools/${toolId}/usage-count/`),
+  getUsageCount: (toolId: number) => fetchAPI(`/api/tools/${toolId}/usage-count/`),
   getTrendingTools: (days?: number, limit?: number) => {
     const params = new URLSearchParams();
     if (days) params.append('days', days.toString());
     if (limit) params.append('limit', limit.toString());
-    return fetchAPI(`/tools/trending/?${params.toString()}`);
+    return fetchAPI(`/api/tools/trending/?${params.toString()}`);
   },
 };

@@ -5,6 +5,9 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import ToolLogo from '@/components/shared/ToolLogo';
 import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
+import ToolTLDR from '@/components/features/tools/ToolTLDR';
+import ToolQASection, { generateQAPairs } from '@/components/features/tools/ToolQASection';
+import INRPriceDisplay from '@/components/shared/INRPriceDisplay';
 import { addRefToUrl } from '@/lib/utils/url';
 import { Tool, Review } from '@/types';
 
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
   ];
 
   return generateSEO({
-    title: `${tool.name} – AI Tool for ${primaryCategory} | Review & Pricing`,
+    title: `${tool.name} | AI Tool for ${primaryCategory} | Review & Pricing`,
     description: tool.short_description || tool.description?.substring(0, 160) || `Discover ${tool.name}, an AI ${primaryCategory.toLowerCase()} tool for startups and founders. Read reviews, compare features, and find pricing.`,
     path: `/tool/${tool.slug}`,
     image: tool.logo_url || tool.landing_page_screenshot || '/logo-light.png',
@@ -62,51 +65,6 @@ function getRatingStars(rating: number | null | undefined) {
   ));
 }
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-function generateToolFAQs(tool: Tool): FAQItem[] {
-  const primaryCategory = tool.categories?.[0]?.name || 'AI';
-  const pricingInfo = tool.pricing_models?.includes('Free') 
-    ? 'Yes, it offers a free plan.' 
-    : tool.pricing_models?.includes('Freemium')
-    ? 'Yes, it offers a freemium model with limited free features.'
-    : tool.pricing_from 
-    ? `Pricing starts from $${tool.pricing_from}/month.`
-    : 'Please check the official website for current pricing.';
-
-  const faqs: FAQItem[] = [
-    {
-      question: `What is ${tool.name} and what does it do?`,
-      answer: tool.short_description || tool.description?.substring(0, 200) || `${tool.name} is an AI-powered ${primaryCategory.toLowerCase()} tool designed to help startups and founders.`,
-    },
-    {
-      question: `Is ${tool.name} good for early-stage startups?`,
-      answer: tool.startup_friendly 
-        ? `Yes, ${tool.name} is marked as startup-friendly and is well-suited for early-stage companies.`
-        : `${tool.name} can be used by startups. Check the pricing and features to see if it fits your stage.`,
-    },
-    {
-      question: `How much does ${tool.name} cost?`,
-      answer: pricingInfo,
-    },
-    {
-      question: `Can non-technical founders use ${tool.name}?`,
-      answer: `${tool.name} is designed to be user-friendly. ${tool.ideal_for?.includes('Non-technical founders') || tool.ideal_for?.includes('Beginners') ? 'It is specifically designed for non-technical users.' : 'Most features are accessible without technical expertise.'}`,
-    },
-  ];
-
-  if (tool.free_trial_days) {
-    faqs.push({
-      question: `Does ${tool.name} offer a free trial?`,
-      answer: `Yes, ${tool.name} offers a ${tool.free_trial_days}-day free trial so you can test it before committing.`,
-    });
-  }
-
-  return faqs;
-}
 
 export default async function ToolPage({ params }: ToolPageProps) {
   const { id } = await params;
@@ -121,8 +79,6 @@ export default async function ToolPage({ params }: ToolPageProps) {
     getToolUsageCount(tool.id),
   ]);
 
-  const faqs = generateToolFAQs(tool);
-
   const structuredData = generateStructuredData({
     '@type': 'SoftwareApplication',
     name: tool.name,
@@ -134,10 +90,19 @@ export default async function ToolPage({ params }: ToolPageProps) {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
     } : tool.pricing_from ? {
       '@type': 'Offer',
       price: tool.pricing_from,
       priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      ...(tool.pricing_inr != null ? {
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: tool.pricing_inr,
+          priceCurrency: 'INR',
+        },
+      } : {}),
     } : undefined,
     aggregateRating: tool.review_count > 0 ? {
       '@type': 'AggregateRating',
@@ -163,14 +128,43 @@ export default async function ToolPage({ params }: ToolPageProps) {
     })),
   });
 
+  const primaryCategorySlug = tool.categories?.[0]?.slug || '';
+  const primaryCategoryName = tool.categories?.[0]?.name || 'AI Tools';
+
+  const breadcrumbSchema = generateStructuredData({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.one9founders.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: primaryCategoryName,
+        item: `https://www.one9founders.com/tools/${primaryCategorySlug || 'all'}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: tool.name,
+        item: `https://www.one9founders.com/tool/${tool.slug}`,
+      },
+    ],
+  });
+
+  // FAQPage schema from Q&A pairs
+  const qaPairs = generateQAPairs(tool);
   const faqSchema = generateStructuredData({
     '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: qaPairs.map((qa) => ({
       '@type': 'Question',
-      name: faq.question,
+      name: qa.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer,
+        text: qa.answer,
       },
     })),
   });
@@ -181,6 +175,12 @@ export default async function ToolPage({ params }: ToolPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
         }}
       />
       <script
@@ -270,8 +270,14 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 
                 <div className="mb-4 flex items-center gap-2">
                   <span className="text-[var(--gray-400)] text-sm">Rating:</span>
-                  <div className="flex">{getRatingStars(tool.rating)}</div>
-                  <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
+                  {tool.rating != null && tool.rating > 0 && tool.review_count > 0 ? (
+                    <>
+                      <div className="flex">{getRatingStars(tool.rating)}</div>
+                      <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
+                    </>
+                  ) : (
+                    <span className="text-[var(--gray-500)] text-sm">Rating Pending</span>
+                  )}
                 </div>
                 
                 <a
@@ -318,15 +324,24 @@ export default async function ToolPage({ params }: ToolPageProps) {
               )}
               
               <div className="grid grid-cols-1 gap-3 md:gap-4 mb-4 text-sm md:text-base">
-                {tool.pricing_models?.length > 0 && (
-                  <div>
-                    <span className="text-[var(--gray-400)]">Pricing:</span>
-                    <span className="text-white ml-2">
-                      {tool.pricing_models.join(', ')}
-                      {tool.pricing_from && ` from $${tool.pricing_from}`}
-                    </span>
-                  </div>
-                )}
+                <div>
+                  <span className="text-[var(--gray-400)]">Pricing:</span>
+                  <span className="text-white ml-2">
+                    {tool.pricing_from != null && tool.pricing_from > 0
+                      ? `From $${tool.pricing_from}/mo`
+                      : tool.pricing_models?.length > 0
+                        ? tool.pricing_models.join(', ')
+                        : tool.free_tier_available
+                          ? 'Free'
+                          : tool.pricing_type
+                            ? tool.pricing_type.charAt(0).toUpperCase() + tool.pricing_type.slice(1)
+                            : 'Pricing not available'}
+                  </span>
+                  {tool.free_tier_available && tool.pricing_from != null && tool.pricing_from > 0 && (
+                    <span className="text-green-400 ml-2 text-xs">(Free tier available)</span>
+                  )}
+                  <INRPriceDisplay tool={tool} className="mt-1" />
+                </div>
                 {tool.free_trial_days && (
                   <div>
                     <span className="text-[var(--gray-400)]">Free Trial:</span>
@@ -336,6 +351,8 @@ export default async function ToolPage({ params }: ToolPageProps) {
               </div>
             </div>
           </div>
+          
+          <ToolTLDR tool={tool} />
           
           <div className="mt-8">
             <h2 className="text-lg md:text-xl font-semibold text-white mb-2">What is {tool.name}?</h2>
@@ -357,9 +374,15 @@ export default async function ToolPage({ params }: ToolPageProps) {
             <div className="mt-8">
               <h2 className="text-xl font-semibold text-white mb-4">Key Features</h2>
               <ul className="list-disc list-inside text-[var(--gray-300)] space-y-2">
-                {tool.features.map((feature: string, index: number) => (
-                  <li key={index}>{feature}</li>
-                ))}
+                {tool.features.map((feature: string, index: number) => {
+                  const sepIdx = feature.indexOf('::');
+                  if (sepIdx > 0) {
+                    const name = feature.substring(0, sepIdx).trim();
+                    const desc = feature.substring(sepIdx + 2).trim();
+                    return <li key={index}><strong className="text-white">{name}</strong> — {desc}</li>;
+                  }
+                  return <li key={index}>{feature}</li>;
+                })}
               </ul>
             </div>
           )}
@@ -371,26 +394,63 @@ export default async function ToolPage({ params }: ToolPageProps) {
             </div>
           )}
 
+          {/* Security Assessment */}
           <div className="mt-8">
-            <h2 className="text-xl font-semibold text-white mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-[var(--gray-800)] rounded-lg p-4">
-                  <h3 className="text-white font-medium mb-2">{faq.question}</h3>
-                  <p className="text-[var(--gray-300)] text-sm">{faq.answer}</p>
+            <h2 className="text-xl font-semibold text-white mb-4">Security Assessment</h2>
+            {tool.security_score != null ? (
+              <div className="bg-[var(--gray-800)] rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  <span className="text-2xl font-bold text-white">{tool.security_score}/100</span>
+                  <span className="text-green-400 text-sm font-medium">Security Verified</span>
                 </div>
-              ))}
-            </div>
+                <p className="text-[var(--gray-400)] text-sm">
+                  This tool has been assessed using our 10-point security evaluation framework covering data handling, encryption, compliance, and more.
+                  {tool.security_assessed_at && (
+                    <span className="block mt-1 text-[var(--gray-500)]">
+                      Last assessed: {new Date(tool.security_assessed_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    </span>
+                  )}
+                </p>
+              </div>
+            ) : (
+              <div className="bg-[var(--gray-800)] rounded-lg p-6">
+                <div className="flex items-center gap-3 mb-2">
+                  <svg className="w-6 h-6 text-[var(--gray-500)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  <span className="text-lg font-medium text-[var(--gray-400)]">Security: Pending</span>
+                </div>
+                <p className="text-[var(--gray-500)] text-sm">
+                  This tool has not yet been assessed using our 10-point security framework. Assessment is in progress.
+                </p>
+              </div>
+            )}
+          </div>
+
+          <ToolQASection tool={tool} />
+
+          {/* Last Updated */}
+          <div className="mt-6 text-[var(--gray-500)] text-xs">
+            Last updated: {new Date(tool.updated_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
           </div>
 
           <div className="mt-8">
             <h2 className="text-xl font-semibold text-white mb-4">Looking for Alternatives?</h2>
             <p className="text-[var(--gray-300)]">
               If {tool.name} doesn&apos;t fit your needs, explore other{' '}
-              <a href="/" className="text-purple-400 hover:text-purple-300 underline">
+              <a href={primaryCategorySlug ? `/?category=${primaryCategorySlug}` : '/'} className="text-purple-400 hover:text-purple-300 underline">
                 AI tools for {tool.categories?.[0]?.name?.toLowerCase() || 'startups'}
               </a>{' '}
-              in our directory. We have curated over 2,500 tools to help founders find the perfect solution.
+              in our directory.
+            </p>
+            <p className="text-[var(--gray-400)] text-sm mt-3">
+              Want to understand how we evaluate tools?{' '}
+              <a href="/methodology" className="text-purple-400 hover:text-purple-300 underline">
+                Read our 10-point rating methodology
+              </a>.
             </p>
           </div>
         </div>

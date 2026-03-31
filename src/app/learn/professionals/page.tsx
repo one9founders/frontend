@@ -36,7 +36,7 @@ export default async function ProfessionalsPage() {
     '@type': 'WebPage',
     name: page.hero_title,
     description: page.hero_subtitle,
-    url: 'https://one9founders.com/learn/professionals',
+    url: 'https://www.one9founders.com/learn/professionals',
   });
 
   return (

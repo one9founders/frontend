@@ -12,17 +12,29 @@ export interface NewsArticle {
   image: string;
 }
 
+function mapArticle(data: any): NewsArticle {
+  return {
+    ...data,
+    description: data.excerpt || '',
+    date: data.published_at || '',
+    read_time: data.reading_time ? `${data.reading_time} min read` : '',
+    image: data.featured_image || '',
+  };
+}
+
 export async function getNews(category?: string) {
-  const data = await newsAPI.getAll();
+  const response = await newsAPI.getAll();
+  const data = Array.isArray(response) ? response : (response?.results || []);
   
+  let mapped = data.map(mapArticle);
   if (category && category !== 'All') {
-    return data.filter((article: NewsArticle) => article.category === category);
+    mapped = mapped.filter((article: NewsArticle) => article.category === category);
   }
-  
-  return data as NewsArticle[];
+  return mapped as NewsArticle[];
 }
 
 export async function getNewsById(id: string) {
   const data = await newsAPI.getBySlug(id);
-  return data as NewsArticle;
+  if (!data) return null;
+  return mapArticle(data) as NewsArticle;
 }

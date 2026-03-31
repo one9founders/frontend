@@ -25,8 +25,8 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
   --brand-primary: #7828D9;
   --brand-secondary: #7C3AED;
   --brand-tertiary: #8B5CF6;
@@ -279,4 +279,13 @@ h4, h5, h6 {
 }
 .guide-content em {
   color: rgb(156 163 175);
+}
+
+/* Hide scrollbar for horizontal scroll sections */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

@@ -113,7 +113,7 @@ export async function getToolBySlug(slug: string) {
 export async function getReviewsByToolId(toolId: number) {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
   try {
-    const response = await fetch(`${API_URL}/reviews/?tool_id=${toolId}`, {
+    const response = await fetch(`${API_URL}/api/reviews/?tool_id=${toolId}`, {
       next: { revalidate: 300 }, // 5 minutes - faster updates for new reviews
     });
     if (!response.ok) return [];
@@ -128,7 +128,7 @@ export async function getReviewsByToolId(toolId: number) {
 export async function getToolUsageCount(toolId: number) {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
   try {
-    const response = await fetch(`${API_URL}/tools/${toolId}/usage-count/`, {
+    const response = await fetch(`${API_URL}/api/tools/${toolId}/usage-count/`, {
       next: { revalidate: 300 }, // 5 minutes - faster updates for usage stats
     });
     if (!response.ok) return 0;
@@ -143,7 +143,7 @@ export async function getToolUsageCount(toolId: number) {
 export async function getAllToolSlugs() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
   try {
-    const response = await fetch(`${API_URL}/tools/?page_size=1000`, {
+    const response = await fetch(`${API_URL}/api/tools/?page_size=1000`, {
       next: { revalidate: 300 }, // 5 minutes - faster updates for new tools
     });
     if (!response.ok) return [];

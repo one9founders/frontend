@@ -3,12 +3,13 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
+import { STATS } from '@/lib/constants/stats';
 
 export const metadata: Metadata = generateSEO({
-  title: 'How We Rate AI Tools | One9Founders Methodology',
-  description: 'Our transparent 10-point evaluation framework for rating 2,500+ AI tools. Learn how One9Founders ensures unbiased, security-first reviews with zero affiliate influence.',
+  title: 'How We Rate AI Tools | 10-Point Security Framework | One9Founders',
+  description: `Our transparent 10-point framework rates ${STATS.totalResources} AI tools on security, pricing, features, and more. Zero affiliate bias. See how we score every tool.`,
   path: '/methodology',
-  keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria'],
+  keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation'],
 });
 
 const criteria = [
@@ -163,8 +164,8 @@ export default function MethodologyPage() {
   const structuredData = generateStructuredData({
     '@type': 'WebPage',
     name: 'How We Rate AI Tools - One9Founders Methodology',
-    description: 'Our transparent 10-point evaluation framework for rating 2,500+ AI tools.',
-    url: 'https://one9founders.com/methodology',
+    description: 'Our transparent 10-point evaluation framework for rating AI tools.',
+    url: 'https://www.one9founders.com/methodology',
   });
 
   return (
@@ -188,7 +189,7 @@ export default function MethodologyPage() {
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
               One9Founders uses a uniform, transparent methodology to evaluate every AI tool
               in our directory. Unlike other directories that rely on affiliate relationships
-              or popularity metrics alone, we apply consistent criteria across all 2,500+ tools.
+              or popularity metrics alone, we apply consistent criteria across all tools.
             </p>
             <p className="text-white font-semibold text-lg">
               Our commitment: Zero affiliate bias. Every tool rated the same way. Security first.
@@ -282,6 +283,63 @@ export default function MethodologyPage() {
               This means when we recommend a tool, it&apos;s because it genuinely scored
               well in our evaluation - not because we earn money when you click.
             </p>
+          </div>
+        </section>
+
+        {/* LLM Evaluation */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-white mb-8">How We Evaluate LLMs</h2>
+          <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-8">
+            <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-6">
+              Our LLM Explorer tracks 177 models across multiple dimensions. Unlike tool ratings, LLM data is sourced from public benchmarks and provider documentation.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">What We Track</h3>
+                <ul className="space-y-2">
+                  {[
+                    'Arena Elo rankings (from Chatbot Arena)',
+                    'Input & output pricing (USD and INR)',
+                    'Context window size',
+                    'Provider and model family',
+                    'Open-source vs proprietary license',
+                    'India-affordable pricing tags',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[var(--gray-300)]">
+                      <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">Data Sources</h3>
+                <ul className="space-y-2">
+                  {[
+                    'LMSYS Chatbot Arena leaderboard',
+                    'Official provider pricing pages',
+                    'Model documentation and release notes',
+                    'Community benchmarks and evaluations',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[var(--gray-300)]">
+                      <svg className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-[var(--gray-700)]">
+              <p className="text-[var(--gray-400)]">
+                LLM data is updated as providers release new models or change pricing. Visit our{' '}
+                <Link href="/llms" className="text-purple-400 hover:text-purple-300 underline">LLM Explorer</Link>{' '}
+                to compare all 177 models.
+              </p>
+            </div>
           </div>
         </section>
 

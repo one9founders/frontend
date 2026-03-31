@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon, Search01Icon } from '@/components/ui/icons';
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
+import { useCurrency } from '@/lib/currency';
 import posthog from 'posthog-js';
 
 export default function Navbar() {
@@ -15,6 +16,7 @@ export default function Navbar() {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const pathname = usePathname();
   const profileMenuRef = useRef<HTMLDivElement>(null);
+  const { currency, toggleCurrency } = useCurrency();
 
   useEffect(() => {
     getCurrentUser().then(setUser);
@@ -85,6 +87,7 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+
   const handleLogout = async () => {
     // Capture logout event before resetting
     posthog.capture('user_logged_out');
@@ -118,14 +121,21 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <div className="flex gap-6 items-center">
-              <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Explore
-              </button>
+              <div className="relative group">
+                <button onClick={scrollToTools} className={`hover:text-white cursor-pointer ${pathname === '/' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
+                  Explore
+                </button>
+                <div className="absolute left-0 top-full mt-2 w-48 bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg shadow-lg py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                  <button onClick={scrollToTools} className="w-full px-4 py-2 text-left text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)] cursor-pointer">AI Tools</button>
+                  <Link href="/agents" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">AI Agents</Link>
+                  <Link href="/llms" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">LLMs</Link>
+                  <Link href="/rag-vector-dbs" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">RAG & Vector DBs</Link>
+                  <Link href="/research" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">Research</Link>
+                  <Link href="/stacks" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">Founder Stacks</Link>
+                </div>
+              </div>
               <Link href="/compare" className={`hover:text-white ${pathname === '/compare' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 Compare
-              </Link>
-              <Link href="/deals" className={`hover:text-white ${pathname === '/deals' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Deals
               </Link>
               <Link href="/methodology" className={`hover:text-white ${pathname === '/methodology' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 How We Rate
@@ -133,22 +143,28 @@ export default function Navbar() {
               <Link href="/about" className={`hover:text-white ${pathname === '/about' ? 'text-white' : 'text-[var(--gray-500)]'}`}>
                 About
               </Link>
-              <Link href="/learn" className={`hover:text-white ${pathname.startsWith('/learn') ? 'text-white' : 'text-[var(--gray-500)]'}`}>
-                Learn
-              </Link>
-              <button
-                onClick={scrollToTools}
-                aria-label="Search tools"
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-600)] transition-[color,border-color] cursor-pointer"
-              >
-                <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
-                <span className="text-xs text-[var(--gray-500)]">&#8984;K</span>
-              </button>
             </div>
             <div className="flex items-center gap-4">
-              {/* <button className="btn-primary px-4 py-2" onClick={handleSubmitTool}>
-                Submit Tool
-              </button> */}
+              <button
+                onClick={toggleCurrency}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
+                  currency === 'INR'
+                    ? 'bg-orange-600/20 text-orange-400 border border-orange-600/30'
+                    : 'bg-[var(--gray-800)] text-[var(--gray-400)] border border-[var(--gray-700)]'
+                } hover:opacity-80`}
+                aria-label={`Switch to ${currency === 'USD' ? 'INR' : 'USD'} pricing`}
+              >
+                <span className={currency === 'USD' ? 'font-bold' : 'opacity-60'}>$</span>
+                <span className="text-[var(--gray-600)]">/</span>
+                <span className={currency === 'INR' ? 'font-bold' : 'opacity-60'}>₹</span>
+              </button>
+              <button
+                onClick={scrollToTools}
+                aria-label="Search AI tools (⌘K)"
+                className="hidden lg:inline-flex items-center text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded px-1.5 py-0.5 font-mono cursor-pointer hover:border-[var(--gray-500)] transition-colors"
+              >
+                ⌘K
+              </button>
               {user ? (
                 <div className="relative" ref={profileMenuRef}>
                   <button
@@ -207,11 +223,23 @@ export default function Navbar() {
               <button onClick={scrollToTools} className="text-[var(--gray-500)] hover:text-white text-left cursor-pointer">
                 Explore
               </button>
+              <Link href="/llms" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                LLMs
+              </Link>
+              <Link href="/agents" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                Agents
+              </Link>
+              <Link href="/rag-vector-dbs" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                RAG & Vector DBs
+              </Link>
+              <Link href="/research" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                Research
+              </Link>
+              <Link href="/stacks" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                Founder Stacks
+              </Link>
               <Link href="/compare" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Compare
-              </Link>
-              <Link href="/deals" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
-                Deals
               </Link>
               <Link href="/methodology" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 How We Rate
@@ -219,20 +247,20 @@ export default function Navbar() {
               <Link href="/about" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 About
               </Link>
-              <Link href="/learn" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
-                Learn
-              </Link>
-              <button
-                onClick={scrollToTools}
-                className="flex items-center gap-2 text-[var(--gray-500)] hover:text-white text-left cursor-pointer"
-              >
-                <HugeiconsIcon icon={Search01Icon} size={16} aria-hidden="true" />
-                Search Tools
-              </button>
               <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
-                {/* <button className="btn-primary px-4 py-2 text-left" onClick={handleSubmitTool}>
-                  Submit Tool
-                </button> */}
+                <button
+                  onClick={toggleCurrency}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer self-start ${
+                    currency === 'INR'
+                      ? 'bg-orange-600/20 text-orange-400 border border-orange-600/30'
+                      : 'bg-[var(--gray-800)] text-[var(--gray-400)] border border-[var(--gray-700)]'
+                  } hover:opacity-80`}
+                  aria-label={`Switch to ${currency === 'USD' ? 'INR' : 'USD'} pricing`}
+                >
+                  <span className={currency === 'USD' ? 'font-bold' : 'opacity-60'}>$</span>
+                  <span className="text-[var(--gray-600)]">/</span>
+                  <span className={currency === 'INR' ? 'font-bold' : 'opacity-60'}>₹</span>
+                </button>
                 {user ? (
                   <div className="flex flex-col gap-3 pt-2 border-t border-[var(--gray-800)]">
                     <div className="flex items-center gap-3">
