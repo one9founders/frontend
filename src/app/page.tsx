@@ -11,6 +11,7 @@ import PartnersSection from "../components/shared/PartnersSection";
 import WhyTrustSection from "../components/shared/WhyTrustSection";
 import Top20Tools from "../components/features/tools/Top20Tools";
 import Footer from "../components/layout/Footer";
+import FounderSurveyCTA from '@/components/features/survey/FounderSurveyCTA';
 
 export const metadata: Metadata = {
   title: { absolute: "One9Founders | India's #1 AI Ecosystem Navigator" },
@@ -70,6 +71,7 @@ export default function Home() {
       <PartnersSection />
       <WhyTrustSection />
       <Top20Tools />
+      <FounderSurveyCTA />
       <Footer />
     </div>
   );
