@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { subscribeToNewsletter } from '@/lib/actions/tools';
 
 // Animated grid background
 function GridBackground() {
@@ -85,14 +86,16 @@ function AnimNum({ target, duration = 1800, delay = 0, suffix = '' }: { target: 
   useEffect(() => {
     if (!started) return;
     const start = performance.now();
+    let animId: number;
     const tick = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setVal(Math.round(eased * target));
-      if (progress < 1) requestAnimationFrame(tick);
+      if (progress < 1) animId = requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
   }, [started, target, duration]);
 
   return <>{val}{suffix}</>;
@@ -137,11 +140,21 @@ export default function FintechClient() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [startupType, setStartupType] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.includes('@')) {
-      setSubmitted(true);
+    if (!email) return;
+    setLoading(true);
+    try {
+      const result = await subscribeToNewsletter(email);
+      if (result.success) {
+        setSubmitted(true);
+      }
+    } catch {
+      // silently handle error
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -293,7 +306,8 @@ export default function FintechClient() {
                 />
                 <button
                   type="submit"
-                  className="fintech-btn-primary rounded-[10px] px-7 py-[14px] text-sm font-bold whitespace-nowrap cursor-pointer"
+                  disabled={loading || !email}
+                  className="fintech-btn-primary rounded-[10px] px-7 py-[14px] text-sm font-bold whitespace-nowrap cursor-pointer disabled:opacity-50"
                   style={{
                     background: '#38bdf8',
                     border: 'none',
@@ -301,7 +315,7 @@ export default function FintechClient() {
                     fontFamily: 'inherit',
                   }}
                 >
-                  Join Waitlist
+                  {loading ? 'Joining...' : 'Join Waitlist'}
                 </button>
               </form>
 
@@ -622,7 +636,8 @@ export default function FintechClient() {
             />
             <button
               type="submit"
-              className="fintech-btn-primary rounded-[10px] px-6 py-[14px] text-sm font-bold cursor-pointer"
+              disabled={loading || !email}
+              className="fintech-btn-primary rounded-[10px] px-6 py-[14px] text-sm font-bold cursor-pointer disabled:opacity-50"
               style={{
                 background: '#38bdf8',
                 border: 'none',
@@ -630,7 +645,7 @@ export default function FintechClient() {
                 fontFamily: 'inherit',
               }}
             >
-              Get Early Access
+              {loading ? 'Joining...' : 'Get Early Access'}
             </button>
           </form>
         ) : (
