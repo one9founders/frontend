@@ -625,35 +625,37 @@ export default function FintechClient() {
         </p>
 
         {!submitted ? (
-          <form onSubmit={handleSubmit} className="flex gap-2 max-w-[400px] mx-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              className="fintech-input-glow flex-1 rounded-[10px] px-[18px] py-[14px] text-[15px]"
-              style={{
-                background: '#0a1e30',
-                border: '1px solid #1a3450',
-                color: '#e8f4fc',
-                fontFamily: 'inherit',
-              }}
-            />
-            <button
-              type="submit"
-              disabled={loading || !email}
-              className="fintech-btn-primary rounded-[10px] px-6 py-[14px] text-sm font-bold cursor-pointer disabled:opacity-50"
-              style={{
-                background: '#38bdf8',
-                border: 'none',
-                color: '#030a14',
-                fontFamily: 'inherit',
-              }}
-            >
-              {loading ? 'Joining...' : 'Get Early Access'}
-            </button>
-          </form>
-          {error && <p className="text-sm mt-2" style={{ color: '#ef4444' }}>{error}</p>}
+          <>
+            <form onSubmit={handleSubmit} className="flex gap-2 max-w-[400px] mx-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                className="fintech-input-glow flex-1 rounded-[10px] px-[18px] py-[14px] text-[15px]"
+                style={{
+                  background: '#0a1e30',
+                  border: '1px solid #1a3450',
+                  color: '#e8f4fc',
+                  fontFamily: 'inherit',
+                }}
+              />
+              <button
+                type="submit"
+                disabled={loading || !email}
+                className="fintech-btn-primary rounded-[10px] px-6 py-[14px] text-sm font-bold cursor-pointer disabled:opacity-50"
+                style={{
+                  background: '#38bdf8',
+                  border: 'none',
+                  color: '#030a14',
+                  fontFamily: 'inherit',
+                }}
+              >
+                {loading ? 'Joining...' : 'Get Early Access'}
+              </button>
+            </form>
+            {error && <p className="text-sm mt-2" style={{ color: '#ef4444' }}>{error}</p>}
+          </>
         ) : (
           <p className="font-semibold" style={{ color: '#22c55e' }}>You&apos;re on the list {'\u2713'}</p>
         )}
