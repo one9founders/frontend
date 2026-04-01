@@ -141,18 +141,22 @@ export default function FintechClient() {
   const [submitted, setSubmitted] = useState(false);
   const [startupType, setStartupType] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setLoading(true);
+    setError('');
     try {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
         setSubmitted(true);
+      } else {
+        setError(result.error || 'Something went wrong');
       }
     } catch {
-      // silently handle error
+      setError('Failed to subscribe');
     } finally {
       setLoading(false);
     }
@@ -318,6 +322,7 @@ export default function FintechClient() {
                   {loading ? 'Joining...' : 'Join Waitlist'}
                 </button>
               </form>
+              {error && <p className="text-sm mt-2" style={{ color: '#ef4444' }}>{error}</p>}
 
               {/* Startup type selector */}
               <div className="flex gap-1.5 justify-center flex-wrap">
@@ -648,6 +653,7 @@ export default function FintechClient() {
               {loading ? 'Joining...' : 'Get Early Access'}
             </button>
           </form>
+          {error && <p className="text-sm mt-2" style={{ color: '#ef4444' }}>{error}</p>}
         ) : (
           <p className="font-semibold" style={{ color: '#22c55e' }}>You&apos;re on the list {'\u2713'}</p>
         )}
