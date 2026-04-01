@@ -380,7 +380,7 @@ export default function FintechClient() {
         >
           {[
             { val: 8, suffix: '', label: 'Regulations Tracked', color: '#ef4444' },
-            { val: 25, suffix: '+', label: 'AI Tools Evaluated', color: '#38bdf8' },
+            { val: 25, suffix: '+', label: 'AI Tools In Process of Evaluation', color: '#38bdf8' },
             { val: 33, suffix: '', label: 'Compliance Checks', color: '#a78bfa' },
             { val: 7, suffix: '', label: 'Startup Categories', color: '#22c55e' },
           ].map((s, i) => (

@@ -7,13 +7,13 @@ export interface NewsArticle {
   title: string;
   description: string;
   excerpt?: string;
-  content: string;
+  content?: string;
   author: string;
   date: string;
   published_at?: string;
   readTime: string;
   reading_time?: number;
-  category: string;
+  category?: string;
   image: string;
   featured_image?: string;
   upvote_count: number;

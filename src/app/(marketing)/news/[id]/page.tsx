@@ -83,7 +83,7 @@ export default function NewsDetailPage() {
             <span>•</span>
             <span>{new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
             <span>•</span>
-            <span>{article.read_time}</span>
+            <span>{article.readTime}</span>
           </div>
         </div>
 
