@@ -60,6 +60,14 @@ const CATEGORIES = [
     href: '/research',
     cta: 'Browse Research',
   },
+  {
+    title: 'Fintech AI Stack',
+    description: 'Special stacks for fintech startups. Compliance-rated AI tools evaluated against RBI, DPDP Act, and 30+ Indian regulatory checks.',
+    emoji: '🏦',
+    active: true,
+    href: '/fintech',
+    cta: 'Explore Fintech Stack',
+  },
 ];
 
 export default function BrowseCategories() {
