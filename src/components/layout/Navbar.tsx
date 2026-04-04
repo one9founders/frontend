@@ -7,7 +7,7 @@ import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon, Search01Icon } f
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
 import { useCurrency } from '@/lib/currency';
-import posthog from 'posthog-js';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function Navbar() {
   const [showAuth, setShowAuth] = useState(false);
@@ -17,10 +17,18 @@ export default function Navbar() {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const pathname = usePathname();
   const profileMenuRef = useRef<HTMLDivElement>(null);
+  const { trackEvent, identify, reset } = useAnalytics();
+
   const { currency, toggleCurrency } = useCurrency();
 
   useEffect(() => {
-    getCurrentUser().then(setUser);
+    getCurrentUser().then((userData) => {
+      setUser(userData);
+      // Identify returning logged-in users so PostHog links session to their profile
+      if (userData?.email) {
+        identify(userData.email, { email: userData.email, name: userData.name });
+      }
+    });
     
     // Check for login query parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -99,9 +107,8 @@ export default function Navbar() {
 
 
   const handleLogout = async () => {
-    // Capture logout event before resetting
-    posthog.capture('user_logged_out');
-    posthog.reset();
+    trackEvent('user_logged_out');
+    reset();
 
     await logout();
     setUser(null);
