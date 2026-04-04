@@ -6,6 +6,8 @@ import { getCurrentUser } from '@/lib/actions/auth';
 import ReviewForm from '@/components/features/reviews/ReviewForm';
 import ReviewsList from '@/components/features/reviews/ReviewsList';
 import { Tool, Review } from '@/types';
+import { useAnalytics } from '@/hooks/useAnalytics';
+import { addRefToUrl } from '@/lib/utils/url';
 
 interface ToolDetailClientProps {
   tool: Tool;
@@ -18,6 +20,7 @@ export default function ToolDetailClient({
   initialReviews, 
   initialUsageCount 
 }: ToolDetailClientProps) {
+  const { trackEvent } = useAnalytics();
   const [reviews, setReviews] = useState<Review[]>(initialReviews);
   const [user, setUser] = useState<any>(null);
   const [showReviewForm, setShowReviewForm] = useState(false);
@@ -64,6 +67,16 @@ export default function ToolDetailClient({
       await trackingAPI.trackUsage(tool.id);
       setUsageCount(prev => prev + 1);
       setHasMarkedUsage(true);
+
+      // Track in PostHog — this tells us which tools are actually being used
+      trackEvent('tool_used_marked', {
+        tool_id: tool.id,
+        tool_name: tool.name,
+        tool_slug: tool.slug,
+        categories: tool.categories?.map((c: { name: string }) => c.name) || [],
+        pricing_models: tool.pricing_models || [],
+        rating: tool.rating,
+      });
       
       if (typeof window !== 'undefined') {
         const usedTools = JSON.parse(localStorage.getItem('usedTools') || '[]');
@@ -85,6 +98,12 @@ export default function ToolDetailClient({
       }
       return;
     }
+    // Track the intent to write a review (not just submission)
+    trackEvent('review_write_intent', {
+      tool_id: tool.id,
+      tool_name: tool.name,
+      tool_slug: tool.slug,
+    });
     setShowReviewForm(true);
   };
 

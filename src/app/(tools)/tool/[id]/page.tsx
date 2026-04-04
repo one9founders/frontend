@@ -6,6 +6,7 @@ import Navbar from '@/components/layout/Navbar';
 import ToolLogo from '@/components/shared/ToolLogo';
 import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
 import { addRefToUrl } from '@/lib/utils/url';
+import VisitToolButton from '@/components/features/tools/VisitToolButton';
 import { Tool, Review } from '@/types';
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
@@ -242,14 +243,17 @@ export default async function ToolPage({ params }: ToolPageProps) {
                   <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
                 </div>
                 
-                <a
+                <VisitToolButton
                   href={addRefToUrl(tool.affiliate_url || tool.website || '')}
-                  target="_blank"
-                  rel="noopener nofollow"
+                  toolId={tool.id}
+                  toolName={tool.name}
+                  toolSlug={tool.slug}
+                  categories={tool.categories?.map((c: { name: string }) => c.name) || []}
+                  isAffiliate={!!tool.affiliate_url}
                   className="btn-primary inline-block px-4 py-2 font-semibold text-sm"
                 >
                   Visit {tool.name}
-                </a>
+                </VisitToolButton>
                 
                 <ToolDetailClient 
                   tool={tool} 

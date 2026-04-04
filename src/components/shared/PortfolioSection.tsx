@@ -7,7 +7,7 @@ import SearchInput from "./SearchInput";
 import ToolCard from "../features/tools/ToolCard";
 import PricingFilter from "../features/tools/PricingFilter";
 import Pagination from "./Pagination";
-import posthog from "posthog-js";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 interface PortfolioSectionProps {
   initialTools?: Tool[];
@@ -20,6 +20,7 @@ export default function PortfolioSection({
   initialTotalCount = 0,
   initialTotalPages = 1 
 }: PortfolioSectionProps) {
+  const { trackEvent, captureException } = useAnalytics();
   const [tools, setTools] = useState<Tool[]>(initialTools);
   const [filteredTools, setFilteredTools] = useState<Tool[]>(initialTools);
   const [selectedTag, setSelectedTag] = useState("All");
@@ -139,7 +140,7 @@ export default function PortfolioSection({
       setSearchResults(results);
 
       // Capture search event
-      posthog.capture('tool_search_performed', {
+      trackEvent('tool_search_performed', {
         search_query: query,
         results_count: results?.length || 0,
         selected_category: selectedTag,
@@ -147,7 +148,7 @@ export default function PortfolioSection({
       });
     } catch (error) {
       console.error('Search failed:', error);
-      posthog.captureException(error);
+      captureException(error);
       setSearchResults([]);
     }
     setSearchLoading(false);

@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { submissionAPI } from '@/lib/api/apiClient';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
 import { useReCaptcha } from '@/lib/recaptcha';
-import posthog from 'posthog-js';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function SubmitToolPageClient() {
+  const { trackEvent, captureException } = useAnalytics();
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -49,7 +50,7 @@ export default function SubmitToolPageClient() {
       await submissionAPI.submit(submissionData);
 
       // Capture tool submission event
-      posthog.capture('tool_submitted', {
+      trackEvent('tool_submitted', {
         tool_name: formData.name,
         tool_website: formData.website,
         submitter_email: formData.submitter_email,
@@ -70,7 +71,7 @@ export default function SubmitToolPageClient() {
         pricing_info: ''
       });
     } catch (error) {
-      posthog.captureException(error);
+      captureException(error);
       await showError('Error', 'Failed to submit tool. Please try again.');
     } finally {
       setLoading(false);

@@ -6,9 +6,10 @@ import { usePathname } from 'next/navigation';
 import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon, Search01Icon } from '@/components/ui/icons';
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
-import posthog from 'posthog-js';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function Navbar() {
+  const { trackEvent, identify, reset } = useAnalytics();
   const [showAuth, setShowAuth] = useState(false);
   const [user, setUser] = useState<any>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,8 +18,17 @@ export default function Navbar() {
   const profileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    getCurrentUser().then(setUser);
-    
+    getCurrentUser().then((userData) => {
+      setUser(userData);
+      // Identify returning logged-in users so PostHog links their session to their profile
+      if (userData?.email) {
+        identify(userData.email, {
+          email: userData.email,
+          name: userData.name,
+        });
+      }
+    });
+
     // Check for login query parameter
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('login') === 'true') {
@@ -86,10 +96,8 @@ export default function Navbar() {
   };
 
   const handleLogout = async () => {
-    // Capture logout event before resetting
-    posthog.capture('user_logged_out');
-    posthog.reset();
-
+    trackEvent('user_logged_out');
+    reset();
     await logout();
     setUser(null);
     setIsMobileMenuOpen(false);
