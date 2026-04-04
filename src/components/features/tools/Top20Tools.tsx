@@ -8,9 +8,10 @@ import SearchInput from '@/components/shared/SearchInput';
 import ToolCard from '@/components/features/tools/ToolCard';
 import PricingFilter from '@/components/features/tools/PricingFilter';
 import Pagination from '@/components/shared/Pagination';
-import posthog from 'posthog-js';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 function Top20ToolsInner() {
+  const { trackEvent, captureException } = useAnalytics();
   const searchParams = useSearchParams();
   const initialQuery = searchParams.get('q') || '';
 
@@ -124,7 +125,7 @@ function Top20ToolsInner() {
       const results = await toolsAPI.smartSearch(query);
       setSearchResults(results || []);
 
-      posthog.capture('tool_search_performed', {
+      trackEvent('tool_search_performed', {
         search_query: query,
         results_count: results?.length || 0,
         selected_category: selectedTag,
@@ -132,7 +133,7 @@ function Top20ToolsInner() {
       });
     } catch (error) {
       console.error('Search failed:', error);
-      posthog.captureException(error);
+      captureException(error);
       setSearchResults([]);
     }
     setSearchLoading(false);

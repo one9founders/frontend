@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { subscribeToNewsletter } from '@/lib/actions/tools';
-import posthog from 'posthog-js';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function DealsEmailForm() {
+  const { trackEvent, captureException } = useAnalytics();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -20,7 +21,7 @@ export default function DealsEmailForm() {
     try {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
-        posthog.capture('newsletter_subscribed', {
+        trackEvent('newsletter_subscribed', {
           email: email,
           source: 'deals',
         });
@@ -32,7 +33,7 @@ export default function DealsEmailForm() {
         setMessage(result.error || 'Something went wrong');
       }
     } catch (error) {
-      posthog.captureException(error);
+      captureException(error);
       setIsSuccess(false);
       setMessage('Failed to subscribe');
     } finally {
