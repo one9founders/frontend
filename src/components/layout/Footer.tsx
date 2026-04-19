@@ -48,8 +48,14 @@ export default function Footer() {
           {/* Left: Logo, tagline, IIT Bombay */}
           <div className="lg:flex-1">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8 mb-6" draggable={false} />
-            <p className="mb-6 text-[var(--gray-400)] max-w-80">
+            <p className="mb-2 text-[var(--gray-400)] max-w-80">
               India&apos;s largest AI ecosystem navigator for startup founders.
+            </p>
+            <p className="mb-6 text-[var(--gray-400)] max-w-80">
+              Mumbai, Maharashtra, India |{' '}
+              <a href="mailto:hello@one9founders.com" className="hover:opacity-80 transition-opacity">
+                hello@one9founders.com
+              </a>
             </p>
 
             <div className="flex items-center gap-2 mb-6">
