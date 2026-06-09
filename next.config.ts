@@ -1,4 +1,9 @@
 import type { NextConfig } from "next";
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -26,7 +31,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/ai-news-insights-for-startup-founders',
-        destination: '/ai-news',
+        destination: '/news',
         permanent: true,
       },
       {

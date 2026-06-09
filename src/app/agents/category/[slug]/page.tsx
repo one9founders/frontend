@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
