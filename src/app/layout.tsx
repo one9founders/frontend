@@ -18,7 +18,10 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.one9founders.com'),
+  metadataBase: new URL('https://one9founders.com'),
+  alternates: {
+    canonical: './',
+  },
   title: {
     default: 'One9Founders | India\'s #1 AI Ecosystem Navigator',
     template: '%s | One9Founders',

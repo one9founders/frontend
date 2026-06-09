@@ -45,11 +45,11 @@ export async function generateMetadata({ params }: RagToolDetailPageProps): Prom
       title: `${tool.name} | One9Founders RAG Directory`,
       description: tool.description?.substring(0, 200) || description,
       type: 'website',
-      url: `https://www.one9founders.com/rag-vector-dbs/${tool.slug}`,
+      url: `https://one9founders.com/rag-vector-dbs/${tool.slug}`,
       images: tool.logo_url ? [{ url: tool.logo_url }] : undefined,
     },
     alternates: {
-      canonical: `https://www.one9founders.com/rag-vector-dbs/${tool.slug}`,
+      canonical: `https://one9founders.com/rag-vector-dbs/${tool.slug}`,
     },
   };
 }

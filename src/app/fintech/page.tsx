@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description:
     'Independent compliance ratings for every AI tool Indian fintech startups use. Evaluated against RBI FREE-AI, DPDP Act, AML/CFT, and 30+ regulatory checks.',
   alternates: {
-    canonical: 'https://www.one9founders.com/fintech',
+    canonical: 'https://one9founders.com/fintech',
   },
   openGraph: {
     type: 'website',
-    url: 'https://www.one9founders.com/fintech',
+    url: 'https://one9founders.com/fintech',
     title: 'Fintech AI Stack | One9Founders',
     description:
       'Independent compliance ratings for every AI tool Indian fintech startups use. Evaluated against RBI FREE-AI, DPDP Act, AML/CFT, and 30+ regulatory checks.',

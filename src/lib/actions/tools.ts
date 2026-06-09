@@ -36,7 +36,7 @@ export async function updateTool(slug: string, toolData: any) {
   }
 }
 
-export async function getAllTools(params?: { page?: number; page_size?: number; category?: string; pricing?: string }) {
+export async function getAllTools(params?: { page?: number; page_size?: number; category?: string; pricing?: string; ordering?: string }) {
   try {
     return await toolsAPI.getAll(params);
   } catch (error) {

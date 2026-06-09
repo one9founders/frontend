@@ -112,6 +112,11 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
+                    <Link href="/new" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      New AI Tools
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/llms" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       LLM Explorer
                     </Link>

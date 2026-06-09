@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     title: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders',
     description: 'Browse 1,200+ AI agents that go beyond chat. Autonomous tools for coding, sales, support, research, and operations.',
     type: 'website',
-    url: 'https://www.one9founders.com/agents',
+    url: 'https://one9founders.com/agents',
   },
   alternates: {
-    canonical: 'https://www.one9founders.com/agents',
+    canonical: 'https://one9founders.com/agents',
   },
 };
 

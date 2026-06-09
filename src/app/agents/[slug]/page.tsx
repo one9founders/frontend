@@ -51,11 +51,11 @@ export async function generateMetadata({ params }: AgentDetailPageProps): Promis
       title: `${agent.name} | One9Founders AI Agents`,
       description: ogDescription,
       type: 'website',
-      url: `https://www.one9founders.com/agents/${agent.slug}`,
+      url: `https://one9founders.com/agents/${agent.slug}`,
       images: agent.logo_url ? [{ url: agent.logo_url }] : undefined,
     },
     alternates: {
-      canonical: `https://www.one9founders.com/agents/${agent.slug}`,
+      canonical: `https://one9founders.com/agents/${agent.slug}`,
     },
   };
 }
