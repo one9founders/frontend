@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { Metadata } from 'next';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { guidesAPI } from '@/lib/api/apiClient';

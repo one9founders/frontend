@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';

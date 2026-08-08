@@ -146,6 +146,7 @@ export default function Navbar() {
                   <button onClick={scrollToTools} className="w-full px-4 py-2 text-left text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)] cursor-pointer">AI Tools</button>
                   <Link href="/new" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">New Tools</Link>
                   <Link href="/agents" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">AI Agents</Link>
+                  <Link href="/openworker" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">OpenWorker</Link>
                   <Link href="/llms" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">LLMs</Link>
                   <Link href="/rag-vector-dbs" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">RAG & Vector DBs</Link>
                   <Link href="/research" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">Research</Link>
@@ -254,6 +255,9 @@ export default function Navbar() {
               </Link>
               <Link href="/agents" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Agents
+              </Link>
+              <Link href="/openworker" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                OpenWorker
               </Link>
               <Link href="/rag-vector-dbs" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 RAG & Vector DBs

@@ -9,7 +9,7 @@ One9Founders helps Indian startup founders discover, compare, and choose AI tool
 - AI Agents Directory: https://one9founders.com/agents
 - LLM Explorer: https://one9founders.com/llms
 - AI Tool Stacks: https://one9founders.com/stacks
-- AI News: https://one9founders.com/ai-news
+- AI News: https://one9founders.com/news
 - Submit a Tool: https://one9founders.com/submit
 
 ## About

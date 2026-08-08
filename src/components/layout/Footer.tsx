@@ -127,6 +127,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/openworker" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      OpenWorker
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/compare" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Compare Tools
                     </Link>
