@@ -1,12 +1,27 @@
 import type { NextConfig } from "next";
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 
-if (process.env.NODE_ENV === 'development') {
-  await setupDevPlatform();
+// Cloudflare Pages local bindings via Wrangler. Opt-in only — calling
+// setupDevPlatform() unconditionally hung `next dev` with no listen on :3000.
+if (
+  process.env.NODE_ENV === "development" &&
+  process.env.ENABLE_CLOUDFLARE_DEV === "1"
+) {
+  // No top-level await: Next's next.config.ts loader require()s the compiled
+  // output synchronously and errors on a top-level-await ESM graph.
+  void (async () => {
+    const { setupDevPlatform } = await import(
+      "@cloudflare/next-on-pages/next-dev"
+    );
+    await setupDevPlatform();
+  })();
 }
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // Pin explicitly: this repo sits alongside sibling projects that each have
+  // their own lockfile, which makes Next.js's workspace-root inference
+  // ambiguous and can hang `next dev`/`next build` tracing from the wrong root.
+  outputFileTracingRoot: __dirname,
   async redirects() {
     return [
       {
