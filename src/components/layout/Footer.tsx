@@ -127,8 +127,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/openworker" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
-                      OpenWorker
+                    <Link href="/worker" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      One9 Worker
                     </Link>
                   </li>
                   <li>

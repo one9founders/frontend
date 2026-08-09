@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/openworker',
+        destination: '/worker',
+        permanent: true,
+      },
+      {
         source: '/ai-tool-directory-for-startup-founders',
         destination: '/',
         permanent: true,

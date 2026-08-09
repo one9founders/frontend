@@ -5,12 +5,12 @@ import Footer from '@/components/layout/Footer';
 import { generateSEO } from '@/lib/utils/seo';
 
 export const metadata: Metadata = generateSEO({
-  title: 'OpenWorker — Local AI Coworker for Founders',
+  title: 'One9 Worker — Local AI Coworker for Founders',
   description:
-    'Download OpenWorker, sign in with One9Founders Cloud, and run a local AI coworker. Chats, files, and model keys stay on your machine; One9 only brokers identity and optional connector OAuth.',
-  path: '/openworker',
+    'Download One9 Worker, sign in with One9Founders Cloud, and run a local AI coworker. Chats, files, and model keys stay on your machine; One9 only brokers identity and optional connector OAuth.',
+  path: '/worker',
   keywords: [
-    'OpenWorker',
+    'One9 Worker',
     'AI coworker',
     'local AI agent',
     'One9Founders Cloud',
@@ -23,7 +23,7 @@ export const metadata: Metadata = generateSEO({
 const STEPS = [
   {
     n: '1',
-    title: 'Install OpenWorker',
+    title: 'Install One9 Worker',
     body: 'Download for your platform (or build from source), then open the desktop app.',
   },
   {
@@ -43,7 +43,10 @@ const STEPS = [
   },
 ];
 
-export default function OpenWorkerPage() {
+const DMG_URL =
+  'https://one9founders-openworker-downloads.s3.ap-south-1.amazonaws.com/mac/One9_Worker_0.1.7_aarch64.dmg';
+
+export default function One9WorkerPage() {
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <Navbar />
@@ -59,7 +62,7 @@ export default function OpenWorkerPage() {
         />
         <div className="relative max-w-4xl mx-auto text-center">
           <p className="text-sm font-medium tracking-wide text-amber-400/90 mb-4">
-            One9Founders × OpenWorker
+            One9Founders Worker
           </p>
           <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
             Your AI coworker.
@@ -67,13 +70,13 @@ export default function OpenWorkerPage() {
             <span className="text-[var(--gray-300)]">On your machine.</span>
           </h1>
           <p className="text-lg md:text-xl text-[var(--gray-300)] max-w-2xl mx-auto mb-10 leading-relaxed">
-            OpenWorker is a local-first desktop agent. Sign in with your One9Founders
+            One9 Worker is a local-first desktop agent. Sign in with your One9Founders
             account for identity and optional connector OAuth — chats, files, and model
             keys stay on device.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
-              href="https://one9founders-openworker-downloads.s3.ap-south-1.amazonaws.com/mac/OpenWorker_0.1.7_aarch64.dmg"
+              href={DMG_URL}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors"
             >
               Download for macOS
@@ -95,7 +98,7 @@ export default function OpenWorkerPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Privacy by design</h2>
           <p className="text-[var(--gray-300)] mb-8 max-w-2xl">
-            This is not “OpenWorker in the browser.” The agent runs locally. One9Founders
+            This is not “One9 Worker in the browser.” The agent runs locally. One9Founders
             Cloud is only an identity and OAuth broker.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
@@ -159,7 +162,7 @@ export default function OpenWorkerPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="https://one9founders-openworker-downloads.s3.ap-south-1.amazonaws.com/mac/OpenWorker_0.1.7_aarch64.dmg"
+              href={DMG_URL}
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-white hover:border-amber-500/50 transition-colors"
             >
               macOS (Apple Silicon) .dmg
@@ -173,10 +176,22 @@ export default function OpenWorkerPage() {
               View source on GitHub
             </a>
           </div>
+          <p className="mt-3 text-sm text-[var(--gray-500)]">
+            One9 Worker is built on{' '}
+            <a
+              href="https://github.com/andrewyng/openworker"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-400/90 hover:underline"
+            >
+              OpenWorker
+            </a>
+            , an open-source project by Andrew Ng — full credit to the original authors.
+          </p>
           <div className="mt-10 p-5 rounded-xl border border-[var(--gray-700)] bg-[var(--gray-900)]/60">
             <h3 className="text-white font-semibold mb-2">Already installed?</h3>
             <p className="text-[var(--gray-400)] text-[15px] mb-3">
-              Open OpenWorker → Account → Sign in. You should see{' '}
+              Open One9 Worker → Account → Sign in. You should see{' '}
               <strong className="text-white font-medium">One9Founders Cloud</strong>, not
               OpenWorker Cloud.
             </p>

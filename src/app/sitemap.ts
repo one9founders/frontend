@@ -100,7 +100,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { route: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
     { route: '/policy', priority: 0.3, changeFrequency: 'yearly' as const },
     { route: '/internship', priority: 0.5, changeFrequency: 'monthly' as const },
-    { route: '/openworker', priority: 0.8, changeFrequency: 'weekly' as const },
+    { route: '/worker', priority: 0.8, changeFrequency: 'weekly' as const },
   ].map((page) => ({
     url: `${baseUrl}${page.route}`,
     lastModified: new Date(),
