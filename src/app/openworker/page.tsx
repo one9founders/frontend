@@ -73,12 +73,10 @@ export default function OpenWorkerPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
-              href="https://github.com/andrewyng/openworker/releases"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://one9founders-openworker-downloads.s3.ap-south-1.amazonaws.com/mac/OpenWorker_0.1.7_aarch64.dmg"
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors"
             >
-              Download OpenWorker
+              Download for macOS
             </a>
             <a
               href="#setup"
@@ -88,7 +86,7 @@ export default function OpenWorkerPage() {
             </a>
           </div>
           <p className="mt-4 text-sm text-[var(--gray-500)]">
-            macOS (Apple Silicon) &amp; Windows · Requires a model API key or Ollama
+            macOS (Apple Silicon) · Windows coming soon · Requires a model API key or Ollama
           </p>
         </div>
       </section>
@@ -154,18 +152,17 @@ export default function OpenWorkerPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Download</h2>
           <p className="text-[var(--gray-300)] mb-6">
-            Prefer signed builds from the official OpenWorker releases page. One9-configured
-            builds use One9Founders Cloud by default; stock builds can point at One9 via{' '}
-            <code className="text-amber-400/90 text-sm">~/.config/coworker/config.toml</code>.
+            This build is One9-configured — One9Founders Cloud sign-in works out of the box,
+            no config editing needed. It&apos;s currently unsigned, so macOS Gatekeeper will
+            warn on first launch: right-click the app → <strong className="text-white">Open</strong>{' '}
+            to proceed once.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="https://github.com/andrewyng/openworker/releases"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://one9founders-openworker-downloads.s3.ap-south-1.amazonaws.com/mac/OpenWorker_0.1.7_aarch64.dmg"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-white hover:border-amber-500/50 transition-colors"
             >
-              macOS / Windows releases
+              macOS (Apple Silicon) .dmg
             </a>
             <a
               href="https://github.com/andrewyng/openworker"
@@ -173,7 +170,7 @@ export default function OpenWorkerPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border border-[var(--gray-700)] text-[var(--gray-300)] hover:text-white transition-colors"
             >
-              Install from source
+              View source on GitHub
             </a>
           </div>
           <div className="mt-10 p-5 rounded-xl border border-[var(--gray-700)] bg-[var(--gray-900)]/60">
