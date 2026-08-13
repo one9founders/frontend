@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ContactCard from '@/components/ui/ContactCard';
-import InternCard from '@/components/ui/InternCard';
 import { STATS, formatToolCount } from '@/lib/constants/stats';
 import { getDirectoryStats } from '@/lib/actions/tools';
 
@@ -39,7 +38,6 @@ export default async function AboutPage() {
               knowsAbout: ['AI Tools', 'Startup Technology', 'Security Assessment', 'Tool Evaluation', 'AI Training'],
               founders: [
                 { '@type': 'Person', name: 'Amit Bhartiya', jobTitle: 'CEO' },
-                { '@type': 'Person', name: 'Dinesh Sahu', jobTitle: 'Co-Founder & CTO' },
               ],
               contactPoint: {
                 '@type': 'ContactPoint',
@@ -271,100 +269,15 @@ export default async function AboutPage() {
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-white text-center mb-12">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div>
-              <ContactCard
-                picture="https://4cqs2zpl07.ucarecd.net/fe69a771-5074-4a28-9bda-c17e8c526ac9/-/preview/"
-                name="Amit Bhartiya"
-                designation="CEO"
-                email="amitbhartiya.o9f@gmail.com"
-                linkedin="https://www.linkedin.com/in/amitbhartiya33/"
-                phone="+917878469798"
-              />
-            </div>
-            <div>
-              <ContactCard
-                picture="https://4cqs2zpl07.ucarecd.net/4cc6cdfd-0552-4b72-87d6-e2f0d8b053d0/-/preview/"
-                name="Dinesh Sahu"
-                designation="Co-Founder & CTO"
-                email="dineshsahu.o9f@gmail.com"
-                linkedin="https://www.linkedin.com/in/xdineshsahu/"
-                phone="+918109286424"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Interns Section */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Section header */}
-          <div className="text-center mb-14">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-sm font-medium mb-4">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-              </svg>
-              The People Behind the Scenes
-            </span>
-            <h2 className="text-3xl font-bold text-white mb-3">Our Interns</h2>
-            <p className="text-[var(--gray-400)] max-w-2xl mx-auto">
-              Meet the talented interns who contribute their skills and energy to help One9Founders grow every day.
-            </p>
-          </div>
-
-          {/* Tech Interns */}
-          <div className="mb-14">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/25">
-                <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-                <h3 className="text-lg font-semibold text-purple-300">Tech Interns</h3>
-              </div>
-              <div className="flex-1 h-px bg-gradient-to-r from-purple-500/30 to-transparent" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <InternCard
-                picture="/team/gaurav.png"
-                name="Gaurav Jain"
-                linkedin="https://www.linkedin.com/in/this-is-gaurav-jain/"
-                category="tech"
-              />
-              <InternCard
-                picture="/team/abhijith.png"
-                name="Pingali Abhijith"
-                linkedin="https://www.linkedin.com/in/pingali-abhijith-b27940267/"
-                category="tech"
-              />
-              <InternCard
-                picture="/team/kashish.png"
-                name="Kashish Shaikh"
-                linkedin="https://www.linkedin.com/in/07kashish-shaikh/"
-                category="tech"
-              />
-            </div>
-          </div>
-
-          {/* Social Media Interns */}
-          <div>
-            <div className="flex items-center gap-3 mb-8">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-pink-500/10 border border-pink-500/25">
-                <svg className="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-                </svg>
-                <h3 className="text-lg font-semibold text-pink-300">Social Media Interns</h3>
-              </div>
-              <div className="flex-1 h-px bg-gradient-to-r from-pink-500/30 to-transparent" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <InternCard
-                picture="/team/sutirtha.png"
-                name="Sutirtha Maji"
-                linkedin="https://www.linkedin.com/in/sutirthamaji/"
-                category="social"
-              />
-            </div>
+          <div className="max-w-sm mx-auto">
+            <ContactCard
+              picture="https://4cqs2zpl07.ucarecd.net/fe69a771-5074-4a28-9bda-c17e8c526ac9/-/preview/"
+              name="Amit Bhartiya"
+              designation="CEO"
+              email="amitbhartiya.o9f@gmail.com"
+              linkedin="https://www.linkedin.com/in/amitbhartiya33/"
+              phone="+917878469798"
+            />
           </div>
         </div>
       </section>
