@@ -164,7 +164,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/policy" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/privacy" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       Privacy Policy
                     </Link>
                   </li>

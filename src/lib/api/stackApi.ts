@@ -7,7 +7,8 @@ interface APIToolResponse {
   pricing_from: number | null;
   free_tier_available: boolean;
   rating: number;
-  security_score: number | null;
+  overall_score: number | null;
+  security_status: string | null;
   pricing_inr: number | null;
   pricing_inr_with_gst: number | null;
   pricing_inr_override: number | null;
@@ -71,8 +72,10 @@ export async function fetchToolsForStack(
       priceUSD,
       priceINR,
       freeTier: data.free_tier_available,
-      score: data.rating ? Number((data.rating * 2).toFixed(1)) : 0, // API uses 5-point, stack uses 10-point
-      securityRating: data.security_score ?? 0,
+      score: data.overall_score != null
+        ? Number((Number(data.overall_score) * 2).toFixed(1))
+        : 0,
+      securityRating: data.security_status === 'VERIFIED' ? 1 : 0,
     };
   });
 

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { submissionAPI } from '@/lib/api/apiClient';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
 import { useReCaptcha } from '@/lib/recaptcha';
@@ -85,19 +84,7 @@ export default function SubmitToolPageClient() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--gray-black)]">
-      {/* Navigation */}
-      <nav className="px-6 py-4 bg-[var(--gray-black)] border-b border-[var(--gray-800)]">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link href="/" className="flex items-center">
-            <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8" draggable={false} />
-          </Link>
-          <Link href="/" className="text-[var(--gray-400)] hover:text-white">
-            ← Back to Home
-          </Link>
-        </div>
-      </nav>
-
+    <>
       {/* Hero Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -336,22 +323,12 @@ export default function SubmitToolPageClient() {
             Your contribution makes a difference in the startup community.
           </p>
           <div className="flex justify-center space-x-4">
-            <Link href="/admin" className="btn-secondary">
-              View Admin Panel
-            </Link>
-            <Link href="/" className="btn-primary">
+            <a href="/" className="btn-primary">
               Explore Tools
-            </Link>
+            </a>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-6 bg-[var(--gray-black)] border-t border-[var(--gray-800)]">
-        <div className="max-w-7xl mx-auto text-center text-[var(--gray-400)]">
-          <p>&copy; 2024 One9Founders. Built for founders, by founders.</p>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }

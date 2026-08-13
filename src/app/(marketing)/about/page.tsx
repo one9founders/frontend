@@ -5,16 +5,23 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ContactCard from '@/components/ui/ContactCard';
 import InternCard from '@/components/ui/InternCard';
-import { STATS } from '@/lib/constants/stats';
+import { STATS, formatToolCount } from '@/lib/constants/stats';
+import { getDirectoryStats } from '@/lib/actions/tools';
 
-export const metadata: Metadata = generateSEO({
-  title: 'About One9Founders | India\'s Largest AI Ecosystem Navigator',
-  description: `One9Founders is India's largest AI ecosystem navigator. ${STATS.totalResources} AI tools, agents, LLMs, and models. Security-validated with zero affiliate bias. AI training for colleges and corporates. Backed by IIT Bombay.`,
-  path: '/about',
-  keywords: ['about one9founders', 'Indian startup team', 'AI tool directory India', 'IIT Bombay startup', 'founder resources India', 'AI tools for Indian startups', 'AI training India', 'AI training for colleges'],
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await getDirectoryStats();
+  const toolCount = formatToolCount(stats.count);
+  return generateSEO({
+    title: 'About One9Founders | India\'s Largest AI Ecosystem Navigator',
+    description: `One9Founders is India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and models. Security-first ratings with zero affiliate bias. AI training for colleges and corporates. Backed by IIT Bombay.`,
+    path: '/about',
+    keywords: ['about one9founders', 'Indian startup team', 'AI tool directory India', 'IIT Bombay startup', 'founder resources India', 'AI tools for Indian startups', 'AI training India', 'AI training for colleges'],
+  });
+}
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const stats = await getDirectoryStats();
+  const toolCount = formatToolCount(stats.count);
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
@@ -26,7 +33,7 @@ export default function AboutPage() {
               name: 'One9Founders',
               url: 'https://www.one9founders.com',
               logo: 'https://www.one9founders.com/logo-light.png',
-              description: `India's largest AI ecosystem navigator. ${STATS.totalResources} AI tools, agents, LLMs, and models. Security-validated with zero affiliate bias. Backed by IIT Bombay.`,
+              description: `India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and models. Security-validated with zero affiliate bias. Backed by IIT Bombay.`,
               foundingDate: '2024',
               areaServed: ['India', 'Global'],
               knowsAbout: ['AI Tools', 'Startup Technology', 'Security Assessment', 'Tool Evaluation', 'AI Training'],
@@ -56,7 +63,7 @@ export default function AboutPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)]">
-              <p className="text-2xl md:text-3xl font-bold text-white">{STATS.totalResources}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{toolCount}</p>
               <p className="text-sm text-[var(--gray-400)]">AI Resources</p>
             </div>
             <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)] flex flex-col items-center justify-center">
@@ -98,18 +105,18 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F6E0;&#xFE0F;</span>
-              <h3 className="text-xl font-bold text-white mb-3">{STATS.totalResources} AI Resources, Organized</h3>
+              <h3 className="text-xl font-bold text-white mb-3">{toolCount} AI Resources, Organized</h3>
               <p className="text-[var(--gray-300)]">
-                AI tools, agents, LLMs, open-source models, RAG frameworks, startups, and research papers. Categorized by use case, filterable by pricing, comparable side-by-side. Updated daily.
+                AI tools, agents, LLMs, open-source models, RAG frameworks, startups, and research papers. Categorized by use case, filterable by pricing, comparable side-by-side. New listings are added as we ingest and review them.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F512;</span>
               <h3 className="text-xl font-bold text-white mb-3">Security-First Validation</h3>
               <p className="text-[var(--gray-300)]">
-                Every validated tool goes through our{' '}
+                Tools we have fully assessed go through our{' '}
                 <Link href="/methodology" className="text-purple-400 hover:text-purple-300 underline">10-point security assessment</Link>
-                {' '}covering data privacy, encryption standards, compliance certifications, and third-party data sharing.
+                {' '}covering data privacy, encryption standards, compliance certifications, and third-party data sharing. Unassessed listings are labeled clearly.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
@@ -204,7 +211,7 @@ export default function AboutPage() {
               <span className="text-3xl mb-4 block">&#x1F512;</span>
               <h3 className="text-xl font-bold text-white mb-3">Security Comes First</h3>
               <p className="text-[var(--gray-300)]">
-                Every validated tool undergoes our 10-point security check. Data privacy, encryption, compliance, and third-party data sharing are evaluated systematically. Security is weighted at 20% of our total score - the single largest factor.
+                Tools we have fully assessed go through our 10-point security check. Data privacy, encryption, compliance, and third-party data sharing are evaluated systematically. Security is weighted at 20% of our total score — the single largest factor. Unassessed listings are labeled &ldquo;Security: Not Yet Assessed.&rdquo;
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
@@ -218,7 +225,7 @@ export default function AboutPage() {
               <span className="text-3xl mb-4 block">&#x2B50;</span>
               <h3 className="text-xl font-bold text-white mb-3">Uniform Rating Criteria</h3>
               <p className="text-[var(--gray-300)]">
-                Every tool is evaluated using the same framework covering security, functionality, ease of use, pricing, reliability, integrations, support, company stability, update frequency, and startup-friendliness.
+                Every assessed tool is evaluated using the same framework covering security, functionality, ease of use, pricing, reliability, integrations, support, company stability, update frequency, and startup-friendliness. Listings we have not scored yet are labeled Not Yet Rated — never a placeholder number.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">

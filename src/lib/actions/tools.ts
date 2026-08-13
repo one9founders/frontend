@@ -1,6 +1,11 @@
 'use server';
 
 import { toolsAPI, dealsAPI, newsletterAPI } from '@/lib/api/apiClient';
+import { requireAdminSession } from '@/lib/auth/admin';
+
+function withAdminToken(token: string) {
+  return { Authorization: `Bearer ${token}` };
+}
 
 export async function searchTools(query: string) {
   if (!query) return [];
@@ -13,8 +18,9 @@ export async function searchTools(query: string) {
 }
 
 export async function addTool(toolData: any) {
+  const { token } = await requireAdminSession();
   try {
-    await toolsAPI.create(toolData);
+    await toolsAPI.create(toolData, withAdminToken(token));
     return { success: true };
   } catch (error: any) {
     console.error('Add tool error:', error);
@@ -27,8 +33,9 @@ export async function addTool(toolData: any) {
 }
 
 export async function updateTool(slug: string, toolData: any) {
+  const { token } = await requireAdminSession();
   try {
-    await toolsAPI.update(slug, toolData);
+    await toolsAPI.update(slug, toolData, withAdminToken(token));
     return { success: true };
   } catch (error) {
     console.error('Update tool error:', error);
@@ -46,8 +53,9 @@ export async function getAllTools(params?: { page?: number; page_size?: number; 
 }
 
 export async function deleteTool(slug: string) {
+  const { token } = await requireAdminSession();
   try {
-    await toolsAPI.delete(slug);
+    await toolsAPI.delete(slug, withAdminToken(token));
     return { success: true };
   } catch (error) {
     console.error('Delete tool error:', error);
@@ -56,12 +64,13 @@ export async function deleteTool(slug: string) {
 }
 
 export async function bulkImportTools(tools: any[]) {
+  const { token } = await requireAdminSession();
   try {
     let added = 0;
     for (const tool of tools) {
       if (!tool.name || !tool.description) continue;
       try {
-        await toolsAPI.create(tool);
+        await toolsAPI.create(tool, withAdminToken(token));
         added++;
       } catch (error) {
         console.error(`Error importing ${tool.name}:`, error);
@@ -99,6 +108,30 @@ export async function getAllDeals() {
 
 export async function seedDeals() {
   return { success: false, error: 'Use Django backend seed_data.py instead' };
+}
+
+export async function getDirectoryStats(): Promise<{
+  count: number;
+  fully_assessed_count: number;
+  provisionally_assessed_count: number;
+}> {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
+  const empty = { count: 0, fully_assessed_count: 0, provisionally_assessed_count: 0 };
+  try {
+    const response = await fetch(`${API_URL}/tools/stats/`, {
+      next: { revalidate: 300 },
+    });
+    if (!response.ok) return empty;
+    const data = await response.json();
+    return {
+      count: Number(data?.count) || 0,
+      fully_assessed_count: Number(data?.fully_assessed_count) || 0,
+      provisionally_assessed_count: Number(data?.provisionally_assessed_count) || 0,
+    };
+  } catch (error) {
+    console.error('Get directory stats error:', error);
+    return empty;
+  }
 }
 
 export async function getToolBySlug(slug: string) {

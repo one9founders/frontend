@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import { generateSEO } from '@/lib/utils/seo';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 import SubmitToolPageClient from './SubmitToolPageClient';
 
 export const metadata: Metadata = generateSEO({
@@ -10,5 +12,11 @@ export const metadata: Metadata = generateSEO({
 });
 
 export default function SubmitToolPage() {
-  return <SubmitToolPageClient />;
+  return (
+    <div className="min-h-screen bg-[var(--gray-black)]">
+      <Navbar />
+      <SubmitToolPageClient />
+      <Footer />
+    </div>
+  );
 }

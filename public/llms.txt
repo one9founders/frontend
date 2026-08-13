@@ -1,7 +1,7 @@
 # One9Founders
 > India's largest AI tools, agents, and LLMs directory for startup founders.
 
-One9Founders helps Indian startup founders discover, compare, and choose AI tools. We review 1,200+ AI tools, agents, LLMs, and RAG/Vector DB solutions with INR pricing, security ratings, and use-case guidance.
+One9Founders helps Indian startup founders discover, compare, and choose AI tools. The directory lists AI tools, agents, LLMs, and RAG/Vector DB solutions with INR pricing, editorial ratings when assessment is complete, and use-case guidance.
 
 ## Key pages
 - Homepage: https://one9founders.com
@@ -14,6 +14,6 @@ One9Founders helps Indian startup founders discover, compare, and choose AI tool
 
 ## About
 - Founded for Indian startup founders
-- All tools reviewed on a 10-point security framework
+- Assessed tools use a 10-point security-first framework; unassessed listings are labeled Not Yet Rated
 - INR pricing shown wherever available
-- Updated daily with new tools, agents, and LLM benchmarks
+- New listings are added regularly; research feed updates daily from arXiv and HuggingFace

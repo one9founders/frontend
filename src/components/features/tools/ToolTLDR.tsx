@@ -1,4 +1,5 @@
 import { Tool } from '@/types';
+import { getToolSecurityDisplay } from '@/lib/toolRating';
 
 interface ToolTLDRProps {
   tool: Tool;
@@ -39,9 +40,9 @@ export default function ToolTLDR({ tool }: ToolTLDRProps) {
       : '';
 
   // Security snippet
-  const securitySnippet = tool.security_score != null
-    ? `Scores ${tool.security_score}/100 on our security framework.`
-    : '';
+  const securitySnippet = getToolSecurityDisplay(tool).status === 'NOT_ASSESSED'
+    ? ''
+    : `${getToolSecurityDisplay(tool).label}.`;
 
   // Use the tool's own description as the base when available
   const descSnippet = tool.short_description || tool.description?.substring(0, 160) || '';

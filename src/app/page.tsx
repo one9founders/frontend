@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
-import { generateStructuredData } from '@/lib/utils/seo';
-import { getAllTools } from '@/lib/actions/tools';
-import { STATS } from '@/lib/constants/stats';
+import { getDirectoryStats } from '@/lib/actions/tools';
+import { STATS, formatToolCount } from '@/lib/constants/stats';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
 import TrendingTools from "../components/features/tools/TrendingTools";
@@ -13,36 +12,40 @@ import Top20Tools from "../components/features/tools/Top20Tools";
 import Footer from "../components/layout/Footer";
 import FounderSurveyCTA from '@/components/features/survey/FounderSurveyCTA';
 
-export const metadata: Metadata = {
-  title: { absolute: "One9Founders | India's #1 AI Ecosystem Navigator" },
-  description:
-    `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
-  alternates: {
-    canonical: 'https://one9founders.com',
-  },
-  openGraph: {
-    type: 'website',
-    url: 'https://one9founders.com',
-    title: "One9Founders | India's #1 AI Ecosystem Navigator",
-    description:
-      `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`,
-    images: [{
-      url: '/og-image.png',
-      width: 1200,
-      height: 630,
-      alt: 'One9Founders - India\'s #1 AI Ecosystem Navigator',
-    }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "One9Founders | India's #1 AI Ecosystem Navigator",
-    description:
-      `Discover ${STATS.totalResources} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
-    images: ['/og-image.png'],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await getDirectoryStats();
+  const toolCount = formatToolCount(stats.count);
+  const description = `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`;
+  return {
+    title: { absolute: "One9Founders | India's #1 AI Ecosystem Navigator" },
+    description,
+    alternates: {
+      canonical: 'https://one9founders.com',
+    },
+    openGraph: {
+      type: 'website',
+      url: 'https://one9founders.com',
+      title: "One9Founders | India's #1 AI Ecosystem Navigator",
+      description,
+      images: [{
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'One9Founders - India\'s #1 AI Ecosystem Navigator',
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "One9Founders | India's #1 AI Ecosystem Navigator",
+      description: `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
+      images: ['/og-image.png'],
+    },
+  };
+}
 
-export default function Home() {
+export default async function Home() {
+  const stats = await getDirectoryStats();
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
@@ -63,12 +66,15 @@ export default function Home() {
         }}
       />
       <Navbar />
-      <HeroSection />
+      <HeroSection toolCount={stats.count} />
       <TrendingTools />
-      <BrowseCategories />
+      <BrowseCategories toolCount={stats.count} />
       <CorporateSection />
       <PartnersSection />
-      <WhyTrustSection />
+      <WhyTrustSection
+        toolCount={stats.count}
+        fullyAssessedCount={stats.fully_assessed_count}
+      />
       <Top20Tools />
       <FounderSurveyCTA />
       <Footer />

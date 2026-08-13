@@ -35,14 +35,18 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       const errorMessage = errorData.detail || response.statusText;
-      
-      if (response.status === 404) {
+      const method = (options.method || 'GET').toUpperCase();
+
+      if (response.status === 404 && method === 'GET') {
         return null;
       }
       
       throw new Error(`API Error: ${errorMessage}`);
     }
-    
+
+    if (response.status === 204) {
+      return null;
+    } 
     const data = await response.json();
     return data;
   } catch (error: any) {
@@ -74,25 +78,29 @@ export const toolsAPI = {
     if (params?.ordering) query.append('ordering', params.ordering);
     return fetchAPI(`/tools/?${query.toString()}`);
   },
+  getStats: () => fetchAPI('/tools/stats/'),
   getBySlug: (slug: string) => fetchAPI(`/tools/${slug}/`),
   search: (query: string) => 
     fetchAPI('/tools/search/', {
       method: 'POST',
       body: JSON.stringify({ query }),
     }),
-  create: (data: any) =>
+  create: (data: any, extraHeaders?: Record<string, string>) =>
     fetchAPI('/tools/', {
       method: 'POST',
       body: JSON.stringify(data),
+      headers: extraHeaders,
     }),
-  update: (slug: string, data: any) =>
+  update: (slug: string, data: any, extraHeaders?: Record<string, string>) =>
     fetchAPI(`/tools/${slug}/`, {
       method: 'PATCH',
       body: JSON.stringify(data),
+      headers: extraHeaders,
     }),
-  delete: (slug: string) =>
+  delete: (slug: string, extraHeaders?: Record<string, string>) =>
     fetchAPI(`/tools/${slug}/`, {
       method: 'DELETE',
+      headers: extraHeaders,
     }),
   smartSearch: (query: string) =>
     fetchAPI('/tools/smart-search/', {

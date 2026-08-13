@@ -1,4 +1,5 @@
 import { Tool } from '@/types';
+import { getToolRatingDisplay, getToolSecurityDisplay } from '@/lib/toolRating';
 
 interface ToolQASectionProps {
   tool: Tool;
@@ -46,10 +47,10 @@ function generateQAPairs(tool: Tool): QAPair[] {
     tool.free_tier_available ? `A free tier is available to get started.` : '',
   ].filter(Boolean).join(' ');
 
-  // Security Q&A — concrete details
-  const securityAnswer = tool.security_score != null
-    ? `${tool.name} scored ${tool.security_score}/100 on our 10-point security framework${tool.security_assessed_at ? ` (last assessed ${new Date(tool.security_assessed_at).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })})` : ''}. ${tool.startup_friendly ? 'It is rated startup-friendly with favorable terms for early-stage companies.' : 'Review the full security report on One9Founders before adopting it for sensitive data.'}`
-    : `${tool.name} has not yet been assessed on our security framework. We recommend checking its own security documentation and certifications (SOC 2, GDPR compliance, etc.) before using it for sensitive startup data.`;
+  // Security Q&A — from shared status helper
+  const securityDisplay = getToolSecurityDisplay(tool);
+  const ratingDisplay = getToolRatingDisplay(tool);
+  const securityAnswer = `${tool.name} ${securityDisplay.faqText}.`;
 
   // What-does-it-do Q&A — use actual description + parsed features
   const descBase = tool.short_description || tool.description?.substring(0, 200) || `${tool.name} is a ${category.toLowerCase()} tool`;
@@ -73,6 +74,10 @@ function generateQAPairs(tool: Tool): QAPair[] {
       question: `Is ${tool.name} safe for startups?`,
       answer: securityAnswer,
     },
+    {
+      question: `How is ${tool.name} rated on One9Founders?`,
+      answer: `${tool.name} ${ratingDisplay.faqText}. See How We Rate for the 10-criterion framework and status definitions.`,
+    },
   ];
 
   if (alternatives) {
@@ -86,7 +91,7 @@ function generateQAPairs(tool: Tool): QAPair[] {
   if (topAlternative) {
     pairs.push({
       question: `How does ${tool.name} compare to ${topAlternative.name}?`,
-      answer: `Both are ${category.toLowerCase()} tools. ${tool.name} ${tool.rating > (topAlternative.rating || 0) ? `is rated higher (${tool.rating}/5)` : 'is competitively rated'} on One9Founders. See our head-to-head comparison for a detailed breakdown of features, pricing, and security.`,
+      answer: `Both are ${category.toLowerCase()} tools. ${tool.name} ${ratingDisplay.faqText}. See our head-to-head comparison for a detailed breakdown of features, pricing, and security.`,
     });
   }
 

@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { trackingAPI } from '@/lib/api/apiClient';
 import { addRefToUrl } from '@/lib/utils/url';
 import { HugeiconsIcon, ArrowLeft01Icon, ArrowRight01Icon } from '@/components/ui/icons';
+import { getToolRatingDisplay, type ToolRatingFields } from '@/lib/toolRating';
 
-interface TrendingTool {
+interface TrendingTool extends ToolRatingFields {
   id: number;
   name: string;
   slug: string;
@@ -117,11 +118,9 @@ export default function TrendingTools() {
                 />
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-semibold text-white truncate">{tool.name}</h3>
-                  {tool.rating > 0 && (
-                    <span className="text-xs text-[var(--gray-400)]">
-                      {'★'.repeat(Math.floor(tool.rating))} {Number(tool.rating).toFixed(1)}
-                    </span>
-                  )}
+                  <span className="text-xs text-[var(--gray-400)]">
+                    {getToolRatingDisplay(tool).shortLabel}
+                  </span>
                 </div>
               </div>
               <p className="text-xs text-[var(--gray-400)] line-clamp-2">

@@ -52,7 +52,7 @@ const BLOG_POSTS: Record<string, {
 <p>Does the company offer startup credits, flexible contracts, or founder-friendly terms? The best AI companies actively support the startup ecosystem.</p>
 
 <h2>Putting It Into Practice</h2>
-<p>Use our directory to compare tools side-by-side with security scores and pricing transparency. Every tool on One9Founders has been evaluated using this framework, so you can trust the ratings you see.</p>`,
+<p>Use our directory to compare tools side-by-side with security scores and pricing transparency. Tools we have fully assessed use this framework; listings still in the rollout are labeled Not Yet Rated rather than given a placeholder score.</p>`,
     author: 'Amit Bhartiya',
     publishedAt: '2026-02-15',
     readingTime: '8 min read',
@@ -83,7 +83,7 @@ const BLOG_POSTS: Record<string, {
 
 <h2>Our Security Assessment Framework</h2>
 <p>At One9Founders, every tool in our directory receives a security score from 0-100 based on our proprietary assessment framework. We evaluate data handling, encryption, compliance, access controls, and more.</p>
-<p>Tools that haven't been assessed yet show "Security: Pending" - we're working through our database of 27,000+ tools to provide comprehensive security ratings.</p>`,
+<p>Tools that haven't been assessed yet show "Security: Not Yet Assessed" — we're working through the directory to provide comprehensive security ratings.</p>`,
     author: 'Arnav Gautam',
     publishedAt: '2026-02-28',
     readingTime: '6 min read',
@@ -99,7 +99,7 @@ const BLOG_POSTS: Record<string, {
 <p>For this list, we specifically evaluated tools based on: meaningful free tier (not just a 7-day trial), startup-friendly pricing that scales, security score of 70+ on our framework, and actual utility for early-stage founders.</p>
 
 <h2>The Selection</h2>
-<p>We've curated this list from our directory of 27,000+ AI tools, filtering for the best combination of value, security, and startup-friendliness. Visit each tool's page on One9Founders for detailed security assessments, user reviews, and pricing breakdowns.</p>
+<p>We've curated this list from our directory of AI tools, filtering for the best combination of value, security, and startup-friendliness. Visit each tool's page on One9Founders for detailed security assessments, user reviews, and pricing breakdowns.</p>
 
 <h3>Writing & Content</h3>
 <p>AI writing assistants have become essential for content marketing on a budget. Look for tools that offer generous free word counts and don't lock essential features behind enterprise tiers.</p>
@@ -248,7 +248,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="mt-12 bg-[var(--gray-900)] rounded-lg p-6 text-center">
           <h3 className="text-xl font-semibold text-white mb-2">Find the Right AI Tool</h3>
           <p className="text-[var(--gray-400)] mb-4">
-            Browse our directory of 27,000+ security-validated AI tools for startup founders.
+            Browse our directory of security-validated AI tools for startup founders.
           </p>
           <Link
             href="/"

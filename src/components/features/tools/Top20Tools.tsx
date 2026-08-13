@@ -215,7 +215,7 @@ function Top20ToolsInner() {
             {isSearching ? (
               `${filteredTools.length} tools found for your search`
             ) : (
-              `Showing ${((currentPage - 1) * pageSize) + 1}-${Math.min(currentPage * pageSize, totalCount)} of ${totalCount} tools`
+              `Showing ${((currentPage - 1) * pageSize) + 1}-${Math.min(currentPage * pageSize, totalCount)} of ${totalCount.toLocaleString('en-US')} tools`
             )}
           </div>
         )}

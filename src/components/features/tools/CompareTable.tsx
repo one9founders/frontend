@@ -1,9 +1,12 @@
 'use client';
 
 import { Tool } from '@/types';
-import { HugeiconsIcon, Cancel01Icon, StarIcon, ArrowUpRight01Icon, ViewIcon, CheckmarkCircle01Icon, Cancel02Icon } from '@/components/ui/icons';
+import { HugeiconsIcon, Cancel01Icon, ArrowUpRight01Icon, ViewIcon, CheckmarkCircle01Icon, Cancel02Icon } from '@/components/ui/icons';
 import Link from 'next/link';
 import ToolLogo from '@/components/shared/ToolLogo';
+import { getToolRatingDisplay } from '@/lib/toolRating';
+import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
+import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
 
 interface CompareTableProps {
   tools: Tool[];
@@ -11,18 +14,6 @@ interface CompareTableProps {
 }
 
 export default function CompareTable({ tools, onRemoveTool }: CompareTableProps) {
-  const getRatingStars = (rating?: number) => {
-    if (!rating) return 'N/A';
-    return Array.from({ length: 5 }, (_, i) => (
-      <HugeiconsIcon 
-        key={i} 
-        icon={StarIcon}
-        size={16} 
-        className={i < Math.floor(rating) ? 'text-yellow-400' : 'text-[var(--gray-600)]'}
-      />
-    ));
-  };
-
   const getPricingDisplay = (tool: Tool) => {
     if (tool.free_tier_available) return { text: 'Free', color: 'text-green-400' };
     if (tool.pricing_models?.some(p => p.toLowerCase() === 'free')) return { text: 'Free', color: 'text-green-400' };
@@ -69,10 +60,15 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
       
       if (!tools || tools.length === 0) return highlights;
       
-      // Best rating
-      const bestRating = tools.reduce((best, tool) => 
-        (tool.rating || 0) > (best?.rating || 0) ? tool : best, tools[0]);
-      if (bestRating?.rating) {
+      const rated = tools.filter((tool) => getToolRatingDisplay(tool).numericAllowed);
+      const bestRating = rated.reduce(
+        (best, tool) =>
+          (getToolRatingDisplay(tool).score || 0) > (getToolRatingDisplay(best).score || 0)
+            ? tool
+            : best,
+        rated[0]
+      );
+      if (bestRating) {
         highlights.push({ toolId: bestRating.id, type: 'rating', label: 'Highest Rated' });
       }
       
@@ -190,15 +186,15 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
                 <td className="p-4 text-[var(--gray-400)] font-medium">Rating</td>
                 {tools.map((tool) => (
                   <td key={tool.id} className="p-4 text-center">
-                    <div className="flex justify-center mb-1">
-                      {getRatingStars(tool.rating)}
-                    </div>
-                    <span className="text-[var(--gray-300)] text-sm font-medium">
-                      {tool.rating ? `${Number(tool.rating).toFixed(1)}/5` : 'N/A'}
-                    </span>
-                    <span className="text-[var(--gray-500)] text-xs block">
-                      ({tool.review_count || 0} reviews)
-                    </span>
+                    <ToolRatingBadge tool={tool} className="text-sm justify-center" />
+                  </td>
+                ))}
+              </tr>
+              <tr className="border-b border-[var(--gray-800)]">
+                <td className="p-4 text-[var(--gray-400)] font-medium">Security</td>
+                {tools.map((tool) => (
+                  <td key={tool.id} className="p-4 text-center">
+                    <ToolSecurityBadge tool={tool} compact className="text-sm justify-center" />
                   </td>
                 ))}
               </tr>

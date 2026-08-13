@@ -40,8 +40,13 @@ export interface Tool {
   verified: boolean;
   is_featured: boolean;
   is_active: boolean;
-  security_score?: number | null;
-  security_assessed_at?: string | null;
+  criteria_completed?: number;
+  overall_score?: number | null;
+  security_criterion_score?: number | null;
+  last_assessed_at?: string | null;
+  rating_status?: 'NOT_YET_RATED' | 'PROVISIONAL' | 'RATED';
+  security_status?: 'NOT_ASSESSED' | 'FLAGGED' | 'VERIFIED';
+  language_review_needed?: boolean;
   alternatives?: Tool[];
   similarity?: number;
   // INR pricing fields

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon, Search01Icon } from "@/components/ui/icons";
 import posthog from "posthog-js";
-import { STATS } from "@/lib/constants/stats";
+import { STATS, formatToolCount } from "@/lib/constants/stats";
 
 interface CategoryPill {
   label: string;
@@ -22,7 +22,11 @@ const CATEGORY_PILLS: CategoryPill[] = [
   { label: "Research", active: false, href: "/research" },
 ];
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  toolCount?: number | null;
+}
+
+export default function HeroSection({ toolCount }: HeroSectionProps) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -86,7 +90,7 @@ export default function HeroSection() {
 
         {/* Subheadline */}
         <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          {STATS.totalResources} AI tools, {STATS.llmsCompared} LLMs, {STATS.aiAgents} agents, {STATS.ragVectorDbs} RAG & vector databases, and the latest AI research papers. Supported by IIT Bombay.
+          {formatToolCount(toolCount)} AI tools, {STATS.llmsCompared} LLMs, {STATS.aiAgents} agents, {STATS.ragVectorDbs} RAG & vector databases, and the latest AI research papers. Supported by IIT Bombay.
         </p>
 
         {/* Search Bar */}
@@ -141,7 +145,7 @@ export default function HeroSection() {
           <span className="text-[var(--gray-700)]">&middot;</span>
           <span>Zero affiliate bias</span>
           <span className="text-[var(--gray-700)]">&middot;</span>
-          <span>Updated daily</span>
+          <span>New listings added regularly</span>
         </div>
       </div>
     </section>

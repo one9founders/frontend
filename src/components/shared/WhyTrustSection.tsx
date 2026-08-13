@@ -1,10 +1,24 @@
-import { STATS } from '@/lib/constants/stats';
+import { formatToolCount } from '@/lib/constants/stats';
 
-export default function WhyTrustSection() {
+interface WhyTrustSectionProps {
+  toolCount?: number | null;
+  fullyAssessedCount?: number | null;
+}
+
+export default function WhyTrustSection({
+  toolCount,
+  fullyAssessedCount,
+}: WhyTrustSectionProps) {
+  const countLabel = formatToolCount(toolCount);
+  const assessedLabel =
+    fullyAssessedCount != null && fullyAssessedCount > 0
+      ? `${fullyAssessedCount.toLocaleString('en-US')} of ${countLabel}`
+      : 'a growing subset';
+
   const trustCards = [
     {
-      title: 'Security Validated',
-      description: 'Every tool undergoes our 10-point security assessment. We check data handling, encryption standards, compliance certifications, and third-party sharing practices.',
+      title: 'Security-First Assessment',
+      description: `Tools we have fully assessed go through our 10-point security framework (data handling, encryption, compliance, and third-party sharing). Coverage is an ongoing rollout — ${assessedLabel} tools are fully assessed today.`,
       emoji: '🔒',
     },
     {
@@ -14,7 +28,7 @@ export default function WhyTrustSection() {
     },
     {
       title: 'Uniform Ratings',
-      description: `All ${STATS.totalResources} tools evaluated using identical methodology. Apples-to-apples comparisons you can actually trust. No favorites, no shortcuts.`,
+      description: `${countLabel} tools in the directory, scored with the same framework when assessment is complete. Apples-to-apples comparisons you can actually trust.`,
       emoji: '⭐',
     },
     {

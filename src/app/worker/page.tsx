@@ -122,7 +122,7 @@ export default function One9WorkerPage() {
           </div>
           <p className="mt-6 text-sm text-[var(--gray-500)]">
             See also our sitewide{' '}
-            <Link href="/policy" className="text-amber-400/90 hover:underline">
+            <Link href="/privacy" className="text-amber-400/90 hover:underline">
               Privacy Policy
             </Link>
             .

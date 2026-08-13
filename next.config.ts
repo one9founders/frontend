@@ -64,6 +64,11 @@ const nextConfig: NextConfig = {
         destination: '/about',
         permanent: true,
       },
+      {
+        source: '/policy',
+        destination: '/privacy',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

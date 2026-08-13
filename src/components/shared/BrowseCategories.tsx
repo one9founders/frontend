@@ -1,12 +1,20 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { STATS } from '@/lib/constants/stats';
+import { STATS, formatToolCount } from '@/lib/constants/stats';
 
-const CATEGORIES = [
+interface BrowseCategoriesProps {
+  toolCount?: number | null;
+}
+
+export default function BrowseCategories({ toolCount }: BrowseCategoriesProps) {
+  const router = useRouter();
+  const countLabel = formatToolCount(toolCount);
+
+  const CATEGORIES = [
   {
     title: 'AI Tools',
-    description: `${STATS.totalResources} tools for every use case. From writing and code to marketing and design. Every tool scored with our 10-point framework.`,
+    description: `${countLabel} tools for every use case. From writing and code to marketing and design. Ratings use our 10-point framework once assessment is complete.`,
     emoji: '🛠️',
     active: true,
     href: '#tools-section',
@@ -69,9 +77,6 @@ const CATEGORIES = [
     cta: 'Explore Fintech Stack',
   },
 ];
-
-export default function BrowseCategories() {
-  const router = useRouter();
 
   const handleClick = (category: (typeof CATEGORIES)[number]) => {
     if (category.href?.startsWith('/')) {

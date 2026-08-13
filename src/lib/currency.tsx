@@ -53,15 +53,15 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
 
   const formatPrice = useCallback((usd: number | undefined | null, inr?: number | null): string => {
     if (currency === 'INR') {
-      if (inr != null) {
+      if (inr != null && inr > 0) {
         return `₹${Math.round(inr).toLocaleString('en-IN')}`;
       }
-      if (usd != null) {
+      if (usd != null && usd > 0) {
         return `₹${Math.round(usd * DEFAULT_EXCHANGE_RATE).toLocaleString('en-IN')}`;
       }
       return '';
     }
-    if (usd != null) return `$${usd}`;
+    if (usd != null && usd > 0) return `$${usd}`;
     return '';
   }, [currency]);
 

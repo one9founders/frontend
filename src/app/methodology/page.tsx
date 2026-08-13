@@ -3,11 +3,12 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
-import { STATS } from '@/lib/constants/stats';
+import { formatToolCount } from '@/lib/constants/stats';
+import { getDirectoryStats } from '@/lib/actions/tools';
 
 export const metadata: Metadata = generateSEO({
   title: 'How We Rate AI Tools | 10-Point Security Framework | One9Founders',
-  description: `Our transparent 10-point framework rates ${STATS.totalResources} AI tools on security, pricing, features, and more. Zero affiliate bias. See how we score every tool.`,
+  description: `Our 10-point framework rates AI tools on security, pricing, and features. Scores are published only when assessment is complete enough. Zero affiliate bias.`,
   path: '/methodology',
   keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation'],
 });
@@ -144,7 +145,7 @@ const processSteps = [
   },
   {
     title: 'Hands-On Testing',
-    description: 'We create accounts and test core functionality for a minimum of 7 days across real use cases.',
+    description: 'Where we have completed an assessment, we test core functionality against real founder use cases. Hands-on testing is part of the full 10-criterion review, not a claim that every listing has already been used for 7 days.',
   },
   {
     title: 'Comparative Analysis',
@@ -156,11 +157,15 @@ const processSteps = [
   },
   {
     title: 'Ongoing Monitoring',
-    description: 'We re-evaluate tools quarterly and immediately after major updates or security incidents.',
+    description: 'We re-evaluate assessed tools after major product or security changes. Assessment is an ongoing rollout across the directory — not every listing is re-scored on a fixed quarterly calendar.',
   },
 ];
 
-export default function MethodologyPage() {
+export default async function MethodologyPage() {
+  const stats = await getDirectoryStats();
+  const toolCount = formatToolCount(stats.count);
+  const assessedCount = stats.fully_assessed_count.toLocaleString('en-US');
+
   const structuredData = generateStructuredData({
     '@type': 'WebPage',
     name: 'How We Rate AI Tools - One9Founders Methodology',
@@ -187,13 +192,42 @@ export default function MethodologyPage() {
         <section className="mb-16">
           <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-8">
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
-              One9Founders uses a uniform, transparent methodology to evaluate every AI tool
+              One9Founders uses a uniform, transparent methodology to evaluate AI tools
               in our directory. Unlike other directories that rely on affiliate relationships
-              or popularity metrics alone, we apply consistent criteria across all tools.
+              or popularity metrics alone, we apply consistent criteria — and we only publish
+              a numeric score when enough of that framework has been completed.
+            </p>
+            <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
+              Assessment is an ongoing rollout. Today, {assessedCount} of {toolCount} tools
+              have a complete 10-criterion rating. Listings that are not yet scored show
+              &ldquo;Not Yet Rated&rdquo; rather than a placeholder number.
             </p>
             <p className="text-white font-semibold text-lg">
-              Our commitment: Zero affiliate bias. Every tool rated the same way. Security first.
+              Our commitment: Zero affiliate bias. Every assessed tool rated the same way. Security first.
             </p>
+          </div>
+        </section>
+
+        {/* Rating states */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-white mb-8">Rating and security states</h2>
+          <div className="space-y-4 text-[var(--gray-300)]">
+            <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
+              <h3 className="text-lg font-semibold text-white mb-2">Not Yet Rated</h3>
+              <p>Fewer than 6 of 10 criteria have been scored (security plus at least half the framework). No numeric score is shown anywhere — not on cards, comparison tables, FAQ copy, or structured data.</p>
+            </div>
+            <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
+              <h3 className="text-lg font-semibold text-white mb-2">Provisional</h3>
+              <p>6–9 criteria scored. We show the numeric score only with a completeness label, for example &ldquo;3.8/5 (Provisional — 7/10 criteria assessed)&rdquo;.</p>
+            </div>
+            <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
+              <h3 className="text-lg font-semibold text-white mb-2">Rated</h3>
+              <p>All 10 criteria scored. We show the numeric score with a tier: Outstanding (4.5–5.0), Excellent (4.0–4.49), Strong (3.5–3.99), Good (3.0–3.49), Fair (2.0–2.99), or Needs Improvement (below 2.0).</p>
+            </div>
+            <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
+              <h3 className="text-lg font-semibold text-white mb-2">Security status</h3>
+              <p>Security uses the Security &amp; Data Privacy criterion (20 points). Until that criterion is scored: &ldquo;Security: Not Yet Assessed&rdquo;. Below 12/20: &ldquo;Security: Flagged&rdquo;. 12/20 or above: &ldquo;Security: Verified&rdquo;.</p>
+            </div>
           </div>
         </section>
 

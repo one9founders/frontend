@@ -11,6 +11,9 @@ import INRPriceDisplay from '@/components/shared/INRPriceDisplay';
 import { addRefToUrl } from '@/lib/utils/url';
 import VisitToolButton from '@/components/features/tools/VisitToolButton';
 import { Tool, Review } from '@/types';
+import { getToolRatingDisplay, getToolSecurityDisplay, formatAssessedDate } from '@/lib/toolRating';
+import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
+import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
 
@@ -53,11 +56,14 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
       ? tool.pricing_type.charAt(0).toUpperCase() + tool.pricing_type.slice(1)
       : '';
 
+  const ratingDisplay = getToolRatingDisplay(tool);
+  const securityDisplay = getToolSecurityDisplay(tool);
   const description = [
     tool.short_description || tool.description?.substring(0, 80),
     primaryCategory ? `Category: ${primaryCategory}.` : '',
     pricingLabel ? `Pricing: ${pricingLabel}.` : '',
-    'Reviewed with zero affiliate bias. Security validated by One9Founders.',
+    ratingDisplay.label + '.',
+    securityDisplay.label + '.',
   ].filter(Boolean).join(' ').slice(0, 155);
 
   return generateSEO({
@@ -68,17 +74,6 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     keywords,
   });
 }
-
-function getRatingStars(rating: number | null | undefined) {
-  if (!rating) return null;
-  const ratingNum = Number(rating);
-  return Array.from({ length: 5 }, (_, i) => (
-    <span key={i} className={i < Math.floor(ratingNum) ? 'text-yellow-400' : 'text-[var(--gray-600)]'}>
-      &#9733;
-    </span>
-  ));
-}
-
 
 export default async function ToolPage({ params }: ToolPageProps) {
   const { id } = await params;
@@ -92,6 +87,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
     getReviewsByToolId(tool.id),
     getToolUsageCount(tool.id),
   ]);
+
+  const ratingDisplay = getToolRatingDisplay(tool);
+  const securityDisplay = getToolSecurityDisplay(tool);
 
   const structuredData = generateStructuredData({
     '@type': 'SoftwareApplication',
@@ -118,10 +116,10 @@ export default async function ToolPage({ params }: ToolPageProps) {
         },
       } : {}),
     } : undefined,
-    aggregateRating: tool.review_count > 0 ? {
+    aggregateRating: ratingDisplay.status === 'RATED' && ratingDisplay.score != null ? {
       '@type': 'AggregateRating',
-      ratingValue: tool.rating,
-      reviewCount: tool.review_count,
+      ratingValue: ratingDisplay.score,
+      ratingCount: 1,
       bestRating: 5,
       worstRating: 1,
     } : undefined,
@@ -282,16 +280,9 @@ export default async function ToolPage({ params }: ToolPageProps) {
                   </span>
                 </div>
                 
-                <div className="mb-4 flex items-center gap-2">
+                <div className="mb-4 flex items-center gap-2 flex-wrap">
                   <span className="text-[var(--gray-400)] text-sm">Rating:</span>
-                  {tool.rating != null && tool.rating > 0 && tool.review_count > 0 ? (
-                    <>
-                      <div className="flex">{getRatingStars(tool.rating)}</div>
-                      <span className="text-[var(--gray-400)] text-sm">{tool.rating} ({tool.review_count} reviews)</span>
-                    </>
-                  ) : (
-                    <span className="text-[var(--gray-500)] text-sm">Rating Pending</span>
-                  )}
+                  <ToolRatingBadge tool={tool} className="text-sm" />
                 </div>
                 
                 <VisitToolButton
@@ -414,44 +405,33 @@ export default async function ToolPage({ params }: ToolPageProps) {
           {/* Security Assessment */}
           <div className="mt-8">
             <h2 className="text-xl font-semibold text-white mb-4">Security Assessment</h2>
-            {tool.security_score != null ? (
-              <div className="bg-[var(--gray-800)] rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                  <span className="text-2xl font-bold text-white">{tool.security_score}/100</span>
-                  <span className="text-green-400 text-sm font-medium">Security Verified</span>
-                </div>
-                <p className="text-[var(--gray-400)] text-sm">
-                  This tool has been assessed using our 10-point security evaluation framework covering data handling, encryption, compliance, and more.
-                  {tool.security_assessed_at && (
-                    <span className="block mt-1 text-[var(--gray-500)]">
-                      Last assessed: {new Date(tool.security_assessed_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
-                    </span>
-                  )}
-                </p>
+            <div className="bg-[var(--gray-800)] rounded-lg p-6">
+              <div className="flex items-center gap-3 mb-2">
+                <ToolSecurityBadge tool={tool} className="text-lg font-medium" />
               </div>
-            ) : (
-              <div className="bg-[var(--gray-800)] rounded-lg p-6">
-                <div className="flex items-center gap-3 mb-2">
-                  <svg className="w-6 h-6 text-[var(--gray-500)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                  <span className="text-lg font-medium text-[var(--gray-400)]">Security: Pending</span>
-                </div>
-                <p className="text-[var(--gray-500)] text-sm">
-                  This tool has not yet been assessed using our 10-point security framework. Assessment is in progress.
+              <p className="text-[var(--gray-500)] text-sm">
+                {securityDisplay.status === 'VERIFIED' &&
+                  'This tool scored 12/20 or above on our Security & Data Privacy criterion.'}
+                {securityDisplay.status === 'FLAGGED' &&
+                  'This tool scored below 12/20 on Security & Data Privacy. Review the full methodology before using it with sensitive data.'}
+                {securityDisplay.status === 'NOT_ASSESSED' &&
+                  'Security & Data Privacy has not been scored for this tool yet. Assessment is an ongoing rollout — see How We Rate for coverage.'}
+              </p>
+              {formatAssessedDate(tool.last_assessed_at) && (
+                <p className="text-[var(--gray-500)] text-xs mt-2">
+                  Last assessed: {formatAssessedDate(tool.last_assessed_at)}
                 </p>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           <ToolQASection tool={tool} />
 
           {/* Last Updated */}
           <div className="mt-6 text-[var(--gray-500)] text-xs">
-            Last updated: {new Date(tool.updated_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {formatAssessedDate(tool.last_assessed_at)
+              ? `Last assessed: ${formatAssessedDate(tool.last_assessed_at)}`
+              : `Listed: ${new Date(tool.created_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}`}
           </div>
 
           <div className="mt-8">

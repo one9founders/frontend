@@ -6,6 +6,7 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Tool } from '@/types';
+import { getToolRatingDisplay, getToolSecurityDisplay } from '@/lib/toolRating';
 
 export const revalidate = 3600;
 
@@ -117,10 +118,8 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
     return parts.length ? parts.join(' | ') : 'Contact for pricing';
   };
 
-  const formatSecurity = (tool: Tool) => {
-    if (tool.security_score != null) return `${tool.security_score}/100`;
-    return 'Pending';
-  };
+  const formatSecurity = (tool: Tool) => getToolSecurityDisplay(tool).label;
+  const formatRating = (tool: Tool) => getToolRatingDisplay(tool).label;
 
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
@@ -176,8 +175,8 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
               />
               <ComparisonRow
                 label="Rating"
-                valueA={toolA.rating ? `${toolA.rating}/5 (${toolA.review_count} reviews)` : 'No ratings yet'}
-                valueB={toolB.rating ? `${toolB.rating}/5 (${toolB.review_count} reviews)` : 'No ratings yet'}
+                valueA={formatRating(toolA)}
+                valueB={formatRating(toolB)}
               />
               <ComparisonRow
                 label="Pricing"
@@ -185,7 +184,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
                 valueB={formatPricing(toolB)}
               />
               <ComparisonRow
-                label="Security Score"
+                label="Security"
                 valueA={formatSecurity(toolA)}
                 valueB={formatSecurity(toolB)}
               />

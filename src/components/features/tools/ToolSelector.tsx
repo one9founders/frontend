@@ -2,10 +2,11 @@
 
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Tool, Category } from '@/types';
-import { HugeiconsIcon, Search01Icon, Cancel01Icon, StarIcon, CheckmarkCircle01Icon } from '@/components/ui/icons';
-import { searchTools } from '@/lib/actions/tools';
+import { HugeiconsIcon, Search01Icon, Cancel01Icon, CheckmarkCircle01Icon } from '@/components/ui/icons';
+import { searchTools, getDirectoryStats } from '@/lib/actions/tools';
 import ToolLogo from '@/components/shared/ToolLogo';
-import { STATS } from '@/lib/constants/stats';
+import { formatToolCount } from '@/lib/constants/stats';
+import { getToolRatingDisplay } from '@/lib/toolRating';
 
 interface ToolSelectorProps {
   tools: Tool[];
@@ -22,6 +23,11 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
   const [searchResults, setSearchResults] = useState<Tool[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [directoryCount, setDirectoryCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    getDirectoryStats().then((stats) => setDirectoryCount(stats.count)).catch(() => {});
+  }, []);
 
   // Debounced server-side search
   const debouncedSearch = useCallback(async (query: string) => {
@@ -61,6 +67,12 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
         verified: r.verified || false,
         is_featured: r.is_featured || false,
         is_active: r.is_active !== false,
+        criteria_completed: r.criteria_completed ?? 0,
+        overall_score: r.overall_score ?? null,
+        security_criterion_score: r.security_criterion_score ?? null,
+        last_assessed_at: r.last_assessed_at ?? null,
+        rating_status: r.rating_status,
+        security_status: r.security_status,
         created_at: r.created_at || '',
         updated_at: r.updated_at || '',
       }));
@@ -185,7 +197,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             Select Tools to Compare
           </h2>
           <span className="text-[var(--gray-400)] text-sm">
-            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `Showing ${filteredTools.length} of ${STATS.totalResources} tools`}
+            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `Showing ${filteredTools.length} of ${formatToolCount(directoryCount)} tools`}
           </span>
         </div>
         
@@ -200,7 +212,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             />
             <input
               type="text"
-              placeholder={`Search all ${STATS.totalResources} tools by name or description...`}
+              placeholder={`Search all ${formatToolCount(directoryCount)} tools by name or description...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-10 py-3 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-purple-500 focus:outline-none transition-colors"
@@ -284,12 +296,9 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-white font-medium truncate">{tool.name}</h3>
-                      {tool.rating > 0 && (
-                        <div className="flex items-center gap-1 flex-shrink-0">
-                          <HugeiconsIcon icon={StarIcon} size={14} className="text-yellow-400" />
-                          <span className="text-xs text-[var(--gray-400)]">{Number(tool.rating).toFixed(1)}</span>
-                        </div>
-                      )}
+                      <span className="text-xs text-[var(--gray-400)] flex-shrink-0">
+                        {getToolRatingDisplay(tool).shortLabel}
+                      </span>
                     </div>
                     <p className="text-[var(--gray-400)] text-xs mt-1 line-clamp-2">
                       {tool.short_description || tool.description}
