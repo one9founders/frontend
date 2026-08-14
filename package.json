@@ -6,9 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
-    "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "count-indexable-tools": "npx --yes tsx scripts/count-indexable-tools.ts",
     "pipeline:run": "tsx pipeline/run-all.ts",
     "content:generate": "tsx pipeline/generate-posts.ts"
@@ -16,6 +16,7 @@
   "dependencies": {
     "@hugeicons/core-free-icons": "^3.1.1",
     "@hugeicons/react": "^1.1.4",
+    "@opennextjs/cloudflare": "^1.20.2",
     "next": "15.5.9",
     "posthog-js": "^1.313.0",
     "posthog-node": "^5.18.0",
@@ -24,7 +25,6 @@
     "sweetalert2": "^11.26.3"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.16",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
