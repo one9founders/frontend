@@ -1,10 +1,19 @@
 import { MetadataRoute } from 'next';
+import { hasSubstantiveContent } from '@/lib/tool-content';
+import { Tool } from '@/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
 interface ToolSitemapItem {
   slug: string;
   updated_at?: string;
+  assessed?: boolean;
+  description?: string;
+  pricing_models?: string[];
+  pricing_type?: string;
+  pricing_from?: number;
+  pricing_tiers?: unknown[];
+  use_cases?: string[];
   categories?: { slug: string; name: string }[];
 }
 
@@ -116,13 +125,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getAllAgentCategories(),
   ]);
 
-  // Tool pages - high priority for individual tool SEO
-  const toolPages = tools.map((tool) => ({
-    url: `${baseUrl}/tool/${tool.slug}`,
-    lastModified: tool.updated_at ? new Date(tool.updated_at) : new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
+  // Tool pages — indexable if assessed or the listing already has substantive content
+  const toolPages = tools
+    .filter((tool) => tool.assessed === true || hasSubstantiveContent(tool as Tool))
+    .map((tool) => ({
+      url: `${baseUrl}/tool/${tool.slug}`,
+      lastModified: tool.updated_at ? new Date(tool.updated_at) : new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
 
   // Category pages - important for content hub strategy
   const categoryPages = categories.map((category) => ({

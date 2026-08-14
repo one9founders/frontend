@@ -3,6 +3,7 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
+import { getBlogPosts } from '@/lib/blog';
 
 export const metadata: Metadata = generateSEO({
   title: 'Blog - AI Tools Insights for Startup Founders',
@@ -11,37 +12,8 @@ export const metadata: Metadata = generateSEO({
   keywords: ['AI tools blog', 'startup AI', 'founder insights', 'AI security', 'tool reviews'],
 });
 
-const BLOG_POSTS = [
-  {
-    slug: 'how-to-evaluate-ai-tools-for-your-startup',
-    title: 'How to Evaluate AI Tools for Your Startup: A Founder\'s Guide',
-    excerpt: 'Choosing the right AI tool can make or break your startup\'s productivity. Learn our 10-point evaluation framework that covers security, pricing, and ROI.',
-    author: 'Amit Bhartiya',
-    publishedAt: '2026-02-15',
-    readingTime: '8 min read',
-    category: 'Guides',
-  },
-  {
-    slug: 'ai-security-what-founders-need-to-know',
-    title: 'AI Security: What Every Startup Founder Needs to Know in 2026',
-    excerpt: 'With data breaches on the rise, understanding AI tool security is critical. We break down the key security factors founders should evaluate before adopting any AI tool.',
-    author: 'Arnav Gautam',
-    publishedAt: '2026-02-28',
-    readingTime: '6 min read',
-    category: 'Security',
-  },
-  {
-    slug: 'top-ai-tools-bootstrapped-startups-2026',
-    title: 'Top 10 AI Tools for Bootstrapped Startups in 2026',
-    excerpt: 'Running lean? These AI tools offer the best value for bootstrapped founders, with free tiers and startup-friendly pricing that won\'t drain your runway.',
-    author: 'Shreya Nair',
-    publishedAt: '2026-03-05',
-    readingTime: '10 min read',
-    category: 'Lists',
-  },
-];
-
 export default function BlogPage() {
+  const posts = getBlogPosts();
   const structuredData = generateStructuredData({
     '@type': 'Blog',
     name: 'One9Founders Blog',
@@ -71,7 +43,7 @@ export default function BlogPage() {
         </div>
 
         <div className="space-y-8">
-          {BLOG_POSTS.map((post) => (
+          {posts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
               <article className="bg-[var(--gray-900)] rounded-lg p-6 hover:bg-[var(--gray-800)] transition-colors">
                 <div className="flex items-center gap-3 mb-3">

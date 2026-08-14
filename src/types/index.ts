@@ -44,6 +44,8 @@ export interface Tool {
   overall_score?: number | null;
   security_criterion_score?: number | null;
   last_assessed_at?: string | null;
+  /** Full editorial assessment. Missing/undefined is treated as not assessed. */
+  assessed?: boolean;
   rating_status?: 'NOT_YET_RATED' | 'PROVISIONAL' | 'RATED';
   security_status?: 'NOT_ASSESSED' | 'FLAGGED' | 'VERIFIED';
   language_review_needed?: boolean;
@@ -55,6 +57,16 @@ export interface Tool {
   gst_applicable?: boolean;
   pricing_inr?: number | null;
   pricing_inr_with_gst?: number | null;
+  /** Whether the tool meets India-specific compliance expectations (DPDP and related). */
+  indiaCompliant?: boolean;
+  /** Free-text notes on DPDP Act relevance, data handling, or compliance caveats. */
+  dpdpNotes?: string;
+  /** India-facing price display, e.g. "₹2,499/mo" or "USD only, no INR billing". */
+  inrPricing?: string;
+  /** Where customer/user data is stored, e.g. "India (AWS Mumbai)" or "US only". */
+  dataResidency?: string;
+  /** Job-function clusters this tool is suited for, e.g. ["sales", "support"]. */
+  jobClusters?: string[];
   created_at: string;
   updated_at: string;
 }

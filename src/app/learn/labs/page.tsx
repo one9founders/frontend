@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import { Metadata } from 'next';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { labsAPI } from '@/lib/api/apiClient';
