@@ -15,7 +15,7 @@ import FounderSurveyCTA from '@/components/features/survey/FounderSurveyCTA';
 export async function generateMetadata(): Promise<Metadata> {
   const stats = await getDirectoryStats();
   const toolCount = formatToolCount(stats.count);
-  const description = `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`;
+  const description = `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, ${STATS.llmsCompared} LLMs, and ${STATS.researchPapers} research papers. Compare pricing, benchmarks, and security ratings. Built for startup founders.`;
   return {
     title: { absolute: "One9Founders | India's #1 AI Ecosystem Navigator" },
     description,
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: "One9Founders | India's #1 AI Ecosystem Navigator",
-      description: `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
+      description: `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, ${STATS.llmsCompared} LLMs, and ${STATS.researchPapers} research papers. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
       images: ['/og-image.png'],
     },
   };
@@ -56,7 +56,7 @@ export default async function Home() {
             "@type": "WebSite",
             "name": "One9Founders",
             "url": "https://one9founders.com",
-            "description": "India's largest AI tools, agents, and LLMs directory for startup founders",
+            "description": `India's largest AI tools, agents, LLMs, and ${STATS.researchPapers} research papers directory for startup founders`,
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://one9founders.com/search?q={search_term_string}",

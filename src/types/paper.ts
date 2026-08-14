@@ -30,6 +30,7 @@ export interface PaperListResponse {
 
 export interface PaperStats {
   total_papers: number;
+  total_authors?: number;
   papers_today: number;
   papers_this_week: number;
   top_tags: { tag: string; count: number }[];
