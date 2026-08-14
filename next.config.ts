@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/openworker/',
+        destination: '/worker',
+        permanent: true,
+      },
+      {
         source: '/ai-tool-directory-for-startup-founders',
         destination: '/',
         permanent: true,

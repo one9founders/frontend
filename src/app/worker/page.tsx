@@ -7,7 +7,7 @@ import { generateSEO } from '@/lib/utils/seo';
 export const metadata: Metadata = generateSEO({
   title: 'One9 Worker — Local AI Coworker for Founders',
   description:
-    'Download One9 Worker, sign in with One9Founders Cloud, and run a local AI coworker. Chats, files, and model keys stay on your machine; One9 only brokers identity and optional connector OAuth.',
+    'Download One9 Worker for Windows or macOS, sign in with One9Founders Cloud, and run a local AI coworker. Chats, files, and model keys stay on your machine; One9 only brokers identity and optional connector OAuth.',
   path: '/worker',
   keywords: [
     'One9 Worker',
@@ -43,8 +43,14 @@ const STEPS = [
   },
 ];
 
+const API_URL = (
+  process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com'
+).replace(/\/$/, '');
+
 const DMG_URL =
   'https://one9founders-openworker-downloads.s3.ap-south-1.amazonaws.com/mac/One9_Worker_0.1.7_aarch64.dmg';
+
+const WINDOWS_EXE_URL = `${API_URL}/v1/openworker/download/windows`;
 
 export default function One9WorkerPage() {
   return (
@@ -76,8 +82,14 @@ export default function One9WorkerPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
-              href={DMG_URL}
+              href={WINDOWS_EXE_URL}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors"
+            >
+              Download for Windows
+            </a>
+            <a
+              href={DMG_URL}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--gray-600)] text-white hover:bg-[var(--gray-900)] transition-colors"
             >
               Download for macOS
             </a>
@@ -89,7 +101,7 @@ export default function One9WorkerPage() {
             </a>
           </div>
           <p className="mt-4 text-sm text-[var(--gray-500)]">
-            macOS (Apple Silicon) · Windows coming soon · Requires a model API key or Ollama
+            Windows 10/11 (x64) · macOS (Apple Silicon) · Requires a model API key or Ollama
           </p>
         </div>
       </section>
@@ -156,11 +168,18 @@ export default function One9WorkerPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Download</h2>
           <p className="text-[var(--gray-300)] mb-6">
             This build is One9-configured — One9Founders Cloud sign-in works out of the box,
-            no config editing needed. It&apos;s currently unsigned, so macOS Gatekeeper will
-            warn on first launch: right-click the app → <strong className="text-white">Open</strong>{' '}
-            to proceed once.
+            no config editing needed. Builds are currently unsigned: on Windows use
+            SmartScreen → <strong className="text-white">More info → Run anyway</strong>;
+            on macOS right-click the app → <strong className="text-white">Open</strong>{' '}
+            once.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href={WINDOWS_EXE_URL}
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors"
+            >
+              Windows (x64) .exe
+            </a>
             <a
               href={DMG_URL}
               className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-white hover:border-amber-500/50 transition-colors"
