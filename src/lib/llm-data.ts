@@ -63,6 +63,30 @@ export const PROVIDER_COLORS: Record<string, string> = {
   Databricks: '#EF4444',
   Upstage: '#F59E0B',
   'Shanghai AI Lab': '#3B82F6',
+  Sarvam: '#FF6B00',
+  BharatGen: '#138808',
+  ByteDance: '#111111',
+  Xiaomi: '#FF6900',
+  'Thinking Machines': '#7C3AED',
+  InclusionAI: '#0EA5E9',
+  Meituan: '#FFD100',
+  'Liquid AI': '#06B6D4',
+  Poolside: '#2563EB',
+  Sakana: '#F43F5E',
+  KwaiKAT: '#F97316',
+  Tencent: '#3B82F6',
+  StepFun: '#8B5CF6',
+  IBM: '#054ADA',
+  'Arcee AI': '#14B8A6',
+  Perplexity: '#22C55E',
+  'Aion Labs': '#A855F7',
+  'Nex AGI': '#6366F1',
+  Reka: '#EC4899',
+  'Allen AI': '#0F766E',
+  Baidu: '#2932E1',
+  AI21: '#111827',
+  Inception: '#DC2626',
+  'Deep Cogito': '#7C3AED',
 };
 
 export const TIER_LABELS: Record<string, string> = {
@@ -107,7 +131,7 @@ export function formatContext(ctx: number | null): string {
 export function formatPrice(
   price: number | null,
   currency: 'usd' | 'inr' = 'usd',
-  inrRate: number = 84.5
+  inrRate: number = 95.4
 ): string {
   if (price === null || price === undefined) return '-';
   if (currency === 'inr') {
@@ -126,7 +150,7 @@ export function formatDownloads(downloads: number | null): string {
   return `${downloads}`;
 }
 
-export const INR_RATE = 84.5;
+export const INR_RATE = 95.4;
 
 export const QUICK_PICK_LABELS: Record<string, { title: string; emoji: string }> = {
   best_overall: { title: 'Best Overall', emoji: '🏆' },

@@ -16,7 +16,6 @@ import {
   formatContext,
   formatPrice,
   formatDownloads,
-  INR_RATE,
   QUICK_PICK_LABELS,
 } from '@/lib/llm-data';
 

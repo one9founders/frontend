@@ -112,6 +112,7 @@ export interface LLMDataset {
     tier3_count: number;
     last_updated: string;
     inr_rate: number;
+    open_weights_count?: number;
   };
   quick_picks: Record<string, QuickPick>;
   models: LLMModel[];
