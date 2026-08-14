@@ -173,16 +173,28 @@ export async function getToolUsageCount(toolId: number) {
   }
 }
 
-export async function getAllToolSlugs() {
+/** How many tool pages to prerender at build. Other slugs still render on demand. */
+const PREBUILD_TOOL_SLUG_LIMIT = 20;
+
+async function fetchToolSlugs(query: string): Promise<string[]> {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
+  const response = await fetch(`${API_URL}/tools/?${query}`, {
+    next: { revalidate: 300 },
+  });
+  if (!response.ok) return [];
+  const data = await response.json();
+  const tools = data?.results || data || [];
+  return tools
+    .map((tool: { slug: string }) => tool.slug)
+    .filter(Boolean)
+    .slice(0, PREBUILD_TOOL_SLUG_LIMIT);
+}
+
+export async function getAllToolSlugs() {
   try {
-    const response = await fetch(`${API_URL}/tools/?page_size=1000`, {
-      next: { revalidate: 300 }, // 5 minutes - faster updates for new tools
-    });
-    if (!response.ok) return [];
-    const data = await response.json();
-    const tools = data?.results || data || [];
-    return tools.map((tool: { slug: string }) => tool.slug);
+    const featured = await fetchToolSlugs(`featured=true&page_size=${PREBUILD_TOOL_SLUG_LIMIT}`);
+    if (featured.length > 0) return featured;
+    return await fetchToolSlugs(`page_size=${PREBUILD_TOOL_SLUG_LIMIT}`);
   } catch (error) {
     console.error('Get all tool slugs error:', error);
     return [];

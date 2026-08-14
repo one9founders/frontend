@@ -18,6 +18,7 @@ import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
 import IndiaFitCard from '@/components/features/tools/IndiaFitCard';
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
+export const dynamicParams = true;
 
 interface ToolPageProps {
   params: Promise<{ id: string }>;

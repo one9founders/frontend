@@ -9,6 +9,8 @@ import { RagTool } from '@/types/rag';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
+export const dynamicParams = true;
+
 interface RagToolDetailPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -54,12 +56,18 @@ export async function generateMetadata({ params }: RagToolDetailPageProps): Prom
   };
 }
 
+const PREBUILD_RAG_SLUG_LIMIT = 20;
+
 export async function generateStaticParams() {
   try {
-    const res = await fetch(`${API_URL}/api/v1/rag/tools/?status=active&page_size=200`);
+    const res = await fetch(
+      `${API_URL}/api/v1/rag/tools/?status=active&page_size=${PREBUILD_RAG_SLUG_LIMIT}`
+    );
     if (!res.ok) return [];
     const data = await res.json();
-    return (data.results || []).map((tool: RagTool) => ({ slug: tool.slug }));
+    return (data.results || [])
+      .slice(0, PREBUILD_RAG_SLUG_LIMIT)
+      .map((tool: RagTool) => ({ slug: tool.slug }));
   } catch {
     return [];
   }
