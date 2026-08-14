@@ -26,6 +26,8 @@ const REQUIRED_COLUMNS = [
 const DEFAULT_SHEET_CSV_URL =
   'https://docs.google.com/spreadsheets/d/1UcagD9hdr1wA5Xj-v_G3BFvPnSXefcMpXFFm4ErgINw/export?format=csv&gid=0';
 
+const CONTENT_DIR = join(process.cwd(), 'content', 'blog');
+
 function parseCsv(text: string): string[][] {
   const input = text.charCodeAt(0) === 0xfeff ? text.slice(1) : text;
   const rows: string[][] = [];
