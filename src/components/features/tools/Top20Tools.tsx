@@ -7,6 +7,7 @@ import { Tool } from '@/types';
 import SearchInput from '@/components/shared/SearchInput';
 import ToolCard from '@/components/features/tools/ToolCard';
 import PricingFilter from '@/components/features/tools/PricingFilter';
+import JobClusterFilter from '@/components/features/tools/JobClusterFilter';
 import Pagination from '@/components/shared/Pagination';
 import { useAnalytics } from '@/hooks/useAnalytics';
 
@@ -19,6 +20,7 @@ function Top20ToolsInner() {
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
   const [selectedTag, setSelectedTag] = useState('All');
   const [selectedPricing, setSelectedPricing] = useState<string[]>([]);
+  const [selectedJobClusters, setSelectedJobClusters] = useState<string[]>([]);
   const [loading, setLoading] = useState(!initialQuery);
   const [searchResults, setSearchResults] = useState<Tool[]>([]);
   const [isSearching, setIsSearching] = useState(!!initialQuery);
@@ -39,12 +41,17 @@ function Top20ToolsInner() {
   }, [currentPage, selectedTag, selectedPricing, isSearching]);
 
   useEffect(() => {
-    if (isSearching) {
-      setFilteredTools(searchResults);
-    } else {
-      setFilteredTools(tools);
+    const source = isSearching ? searchResults : tools;
+    if (selectedJobClusters.length === 0) {
+      setFilteredTools(source);
+      return;
     }
-  }, [tools, searchResults, isSearching]);
+    setFilteredTools(
+      source.filter((tool) =>
+        selectedJobClusters.some((cluster) => tool.jobClusters?.includes(cluster))
+      )
+    );
+  }, [tools, searchResults, isSearching, selectedJobClusters]);
 
   const loadTools = async () => {
     setLoading(true);
@@ -192,6 +199,13 @@ function Top20ToolsInner() {
                 />
               </div>
 
+              <div className="flex-1">
+                <JobClusterFilter
+                  selectedClusters={selectedJobClusters}
+                  onClustersChange={setSelectedJobClusters}
+                />
+              </div>
+
               <div className="flex-1 md:max-w-xs">
                 <h3 className="text-sm font-medium text-[var(--gray-300)] mb-3">Sort by</h3>
                 <select
@@ -214,6 +228,8 @@ function Top20ToolsInner() {
           <div className="mb-6 text-[var(--gray-400)] text-sm">
             {isSearching ? (
               `${filteredTools.length} tools found for your search`
+            ) : selectedJobClusters.length > 0 ? (
+              `${filteredTools.length} tools match selected job clusters`
             ) : (
               `Showing ${((currentPage - 1) * pageSize) + 1}-${Math.min(currentPage * pageSize, totalCount)} of ${totalCount.toLocaleString('en-US')} tools`
             )}
@@ -234,7 +250,11 @@ function Top20ToolsInner() {
 
         {!loading && !searchLoading && filteredTools.length === 0 && (
           <div className="text-center text-[var(--gray-400)]">
-            {isSearching ? 'No tools found for your search.' : 'No tools available.'}
+            {isSearching
+              ? 'No tools found for your search.'
+              : selectedJobClusters.length > 0
+                ? 'No tools tagged for this cluster yet.'
+                : 'No tools available.'}
           </div>
         )}
 

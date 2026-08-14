@@ -1,10 +1,12 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { hasSubstantiveContent } from '@/lib/tool-content';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ComparePageClient from '@/components/features/tools/ComparePageClient';
+import { Tool } from '@/types';
 
 export const revalidate = 3600;
 
@@ -18,6 +20,7 @@ export const metadata: Metadata = generateSEO({
 export default async function ComparePage() {
   const data = await getAllTools({ page_size: 100 });
   const initialTools = Array.isArray(data) ? data : (data?.results || []);
+  const indexedTools = initialTools.filter((tool: Tool) => tool.assessed === true || hasSubstantiveContent(tool));
 
   const structuredData = generateStructuredData({
     '@type': 'WebPage',
@@ -27,8 +30,8 @@ export default async function ComparePage() {
     mainEntity: {
       '@type': 'ItemList',
       name: 'AI Tools for Comparison',
-      numberOfItems: initialTools.length,
-      itemListElement: initialTools.slice(0, 10).map((tool: { name: string; slug: string; description: string }, index: number) => ({
+      numberOfItems: indexedTools.length,
+      itemListElement: indexedTools.slice(0, 10).map((tool: { name: string; slug: string; description: string }, index: number) => ({
         '@type': 'ListItem',
         position: index + 1,
         item: {

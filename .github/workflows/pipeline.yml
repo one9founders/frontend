@@ -1,0 +1,51 @@
+# Pipeline data refresh.
+#
+# Commit strategy: manual `git config` + `git add` + `git diff --staged --quiet`
+# + `git commit` + `git push`, not git-auto-commit-action.
+# Why: fewer moving parts (no third-party action), the no-op path is an explicit
+# `exit 0` so an unchanged /data/pipeline never fails the job, and [skip ci] is
+# in our own commit message. The default GITHUB_TOKEN (contents: write) is used
+# only to push; the pipeline script itself uses secrets.PIPELINE_GITHUB_TOKEN.
+
+name: Pipeline
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.PIPELINE_GITHUB_TOKEN }}
+        run: npm run pipeline:run
+
+      - name: Commit and push pipeline data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pipeline
+          if git diff --staged --quiet; then
+            echo "No files under data/pipeline changed; skipping commit."
+            exit 0
+          fi
+          git commit -m "chore: update pipeline data [skip ci]"
+          git push

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { hasSubstantiveContent } from '@/lib/tool-content';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ToolCard from '@/components/features/tools/ToolCard';
@@ -97,6 +98,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
   const data = await getAllTools({ category, page_size: 50 });
   const tools: Tool[] = Array.isArray(data) ? data : (data?.results || []);
+  const indexedTools = tools.filter((tool) => tool.assessed === true || hasSubstantiveContent(tool));
 
   const structuredData = generateStructuredData({
     '@type': 'CollectionPage',
@@ -106,8 +108,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     mainEntity: {
       '@type': 'ItemList',
       name: `AI ${cat.name} Tools`,
-      numberOfItems: tools.length,
-      itemListElement: tools.slice(0, 20).map((tool, index) => ({
+      numberOfItems: indexedTools.length,
+      itemListElement: indexedTools.slice(0, 20).map((tool, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         item: {

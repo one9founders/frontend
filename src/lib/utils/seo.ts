@@ -7,6 +7,12 @@ interface SEOProps {
   image?: string;
   type?: 'website' | 'article';
   keywords?: string[];
+  robots?: Metadata['robots'];
+}
+
+/** Indexable only when assessed is explicitly true. Missing/undefined is false. */
+export function isToolAssessed(tool: { assessed?: boolean | null }): boolean {
+  return tool.assessed === true;
 }
 
 export function generateSEO({
@@ -16,6 +22,7 @@ export function generateSEO({
   image = '/og-image.png',
   type = 'website',
   keywords = [],
+  robots,
 }: SEOProps): Metadata {
   const baseUrl = 'https://one9founders.com';
   const url = `${baseUrl}${path}`;
@@ -61,7 +68,7 @@ export function generateSEO({
       images: [image],
       creator: '@one9founders',
     },
-    robots: {
+    robots: robots ?? {
       index: true,
       follow: true,
       googleBot: {

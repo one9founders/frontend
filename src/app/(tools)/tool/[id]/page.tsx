@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getToolBySlug, getReviewsByToolId, getToolUsageCount, getAllToolSlugs } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { hasSubstantiveContent } from '@/lib/tool-content';
 import Navbar from '@/components/layout/Navbar';
 import ToolLogo from '@/components/shared/ToolLogo';
 import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
@@ -14,6 +15,7 @@ import { Tool, Review } from '@/types';
 import { getToolRatingDisplay, getToolSecurityDisplay, formatAssessedDate } from '@/lib/toolRating';
 import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
 import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
+import IndiaFitCard from '@/components/features/tools/IndiaFitCard';
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
 
@@ -72,6 +74,9 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     path: `/tool/${tool.slug}`,
     image: tool.logo_url || tool.landing_page_screenshot || '/og-image.png',
     keywords,
+    robots: tool.assessed === true || hasSubstantiveContent(tool)
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   });
 }
 
@@ -401,6 +406,8 @@ export default async function ToolPage({ params }: ToolPageProps) {
               <p className="text-[var(--gray-300)]">{tool.startup_benefits}</p>
             </div>
           )}
+
+          <IndiaFitCard tool={tool} />
 
           {/* Security Assessment */}
           <div className="mt-8">
