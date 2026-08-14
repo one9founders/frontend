@@ -44,14 +44,23 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const { slug } = await params;
   const { currentCategory, agents } = await fetchCategoryData(slug);
   const label = currentCategory?.label || slug.replace(/-/g, ' ');
-  const count = currentCategory?.agent_count || agents.count;
+  const count = currentCategory?.agent_count
+    ?? (agents.count > 0 ? agents.count : null);
+  const title = count != null
+    ? `Top ${label} AI Agents (${count}+) | One9Founders`
+    : `Top ${label} AI Agents | One9Founders`;
+  const description = count != null
+    ? `Explore ${count}+ ${label} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`
+    : `Explore ${label} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`;
 
   return {
-    title: `Top ${label} AI Agents (${count}+) | One9Founders`,
-    description: `Explore ${count}+ ${label} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`,
+    title,
+    description,
     openGraph: {
       title: `Top ${label} AI Agents | One9Founders`,
-      description: `Explore ${count}+ ${label} AI agents. Compare features, pricing, and ratings.`,
+      description: count != null
+        ? `Explore ${count}+ ${label} AI agents. Compare features, pricing, and ratings.`
+        : `Explore ${label} AI agents. Compare features, pricing, and ratings.`,
       type: 'website',
       url: `https://one9founders.com/agents/category/${slug}`,
     },

@@ -26,7 +26,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
   const [directoryCount, setDirectoryCount] = useState<number | null>(null);
 
   useEffect(() => {
-    getDirectoryStats().then((stats) => setDirectoryCount(stats.count)).catch(() => {});
+    getDirectoryStats().then((stats) => setDirectoryCount(stats?.total_tools ?? null)).catch(() => {});
   }, []);
 
   // Debounced server-side search
@@ -197,7 +197,13 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             Select Tools to Compare
           </h2>
           <span className="text-[var(--gray-400)] text-sm">
-            {isSearching ? 'Searching...' : hasSearched ? `${filteredTools.length} results found` : `Showing ${filteredTools.length} of ${formatToolCount(directoryCount)} tools`}
+            {isSearching
+              ? 'Searching...'
+              : hasSearched
+                ? `${filteredTools.length} results found`
+                : formatToolCount(directoryCount)
+                  ? `Showing ${filteredTools.length} of ${formatToolCount(directoryCount)} tools`
+                  : `Showing ${filteredTools.length} tools`}
           </span>
         </div>
         
@@ -212,7 +218,11 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             />
             <input
               type="text"
-              placeholder={`Search all ${formatToolCount(directoryCount)} tools by name or description...`}
+              placeholder={
+                formatToolCount(directoryCount)
+                  ? `Search all ${formatToolCount(directoryCount)} tools by name or description...`
+                  : 'Search tools by name or description...'
+              }
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-10 py-3 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-purple-500 focus:outline-none transition-colors"

@@ -4,7 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
 import { STATS, formatToolCount } from '@/lib/constants/stats';
-import { getDirectoryStats } from '@/lib/actions/tools';
+import { fetchDirectoryStats } from '@/lib/api/toolsStats';
 
 export const metadata: Metadata = generateSEO({
   title: 'How We Rate AI Tools | 10-Point Security Framework | One9Founders',
@@ -162,9 +162,12 @@ const processSteps = [
 ];
 
 export default async function MethodologyPage() {
-  const stats = await getDirectoryStats();
-  const toolCount = formatToolCount(stats.count);
-  const assessedCount = stats.fully_assessed_count.toLocaleString('en-US');
+  const stats = await fetchDirectoryStats();
+  const toolCount = formatToolCount(stats?.total_tools);
+  const assessedCount =
+    stats?.fully_assessed_count != null
+      ? stats.fully_assessed_count.toLocaleString('en-US')
+      : null;
 
   const structuredData = generateStructuredData({
     '@type': 'WebPage',
@@ -198,8 +201,11 @@ export default async function MethodologyPage() {
               a numeric score when enough of that framework has been completed.
             </p>
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
-              Assessment is an ongoing rollout. Today, {assessedCount} of {toolCount} tools
-              have a complete 10-criterion rating. Listings that are not yet scored show
+              Assessment is an ongoing rollout.
+              {assessedCount != null && toolCount != null
+                ? ` Today, ${assessedCount} of ${toolCount} tools have a complete 10-criterion rating.`
+                : ''}{' '}
+              Listings that are not yet scored show
               &ldquo;Not Yet Rated&rdquo; rather than a placeholder number.
             </p>
             <p className="text-white font-semibold text-lg">

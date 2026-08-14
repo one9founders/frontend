@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon, Search01Icon } from "@/components/ui/icons";
 import posthog from "posthog-js";
-import { STATS, formatToolCount } from "@/lib/constants/stats";
+import { STATS, withLiveCount } from "@/lib/constants/stats";
 
 interface CategoryPill {
   label: string;
@@ -24,9 +24,10 @@ const CATEGORY_PILLS: CategoryPill[] = [
 
 interface HeroSectionProps {
   toolCount?: number | null;
+  agentCount?: number | null;
 }
 
-export default function HeroSection({ toolCount }: HeroSectionProps) {
+export default function HeroSection({ toolCount, agentCount }: HeroSectionProps) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -90,7 +91,7 @@ export default function HeroSection({ toolCount }: HeroSectionProps) {
 
         {/* Subheadline */}
         <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          {formatToolCount(toolCount)} AI tools, {STATS.llmsCompared} LLMs, {STATS.aiAgents} agents, {STATS.ragVectorDbs} RAG & vector databases, and {STATS.researchPapers} research papers from {STATS.researchAuthors} authors. Supported by IIT Bombay.
+          {withLiveCount(toolCount, 'AI tools')}, {STATS.llmsCompared} LLMs, {withLiveCount(agentCount, 'agents')}, {STATS.ragVectorDbs} RAG & vector databases, and {STATS.researchPapers} research papers from {STATS.researchAuthors} authors. Supported by IIT Bombay.
         </p>
 
         {/* Search Bar */}

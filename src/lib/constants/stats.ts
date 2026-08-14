@@ -9,9 +9,16 @@ export const STATS = {
   researchAuthors: "34,000+",
 } as const;
 
-export function formatToolCount(count: number | null | undefined, fallback = STATS.totalResources): string {
-  if (count == null || count <= 0) return fallback;
-  return count.toLocaleString('en-US');
+/** Live catalog count, or null when the stats fetch failed / the field is missing. */
+export function formatToolCount(count: number | null | undefined): string | null {
+  if (count == null || !Number.isFinite(count) || count < 0) return null;
+  return Math.floor(count).toLocaleString('en-US');
+}
+
+/** `"25,848 AI tools"` when a live count exists, otherwise `"AI tools"`. */
+export function withLiveCount(count: number | null | undefined, phrase: string): string {
+  const formatted = formatToolCount(count);
+  return formatted ? `${formatted} ${phrase}` : phrase;
 }
 
 /** Floor a live catalog count to a stable marketing figure, e.g. 34424 → "34,000+". */
