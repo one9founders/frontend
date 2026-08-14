@@ -90,7 +90,7 @@ export default function HeroSection({ toolCount }: HeroSectionProps) {
 
         {/* Subheadline */}
         <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          {formatToolCount(toolCount)} AI tools, {STATS.llmsCompared} LLMs, {STATS.aiAgents} agents, {STATS.ragVectorDbs} RAG & vector databases, and the latest AI research papers. Supported by IIT Bombay.
+          {formatToolCount(toolCount)} AI tools, {STATS.llmsCompared} LLMs, {STATS.aiAgents} agents, {STATS.ragVectorDbs} RAG & vector databases, and {STATS.researchPapers} research papers from {STATS.researchAuthors} authors. Supported by IIT Bombay.
         </p>
 
         {/* Search Bar */}

@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const toolCount = formatToolCount(stats.count);
   return generateSEO({
     title: 'About One9Founders | India\'s Largest AI Ecosystem Navigator',
-    description: `One9Founders is India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and models. Security-first ratings with zero affiliate bias. AI training for colleges and corporates. Backed by IIT Bombay.`,
+    description: `One9Founders is India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and ${STATS.researchPapers} research papers. Security-first ratings with zero affiliate bias. Backed by IIT Bombay.`,
     path: '/about',
     keywords: ['about one9founders', 'Indian startup team', 'AI tool directory India', 'IIT Bombay startup', 'founder resources India', 'AI tools for Indian startups', 'AI training India', 'AI training for colleges'],
   });
@@ -32,7 +32,7 @@ export default async function AboutPage() {
               name: 'One9Founders',
               url: 'https://www.one9founders.com',
               logo: 'https://www.one9founders.com/logo-light.png',
-              description: `India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and models. Security-validated with zero affiliate bias. Backed by IIT Bombay.`,
+              description: `India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and ${STATS.researchPapers} research papers. Security-validated with zero affiliate bias. Backed by IIT Bombay.`,
               foundingDate: '2024',
               areaServed: ['India', 'Global'],
               knowsAbout: ['AI Tools', 'Startup Technology', 'Security Assessment', 'Tool Evaluation', 'AI Training'],
@@ -140,6 +140,15 @@ export default async function AboutPage() {
               <h3 className="text-xl font-bold text-white mb-3">{STATS.openSourceModels} Open Source Models</h3>
               <p className="text-[var(--gray-300)]">
                 Self-hostable models sorted by downloads, parameters, and provider - for teams that want to run AI on their own infrastructure.
+              </p>
+            </div>
+            <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
+              <span className="text-3xl mb-4 block">&#x1F4C4;</span>
+              <h3 className="text-xl font-bold text-white mb-3">
+                <Link href="/research" className="hover:text-purple-300 transition-colors">{STATS.researchPapers} Research Papers</Link>
+              </h3>
+              <p className="text-[var(--gray-300)]">
+                Daily-ingested AI papers from arXiv and HuggingFace, covering {STATS.researchAuthors} authors, with AI summaries and difficulty ratings.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
@@ -300,13 +309,6 @@ export default async function AboutPage() {
               <div>
                 <h3 className="text-white font-semibold">AI Startup Profiles</h3>
                 <p className="text-[var(--gray-400)] text-sm">Discover Indian and global companies building with AI.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 p-4 rounded-xl bg-[var(--gray-800)] border border-[var(--gray-700)]">
-              <span className="text-2xl flex-shrink-0">&#x1F4C4;</span>
-              <div>
-                <h3 className="text-white font-semibold">Research &amp; Papers Hub</h3>
-                <p className="text-[var(--gray-400)] text-sm">Stay current with the latest AI research, curated for practitioners.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 rounded-xl bg-[var(--gray-800)] border border-[var(--gray-700)]">

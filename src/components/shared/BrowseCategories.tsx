@@ -62,7 +62,7 @@ export default function BrowseCategories({ toolCount }: BrowseCategoriesProps) {
   },
   {
     title: 'Research & Papers',
-    description: 'Stay current with AI research',
+    description: `${STATS.researchPapers} papers from ${STATS.researchAuthors} authors. Updated daily from arXiv and HuggingFace.`,
     emoji: '📄',
     active: true,
     href: '/research',

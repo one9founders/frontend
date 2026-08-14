@@ -3,14 +3,14 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
-import { formatToolCount } from '@/lib/constants/stats';
+import { STATS, formatToolCount } from '@/lib/constants/stats';
 import { getDirectoryStats } from '@/lib/actions/tools';
 
 export const metadata: Metadata = generateSEO({
   title: 'How We Rate AI Tools | 10-Point Security Framework | One9Founders',
   description: `Our 10-point framework rates AI tools on security, pricing, and features. Scores are published only when assessment is complete enough. Zero affiliate bias.`,
   path: '/methodology',
-  keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation'],
+  keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation', 'AI research papers'],
 });
 
 const criteria = [
@@ -372,6 +372,62 @@ export default async function MethodologyPage() {
                 LLM data is updated as providers release new models or change pricing. Visit our{' '}
                 <Link href="/llms" className="text-purple-400 hover:text-purple-300 underline">LLM Explorer</Link>{' '}
                 to compare all 250+ models.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-white mb-8">How We Ingest Research Papers</h2>
+          <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-8">
+            <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-6">
+              The research hub tracks {STATS.researchPapers} AI papers from {STATS.researchAuthors} authors. New work is ingested daily from arXiv and cross-referenced with HuggingFace daily papers.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">What We Track</h3>
+                <ul className="space-y-2">
+                  {[
+                    'Title, abstract, authors, and arXiv categories',
+                    'Publication date and PDF / arXiv links',
+                    'HuggingFace upvotes and paper URLs',
+                    'AI-generated summaries and topic tags',
+                    'Beginner / intermediate / advanced difficulty',
+                    'Linked code repositories when available',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[var(--gray-300)]">
+                      <svg className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">Data Sources</h3>
+                <ul className="space-y-2">
+                  {[
+                    'arXiv API for cs.AI, cs.CL, cs.LG, and cs.IR',
+                    'HuggingFace daily papers for upvotes and trending',
+                    'Author records built from each ingested paper',
+                    'AI enrichment for summaries, tags, and difficulty',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[var(--gray-300)]">
+                      <svg className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-[var(--gray-700)]">
+              <p className="text-[var(--gray-400)]">
+                Papers are added as they appear on arXiv. Visit the{' '}
+                <Link href="/research" className="text-purple-400 hover:text-purple-300 underline">research hub</Link>{' '}
+                to browse all {STATS.researchPapers} papers.
               </p>
             </div>
           </div>

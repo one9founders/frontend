@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { hasSubstantiveContent } from '@/lib/tool-content';
+import { getAllPapersForSitemap } from '@/lib/api/papersApi';
 import { Tool } from '@/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -102,7 +103,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { route: '/about', priority: 0.6, changeFrequency: 'monthly' as const },
     { route: '/llms', priority: 0.8, changeFrequency: 'weekly' as const },
     { route: '/rag-vector-dbs', priority: 0.7, changeFrequency: 'weekly' as const },
-    { route: '/research', priority: 0.7, changeFrequency: 'weekly' as const },
+    { route: '/research', priority: 0.8, changeFrequency: 'daily' as const },
     { route: '/deals', priority: 0.6, changeFrequency: 'weekly' as const },
     { route: '/learn', priority: 0.6, changeFrequency: 'weekly' as const },
     { route: '/submit', priority: 0.5, changeFrequency: 'monthly' as const },
@@ -118,11 +119,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Fetch tools, categories, agents, and agent categories in parallel
-  const [tools, categories, agents, agentCategories] = await Promise.all([
+  const [tools, categories, agents, agentCategories, papers] = await Promise.all([
     getAllTools(),
     getAllCategories(),
     getAllAgents(),
     getAllAgentCategories(),
+    getAllPapersForSitemap(),
   ]);
 
   // Tool pages — indexable if assessed or the listing already has substantive content
@@ -167,5 +169,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...categoryPages, ...toolPages, agentDirectoryPage, ...agentCategoryPages, ...agentPages];
+  const paperPages = papers.map((paper) => ({
+    url: `${baseUrl}/research/${paper.arxiv_id}`,
+    lastModified: paper.published_at ? new Date(paper.published_at) : new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
+  return [...staticPages, ...categoryPages, ...toolPages, agentDirectoryPage, ...agentCategoryPages, ...agentPages, ...paperPages];
 }
