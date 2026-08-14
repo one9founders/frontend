@@ -1,9 +1,9 @@
 export const STATS = {
   totalResources: "25,000+",
   securityValidated: "2,500+",
-  llmsCompared: "177+",
+  llmsCompared: "250+",
   aiAgents: "1,200+",
-  openSourceModels: "100+",
+  openSourceModels: "140+",
   ragVectorDbs: "110+",
 } as const;
 

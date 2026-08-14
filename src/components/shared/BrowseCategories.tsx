@@ -30,7 +30,7 @@ export default function BrowseCategories({ toolCount }: BrowseCategoriesProps) {
   },
   {
     title: 'LLMs & Foundation Models',
-    description: '177 models compared with pricing & benchmarks. Arena rankings, input/output costs, context windows, and India-affordable tags.',
+    description: '250+ models compared with pricing & benchmarks. Arena rankings, input/output costs, context windows, and India-affordable tags.',
     emoji: '🧠',
     active: true,
     href: '/llms',
@@ -38,7 +38,7 @@ export default function BrowseCategories({ toolCount }: BrowseCategoriesProps) {
   },
   {
     title: 'Open Source Models',
-    description: '100+ open-weight models to self-host. Sorted by downloads, parameters, and provider. Full specs for every model.',
+    description: '140+ open-weight models to self-host — Kimi K3, DeepSeek V4, Qwen3.8, GLM-5.2, Llama 4, Sarvam, Gemma 4. Full specs for every model.',
     emoji: '🔓',
     active: true,
     href: '/llms?type=open-weights',

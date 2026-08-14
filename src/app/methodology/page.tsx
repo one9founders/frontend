@@ -325,7 +325,7 @@ export default async function MethodologyPage() {
           <h2 className="text-3xl font-bold text-white mb-8">How We Evaluate LLMs</h2>
           <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-8">
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-6">
-              Our LLM Explorer tracks 177 models across multiple dimensions. Unlike tool ratings, LLM data is sourced from public benchmarks and provider documentation.
+              Our LLM Explorer tracks 250+ models across multiple dimensions. Unlike tool ratings, LLM data is sourced from public benchmarks and provider documentation.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
@@ -352,10 +352,10 @@ export default async function MethodologyPage() {
                 <h3 className="text-lg font-semibold text-white">Data Sources</h3>
                 <ul className="space-y-2">
                   {[
-                    'LMSYS Chatbot Arena leaderboard',
-                    'Official provider pricing pages',
-                    'Model documentation and release notes',
-                    'Community benchmarks and evaluations',
+                    'Arena (arena.ai) text and WebDev leaderboards',
+                    'Artificial Analysis Intelligence Index',
+                    'OpenRouter and official provider list prices',
+                    'Model cards, Hugging Face, and release notes',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-[var(--gray-300)]">
                       <svg className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -371,7 +371,7 @@ export default async function MethodologyPage() {
               <p className="text-[var(--gray-400)]">
                 LLM data is updated as providers release new models or change pricing. Visit our{' '}
                 <Link href="/llms" className="text-purple-400 hover:text-purple-300 underline">LLM Explorer</Link>{' '}
-                to compare all 177 models.
+                to compare all 250+ models.
               </p>
             </div>
           </div>
