@@ -8,6 +8,22 @@ export interface Category {
   updated_at: string;
 }
 
+export interface CategoryStat {
+  category: string;
+  slug?: string;
+  name?: string;
+  count: number;
+}
+
+export interface DirectoryStats {
+  total_tools: number | null;
+  count: number | null;
+  fully_assessed_count: number | null;
+  provisionally_assessed_count: number | null;
+  agent_count: number | null;
+  by_category: CategoryStat[];
+}
+
 export interface Tool {
   id: number;
   name: string;

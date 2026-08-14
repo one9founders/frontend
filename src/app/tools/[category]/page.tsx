@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
+import { fetchDirectoryStats, getCategoryCount } from '@/lib/api/toolsStats';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { hasSubstantiveContent } from '@/lib/tool-content';
 import Navbar from '@/components/layout/Navbar';
@@ -96,9 +97,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     );
   }
 
-  const data = await getAllTools({ category, page_size: 50 });
+  const [data, stats] = await Promise.all([
+    getAllTools({ category, page_size: 50 }),
+    fetchDirectoryStats(),
+  ]);
   const tools: Tool[] = Array.isArray(data) ? data : (data?.results || []);
   const indexedTools = tools.filter((tool) => tool.assessed === true || hasSubstantiveContent(tool));
+  const categoryCount = getCategoryCount(stats, category, cat.name);
 
   const structuredData = generateStructuredData({
     '@type': 'CollectionPage',
@@ -159,12 +164,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           <p className="text-[var(--gray-300)] leading-relaxed">{cat.editorial}</p>
         </div>
 
-        {/* Tool Count */}
-        <div className="flex items-center justify-between mb-6">
-          <p className="text-[var(--gray-400)] text-sm">
-            {tools.length} {cat.name.toLowerCase()} tool{tools.length !== 1 ? 's' : ''} found
-          </p>
-        </div>
+        {categoryCount != null && (
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-[var(--gray-400)] text-sm">
+              {categoryCount.toLocaleString('en-US')} {cat.name.toLowerCase()} tool{categoryCount !== 1 ? 's' : ''} found
+            </p>
+          </div>
+        )}
 
         {/* Tool Grid */}
         {tools.length > 0 ? (

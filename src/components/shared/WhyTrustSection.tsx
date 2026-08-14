@@ -11,7 +11,7 @@ export default function WhyTrustSection({
 }: WhyTrustSectionProps) {
   const countLabel = formatToolCount(toolCount);
   const assessedLabel =
-    fullyAssessedCount != null && fullyAssessedCount > 0
+    fullyAssessedCount != null && fullyAssessedCount > 0 && countLabel
       ? `${fullyAssessedCount.toLocaleString('en-US')} of ${countLabel}`
       : 'a growing subset';
 
@@ -28,7 +28,9 @@ export default function WhyTrustSection({
     },
     {
       title: 'Uniform Ratings',
-      description: `${countLabel} tools in the directory, scored with the same framework when assessment is complete. Apples-to-apples comparisons you can actually trust.`,
+      description: countLabel
+        ? `${countLabel} tools in the directory, scored with the same framework when assessment is complete. Apples-to-apples comparisons you can actually trust.`
+        : 'Tools in the directory, scored with the same framework when assessment is complete. Apples-to-apples comparisons you can actually trust.',
       emoji: '⭐',
     },
     {

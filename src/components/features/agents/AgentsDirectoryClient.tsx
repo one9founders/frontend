@@ -190,8 +190,12 @@ export default function AgentsDirectoryClient({
         </h1>
         <p className="text-[var(--gray-400)] text-lg max-w-2xl mx-auto">
           {categoryLabel
-            ? `Explore ${totalCount}+ ${categoryLabel} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`
-            : `Discover ${stats?.total_agents?.toLocaleString() || '1,200'}+ autonomous AI agents across ${stats?.total_categories || 75} categories. Security-validated with zero affiliate bias.`}
+            ? totalCount > 0
+              ? `Explore ${totalCount.toLocaleString('en-US')}+ ${categoryLabel} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`
+              : `Explore ${categoryLabel} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`
+            : stats?.total_agents != null && stats.total_categories != null
+              ? `Discover ${stats.total_agents.toLocaleString('en-US')}+ autonomous AI agents across ${stats.total_categories} categories. Security-validated with zero affiliate bias.`
+              : 'Discover autonomous AI agents. Security-validated with zero affiliate bias.'}
         </p>
       </div>
 
