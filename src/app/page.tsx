@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import { getDirectoryStats } from '@/lib/actions/tools';
-import { STATS, formatToolCount } from '@/lib/constants/stats';
+import { fetchDirectoryStats } from '@/lib/api/toolsStats';
+import { STATS, withLiveCount } from '@/lib/constants/stats';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
 import TrendingTools from "../components/features/tools/TrendingTools";
@@ -12,10 +12,13 @@ import Top20Tools from "../components/features/tools/Top20Tools";
 import Footer from "../components/layout/Footer";
 import FounderSurveyCTA from '@/components/features/survey/FounderSurveyCTA';
 
+function homeDescription(toolCount: number | null, agentCount: number | null) {
+  return `Discover ${withLiveCount(toolCount, 'AI tools')}, ${withLiveCount(agentCount, 'agents')}, ${STATS.llmsCompared} LLMs, and ${STATS.researchPapers} research papers. Compare pricing, benchmarks, and security ratings. Built for startup founders.`;
+}
+
 export async function generateMetadata(): Promise<Metadata> {
-  const stats = await getDirectoryStats();
-  const toolCount = formatToolCount(stats.count);
-  const description = `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders. Supported by IIT Bombay.`;
+  const stats = await fetchDirectoryStats();
+  const description = homeDescription(stats?.total_tools ?? null, stats?.agent_count ?? null);
   return {
     title: { absolute: "One9Founders | India's #1 AI Ecosystem Navigator" },
     description,
@@ -37,14 +40,14 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: "One9Founders | India's #1 AI Ecosystem Navigator",
-      description: `Discover ${toolCount} AI tools, ${STATS.aiAgents} agents, and ${STATS.llmsCompared} LLMs. Compare pricing, benchmarks, and security ratings. Built for startup founders.`,
+      description,
       images: ['/og-image.png'],
     },
   };
 }
 
 export default async function Home() {
-  const stats = await getDirectoryStats();
+  const stats = await fetchDirectoryStats();
 
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
@@ -56,7 +59,7 @@ export default async function Home() {
             "@type": "WebSite",
             "name": "One9Founders",
             "url": "https://one9founders.com",
-            "description": "India's largest AI tools, agents, and LLMs directory for startup founders",
+            "description": `India's largest AI tools, agents, LLMs, and ${STATS.researchPapers} research papers directory for startup founders`,
             "potentialAction": {
               "@type": "SearchAction",
               "target": "https://one9founders.com/search?q={search_term_string}",
@@ -66,14 +69,14 @@ export default async function Home() {
         }}
       />
       <Navbar />
-      <HeroSection toolCount={stats.count} />
+      <HeroSection toolCount={stats?.total_tools} agentCount={stats?.agent_count} />
       <TrendingTools />
-      <BrowseCategories toolCount={stats.count} />
+      <BrowseCategories toolCount={stats?.total_tools} agentCount={stats?.agent_count} />
       <CorporateSection />
       <PartnersSection />
       <WhyTrustSection
-        toolCount={stats.count}
-        fullyAssessedCount={stats.fully_assessed_count}
+        toolCount={stats?.total_tools}
+        fullyAssessedCount={stats?.fully_assessed_count}
       />
       <Top20Tools />
       <FounderSurveyCTA />

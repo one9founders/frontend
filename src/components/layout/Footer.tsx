@@ -122,6 +122,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/research" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Research Papers
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/agents" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       AI Agents
                     </Link>

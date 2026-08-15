@@ -33,7 +33,7 @@ export default function CategoryPills({ categories, selected, onSelect }: Catego
               : 'bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-300)] hover:bg-[var(--gray-700)] hover:border-[var(--gray-600)]'
           }`}
         >
-          {cat.label} ({cat.agent_count})
+          {cat.agent_count != null ? `${cat.label} (${cat.agent_count})` : cat.label}
         </button>
       ))}
     </div>

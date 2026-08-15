@@ -2,6 +2,8 @@
 
 import { toolsAPI, dealsAPI, newsletterAPI } from '@/lib/api/apiClient';
 import { requireAdminSession } from '@/lib/auth/admin';
+import { fetchDirectoryStats } from '@/lib/api/toolsStats';
+import type { DirectoryStats } from '@/types';
 
 function withAdminToken(token: string) {
   return { Authorization: `Bearer ${token}` };
@@ -110,28 +112,8 @@ export async function seedDeals() {
   return { success: false, error: 'Use Django backend seed_data.py instead' };
 }
 
-export async function getDirectoryStats(): Promise<{
-  count: number;
-  fully_assessed_count: number;
-  provisionally_assessed_count: number;
-}> {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
-  const empty = { count: 0, fully_assessed_count: 0, provisionally_assessed_count: 0 };
-  try {
-    const response = await fetch(`${API_URL}/tools/stats/`, {
-      next: { revalidate: 300 },
-    });
-    if (!response.ok) return empty;
-    const data = await response.json();
-    return {
-      count: Number(data?.count) || 0,
-      fully_assessed_count: Number(data?.fully_assessed_count) || 0,
-      provisionally_assessed_count: Number(data?.provisionally_assessed_count) || 0,
-    };
-  } catch (error) {
-    console.error('Get directory stats error:', error);
-    return empty;
-  }
+export async function getDirectoryStats(): Promise<DirectoryStats | null> {
+  return fetchDirectoryStats();
 }
 
 export async function getToolBySlug(slug: string) {

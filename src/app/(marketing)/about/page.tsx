@@ -4,23 +4,23 @@ import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ContactCard from '@/components/ui/ContactCard';
-import { STATS, formatToolCount } from '@/lib/constants/stats';
-import { getDirectoryStats } from '@/lib/actions/tools';
+import { STATS, formatToolCount, withLiveCount } from '@/lib/constants/stats';
+import { fetchDirectoryStats } from '@/lib/api/toolsStats';
 
 export async function generateMetadata(): Promise<Metadata> {
-  const stats = await getDirectoryStats();
-  const toolCount = formatToolCount(stats.count);
+  const stats = await fetchDirectoryStats();
   return generateSEO({
     title: 'About One9Founders | India\'s Largest AI Ecosystem Navigator',
-    description: `One9Founders is India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and models. Security-first ratings with zero affiliate bias. AI training for colleges and corporates. Backed by IIT Bombay.`,
+    description: `One9Founders is India's largest AI ecosystem navigator. ${withLiveCount(stats?.total_tools, 'AI tools')}, agents, LLMs, and ${STATS.researchPapers} research papers. Security-first ratings with zero affiliate bias. Backed by IIT Bombay.`,
     path: '/about',
     keywords: ['about one9founders', 'Indian startup team', 'AI tool directory India', 'IIT Bombay startup', 'founder resources India', 'AI tools for Indian startups', 'AI training India', 'AI training for colleges'],
   });
 }
 
 export default async function AboutPage() {
-  const stats = await getDirectoryStats();
-  const toolCount = formatToolCount(stats.count);
+  const stats = await fetchDirectoryStats();
+  const toolCount = formatToolCount(stats?.total_tools);
+  const agentCount = formatToolCount(stats?.agent_count);
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
@@ -32,7 +32,7 @@ export default async function AboutPage() {
               name: 'One9Founders',
               url: 'https://www.one9founders.com',
               logo: 'https://www.one9founders.com/logo-light.png',
-              description: `India's largest AI ecosystem navigator. ${toolCount} AI tools, agents, LLMs, and models. Security-validated with zero affiliate bias. Backed by IIT Bombay.`,
+              description: `India's largest AI ecosystem navigator. ${withLiveCount(stats?.total_tools, 'AI tools')}, agents, LLMs, and ${STATS.researchPapers} research papers. Security-validated with zero affiliate bias. Backed by IIT Bombay.`,
               foundingDate: '2024',
               areaServed: ['India', 'Global'],
               knowsAbout: ['AI Tools', 'Startup Technology', 'Security Assessment', 'Tool Evaluation', 'AI Training'],
@@ -61,7 +61,7 @@ export default async function AboutPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)]">
-              <p className="text-2xl md:text-3xl font-bold text-white">{toolCount}</p>
+              {toolCount && <p className="text-2xl md:text-3xl font-bold text-white">{toolCount}</p>}
               <p className="text-sm text-[var(--gray-400)]">AI Resources</p>
             </div>
             <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)] flex flex-col items-center justify-center">
@@ -103,7 +103,7 @@ export default async function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F6E0;&#xFE0F;</span>
-              <h3 className="text-xl font-bold text-white mb-3">{toolCount} AI Resources, Organized</h3>
+              <h3 className="text-xl font-bold text-white mb-3">{toolCount ? `${toolCount} AI Resources, Organized` : 'AI Resources, Organized'}</h3>
               <p className="text-[var(--gray-300)]">
                 AI tools, agents, LLMs, open-source models, RAG frameworks, startups, and research papers. Categorized by use case, filterable by pricing, comparable side-by-side. New listings are added as we ingest and review them.
               </p>
@@ -129,7 +129,7 @@ export default async function AboutPage() {
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F916;</span>
               <h3 className="text-xl font-bold text-white mb-3">
-                <Link href="/agents" className="hover:text-purple-300 transition-colors">{STATS.aiAgents} AI Agents</Link>
+                <Link href="/agents" className="hover:text-purple-300 transition-colors">{agentCount ? `${agentCount} AI Agents` : 'AI Agents'}</Link>
               </h3>
               <p className="text-[var(--gray-300)]">
                 A growing directory of autonomous AI agents organized by capability - from coding and marketing to sales and operations.
@@ -140,6 +140,15 @@ export default async function AboutPage() {
               <h3 className="text-xl font-bold text-white mb-3">{STATS.openSourceModels} Open Source Models</h3>
               <p className="text-[var(--gray-300)]">
                 Self-hostable models sorted by downloads, parameters, and provider - for teams that want to run AI on their own infrastructure.
+              </p>
+            </div>
+            <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
+              <span className="text-3xl mb-4 block">&#x1F4C4;</span>
+              <h3 className="text-xl font-bold text-white mb-3">
+                <Link href="/research" className="hover:text-purple-300 transition-colors">{STATS.researchPapers} Research Papers</Link>
+              </h3>
+              <p className="text-[var(--gray-300)]">
+                Daily-ingested AI papers from arXiv and HuggingFace, covering {STATS.researchAuthors} authors, with AI summaries and difficulty ratings.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
@@ -300,13 +309,6 @@ export default async function AboutPage() {
               <div>
                 <h3 className="text-white font-semibold">AI Startup Profiles</h3>
                 <p className="text-[var(--gray-400)] text-sm">Discover Indian and global companies building with AI.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 p-4 rounded-xl bg-[var(--gray-800)] border border-[var(--gray-700)]">
-              <span className="text-2xl flex-shrink-0">&#x1F4C4;</span>
-              <div>
-                <h3 className="text-white font-semibold">Research &amp; Papers Hub</h3>
-                <p className="text-[var(--gray-400)] text-sm">Stay current with the latest AI research, curated for practitioners.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 rounded-xl bg-[var(--gray-800)] border border-[var(--gray-700)]">

@@ -1,20 +1,20 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { STATS, formatToolCount } from '@/lib/constants/stats';
+import { STATS, withLiveCount } from '@/lib/constants/stats';
 
 interface BrowseCategoriesProps {
   toolCount?: number | null;
+  agentCount?: number | null;
 }
 
-export default function BrowseCategories({ toolCount }: BrowseCategoriesProps) {
+export default function BrowseCategories({ toolCount, agentCount }: BrowseCategoriesProps) {
   const router = useRouter();
-  const countLabel = formatToolCount(toolCount);
 
   const CATEGORIES = [
   {
     title: 'AI Tools',
-    description: `${countLabel} tools for every use case. From writing and code to marketing and design. Ratings use our 10-point framework once assessment is complete.`,
+    description: `${withLiveCount(toolCount, 'tools')} for every use case. From writing and code to marketing and design. Ratings use our 10-point framework once assessment is complete.`,
     emoji: '🛠️',
     active: true,
     href: '#tools-section',
@@ -22,7 +22,7 @@ export default function BrowseCategories({ toolCount }: BrowseCategoriesProps) {
   },
   {
     title: 'AI Agents',
-    description: `${STATS.aiAgents} autonomous AI agents. Agents that go beyond chat. Browse tools that take action, run workflows, and integrate with your stack.`,
+    description: `${withLiveCount(agentCount, 'autonomous AI agents')}. Agents that go beyond chat. Browse tools that take action, run workflows, and integrate with your stack.`,
     emoji: '🤖',
     active: true,
     href: '/agents',
@@ -62,7 +62,7 @@ export default function BrowseCategories({ toolCount }: BrowseCategoriesProps) {
   },
   {
     title: 'Research & Papers',
-    description: 'Stay current with AI research',
+    description: `${STATS.researchPapers} papers from ${STATS.researchAuthors} authors. Updated daily from arXiv and HuggingFace.`,
     emoji: '📄',
     active: true,
     href: '/research',

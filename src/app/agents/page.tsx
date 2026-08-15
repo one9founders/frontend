@@ -4,24 +4,34 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import AgentsDirectoryClient from '@/components/features/agents/AgentsDirectoryClient';
 import { AgentListResponse, AgentCategoriesResponse, AgentStats } from '@/types/agent';
+import { fetchDirectoryStats } from '@/lib/api/toolsStats';
+import { formatToolCount, withLiveCount } from '@/lib/constants/stats';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
 export const revalidate = 300;
 
-export const metadata: Metadata = {
-  title: { absolute: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders' },
-  description: 'Browse 1,200+ AI agents that go beyond chat. Autonomous tools for coding, sales, support, research, and operations. Filtered by category, use case, and pricing. Updated weekly.',
-  openGraph: {
-    title: '1,200+ AI Agents Directory | Autonomous AI Tools | One9Founders',
-    description: 'Browse 1,200+ AI agents that go beyond chat. Autonomous tools for coding, sales, support, research, and operations.',
-    type: 'website',
-    url: 'https://one9founders.com/agents',
-  },
-  alternates: {
-    canonical: 'https://one9founders.com/agents',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const stats = await fetchDirectoryStats();
+  const agentCount = formatToolCount(stats?.agent_count);
+  const title = agentCount
+    ? `${agentCount} AI Agents Directory | Autonomous AI Tools | One9Founders`
+    : 'AI Agents Directory | Autonomous AI Tools | One9Founders';
+  const description = `Browse ${withLiveCount(stats?.agent_count, 'AI agents')} that go beyond chat. Autonomous tools for coding, sales, support, research, and operations. Filtered by category, use case, and pricing. Updated weekly.`;
+  return {
+    title: { absolute: title },
+    description,
+    openGraph: {
+      title,
+      description: `Browse ${withLiveCount(stats?.agent_count, 'AI agents')} that go beyond chat. Autonomous tools for coding, sales, support, research, and operations.`,
+      type: 'website',
+      url: 'https://one9founders.com/agents',
+    },
+    alternates: {
+      canonical: 'https://one9founders.com/agents',
+    },
+  };
+}
 
 async function fetchInitialData() {
   try {

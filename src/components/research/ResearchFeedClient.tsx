@@ -182,10 +182,15 @@ export default function ResearchFeedClient({ initialPapers, initialCount, trendi
           Stay current with the latest AI research. Updated daily from arXiv and HuggingFace.
         </p>
         {stats && (
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
             <span className="text-sm text-[var(--gray-500)] bg-[var(--gray-900)] px-3 py-1 rounded-full border border-[var(--gray-800)]">
               {stats.total_papers.toLocaleString()} papers
             </span>
+            {stats.total_authors != null && stats.total_authors > 0 && (
+              <span className="text-sm text-[var(--gray-500)] bg-[var(--gray-900)] px-3 py-1 rounded-full border border-[var(--gray-800)]">
+                {stats.total_authors.toLocaleString()} authors
+              </span>
+            )}
             {stats.papers_today > 0 && (
               <span className="text-sm text-green-400 bg-green-600/20 px-3 py-1 rounded-full border border-green-600/30">
                 +{stats.papers_today} today

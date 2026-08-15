@@ -37,7 +37,7 @@ export default function AgentFilters({
           <option value="">All Categories</option>
           {categories.map((cat) => (
             <option key={cat.slug} value={cat.slug}>
-              {cat.label} ({cat.agent_count})
+              {cat.agent_count != null ? `${cat.label} (${cat.agent_count})` : cat.label}
             </option>
           ))}
         </select>
