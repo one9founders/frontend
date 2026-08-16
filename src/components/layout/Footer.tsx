@@ -132,6 +132,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/stack" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                      Assemble a stack
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/worker" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
                       One9 Worker
                     </Link>

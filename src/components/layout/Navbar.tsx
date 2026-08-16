@@ -150,6 +150,7 @@ export default function Navbar() {
                   <Link href="/llms" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">LLMs</Link>
                   <Link href="/rag-vector-dbs" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">RAG & Vector DBs</Link>
                   <Link href="/research" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">Research</Link>
+                  <Link href="/stack" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">Assemble a stack</Link>
                   <Link href="/stacks" className="block px-4 py-2 text-sm text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-800)]">Founder Stacks</Link>
                 </div>
               </div>
@@ -264,6 +265,9 @@ export default function Navbar() {
               </Link>
               <Link href="/research" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Research
+              </Link>
+              <Link href="/stack" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
+                Assemble a stack
               </Link>
               <Link href="/stacks" className="text-[var(--gray-500)] hover:text-white" onClick={() => setIsMobileMenuOpen(false)}>
                 Founder Stacks
