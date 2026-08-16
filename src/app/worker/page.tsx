@@ -215,9 +215,9 @@ export default function One9WorkerPage() {
               OpenWorker Cloud.
             </p>
             <p className="text-sm text-[var(--gray-500)]">
-              Dev tip: set <code className="text-[var(--gray-400)]">cloud_base_url</code> to{' '}
-              <code className="text-[var(--gray-400)]">https://api.one9founders.com</code> (or{' '}
-              <code className="text-[var(--gray-400)]">http://127.0.0.1:8000</code> locally).
+              Sign-in uses the hosted broker at{' '}
+              <code className="text-[var(--gray-400)]">https://api.one9founders.com</code>
+              — no local server and no config file on other laptops.
             </p>
           </div>
         </div>
