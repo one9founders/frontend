@@ -18,7 +18,7 @@ export default function WhyTrustSection({
   const trustCards = [
     {
       title: 'Security-First Assessment',
-      description: `Tools we have fully assessed go through our 10-point security framework (data handling, encryption, compliance, and third-party sharing). Coverage is an ongoing rollout — ${assessedLabel} tools are fully assessed today.`,
+      description: `We score published security posture — HTTPS, a reachable privacy policy, and stated compliance commitments such as SOC 2 or GDPR. We do not perform security testing. Coverage is an ongoing rollout — ${assessedLabel} tools currently have a published score.`,
       emoji: '🔒',
     },
     {

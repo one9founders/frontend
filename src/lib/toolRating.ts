@@ -176,10 +176,10 @@ export function getToolSecurityDisplay(tool: ToolRatingFields): ToolSecurityDisp
   return {
     status: 'VERIFIED',
     score,
-    label: 'Security: Verified',
-    shortLabel: 'Security: Verified',
+    label: 'Security: Published posture',
+    shortLabel: 'Security: Published posture',
     faqText:
-      'is security-verified (Security & Data Privacy scored 12/20 or above on our 10-point framework)',
+      'has a published security posture scoring 12/20 or above (HTTPS, a reachable privacy policy, and/or stated compliance commitments). We do not perform security testing',
   };
 }
 

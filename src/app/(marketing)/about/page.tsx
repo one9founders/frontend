@@ -218,7 +218,7 @@ export default async function AboutPage() {
               <span className="text-3xl mb-4 block">&#x1F512;</span>
               <h3 className="text-xl font-bold text-white mb-3">Security Comes First</h3>
               <p className="text-[var(--gray-300)]">
-                Tools we have fully assessed go through our 10-point security check. Data privacy, encryption, compliance, and third-party data sharing are evaluated systematically. Security is weighted at 20% of our total score — the single largest factor. Unassessed listings are labeled &ldquo;Security: Not Yet Assessed.&rdquo;
+                We check published security posture — encryption in transit, a reachable privacy policy, and stated compliance commitments such as SOC 2 or GDPR. We do not perform security testing. Unassessed listings are labeled &ldquo;Security: Not Yet Assessed.&rdquo;
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
@@ -232,7 +232,7 @@ export default async function AboutPage() {
               <span className="text-3xl mb-4 block">&#x2B50;</span>
               <h3 className="text-xl font-bold text-white mb-3">Uniform Rating Criteria</h3>
               <p className="text-[var(--gray-300)]">
-                Every assessed tool is evaluated using the same framework covering security, functionality, ease of use, pricing, reliability, integrations, support, company stability, update frequency, and startup-friendliness. Listings we have not scored yet are labeled Not Yet Rated — never a placeholder number.
+                Every scored listing uses the same framework. Seven criteria can be filled from published pages; Ease of Use and Reliability wait for hands-on testing. Listings we have not scored yet are labeled Not Yet Rated — never a placeholder number.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
