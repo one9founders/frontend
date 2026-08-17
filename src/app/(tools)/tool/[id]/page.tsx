@@ -15,6 +15,7 @@ import { Tool, Review } from '@/types';
 import { getToolRatingDisplay, getToolSecurityDisplay, formatAssessedDate } from '@/lib/toolRating';
 import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
 import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
+import ToolCriteriaList from '@/components/features/tools/ToolCriteriaList';
 import IndiaFitCard from '@/components/features/tools/IndiaFitCard';
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
@@ -419,11 +420,11 @@ export default async function ToolPage({ params }: ToolPageProps) {
               </div>
               <p className="text-[var(--gray-500)] text-sm">
                 {securityDisplay.status === 'VERIFIED' &&
-                  'This tool scored 12/20 or above on our Security & Data Privacy criterion.'}
+                  'Published posture scored 12/20 or above. We check HTTPS, a reachable privacy policy, and stated compliance commitments. We do not perform security testing.'}
                 {securityDisplay.status === 'FLAGGED' &&
-                  'This tool scored below 12/20 on Security & Data Privacy. Review the full methodology before using it with sensitive data.'}
+                  'Published posture scored below 12/20 on Security & Data Privacy. Review the source links and the methodology before using it with sensitive data. We do not perform security testing.'}
                 {securityDisplay.status === 'NOT_ASSESSED' &&
-                  'Security & Data Privacy has not been scored for this tool yet. Assessment is an ongoing rollout — see How We Rate for coverage.'}
+                  'Security & Data Privacy has not been scored for this tool yet. We do not perform security testing — see How We Rate for what the automated pass actually checks.'}
               </p>
               {formatAssessedDate(tool.last_assessed_at) && (
                 <p className="text-[var(--gray-500)] text-xs mt-2">
@@ -432,6 +433,8 @@ export default async function ToolPage({ params }: ToolPageProps) {
               )}
             </div>
           </div>
+
+          <ToolCriteriaList detail={tool.assessment_detail} />
 
           <ToolQASection tool={tool} />
 
@@ -454,7 +457,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
             <p className="text-[var(--gray-400)] text-sm mt-3">
               Want to understand how we evaluate tools?{' '}
               <a href="/methodology" className="text-purple-400 hover:text-purple-300 underline">
-                Read our 10-point rating methodology
+                Read our rating methodology
               </a>.
             </p>
           </div>

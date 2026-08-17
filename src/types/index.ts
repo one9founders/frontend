@@ -24,6 +24,24 @@ export interface DirectoryStats {
   by_category: CategoryStat[];
 }
 
+export interface CriterionAssessment {
+  name: string;
+  score: number | null;
+  evidence_url: string | null;
+  reasoning: string;
+  automated: boolean;
+}
+
+export interface AssessmentDetail {
+  version?: number;
+  method?: string;
+  hands_on?: boolean;
+  model?: string;
+  criteria?: Record<string, CriterionAssessment>;
+  unassessed?: string[];
+  manual_only?: string[];
+}
+
 export interface Tool {
   id: number;
   name: string;
@@ -62,6 +80,9 @@ export interface Tool {
   last_assessed_at?: string | null;
   /** Full editorial assessment. Missing/undefined is treated as not assessed. */
   assessed?: boolean;
+  /** Editorial per-criterion scores with evidence URLs. */
+  assessment_detail?: AssessmentDetail | null;
+  track?: 'ai_tool' | 'ai_agent' | 'open_source' | 'agent_skill' | 'mcp_server';
   rating_status?: 'NOT_YET_RATED' | 'PROVISIONAL' | 'RATED';
   security_status?: 'NOT_ASSESSED' | 'FLAGGED' | 'VERIFIED';
   language_review_needed?: boolean;

@@ -7,8 +7,8 @@ import { STATS, formatToolCount } from '@/lib/constants/stats';
 import { fetchDirectoryStats } from '@/lib/api/toolsStats';
 
 export const metadata: Metadata = generateSEO({
-  title: 'How We Rate AI Tools | 10-Point Security Framework | One9Founders',
-  description: `Our 10-point framework rates AI tools on security, pricing, and features. Scores are published only when assessment is complete enough. Zero affiliate bias.`,
+  title: 'How We Rate AI Tools | Published Evidence, Not Hands-On for Every Listing | One9Founders',
+  description: `We score published posture on seven evidence-backed criteria, each citing a source URL. Ease of use, reliability, and hands-on security testing are not automated. Zero affiliate bias.`,
   path: '/methodology',
   keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation', 'AI research papers'],
 });
@@ -17,60 +17,56 @@ const criteria = [
   {
     number: 1,
     title: 'Security & Data Privacy',
-    weight: '20 points',
-    description: 'The most heavily weighted factor in our assessment.',
+    weight: 'Automated',
+    description: 'Published posture only. We do not test anyone\'s controls.',
     items: [
-      'Data encryption standards (at rest and in transit)',
-      'Privacy policy clarity and GDPR/CCPA compliance',
-      'Data retention and deletion policies',
-      'Third-party data sharing practices',
-      'Security certifications (SOC 2, ISO 27001, etc.)',
-      'Whether user data is used for model training',
+      'Encryption in transit (HTTPS on the live site)',
+      'A reachable privacy policy',
+      'Stated compliance commitments such as SOC 2, GDPR, or a DPA',
+      'Stated data retention or training-data commitments, when published',
     ],
   },
   {
     number: 2,
     title: 'Functionality & Features',
-    weight: '15 points',
+    weight: 'Automated',
     description: null,
     items: [
-      'Core feature completeness for stated use case',
-      'Feature depth compared to category competitors',
-      'Unique capabilities or innovations',
-      'API availability and documentation quality',
+      'What the product or features page actually lists',
+      'Stated capabilities compared with the tool\'s own positioning',
+      'API or product surface mentioned on the site',
     ],
   },
   {
     number: 3,
     title: 'Ease of Use',
-    weight: '15 points',
-    description: null,
+    weight: 'Hands-on',
+    description: 'Not automated. Needs a person using the product.',
     items: [
       'Onboarding experience (time to first value)',
       'Interface intuitiveness',
       'Learning curve for new users',
-      'Documentation and tutorial quality',
+      'Documentation and tutorial quality in actual use',
     ],
   },
   {
     number: 4,
     title: 'Pricing & Value',
-    weight: '15 points',
+    weight: 'Automated',
     description: null,
     items: [
-      'Free tier availability and practical limits',
-      'Pricing transparency (no hidden fees)',
-      'Value compared to alternatives in category',
-      'Startup-friendly pricing options',
+      'A reachable pricing or plans page',
+      'Free tier or trial, when published',
+      'Whether prices are listed rather than "contact sales" only',
     ],
   },
   {
     number: 5,
     title: 'Reliability & Performance',
-    weight: '10 points',
-    description: null,
+    weight: 'Hands-on',
+    description: 'Not automated. Needs a person using the product.',
     items: [
-      'Uptime track record',
+      'Uptime in actual use',
       'Response speed and latency',
       'Output quality consistency',
       'Error handling and recovery',
@@ -79,85 +75,80 @@ const criteria = [
   {
     number: 6,
     title: 'Integration Capabilities',
-    weight: '10 points',
+    weight: 'Automated',
     description: null,
     items: [
-      'Native integrations with popular tools',
-      'Zapier/Make/n8n compatibility',
-      'API robustness and rate limits',
-      'Webhook and automation support',
+      'An integrations, apps, or marketplace page',
+      'Named connectors published by the vendor',
+      'API or webhook mentions on the site',
     ],
   },
   {
     number: 7,
     title: 'Customer Support',
-    weight: '5 points',
+    weight: 'Automated',
     description: null,
     items: [
-      'Support channels available (chat, email, phone)',
-      'Response time in our testing',
-      'Knowledge base and self-service quality',
+      'A support, contact, help, or docs URL that resolves',
+      'Stated support channels on that page',
     ],
   },
   {
     number: 8,
     title: 'Company Stability',
-    weight: '5 points',
+    weight: 'Automated',
     description: null,
     items: [
-      'Funding status and runway',
-      'Team size and growth trajectory',
-      'Market presence and reputation',
+      'What the vendor publishes about the company, team, or funding',
+      'For open-source rows: whether the repository is archived',
     ],
   },
   {
     number: 9,
     title: 'Update Frequency',
-    weight: '3 points',
+    weight: 'Automated',
     description: null,
     items: [
-      'Feature release cadence',
-      'Bug fix responsiveness',
-      'Roadmap transparency',
+      'A changelog, releases, or what\'s-new page',
+      'For open-source rows: last commit date',
     ],
   },
   {
     number: 10,
     title: 'Startup-Friendliness',
-    weight: '2 points',
+    weight: 'Automated',
     description: null,
     items: [
-      'Startup program or discounts available',
-      'Scalable pricing as you grow',
-      'Features tailored for small teams',
+      'Free tier, student, or startup programme pages',
+      'Published credits or small-team pricing',
     ],
   },
 ];
 
 const processSteps = [
   {
-    title: 'Initial Screening',
-    description: 'We verify the tool is legitimate, actively maintained, and relevant to startup use cases.',
+    title: 'Resolve the live site',
+    description: 'We follow redirects and record whether the final URL is served over HTTPS. A dead or parked site is not scored.',
   },
   {
-    title: 'Security Assessment',
-    description: 'Our team reviews privacy policies, checks for security certifications, and evaluates data handling practices.',
+    title: 'Collect published evidence',
+    description: 'We fetch a small set of pages from the tool\'s own domain — privacy, pricing, integrations, docs, changelog, and the homepage. Open-source rows use GitHub facts (licence, last commit, archived) instead. Each page is truncated; we do not crawl the whole site. We read the HTML we are served, so a client-rendered app may yield thin text — the URL still has to exist to be cited.',
   },
   {
-    title: 'Hands-On Testing',
-    description: 'Where we have completed an assessment, we test core functionality against real founder use cases. Hands-on testing is part of the full 10-criterion review, not a claim that every listing has already been used for 7 days.',
+    title: 'Score only what the pages support',
+    description: 'A model reads those pages and scores a criterion only when it can cite one of the fetched URLs. No citation, no score. Guessing is discarded.',
   },
   {
-    title: 'Comparative Analysis',
-    description: 'We benchmark against similar tools in the same category.',
+    title: 'Leave the rest unassessed',
+    description: 'Ease of Use, Reliability & Performance, and the hands-on half of Security stay null until a person uses the product. Absence is labelled, not filled in.',
   },
   {
-    title: 'Score Calculation',
-    description: 'We apply our weighted criteria to generate the final rating.',
+    title: 'Hands-on testing (Rated only)',
+    description: 'A listing becomes Rated only after someone on the team has actually used it and scored the two hands-on criteria. That list starts small on purpose.',
   },
   {
-    title: 'Ongoing Monitoring',
-    description: 'We re-evaluate assessed tools after major product or security changes. Assessment is an ongoing rollout across the directory — not every listing is re-scored on a fixed quarterly calendar.',
+    title: 'Refresh on a schedule',
+    description: 'The automated pass is re-run so evidence URLs and scores can move when a vendor publishes a privacy policy or a changelog. It is not a quarterly recertification of every listing.',
   },
 ];
 
@@ -167,6 +158,10 @@ export default async function MethodologyPage() {
   const assessedCount =
     stats?.fully_assessed_count != null
       ? stats.fully_assessed_count.toLocaleString('en-US')
+      : null;
+  const provisionalCount =
+    stats?.provisionally_assessed_count != null
+      ? stats.provisionally_assessed_count.toLocaleString('en-US')
       : null;
 
   const structuredData = generateStructuredData({
@@ -201,15 +196,23 @@ export default async function MethodologyPage() {
               a numeric score when enough of that framework has been completed.
             </p>
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
-              Assessment is an ongoing rollout.
-              {assessedCount != null && toolCount != null
-                ? ` Today, ${assessedCount} of ${toolCount} tools have a complete 10-criterion rating.`
+              What runs on every tool is automated collection of published pages, then a
+              score for each criterion that those pages actually support. Each score cites
+              a source URL. Ease of Use, Reliability &amp; Performance, and hands-on security
+              testing are not automated: they need a person using the product.
+            </p>
+            <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
+              {provisionalCount != null && toolCount != null
+                ? `Today, ${provisionalCount} of ${toolCount} tools have a Provisional score from published evidence.`
+                : 'Provisional scores land as the automated pass covers the directory.'}
+              {assessedCount != null
+                ? ` ${assessedCount} ${Number(assessedCount.replace(/,/g, '')) === 1 ? 'tool has' : 'tools have'} a full Rated review after hands-on testing.`
                 : ''}{' '}
               Listings that are not yet scored show
               &ldquo;Not Yet Rated&rdquo; rather than a placeholder number.
             </p>
             <p className="text-white font-semibold text-lg">
-              Our commitment: Zero affiliate bias. Every assessed tool rated the same way. Security first.
+              Our commitment: Zero affiliate bias. Every scored criterion cites a URL. We do not claim tests we did not run.
             </p>
           </div>
         </section>
@@ -220,19 +223,19 @@ export default async function MethodologyPage() {
           <div className="space-y-4 text-[var(--gray-300)]">
             <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
               <h3 className="text-lg font-semibold text-white mb-2">Not Yet Rated</h3>
-              <p>Fewer than 6 of 10 criteria have been scored (security plus at least half the framework). No numeric score is shown anywhere — not on cards, comparison tables, FAQ copy, or structured data.</p>
+              <p>Fewer than 6 of 10 criteria have a citable source. No numeric score is shown anywhere — not on cards, comparison tables, FAQ copy, or structured data.</p>
             </div>
             <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
               <h3 className="text-lg font-semibold text-white mb-2">Provisional</h3>
-              <p>6–9 criteria scored. We show the numeric score only with a completeness label, for example &ldquo;3.8/5 (Provisional — 7/10 criteria assessed)&rdquo;.</p>
+              <p>Six or more criteria evidenced from published pages, and no hands-on testing yet. The number is an unweighted mean of the evidenced criteria, shown as e.g. &ldquo;3.8/5 (Provisional — 7/10 criteria assessed)&rdquo;. Automated scoring cannot reach 10/10, because Ease of Use and Reliability are never filled in by the crawler.</p>
             </div>
             <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
               <h3 className="text-lg font-semibold text-white mb-2">Rated</h3>
-              <p>All 10 criteria scored. We show the numeric score with a tier: Outstanding (4.5–5.0), Excellent (4.0–4.49), Strong (3.5–3.99), Good (3.0–3.49), Fair (2.0–2.99), or Needs Improvement (below 2.0).</p>
+              <p>All 10 criteria scored, including hands-on testing by a person who has actually used the product. Only that short list qualifies. We show the numeric score with a tier: Outstanding (4.5–5.0), Excellent (4.0–4.49), Strong (3.5–3.99), Good (3.0–3.49), Fair (2.0–2.99), or Needs Improvement (below 2.0).</p>
             </div>
             <div className="bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6">
               <h3 className="text-lg font-semibold text-white mb-2">Security status</h3>
-              <p>Security uses the Security &amp; Data Privacy criterion (20 points). Until that criterion is scored: &ldquo;Security: Not Yet Assessed&rdquo;. Below 12/20: &ldquo;Security: Flagged&rdquo;. 12/20 or above: &ldquo;Security: Verified&rdquo;.</p>
+              <p>We check published security posture — encryption in transit, a reachable privacy policy, and stated compliance commitments such as SOC 2 or GDPR. We do not perform security testing. Until that criterion is scored: &ldquo;Security: Not Yet Assessed&rdquo;. Below 12/20: &ldquo;Security: Flagged&rdquo;. 12/20 or above: &ldquo;Security: Published posture&rdquo;.</p>
             </div>
           </div>
         </section>
@@ -240,7 +243,7 @@ export default async function MethodologyPage() {
         {/* Rating Framework */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-white mb-8">
-            Our 10-Point Evaluation Framework
+            The ten criteria
           </h2>
 
           <div className="space-y-6">
@@ -253,7 +256,11 @@ export default async function MethodologyPage() {
                   <h3 className="text-xl font-semibold text-white">
                     {criterion.number}. {criterion.title}
                   </h3>
-                  <span className="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm font-medium">
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    criterion.weight === 'Hands-on'
+                      ? 'bg-amber-600/20 text-amber-300'
+                      : 'bg-purple-600/20 text-purple-400'
+                  }`}>
                     {criterion.weight}
                   </span>
                 </div>
@@ -287,7 +294,7 @@ export default async function MethodologyPage() {
 
         {/* Testing Process */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8">Our Testing Process</h2>
+          <h2 className="text-3xl font-bold text-white mb-8">What actually happens</h2>
 
           <div className="space-y-4">
             {processSteps.map((step, index) => (
