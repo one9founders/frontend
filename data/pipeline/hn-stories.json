@@ -1,142 +1,142 @@
 [
   {
-    "title": "Private Scribe – 100% offline Whisper AI voice dictation for Windows",
-    "url": "https://omnitender.gumroad.com/l/private-scribe",
+    "title": "Ask HN: Why does Hermes Agent not infringe on Hermès?",
+    "url": "",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-18T06:13:16Z"
+    "createdAt": "2026-08-19T06:36:39Z"
   },
   {
-    "title": "A/B testing LLMs in production",
-    "url": "https://www.together.ai/blog/a-b-test-models-in-production",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-18T05:28:23Z"
-  },
-  {
-    "title": "Goody-2, the most responsible AI model (2024)",
-    "url": "https://www.goody2.ai/",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-08-18T04:57:21Z"
-  },
-  {
-    "title": "Vetted AI code is hard to justify",
-    "url": "https://amoffat.github.io/blog/vetting-burnout.html",
+    "title": "Excited and exhausted: life as a tech writer in the AI age",
+    "url": "https://elizabethtai.com/2026/08/19/life-as-a-techwriter-in-the-ai-age/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-18T04:44:02Z"
+    "createdAt": "2026-08-19T06:24:23Z"
+  },
+  {
+    "title": "200B Tokens Later: A Month of Letting AI Agents Decompile MW2",
+    "url": "https://momo5502.com/posts/2026-08-17-mw2-decompilation/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T06:19:40Z"
+  },
+  {
+    "title": "Does AI stop children from learning?",
+    "url": "https://www.economist.com/graphic-detail/2026/08/18/does-ai-stop-children-from-learning",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-08-19T06:13:31Z"
+  },
+  {
+    "title": "Ask HN: How to Share Tools with Coworkers",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T05:43:03Z"
+  },
+  {
+    "title": "Designing AI with character: what we learned building Berd",
+    "url": "https://block.xyz/inside/designing-ai-with-character-what-we-learned-building-berd",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T05:26:26Z"
+  },
+  {
+    "title": "Get feedback on your AI slop. no accounts",
+    "url": "https://slopornot.simplicated.dev",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T05:24:28Z"
   },
   {
     "title": "AI Stock Research Assistant · Streamlit",
     "url": "https://ai-stock-research-kiaan.streamlit.app",
     "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-18T04:35:30Z"
-  },
-  {
-    "title": "What If I Told You Humans Are Moving Faster Than AI?",
-    "url": "https://medium.com/freedomofthought/what-if-i-told-you-humans-are-moving-faster-than-ai-833441f3fb21",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-08-18T04:01:28Z"
-  },
-  {
-    "title": "Why It Hasn't Happened Yet: Capable AI and Malicious Intent",
-    "url": "https://substack.norabble.com/p/why-it-hasnt-happened-yet",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-18T03:54:28Z"
-  },
-  {
-    "title": "San Diego 150 Years Ago: Rare AI Reconstruction Visuals [video]",
-    "url": "https://www.youtube.com/watch?v=qWaR_nc5sKM",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-18T03:38:37Z"
-  },
-  {
-    "title": "Sick of A.I. Slop? So Are Tech Giants",
-    "url": "https://www.nytimes.com/2026/08/17/technology/ai-slop.html",
-    "points": 3,
     "numComments": 1,
-    "createdAt": "2026-08-18T03:22:52Z"
+    "createdAt": "2026-08-19T05:17:36Z"
   },
   {
-    "title": "Show HN: Build beautiful web apps faster with UiSvelte",
-    "url": "https://github.com/sappsdev/ui-svelte",
+    "title": "Looking for an ArXiv Endorser – AI / Computer Science",
+    "url": "https://github.com/paibyun9/EGA-V9",
     "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-18T02:48:22Z"
-  },
-  {
-    "title": "A candy brand discovered TikTok made an AI clone of its founder to run ads [video]",
-    "url": "https://www.youtube.com/watch?v=itovmsMwus0",
-    "points": 5,
-    "numComments": 0,
-    "createdAt": "2026-08-18T02:45:56Z"
-  },
-  {
-    "title": "Show HN: Turtle – Web Browser written from scratch for 2 years",
-    "url": "",
-    "points": 4,
-    "numComments": 6,
-    "createdAt": "2026-08-18T02:10:09Z"
-  },
-  {
-    "title": "Three different papers pushed to ArXiv proving same 1986 conjecture; all use AI",
-    "url": "https://twitter.com/Quasilocal/status/2089408301427568691",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-18T01:56:38Z"
-  },
-  {
-    "title": "Going AI-native to enhance how humans/agents access ScalarDB and ScalarDL docs",
-    "url": "https://medium.com/scalar-engineering/going-ai-native-to-enhance-how-humans-and-agents-access-scalardb-and-scalardl-docs-fb7dbb0d304b",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-18T01:51:58Z"
-  },
-  {
-    "title": "Every student is cheating with AI",
-    "url": "https://ben.page/cheating",
-    "points": 7,
-    "numComments": 9,
-    "createdAt": "2026-08-18T01:45:38Z"
-  },
-  {
-    "title": "Apple's Camera-Equipped AirPods See Them in Action",
-    "url": "https://www.macrumors.com/2026/08/17/camera-equipped-airpods-macos-26-7/",
-    "points": 4,
-    "numComments": 0,
-    "createdAt": "2026-08-18T01:39:55Z"
-  },
-  {
-    "title": "Apple's Camera-Equipped AirPods See Them in Action",
-    "url": "https://twitter.com/aaronp613/status/2089522745184760112",
-    "points": 4,
-    "numComments": 0,
-    "createdAt": "2026-08-18T01:39:43Z"
-  },
-  {
-    "title": "Ask HN: Does anyone else feel like nothing matters anymore?",
-    "url": "",
-    "points": 145,
-    "numComments": 103,
-    "createdAt": "2026-08-18T01:28:48Z"
-  },
-  {
-    "title": "Follow-Up Thoughts on Watermarking Schemes for AI-Generated Text",
-    "url": "https://daringfireball.net/2026/08/follow-up_thoughts_on_watermarking",
-    "points": 10,
     "numComments": 2,
-    "createdAt": "2026-08-18T01:16:14Z"
+    "createdAt": "2026-08-19T05:15:32Z"
   },
   {
-    "title": "Anthropic's Claude Will Add Watermarks to AI-Generated Text and Files",
-    "url": "https://www.cnet.com/tech/services-and-software/anthropics-claude-will-add-watermarks-to-ai-generated-text-and-files/",
-    "points": 1,
+    "title": "AI mines 500 years of Spanish colonial records to find hidden wrecks, lost cargo",
+    "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-company-hiring-a-literal-pirate-to-salvage-sunken-treasure-found-by-artificial-intelligence-pays-up-to-usd500k-a-year-mining-80-million-pages-of-spanish-colonial-records-to-find-undiscovered-wrecks-and-lost-cargo",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-19T04:25:35Z"
+  },
+  {
+    "title": "Show HN: 4bit bridge between AI and humans",
+    "url": "https://github.com/YOalphabet/YOalphabet",
+    "points": 3,
     "numComments": 1,
-    "createdAt": "2026-08-18T01:01:45Z"
+    "createdAt": "2026-08-19T04:21:26Z"
+  },
+  {
+    "title": "Ask HN: Are AI credits too locked to individual applications?",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T04:08:42Z"
+  },
+  {
+    "title": "Model Hypnosis: Strong control of AI via additive subliminal effects",
+    "url": "https://arxiv.org/abs/2608.16834",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T04:07:06Z"
+  },
+  {
+    "title": "Show HN: PlugClaw – Private AI agent hardware for any phone or PC",
+    "url": "https://plugos.net/plugclaw/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-19T04:03:16Z"
+  },
+  {
+    "title": "Mathematics in the Age of AI",
+    "url": "https://arxiv.org/abs/2608.16753",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T04:01:39Z"
+  },
+  {
+    "title": "Show HN: Memanto Is a Memory Agent",
+    "url": "https://github.com/moorcheh-ai/memanto",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T04:01:37Z"
+  },
+  {
+    "title": "SERP Lens – an AI agent that does SEO work in a real browser",
+    "url": "https://serplens.com",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-19T03:55:47Z"
+  },
+  {
+    "title": "Explaining AI agents is like explaining 3D printers",
+    "url": "https://www.jitbit.com/alexblog/ai-agents-and-3d-printers/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-19T03:43:32Z"
+  },
+  {
+    "title": "Show HN: Control AI Agents on Your Old PC at Home from Any Device Anywhere",
+    "url": "https://github.com/elin66alpha/Relay",
+    "points": 5,
+    "numComments": 1,
+    "createdAt": "2026-08-19T03:26:59Z"
+  },
+  {
+    "title": "The Recursive Economy: AI Self-Improvement and Scarcity",
+    "url": "https://recursive-economy.pages.dev/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-19T03:16:21Z"
   }
 ]
