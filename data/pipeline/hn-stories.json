@@ -1,142 +1,142 @@
 [
   {
-    "title": "Ask HN: Why does Hermes Agent not infringe on Hermès?",
+    "title": "AI Is Changing How We Hac",
     "url": "",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-19T06:36:39Z"
+    "createdAt": "2026-08-20T06:36:18Z"
   },
   {
-    "title": "Excited and exhausted: life as a tech writer in the AI age",
-    "url": "https://elizabethtai.com/2026/08/19/life-as-a-techwriter-in-the-ai-age/",
+    "title": "LLM Reasoning Traces Are Not Audit Records",
+    "url": "https://rye.ai/blog/cot-faithfulness-reasoning-traces-not-audit-logs/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-08-20T06:20:14Z"
+  },
+  {
+    "title": "The data center fight is heating up",
+    "url": "https://www.axios.com/2026/08/19/ai-power-data-center-electricity-construction",
+    "points": 6,
+    "numComments": 1,
+    "createdAt": "2026-08-20T06:03:45Z"
+  },
+  {
+    "title": "Show HN: UI Inspector for Tauri",
+    "url": "https://github.com/mathematic-inc/tauri-plugin-ui-inspector",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-19T06:24:23Z"
+    "createdAt": "2026-08-20T05:41:53Z"
   },
   {
-    "title": "200B Tokens Later: A Month of Letting AI Agents Decompile MW2",
-    "url": "https://momo5502.com/posts/2026-08-17-mw2-decompilation/",
-    "points": 1,
+    "title": "Designing Loops for Production-Grade Work",
+    "url": "https://www.liquid.ai/blog/agent-loops",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-19T06:19:40Z"
+    "createdAt": "2026-08-20T04:25:42Z"
   },
   {
-    "title": "Does AI stop children from learning?",
-    "url": "https://www.economist.com/graphic-detail/2026/08/18/does-ai-stop-children-from-learning",
+    "title": "SeedSQL – Generate realistic SQL mock data with foreign key integrity",
+    "url": "https://seed-sql.ai.studio",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-20T04:08:39Z"
+  },
+  {
+    "title": "Crypto's (and AI's) midterm PAC machine",
+    "url": "https://www.politico.com/newsletters/politico-influence/2026/08/19/a-rare-setback-for-cryptos-midterm-machine-01042044",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-08-20T03:58:56Z"
+  },
+  {
+    "title": "Show HN: MatrAIx – simulate users before reality (Survey/Chat/Web/App)",
+    "url": "https://github.com/MatrAIx-ai/MatrAIx-Persona-8B",
     "points": 4,
     "numComments": 0,
-    "createdAt": "2026-08-19T06:13:31Z"
+    "createdAt": "2026-08-20T03:34:52Z"
   },
   {
-    "title": "Ask HN: How to Share Tools with Coworkers",
+    "title": "Do We Still Need Database Management Tools When AI Can Write SQL?",
+    "url": "http://johnli.work/posts/do-we-still-need-database-management-tools-when-ai-can-write-sql/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-20T03:24:31Z"
+  },
+  {
+    "title": "Show HN: AI agents can now safely write to your CRMs",
+    "url": "https://www.archron.app/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-20T03:17:08Z"
+  },
+  {
+    "title": "Comparing Qwen3.8 Max and Fable 5 on UI",
+    "url": "https://blog.kilo.ai/p/qwen38-max-just-passed-claude-fable",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-08-20T02:47:37Z"
+  },
+  {
+    "title": "Does anyone find AI code review useful?",
     "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T05:43:03Z"
+    "points": 2,
+    "numComments": 5,
+    "createdAt": "2026-08-20T02:24:07Z"
   },
   {
-    "title": "Designing AI with character: what we learned building Berd",
-    "url": "https://block.xyz/inside/designing-ai-with-character-what-we-learned-building-berd",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T05:26:26Z"
-  },
-  {
-    "title": "Get feedback on your AI slop. no accounts",
-    "url": "https://slopornot.simplicated.dev",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T05:24:28Z"
-  },
-  {
-    "title": "AI Stock Research Assistant · Streamlit",
-    "url": "https://ai-stock-research-kiaan.streamlit.app",
+    "title": "Show HN: AI Resume Screening – Looking for feedback from recruiters",
+    "url": "https://aiomniu.top/services/resume-screening",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-08-19T05:17:36Z"
+    "createdAt": "2026-08-20T02:17:09Z"
   },
   {
-    "title": "Looking for an ArXiv Endorser – AI / Computer Science",
-    "url": "https://github.com/paibyun9/EGA-V9",
+    "title": "Google styleguide code review skills",
+    "url": "https://jeanbza.github.io/ai/claude/2026/08/08/google-codereview-skills.html",
     "points": 1,
-    "numComments": 2,
-    "createdAt": "2026-08-19T05:15:32Z"
-  },
-  {
-    "title": "AI mines 500 years of Spanish colonial records to find hidden wrecks, lost cargo",
-    "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-company-hiring-a-literal-pirate-to-salvage-sunken-treasure-found-by-artificial-intelligence-pays-up-to-usd500k-a-year-mining-80-million-pages-of-spanish-colonial-records-to-find-undiscovered-wrecks-and-lost-cargo",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-08-19T04:25:35Z"
-  },
-  {
-    "title": "Show HN: 4bit bridge between AI and humans",
-    "url": "https://github.com/YOalphabet/YOalphabet",
-    "points": 3,
     "numComments": 1,
-    "createdAt": "2026-08-19T04:21:26Z"
+    "createdAt": "2026-08-20T02:01:54Z"
   },
   {
-    "title": "Ask HN: Are AI credits too locked to individual applications?",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T04:08:42Z"
-  },
-  {
-    "title": "Model Hypnosis: Strong control of AI via additive subliminal effects",
-    "url": "https://arxiv.org/abs/2608.16834",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T04:07:06Z"
-  },
-  {
-    "title": "Show HN: PlugClaw – Private AI agent hardware for any phone or PC",
-    "url": "https://plugos.net/plugclaw/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-08-19T04:03:16Z"
-  },
-  {
-    "title": "Mathematics in the Age of AI",
-    "url": "https://arxiv.org/abs/2608.16753",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T04:01:39Z"
-  },
-  {
-    "title": "Show HN: Memanto Is a Memory Agent",
-    "url": "https://github.com/moorcheh-ai/memanto",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T04:01:37Z"
-  },
-  {
-    "title": "SERP Lens – an AI agent that does SEO work in a real browser",
-    "url": "https://serplens.com",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-19T03:55:47Z"
-  },
-  {
-    "title": "Explaining AI agents is like explaining 3D printers",
-    "url": "https://www.jitbit.com/alexblog/ai-agents-and-3d-printers/",
+    "title": "Show HN: Mail client optimized for self-hosted email across multiple domains",
+    "url": "https://mainly.crnst8.com/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-19T03:43:32Z"
+    "createdAt": "2026-08-20T01:55:56Z"
   },
   {
-    "title": "Show HN: Control AI Agents on Your Old PC at Home from Any Device Anywhere",
-    "url": "https://github.com/elin66alpha/Relay",
-    "points": 5,
-    "numComments": 1,
-    "createdAt": "2026-08-19T03:26:59Z"
+    "title": "A $21B 'Kids in Chips' Startup Is Scooping Up Nvidia Talent",
+    "url": "https://www.wsj.com/tech/ai/a-21-billion-kids-in-chips-startup-is-scooping-up-nvidia-talent-4d099f12",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-08-20T01:31:06Z"
   },
   {
-    "title": "The Recursive Economy: AI Self-Improvement and Scarcity",
-    "url": "https://recursive-economy.pages.dev/",
+    "title": "Credentialism is coming for AI agents",
+    "url": "https://betocmn.com/blog/credentialism-is-coming-for-ai-agents/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-20T01:27:46Z"
+  },
+  {
+    "title": "How to use AI for your next job interview",
+    "url": "https://www.lennysnewsletter.com/p/how-to-use-ai-in-your-next-job-interview",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-20T01:18:17Z"
+  },
+  {
+    "title": "Agentic AI has made CPUs the new performance bottleneck",
+    "url": "https://spectrum.ieee.org/ai-cpu-comeback",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-20T01:14:05Z"
+  },
+  {
+    "title": "Round Hill Music Sues Suno and Anthropic for $1B over AI Training Data",
+    "url": "https://www.gadgetreview.com/round-hill-music-sues-suno-and-anthropic-for-1-billion-over-ai-training-data",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-19T03:16:21Z"
+    "createdAt": "2026-08-20T00:40:14Z"
   }
 ]
