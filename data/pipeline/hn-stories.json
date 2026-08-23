@@ -1,142 +1,142 @@
 [
   {
-    "title": "Ask HN: What is the evidence for a stock market bubble in AI?",
-    "url": "",
-    "points": 4,
-    "numComments": 1,
-    "createdAt": "2026-08-22T06:07:48Z"
-  },
-  {
-    "title": "Intelligence per Watt: Measuring Intelligence Efficiency of Local AI",
-    "url": "https://arxiv.org/abs/2511.07885",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T05:54:49Z"
-  },
-  {
-    "title": "Show HN: Front end skill pack for AI agents, with machine-enforced quality gates",
-    "url": "https://krishna-modi12.github.io/frontend-design-pro/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T05:52:19Z"
-  },
-  {
-    "title": "Void Tools API – Blockchain Tools for AI Agents (Pay in Void Tokens)",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T05:40:37Z"
-  },
-  {
-    "title": "Getting Freaky in the Age of AI",
-    "url": "https://www.iankduncan.com/engineering/2026-08-07-getting-freaky-in-the-age-of-ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T03:45:57Z"
-  },
-  {
-    "title": "Linus: And this was a debug session from hell, enormously helped by an AI",
-    "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=818bebeb63dd6bf5f4e07e145f6cdbace520a34c",
+    "title": "Wild AI-related reliability incidents are coming",
+    "url": "https://surfingcomplexity.blog/2026/08/22/wild-ai-related-reliability-incidents-are-coming/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-22T03:39:16Z"
+    "createdAt": "2026-08-23T06:23:50Z"
   },
   {
-    "title": "Giving an LLM your prod database is easy. Taking access away is the hard part",
-    "url": "https://deepsql.ai/blog/giving-an-llm-your-database-is-easy-taking-access-away-is-hard",
-    "points": 3,
-    "numComments": 1,
-    "createdAt": "2026-08-22T03:33:34Z"
-  },
-  {
-    "title": "Startup Founders Are Working Harder Than Ever to Keep Up with Their AI Agents",
-    "url": "https://www.wsj.com/tech/ai/ai-agents-startup-work-culture-fa10494d",
-    "points": 4,
-    "numComments": 2,
-    "createdAt": "2026-08-22T03:20:33Z"
-  },
-  {
-    "title": "Anthropic Could Aim to Raise $100B in Blockbuster IPO",
-    "url": "https://www.nytimes.com/2026/08/21/technology/anthropic-ipo-100-billion.html",
-    "points": 3,
+    "title": "Harvard Is Selling a $699 Course Taught by A.I. Clones of Its Faculty",
+    "url": "https://www.nytimes.com/2026/08/22/business/dealbook/harvard-ai-faculty.html",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-22T02:13:20Z"
+    "createdAt": "2026-08-23T06:16:51Z"
   },
   {
-    "title": "Show HN: Anjadhe – privacy first AI assistant, no account, no server DB",
-    "url": "https://www.anjadhe.com/demo",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-08-22T02:12:01Z"
-  },
-  {
-    "title": "Show HN: Heimdall – Trust-verified knowledge layer for AI coding agents",
-    "url": "https://github.com/ArihantDeva/heimdall",
-    "points": 3,
+    "title": "Topagent.lol – an AI agent leaderboard ranked purely by who paid most",
+    "url": "https://topagent.lol",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-22T02:02:14Z"
+    "createdAt": "2026-08-23T06:01:37Z"
   },
   {
-    "title": "Obsession with AI",
-    "url": "https://unmeshed.io/blog/using-ai-wisely-starts-before-the-first-prompt",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T01:53:33Z"
-  },
-  {
-    "title": "I'd Rather Risk Cancer Than See AI Move This Fast",
-    "url": "https://www.theatlantic.com/technology/2026/06/ai-cancer-progress/687654/",
-    "points": 5,
-    "numComments": 2,
-    "createdAt": "2026-08-22T01:47:18Z"
-  },
-  {
-    "title": "Show HN: Flight Ledger – Track your flights, what they cost, and United status",
-    "url": "https://app.flightledger.net",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T01:08:58Z"
-  },
-  {
-    "title": "In 1957, Disney Built Our Friend the Atom. We Now Need Our Friend the AI",
-    "url": "https://medium.com/@chipmunkworks/the-disney-solution-why-silicon-valley-needs-to-build-our-friend-the-ai-1a0ce3fc764a",
+    "title": "China Is Building AI Models of American Voters",
+    "url": "https://nataliegwinters.substack.com/p/exclusive-china-is-building-ai-models",
     "points": 2,
     "numComments": 1,
-    "createdAt": "2026-08-22T01:00:44Z"
+    "createdAt": "2026-08-23T05:43:06Z"
   },
   {
-    "title": "Show HN: Updating my wedding registry website with AI in 275 commits",
-    "url": "https://benhoyt.com/writings/updating-gifty-with-ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T00:25:24Z"
-  },
-  {
-    "title": "Show HN: AI driven civic dashboard for Palo Alto",
-    "url": "https://paloaltocivic.com",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-22T00:17:45Z"
-  },
-  {
-    "title": "Linus: \"A debug session from hell, enormously helped by an AI\"",
-    "url": "https://github.com/torvalds/linux/commit/818bebeb63dd6bf5f4e07e145f6cdbace520a34c",
-    "points": 4,
-    "numComments": 1,
-    "createdAt": "2026-08-22T00:08:47Z"
-  },
-  {
-    "title": "Nvidia to Pay AI Startup Poolside a $6B License, Newcomer Says",
-    "url": "https://www.bloomberg.com/news/articles/2026-08-20/nvidia-to-pay-ai-startup-poolside-a-6-billion-license-newcomer-says",
+    "title": "A mysterious free AI model is impressing developers. Nobody knows who made it",
+    "url": "https://www.businessinsider.com/ox-alpha-ai-model-mystery-2026-8",
     "points": 5,
     "numComments": 0,
-    "createdAt": "2026-08-22T00:07:06Z"
+    "createdAt": "2026-08-23T05:40:43Z"
   },
   {
-    "title": "What We Tell AI",
-    "url": "https://www.whatwetellai.com/",
-    "points": 7,
+    "title": "Rare-Book Sales Are Booming. They're Getting Sliced Up and Fed to AI",
+    "url": "https://www.wsj.com/articles/ais-need-for-content-has-put-rare-book-dealers-in-a-bind-1ac5a053",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-23T05:32:12Z"
+  },
+  {
+    "title": "Chinese Orgs Building AI Models of American Voters to Test Political Messages",
+    "url": "https://twitter.com/nataliegwinters/status/2090814996687237570",
+    "points": 4,
     "numComments": 1,
-    "createdAt": "2026-08-21T23:50:27Z"
+    "createdAt": "2026-08-23T05:19:45Z"
+  },
+  {
+    "title": "MailSift – Fast email and MX DNS validator Chrome extension",
+    "url": "https://chromewebstore.google.com/detail/mailsift/aipolipnoajkejecehomimoglebbekdm",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-23T05:13:56Z"
+  },
+  {
+    "title": "Vero: Can AI Agents Build Formally Verified Software Repositories?",
+    "url": "https://vero.verina.io/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-23T04:59:37Z"
+  },
+  {
+    "title": "The Hidden Pipeline Behind AI Search Visibility",
+    "url": "https://medium.com/the-discovery-collective/the-hidden-pipeline-behind-ai-search-visibility-d4e9c22897f8",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-08-23T04:52:17Z"
+  },
+  {
+    "title": "AI's potential climate benefits outweighed by role in boosting fossil fuels",
+    "url": "https://www.theguardian.com/technology/2026/aug/11/ai-will-do-more-to-boost-fossil-fuel-production-than-green-energy",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-23T04:50:53Z"
+  },
+  {
+    "title": "Who is the founder of 0x Alpha?",
+    "url": "https://openrouter.ai",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-23T04:46:35Z"
+  },
+  {
+    "title": "Andreessen Horowitz Focus of DOJ Probe over Board Directors",
+    "url": "https://finance.yahoo.com/technology/ai/articles/andreessen-horowitz-focus-doj-probe-171350711.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-23T04:31:01Z"
+  },
+  {
+    "title": "Activity Monitor for AI Application on Mac OS X",
+    "url": "https://popy.app/apps/corral",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-23T04:23:35Z"
+  },
+  {
+    "title": "Palantir's Karp – frontier AI labs that are 'trying to drug addict us'",
+    "url": "https://www.cnbc.com/2026/08/03/palantir-karp-open-ai-anthropic-open-weight.html",
+    "points": 11,
+    "numComments": 4,
+    "createdAt": "2026-08-23T04:03:46Z"
+  },
+  {
+    "title": "In 2000, Ted Kaczynski advised against math career due to future AI progress",
+    "url": "https://twitter.com/subcountability/status/2091164267827327042",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-08-23T03:47:05Z"
+  },
+  {
+    "title": "AI Power Scaling Cuts Both Ways",
+    "url": "https://nervecenter.github.io/ai_power_scaling_cuts_both_ways.html",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-23T03:24:32Z"
+  },
+  {
+    "title": "Show HN: LayoutLens: AI-Powered Visual UI Testing",
+    "url": "https://github.com/gojiplus/layoutlens",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-23T02:33:56Z"
+  },
+  {
+    "title": "Edify – Windows NLE: OpenFX, proxy editing, AI subs, vtuber tools ($29.99 once)",
+    "url": "https://apps.microsoft.com/detail/9nkkk5k5s4ct?hl=en-US&gl=US",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-23T02:27:20Z"
+  },
+  {
+    "title": "AI Chip Architectures",
+    "url": "https://www.jepeake.com/ai-chip-architectures",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-23T02:25:10Z"
   }
 ]
