@@ -53,17 +53,18 @@ export default function TrendingTools() {
 
   if (loading) {
     return (
-      <section className="py-10 md:py-14 px-4 md:px-6 bg-[var(--gray-black)]">
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--ink)] border-t border-[var(--line)]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-6">Trending this week</h2>
+          <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-2">This week</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)] mb-6">Trending</h2>
           <div className="flex gap-4 overflow-hidden">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="min-w-[240px] bg-[var(--gray-900)] rounded-xl p-4 animate-pulse border border-[var(--gray-800)]">
+              <div key={i} className="min-w-[240px] bg-[var(--ink-2)] p-4 animate-pulse border border-[var(--line)]">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-[var(--gray-800)] rounded-lg"></div>
+                  <div className="w-10 h-10 bg-[var(--line)]"></div>
                   <div className="flex-1">
-                    <div className="h-4 bg-[var(--gray-800)] rounded w-3/4 mb-1"></div>
-                    <div className="h-3 bg-[var(--gray-800)] rounded w-1/2"></div>
+                    <div className="h-4 bg-[var(--line)] w-3/4 mb-1"></div>
+                    <div className="h-3 bg-[var(--line)] w-1/2"></div>
                   </div>
                 </div>
               </div>
@@ -79,20 +80,23 @@ export default function TrendingTools() {
   }
 
   return (
-    <section className="py-10 md:py-14 px-4 md:px-6 bg-[var(--gray-black)]">
+    <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--ink)] border-t border-[var(--line)]">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-white">Trending this week</h2>
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-2">This week</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)]">Trending</h2>
+          </div>
           <div className="hidden md:flex gap-2">
             <button
               onClick={() => scroll('left')}
-              className="p-1.5 rounded-lg border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-500)] transition-colors cursor-pointer"
+              className="p-1.5 border border-[var(--line)] text-[var(--gray-400)] hover:text-[var(--paper)] hover:border-[var(--copper-dim)] transition-colors cursor-pointer"
             >
               <HugeiconsIcon icon={ArrowLeft01Icon} size={18} />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-1.5 rounded-lg border border-[var(--gray-700)] text-[var(--gray-400)] hover:text-white hover:border-[var(--gray-500)] transition-colors cursor-pointer"
+              className="p-1.5 border border-[var(--line)] text-[var(--gray-400)] hover:text-[var(--paper)] hover:border-[var(--copper-dim)] transition-colors cursor-pointer"
             >
               <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
             </button>
@@ -108,7 +112,7 @@ export default function TrendingTools() {
             <Link
               key={tool.id}
               href={`/tool/${tool.slug}`}
-              className="min-w-[240px] max-w-[240px] bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-800)] hover:border-[var(--gray-600)] transition-colors snap-start flex-shrink-0"
+              className="min-w-[240px] max-w-[240px] bg-[var(--ink-2)] p-4 border border-[var(--line)] hover:border-[var(--copper-dim)] transition-colors snap-start flex-shrink-0"
             >
               <div className="flex items-center gap-3 mb-2">
                 <img
@@ -117,7 +121,7 @@ export default function TrendingTools() {
                   className="w-10 h-10 object-contain rounded-lg bg-white p-0.5"
                 />
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-semibold text-white truncate">{tool.name}</h3>
+                  <h3 className="text-sm font-semibold text-[var(--paper)] truncate">{tool.name}</h3>
                   <span className="text-xs text-[var(--gray-400)]">
                     {getToolRatingDisplay(tool).shortLabel}
                   </span>

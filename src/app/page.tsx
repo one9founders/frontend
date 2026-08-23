@@ -4,10 +4,8 @@ import { STATS, withLiveCount } from '@/lib/constants/stats';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
 import TrendingTools from "../components/features/tools/TrendingTools";
-import BrowseCategories from "../components/shared/BrowseCategories";
+import TrustStrip from "../components/layout/TrustStrip";
 import CorporateSection from "../components/shared/CorporateSection";
-import PartnersSection from "../components/shared/PartnersSection";
-import WhyTrustSection from "../components/shared/WhyTrustSection";
 import Top20Tools from "../components/features/tools/Top20Tools";
 import Footer from "../components/layout/Footer";
 import FounderSurveyCTA from '@/components/features/survey/FounderSurveyCTA';
@@ -50,7 +48,7 @@ export default async function Home() {
   const stats = await fetchDirectoryStats();
 
   return (
-    <div className="min-h-screen bg-[var(--gray-black)]">
+    <div className="min-h-screen bg-[var(--ink)] selection:bg-[var(--copper)] selection:text-[var(--ink)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -71,14 +69,12 @@ export default async function Home() {
       <Navbar />
       <HeroSection toolCount={stats?.total_tools} agentCount={stats?.agent_count} />
       <TrendingTools />
-      <BrowseCategories toolCount={stats?.total_tools} agentCount={stats?.agent_count} />
-      <CorporateSection />
-      <PartnersSection />
-      <WhyTrustSection
+      <TrustStrip
         toolCount={stats?.total_tools}
         fullyAssessedCount={stats?.fully_assessed_count}
       />
       <Top20Tools />
+      <CorporateSection />
       <FounderSurveyCTA />
       <Footer />
     </div>
