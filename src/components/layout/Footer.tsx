@@ -42,7 +42,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="px-6 py-16 m-4 md:m-12 rounded-3xl bg-[var(--gray-900)] border-t border-[var(--gray-800)]">
+    <footer className="px-6 py-16 border-t border-[var(--line)] bg-[var(--ink-2)]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left: Logo, tagline, IIT Bombay */}
@@ -53,7 +53,7 @@ export default function Footer() {
             </p>
             <p className="mb-6 text-[var(--gray-400)] max-w-80">
               Mumbai, Maharashtra, India |{' '}
-              <a href="mailto:hello@one9founders.com" className="hover:opacity-80 transition-opacity">
+              <a href="mailto:hello@one9founders.com" className="hover:text-[var(--copper)] transition-colors">
                 hello@one9founders.com
               </a>
             </p>
@@ -68,32 +68,32 @@ export default function Footer() {
             <div className="flex gap-4 flex-wrap">
               <a href="https://www.facebook.com/one9founders" target="_blank" rel="noopener noreferrer"
                  aria-label="Follow us on Facebook"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                 className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                 <HugeiconsIcon icon={Facebook01Icon} size={24} aria-hidden="true" />
               </a>
               <a href="https://www.instagram.com/one9founders" target="_blank" rel="noopener noreferrer"
                  aria-label="Follow us on Instagram"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                 className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                 <HugeiconsIcon icon={InstagramIcon} size={24} aria-hidden="true" />
               </a>
               <a href="https://threads.com/one9founders" target="_blank" rel="noopener noreferrer"
                  aria-label="Follow us on Threads"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                 className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                 <HugeiconsIcon icon={ThreadsIcon} size={24} aria-hidden="true" />
               </a>
               <a href="https://x.com/one9founders" target="_blank" rel="noopener noreferrer"
                  aria-label="Follow us on X (Twitter)"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                 className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                 <HugeiconsIcon icon={NewTwitterIcon} size={24} aria-hidden="true" />
               </a>
               <a href="https://www.youtube.com/@One9Founders" target="_blank" rel="noopener noreferrer"
                  aria-label="Subscribe to our YouTube channel"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                 className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                 <HugeiconsIcon icon={YoutubeIcon} size={24} aria-hidden="true" />
               </a>
               <a href="https://in.linkedin.com/company/one9founders" target="_blank" rel="noopener noreferrer"
                  aria-label="Connect with us on LinkedIn"
-                 className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                 className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                 <HugeiconsIcon icon={Linkedin01Icon} size={24} aria-hidden="true" />
               </a>
             </div>
@@ -104,45 +104,50 @@ export default function Footer() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {/* Navigate */}
               <div>
-                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Navigate</h3>
+                <h3 className="font-display font-semibold mb-4 text-[var(--paper)] text-sm">Navigate</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href="/#tools-section" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <a href="/#tools-section" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Explore AI Tools
                     </a>
                   </li>
                   <li>
-                    <Link href="/new" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/new" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       New AI Tools
                     </Link>
                   </li>
                   <li>
-                    <Link href="/llms" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/llms" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       LLM Explorer
                     </Link>
                   </li>
                   <li>
-                    <Link href="/research" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/research" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Research Papers
                     </Link>
                   </li>
                   <li>
-                    <Link href="/agents" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/agents" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       AI Agents
                     </Link>
                   </li>
                   <li>
-                    <Link href="/stack" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/stack" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Assemble a stack
                     </Link>
                   </li>
                   <li>
-                    <Link href="/worker" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/fintech" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Fintech AI Stack
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/worker" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       One9 Worker
                     </Link>
                   </li>
                   <li>
-                    <Link href="/compare" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/compare" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Compare Tools
                     </Link>
                   </li>
@@ -151,30 +156,30 @@ export default function Footer() {
 
               {/* Company */}
               <div>
-                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">Company</h3>
+                <h3 className="font-display font-semibold mb-4 text-[var(--paper)] text-sm">Company</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/about" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/about" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link href="/learn/organizations" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/learn/organizations" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       For Colleges &amp; Corporates
                     </Link>
                   </li>
                   <li>
-                    <Link href="/methodology" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/methodology" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       How We Rate
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/terms" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Terms
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/privacy" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Privacy Policy
                     </Link>
                   </li>
@@ -183,25 +188,25 @@ export default function Footer() {
 
               {/* More */}
               <div>
-                <h3 className="font-semibold mb-4 text-[var(--gray-200)]">More</h3>
+                <h3 className="font-display font-semibold mb-4 text-[var(--paper)] text-sm">More</h3>
                 <ul className="space-y-3">
                   <li>
-                    <a href="/#corporate-section" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <a href="/#corporate-section" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       For Corporates
                     </a>
                   </li>
                   <li>
-                    <Link href="/learn" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/learn" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       AI Training
                     </Link>
                   </li>
                   <li>
-                    <Link href="/submit" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <Link href="/submit" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Submit a Tool
                     </Link>
                   </li>
                   <li>
-                    <a href="mailto:hello@one9founders.com" className="hover:opacity-80 transition-opacity text-[var(--gray-400)]">
+                    <a href="mailto:hello@one9founders.com" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Contact Us
                     </a>
                   </li>
@@ -215,7 +220,7 @@ export default function Footer() {
                 &copy; 2026 One9Founders. All rights reserved.
               </p>
               <div>
-                <h3 className="font-semibold mb-2 text-xs uppercase tracking-widest text-[var(--gray-200)]">
+                <h3 className="font-display font-semibold mb-2 text-[11px] uppercase tracking-[0.2em] text-[var(--copper)]">
                   Get Smarter About AI Tools. Every Tuesday.
                 </h3>
                 <p className="mb-4 text-sm text-[var(--gray-400)]">
@@ -230,12 +235,12 @@ export default function Footer() {
                     required
                     aria-label="Email address"
                     disabled={loading}
-                    className="flex-1 px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-200)]"
+                    className="flex-1 px-4 py-2 border focus:outline-none focus:border-[var(--copper-dim)] bg-[var(--ink)] border-[var(--line)] text-[var(--paper)]"
                   />
                   <button
                     type="submit"
                     disabled={loading || !email}
-                    className="btn-primary whitespace-nowrap disabled:opacity-50"
+                    className="px-4 py-2 text-sm font-medium bg-[var(--copper)] text-[var(--ink)] hover:bg-[var(--copper-bright)] whitespace-nowrap disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? 'Subscribing...' : 'Subscribe Free'}
                   </button>

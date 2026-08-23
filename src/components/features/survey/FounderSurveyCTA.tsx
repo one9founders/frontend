@@ -12,12 +12,12 @@ import Link from 'next/link';
  */
 export default function FounderSurveyCTA() {
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4 border-t border-[var(--line)] bg-[var(--ink)]">
       <div className="max-w-2xl mx-auto text-center">
-        <p className="text-xs font-semibold tracking-widest text-[var(--brand-tertiary)] uppercase mb-4">
+        <p className="text-[11px] font-medium tracking-[0.2em] text-[var(--copper)] uppercase mb-4">
           for founders
         </p>
-        <h2 className="text-3xl font-bold text-white mb-4">
+        <h2 className="text-3xl font-bold text-[var(--paper)] mb-4">
           What's slowing your startup down?
         </h2>
         <p className="text-[var(--gray-400)] text-base mb-8 leading-relaxed">
@@ -26,9 +26,9 @@ export default function FounderSurveyCTA() {
         </p>
         <Link
           href="/founder-survey"
-          className="inline-block px-8 py-3.5 rounded-lg bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] text-white font-semibold text-sm transition-colors"
+          className="inline-block px-8 py-3.5 bg-[var(--copper)] hover:bg-[var(--copper-bright)] text-[var(--ink)] font-semibold text-sm transition-colors"
         >
-          Share your problem →
+          Share your problem
         </Link>
         <p className="text-xs text-[var(--gray-600)] mt-4">No spam. No pitch.</p>
       </div>

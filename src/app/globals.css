@@ -44,6 +44,13 @@
   --gray-900: #171717;
   --gray-950: #0A0A0A;
   --gray-black: #0A0A0A;
+  --ink: #070707;
+  --ink-2: #101010;
+  --line: #1C1916;
+  --copper: #C47A3A;
+  --copper-dim: #8B5428;
+  --copper-bright: #D4924A;
+  --paper: #F3EDE4;
 }
 
 @theme inline {
@@ -70,8 +77,12 @@ body {
   background-color: var(--gray-black);
 }
 
+.font-display {
+  font-family: var(--font-bricolage-grotesque), sans-serif;
+}
+
 h1, h2, h3 {
-  font-family: var(--font-bricolage-grotesque), serif;
+  font-family: var(--font-bricolage-grotesque), sans-serif;
 }
 
 h4, h5, h6 {
