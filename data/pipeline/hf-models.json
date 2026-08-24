@@ -1,352 +1,352 @@
 [
   {
     "id": "Qwen/Qwen3.8-27B",
-    "downloads": 2090699,
-    "likes": 12186,
+    "downloads": 2358347,
+    "likes": 12362,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-08-14T15:00:01.000Z"
   },
   {
     "id": "unsloth/Qwen3.8-27B-GGUF",
-    "downloads": 6320542,
-    "likes": 2648,
+    "downloads": 6674515,
+    "likes": 2756,
     "pipeline_tag": "",
     "lastModified": "2026-08-20T12:04:25.000Z"
   },
   {
     "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
-    "downloads": 34909,
-    "likes": 894,
+    "downloads": 47098,
+    "likes": 974,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-21T08:40:15.000Z"
+    "lastModified": "2026-08-23T11:30:11.000Z"
+  },
+  {
+    "id": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
+    "downloads": 244834,
+    "likes": 649,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-23T20:23:49.000Z"
   },
   {
     "id": "orcarouter/Qwen3.8-27B-Uncensored-FP8",
-    "downloads": 142846,
-    "likes": 996,
+    "downloads": 190062,
+    "likes": 1053,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-08-20T08:41:29.000Z"
   },
   {
-    "id": "OBLITERATUS/Qwen3.8-27B-OBLITERATED",
-    "downloads": 164950,
-    "likes": 558,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-23T03:58:25.000Z"
-  },
-  {
     "id": "HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
-    "downloads": 486221,
-    "likes": 498,
+    "downloads": 676697,
+    "likes": 544,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-08-17T22:02:10.000Z"
   },
   {
-    "id": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
-    "downloads": 1223422,
-    "likes": 628,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-16T03:48:32.000Z"
-  },
-  {
     "id": "Lightricks/LTX-2.5",
-    "downloads": 694670,
-    "likes": 1580,
+    "downloads": 738345,
+    "likes": 1654,
     "pipeline_tag": "image-to-video",
     "lastModified": "2026-08-17T13:54:21.000Z"
   },
   {
-    "id": "MiniMaxAI/MiniMax-Music3",
-    "downloads": 16644,
-    "likes": 1189,
-    "pipeline_tag": "text-to-audio",
-    "lastModified": "2026-08-14T10:51:40.000Z"
+    "id": "JonathanColetti/Qwen3.8-27B-Uncensored-GGUF",
+    "downloads": 1334820,
+    "likes": 656,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-16T03:48:32.000Z"
   },
   {
     "id": "ornith-ai/Ornith-1.5-35B-A3B",
-    "downloads": 12611,
-    "likes": 330,
+    "downloads": 23516,
+    "likes": 370,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-08-23T03:17:39.000Z"
   },
   {
+    "id": "MiniMaxAI/MiniMax-Music3",
+    "downloads": 17421,
+    "likes": 1212,
+    "pipeline_tag": "text-to-audio",
+    "lastModified": "2026-08-14T10:51:40.000Z"
+  },
+  {
     "id": "MiniMaxAI/MiniMax-H3",
-    "downloads": 3899160,
-    "likes": 4352,
+    "downloads": 4039236,
+    "likes": 4389,
     "pipeline_tag": "image-text-to-video",
     "lastModified": "2026-08-13T01:46:29.000Z"
   },
   {
     "id": "orcarouter/Qwen3.8-27B-Uncensored-GGUF",
-    "downloads": 85371,
-    "likes": 346,
+    "downloads": 108666,
+    "likes": 384,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-08-20T13:18:03.000Z"
   },
   {
+    "id": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
+    "downloads": 369478,
+    "likes": 258,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-24T03:43:47.000Z"
+  },
+  {
     "id": "froggeric/Qwen-Fixed-Chat-Templates",
     "downloads": 0,
-    "likes": 1402,
+    "likes": 1429,
     "pipeline_tag": "",
     "lastModified": "2026-08-21T06:37:52.000Z"
   },
   {
     "id": "huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF",
-    "downloads": 635416,
-    "likes": 261,
+    "downloads": 943360,
+    "likes": 309,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-23T03:58:42.000Z"
-  },
-  {
-    "id": "ornith-ai/Ornith-1.5-35B-A3B-GGUF",
-    "downloads": 173935,
-    "likes": 240,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-20T02:26:14.000Z"
-  },
-  {
-    "id": "Qwen/Qwen3.8-27B-FP8",
-    "downloads": 2306777,
-    "likes": 667,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-14T14:44:41.000Z"
-  },
-  {
-    "id": "huihui-ai/Huihui-Qwen3.8-27B-abliterated",
-    "downloads": 21612,
-    "likes": 248,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-17T02:00:13.000Z"
+    "lastModified": "2026-08-24T03:28:29.000Z"
   },
   {
     "id": "superwhisper/s1-mini",
-    "downloads": 1913,
-    "likes": 202,
+    "downloads": 2280,
+    "likes": 217,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-08-21T17:16:30.000Z"
   },
   {
     "id": "DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1-NM-DAU-NEO-MAX-MTP-GGUF",
-    "downloads": 176969,
-    "likes": 200,
+    "downloads": 193794,
+    "likes": 213,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-08-23T01:21:45.000Z"
   },
   {
     "id": "z-lab/Qwen3.8-27B-DFlash2",
-    "downloads": 29705,
-    "likes": 194,
+    "downloads": 36234,
+    "likes": 207,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-08-19T02:52:37.000Z"
   },
   {
-    "id": "TenStrip/10Eros-Max",
-    "downloads": 0,
-    "likes": 318,
-    "pipeline_tag": "image-text-to-video",
-    "lastModified": "2026-08-19T05:11:33.000Z"
-  },
-  {
-    "id": "empero-ai/Qwen3.8-27B-Ridge-GGUF",
-    "downloads": 97247,
-    "likes": 247,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-15T23:51:41.000Z"
-  },
-  {
-    "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
-    "downloads": 54566,
-    "likes": 721,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-13T16:28:28.000Z"
-  },
-  {
-    "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-    "downloads": 2976281,
-    "likes": 3635,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-01T03:07:41.000Z"
-  },
-  {
     "id": "ornith-ai/Ornith-1.5-9B",
-    "downloads": 15301,
-    "likes": 166,
+    "downloads": 31496,
+    "likes": 187,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-08-23T06:24:01.000Z"
   },
   {
     "id": "LBH-123-AI/Minimax_h3_latent_Upscaler",
     "downloads": 0,
-    "likes": 160,
+    "likes": 167,
     "pipeline_tag": "",
     "lastModified": "2026-08-20T04:01:58.000Z"
   },
   {
-    "id": "empero-ai/Qwen3.8-9B-Distill",
-    "downloads": 9260,
-    "likes": 166,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-15T23:48:40.000Z"
-  },
-  {
-    "id": "0bserverx/Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF",
-    "downloads": 505813,
-    "likes": 229,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-20T19:51:25.000Z"
-  },
-  {
     "id": "incoai/Qwen3.8-27B-DFlash2",
-    "downloads": 54439,
-    "likes": 156,
+    "downloads": 69783,
+    "likes": 166,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-08-19T02:52:32.000Z"
   },
   {
-    "id": "moonshotai/Kimi-K3",
-    "downloads": 2612739,
-    "likes": 10933,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-20T04:57:37.000Z"
-  },
-  {
     "id": "ornith-ai/Ornith-1.5-9B-GGUF",
-    "downloads": 174817,
-    "likes": 162,
+    "downloads": 359078,
+    "likes": 178,
     "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-20T02:23:55.000Z"
+    "lastModified": "2026-08-24T02:45:24.000Z"
   },
   {
-    "id": "Qwen/Qwen3.8-2.4T-A95B",
-    "downloads": 17386,
-    "likes": 1145,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-12T10:24:04.000Z"
-  },
-  {
-    "id": "meta-models/Muse-Glimmer-30B",
-    "downloads": 517564,
-    "likes": 1758,
+    "id": "Qwen/Qwen3.8-27B-FP8",
+    "downloads": 2653678,
+    "likes": 673,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-11T19:23:35.000Z"
+    "lastModified": "2026-08-14T14:44:41.000Z"
+  },
+  {
+    "id": "empero-ai/Qwen3.8-27B-Ridge-GGUF",
+    "downloads": 131435,
+    "likes": 250,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-08-15T23:51:41.000Z"
   },
   {
     "id": "peculiar-ragdoll/Qwen-Sharp-Chat-Templates",
     "downloads": 0,
-    "likes": 185,
+    "likes": 202,
     "pipeline_tag": "",
-    "lastModified": "2026-08-20T23:47:20.000Z"
+    "lastModified": "2026-08-23T20:09:36.000Z"
   },
   {
-    "id": "unsloth/Qwen3.8-27B-NVFP4",
-    "downloads": 1202168,
-    "likes": 336,
-    "pipeline_tag": "",
-    "lastModified": "2026-08-17T02:05:56.000Z"
-  },
-  {
-    "id": "lightx2v/Minimax-h3-Turbo",
-    "downloads": 471612,
-    "likes": 686,
-    "pipeline_tag": "image-to-video",
-    "lastModified": "2026-08-20T07:35:25.000Z"
-  },
-  {
-    "id": "AEON-7/Qwen3.8-27B-AEON-ULTIMATE-UNCENSORED-BF16",
-    "downloads": 13811,
-    "likes": 183,
+    "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "downloads": 3089709,
+    "likes": 3656,
     "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-18T04:44:03.000Z"
+    "lastModified": "2026-08-01T03:07:41.000Z"
   },
   {
-    "id": "empero-ai/Qwen3.8-9B-Distill-GGUF",
-    "downloads": 126213,
-    "likes": 135,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-16T01:00:49.000Z"
-  },
-  {
-    "id": "EschaLabs/Qwen3.8-27B-Escha-W2",
-    "downloads": 1202,
-    "likes": 119,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-21T08:43:47.000Z"
-  },
-  {
-    "id": "Comfy-Org/MiniMax-H3",
-    "downloads": 16773838,
-    "likes": 1500,
-    "pipeline_tag": "",
-    "lastModified": "2026-08-23T02:58:36.000Z"
-  },
-  {
-    "id": "DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
-    "downloads": 2894845,
-    "likes": 2205,
+    "id": "huihui-ai/Huihui-Qwen3.8-27B-abliterated",
+    "downloads": 24844,
+    "likes": 263,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-22T00:48:38.000Z"
+    "lastModified": "2026-08-24T03:47:39.000Z"
   },
   {
-    "id": "Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF",
-    "downloads": 203299,
-    "likes": 205,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-22T17:50:05.000Z"
-  },
-  {
-    "id": "incoai/Qwen3.8-27B-DFlash2-GGUF",
-    "downloads": 32816,
-    "likes": 109,
+    "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+    "downloads": 57928,
+    "likes": 737,
     "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-18T21:25:46.000Z"
+    "lastModified": "2026-08-13T16:28:28.000Z"
   },
   {
-    "id": "sensenova/SenseNova-U1.5-8B-MoT",
-    "downloads": 954,
-    "likes": 101,
-    "pipeline_tag": "any-to-any",
-    "lastModified": "2026-08-22T05:37:12.000Z"
+    "id": "moonshotai/Kimi-K3",
+    "downloads": 2727920,
+    "likes": 10952,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-08-20T04:57:37.000Z"
   },
   {
-    "id": "Gazingstars123/Anima-2.9B",
-    "downloads": 34022,
-    "likes": 304,
-    "pipeline_tag": "text-to-image",
-    "lastModified": "2026-08-15T07:58:27.000Z"
+    "id": "0bserverx/Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF",
+    "downloads": 579334,
+    "likes": 248,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-20T19:51:25.000Z"
   },
   {
     "id": "Audio8/Audio8-TTS-Preview-0.1b",
-    "downloads": 813,
-    "likes": 89,
+    "downloads": 1093,
+    "likes": 122,
     "pipeline_tag": "text-to-speech",
     "lastModified": "2026-08-21T05:38:40.000Z"
   },
   {
-    "id": "soyaakinohara/qwen3.8-27b-abliterated-3.69bpw-12GB-MTP.gguf",
-    "downloads": 20287,
-    "likes": 82,
+    "id": "sensenova/SenseNova-U1.5-8B-MoT",
+    "downloads": 1445,
+    "likes": 120,
+    "pipeline_tag": "any-to-any",
+    "lastModified": "2026-08-24T02:53:12.000Z"
+  },
+  {
+    "id": "EschaLabs/Qwen3.8-27B-Escha-W2",
+    "downloads": 1892,
+    "likes": 120,
     "pipeline_tag": "text-generation",
-    "lastModified": "2026-08-17T00:20:37.000Z"
+    "lastModified": "2026-08-21T08:43:47.000Z"
+  },
+  {
+    "id": "unsloth/Qwen3.8-27B-NVFP4",
+    "downloads": 1343827,
+    "likes": 342,
+    "pipeline_tag": "",
+    "lastModified": "2026-08-17T02:05:56.000Z"
+  },
+  {
+    "id": "Qwen/Qwen3.8-2.4T-A95B",
+    "downloads": 18115,
+    "likes": 1152,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-12T10:24:04.000Z"
+  },
+  {
+    "id": "TenStrip/10Eros-Max",
+    "downloads": 0,
+    "likes": 323,
+    "pipeline_tag": "image-text-to-video",
+    "lastModified": "2026-08-19T05:11:33.000Z"
+  },
+  {
+    "id": "meta-models/Muse-Glimmer-30B",
+    "downloads": 521401,
+    "likes": 1764,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-08-11T19:23:35.000Z"
+  },
+  {
+    "id": "incoai/Qwen3.8-27B-DFlash2-GGUF",
+    "downloads": 39691,
+    "likes": 117,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-18T21:25:46.000Z"
+  },
+  {
+    "id": "lightx2v/Minimax-h3-Turbo",
+    "downloads": 529090,
+    "likes": 690,
+    "pipeline_tag": "image-to-video",
+    "lastModified": "2026-08-20T07:35:25.000Z"
+  },
+  {
+    "id": "orcarouter/Qwen3.8-27B-Uncensored",
+    "downloads": 8699,
+    "likes": 127,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-08-20T08:41:32.000Z"
+  },
+  {
+    "id": "Comfy-Org/MiniMax-H3",
+    "downloads": 17292549,
+    "likes": 1511,
+    "pipeline_tag": "",
+    "lastModified": "2026-08-23T21:41:17.000Z"
+  },
+  {
+    "id": "empero-ai/Qwen3.8-9B-Distill",
+    "downloads": 10545,
+    "likes": 170,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-15T23:48:40.000Z"
+  },
+  {
+    "id": "DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
+    "downloads": 2852257,
+    "likes": 2214,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-08-23T08:59:27.000Z"
   },
   {
     "id": "outsourc-e/Qwen3.8-27B-Unleashed-GGUF",
-    "downloads": 8471,
-    "likes": 84,
+    "downloads": 17309,
+    "likes": 92,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-08-21T22:35:08.000Z"
   },
   {
-    "id": "dots-studio/dots3-note-prev",
-    "downloads": 1506,
-    "likes": 256,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-15T08:00:55.000Z"
+    "id": "empero-ai/Qwen3.8-9B-Distill-GGUF",
+    "downloads": 147720,
+    "likes": 143,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-16T01:00:49.000Z"
   },
   {
-    "id": "AtomicChat/Qwen3.8-27B-GGUF",
-    "downloads": 246342,
-    "likes": 134,
+    "id": "PoopMan333/H3_Character_Sheet_Generator",
+    "downloads": 0,
+    "likes": 83,
+    "pipeline_tag": "image-to-image",
+    "lastModified": "2026-08-18T01:36:18.000Z"
+  },
+  {
+    "id": "Gazingstars123/Anima-2.9B",
+    "downloads": 35378,
+    "likes": 314,
+    "pipeline_tag": "text-to-image",
+    "lastModified": "2026-08-15T07:58:27.000Z"
+  },
+  {
+    "id": "z-lab/Qwen3.8-27B-DFlash2-GGUF",
+    "downloads": 26007,
+    "likes": 84,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-08-18T21:25:48.000Z"
+  },
+  {
+    "id": "tencent/UI-Mate-27B",
+    "downloads": 385,
+    "likes": 79,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-18T18:28:24.000Z"
+    "lastModified": "2026-08-20T13:23:16.000Z"
+  },
+  {
+    "id": "Blackfrost-AI/Qwen3.8-27B-ABLITERATED-GGUF",
+    "downloads": 224498,
+    "likes": 207,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-08-22T17:50:05.000Z"
   }
 ]
