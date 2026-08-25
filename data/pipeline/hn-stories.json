@@ -1,142 +1,142 @@
 [
   {
-    "title": "Flock camera backlash adds fuel to midterm anti-AI frenzy",
-    "url": "https://www.axios.com/2026/08/23/flock-cameras-data-centers-ai-midterms-2026-tech",
+    "title": "What happens when you benchmark 1B logs on ClickHouse vs. OpenObserve?",
+    "url": "https://openobserve.ai/blog/openobserve-vs-clickhouse-one-billion-logs-benchmark/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-23T15:03:17Z"
+    "createdAt": "2026-08-25T06:38:33Z"
   },
   {
-    "title": "Oneiric, AI-generated, open source [video]",
-    "url": "https://www.youtube.com/watch?v=aAg9iDh9_BQ",
+    "title": "Show HN: Planetary Energy Routing Protocol (PERP)",
+    "url": "https://github.com/WVGlobal/Planetary-Energy-Routing-Protocol",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-23T14:55:14Z"
+    "createdAt": "2026-08-25T06:25:48Z"
   },
   {
-    "title": "Woe Is Em: The Sad Lifecycle of an AI Tell",
-    "url": "https://stevekrause.org/blog/2026/08/woe-is-em-the-sad-lifecycle-of-an-ai-tell/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-23T14:53:36Z"
-  },
-  {
-    "title": "Show HN: Writing-eval, local deterministic style checks for AI-written drafts",
-    "url": "https://github.com/majesticlabs-dev/writing-eval",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-23T14:31:16Z"
-  },
-  {
-    "title": "Aim-424 Lraam – Malice",
-    "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/4580867/aim-424-lraam-malice/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-23T14:29:30Z"
-  },
-  {
-    "title": "IETF Publication- Closing Apple-Siri EU Deadlock Without Sacrificing Security",
-    "url": "https://datatracker.ietf.org/doc/html/draft-das-execution-finality-ai-interoperability-00",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-23T14:24:20Z"
-  },
-  {
-    "title": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
-    "url": "https://ericpardee.github.io/fire-hd-ownership/",
+    "title": "New technology lets cloud AI models process your data without privacy leaks",
+    "url": "https://plugos.net/blog/2026/08/confidential-ai-how-plugclaw-keeps-your-ai-work-private/",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-08-23T14:23:09Z"
+    "createdAt": "2026-08-25T06:11:42Z"
   },
   {
-    "title": "OpenAI leader warns of threat of 'persistent' AI cyber-attacks",
-    "url": "https://www.theguardian.com/technology/2026/aug/23/openai-cyber-attacks-threat-chris-lehane",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-08-23T14:16:47Z"
-  },
-  {
-    "title": "Airbus bows to remote working demands after series of strikes",
-    "url": "https://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes",
-    "points": 7,
-    "numComments": 3,
-    "createdAt": "2026-08-23T13:31:29Z"
-  },
-  {
-    "title": "Show HN: Froging AI – image and video models in one workflow",
-    "url": "https://www.froging.ai",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-23T13:30:37Z"
-  },
-  {
-    "title": "Ask HN: Will AI trigger mass IP protectionism in software?",
-    "url": "",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-08-23T13:24:59Z"
-  },
-  {
-    "title": "The Web-Search Latency Your Agent Pays",
-    "url": "https://telem.ai/blog/latency-research",
+    "title": "'Don't ask me to print your ChatGPT birthday card': Hitting back at AI 'slop'",
+    "url": "https://www.bbc.co.uk/news/articles/cq89jpjeq7ko",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-23T13:19:14Z"
+    "createdAt": "2026-08-25T06:11:28Z"
   },
   {
-    "title": "Yomif Kejelcha regains world half marathon record with 56:51 in Buenos Aires",
-    "url": "https://worldathletics.org/competitions/world-athletics-label-road-races/news/world-half-marathon-record-buenos-aires-2026-yomif-kejelcha",
+    "title": "Show HN: CookWing, an AI chef that doesn't hallucinate quantities",
+    "url": "https://play.google.com/store/apps/details?id=com.redwing.vibecooking&hl=en_US",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-23T13:03:05Z"
+    "createdAt": "2026-08-25T05:53:45Z"
   },
   {
-    "title": "Soofi S 31.6B. German Open Moe Explained",
-    "url": "https://kie.ai/blog/what-is-soofi-s-31-6b",
+    "title": "LLMPanel Deploy vLLM to RunPod or Vast.ai Without Kubernetes",
+    "url": "https://llmpanel.io",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-23T12:57:59Z"
+    "createdAt": "2026-08-25T05:40:47Z"
   },
   {
-    "title": "The Interview That Wouldn't Die",
-    "url": "https://returnzero.dev/articles/coding-interviews-in-the-age-of-ai",
+    "title": "Artificial Intelligence Market (2026 – 2033)",
+    "url": "https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-market",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-25T05:35:04Z"
+  },
+  {
+    "title": "Surge in AI-assisted complaints putting extra strain on councils and schools",
+    "url": "https://www.bbc.co.uk/news/articles/c2dk6wzjw23o",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-25T05:31:24Z"
+  },
+  {
+    "title": "I made HACKER AI for you vibecoded app",
+    "url": "https://www.netherite.uz",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-25T05:27:04Z"
+  },
+  {
+    "title": "Share your website and I'll make you a shareable interactive demo",
+    "url": "https://www.mirenta.ai/",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-08-23T12:38:28Z"
+    "createdAt": "2026-08-25T05:04:50Z"
   },
   {
-    "title": "Product Owner Interview Questions for the Age of AI",
-    "url": "https://age-of-product.com/product-owner-interview-questions/",
+    "title": "Show HN: When AI Decides What Matters",
+    "url": "https://jasondoyle.ie/whitepapers/when-ai-decides-what-matters/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-23T12:31:15Z"
+    "createdAt": "2026-08-25T04:56:55Z"
   },
   {
-    "title": "Prism Reviewer – Multi-agent AI code reviewer built with LangGraph and LiteLLM",
-    "url": "https://github.com/marketplace/actions/prism-reviewer-ai",
+    "title": "The AI Verification Bottleneck: Why Writing Code Is No Longer the Hard Part",
+    "url": "https://pragmaticbydefault.com/posts/ai-verification-bottleneck/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-23T12:22:24Z"
+    "createdAt": "2026-08-25T04:38:01Z"
   },
   {
-    "title": "Show HN: linecast – weather, radar, tides and maps in the terminal",
-    "url": "https://terminaltrove.com/linecast/",
+    "title": "Darkbloom (decentralized AI inference on Macs)-community security audit findings",
+    "url": "https://github.com/Layr-Labs/d-inference/issues/705",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-25T04:35:49Z"
+  },
+  {
+    "title": "Kyverno Policies to Secure Your Kubernetes Cluster",
+    "url": "https://medium.com/@devarshidev/i-wanted-ai-code-review-i-could-actually-own-so-i-built-codra-beea2e3f18fd",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-25T04:28:20Z"
+  },
+  {
+    "title": "Cloudflare OS: Open-Source Corp AI Platform Built on a Capability-Based Model",
+    "url": "https://www.infoq.com/news/2026/08/cloudflare-os-ai-platform-secure/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-25T04:22:30Z"
+  },
+  {
+    "title": "Code maintainability plummets in the AI coding era",
+    "url": "https://leaddev.com/ai/code-maintainability-plummets-in-the-ai-coding-era",
     "points": 4,
     "numComments": 0,
-    "createdAt": "2026-08-23T11:56:47Z"
+    "createdAt": "2026-08-25T04:21:41Z"
   },
   {
-    "title": "Show HN: Declarative, reproducible configuration materializer for AI agents",
-    "url": "https://github.com/tooppoo/enozunu",
-    "points": 5,
-    "numComments": 0,
-    "createdAt": "2026-08-23T11:48:23Z"
+    "title": "Supermicro Super AI Station (GB300, 20 Pflops FP4, 748GB Coherent Memory)",
+    "url": "https://www.supermicro.com/en/accelerators/nvidia/super-ai-station",
+    "points": 2,
+    "numComments": 2,
+    "createdAt": "2026-08-25T04:08:43Z"
   },
   {
-    "title": "What do you think of AI website builders?",
-    "url": "https://blog.webround.com/en/i-built-an-ai-website-builder-and-killed-it",
+    "title": "AI algorithm for room temperature superconductor, candidate detected",
+    "url": "https://zenodo.org/records/22073633",
     "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-08-23T11:44:01Z"
+    "numComments": 0,
+    "createdAt": "2026-08-25T03:53:04Z"
+  },
+  {
+    "title": "Nvidia Is Spending $6B to Build a Powerful U.S. Alternative to Chinese AI",
+    "url": "https://www.wsj.com/tech/ai/nvidia-is-spending-6-billion-to-build-a-powerful-u-s-alternative-to-chinese-ai-c51c38cc",
+    "points": 6,
+    "numComments": 0,
+    "createdAt": "2026-08-25T03:05:11Z"
+  },
+  {
+    "title": "Thomson Reuters Standard for High Stakes AI",
+    "url": "https://www.thomsonreuters.com/en-us/posts/innovation/thomson-reuters-standard-for-high-stakes-ai/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-25T02:54:21Z"
   }
 ]
