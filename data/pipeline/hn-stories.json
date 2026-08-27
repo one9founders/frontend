@@ -1,142 +1,142 @@
 [
   {
-    "title": "Show HN: Scribble/write on your desktop, with any phone/tablet",
-    "url": "https://expressed.effective-flow.com",
+    "title": "Stacking Oranges in 24 Dimensions",
+    "url": "https://www.empirical.health/blog/ai-math-sphere-packing/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-26T06:23:09Z"
+    "createdAt": "2026-08-27T17:09:49Z"
   },
   {
-    "title": "Flow AI Video Generator",
-    "url": "https://ai-flow.video",
+    "title": "Gemini Omni 1.1 Flash",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-27T17:06:32Z"
+  },
+  {
+    "title": "A cited AI answer can still be wrong: the retrieval bug we found in ZettaVector",
+    "url": "https://zettavector.com/blog/cited-ai-answer-can-still-be-wrong",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-26T06:20:20Z"
+    "createdAt": "2026-08-27T16:50:12Z"
   },
   {
-    "title": "Nvidia Jetson Orin-guided Russian AI drone killed three civilians in Ukraine",
-    "url": "https://www.tomshardware.com/tech-industry/drones/nvidia-jetson-orin-guided-the-russian-ai-drone-that-killed-three-civilians-in-ukraine-forensic-teams-say",
+    "title": "InferCrane – Deploy and safely evolve self-hosted AI inference",
+    "url": "https://github.com/infercrane/infercrane",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-27T16:49:27Z"
+  },
+  {
+    "title": "Linux Foundation Submits OpenMDW AI License to Open Source Initiative",
+    "url": "https://techstrong.ai/articles/linux-foundation-submits-openmdw-ai-license-to-open-source-initiative/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-27T16:47:41Z"
+  },
+  {
+    "title": "À break down of what a Token is and how to build a token calculator with Go",
+    "url": "https://blog.devgenius.io/how-to-audit-ai-generated-code-with-the-go-standard-library-381d0f03d52e?source=friends_link&sk=ec62bd2bace50df5821234e137a95910",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-27T16:45:50Z"
+  },
+  {
+    "title": "Show HN: AiTells, a Vale style package for AI-written prose tells",
+    "url": "https://github.com/krishnasunkam/vale-ai-tells",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-27T16:44:43Z"
+  },
+  {
+    "title": "Sandy – A sandbox for AI coding agents with monitoring and policy controls",
+    "url": "https://github.com/kontext-security/sandy",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-27T16:33:44Z"
+  },
+  {
+    "title": "CMS with AI, Not AI CMS: Wagtail 8.0's New API",
+    "url": "https://wagtail.org/blog/cms-with-ai-not-ai-cms-wagtail-80s-new-api/",
+    "points": 5,
+    "numComments": 0,
+    "createdAt": "2026-08-27T16:32:21Z"
+  },
+  {
+    "title": "I Built a Minimalist Agent Harness That Runs in WebAssembly",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1vzyu7i/i_built_a_minimalist_agent_harness_that_runs_in/",
+    "points": 5,
+    "numComments": 1,
+    "createdAt": "2026-08-27T16:30:17Z"
+  },
+  {
+    "title": "DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding and Linux [video]",
+    "url": "https://www.youtube.com/watch?v=NYFGCESmikA",
+    "points": 6,
+    "numComments": 0,
+    "createdAt": "2026-08-27T16:29:06Z"
+  },
+  {
+    "title": "BRIN is 1/4570th the size of a B-tree, until 5% of rows are updated",
+    "url": "https://deepsql.ai/blog/the-zonemap-shaped-hole-in-postgres",
     "points": 4,
     "numComments": 0,
-    "createdAt": "2026-08-26T06:07:07Z"
+    "createdAt": "2026-08-27T16:26:49Z"
   },
   {
-    "title": "Show HN: Launched free browser agent (the catch: ads)",
-    "url": "https://rtrvr.ai",
-    "points": 1,
+    "title": "Chinese AI Models Overtake American Rivals in Popularity",
+    "url": "https://techstrong.ai/articles/chinese-ai-models-overtake-american-rivals/",
+    "points": 5,
+    "numComments": 3,
+    "createdAt": "2026-08-27T16:21:09Z"
+  },
+  {
+    "title": "Teaching AI to Read a Map",
+    "url": "https://research.google/blog/teaching-ai-to-read-a-map/",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-26T06:02:42Z"
+    "createdAt": "2026-08-27T16:12:09Z"
   },
   {
-    "title": "Can AI Music Tools Replace Epidemic Sound? An Honest Look",
-    "url": "https://www.musegen.ai/blog/ai-music-vs-epidemic-sound",
-    "points": 1,
+    "title": "Why Did Stripe Acquire an AI Model Routing Company?",
+    "url": "https://thefinancialengineer.substack.com/p/why-did-stripe-acquire-an-ai-model",
+    "points": 6,
+    "numComments": 1,
+    "createdAt": "2026-08-27T16:06:33Z"
+  },
+  {
+    "title": "Cocomelon's Studio Tells Its Artists to Start Experimenting with AI",
+    "url": "https://www.404media.co/cocomelons-studio-tells-its-artists-to-start-experimenting-with-ai/",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-26T06:01:42Z"
+    "createdAt": "2026-08-27T15:56:51Z"
   },
   {
-    "title": "Chinese government fears talking to AI might replace human intimacy",
-    "url": "https://www.theguardian.com/world/2026/aug/26/china-ai-companion-relationships-marriage-birth-rate-concern",
-    "points": 3,
-    "numComments": 2,
-    "createdAt": "2026-08-26T05:57:28Z"
+    "title": "The journey of a failed autonomous AI vulnerability hunter",
+    "url": "https://twitter.com/pwnh4/status/2093001388246663370",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-08-27T15:46:20Z"
   },
   {
-    "title": "GitHub denies Copilot Autofix wrote the bug Wiz's AI agent found",
-    "url": "https://ai-news.ghost.io/github-denies-copilot-autofix-wrote-the-bug-wizs-ai-agent-found/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-26T05:53:25Z"
-  },
-  {
-    "title": "Ask HN: Why are Claude models so verbose?",
+    "title": "Launch HN: Salem Robotics (YC S26) – Software for industrial inspection robots",
     "url": "",
-    "points": 2,
-    "numComments": 4,
-    "createdAt": "2026-08-26T05:14:39Z"
+    "points": 21,
+    "numComments": 13,
+    "createdAt": "2026-08-27T15:46:04Z"
   },
   {
-    "title": "Perplexity's Portable Computer tackling local AI services market",
-    "url": "https://www.theregister.com/ai-and-ml/2026/08/26/now-perplexity-is-trying-to-get-into-the-local-ai-action/5292449",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-26T05:14:02Z"
-  },
-  {
-    "title": "Front end skill pack for AI agents, with machine-enforced quality gates",
-    "url": "https://krishna-modi12.github.io/frontend-design-pro/",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-08-26T05:11:54Z"
-  },
-  {
-    "title": "Show HN: LLM-powered webapp to build LLM-powered webapps",
-    "url": "https://codeplusequalsai.com/dashboard",
-    "points": 1,
-    "numComments": 2,
-    "createdAt": "2026-08-26T05:09:37Z"
-  },
-  {
-    "title": "Portable Computer: Local-First AI",
-    "url": "https://www.perplexity.ai/hub/products/portable-computer",
+    "title": "Nvidia: Jetson Orin Nano 2 Robotics Computer",
+    "url": "https://nvidianews.nvidia.com/news/nvidia-announces-jetson-orin-nano-2-robotics-computer-to-redefine-entry-level-edge-ai",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-26T05:09:04Z"
+    "createdAt": "2026-08-27T15:41:19Z"
   },
   {
-    "title": "Show HN: Propose and Dual-Control for DNS Changes",
-    "url": "https://www.loom.com/share/16dff02ee5604b7daf3ebc7c9c93d8a4",
-    "points": 1,
+    "title": "SK Hynix holds groundbreaking ceremony for $4B HBM packaging facility at Purdue",
+    "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-holds-groundbreaking-ceremony-4-billion-indiana-ai-chip-packaging-2026-08-27/",
+    "points": 3,
     "numComments": 0,
-    "createdAt": "2026-08-26T05:06:25Z"
-  },
-  {
-    "title": "$234B in Enterprise Application Software Spend at Risk from Agentic AI",
-    "url": "https://www.gartner.com/en/newsroom/press-releases/2026-07-01-gartner-says-us-dollars-234-billion-in-enterprise-application-software-spend-is-at-risk-from-agentic-artificial-intelligence",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-26T05:03:50Z"
-  },
-  {
-    "title": "SaaS Isn't Dead. Sameness Is",
-    "url": "https://aicoding.leaflet.pub/3mtu6c5wsvc2n",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-26T05:01:37Z"
-  },
-  {
-    "title": "The Connections That Turned a Precocious Teen into the Fallen Nostradamus of AI",
-    "url": "https://www.wsj.com/tech/ai/situational-awareness-leopold-aschenbrenner-ai-fund-4dbb00a4",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-08-26T05:00:35Z"
-  },
-  {
-    "title": "Kraftapp AI – Describe it. We build it. Customers find it",
-    "url": "https://kraftapp.ai",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-26T03:59:56Z"
-  },
-  {
-    "title": "Show HN: HandWrought – an AI editor inside your document, not a tab away",
-    "url": "https://handwrought.online/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-26T03:58:27Z"
-  },
-  {
-    "title": "Show HN: Hands-on Docker security labs, from CIS checks to AI context poisoning",
-    "url": "https://github.com/opscart/docker-security-practical-guide",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-26T03:56:32Z"
-  },
-  {
-    "title": "I'm an Amazon SVP who hadn't coded in 25 years",
-    "url": "https://www.aboutamazon.com/news/workplace/amazon-svp-ai-tools-employees-careers",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-26T03:52:42Z"
+    "createdAt": "2026-08-27T15:38:54Z"
   }
 ]
