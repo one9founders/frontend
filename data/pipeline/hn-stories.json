@@ -1,142 +1,142 @@
 [
   {
-    "title": "Stacking Oranges in 24 Dimensions",
-    "url": "https://www.empirical.health/blog/ai-math-sphere-packing/",
+    "title": "Apple's Siri Settlement: Here's When iPhone Owners Can Submit Claims",
+    "url": "https://www.macrumors.com/2026/08/28/apple-siri-ai-settlement-claims-timing/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-27T17:09:49Z"
+    "createdAt": "2026-08-28T18:06:55Z"
   },
   {
-    "title": "Gemini Omni 1.1 Flash",
-    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-27T17:06:32Z"
-  },
-  {
-    "title": "A cited AI answer can still be wrong: the retrieval bug we found in ZettaVector",
-    "url": "https://zettavector.com/blog/cited-ai-answer-can-still-be-wrong",
+    "title": "Reflexio: Reduce task failure by 36% while saving token by more than 50%",
+    "url": "https://www.reflexio.ai",
     "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:50:12Z"
-  },
-  {
-    "title": "InferCrane – Deploy and safely evolve self-hosted AI inference",
-    "url": "https://github.com/infercrane/infercrane",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:49:27Z"
-  },
-  {
-    "title": "Linux Foundation Submits OpenMDW AI License to Open Source Initiative",
-    "url": "https://techstrong.ai/articles/linux-foundation-submits-openmdw-ai-license-to-open-source-initiative/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:47:41Z"
-  },
-  {
-    "title": "À break down of what a Token is and how to build a token calculator with Go",
-    "url": "https://blog.devgenius.io/how-to-audit-ai-generated-code-with-the-go-standard-library-381d0f03d52e?source=friends_link&sk=ec62bd2bace50df5821234e137a95910",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:45:50Z"
-  },
-  {
-    "title": "Show HN: AiTells, a Vale style package for AI-written prose tells",
-    "url": "https://github.com/krishnasunkam/vale-ai-tells",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:44:43Z"
-  },
-  {
-    "title": "Sandy – A sandbox for AI coding agents with monitoring and policy controls",
-    "url": "https://github.com/kontext-security/sandy",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:33:44Z"
-  },
-  {
-    "title": "CMS with AI, Not AI CMS: Wagtail 8.0's New API",
-    "url": "https://wagtail.org/blog/cms-with-ai-not-ai-cms-wagtail-80s-new-api/",
-    "points": 5,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:32:21Z"
-  },
-  {
-    "title": "I Built a Minimalist Agent Harness That Runs in WebAssembly",
-    "url": "https://www.reddit.com/r/AI_Agents/comments/1vzyu7i/i_built_a_minimalist_agent_harness_that_runs_in/",
-    "points": 5,
     "numComments": 1,
-    "createdAt": "2026-08-27T16:30:17Z"
+    "createdAt": "2026-08-28T17:56:50Z"
   },
   {
-    "title": "DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding and Linux [video]",
-    "url": "https://www.youtube.com/watch?v=NYFGCESmikA",
-    "points": 6,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:29:06Z"
-  },
-  {
-    "title": "BRIN is 1/4570th the size of a B-tree, until 5% of rows are updated",
-    "url": "https://deepsql.ai/blog/the-zonemap-shaped-hole-in-postgres",
-    "points": 4,
-    "numComments": 0,
-    "createdAt": "2026-08-27T16:26:49Z"
-  },
-  {
-    "title": "Chinese AI Models Overtake American Rivals in Popularity",
-    "url": "https://techstrong.ai/articles/chinese-ai-models-overtake-american-rivals/",
-    "points": 5,
-    "numComments": 3,
-    "createdAt": "2026-08-27T16:21:09Z"
-  },
-  {
-    "title": "Teaching AI to Read a Map",
-    "url": "https://research.google/blog/teaching-ai-to-read-a-map/",
+    "title": "Build with Muse Image: generate, edit, and compose images on Meta Model API",
+    "url": "https://developer.meta.com/ai/resources/blog/build-with-muse-Image/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-27T16:12:09Z"
+    "createdAt": "2026-08-28T17:53:44Z"
   },
   {
-    "title": "Why Did Stripe Acquire an AI Model Routing Company?",
-    "url": "https://thefinancialengineer.substack.com/p/why-did-stripe-acquire-an-ai-model",
-    "points": 6,
-    "numComments": 1,
-    "createdAt": "2026-08-27T16:06:33Z"
-  },
-  {
-    "title": "Cocomelon's Studio Tells Its Artists to Start Experimenting with AI",
-    "url": "https://www.404media.co/cocomelons-studio-tells-its-artists-to-start-experimenting-with-ai/",
+    "title": "Spotify Backstage Meet LiteLLM for Corporate AI Governance",
+    "url": "https://github.com/acarmisc/backstage-plugin-litellm-govai",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-27T15:56:51Z"
+    "createdAt": "2026-08-28T17:51:47Z"
   },
   {
-    "title": "The journey of a failed autonomous AI vulnerability hunter",
-    "url": "https://twitter.com/pwnh4/status/2093001388246663370",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-08-27T15:46:20Z"
-  },
-  {
-    "title": "Launch HN: Salem Robotics (YC S26) – Software for industrial inspection robots",
+    "title": "Ask HN: AI writes better code than me. How to keep my identity?",
     "url": "",
-    "points": 21,
-    "numComments": 13,
-    "createdAt": "2026-08-27T15:46:04Z"
+    "points": 4,
+    "numComments": 2,
+    "createdAt": "2026-08-28T17:40:39Z"
   },
   {
-    "title": "Nvidia: Jetson Orin Nano 2 Robotics Computer",
-    "url": "https://nvidianews.nvidia.com/news/nvidia-announces-jetson-orin-nano-2-robotics-computer-to-redefine-entry-level-edge-ai",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-08-27T15:41:19Z"
+    "title": "LibreOffice 26.8 is out – local first, and with no AI",
+    "url": "https://www.theregister.com/applications/2026/08/28/libreoffice-268-is-out-local-first-and-with-no-ai/5293301",
+    "points": 4,
+    "numComments": 1,
+    "createdAt": "2026-08-28T17:33:39Z"
   },
   {
-    "title": "SK Hynix holds groundbreaking ceremony for $4B HBM packaging facility at Purdue",
-    "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-holds-groundbreaking-ceremony-4-billion-indiana-ai-chip-packaging-2026-08-27/",
+    "title": "A History of the AI Incident-O-Pocalypse in B-Movie Horror Posters",
+    "url": "https://www.qawolf.com/blog/a-history-of-the-ai-incident-o-pocalypse-in-b-movie-horror-posters",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-08-27T15:38:54Z"
+    "createdAt": "2026-08-28T17:29:52Z"
+  },
+  {
+    "title": "Songs created by AI banned from Australia's music charts",
+    "url": "https://www.bbc.com/news/articles/c20vl4vm2pno",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-08-28T17:29:31Z"
+  },
+  {
+    "title": "Fellow Vim users help me build aeovim a better way to handle AI CLI",
+    "url": "https://github.com/s2xon/aeovim",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-28T17:21:05Z"
+  },
+  {
+    "title": "How I Design with AI",
+    "url": "https://ref.tools/blog/how-i-design-with-ai",
+    "points": 15,
+    "numComments": 8,
+    "createdAt": "2026-08-28T17:18:32Z"
+  },
+  {
+    "title": "Bitcoin is great (for systemic theft of aid money)",
+    "url": "https://www.ft.com/content/38d95298-8b9b-486a-96d3-0c6616972abb",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-28T17:11:44Z"
+  },
+  {
+    "title": "Columnist: OpenAI and Anthropic are ruining San Francisco",
+    "url": "https://www.sfgate.com/local/article/open-ai-anthropic-ruining-sf-22404657.php",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-28T16:59:02Z"
+  },
+  {
+    "title": "SambaNova's SN50 RDU for AI at Hot Chips 2026 – ServeTheHome",
+    "url": "https://www.servethehome.com/sambanovas-sn50-rdu-for-ai-at-hot-chips-2026/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-28T16:57:12Z"
+  },
+  {
+    "title": "Does the Rise of AI Mean the End of the IT Era?",
+    "url": "https://www.longfinance.net/news/pamphleteers/does-the-rise-of-ai-mean-the-end-of-the-it-era/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-28T16:47:59Z"
+  },
+  {
+    "title": "America's safety net isn't ready for the age of AI",
+    "url": "https://blog.csaip.org/p/americas-safety-net-isnt-ready-for",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-08-28T16:46:41Z"
+  },
+  {
+    "title": "Unsafe at any speed: AI optimists are turning cautious as safety concerns mount",
+    "url": "https://www.theregister.com/columnists/2026/08/28/unsafe-at-any-speed-ai-optimists-are-turning-cautious-as-safety-concerns-mount/5292853",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-08-28T16:41:37Z"
+  },
+  {
+    "title": "Beagle: Now with readable README.md (built with AI, heads up)",
+    "url": "https://github.com/MattCreigh/beagle",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-08-28T16:36:22Z"
+  },
+  {
+    "title": "Show HN: It Was Never You",
+    "url": "https://itwasneveryou.app",
+    "points": 3,
+    "numComments": 3,
+    "createdAt": "2026-08-28T16:35:31Z"
+  },
+  {
+    "title": "Show HN: Open tool for testing your AI Agents (No LLM)",
+    "url": "https://github.com/IdoGol24/weir",
+    "points": 4,
+    "numComments": 2,
+    "createdAt": "2026-08-28T16:31:56Z"
+  },
+  {
+    "title": "Show HN: URML – safety-eval harness for AI agents on lab and factory hardware",
+    "url": "https://github.com/URML-MARS/URML/tree/main/examples/physical-ai-safety-eval",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-28T16:28:06Z"
   }
 ]
