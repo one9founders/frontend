@@ -256,9 +256,6 @@ export default function Navbar() {
                 onOpen={() => setExploreOpen(true)}
                 onToggle={() => setExploreOpen((value) => !value)}
               />
-              <Link href="/compare" className={navLinkClass('/compare')}>
-                Compare
-              </Link>
               <Link href="/stack" className={navLinkClass('/stack')}>
                 Stack
               </Link>
@@ -334,9 +331,6 @@ export default function Navbar() {
             <ExploreGroups live={live} onNavigate={() => setIsMobileMenuOpen(false)} />
 
             <div className="mt-8 pt-6 border-t border-[var(--line)] flex flex-col gap-4">
-              <Link href="/compare" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
-                Compare
-              </Link>
               <Link href="/stack" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
                 Stack
               </Link>

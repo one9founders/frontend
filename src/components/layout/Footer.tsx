@@ -146,11 +146,6 @@ export default function Footer() {
                       One9 Worker
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/compare" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
-                      Compare Tools
-                    </Link>
-                  </li>
                 </ul>
               </div>
 
