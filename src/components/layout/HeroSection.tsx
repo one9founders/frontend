@@ -1,26 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { HugeiconsIcon, Search01Icon } from "@/components/ui/icons";
 import posthog from "posthog-js";
 import { STATS, withLiveCount } from "@/lib/constants/stats";
-
-interface CategoryPill {
-  label: string;
-  active: boolean;
-  href?: string;
-}
-
-const CATEGORY_PILLS: CategoryPill[] = [
-  { label: "AI Tools", active: true },
-  { label: "AI Agents", active: false, href: "/agents" },
-  { label: "LLMs", active: false, href: "/llms" },
-  { label: "Open Source", active: false },
-  { label: "RAG / Vector DBs", active: false, href: "/rag-vector-dbs" },
-  { label: "Startups", active: false },
-  { label: "Research", active: false, href: "/research" },
-];
+import EcosystemBoard from "@/components/layout/EcosystemBoard";
 
 interface HeroSectionProps {
   toolCount?: number | null;
@@ -31,17 +17,6 @@ export default function HeroSection({ toolCount, agentCount }: HeroSectionProps)
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        searchInputRef.current?.focus();
-      }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   const navigateToSearch = (query: string) => {
     router.push("/?q=" + encodeURIComponent(query) + "#tools-section");
@@ -55,98 +30,75 @@ export default function HeroSection({ toolCount, agentCount }: HeroSectionProps)
         source: "hero_section",
       });
       navigateToSearch(searchQuery);
+    } else {
+      document.querySelector("#tools-section")?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const handlePillClick = (pill: (typeof CATEGORY_PILLS)[number]) => {
-    posthog.capture("category_pill_clicked", {
-      category: pill.label,
-      source: "hero_section",
-    });
-
-    if (pill.href) {
-      router.push(pill.href);
-    } else if (pill.label === "AI Tools") {
-      const toolsSection = document.querySelector("#tools-section");
-      if (toolsSection) {
-        toolsSection.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      navigateToSearch(pill.label);
+  const openCatalog = () => {
+    const toolsSection = document.querySelector("#tools-section");
+    if (toolsSection) {
+      toolsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section className="text-white pt-12 pb-8 md:pt-20 md:pb-12 px-4 md:px-6 bg-[var(--gray-black)]">
-      <div className="max-w-3xl mx-auto text-center">
-        {/* Eyebrow */}
-        <p className="text-xs md:text-sm uppercase tracking-widest text-purple-400 font-semibold mb-4">
-          India&apos;s #1 AI Ecosystem Navigator &middot; Supported by IIT Bombay
-        </p>
+    <section className="text-[var(--paper)] pt-10 pb-12 lg:pt-16 lg:pb-20 px-4 md:px-6 bg-[var(--ink)] lg:min-h-[calc(100svh-4.5rem)] lg:flex lg:items-center">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 lg:items-center">
+        <div className="lg:col-span-6">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-[var(--copper)] mb-5">
+            Supported by IIT Bombay
+          </p>
+          <h1 className="font-display text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[0.95] tracking-tight mb-6">
+            Pick AI like you run a company.
+          </h1>
+          <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-md leading-relaxed">
+            {withLiveCount(toolCount, 'tools')}, {withLiveCount(agentCount, 'agents')}, {STATS.llmsCompared} LLMs, {STATS.ragVectorDbs} retrieval systems, and {STATS.researchPapers} papers. Compared the same way. No affiliate cut.
+          </p>
 
-        {/* Headline */}
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-          Discover AI tools, agents, models, and startups. All in one place.
-        </h1>
+          <form onSubmit={handleHeroSearch} className="max-w-md mb-5">
+            <label htmlFor="hero-search" className="sr-only">
+              Search the catalog
+            </label>
+            <div className="relative flex items-center border border-[var(--line)] bg-[var(--ink-2)] px-3.5 py-3 focus-within:border-[var(--copper-dim)]">
+              <HugeiconsIcon
+                icon={Search01Icon}
+                className="h-4 w-4 text-[var(--gray-500)] mr-3 flex-shrink-0"
+              />
+              <input
+                id="hero-search"
+                ref={searchInputRef}
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search tools, models, agents…"
+                className="flex-1 bg-transparent text-[var(--paper)] text-sm placeholder:text-[var(--gray-500)] focus:outline-none"
+              />
+              <kbd className="hidden md:inline-flex items-center text-[10px] text-[var(--gray-500)] border border-[var(--line)] rounded px-1.5 py-0.5 font-mono ml-2">
+                ⌘K
+              </kbd>
+            </div>
+          </form>
 
-        {/* Subheadline */}
-        <p className="text-sm md:text-base text-[var(--gray-400)] mb-8 max-w-xl mx-auto">
-          {withLiveCount(toolCount, 'AI tools')}, {STATS.llmsCompared} LLMs, {withLiveCount(agentCount, 'agents')}, {STATS.ragVectorDbs} RAG & vector databases, and {STATS.researchPapers} research papers from {STATS.researchAuthors} authors. Supported by IIT Bombay.
-        </p>
-
-        {/* Search Bar */}
-        <form onSubmit={handleHeroSearch} className="max-w-lg mx-auto mb-6">
-          <div className="relative flex items-center bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl px-4 py-3 focus-within:border-purple-500 transition-colors">
-            <HugeiconsIcon
-              icon={Search01Icon}
-              className="h-5 w-5 text-[var(--gray-500)] mr-3 flex-shrink-0"
-            />
-            <input
-              ref={searchInputRef}
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search AI tools, models, agents, startups..."
-              className="flex-1 bg-transparent text-white text-sm md:text-base placeholder:text-[var(--gray-500)] focus:outline-none"
-            />
-            <kbd className="hidden md:inline-flex items-center text-xs text-[var(--gray-500)] border border-[var(--gray-700)] rounded px-1.5 py-0.5 font-mono ml-2">
-              ⌘K
-            </kbd>
-          </div>
-        </form>
-
-        {/* CTA Button */}
-        <button
-          onClick={() => window.dispatchEvent(new CustomEvent('open-auth-modal', { detail: { mode: 'signup' } }))}
-          className="mb-6 px-6 py-2.5 rounded-lg text-sm font-medium text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer"
-        >
-          Join free &mdash; it takes 2 minutes
-        </button>
-
-        {/* Category Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-6 overflow-x-auto md:overflow-visible px-2">
-          {CATEGORY_PILLS.map((pill) => (
+          <div className="flex flex-wrap items-center gap-3">
             <button
-              key={pill.label}
-              onClick={() => handlePillClick(pill)}
-              className={`whitespace-nowrap px-3 py-1.5 text-xs md:text-sm rounded-full border transition-colors cursor-pointer ${
-                pill.active
-                  ? "bg-purple-600/20 text-purple-300 border-purple-500/40 font-medium"
-                  : "bg-transparent text-[var(--gray-400)] border-[var(--gray-700)] hover:border-[var(--gray-500)] hover:text-[var(--gray-300)]"
-              }`}
+              type="button"
+              onClick={openCatalog}
+              className="px-4 py-2.5 text-sm font-medium bg-[var(--copper)] text-[var(--ink)] hover:bg-[var(--copper-bright)] cursor-pointer"
             >
-              {pill.label}
+              Open the catalog
             </button>
-          ))}
+            <Link
+              href="/stack"
+              className="px-4 py-2.5 text-sm font-medium border border-[var(--line)] text-[var(--paper)] hover:border-[var(--copper-dim)] hover:text-[var(--copper)]"
+            >
+              Assemble a stack
+            </Link>
+          </div>
         </div>
 
-        {/* Social Proof Line */}
-        <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-xs md:text-sm text-[var(--gray-500)] border-t border-[var(--gray-800)] pt-4">
-          <span>Trusted by 5,000+ founders</span>
-          <span className="text-[var(--gray-700)]">&middot;</span>
-          <span>Zero affiliate bias</span>
-          <span className="text-[var(--gray-700)]">&middot;</span>
-          <span>New listings added regularly</span>
+        <div className="lg:col-span-6">
+          <EcosystemBoard toolCount={toolCount} agentCount={agentCount} />
         </div>
       </div>
     </section>
