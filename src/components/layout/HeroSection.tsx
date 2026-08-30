@@ -11,9 +11,10 @@ import EcosystemBoard from "@/components/layout/EcosystemBoard";
 interface HeroSectionProps {
   toolCount?: number | null;
   agentCount?: number | null;
+  openSourceCount?: number | null;
 }
 
-export default function HeroSection({ toolCount, agentCount }: HeroSectionProps) {
+export default function HeroSection({ toolCount, agentCount, openSourceCount }: HeroSectionProps) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -94,11 +95,17 @@ export default function HeroSection({ toolCount, agentCount }: HeroSectionProps)
             >
               Assemble a stack
             </Link>
+            <Link
+              href="/open-source"
+              className="px-4 py-2.5 text-sm font-medium border border-[var(--line)] text-[var(--paper)] hover:border-[var(--copper-dim)] hover:text-[var(--copper)]"
+            >
+              Browse open source
+            </Link>
           </div>
         </div>
 
         <div className="lg:col-span-6">
-          <EcosystemBoard toolCount={toolCount} agentCount={agentCount} />
+          <EcosystemBoard toolCount={toolCount} agentCount={agentCount} openSourceCount={openSourceCount} />
         </div>
       </div>
     </section>

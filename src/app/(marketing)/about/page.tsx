@@ -105,7 +105,12 @@ export default async function AboutPage() {
               <span className="text-3xl mb-4 block">&#x1F6E0;&#xFE0F;</span>
               <h3 className="text-xl font-bold text-white mb-3">{toolCount ? `${toolCount} AI Resources, Organized` : 'AI Resources, Organized'}</h3>
               <p className="text-[var(--gray-300)]">
-                AI tools, agents, LLMs, open-source models, RAG frameworks, startups, and research papers. Categorized by use case, filterable by pricing, comparable side-by-side. New listings are added as we ingest and review them.
+                Hosted AI tools, open-source repos, agents, LLMs, RAG frameworks, and research papers.
+                Categorized by use case, filterable by pricing, comparable side-by-side.{' '}
+                <Link href="/open-source" className="text-copper hover:text-copper-bright underline">
+                  Open source is its own directory
+                </Link>
+                {' '}so teams who cannot buy a seat can still run something locally.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
@@ -137,9 +142,13 @@ export default async function AboutPage() {
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F513;</span>
-              <h3 className="text-xl font-bold text-white mb-3">{STATS.openSourceModels} Open Source Models</h3>
+              <h3 className="text-xl font-bold text-white mb-3">
+                <Link href="/open-source" className="hover:text-copper-bright transition-colors">
+                  Open Source Directory
+                </Link>
+              </h3>
               <p className="text-[var(--gray-300)]">
-                Self-hostable models sorted by downloads, parameters, and provider - for teams that want to run AI on their own infrastructure.
+                GitHub repos, SKILL.md packs, and MCP servers you can clone and run locally or over an API — plus {STATS.openSourceModels} open-weight models in the LLM explorer.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">

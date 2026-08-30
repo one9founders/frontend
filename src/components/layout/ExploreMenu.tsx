@@ -6,6 +6,7 @@ import { BUILD, CATALOG, itemCount, type EcosystemItem } from '@/lib/constants/e
 type LiveCounts = {
   tools?: number | null;
   agents?: number | null;
+  openSource?: number | null;
 };
 
 function Group({

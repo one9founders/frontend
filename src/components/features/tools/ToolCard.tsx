@@ -2,7 +2,9 @@
 
 import { Tool } from '@/types';
 import Link from 'next/link';
-import { HugeiconsIcon, ArrowUpRight01Icon, ViewIcon } from '@/components/ui/icons';
+import { HugeiconsIcon, ArrowUpRight01Icon, GithubIcon, ViewIcon } from '@/components/ui/icons';
+import TrackBadge from '@/components/features/tools/TrackBadge';
+import { isSelfHostTrack } from '@/lib/constants/tracks';
 import posthog from 'posthog-js';
 import { addRefToUrl } from '@/lib/utils/url';
 import ToolLogo from '@/components/shared/ToolLogo';
@@ -54,11 +56,12 @@ export default function ToolCard({ tool }: ToolCardProps) {
     });
   };
 
-  const pricingText = getPricingDisplay();
-  const colorClass = pricingText === 'Free' || pricingText === 'Freemium'
-    ? pricingText === 'Free'
-      ? 'bg-green-600/20 text-green-400'
-      : 'bg-blue-600/20 text-blue-400'
+  const selfHost = isSelfHostTrack(tool.track);
+  const pricingText = selfHost ? 'Free to run' : getPricingDisplay();
+  const colorClass = pricingText === 'Free' || pricingText === 'Free to run' || pricingText === 'Freemium'
+    ? pricingText === 'Freemium'
+      ? 'bg-blue-600/20 text-blue-400'
+      : 'bg-green-600/20 text-green-400'
     : pricingText.includes('trial')
       ? 'bg-blue-600/20 text-blue-400'
       : 'bg-copper/20 text-copper';
@@ -78,7 +81,8 @@ export default function ToolCard({ tool }: ToolCardProps) {
             <div className="mt-0.5">
               <ToolSecurityBadge tool={tool} compact className="text-xs" />
             </div>
-            <div className="mt-0.5">
+            <div className="mt-0.5 flex flex-wrap items-center gap-1.5">
+              <TrackBadge tool={tool} />
               <span className={`inline-block text-xs font-medium px-1.5 py-0.5 rounded ${colorClass}`}>
                 {pricingText}
               </span>
@@ -105,8 +109,8 @@ export default function ToolCard({ tool }: ToolCardProps) {
               className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-copper text-white hover:bg-copper-dim text-sm flex items-center justify-center gap-2"
               onClick={handleVisitTool}
             >
-              <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />
-              Visit Tool
+              <HugeiconsIcon icon={selfHost ? GithubIcon : ArrowUpRight01Icon} size={16} />
+              {selfHost ? 'Open repo' : 'Visit Tool'}
             </a>
           )}
         </div>

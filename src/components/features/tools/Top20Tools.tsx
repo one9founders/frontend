@@ -59,6 +59,7 @@ function Top20ToolsInner() {
       const params: Record<string, string | number> = {
         page: currentPage,
         page_size: pageSize,
+        track: 'ai_tool',
       };
 
       if (selectedTag !== 'All') {
@@ -159,7 +160,13 @@ function Top20ToolsInner() {
   return (
     <section id="tools-section" className="py-8 md:py-16 px-4 md:px-6 bg-[var(--gray-black)]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-4xl font-bold text-center mb-6 md:mb-8 text-white">AI Tools Directory</h2>
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-3 md:mb-4 text-white">AI Tools Directory</h2>
+        <p className="text-center text-sm text-[var(--gray-400)] mb-6 md:mb-8 max-w-2xl mx-auto">
+          Hosted products you can sign up for today.{' '}
+          <a href="#open-source-section" className="text-[var(--copper)] hover:text-[var(--copper-bright)]">
+            Looking for GitHub repos you can run locally?
+          </a>
+        </p>
 
         <div className="mb-8 md:mb-12">
           <SearchInput onSearch={handleSearch} onClear={handleClearSearch} loading={searchLoading} initialValue={initialQuery} />

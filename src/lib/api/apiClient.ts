@@ -66,7 +66,7 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 }
 
 export const toolsAPI = {
-  getAll: (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string }) => {
+  getAll: (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string; track?: string }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
     if (params?.pricing) query.append('pricing', params.pricing);
@@ -76,6 +76,7 @@ export const toolsAPI = {
     if (params?.page) query.append('page', params.page.toString());
     if (params?.page_size) query.append('page_size', params.page_size.toString());
     if (params?.ordering) query.append('ordering', params.ordering);
+    if (params?.track) query.append('track', params.track);
     return fetchAPI(`/tools/?${query.toString()}`);
   },
   getStats: () => fetchAPI('/tools/stats/'),
