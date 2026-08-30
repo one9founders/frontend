@@ -8,9 +8,18 @@ interface SearchInputProps {
   onClear: () => void;
   loading?: boolean;
   initialValue?: string;
+  placeholder?: string;
+  label?: string;
 }
 
-export default function SearchInput({ onSearch, onClear, loading, initialValue }: SearchInputProps) {
+export default function SearchInput({
+  onSearch,
+  onClear,
+  loading,
+  initialValue,
+  placeholder = "Search for AI tools… (e.g., 'tools for writing emails')",
+  label = 'Search AI tools',
+}: SearchInputProps) {
   const [query, setQuery] = useState(initialValue || '');
   const onSearchRef = useRef(onSearch);
   const onClearRef = useRef(onClear);
@@ -49,7 +58,7 @@ export default function SearchInput({ onSearch, onClear, loading, initialValue }
   return (
     <div className="w-full max-w-2xl mx-auto">
       <label htmlFor="search-input" className="sr-only">
-        Search AI tools
+        {label}
       </label>
       <div className="relative">
         <input
@@ -57,8 +66,8 @@ export default function SearchInput({ onSearch, onClear, loading, initialValue }
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for AI tools… (e.g., 'tools for writing emails')"
-          aria-label="Search AI tools"
+          placeholder={placeholder}
+          aria-label={label}
           autoComplete="off"
           className="w-full px-6 py-4 text-lg rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-900)] border border-[var(--gray-700)] text-white pr-16"
         />

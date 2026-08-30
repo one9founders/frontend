@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { fetchDirectoryStats } from '@/lib/api/toolsStats';
+import { fetchDirectoryStats, fetchToolsByTrack, getTrackCount } from '@/lib/api/toolsStats';
 import { STATS, withLiveCount } from '@/lib/constants/stats';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
@@ -7,6 +7,7 @@ import TrendingTools from "../components/features/tools/TrendingTools";
 import TrustStrip from "../components/layout/TrustStrip";
 import CorporateSection from "../components/shared/CorporateSection";
 import Top20Tools from "../components/features/tools/Top20Tools";
+import OpenSourceHome from '@/components/features/tools/OpenSourceHome';
 import Footer from "../components/layout/Footer";
 import FounderSurveyCTA from '@/components/features/survey/FounderSurveyCTA';
 
@@ -45,7 +46,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const stats = await fetchDirectoryStats();
+  const [stats, openSource] = await Promise.all([
+    fetchDirectoryStats(),
+    fetchToolsByTrack('open_source', 8, 1),
+  ]);
 
   return (
     <div className="min-h-screen bg-[var(--ink)] selection:bg-[var(--copper)] selection:text-[var(--ink)]">
@@ -67,11 +71,20 @@ export default async function Home() {
         }}
       />
       <Navbar />
-      <HeroSection toolCount={stats?.total_tools} agentCount={stats?.agent_count} />
+      <HeroSection
+        toolCount={stats?.total_tools}
+        agentCount={stats?.agent_count}
+        openSourceCount={getTrackCount(stats, 'open_source')}
+      />
       <TrendingTools />
       <TrustStrip
         toolCount={stats?.total_tools}
         fullyAssessedCount={stats?.fully_assessed_count}
+      />
+      <OpenSourceHome
+        initialTools={openSource.tools}
+        initialCount={openSource.count}
+        trackCounts={stats?.by_track ?? []}
       />
       <Top20Tools />
       <CorporateSection />

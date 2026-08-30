@@ -15,6 +15,19 @@ export interface CategoryStat {
   count: number;
 }
 
+export type ToolTrack =
+  | 'ai_tool'
+  | 'ai_agent'
+  | 'open_source'
+  | 'agent_skill'
+  | 'mcp_server';
+
+export interface TrackStat {
+  track: ToolTrack;
+  label: string;
+  count: number;
+}
+
 export interface DirectoryStats {
   total_tools: number | null;
   count: number | null;
@@ -22,6 +35,23 @@ export interface DirectoryStats {
   provisionally_assessed_count: number | null;
   agent_count: number | null;
   by_category: CategoryStat[];
+  by_track: TrackStat[];
+}
+
+export interface DirectoryColumn {
+  id: string;
+  track: ToolTrack;
+  label: string;
+  blurb: string;
+  list_path: string;
+  count: number;
+  tools: Tool[];
+}
+
+export interface DirectoryColumnsResponse {
+  columns: DirectoryColumn[];
+  tracks: { track: ToolTrack; label: string }[];
+  per_column: number;
 }
 
 export interface CriterionAssessment {
@@ -82,7 +112,7 @@ export interface Tool {
   assessed?: boolean;
   /** Editorial per-criterion scores with evidence URLs. */
   assessment_detail?: AssessmentDetail | null;
-  track?: 'ai_tool' | 'ai_agent' | 'open_source' | 'agent_skill' | 'mcp_server';
+  track?: ToolTrack;
   rating_status?: 'NOT_YET_RATED' | 'PROVISIONAL' | 'RATED';
   security_status?: 'NOT_ASSESSED' | 'FLAGGED' | 'VERIFIED';
   language_review_needed?: boolean;

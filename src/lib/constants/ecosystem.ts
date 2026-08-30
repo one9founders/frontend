@@ -1,7 +1,7 @@
 import { STATS, formatCatalogCount } from '@/lib/constants/stats';
 
 export type EcosystemGroup = 'catalog' | 'build';
-export type CountKind = 'tools' | 'agents' | 'llms' | 'rag' | 'research' | null;
+export type CountKind = 'tools' | 'agents' | 'openSource' | 'llms' | 'rag' | 'research' | null;
 
 export type EcosystemItem = {
   id: string;
@@ -20,6 +20,14 @@ export const ECOSYSTEM: EcosystemItem[] = [
     href: '/#tools-section',
     group: 'catalog',
     countKind: 'tools',
+  },
+  {
+    id: 'open-source',
+    name: 'Open Source',
+    blurb: 'Repos, skills, MCP. Run locally.',
+    href: '/open-source',
+    group: 'catalog',
+    countKind: 'openSource',
   },
   {
     id: 'new',
@@ -100,10 +108,10 @@ export const BUILD = ECOSYSTEM.filter((item) => item.group === 'build');
 
 const BOARD_IDS = new Set([
   'tools',
+  'open-source',
   'agents',
   'llms',
   'rag',
-  'research',
   'stack',
   'fintech',
   'worker',
@@ -113,13 +121,15 @@ export const BOARD = ECOSYSTEM.filter((item) => BOARD_IDS.has(item.id));
 
 export function itemCount(
   item: EcosystemItem,
-  live: { tools?: number | null; agents?: number | null },
+  live: { tools?: number | null; agents?: number | null; openSource?: number | null },
 ): string | null {
   switch (item.countKind) {
     case 'tools':
       return formatCatalogCount(live.tools, STATS.totalResources);
     case 'agents':
       return formatCatalogCount(live.agents, STATS.aiAgents);
+    case 'openSource':
+      return formatCatalogCount(live.openSource, '140+', 10);
     case 'llms':
       return STATS.llmsCompared;
     case 'rag':

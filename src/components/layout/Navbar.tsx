@@ -7,6 +7,7 @@ import { HugeiconsIcon, Menu01Icon, Cancel01Icon, Logout01Icon, Search01Icon } f
 import AuthModal from '@/components/features/auth/AuthModal';
 import { getCurrentUser, logout } from '@/lib/actions/auth';
 import { getDirectoryStats } from '@/lib/actions/tools';
+import { getTrackCount } from '@/lib/api/toolsStats';
 import { useCurrency } from '@/lib/currency';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import ExploreMenu, { ExploreGroups } from '@/components/layout/ExploreMenu';
@@ -30,7 +31,11 @@ export default function Navbar() {
   const { trackEvent, identify, reset } = useAnalytics();
   const { currency, toggleCurrency } = useCurrency();
 
-  const live = { tools: stats?.total_tools, agents: stats?.agent_count };
+  const live = {
+    tools: getTrackCount(stats, 'ai_tool') ?? stats?.total_tools,
+    agents: stats?.agent_count,
+    openSource: getTrackCount(stats, 'open_source'),
+  };
 
   useEffect(() => {
     getCurrentUser().then((userData) => {

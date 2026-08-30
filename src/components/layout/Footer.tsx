@@ -112,6 +112,11 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
+                    <Link href="/open-source" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Open Source
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/new" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       New AI Tools
                     </Link>

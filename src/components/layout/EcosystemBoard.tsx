@@ -6,16 +6,17 @@ import { BOARD, itemCount } from '@/lib/constants/ecosystem';
 interface EcosystemBoardProps {
   toolCount?: number | null;
   agentCount?: number | null;
+  openSourceCount?: number | null;
 }
 
-export default function EcosystemBoard({ toolCount, agentCount }: EcosystemBoardProps) {
-  const live = { tools: toolCount, agents: agentCount };
+export default function EcosystemBoard({ toolCount, agentCount, openSourceCount }: EcosystemBoardProps) {
+  const live = { tools: toolCount, agents: agentCount, openSource: openSourceCount };
 
   return (
     <div className="border border-[var(--line)] bg-[var(--ink-2)]">
       <div className="flex items-baseline justify-between px-4 py-3 border-b border-[var(--line)]">
         <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)]">The desk</p>
-        <p className="text-[11px] text-[var(--gray-500)]">Eight surfaces. One map.</p>
+        <p className="text-[11px] text-[var(--gray-500)]">The catalog, split by how you pay.</p>
       </div>
       <div className="grid grid-cols-2">
         {BOARD.map((item, index) => {
