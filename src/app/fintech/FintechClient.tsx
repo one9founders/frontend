@@ -1,9 +1,14 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { subscribeToNewsletter } from '@/lib/actions/tools';
+import { CHECK_CATALOG, type KycVendorRating } from './kycRatings';
+import KycRatingCards from './KycRatingCards';
 
-// Animated grid background
+const COPPER = '#C47A3A';
+const COPPER_BRIGHT = '#D4924A';
+
 function GridBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -73,8 +78,17 @@ function GridBackground() {
   );
 }
 
-// Animated number counter
-function AnimNum({ target, duration = 1800, delay = 0, suffix = '' }: { target: number; duration?: number; delay?: number; suffix?: string }) {
+function AnimNum({
+  target,
+  duration = 1800,
+  delay = 0,
+  suffix = '',
+}: {
+  target: number;
+  duration?: number;
+  delay?: number;
+  suffix?: string;
+}) {
   const [val, setVal] = useState(0);
   const [started, setStarted] = useState(false);
 
@@ -98,10 +112,14 @@ function AnimNum({ target, duration = 1800, delay = 0, suffix = '' }: { target: 
     return () => cancelAnimationFrame(animId);
   }, [started, target, duration]);
 
-  return <>{val}{suffix}</>;
+  return (
+    <>
+      {val}
+      {suffix}
+    </>
+  );
 }
 
-// Regulation ticker
 const tickerItems = [
   'RBI FREE-AI Framework (26 Recommendations)',
   'DPDP Act 2023 + Rules 2025',
@@ -136,12 +154,33 @@ function Ticker() {
   );
 }
 
-export default function FintechClient() {
+export default function FintechClient({
+  kycRatings,
+  kycReviewedAt,
+  kycFailed,
+  creditRatings,
+  creditReviewedAt,
+  creditFailed,
+  fraudRatings,
+  fraudReviewedAt,
+  fraudFailed,
+}: {
+  kycRatings: KycVendorRating[];
+  kycReviewedAt: string;
+  kycFailed: boolean;
+  creditRatings: KycVendorRating[];
+  creditReviewedAt: string;
+  creditFailed: boolean;
+  fraudRatings: KycVendorRating[];
+  fraudReviewedAt: string;
+  fraudFailed: boolean;
+}) {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [startupType, setStartupType] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [stack, setStack] = useState<'kyc' | 'credit' | 'fraud'>('kyc');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -149,7 +188,10 @@ export default function FintechClient() {
     setLoading(true);
     setError('');
     try {
-      const result = await subscribeToNewsletter(email);
+      const source = startupType
+        ? `fintech-${startupType.toLowerCase()}`
+        : 'fintech';
+      const result = await subscribeToNewsletter(email, source);
       if (result.success) {
         setSubmitted(true);
       } else {
@@ -162,23 +204,103 @@ export default function FintechClient() {
     }
   };
 
-  const categories = [
-    { icon: '\u{1F510}', name: 'KYC & Identity', count: '7 tools', status: 'Evaluating' },
-    { icon: '\u{1F4CA}', name: 'Credit Scoring', count: '5 tools', status: 'Evaluating' },
-    { icon: '\u{1F6E1}\uFE0F', name: 'Fraud & AML', count: '5 tools', status: 'Evaluating' },
-    { icon: '\u{1F4C4}', name: 'Doc Processing', count: '3 tools', status: 'Coming Soon' },
-    { icon: '\u{1F4AC}', name: 'Customer AI', count: '3 tools', status: 'Coming Soon' },
-    { icon: '\u2696\uFE0F', name: 'RegTech', count: '2 tools', status: 'Coming Soon' },
-  ];
+  const stacks = {
+    kyc: {
+      ratings: kycRatings,
+      reviewedAt: kycReviewedAt,
+      failed: kycFailed,
+      title: kycFailed
+        ? 'KYC ratings could not be loaded.'
+        : `${kycRatings.length} KYC vendors, scored from their own pages.`,
+    },
+    credit: {
+      ratings: creditRatings,
+      reviewedAt: creditReviewedAt,
+      failed: creditFailed,
+      title: creditFailed
+        ? 'Credit ratings could not be loaded.'
+        : `${creditRatings.length} credit vendors, scored from their own pages.`,
+    },
+    fraud: {
+      ratings: fraudRatings,
+      reviewedAt: fraudReviewedAt,
+      failed: fraudFailed,
+      title: fraudFailed
+        ? 'Fraud/AML ratings could not be loaded.'
+        : `${fraudRatings.length} fraud/AML vendors, scored from their own pages.`,
+    },
+  };
+  const active = stacks[stack];
+  const previewBits = [
+    kycRatings.length ? `${kycRatings.length} KYC` : null,
+    creditRatings.length ? `${creditRatings.length} credit` : null,
+    fraudRatings.length ? `${fraudRatings.length} fraud/AML` : null,
+  ].filter(Boolean);
+  const allFailed = kycFailed && creditFailed && fraudFailed;
+  const previewBadge = allFailed
+    ? 'Published-evidence ratings. Live counts could not be loaded.'
+    : previewBits.length
+      ? `Published evidence: ${previewBits.join(', ')} ratings.`
+      : 'Published-evidence ratings. Unknown is valid until a page can be cited.';
+  const ratedCount = kycRatings.length + creditRatings.length + fraudRatings.length;
+  const checks = CHECK_CATALOG;
 
-  const checks = [
-    { name: 'Data Localization', desc: 'Is your data stored in India per RBI and DPDP requirements?' },
-    { name: 'Consent Management', desc: 'Does the tool honor consent withdrawal as DPDP mandates?' },
-    { name: 'Model Explainability', desc: 'Can the vendor explain how their AI makes decisions?' },
-    { name: 'Security Certs', desc: 'SOC 2 Type II, ISO 27001, PCI DSS verification' },
-    { name: 'Bias Testing', desc: 'Has the model been tested for discriminatory outcomes?' },
-    { name: 'Vendor Viability', desc: 'Funding, team, MCA filings, financial stability' },
-  ];
+  const waitlistForm = (
+    <>
+      <form onSubmit={handleSubmit} className="flex gap-2 mb-3">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@yourfintech.com"
+          className="fintech-input-glow flex-1 rounded-[10px] px-[18px] py-[14px] text-[15px]"
+          style={{
+            background: '#0a1e30',
+            border: '1px solid #1a3450',
+            color: '#e8f4fc',
+            fontFamily: 'inherit',
+          }}
+        />
+        <button
+          type="submit"
+          disabled={loading || !email}
+          className="fintech-btn-primary rounded-[10px] px-7 py-[14px] text-sm font-bold whitespace-nowrap cursor-pointer disabled:opacity-50"
+          style={{
+            background: COPPER,
+            border: 'none',
+            color: '#030a14',
+            fontFamily: 'inherit',
+          }}
+        >
+          {loading ? 'Joining...' : 'Get updates'}
+        </button>
+      </form>
+      {error && (
+        <p className="text-sm mt-2" style={{ color: '#ef4444' }}>
+          {error}
+        </p>
+      )}
+      <div className="flex gap-1.5 justify-center flex-wrap">
+        {['Lending', 'Payments', 'WealthTech', 'InsurTech', 'Neobank', 'Other'].map((t) => (
+          <button
+            key={t}
+            type="button"
+            onClick={() => setStartupType(t)}
+            className="rounded-md px-3 py-[5px] text-[11px] cursor-pointer transition-all duration-150"
+            style={{
+              background: startupType === t ? '#1a3450' : 'transparent',
+              border: `1px solid ${startupType === t ? '#C47A3A44' : '#1a3450'}`,
+              color: startupType === t ? COPPER : '#5a7a8a',
+              fontFamily: 'inherit',
+              fontWeight: startupType === t ? 600 : 400,
+            }}
+          >
+            {t}
+          </button>
+        ))}
+      </div>
+    </>
+  );
 
   return (
     <div className="relative overflow-hidden" style={{ background: '#030a14', color: '#c8dae8' }}>
@@ -217,14 +339,14 @@ export default function FintechClient() {
         }
         .fintech-input-glow:focus {
           outline: none;
-          border-color: #C47A3A !important;
+          border-color: ${COPPER} !important;
           box-shadow: 0 0 0 3px rgba(196, 122, 58, 0.15);
         }
         .fintech-btn-primary {
           transition: all 0.2s ease;
         }
         .fintech-btn-primary:hover {
-          background: #D4924A !important;
+          background: ${COPPER_BRIGHT} !important;
           transform: translateY(-1px);
           box-shadow: 0 6px 24px rgba(196, 122, 58, 0.3);
         }
@@ -232,9 +354,7 @@ export default function FintechClient() {
 
       <GridBackground />
 
-      {/* Hero */}
       <section className="relative z-10 max-w-[1100px] mx-auto px-6 pt-16 pb-10 text-center">
-        {/* Status badge */}
         <div
           className="fintech-fade-up inline-flex items-center gap-2 rounded-3xl px-5 py-2 mb-7"
           style={{ background: '#0a1e30', border: '1px solid #1a3450', animationDelay: '0.1s' }}
@@ -244,7 +364,7 @@ export default function FintechClient() {
             style={{ background: '#22c55e' }}
           />
           <span className="text-xs font-medium" style={{ color: '#94a3b8' }}>
-            Evaluating {'>'}25 AI tools against Indian fintech regulations
+            {previewBadge}
           </span>
         </div>
 
@@ -282,94 +402,19 @@ export default function FintechClient() {
             animationDelay: '0.35s',
           }}
         >
-          We independently evaluate every AI tool Indian fintech startups use,
-          against RBI FREE-AI, DPDP Act, AML/CFT, and 30+ compliance checks.
-          So you can build fast without regulatory risk.
+          {ratedCount
+            ? `${ratedCount} vendors across KYC, credit, and fraud/AML, scored from published pages against six RBI and DPDP-style checks. Pass, Fail, or Unknown — each Pass or Fail cites a URL. We do not lab-test vendor controls.`
+            : 'Six published-evidence checks against RBI and DPDP-style rules. Pass, Fail, or Unknown — each Pass or Fail cites a URL. We do not lab-test vendor controls.'}
         </p>
-
-        {/* Waitlist */}
-        <div
-          className="fintech-fade-up max-w-[480px] mx-auto"
-          style={{ animationDelay: '0.5s' }}
-        >
-          {!submitted ? (
-            <div>
-              <form onSubmit={handleSubmit} className="flex gap-2 mb-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@yourfintech.com"
-                  className="fintech-input-glow flex-1 rounded-[10px] px-[18px] py-[14px] text-[15px]"
-                  style={{
-                    background: '#0a1e30',
-                    border: '1px solid #1a3450',
-                    color: '#e8f4fc',
-                    fontFamily: 'inherit',
-                  }}
-                />
-                <button
-                  type="submit"
-                  disabled={loading || !email}
-                  className="fintech-btn-primary rounded-[10px] px-7 py-[14px] text-sm font-bold whitespace-nowrap cursor-pointer disabled:opacity-50"
-                  style={{
-                    background: '#C47A3A',
-                    border: 'none',
-                    color: '#030a14',
-                    fontFamily: 'inherit',
-                  }}
-                >
-                  {loading ? 'Joining...' : 'Join Waitlist'}
-                </button>
-              </form>
-              {error && <p className="text-sm mt-2" style={{ color: '#ef4444' }}>{error}</p>}
-
-              {/* Startup type selector */}
-              <div className="flex gap-1.5 justify-center flex-wrap">
-                {['Lending', 'Payments', 'WealthTech', 'InsurTech', 'Neobank', 'Other'].map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setStartupType(t)}
-                    className="rounded-md px-3 py-[5px] text-[11px] cursor-pointer transition-all duration-150"
-                    style={{
-                      background: startupType === t ? '#1a3450' : 'transparent',
-                      border: `1px solid ${startupType === t ? '#C47A3A44' : '#1a3450'}`,
-                      color: startupType === t ? '#C47A3A' : '#5a7a8a',
-                      fontFamily: 'inherit',
-                      fontWeight: startupType === t ? 600 : 400,
-                    }}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div
-              className="rounded-xl p-5"
-              style={{ background: '#0a1e30', border: '1px solid #22c55e44' }}
-            >
-              <div className="text-2xl mb-2">{'\u2713'}</div>
-              <div className="font-bold text-base mb-1" style={{ color: '#22c55e' }}>
-                You&apos;re on the list.
-              </div>
-              <div className="text-[13px]" style={{ color: '#7a90a8' }}>
-                We&apos;ll send you early access when we launch the first compliance ratings.
-              </div>
-            </div>
-          )}
-        </div>
       </section>
 
-      {/* Regulation Ticker */}
       <div
-        className="relative z-10 py-3.5 mt-10"
+        className="relative z-10 py-3.5 mt-2"
         style={{ borderTop: '1px solid #0f2035', borderBottom: '1px solid #0f2035' }}
       >
         <Ticker />
       </div>
 
-      {/* Stats Bar */}
       <section className="relative z-10 max-w-[900px] mx-auto my-12 px-6">
         <div
           className="fintech-fade-up grid gap-3"
@@ -379,10 +424,10 @@ export default function FintechClient() {
           }}
         >
           {[
-            { val: 8, suffix: '', label: 'Regulations Tracked', color: '#ef4444' },
-            { val: 25, suffix: '+', label: 'AI Tools In Process of Evaluation', color: '#C47A3A' },
-            { val: 33, suffix: '', label: 'Compliance Checks', color: '#D4924A' },
-            { val: 7, suffix: '', label: 'Startup Categories', color: '#22c55e' },
+            { val: kycRatings.length, suffix: '', label: 'KYC Ratings', color: COPPER },
+            { val: creditRatings.length, suffix: '', label: 'Credit Ratings', color: COPPER_BRIGHT },
+            { val: fraudRatings.length, suffix: '', label: 'Fraud / AML Ratings', color: '#ef4444' },
+            { val: 6, suffix: '', label: 'Published-evidence checks', color: '#22c55e' },
           ].map((s, i) => (
             <div
               key={i}
@@ -410,7 +455,6 @@ export default function FintechClient() {
         </div>
       </section>
 
-      {/* Problem Section */}
       <section className="relative z-10 max-w-[900px] mx-auto py-12 px-6">
         <div
           className="rounded-2xl"
@@ -439,19 +483,19 @@ export default function FintechClient() {
             RBI shuts <em style={{ fontStyle: 'italic', color: '#ef4444' }}>you</em> down. Not them.
           </h2>
           <p className="text-sm leading-[1.8] max-w-[640px]" style={{ color: '#8a7a7a' }}>
-            The RBI FREE-AI framework makes it clear: regulated entities are responsible for their third-party AI providers.
-            If your KYC vendor stores data outside India, if your credit scoring tool has biased models, if your fraud
-            detection vendor can&apos;t explain its decisions, the enforcement action lands on you. Penalties under DPDP alone
-            can reach {'\u20B9'}250 crore. You can&apos;t just pick an AI tool off Google and hope for the best.
+            The RBI FREE-AI framework makes it clear: regulated entities are responsible for their
+            third-party AI providers. If your KYC vendor stores data outside India, if your credit
+            scoring tool has biased models, if your fraud detection vendor can&apos;t explain its
+            decisions, the enforcement action lands on you. Penalties under DPDP alone can reach{' '}
+            {'\u20B9'}250 crore. You can&apos;t just pick an AI tool off Google and hope for the best.
           </p>
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="relative z-10 max-w-[900px] mx-auto py-12 px-6">
         <div
           className="text-[11px] font-bold uppercase mb-2"
-          style={{ color: '#C47A3A', letterSpacing: '2px' }}
+          style={{ color: COPPER, letterSpacing: '2px' }}
         >
           How It Works
         </div>
@@ -463,11 +507,12 @@ export default function FintechClient() {
             letterSpacing: '-0.5px',
           }}
         >
-          We scrape. We verify. We rate.
+          Published pages. Cited URLs. Unknown is allowed.
         </h2>
         <p className="text-sm mb-7 max-w-[560px] leading-relaxed" style={{ color: '#6a8098' }}>
-          Our AI engine crawls vendor websites, security pages, and public regulatory databases,
-          then cross-references against every Indian fintech compliance requirement.
+          We map each vendor site and read homepage, security, privacy, and trust pages. Pass and
+          Fail need a cited URL. Unknown means we could not cite a page. We do not hands-on test
+          vendor controls.
         </p>
 
         <div
@@ -476,7 +521,7 @@ export default function FintechClient() {
         >
           {checks.map((c, i) => (
             <div
-              key={i}
+              key={c.id}
               className="fintech-card-hover rounded-[10px] p-[18px] cursor-default"
               style={{ background: '#060e1c', border: '1px solid #0f2035' }}
             >
@@ -497,63 +542,48 @@ export default function FintechClient() {
         </div>
       </section>
 
-      {/* Tool Categories */}
-      <section className="relative z-10 max-w-[900px] mx-auto py-12 px-6">
-        <div
-          className="text-[11px] font-bold uppercase mb-2"
-          style={{ color: '#D4924A', letterSpacing: '2px' }}
-        >
-          The Stack
-        </div>
-        <h2
-          className="font-extrabold mb-2"
-          style={{
-            fontSize: 'clamp(20px, 3vw, 28px)',
-            color: '#f0f7ff',
-            letterSpacing: '-0.5px',
-          }}
-        >
-          Every AI tool category, evaluated.
-        </h2>
-        <p className="text-sm mb-7 max-w-[560px] leading-relaxed" style={{ color: '#6a8098' }}>
-          We&apos;re building compliance ratings for the full fintech AI stack.
-          Tell us your startup type, and we&apos;ll recommend a verified, compliant stack.
-        </p>
+      <div className="relative z-10 max-w-[900px] mx-auto px-6 flex gap-2 flex-wrap">
+        {(
+          [
+            ['kyc', `KYC (${kycRatings.length})`],
+            ['credit', `Credit (${creditRatings.length})`],
+            ['fraud', `Fraud / AML (${fraudRatings.length})`],
+          ] as const
+        ).map(([id, label]) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => setStack(id)}
+            className="rounded-md px-3.5 py-2 text-[12px] font-semibold cursor-pointer"
+            style={{
+              background: stack === id ? '#1a3450' : 'transparent',
+              border: `1px solid ${stack === id ? '#C47A3A44' : '#1a3450'}`,
+              color: stack === id ? COPPER : '#5a7a8a',
+              fontFamily: 'inherit',
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
 
-        <div
-          className="grid gap-2.5"
-          style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))' }}
-        >
-          {categories.map((c, i) => (
-            <div
-              key={i}
-              className="fintech-card-hover rounded-[10px] p-[18px] text-center cursor-default"
-              style={{ background: '#060e1c', border: '1px solid #0f2035' }}
-            >
-              <div className="text-[28px] mb-2">{c.icon}</div>
-              <div className="font-bold text-[13px] mb-1" style={{ color: '#e8f4fc' }}>
-                {c.name}
-              </div>
-              <div className="text-[11px] mb-2" style={{ color: '#5a7a8a' }}>
-                {c.count}
-              </div>
-              <div
-                className="inline-block px-2.5 py-[3px] rounded-[10px] text-[10px] font-bold uppercase"
-                style={{
-                  letterSpacing: '0.5px',
-                  background: c.status === 'Evaluating' ? '#C47A3A15' : '#D4924A15',
-                  color: c.status === 'Evaluating' ? '#C47A3A' : '#D4924A',
-                  border: `1px solid ${c.status === 'Evaluating' ? '#C47A3A33' : '#D4924A33'}`,
-                }}
-              >
-                {c.status}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <KycRatingCards
+        ratings={active.ratings}
+        reviewedAt={active.reviewedAt}
+        loadFailed={active.failed}
+        title={active.title}
+        intro={
+          <>
+            Pass and Fail each cite a URL. Unknown means we could not find a published page for that
+            check — it is not a hidden fail. We do not hands-on test vendor controls.{' '}
+            <Link href="/methodology" className="font-semibold" style={{ color: COPPER }}>
+              Same published-posture rule as /methodology
+            </Link>
+            {active.reviewedAt ? `. Reviewed ${active.reviewedAt}.` : '.'}
+          </>
+        }
+      />
 
-      {/* Built For Section */}
       <section className="relative z-10 max-w-[900px] mx-auto py-12 px-6">
         <div
           className="rounded-2xl grid gap-6"
@@ -578,8 +608,9 @@ export default function FintechClient() {
               Indian Fintech Founders Only
             </h3>
             <p className="text-[13px] leading-[1.7]" style={{ color: '#6a8098' }}>
-              This isn&apos;t a generic SaaS review site. Every evaluation is built around Indian regulations,
-              Indian data residency requirements, and the specific risks Indian fintech startups face.
+              This isn&apos;t a generic SaaS review site. Every rating is built around Indian
+              regulations, Indian data residency requirements, and the specific risks Indian fintech
+              startups face. Unknown is the majority until a vendor publishes a citable page.
             </p>
           </div>
           <div className="flex flex-col gap-2.5">
@@ -588,7 +619,7 @@ export default function FintechClient() {
               { type: 'Payment Platforms', desc: 'Fraud + AML + KYC stack' },
               { type: 'WealthTech', desc: 'KYC + Risk + SEBI compliance' },
               { type: 'InsurTech', desc: 'Claims AI + KYC + Fraud' },
-              { type: 'Neobanks', desc: 'Full stack evaluation' },
+              { type: 'Neobanks', desc: 'KYC + credit + fraud ratings' },
             ].map((s, i) => (
               <div
                 key={i}
@@ -607,7 +638,6 @@ export default function FintechClient() {
         </div>
       </section>
 
-      {/* CTA Bottom */}
       <section className="relative z-10 max-w-[600px] mx-auto px-6 pt-16 pb-12 text-center">
         <h2
           className="font-extrabold mb-3"
@@ -617,47 +647,30 @@ export default function FintechClient() {
             letterSpacing: '-0.5px',
           }}
         >
-          Launching Q2 2026.
+          {ratedCount
+            ? `${ratedCount} published ratings are up. Next batch uses the same rule.`
+            : 'Published ratings use the same rule as they land.'}
         </h2>
         <p className="text-sm mb-7 leading-relaxed" style={{ color: '#6a8098' }}>
-          First batch of compliance ratings for KYC and Credit Scoring tools
-          drops soon. Get early access.
+          Join the waitlist as more KYC, credit, and fraud/AML vendors are scored. Published
+          evidence, cited URLs, no lab-test claim.
         </p>
 
         {!submitted ? (
-          <>
-            <form onSubmit={handleSubmit} className="flex gap-2 max-w-[400px] mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className="fintech-input-glow flex-1 rounded-[10px] px-[18px] py-[14px] text-[15px]"
-                style={{
-                  background: '#0a1e30',
-                  border: '1px solid #1a3450',
-                  color: '#e8f4fc',
-                  fontFamily: 'inherit',
-                }}
-              />
-              <button
-                type="submit"
-                disabled={loading || !email}
-                className="fintech-btn-primary rounded-[10px] px-6 py-[14px] text-sm font-bold cursor-pointer disabled:opacity-50"
-                style={{
-                  background: '#C47A3A',
-                  border: 'none',
-                  color: '#030a14',
-                  fontFamily: 'inherit',
-                }}
-              >
-                {loading ? 'Joining...' : 'Get Early Access'}
-              </button>
-            </form>
-            {error && <p className="text-sm mt-2" style={{ color: '#ef4444' }}>{error}</p>}
-          </>
+          <div className="max-w-[480px] mx-auto">{waitlistForm}</div>
         ) : (
-          <p className="font-semibold" style={{ color: '#22c55e' }}>You&apos;re on the list {'\u2713'}</p>
+          <div
+            className="rounded-xl p-5 max-w-[480px] mx-auto"
+            style={{ background: '#0a1e30', border: '1px solid #22c55e44' }}
+          >
+            <div className="text-2xl mb-2">{'\u2713'}</div>
+            <div className="font-bold text-base mb-1" style={{ color: '#22c55e' }}>
+              You&apos;re on the list.
+            </div>
+            <div className="text-[13px]" style={{ color: '#7a90a8' }}>
+              We&apos;ll email you as more KYC, credit, and fraud/AML ratings publish.
+            </div>
+          </div>
         )}
       </section>
     </div>

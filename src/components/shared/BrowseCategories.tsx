@@ -70,7 +70,7 @@ export default function BrowseCategories({ toolCount, agentCount }: BrowseCatego
   },
   {
     title: 'Fintech AI Stack',
-    description: 'Special stacks for fintech startups. Compliance-rated AI tools evaluated against RBI, DPDP Act, and 30+ Indian regulatory checks.',
+    description: 'KYC, credit, and fraud/AML ratings for Indian fintech, scored from published RBI and DPDP pages. Pass, Fail, or Unknown — each Pass or Fail cites a URL.',
     emoji: '🏦',
     active: true,
     href: '/fintech',

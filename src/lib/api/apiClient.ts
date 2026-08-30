@@ -152,6 +152,13 @@ export const newsletterAPI = {
     }),
 };
 
+export type FintechStack = 'kyc' | 'credit' | 'fraud';
+
+export const fintechAPI = {
+  getRatings: (stack: FintechStack) =>
+    fetchAPI(`/fintech/ratings/?stack=${encodeURIComponent(stack)}`),
+};
+
 export const categoriesAPI = {
   getAll: () => fetchAPI('/categories/'),
 };
