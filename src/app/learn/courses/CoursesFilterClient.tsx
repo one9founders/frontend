@@ -66,7 +66,7 @@ export default function CoursesFilterClient({ categories }: CoursesFilterClientP
         <select
           value={currentCategory}
           onChange={(e) => updateFilter('category', e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white text-sm focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white text-sm focus:outline-none focus:border-copper"
         >
           <option value="">All Categories</option>
           {categories.map((cat) => (
@@ -77,7 +77,7 @@ export default function CoursesFilterClient({ categories }: CoursesFilterClientP
         <select
           value={currentDifficulty}
           onChange={(e) => updateFilter('difficulty', e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white text-sm focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white text-sm focus:outline-none focus:border-copper"
         >
           <option value="">All Difficulty Levels</option>
           {DIFFICULTY_OPTIONS.map((opt) => (
@@ -88,7 +88,7 @@ export default function CoursesFilterClient({ categories }: CoursesFilterClientP
         <select
           value={currentFormat}
           onChange={(e) => updateFilter('format', e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white text-sm focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white text-sm focus:outline-none focus:border-copper"
         >
           <option value="">All Formats</option>
           {FORMAT_OPTIONS.map((opt) => (
@@ -99,7 +99,7 @@ export default function CoursesFilterClient({ categories }: CoursesFilterClientP
       {hasFilters && (
         <button
           onClick={clearFilters}
-          className="mt-3 text-sm text-purple-400 hover:text-purple-300"
+          className="mt-3 text-sm text-copper hover:text-copper-bright"
         >
           Clear all filters
         </button>

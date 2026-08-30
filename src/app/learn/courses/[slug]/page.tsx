@@ -96,11 +96,11 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
           )}
 
           {/* Contact for Pricing badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/20 mb-6">
-            <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-copper/10 border border-copper/20 mb-6">
+            <svg className="w-5 h-5 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span className="text-purple-400 font-medium">Contact for Pricing</span>
+            <span className="text-copper font-medium">Contact for Pricing</span>
           </div>
 
           {/* Meta info */}
@@ -162,7 +162,7 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
         {/* Certificate */}
         {course.has_certificate && (
           <section className="mb-10">
-            <div className="rounded-xl border border-[var(--gray-700)] bg-gradient-to-br from-purple-500/10 to-blue-500/5 p-6 sm:p-8">
+            <div className="rounded-xl border border-[var(--gray-700)] bg-gradient-to-br from-copper/10 to-copper/5 p-6 sm:p-8">
               <h2 className="text-2xl font-bold text-white mb-3">Certificate</h2>
               <p className="text-[var(--gray-300)]">
                 {course.certificate_description || 'Certificate issued through IIT Bombay Educational Outreach'}
@@ -191,10 +191,10 @@ export default async function CourseDetailPage({ params }: CoursePageProps) {
                     {instructor.short_bio && <p className="text-sm text-[var(--gray-500)] mt-1">{instructor.short_bio}</p>}
                     <div className="flex gap-3 mt-2">
                       {instructor.linkedin_url && (
-                        <a href={instructor.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-xs text-purple-400 hover:text-purple-300">LinkedIn</a>
+                        <a href={instructor.linkedin_url} target="_blank" rel="noopener noreferrer" className="text-xs text-copper hover:text-copper-bright">LinkedIn</a>
                       )}
                       {instructor.twitter_url && (
-                        <a href={instructor.twitter_url} target="_blank" rel="noopener noreferrer" className="text-xs text-purple-400 hover:text-purple-300">Twitter</a>
+                        <a href={instructor.twitter_url} target="_blank" rel="noopener noreferrer" className="text-xs text-copper hover:text-copper-bright">Twitter</a>
                       )}
                     </div>
                   </div>

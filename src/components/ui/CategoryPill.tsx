@@ -2,14 +2,15 @@
 
 interface CategoryPillProps {
   label: string;
-  variant?: 'teal' | 'purple' | 'amber' | 'green' | 'blue' | 'gray' | 'red';
+  variant?: 'teal' | 'purple' | 'copper' | 'amber' | 'green' | 'blue' | 'gray' | 'red';
   size?: 'sm' | 'md';
   className?: string;
 }
 
 const variantClasses: Record<string, string> = {
   teal: 'bg-teal-600/20 text-teal-400 border-teal-600/30',
-  purple: 'bg-purple-600/20 text-purple-400 border-purple-600/30',
+  copper: 'bg-copper/20 text-copper border-copper/30',
+  purple: 'bg-copper/20 text-copper border-copper/30',
   amber: 'bg-amber-600/20 text-amber-400 border-amber-600/30',
   green: 'bg-green-600/20 text-green-400 border-green-600/30',
   blue: 'bg-blue-600/20 text-blue-400 border-blue-600/30',

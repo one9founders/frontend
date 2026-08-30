@@ -22,7 +22,7 @@ export default function WorkshopsTabsClient({ upcomingWorkshops, pastWorkshops }
           onClick={() => setActiveTab('upcoming')}
           className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
             activeTab === 'upcoming'
-              ? 'bg-purple-500/20 text-purple-400'
+              ? 'bg-copper/20 text-copper'
               : 'text-[var(--gray-400)] hover:text-white'
           }`}
         >
@@ -32,7 +32,7 @@ export default function WorkshopsTabsClient({ upcomingWorkshops, pastWorkshops }
           onClick={() => setActiveTab('past')}
           className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
             activeTab === 'past'
-              ? 'bg-purple-500/20 text-purple-400'
+              ? 'bg-copper/20 text-copper'
               : 'text-[var(--gray-400)] hover:text-white'
           }`}
         >

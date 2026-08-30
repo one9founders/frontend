@@ -58,7 +58,7 @@ export default function ToolTLDR({ tool }: ToolTLDRProps) {
   const summary = parts.join(' ');
 
   return (
-    <div className="mt-8 bg-[var(--gray-800)] border-l-4 border-purple-500 rounded-r-lg p-5">
+    <div className="mt-8 bg-[var(--gray-800)] border-l-4 border-copper rounded-r-lg p-5">
       <h2 className="text-lg font-semibold text-white mb-2">TL;DR — {tool.name}</h2>
       <p className="text-[var(--gray-300)] text-sm leading-relaxed">{summary}</p>
     </div>

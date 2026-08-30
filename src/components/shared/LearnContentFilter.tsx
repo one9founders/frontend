@@ -66,7 +66,7 @@ export default function LearnContentFilter({
               }
               className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
                 currentDifficulty === option.value
-                  ? 'bg-purple-600 border-purple-500 text-white'
+                  ? 'bg-copper border-copper text-white'
                   : 'bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)] hover:text-white'
               }`}
             >
@@ -93,7 +93,7 @@ export default function LearnContentFilter({
               }
               className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
                 currentCategory === option.value
-                  ? 'bg-purple-600 border-purple-500 text-white'
+                  ? 'bg-copper border-copper text-white'
                   : 'bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)] hover:text-white'
               }`}
             >
@@ -120,7 +120,7 @@ export default function LearnContentFilter({
               }
               className={`px-3 py-1.5 text-sm rounded-lg border transition-colors ${
                 currentAudience === option.value
-                  ? 'bg-purple-600 border-purple-500 text-white'
+                  ? 'bg-copper border-copper text-white'
                   : 'bg-[var(--gray-800)] border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)] hover:text-white'
               }`}
             >
@@ -134,7 +134,7 @@ export default function LearnContentFilter({
       {hasActiveFilters && (
         <button
           onClick={clearFilters}
-          className="text-sm text-purple-400 hover:text-purple-300 font-medium transition-colors"
+          className="text-sm text-copper hover:text-copper-bright font-medium transition-colors"
         >
           Clear all filters
         </button>

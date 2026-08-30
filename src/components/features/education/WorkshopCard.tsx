@@ -18,8 +18,8 @@ export default function WorkshopCard({ workshop, onRegister }: WorkshopCardProps
       <div className="flex items-start gap-4">
         {/* Date block */}
         {workshopDate && (
-          <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-purple-500/10 border border-purple-500/20 flex flex-col items-center justify-center">
-            <span className="text-xs text-purple-400 font-medium uppercase">
+          <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-copper/10 border border-copper/20 flex flex-col items-center justify-center">
+            <span className="text-xs text-copper font-medium uppercase">
               {workshopDate.toLocaleDateString('en-IN', { month: 'short' })}
             </span>
             <span className="text-lg font-bold text-white leading-none">

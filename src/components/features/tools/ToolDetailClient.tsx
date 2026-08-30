@@ -168,7 +168,7 @@ export default function ToolDetailClient({
                 onClick={() => {
                   window.dispatchEvent(new CustomEvent('open-auth-modal', { detail: { mode: 'login' } }));
                 }}
-                className="text-purple-400 hover:text-purple-300 underline"
+                className="text-copper hover:text-copper-bright underline"
               >
                 Login to write a review
               </button>

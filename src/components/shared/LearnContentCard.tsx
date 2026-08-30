@@ -63,7 +63,7 @@ export default function LearnContentCard({ item, basePath }: LearnContentCardPro
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors line-clamp-2">
+        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-copper-bright transition-colors line-clamp-2">
           {item.title}
         </h3>
 

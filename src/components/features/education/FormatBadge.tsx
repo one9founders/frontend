@@ -18,7 +18,7 @@ export default function FormatBadge({ format, size = 'sm' }: FormatBadgeProps) {
   const sizeClass = size === 'md' ? 'px-3 py-1 text-sm' : 'px-2 py-0.5 text-xs';
 
   return (
-    <span className={`inline-block ${sizeClass} font-medium rounded bg-purple-500/10 text-purple-400 border border-purple-500/20`}>
+    <span className={`inline-block ${sizeClass} font-medium rounded bg-copper/10 text-copper border border-copper/20`}>
       {label}
     </span>
   );

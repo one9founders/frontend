@@ -41,7 +41,7 @@ export default function IndiaFitCard({ tool }: { tool: Tool }) {
             </span>
           )}
           {hasText(tool.inrPricing) && (
-            <span className="px-2 py-1 rounded text-xs font-medium bg-orange-600/20 text-orange-300 border border-orange-600/30">
+            <span className="px-2 py-1 rounded text-xs font-medium bg-copper/20 text-copper-bright border border-copper/30">
               {tool.inrPricing}
             </span>
           )}

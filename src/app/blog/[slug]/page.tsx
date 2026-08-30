@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
           <h1 className="text-3xl font-bold text-white mb-4">Post Not Found</h1>
           <p className="text-[var(--gray-400)]">The blog post you&apos;re looking for doesn&apos;t exist.</p>
-          <Link href="/blog" className="text-purple-400 hover:text-purple-300 underline mt-4 inline-block">
+          <Link href="/blog" className="text-copper hover:text-copper-bright underline mt-4 inline-block">
             Back to Blog
           </Link>
         </div>
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </Link>
           </div>
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-400">
+            <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-copper/20 text-copper">
               {post.category}
             </span>
             <span className="text-[var(--gray-500)] text-sm">{post.readingTime}</span>
@@ -117,12 +117,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {/* Content */}
         <div
-          className="prose prose-invert prose-purple max-w-none
+          className="prose prose-invert max-w-none
             prose-headings:text-white prose-headings:font-semibold
             prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
             prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
             prose-p:text-[var(--gray-300)] prose-p:leading-relaxed prose-p:mb-4
-            prose-a:text-purple-400 prose-a:no-underline hover:prose-a:underline
+            prose-a:text-copper prose-a:no-underline hover:prose-a:underline
             prose-strong:text-white"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </p>
           <Link
             href="/"
-            className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
+            className="inline-block bg-copper hover:bg-copper-dim text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
           >
             Explore AI Tools
           </Link>

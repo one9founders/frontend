@@ -58,7 +58,7 @@ export default function LandingPageContent({ page, pageType }: LandingPageConten
                   className="rounded-xl border border-[var(--gray-700)] bg-[var(--gray-900)] p-6"
                 >
                   {block.icon && (
-                    <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-copper/10 flex items-center justify-center mb-4">
                       <span className="text-2xl">{block.icon}</span>
                     </div>
                   )}
@@ -72,7 +72,7 @@ export default function LandingPageContent({ page, pageType }: LandingPageConten
                     <ul className="mt-3 space-y-2">
                       {block.items.map((item: string, i: number) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-[var(--gray-400)]">
-                          <svg className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           {item}

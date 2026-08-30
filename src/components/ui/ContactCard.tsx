@@ -31,13 +31,13 @@ export default function ContactCard({ picture, name, designation, email, linkedi
         }}
       >
         <div className="flex justify-center gap-4 w-full">
-          <a href={`mailto:${email}`} className="text-white hover:text-brand-primary transition-colors">
+          <a href={`mailto:${email}`} className="text-white hover:text-copper transition-colors">
             <HugeiconsIcon icon={Mail01Icon} size={24} />
           </a>
-          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-primary transition-colors">
+          <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-copper transition-colors">
             <HugeiconsIcon icon={Linkedin01Icon} size={24} />
           </a>
-          <a href={`https://wa.me/${phone.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-brand-primary transition-colors">
+          <a href={`https://wa.me/${phone.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-copper transition-colors">
             <HugeiconsIcon icon={WhatsappIcon} size={24} />
           </a>
         </div>

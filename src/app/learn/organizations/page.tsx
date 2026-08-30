@@ -98,7 +98,7 @@ export default async function OrganizationsPage() {
               {contentBlocks.map((block, index) => (
                 <div key={index} className="rounded-xl border border-[var(--gray-700)] bg-[var(--gray-900)] p-6">
                   {block.icon && (
-                    <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-copper/10 flex items-center justify-center mb-4">
                       <span className="text-2xl">{block.icon}</span>
                     </div>
                   )}
@@ -108,7 +108,7 @@ export default async function OrganizationsPage() {
                     <ul className="mt-3 space-y-2">
                       {block.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-[var(--gray-400)]">
-                          <svg className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-copper flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           {item}
@@ -129,8 +129,8 @@ export default async function OrganizationsPage() {
           <h2 className="text-3xl font-bold text-white mb-8 text-center">What We Offer</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-xl border border-[var(--gray-700)] bg-[var(--gray-800)] p-6 text-center">
-              <div className="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center bg-purple-500/10">
-                <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center bg-copper/10">
+                <svg className="w-6 h-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>

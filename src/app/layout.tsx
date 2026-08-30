@@ -37,6 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: 'One9Founders',
     publisher: 'One9Founders',
     manifest: '/site.webmanifest',
+    themeColor: '#C47A3A',
     icons: {
       icon: [
         { url: '/favicon.ico', sizes: 'any' },

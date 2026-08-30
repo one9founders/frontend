@@ -11,8 +11,8 @@ interface PaperDetailClientProps {
   relatedPapers: Paper[];
 }
 
-const tagColors: Record<string, 'teal' | 'purple' | 'amber' | 'blue' | 'green' | 'red' | 'gray'> = {
-  llms: 'purple',
+const tagColors: Record<string, 'teal' | 'copper' | 'amber' | 'blue' | 'green' | 'red' | 'gray'> = {
+  llms: 'copper',
   agents: 'teal',
   rag: 'amber',
   vision: 'blue',
@@ -65,7 +65,7 @@ export default function PaperDetailClient({ paper, relatedPapers }: PaperDetailC
             <span key={i}>
               <Link
                 href={`/research?search=${encodeURIComponent(author)}`}
-                className="text-sm text-[var(--gray-400)] hover:text-purple-400 transition-colors"
+                className="text-sm text-[var(--gray-400)] hover:text-copper transition-colors"
               >
                 {author}
               </Link>
@@ -107,7 +107,7 @@ export default function PaperDetailClient({ paper, relatedPapers }: PaperDetailC
       {/* Links row */}
       <div className="flex flex-wrap gap-3 mb-8">
         {paper.arxiv_url && (
-          <a href={paper.arxiv_url} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg font-semibold text-sm text-white btn-primary inline-flex items-center gap-2">
+          <a href={paper.arxiv_url} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg font-semibold text-sm btn-primary inline-flex items-center gap-2">
             Read on arXiv
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
           </a>

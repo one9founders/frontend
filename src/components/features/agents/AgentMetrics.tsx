@@ -26,7 +26,7 @@ export default function AgentMetrics({ agent }: AgentMetricsProps) {
         </div>
         <div className="w-full h-2 bg-[var(--gray-700)] rounded-full overflow-hidden">
           <div
-            className="h-full bg-purple-500 rounded-full transition-all"
+            className="h-full bg-copper rounded-full transition-all"
             style={{ width: `${scorePercent}%` }}
           />
         </div>

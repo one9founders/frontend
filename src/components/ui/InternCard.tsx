@@ -28,7 +28,7 @@ export default function InternCard({ picture, name, linkedin, category }: Intern
         <span
           className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md border ${
             category === 'tech'
-              ? 'bg-purple-500/20 border-purple-400/40 text-purple-200'
+              ? 'bg-copper/20 border-copper/40 text-copper-bright'
               : 'bg-pink-500/20 border-pink-400/40 text-pink-200'
           }`}
         >
@@ -56,7 +56,7 @@ export default function InternCard({ picture, name, linkedin, category }: Intern
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-[var(--brand-primary)] hover:border-[var(--brand-primary)] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25"
+            className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-[var(--brand-primary)] hover:border-[var(--brand-primary)] hover:text-[var(--ink)] transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-copper/25"
             aria-label={`${name}'s LinkedIn profile`}
           >
             <HugeiconsIcon icon={Linkedin01Icon} size={18} />
@@ -65,7 +65,7 @@ export default function InternCard({ picture, name, linkedin, category }: Intern
       </div>
 
       {/* Hover glow border */}
-      <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-purple-500/50 transition-all duration-300 pointer-events-none" />
+      <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-copper/50 transition-all duration-300 pointer-events-none" />
     </div>
   );
 }

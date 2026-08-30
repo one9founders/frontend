@@ -24,7 +24,7 @@ export default function CurriculumAccordion({ modules }: CurriculumAccordionProp
             className="w-full flex items-center justify-between p-4 text-left hover:bg-[var(--gray-800)] transition-colors"
           >
             <div className="flex items-center gap-3">
-              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-sm font-medium text-purple-400">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-copper/10 border border-copper/20 flex items-center justify-center text-sm font-medium text-copper">
                 {index + 1}
               </span>
               <div>

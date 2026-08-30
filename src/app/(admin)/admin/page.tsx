@@ -218,7 +218,7 @@ export default function AdminPage() {
             onClick={() => setActiveTab('single')}
             className={`px-6 py-3 rounded-t-lg font-medium transition-colors ${
               activeTab === 'single' 
-                ? 'bg-purple-600 text-white' 
+                ? 'bg-copper text-white' 
                 : 'bg-[var(--gray-800)] text-[var(--gray-300)] hover:bg-[var(--gray-700)]'
             }`}
           >
@@ -228,7 +228,7 @@ export default function AdminPage() {
             onClick={() => setActiveTab('bulk')}
             className={`px-6 py-3 rounded-t-lg font-medium transition-colors ${
               activeTab === 'bulk' 
-                ? 'bg-purple-600 text-white' 
+                ? 'bg-copper text-white' 
                 : 'bg-[var(--gray-800)] text-[var(--gray-300)] hover:bg-[var(--gray-700)]'
             }`}
           >
@@ -251,7 +251,7 @@ export default function AdminPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                     required
                   />
                 </div>
@@ -263,7 +263,7 @@ export default function AdminPage() {
                     value={formData.short_description}
                     onChange={handleChange}
                     maxLength={200}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -273,7 +273,7 @@ export default function AdminPage() {
                     name="website"
                     value={formData.website}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -283,7 +283,7 @@ export default function AdminPage() {
                     name="logo_url"
                     value={formData.logo_url}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -293,7 +293,7 @@ export default function AdminPage() {
                     name="pricing_from"
                     value={formData.pricing_from}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
 
@@ -304,7 +304,7 @@ export default function AdminPage() {
                     name="free_trial_days"
                     value={formData.free_trial_days}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
                 <div>
@@ -314,7 +314,7 @@ export default function AdminPage() {
                     name="video_demo_url"
                     value={formData.video_demo_url}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   />
                 </div>
               </div>
@@ -326,7 +326,7 @@ export default function AdminPage() {
                   value={formData.description}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -339,7 +339,7 @@ export default function AdminPage() {
                   value={formData.tags}
                   onChange={handleChange}
                   placeholder="e.g., AI, productivity, automation"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
               
@@ -351,7 +351,7 @@ export default function AdminPage() {
                   value={formData.use_cases}
                   onChange={handleChange}
                   placeholder="e.g., content creation, customer support, data analysis"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
               
@@ -363,7 +363,7 @@ export default function AdminPage() {
                   value={formData.features}
                   onChange={handleChange}
                   placeholder="e.g., AI-powered, Real-time collaboration"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
               
@@ -375,7 +375,7 @@ export default function AdminPage() {
                   onChange={handleChange}
                   rows={3}
                   placeholder="How this tool helps startups/founders"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -383,7 +383,7 @@ export default function AdminPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 py-3 px-6 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 font-medium transition-colors"
+                  className="flex-1 py-3 px-6 bg-copper text-white rounded-lg hover:bg-copper-dim disabled:opacity-50 font-medium transition-colors"
                 >
                   {loading ? (editingTool ? 'Updating...' : 'Adding...') : (editingTool ? 'Update Tool' : 'Add Tool')}
                 </button>
@@ -426,7 +426,7 @@ export default function AdminPage() {
                   Download Template
                 </button>
                 
-                <label className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium transition-colors cursor-pointer">
+                <label className="px-6 py-3 bg-copper text-white rounded-lg hover:bg-copper-dim font-medium transition-colors cursor-pointer">
                   {bulkLoading ? 'Uploading...' : 'Upload CSV File'}
                   <input
                     type="file"
@@ -465,7 +465,7 @@ export default function AdminPage() {
                       </span>
                     )}
                     {tool.verified && (
-                      <span className="px-2 py-1 text-xs rounded-full text-white font-medium bg-[var(--brand-primary)]">
+                      <span className="px-2 py-1 text-xs rounded-full text-[var(--ink)] font-medium bg-[var(--brand-primary)]">
                         Verified
                       </span>
                     )}
@@ -475,7 +475,7 @@ export default function AdminPage() {
                       </span>
                     )}
                   </div>
-                  <p className="text-purple-400 text-sm mb-2">{tool.categories?.map(c => c.name).join(', ') || 'Uncategorized'}</p>
+                  <p className="text-copper text-sm mb-2">{tool.categories?.map(c => c.name).join(', ') || 'Uncategorized'}</p>
                   <p className="text-[var(--gray-300)] text-sm mb-3">{tool.description?.substring(0, 150) || 'No description'}...</p>
                   <div className="flex items-center gap-4 text-xs text-[var(--gray-400)]">
                     {tool.pricing_models && tool.pricing_models.length > 0 && (

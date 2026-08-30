@@ -46,7 +46,7 @@ export default function GuideCard({ guide }: GuideCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors line-clamp-2">
+        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-copper-bright transition-colors line-clamp-2">
           {guide.title}
         </h3>
 
@@ -62,7 +62,7 @@ export default function GuideCard({ guide }: GuideCardProps) {
           {guide.published_at && (
             <span>{new Date(guide.published_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
           )}
-          <span className="text-purple-400 group-hover:text-purple-300 font-medium inline-flex items-center gap-1">
+          <span className="text-copper group-hover:text-copper-bright font-medium inline-flex items-center gap-1">
             Read
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

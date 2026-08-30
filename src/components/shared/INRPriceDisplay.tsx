@@ -24,7 +24,7 @@ export default function INRPriceDisplay({ tool, showGst = true, className = '' }
         &#8377;{base.toLocaleString('en-IN')}
       </span>
       {tool.pricing_has_india_plan && (
-        <span className="ml-2 bg-orange-600/20 text-orange-400 px-1.5 py-0.5 rounded text-xs">
+        <span className="ml-2 bg-copper/20 text-copper px-1.5 py-0.5 rounded text-xs">
           India pricing available
         </span>
       )}

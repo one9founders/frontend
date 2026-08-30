@@ -114,7 +114,7 @@ export default function SubmitToolPageClient() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g., ChatGPT, Midjourney, Notion AI"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -132,7 +132,7 @@ export default function SubmitToolPageClient() {
                   onChange={handleChange}
                   placeholder="Brief one-liner about the tool"
                   maxLength={200}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -148,7 +148,7 @@ export default function SubmitToolPageClient() {
                   onChange={handleChange}
                   placeholder="Describe what this tool does and how it helps founders/startups..."
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
                 <p className="text-sm text-[var(--gray-400)] mt-1">
@@ -168,7 +168,7 @@ export default function SubmitToolPageClient() {
                   value={formData.website}
                   onChange={handleChange}
                   placeholder="https://example.com"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -185,7 +185,7 @@ export default function SubmitToolPageClient() {
                   value={formData.logo_url}
                   onChange={handleChange}
                   placeholder="https://example.com/logo.jpg"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -201,7 +201,7 @@ export default function SubmitToolPageClient() {
                   onChange={handleChange}
                   placeholder="e.g., Free tier available, Paid plans start at $10/month"
                   rows={2}
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors resize-vertical bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                 />
               </div>
 
@@ -217,7 +217,7 @@ export default function SubmitToolPageClient() {
                   value={formData.submitter_name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -234,7 +234,7 @@ export default function SubmitToolPageClient() {
                   value={formData.submitter_email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-purple-500 transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
+                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
               </div>
@@ -244,8 +244,8 @@ export default function SubmitToolPageClient() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-white ${
-                    loading ? 'bg-[var(--gray-700)]' : 'bg-[var(--brand-primary)]'
+                  className={`w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+                    loading ? 'bg-[var(--gray-700)] text-white' : 'bg-[var(--brand-primary)] text-[var(--ink)]'
                   }`}
                 >
                   {loading ? 'Submitting...' : 'Submit Tool'}

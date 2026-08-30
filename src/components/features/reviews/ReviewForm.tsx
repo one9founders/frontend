@@ -146,7 +146,7 @@ export default function ReviewForm({ toolId, toolName, onReviewAdded }: ReviewFo
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 bg-[var(--brand-primary)] text-white"
+          className="w-full py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 bg-[var(--brand-primary)] text-[var(--ink)]"
         >
           {loading ? 'Submitting...' : 'Submit Review'}
         </button>

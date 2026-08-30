@@ -41,7 +41,7 @@ export default function AgentCard({ agent }: AgentCardProps) {
 
   return (
     <Link href={`/agents/${agent.slug}`}>
-      <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-4 hover:border-purple-500/50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col h-full">
+      <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-4 hover:border-copper/50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col h-full">
         {/* Header: Logo + Name + Featured Star */}
         <div className="flex items-start gap-3 mb-3">
           <ToolLogo logoUrl={agent.logo_url} name={agent.name} size="md" />
@@ -53,7 +53,7 @@ export default function AgentCard({ agent }: AgentCardProps) {
               )}
             </div>
             {agent.category_name && (
-              <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded-full bg-purple-600/20 text-purple-400 border border-purple-600/30">
+              <span className="inline-block mt-1 px-2 py-0.5 text-xs rounded-full bg-copper/20 text-copper border border-copper/30">
                 {agent.category_name}
               </span>
             )}
@@ -84,7 +84,7 @@ export default function AgentCard({ agent }: AgentCardProps) {
               <span className="text-xs text-[var(--gray-400)]">{score}</span>
               <div className="w-16 h-1.5 bg-[var(--gray-700)] rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-purple-500 rounded-full"
+                  className="h-full bg-copper rounded-full"
                   style={{ width: `${scorePercent}%` }}
                 />
               </div>

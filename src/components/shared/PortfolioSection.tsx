@@ -211,7 +211,7 @@ export default function PortfolioSection({
                   onClick={toggleCurrency}
                   className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                     currency === 'INR'
-                      ? 'bg-orange-600/20 text-orange-400 border border-orange-600/30'
+                      ? 'bg-copper/20 text-copper border border-copper/30'
                       : 'bg-[var(--gray-800)] text-[var(--gray-400)] border border-[var(--gray-700)]'
                   } hover:opacity-80`}
                   aria-label={`Switch to ${currency === 'USD' ? 'INR' : 'USD'} pricing`}

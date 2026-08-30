@@ -81,7 +81,7 @@ export default function ToolCriteriaList({ detail }: ToolCriteriaListProps) {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-purple-400 hover:text-purple-300 text-sm underline mt-1 inline-block"
+                      className="text-copper hover:text-copper-bright text-sm underline mt-1 inline-block"
                     >
                       Source: {hostname(url)}
                     </a>

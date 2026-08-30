@@ -269,7 +269,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                     </span>
                   )}
                   {tool.is_featured && (
-                    <span className="bg-purple-600 text-white px-2 py-1 rounded text-xs">
+                    <span className="bg-copper text-white px-2 py-1 rounded text-xs">
                       Featured
                     </span>
                   )}
@@ -329,7 +329,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                         className="w-full rounded-lg transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                        <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-[var(--brand-primary)] text-white px-4 py-2 rounded-lg font-medium">
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-[var(--brand-primary)] text-[var(--ink)] px-4 py-2 rounded-lg font-medium">
                           Visit Website
                         </span>
                       </div>
@@ -449,14 +449,14 @@ export default async function ToolPage({ params }: ToolPageProps) {
             <h2 className="text-xl font-semibold text-white mb-4">Looking for Alternatives?</h2>
             <p className="text-[var(--gray-300)]">
               If {tool.name} doesn&apos;t fit your needs, explore other{' '}
-              <a href={primaryCategorySlug ? `/?category=${primaryCategorySlug}` : '/'} className="text-purple-400 hover:text-purple-300 underline">
+              <a href={primaryCategorySlug ? `/?category=${primaryCategorySlug}` : '/'} className="text-copper hover:text-copper-bright underline">
                 AI tools for {tool.categories?.[0]?.name?.toLowerCase() || 'startups'}
               </a>{' '}
               in our directory.
             </p>
             <p className="text-[var(--gray-400)] text-sm mt-3">
               Want to understand how we evaluate tools?{' '}
-              <a href="/methodology" className="text-purple-400 hover:text-purple-300 underline">
+              <a href="/methodology" className="text-copper hover:text-copper-bright underline">
                 Read our rating methodology
               </a>.
             </p>

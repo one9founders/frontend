@@ -17,7 +17,7 @@ import {
 
 function costClass(kind: string) {
   if (kind === 'free') return 'bg-emerald-950/80 text-emerald-400';
-  if (kind === 'skill') return 'bg-purple-950/80 text-purple-300';
+  if (kind === 'skill') return 'bg-copper/20 text-copper-bright';
   return 'bg-[var(--gray-800)] text-[var(--gray-400)]';
 }
 
@@ -85,7 +85,7 @@ export default function SavedStackView({ stack }: { stack: JobStack }) {
   return (
     <section className="px-4 py-12 md:px-6 md:py-16">
       <div className="mx-auto max-w-5xl">
-        <p className="mb-1 font-mono text-[11px] uppercase tracking-[0.16em] text-purple-400">
+        <p className="mb-1 font-mono text-[11px] uppercase tracking-[0.16em] text-copper">
           {stack.source === 'person' ? 'Saved by a person' : 'Assembled by the agent'}
           {' · '}
           {stack.public_id}
@@ -112,7 +112,7 @@ export default function SavedStackView({ stack }: { stack: JobStack }) {
               type="button"
               onClick={() => void saveMine()}
               disabled={saving}
-              className="rounded-lg bg-[var(--brand-primary)] px-3 py-1.5 text-sm font-medium text-white hover:bg-[var(--brand-secondary)] disabled:opacity-50"
+              className="rounded-lg bg-[var(--brand-primary)] px-3 py-1.5 text-sm font-medium text-[var(--ink)] hover:bg-[var(--brand-secondary)] disabled:opacity-50"
             >
               {saving ? 'Saving…' : 'Save my version'}
             </button>
@@ -122,7 +122,7 @@ export default function SavedStackView({ stack }: { stack: JobStack }) {
 
         <div className="overflow-hidden rounded-xl border border-[var(--gray-700)] bg-[var(--gray-900)]">
           <div className="flex items-start gap-2 border-b border-[var(--gray-800)] bg-[var(--gray-950)] px-4 py-3 font-mono text-sm text-[var(--gray-300)]">
-            <span className="text-purple-400">▸</span>
+            <span className="text-copper">▸</span>
             <span>{stack.query}</span>
           </div>
           {visibleLanes.map((lane) => {
@@ -132,12 +132,12 @@ export default function SavedStackView({ stack }: { stack: JobStack }) {
               <div
                 key={lane.id}
                 className={`border-b border-[var(--gray-800)] px-4 py-5 last:border-b-0 ${
-                  isWorker ? 'bg-amber-950/20' : ''
+                  isWorker ? 'bg-copper/10' : ''
                 }`}
               >
                 <p
                   className={`mb-3 font-mono text-[11px] uppercase tracking-[0.14em] ${
-                    isWorker ? 'text-amber-400' : 'text-[var(--gray-500)]'
+                    isWorker ? 'text-copper' : 'text-[var(--gray-500)]'
                   }`}
                 >
                   {isWorker ? 'Then run it · ' : ''}
@@ -166,7 +166,7 @@ export default function SavedStackView({ stack }: { stack: JobStack }) {
                         {href ? (
                           <Link
                             href={href}
-                            className={`text-sm font-semibold ${dropped ? 'text-[var(--gray-600)] line-through' : 'text-white hover:text-purple-200'}`}
+                            className={`text-sm font-semibold ${dropped ? 'text-[var(--gray-600)] line-through' : 'text-white hover:text-copper-bright'}`}
                           >
                             {item.name}
                           </Link>
@@ -179,7 +179,7 @@ export default function SavedStackView({ stack }: { stack: JobStack }) {
                           </span>
                         )}
                         {isWorker && (
-                          <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-3.5 w-3.5 text-amber-400" />
+                          <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-3.5 w-3.5 text-copper" />
                         )}
                       </li>
                     );

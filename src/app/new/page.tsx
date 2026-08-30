@@ -47,7 +47,7 @@ export default async function NewToolsPage() {
       <Navbar />
       <main className="max-w-7xl mx-auto py-12 px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-500 font-bricolage">
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-[var(--paper)] font-bricolage">
             New AI Tools This Week
           </h1>
           <p className="text-sm md:text-base text-[var(--gray-400)]">
