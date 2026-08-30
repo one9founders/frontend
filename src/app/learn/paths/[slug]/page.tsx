@@ -98,8 +98,8 @@ export default async function PathDetailPage({ params }: PathPageProps) {
                 <div key={module.id} className="relative">
                   {/* Module header */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
-                      <span className="text-sm font-bold text-purple-400">{index + 1}</span>
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-copper/20 border border-copper/30 flex items-center justify-center">
+                      <span className="text-sm font-bold text-copper">{index + 1}</span>
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-white">{module.title}</h3>

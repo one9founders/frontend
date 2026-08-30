@@ -61,7 +61,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
       : 'bg-blue-600/20 text-blue-400'
     : pricingText.includes('trial')
       ? 'bg-blue-600/20 text-blue-400'
-      : 'bg-purple-600/20 text-purple-400';
+      : 'bg-copper/20 text-copper';
 
   return (
     <div className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-[transform,box-shadow] duration-300 group flex flex-col h-full bg-[var(--gray-900)] border border-[var(--gray-800)]">
@@ -102,7 +102,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
               href={addRefToUrl(tool.affiliate_url || tool.website)}
               target="_blank"
               rel="noopener nofollow"
-              className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700 text-sm flex items-center justify-center gap-2"
+              className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-copper text-white hover:bg-copper-dim text-sm flex items-center justify-center gap-2"
               onClick={handleVisitTool}
             >
               <HugeiconsIcon icon={ArrowUpRight01Icon} size={16} />

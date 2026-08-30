@@ -6,31 +6,42 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #070707;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e3a8a;
+  background: #8B5428;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1e40af;
+  background: #C47A3A;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1e3a8a #0f172a;
+  scrollbar-color: #8B5428 #070707;
+}
+
+::selection {
+  background: #C47A3A;
+  color: #070707;
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand-primary: #7828D9;
-  --brand-secondary: #7C3AED;
-  --brand-tertiary: #8B5CF6;
-  --brand-light: #C4B5FD;
+  /* Copper is the brand metal. Purple and electric orange are retired so
+     chrome reads as one desk: ink ground, paper type, copper action.
+     Why copper, not Tailwind orange-500: it sits on black like brass on a
+     founder desk, not a SaaS gradient. India-rooted without saffron-flag
+     cliché. brand-* aliases keep older var(--brand-primary) call sites on
+     the same metal. Semantic green/red/amber stay for pass/fail/warn. */
+  --brand-primary: #C47A3A;
+  --brand-secondary: #D4924A;
+  --brand-tertiary: #E0A85C;
+  --brand-light: #E8C9A0;
   --gray-white: #FFFFFF;
   --gray-50: #FAFAFA;
   --gray-100: #F5F5F5;
@@ -56,6 +67,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-copper: var(--copper);
+  --color-copper-dim: var(--copper-dim);
+  --color-copper-bright: var(--copper-bright);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-bricolage-grotesque);
 }
@@ -71,6 +89,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 2px;
 }
 
 .bg-gray-black {
@@ -91,13 +118,11 @@ h4, h5, h6 {
 
 /* Button Styles */
 .btn-primary {
-  /* width: 84px; */
-  /* height: 40px; */
   border-radius: 8px;
   padding: 0.5rem;
   gap: 10px;
-  background: linear-gradient(to top, var(--brand-primary), var(--brand-tertiary));  
-  color: white;
+  background: var(--copper);
+  color: var(--ink);
   font-weight: 600;
   border: none;
   cursor: pointer;
@@ -107,11 +132,12 @@ h4, h5, h6 {
 }
 
 .btn-primary:hover {
-  background: var(--brand-tertiary);
+  background: var(--copper-bright);
 }
 
 .btn-primary:active {
-  background: var(--brand-primary);
+  background: var(--copper-dim);
+  color: var(--paper);
 }
 
 .btn-secondary {
@@ -142,8 +168,8 @@ h4, h5, h6 {
   border-radius: 6px;
   padding: 0 12px;
   gap: 8px;
-  background: var(--brand-primary);
-  color: white;
+  background: var(--copper);
+  color: var(--ink);
   border: none;
   cursor: pointer;
   display: flex;
@@ -153,11 +179,12 @@ h4, h5, h6 {
 }
 
 .btn-primary-sm:hover {
-  background: var(--brand-tertiary);
+  background: var(--copper-bright);
 }
 
 .btn-primary-sm:active {
-  background: var(--brand-primary);
+  background: var(--copper-dim);
+  color: var(--paper);
 }
 
 .btn-secondary-sm {
@@ -247,17 +274,17 @@ h4, h5, h6 {
   margin: 0.5rem 0;
 }
 .guide-content a {
-  color: rgb(168 85 247);
+  color: var(--copper);
   text-decoration: underline;
 }
 .guide-content a:hover {
-  color: rgb(192 132 252);
+  color: var(--copper-bright);
 }
 .guide-content blockquote {
-  border-left: 4px solid rgb(168 85 247);
+  border-left: 4px solid var(--copper);
   padding: 0.75rem 1rem;
   margin: 1.5rem 0;
-  background: rgba(168, 85, 247, 0.05);
+  background: rgba(196, 122, 58, 0.08);
   border-radius: 0 0.5rem 0.5rem 0;
 }
 .guide-content blockquote p {

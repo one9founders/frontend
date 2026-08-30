@@ -81,7 +81,7 @@ export default function WorkshopRegisterForm({
           onChange={handleChange}
           required
           placeholder="Your Name *"
-          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500 text-sm"
+          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper text-sm"
         />
         <input
           type="email"
@@ -90,7 +90,7 @@ export default function WorkshopRegisterForm({
           onChange={handleChange}
           required
           placeholder="Email *"
-          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500 text-sm"
+          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper text-sm"
         />
         <input
           type="tel"
@@ -98,7 +98,7 @@ export default function WorkshopRegisterForm({
           value={formData.phone}
           onChange={handleChange}
           placeholder="Phone"
-          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500 text-sm"
+          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper text-sm"
         />
         <input
           type="text"
@@ -106,7 +106,7 @@ export default function WorkshopRegisterForm({
           value={formData.organization}
           onChange={handleChange}
           placeholder="Organization"
-          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500 text-sm"
+          className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper text-sm"
         />
 
         {errorMessage && (

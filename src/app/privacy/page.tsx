@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-[var(--gray-200)]">8. Contact Us</h2>
-            <p>If you have any questions about this privacy policy, contact us at <a href="mailto:hello@one9founders.com" className="text-purple-400 hover:text-purple-300">hello@one9founders.com</a>.</p>
+            <p>If you have any questions about this privacy policy, contact us at <a href="mailto:hello@one9founders.com" className="text-copper hover:text-copper-bright">hello@one9founders.com</a>.</p>
           </section>
         </div>
       </div>

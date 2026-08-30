@@ -239,14 +239,14 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
                 label="Website"
                 valueA={
                   toolA.website ? (
-                    <a href={toolA.website} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">
+                    <a href={toolA.website} target="_blank" rel="noopener noreferrer" className="text-copper hover:text-copper-bright underline">
                       Visit Site
                     </a>
                   ) : '-'
                 }
                 valueB={
                   toolB.website ? (
-                    <a href={toolB.website} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">
+                    <a href={toolB.website} target="_blank" rel="noopener noreferrer" className="text-copper hover:text-copper-bright underline">
                       Visit Site
                     </a>
                   ) : '-'

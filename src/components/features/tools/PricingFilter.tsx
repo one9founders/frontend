@@ -11,7 +11,7 @@ export default function PricingFilter({ selectedPricing, onPricingChange }: Pric
   const pricingOptions = [
     { value: 'free', label: 'Free', color: 'bg-green-600' },
     { value: 'freemium', label: 'Freemium', color: 'bg-blue-600' },
-    { value: 'paid', label: 'Paid', color: 'bg-orange-600' }
+    { value: 'paid', label: 'Paid', color: 'bg-copper' }
   ];
 
   const togglePricing = (pricing: string) => {

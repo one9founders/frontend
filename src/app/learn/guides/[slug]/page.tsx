@@ -162,7 +162,7 @@ export default async function GuideDetailPage({ params }: GuidePageProps) {
         {/* Header */}
         <header className="mb-8">
           <div className="flex flex-wrap gap-2 mb-4">
-            <span className="text-xs font-medium px-3 py-1 rounded-full bg-[var(--brand-primary)] text-white">
+            <span className="text-xs font-medium px-3 py-1 rounded-full bg-[var(--brand-primary)] text-[var(--ink)]">
               {difficultyLabel}
             </span>
             {guide.estimated_time && (

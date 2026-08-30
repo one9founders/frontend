@@ -10,9 +10,9 @@ interface RagToolCardProps {
   variant?: 'default' | 'compact' | 'compare';
 }
 
-const categoryConfig: Record<string, { label: string; variant: 'teal' | 'purple' | 'amber' }> = {
+const categoryConfig: Record<string, { label: string; variant: 'teal' | 'copper' | 'amber' }> = {
   vector_db: { label: 'Vector DB', variant: 'teal' },
-  rag_framework: { label: 'RAG Framework', variant: 'purple' },
+  rag_framework: { label: 'RAG Framework', variant: 'copper' },
   embedding_model: { label: 'Embedding Model', variant: 'amber' },
 };
 
@@ -35,7 +35,7 @@ export default function RagToolCard({ tool, variant = 'default' }: RagToolCardPr
   if (variant === 'compact') {
     return (
       <Link href={`/rag-vector-dbs/${tool.slug}`} className="block">
-        <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-3 hover:border-purple-500/50 transition-all duration-300 cursor-pointer">
+        <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-3 hover:border-copper/50 transition-all duration-300 cursor-pointer">
           <div className="flex items-center gap-2 mb-2">
             <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="xs" />
             <h4 className="text-sm font-semibold text-white truncate">{tool.name}</h4>
@@ -57,7 +57,7 @@ export default function RagToolCard({ tool, variant = 'default' }: RagToolCardPr
 
   return (
     <Link href={`/rag-vector-dbs/${tool.slug}`} className="block">
-      <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-4 hover:border-purple-500/50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col h-full">
+      <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-4 hover:border-copper/50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col h-full">
         {/* Header */}
         <div className="flex items-start gap-3 mb-3">
           <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="sm" />

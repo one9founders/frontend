@@ -35,12 +35,12 @@ export default function StacksPage() {
               <a
                 key={stack.slug}
                 href={`/stacks/${stack.slug}`}
-                className="block bg-[var(--gray-900)] rounded-lg p-6 border border-[var(--gray-700)] hover:border-purple-600/50 transition-colors"
+                className="block bg-[var(--gray-900)] rounded-lg p-6 border border-[var(--gray-700)] hover:border-copper/50 transition-colors"
               >
                 <h2 className="text-lg font-semibold text-white mb-2">{stack.title}</h2>
                 <p className="text-[var(--gray-400)] text-sm mb-4 line-clamp-2">{stack.heroDescription}</p>
                 <div className="flex gap-4 text-sm">
-                  <span className="text-purple-400">{toolCount} tools</span>
+                  <span className="text-copper">{toolCount} tools</span>
                   <span className="text-[var(--gray-500)]">|</span>
                   <span className="text-white">
                     {totalINR === 0 ? 'Free' : `From ₹${totalINR.toLocaleString('en-IN')}/mo`}

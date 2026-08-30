@@ -80,7 +80,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
       <div className="mb-8">
         <Link
           href="/llms"
-          className="text-[var(--gray-500)] hover:text-purple-400 text-sm mb-4 inline-block"
+          className="text-[var(--gray-500)] hover:text-copper text-sm mb-4 inline-block"
         >
           ← Back to LLM Explorer
         </Link>
@@ -99,7 +99,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
           return (
             <div key={idx} className="relative">
               {model ? (
-                <div className="bg-[var(--gray-900)] border border-purple-500/30 rounded-lg p-4">
+                <div className="bg-[var(--gray-900)] border border-copper/30 rounded-lg p-4">
                   <button
                     onClick={() => removeModel(model.slug)}
                     className="absolute top-2 right-2 text-[var(--gray-500)] hover:text-white text-sm cursor-pointer"
@@ -125,7 +125,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
               ) : (
                 <button
                   onClick={() => setActiveSlot(idx)}
-                  className="w-full bg-[var(--gray-900)] border border-dashed border-[var(--gray-700)] rounded-lg p-4 text-center hover:border-purple-500/40 transition-colors cursor-pointer"
+                  className="w-full bg-[var(--gray-900)] border border-dashed border-[var(--gray-700)] rounded-lg p-4 text-center hover:border-copper/40 transition-colors cursor-pointer"
                 >
                   <span className="text-[var(--gray-500)] text-sm">
                     + Add Model
@@ -146,7 +146,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             autoFocus
-            className="w-full bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-lg px-4 py-3 text-white text-sm placeholder:text-[var(--gray-500)] focus:outline-none focus:border-purple-500/60"
+            className="w-full bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-lg px-4 py-3 text-white text-sm placeholder:text-[var(--gray-500)] focus:outline-none focus:border-copper"
           />
           {searchResults.length > 0 && (
             <div className="absolute top-full left-0 right-0 mt-1 bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-lg overflow-hidden z-10 max-h-64 overflow-y-auto">
@@ -189,7 +189,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
         <div className="mb-6 flex items-center gap-3">
           <button
             onClick={() => setCurrency((c) => (c === 'usd' ? 'inr' : 'usd'))}
-            className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg px-4 py-2 text-sm font-semibold transition-colors cursor-pointer"
+            className="bg-copper hover:bg-copper-dim text-white rounded-lg px-4 py-2 text-sm font-semibold transition-colors cursor-pointer"
           >
             {currency === 'usd' ? '$ USD' : '₹ INR'}
           </button>
@@ -212,7 +212,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
                   >
                     <Link
                       href={`/llms/${m.slug}`}
-                      className="hover:text-purple-300"
+                      className="hover:text-copper-bright"
                     >
                       {m.name}
                     </Link>
@@ -382,7 +382,7 @@ export default function LLMCompareClient({ dataset }: LLMCompareClientProps) {
           </p>
           <p className="text-[var(--gray-500)] text-sm">
             Click &ldquo;+ Add Model&rdquo; above, or{' '}
-            <Link href="/llms" className="text-purple-400 hover:text-purple-300">
+            <Link href="/llms" className="text-copper hover:text-copper-bright">
               browse the LLM Explorer
             </Link>{' '}
             and use the compare checkboxes

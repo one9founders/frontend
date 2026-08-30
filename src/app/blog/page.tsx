@@ -47,12 +47,12 @@ export default function BlogPage() {
             <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
               <article className="bg-[var(--gray-900)] rounded-lg p-6 hover:bg-[var(--gray-800)] transition-colors">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-400">
+                  <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-copper/20 text-copper">
                     {post.category}
                   </span>
                   <span className="text-[var(--gray-500)] text-sm">{post.readingTime}</span>
                 </div>
-                <h2 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                <h2 className="text-xl font-semibold text-white mb-2 group-hover:text-copper transition-colors">
                   {post.title}
                 </h2>
                 <p className="text-[var(--gray-400)] text-sm mb-3">{post.excerpt}</p>

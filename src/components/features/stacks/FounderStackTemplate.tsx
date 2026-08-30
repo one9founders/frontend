@@ -86,7 +86,7 @@ export default function FounderStackTemplate({ data }: { data: StackPageData }) 
         {/* Hero */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-3">
-            <span className="bg-purple-600/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium">
+            <span className="bg-copper/20 text-copper px-3 py-1 rounded-full text-xs font-medium">
               Founder Stack
             </span>
             <span className="text-[var(--gray-500)] text-xs">
@@ -98,7 +98,7 @@ export default function FounderStackTemplate({ data }: { data: StackPageData }) 
         </div>
 
         {/* TL;DR */}
-        <div className="bg-[var(--gray-800)] border-l-4 border-purple-500 rounded-r-lg p-5 mb-10">
+        <div className="bg-[var(--gray-800)] border-l-4 border-copper rounded-r-lg p-5 mb-10">
           <h2 className="text-lg font-semibold text-white mb-2">TL;DR</h2>
           <p className="text-[var(--gray-300)] text-sm leading-relaxed">{data.tldr}</p>
         </div>
@@ -107,14 +107,14 @@ export default function FounderStackTemplate({ data }: { data: StackPageData }) 
         <StackCostCalculator stackSlug={data.slug} categories={data.categories} />
 
         {/* Copy This Stack CTA */}
-        <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-600/30 rounded-lg p-8 text-center mb-10">
+        <div className="bg-gradient-to-r from-copper/20 to-copper/5 border border-copper/30 rounded-lg p-8 text-center mb-10">
           <h2 className="text-2xl font-bold text-white mb-3">Copy This Stack</h2>
           <p className="text-[var(--gray-300)] mb-6 max-w-xl mx-auto">
             Get the complete list of tools with setup guides and exclusive startup discounts.
           </p>
           <a
             href="/tools"
-            className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+            className="inline-block bg-copper hover:bg-copper-dim text-white font-semibold px-8 py-3 rounded-lg transition-colors"
           >
             Explore All Tools
           </a>

@@ -53,14 +53,14 @@ export default function AnswerEngineHome() {
     <>
       <section className="px-4 pb-10 pt-14 md:px-6 md:pb-14 md:pt-20">
         <div className="mx-auto max-w-3xl">
-          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.18em] text-purple-400">
+          <p className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.18em] text-copper">
             Tell us the job. We assemble the stack.
           </p>
           <form onSubmit={onSubmit}>
             <label htmlFor="job-ask" className="sr-only">
               What do you need to get done?
             </label>
-            <div className="flex items-center rounded-2xl border border-[var(--gray-700)] bg-[var(--gray-900)] px-4 py-3.5 focus-within:border-purple-500 md:px-5 md:py-4">
+            <div className="flex items-center rounded-2xl border border-[var(--gray-700)] bg-[var(--gray-900)] px-4 py-3.5 focus-within:border-copper md:px-5 md:py-4">
               <HugeiconsIcon icon={Search01Icon} className="mr-3 h-5 w-5 shrink-0 text-[var(--gray-500)]" />
               <input
                 id="job-ask"
@@ -73,7 +73,7 @@ export default function AnswerEngineHome() {
               <button
                 type="submit"
                 disabled={loading || !query.trim()}
-                className="ml-3 hidden shrink-0 rounded-lg bg-[var(--brand-primary)] px-3 py-1.5 text-sm font-medium text-white hover:bg-[var(--brand-secondary)] disabled:opacity-50 md:inline-flex"
+                className="ml-3 hidden shrink-0 rounded-lg bg-[var(--brand-primary)] px-3 py-1.5 text-sm font-medium text-[var(--ink)] hover:bg-[var(--brand-secondary)] disabled:opacity-50 md:inline-flex"
               >
                 {loading ? 'Assembling…' : 'Assemble'}
               </button>
@@ -109,7 +109,7 @@ export default function AnswerEngineHome() {
       {recent.length > 0 && (
         <section className="border-t border-[var(--gray-800)] px-4 py-10 md:px-6">
           <div className="mx-auto max-w-3xl">
-            <p className="mb-1 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-purple-400">
+            <p className="mb-1 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-copper">
               <HugeiconsIcon icon={Time01Icon} className="h-3.5 w-3.5" />
               Return to a stack
             </p>

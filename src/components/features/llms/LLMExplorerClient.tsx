@@ -117,7 +117,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-4">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
-          <span className="text-purple-400">One9</span>Founders LLM Explorer
+          <span className="text-copper">One9</span>Founders LLM Explorer
         </h1>
         <p className="text-[var(--gray-400)] text-sm sm:text-base">
           {dataset.metadata.total_models} models compared - Pricing, benchmarks
@@ -138,7 +138,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
               <Link
                 key={key}
                 href={`/llms/${pick.slug}`}
-                className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg p-3 hover:border-purple-500/40 transition-colors group"
+                className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg p-3 hover:border-copper/40 transition-colors group"
               >
                 <span className="text-lg block mb-1">{label.emoji}</span>
                 <p className="text-xs font-semibold text-[var(--gray-400)] group-hover:text-white transition-colors">
@@ -164,7 +164,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
             placeholder="Search models or providers..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-[var(--gray-500)] focus:outline-none focus:border-purple-500/60 sm:min-w-[240px] flex-1 sm:flex-none"
+            className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-4 py-2.5 text-white text-sm placeholder:text-[var(--gray-500)] focus:outline-none focus:border-copper sm:min-w-[240px] flex-1 sm:flex-none"
           />
 
           {/* Mobile filter toggle */}
@@ -182,7 +182,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
             <select
               value={provFilter}
               onChange={(e) => setProvFilter(e.target.value)}
-              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500/60"
+              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-copper"
             >
               <option value="all">All Providers</option>
               {providers.map((p) => (
@@ -195,7 +195,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
             <select
               value={tierFilter}
               onChange={(e) => setTierFilter(e.target.value)}
-              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500/60"
+              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-copper"
             >
               <option value="all">All Tiers</option>
               {Object.entries(TIER_LABELS).map(([k, v]) => (
@@ -208,7 +208,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
             <select
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
-              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500/60"
+              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-copper"
             >
               <option value="all">All Types</option>
               <option value="proprietary">Proprietary</option>
@@ -218,7 +218,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
             <select
               value={capFilter}
               onChange={(e) => setCapFilter(e.target.value)}
-              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500/60"
+              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-copper"
             >
               <option value="all">All Capabilities</option>
               {capabilityKeys.map((c) => (
@@ -231,7 +231,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as LLMSortOption)}
-              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500/60"
+              className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-copper"
             >
               <option value="arena">Arena Rank</option>
               <option value="intelligence">Intelligence</option>
@@ -247,7 +247,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
               onClick={() =>
                 setCurrency((c) => (c === 'usd' ? 'inr' : 'usd'))
               }
-              className="bg-purple-600 hover:bg-purple-700 text-white border-none rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors cursor-pointer"
+              className="bg-copper hover:bg-copper-dim text-white border-none rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors cursor-pointer"
             >
               {currency === 'usd' ? '$ USD' : '₹ INR'}
             </button>
@@ -261,7 +261,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
 
       {/* Compare Bar */}
       {compareList.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-[var(--gray-900)] border-t border-purple-500/40 p-4 z-50">
+        <div className="fixed bottom-0 left-0 right-0 bg-[var(--gray-900)] border-t border-copper/40 p-4 z-50">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm text-[var(--gray-400)]">
@@ -294,7 +294,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
               </button>
               <Link
                 href={`/llms/compare?models=${compareList.join(',')}`}
-                className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
+                className="bg-copper hover:bg-copper-dim text-white rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
               >
                 Compare →
               </Link>
@@ -332,7 +332,7 @@ export default function LLMExplorerClient({ dataset }: LLMExplorerClientProps) {
                 setTypeFilter('all');
                 setCapFilter('all');
               }}
-              className="mt-4 text-purple-400 hover:text-purple-300 text-sm cursor-pointer"
+              className="mt-4 text-copper hover:text-copper-bright text-sm cursor-pointer"
             >
               Clear all filters
             </button>
@@ -357,7 +357,7 @@ function ModelCard({
   compareDisabled: boolean;
 }) {
   return (
-    <div className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-xl p-4 hover:border-purple-500/40 transition-all group relative">
+    <div className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-xl p-4 hover:border-copper/40 transition-all group relative">
       {/* Compare checkbox */}
       <button
         onClick={(e) => {
@@ -367,7 +367,7 @@ function ModelCard({
         disabled={compareDisabled && !isComparing}
         className={`absolute top-3 right-3 w-5 h-5 rounded border text-xs flex items-center justify-center transition-colors cursor-pointer ${
           isComparing
-            ? 'bg-purple-600 border-purple-600 text-white'
+            ? 'bg-copper border-copper text-white'
             : 'border-[var(--gray-700)] text-transparent hover:border-[var(--gray-500)]'
         } ${compareDisabled && !isComparing ? 'opacity-30 cursor-not-allowed' : ''}`}
         title={isComparing ? 'Remove from compare' : 'Add to compare'}
@@ -379,7 +379,7 @@ function ModelCard({
         {/* Header */}
         <div className="flex justify-between items-start mb-2 pr-6">
           <div>
-            <h3 className="text-base font-semibold text-white group-hover:text-purple-300 transition-colors">
+            <h3 className="text-base font-semibold text-white group-hover:text-copper-bright transition-colors">
               {m.name}
             </h3>
             <div className="flex items-center gap-2 mt-1">

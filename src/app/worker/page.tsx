@@ -63,11 +63,11 @@ export default function One9WorkerPage() {
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
             background:
-              'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(234, 179, 8, 0.18), transparent 55%), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(16, 185, 129, 0.12), transparent 50%)',
+              'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(196, 122, 58, 0.18), transparent 55%), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(16, 185, 129, 0.12), transparent 50%)',
           }}
         />
         <div className="relative max-w-4xl mx-auto text-center">
-          <p className="text-sm font-medium tracking-wide text-amber-400/90 mb-4">
+          <p className="text-sm font-medium tracking-wide text-copper mb-4">
             One9Founders Worker
           </p>
           <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
@@ -83,7 +83,7 @@ export default function One9WorkerPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
               href={WINDOWS_EXE_URL}
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-copper text-[var(--ink)] font-semibold hover:bg-copper-bright transition-colors"
             >
               Download for Windows
             </a>
@@ -134,7 +134,7 @@ export default function One9WorkerPage() {
           </div>
           <p className="mt-6 text-sm text-[var(--gray-500)]">
             See also our sitewide{' '}
-            <Link href="/privacy" className="text-amber-400/90 hover:underline">
+            <Link href="/privacy" className="text-copper hover:underline">
               Privacy Policy
             </Link>
             .
@@ -150,7 +150,7 @@ export default function One9WorkerPage() {
           <ol className="space-y-6">
             {STEPS.map((s) => (
               <li key={s.n} className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-amber-500/40 text-amber-400 font-semibold text-sm">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-copper/40 text-copper font-semibold text-sm">
                   {s.n}
                 </span>
                 <div>
@@ -176,13 +176,13 @@ export default function One9WorkerPage() {
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href={WINDOWS_EXE_URL}
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-copper text-[var(--ink)] font-semibold hover:bg-copper-bright transition-colors"
             >
               Windows (x64) .exe
             </a>
             <a
               href={DMG_URL}
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-white hover:border-amber-500/50 transition-colors"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[var(--gray-900)] border border-[var(--gray-700)] text-white hover:border-copper/50 transition-colors"
             >
               macOS (Apple Silicon) .dmg
             </a>
@@ -201,7 +201,7 @@ export default function One9WorkerPage() {
               href="https://github.com/andrewyng/openworker"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-400/90 hover:underline"
+              className="text-copper hover:underline"
             >
               OpenWorker
             </a>

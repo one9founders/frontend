@@ -61,7 +61,7 @@ export default function SimilarAgents({ categorySlug, currentSlug }: SimilarAgen
           <Link
             key={agent.slug}
             href={`/agents/${agent.slug}`}
-            className="flex-shrink-0 w-44 rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-3 hover:border-purple-500/50 transition-colors"
+            className="flex-shrink-0 w-44 rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-3 hover:border-copper/50 transition-colors"
           >
             <div className="flex items-center gap-2 mb-2">
               <ToolLogo logoUrl={agent.logo_url} name={agent.name} size="xs" />
@@ -71,7 +71,7 @@ export default function SimilarAgents({ categorySlug, currentSlug }: SimilarAgen
               <div className="flex items-center gap-1.5">
                 <div className="flex-1 h-1 bg-[var(--gray-700)] rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-purple-500 rounded-full"
+                    className="h-full bg-copper rounded-full"
                     style={{ width: `${Math.min(agent.popularity_score, 100)}%` }}
                   />
                 </div>

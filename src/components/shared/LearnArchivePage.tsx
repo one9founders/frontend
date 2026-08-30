@@ -99,7 +99,7 @@ function LearnArchiveContent({
                   ? 'Try adjusting or clearing your filters to see more results.'
                   : `We're working on ${contentType} content. Check back soon or subscribe to get notified.`}
               </p>
-              <Link href="/learn" className="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center gap-2">
+              <Link href="/learn" className="text-copper hover:text-copper-bright font-medium inline-flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>

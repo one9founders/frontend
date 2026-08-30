@@ -16,8 +16,8 @@ export const metadata: Metadata = generateSEO({
 
 const pathColors: Record<string, { gradient: string; border: string; iconBg: string }> = {
   students: { gradient: 'from-blue-500/20 to-blue-600/5', border: 'border-blue-500/30', iconBg: 'bg-blue-500/10' },
-  professionals: { gradient: 'from-purple-500/20 to-purple-600/5', border: 'border-purple-500/30', iconBg: 'bg-purple-500/10' },
-  entrepreneurs: { gradient: 'from-orange-500/20 to-orange-600/5', border: 'border-orange-500/30', iconBg: 'bg-orange-500/10' },
+  professionals: { gradient: 'from-rose-500/20 to-rose-600/5', border: 'border-rose-500/30', iconBg: 'bg-rose-500/10' },
+  entrepreneurs: { gradient: 'from-copper/20 to-copper/5', border: 'border-copper/30', iconBg: 'bg-copper/10' },
   'sme-owners': { gradient: 'from-green-500/20 to-green-600/5', border: 'border-green-500/30', iconBg: 'bg-green-500/10' },
 };
 
@@ -87,7 +87,7 @@ export default async function PathsPage() {
                         )}
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors mb-2">
+                        <h3 className="text-lg font-bold text-white group-hover:text-copper-bright transition-colors mb-2">
                           {path.title}
                         </h3>
                         <p className="text-sm text-[var(--gray-400)] mb-3">
@@ -119,7 +119,7 @@ export default async function PathsPage() {
               <p className="text-[var(--gray-400)] max-w-md mx-auto mb-6">
                 Structured learning journeys tailored to your goals are on the way.
               </p>
-              <Link href="/learn" className="text-purple-400 hover:text-purple-300 font-medium inline-flex items-center gap-2">
+              <Link href="/learn" className="text-copper hover:text-copper-bright font-medium inline-flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>

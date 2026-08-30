@@ -71,7 +71,7 @@ export default function NewsPageClient() {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${
                 selectedCategory === category
-                  ? 'text-white'
+                  ? 'text-[var(--ink)]'
                   : 'bg-[var(--gray-800)] text-[var(--gray-300)] hover:bg-[var(--gray-700)]'
               }`}
               style={selectedCategory === category ? { backgroundColor: 'var(--brand-primary)' } : {}}

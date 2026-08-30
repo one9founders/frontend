@@ -73,7 +73,7 @@ export default function NewsCard({ article, sessionId }: NewsCardProps) {
           />
           {article.category && (
             <div className="absolute top-3 left-3">
-              <span className="text-white text-xs px-2 py-1 rounded-full bg-[var(--brand-primary)]">
+              <span className="text-[var(--ink)] text-xs px-2 py-1 rounded-full bg-[var(--brand-primary)]">
                 {article.category}
               </span>
             </div>
@@ -112,7 +112,7 @@ export default function NewsCard({ article, sessionId }: NewsCardProps) {
           disabled={isUpvoting}
           className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${
             hasUpvoted 
-              ? 'bg-[var(--brand-primary)] text-white' 
+              ? 'bg-[var(--brand-primary)] text-[var(--ink)]' 
               : 'bg-[var(--gray-800)] text-[var(--gray-400)] hover:bg-[var(--gray-700)] hover:text-white'
           } ${isUpvoting ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
         >

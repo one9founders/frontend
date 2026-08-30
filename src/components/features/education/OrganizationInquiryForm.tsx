@@ -81,7 +81,7 @@ export default function OrganizationInquiryForm({
               value={formData.inquiry_type}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             >
               <option value="college">College / University</option>
               <option value="corporate">Corporate / Company</option>
@@ -99,7 +99,7 @@ export default function OrganizationInquiryForm({
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             />
           </div>
           <div>
@@ -111,7 +111,7 @@ export default function OrganizationInquiryForm({
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             />
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function OrganizationInquiryForm({
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             />
           </div>
           <div>
@@ -138,7 +138,7 @@ export default function OrganizationInquiryForm({
               value={formData.organization}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             />
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function OrganizationInquiryForm({
               name="role"
               value={formData.role}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             />
           </div>
           <div>
@@ -163,7 +163,7 @@ export default function OrganizationInquiryForm({
               name="city"
               value={formData.city}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             />
           </div>
         </div>
@@ -177,7 +177,7 @@ export default function OrganizationInquiryForm({
               name="estimated_batch_size"
               value={formData.estimated_batch_size}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
               placeholder="e.g. 50"
             />
           </div>
@@ -188,7 +188,7 @@ export default function OrganizationInquiryForm({
               name="preferred_timeline"
               value={formData.preferred_timeline}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
             >
               <option value="">Select timeline</option>
               <option value="immediate">Immediate (within 2 weeks)</option>
@@ -207,7 +207,7 @@ export default function OrganizationInquiryForm({
             value={formData.message}
             onChange={handleChange}
             rows={3}
-            className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500 resize-none"
+            className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper resize-none"
             placeholder="Tell us about your training needs..."
           />
         </div>

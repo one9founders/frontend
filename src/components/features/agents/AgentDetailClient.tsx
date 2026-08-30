@@ -82,7 +82,7 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                   {agent.category_name && agent.category_slug && (
                     <Link
                       href={`/agents/category/${agent.category_slug}`}
-                      className="hover:text-purple-400 transition-colors"
+                      className="hover:text-copper transition-colors"
                     >
                       {agent.category_name}
                     </Link>
@@ -136,7 +136,7 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                 href={agent.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors bg-purple-600 text-white hover:bg-purple-700"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors bg-copper text-white hover:bg-copper-dim"
               >
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={18} />
                 Visit Site
@@ -184,7 +184,7 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-4 py-3 text-sm font-medium transition-colors border-b-2 cursor-pointer ${
                   activeTab === tab.key
-                    ? 'text-white border-purple-500'
+                    ? 'text-white border-copper'
                     : 'text-[var(--gray-400)] border-transparent hover:text-white hover:border-[var(--gray-600)]'
                 }`}
               >
@@ -221,7 +221,7 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                     const hasTitle = colonIndex > 0 && colonIndex < 60;
                     return (
                       <li key={i} className="flex items-start gap-3">
-                        <span className="mt-1.5 w-2 h-2 rounded-full bg-purple-500 flex-shrink-0" />
+                        <span className="mt-1.5 w-2 h-2 rounded-full bg-copper flex-shrink-0" />
                         <div>
                           {hasTitle ? (
                             <>

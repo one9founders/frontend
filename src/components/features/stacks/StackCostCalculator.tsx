@@ -166,13 +166,13 @@ export default function StackCostCalculator({ stackSlug, categories }: StackCost
                       key={toolIdx}
                       onClick={() => handleToolSelect(category.name, tool.slug)}
                       className={`border-b border-[var(--gray-800)] cursor-pointer transition-colors ${
-                        isSelected ? 'bg-purple-600/15' : 'hover:bg-[var(--gray-800)]/50'
+                        isSelected ? 'bg-copper/15' : 'hover:bg-[var(--gray-800)]/50'
                       }`}
                     >
                       <td className="py-3 px-4">
                         <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                           isSelected
-                            ? 'border-purple-500 bg-purple-500'
+                            ? 'border-copper bg-copper'
                             : 'border-[var(--gray-600)]'
                         }`}>
                           {isSelected && (
@@ -185,13 +185,13 @@ export default function StackCostCalculator({ stackSlug, categories }: StackCost
                       <td className="py-3 px-4">
                         <a
                           href={`/tool/${tool.slug}`}
-                          className="text-white hover:text-purple-400 font-medium"
+                          className="text-white hover:text-copper font-medium"
                           onClick={(e) => e.stopPropagation()}
                         >
                           {tool.name}
                         </a>
                         {tool.isPick && (
-                          <span className="ml-2 bg-purple-600 text-white px-1.5 py-0.5 rounded text-xs">
+                          <span className="ml-2 bg-copper text-white px-1.5 py-0.5 rounded text-xs">
                             Top Pick
                           </span>
                         )}

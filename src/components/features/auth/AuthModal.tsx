@@ -67,7 +67,7 @@ function PillGroup({
             onClick={() => onToggle(opt)}
             className={`px-3 py-1 rounded-full text-xs border transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
               isSelected
-                ? 'border-[var(--brand-primary)] bg-[rgba(120,40,217,0.15)] text-white'
+                ? 'border-[var(--brand-primary)] bg-[rgba(196,122,58,0.15)] text-[var(--paper)]'
                 : 'border-[var(--gray-700)] bg-[var(--gray-800)] text-[var(--gray-400)]'
             }`}
           >
@@ -245,7 +245,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
             <input type="email" name="email" placeholder="Email" aria-label="Email" autoComplete="email" required className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]" />
             <input type="password" name="password" placeholder="Password" aria-label="Password" autoComplete="current-password" required className="w-full px-4 py-2 rounded-lg text-white bg-[var(--gray-800)] border border-[var(--gray-700)]" />
             <CloudflareCheck onVerified={(token) => setTurnstileToken(token)} />
-            <button type="submit" disabled={isPending} className="w-full py-2 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
+            <button type="submit" disabled={isPending} className="w-full py-2 rounded-lg text-[var(--ink)] disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
               {isPending ? 'Processing\u2026' : 'Login'}
             </button>
           </form>
@@ -281,7 +281,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {ROLES.map((r) => (
                   <button key={r.id} type="button" onClick={() => setSelectedRole(r.id)}
-                    className={`border rounded-lg p-3 text-left transition-colors cursor-pointer ${selectedRole === r.id ? 'border-[var(--brand-primary)] bg-[rgba(120,40,217,0.12)]' : 'border-[var(--gray-800)] bg-[var(--gray-800)]'}`}>
+                    className={`border rounded-lg p-3 text-left transition-colors cursor-pointer ${selectedRole === r.id ? 'border-[var(--brand-primary)] bg-[rgba(196,122,58,0.12)]' : 'border-[var(--gray-800)] bg-[var(--gray-800)]'}`}>
                     <span className="text-lg">{r.icon}</span>
                     <p className="text-sm font-medium text-white mt-1">{r.label}</p>
                     <p className="text-xs text-[var(--gray-500)]">{r.desc}</p>
@@ -289,7 +289,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
                 ))}
               </div>
               <button disabled={!selectedRole} onClick={() => { if (selectedRole === 'founder' || selectedRole === 'cofounder') { setStep('account'); } else { setStep('nonfounder_gate'); } }}
-                className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
+                className="w-full py-2.5 rounded-lg text-[var(--ink)] disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
                 Continue
               </button>
               <p className="mt-4 text-center text-sm text-[var(--gray-500)]">
@@ -309,12 +309,12 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
                   <p className="text-sm font-medium text-white mb-2">What you still get access to</p>
                   <div className="flex flex-wrap gap-2">
                     {['AI tool directory', 'Startup guides', 'Free resources', 'Newsletter'].map((tag) => (
-                      <span key={tag} className="px-2 py-1 text-xs rounded-full bg-[rgba(120,40,217,0.15)] text-purple-300 border border-purple-500/30">{tag}</span>
+                      <span key={tag} className="px-2 py-1 text-xs rounded-full bg-[rgba(196,122,58,0.15)] text-copper-bright border border-copper/30">{tag}</span>
                     ))}
                   </div>
                 </div>
               </div>
-              <button onClick={() => setStep('account')} className="w-full py-2.5 rounded-lg text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mb-3">Create a basic account</button>
+              <button onClick={() => setStep('account')} className="w-full py-2.5 rounded-lg text-[var(--ink)] bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mb-3">Create a basic account</button>
               <button onClick={() => setStep('role')} className="w-full text-center text-sm text-[var(--gray-500)] hover:text-white cursor-pointer">&larr; Change my answer</button>
             </>
           )}
@@ -347,7 +347,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
                 </div>
                 <CloudflareCheck onVerified={(token) => setTurnstileToken(token)} />
                 <button disabled={isPending} onClick={() => { if (!turnstileToken) { Swal.fire('Error', 'Please complete the verification checkbox above', 'error'); return; } if (!validateAccount()) return; if (isFounder) { setStep('startup_profile'); } else { handleSubmit(); } }}
-                  className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
+                  className="w-full py-2.5 rounded-lg text-[var(--ink)] disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
                   {isPending ? 'Processing\u2026' : isFounder ? 'Continue' : 'Create account'}
                 </button>
               </div>
@@ -394,7 +394,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
                 </div>
               </div>
               <button onClick={() => { if (!validateStartupProfile()) return; setStep('ai_prefs'); }}
-                className="w-full py-2.5 rounded-lg text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">Continue</button>
+                className="w-full py-2.5 rounded-lg text-[var(--ink)] bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">Continue</button>
               <button onClick={() => setStep('account')} className="w-full text-center text-sm text-[var(--gray-500)] hover:text-white cursor-pointer mt-3">&larr; Back</button>
             </>
           )}
@@ -420,7 +420,7 @@ export default function AuthModal({ isOpen, onClose, defaultMode = 'login' }: Au
                 </div>
               </div>
               <button disabled={isPending} onClick={() => { if (!turnstileToken) { Swal.fire('Error', 'Please complete the verification checkbox above', 'error'); return; } handleSubmit(); }}
-                className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">
+                className="w-full py-2.5 rounded-lg text-[var(--ink)] disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">
                 {isPending ? 'Creating account\u2026' : 'Create account'}
               </button>
               <button onClick={() => setStep('startup_profile')} className="w-full text-center text-sm text-[var(--gray-500)] hover:text-white cursor-pointer mt-3">&larr; Back</button>

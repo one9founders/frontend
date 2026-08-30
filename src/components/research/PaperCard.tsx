@@ -9,8 +9,8 @@ interface PaperCardProps {
   variant?: 'default' | 'compact' | 'detail';
 }
 
-const tagColors: Record<string, 'teal' | 'purple' | 'amber' | 'blue' | 'green' | 'red' | 'gray'> = {
-  llms: 'purple',
+const tagColors: Record<string, 'teal' | 'copper' | 'amber' | 'blue' | 'green' | 'red' | 'gray'> = {
+  llms: 'copper',
   agents: 'teal',
   rag: 'amber',
   vision: 'blue',
@@ -36,7 +36,7 @@ export default function PaperCard({ paper, variant = 'default' }: PaperCardProps
   if (variant === 'compact') {
     return (
       <Link href={`/research/${encodedId}`} className="block min-w-[280px] max-w-[320px]">
-        <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-3 hover:border-purple-500/50 transition-all duration-300 cursor-pointer h-full">
+        <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-3 hover:border-copper/50 transition-all duration-300 cursor-pointer h-full">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-[var(--gray-500)]">{formatDate(paper.published_at)}</span>
             {paper.is_trending && (
@@ -63,7 +63,7 @@ export default function PaperCard({ paper, variant = 'default' }: PaperCardProps
 
   return (
     <Link href={`/research/${encodedId}`} className="block">
-      <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-5 hover:border-purple-500/50 transition-all duration-300 cursor-pointer">
+      <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-5 hover:border-copper/50 transition-all duration-300 cursor-pointer">
         {/* Top row: date + category */}
         <div className="flex items-center justify-between mb-3">
           <span className="text-xs text-[var(--gray-500)]">{formatDate(paper.published_at)}</span>

@@ -155,7 +155,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
       <div className="mb-8">
         <div className="bg-[var(--gray-900)] rounded-lg p-6">
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-copper"></div>
             <span className="ml-3 text-white">Loading tools...</span>
           </div>
         </div>
@@ -167,16 +167,16 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
     <div className="mb-8">
       {/* Selected Tools Preview */}
       {selectedTools.length > 0 && (
-        <div className="bg-[var(--gray-900)] rounded-lg p-4 mb-4 border border-purple-500/30">
+        <div className="bg-[var(--gray-900)] rounded-lg p-4 mb-4 border border-copper/30">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-lg font-semibold text-white">Selected for Comparison</h3>
-            <span className="text-sm text-purple-400">{selectedTools.length}/4 tools</span>
+            <span className="text-sm text-copper">{selectedTools.length}/4 tools</span>
           </div>
           <div className="flex flex-wrap gap-3">
             {selectedTools.map((tool) => (
               <div
                 key={tool.id}
-                className="flex items-center gap-2 px-3 py-2 bg-purple-600/20 border border-purple-500/40 rounded-lg"
+                className="flex items-center gap-2 px-3 py-2 bg-copper/20 border border-copper/40 rounded-lg"
               >
                 <ToolLogo logoUrl={tool.logo_url} name={tool.name} size="xs" />
                 <span className="text-white text-sm font-medium">{tool.name}</span>
@@ -225,7 +225,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
               }
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-10 py-3 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-purple-500 focus:outline-none transition-colors"
+              className="w-full pl-10 pr-10 py-3 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-copper focus:outline-none transition-colors"
             />
             {searchQuery && (
               <button
@@ -243,7 +243,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-2 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-purple-500 focus:outline-none cursor-pointer"
+              className="px-4 py-2 bg-[var(--gray-800)] text-white rounded-lg border border-[var(--gray-700)] focus:border-copper focus:outline-none cursor-pointer"
             >
               <option value="all">All Categories</option>
               {categories.map((cat) => (
@@ -261,7 +261,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
                   onClick={() => setSelectedPricing(option.value)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     selectedPricing === option.value
-                      ? 'bg-purple-600 text-white'
+                      ? 'bg-copper text-white'
                       : 'bg-[var(--gray-800)] text-[var(--gray-300)] hover:bg-[var(--gray-700)]'
                   }`}
                 >
@@ -278,7 +278,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
                   setSelectedPricing('all');
                   setSearchQuery('');
                 }}
-                className="px-4 py-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                className="px-4 py-2 text-sm text-copper hover:text-copper-bright transition-colors"
               >
                 Clear filters
               </button>
@@ -297,7 +297,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
                   className={`flex items-start gap-3 p-4 bg-[var(--gray-800)] rounded-lg border border-[var(--gray-700)] transition-all ${
                     selectedTools.length >= 4
                       ? 'opacity-50 cursor-not-allowed'
-                      : 'cursor-pointer hover:bg-[var(--gray-700)] hover:border-purple-500/50'
+                      : 'cursor-pointer hover:bg-[var(--gray-700)] hover:border-copper/50'
                   }`}
                 >
                     <div className="flex-shrink-0">
@@ -349,7 +349,7 @@ export default function ToolSelector({ tools, selectedTools, onAddTool, loading 
                 setSelectedPricing('all');
                 setSearchQuery('');
               }}
-              className="mt-4 px-4 py-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+              className="mt-4 px-4 py-2 text-sm text-copper hover:text-copper-bright transition-colors"
             >
               Clear all filters
             </button>

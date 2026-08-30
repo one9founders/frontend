@@ -259,7 +259,7 @@ export default async function MethodologyPage() {
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                     criterion.weight === 'Hands-on'
                       ? 'bg-amber-600/20 text-amber-300'
-                      : 'bg-purple-600/20 text-purple-400'
+                      : 'bg-copper/20 text-copper'
                   }`}>
                     {criterion.weight}
                   </span>
@@ -302,7 +302,7 @@ export default async function MethodologyPage() {
                 key={index}
                 className="flex gap-4 bg-[var(--gray-900)] border border-[var(--gray-700)] rounded-xl p-6"
               >
-                <div className="flex-shrink-0 w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-copper rounded-full flex items-center justify-center text-[var(--ink)] font-bold">
                   {index + 1}
                 </div>
                 <div>
@@ -320,7 +320,7 @@ export default async function MethodologyPage() {
             Our Zero Affiliate Bias Commitment
           </h2>
 
-          <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-xl p-8">
+          <div className="bg-gradient-to-r from-copper/20 to-copper/5 border border-copper/30 rounded-xl p-8">
             <p className="text-[var(--gray-300)] text-lg leading-relaxed mb-4">
               One9Founders does not accept affiliate commissions from any tool listed
               in our directory. Our revenue comes from optional premium listings and
@@ -383,7 +383,7 @@ export default async function MethodologyPage() {
             <div className="mt-6 pt-6 border-t border-[var(--gray-700)]">
               <p className="text-[var(--gray-400)]">
                 LLM data is updated as providers release new models or change pricing. Visit our{' '}
-                <Link href="/llms" className="text-purple-400 hover:text-purple-300 underline">LLM Explorer</Link>{' '}
+                <Link href="/llms" className="text-copper hover:text-copper-bright underline">LLM Explorer</Link>{' '}
                 to compare all 250+ models.
               </p>
             </div>
@@ -439,7 +439,7 @@ export default async function MethodologyPage() {
             <div className="mt-6 pt-6 border-t border-[var(--gray-700)]">
               <p className="text-[var(--gray-400)]">
                 Papers are added as they appear on arXiv. Visit the{' '}
-                <Link href="/research" className="text-purple-400 hover:text-purple-300 underline">research hub</Link>{' '}
+                <Link href="/research" className="text-copper hover:text-copper-bright underline">research hub</Link>{' '}
                 to browse all {STATS.researchPapers} papers.
               </p>
             </div>

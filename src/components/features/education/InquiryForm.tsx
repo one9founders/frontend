@@ -86,7 +86,7 @@ export default function InquiryForm({
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
               placeholder="Your full name"
             />
           </div>
@@ -99,7 +99,7 @@ export default function InquiryForm({
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
               placeholder="you@example.com"
             />
           </div>
@@ -115,7 +115,7 @@ export default function InquiryForm({
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
               placeholder="+91 XXXXX XXXXX"
             />
           </div>
@@ -127,7 +127,7 @@ export default function InquiryForm({
               name="city"
               value={formData.city}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+              className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
               placeholder="Mumbai"
             />
           </div>
@@ -140,7 +140,7 @@ export default function InquiryForm({
             name="current_role"
             value={formData.current_role}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500"
+            className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper"
           >
             <option value="">Select your role</option>
             <option value="student">College Student</option>
@@ -159,7 +159,7 @@ export default function InquiryForm({
             value={formData.message}
             onChange={handleChange}
             rows={3}
-            className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-purple-500 resize-none"
+            className="w-full px-4 py-2.5 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white focus:outline-none focus:border-copper resize-none"
             placeholder="Tell us about your goals..."
           />
         </div>

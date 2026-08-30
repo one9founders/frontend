@@ -73,7 +73,7 @@ export default function NewsDetailPage() {
         {/* Header */}
         <div className="mb-8">
           <div className="mb-4">
-            <span className="text-white text-sm px-3 py-1 rounded-full bg-[var(--brand-primary)]">
+            <span className="text-[var(--ink)] text-sm px-3 py-1 rounded-full bg-[var(--brand-primary)]">
               {article.category}
             </span>
           </div>

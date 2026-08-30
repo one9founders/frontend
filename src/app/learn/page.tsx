@@ -45,8 +45,8 @@ const audienceIcons: Record<string, React.ReactNode> = {
 
 const audienceColors: Record<string, { gradient: string; border: string }> = {
   students: { gradient: 'from-blue-500/20 to-blue-600/5', border: 'border-blue-500/30' },
-  professionals: { gradient: 'from-purple-500/20 to-purple-600/5', border: 'border-purple-500/30' },
-  entrepreneurs: { gradient: 'from-orange-500/20 to-orange-600/5', border: 'border-orange-500/30' },
+  professionals: { gradient: 'from-rose-500/20 to-rose-600/5', border: 'border-rose-500/30' },
+  entrepreneurs: { gradient: 'from-copper/20 to-copper/5', border: 'border-copper/30' },
   organizations: { gradient: 'from-green-500/20 to-green-600/5', border: 'border-green-500/30' },
 };
 
@@ -158,7 +158,7 @@ export default async function LearnPage() {
                         {icon}
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors mb-2">
+                        <h3 className="text-lg font-bold text-white group-hover:text-copper-bright transition-colors mb-2">
                           {audience.name}
                         </h3>
                         <p className="text-sm text-[var(--gray-400)]">{audience.description}</p>
@@ -183,7 +183,7 @@ export default async function LearnPage() {
               <h2 className="text-3xl font-bold text-white mb-2">Featured Courses</h2>
               <p className="text-[var(--gray-400)]">Hands-on programs to build real AI skills.</p>
             </div>
-            <Link href="/learn/courses" className="hidden sm:inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium">
+            <Link href="/learn/courses" className="hidden sm:inline-flex items-center gap-2 text-copper hover:text-copper-bright font-medium">
               View all courses
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
@@ -214,7 +214,7 @@ export default async function LearnPage() {
                 <h2 className="text-3xl font-bold text-white mb-2">Free Guides</h2>
                 <p className="text-[var(--gray-400)]">In-depth tutorials to help you get the most out of AI tools.</p>
               </div>
-              <Link href="/learn/guides" className="hidden sm:inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium">
+              <Link href="/learn/guides" className="hidden sm:inline-flex items-center gap-2 text-copper hover:text-copper-bright font-medium">
                 View all guides
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Link>
@@ -239,7 +239,7 @@ export default async function LearnPage() {
                 <h2 className="text-3xl font-bold text-white mb-2">Upcoming Workshops</h2>
                 <p className="text-[var(--gray-400)]">Live sessions with industry experts. Learn, ask questions, and network.</p>
               </div>
-              <Link href="/learn/workshops" className="hidden sm:inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium">
+              <Link href="/learn/workshops" className="hidden sm:inline-flex items-center gap-2 text-copper hover:text-copper-bright font-medium">
                 All workshops
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Link>
@@ -256,10 +256,10 @@ export default async function LearnPage() {
       {/* For Colleges & Corporates */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="rounded-2xl border border-[var(--gray-700)] bg-gradient-to-br from-purple-500/10 to-blue-500/5 p-8 md:p-12">
+          <div className="rounded-2xl border border-[var(--gray-700)] bg-gradient-to-br from-copper/10 to-copper/5 p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 bg-copper/10 text-copper border border-copper/20">
                   For Teams
                 </span>
                 <h2 className="text-3xl font-bold text-white mb-4">
@@ -276,8 +276,8 @@ export default async function LearnPage() {
                 <div className="w-full max-w-sm rounded-xl border border-[var(--gray-700)] bg-[var(--gray-900)] p-6">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-10 h-10 rounded-full bg-copper/10 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
@@ -287,7 +287,7 @@ export default async function LearnPage() {
                       </div>
                     </div>
                     <div className="h-2 w-full rounded-full bg-[var(--gray-800)]">
-                      <div className="h-2 w-3/4 rounded-full bg-purple-500/50" />
+                      <div className="h-2 w-3/4 rounded-full bg-copper/50" />
                     </div>
                     <div className="grid grid-cols-3 gap-3">
                       {['Courses', 'Workshops', 'Support'].map((item) => (

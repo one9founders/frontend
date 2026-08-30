@@ -3,7 +3,7 @@ import { Tool } from '../types';
 export const MIN_DESCRIPTION_WORDS = 40;
 
 export const JOB_CLUSTERS = [
-  { value: 'performance-marketing', label: 'Performance Marketing', color: 'bg-purple-600' },
+  { value: 'performance-marketing', label: 'Performance Marketing', color: 'bg-rose-600' },
   { value: 'sales', label: 'Sales', color: 'bg-blue-600' },
   { value: 'support', label: 'Support', color: 'bg-green-600' },
   { value: 'product', label: 'Product', color: 'bg-orange-600' },

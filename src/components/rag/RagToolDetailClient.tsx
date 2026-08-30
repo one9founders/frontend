@@ -12,9 +12,9 @@ interface RagToolDetailClientProps {
   tool: RagTool & { similar_tools?: RagTool[] };
 }
 
-const categoryConfig: Record<string, { label: string; variant: 'teal' | 'purple' | 'amber' }> = {
+const categoryConfig: Record<string, { label: string; variant: 'teal' | 'copper' | 'amber' }> = {
   vector_db: { label: 'Vector Database', variant: 'teal' },
-  rag_framework: { label: 'RAG Framework', variant: 'purple' },
+  rag_framework: { label: 'RAG Framework', variant: 'copper' },
   embedding_model: { label: 'Embedding Model', variant: 'amber' },
 };
 
@@ -94,7 +94,7 @@ export default function RagToolDetailClient({ tool }: RagToolDetailClientProps) 
       {/* Action buttons */}
       <div className="flex flex-wrap gap-3 mb-10">
         {tool.website_url && (
-          <a href={tool.website_url} target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 rounded-lg font-semibold text-sm text-white btn-primary inline-flex items-center gap-2">
+          <a href={tool.website_url} target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 rounded-lg font-semibold text-sm btn-primary inline-flex items-center gap-2">
             Visit Website
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
           </a>
@@ -123,7 +123,7 @@ export default function RagToolDetailClient({ tool }: RagToolDetailClientProps) 
               {tool.long_description.length > 400 && (
                 <button
                   onClick={() => setShowFullDescription(!showFullDescription)}
-                  className="text-purple-400 hover:text-purple-300 text-sm mt-2 cursor-pointer"
+                  className="text-copper hover:text-copper-bright text-sm mt-2 cursor-pointer"
                 >
                   {showFullDescription ? 'Show less' : 'Read more'}
                 </button>
@@ -156,7 +156,7 @@ export default function RagToolDetailClient({ tool }: RagToolDetailClientProps) 
                   <span className="text-sm text-[var(--gray-400)] w-32 flex-shrink-0">{RATING_LABELS[key] || key}</span>
                   <div className="flex-1 h-2 bg-[var(--gray-800)] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-purple-500 rounded-full transition-all"
+                      className="h-full bg-copper rounded-full transition-all"
                       style={{ width: `${(value / 5) * 100}%` }}
                     />
                   </div>
@@ -218,7 +218,7 @@ export default function RagToolDetailClient({ tool }: RagToolDetailClientProps) 
                 <span className="text-sm text-[var(--gray-500)] block mb-2">Integrations</span>
                 <div className="flex flex-wrap gap-2">
                   {tool.integrations.map((int_) => (
-                    <span key={int_} className="px-2 py-1 text-xs rounded-full bg-purple-600/20 text-purple-400 border border-purple-600/30">{int_}</span>
+                    <span key={int_} className="px-2 py-1 text-xs rounded-full bg-copper/20 text-copper border border-copper/30">{int_}</span>
                   ))}
                 </div>
               </div>
@@ -263,7 +263,7 @@ export default function RagToolDetailClient({ tool }: RagToolDetailClientProps) 
             </p>
           )}
           {tool.website_url && (
-            <a href={tool.website_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-purple-400 hover:text-purple-300 mt-3">
+            <a href={tool.website_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-copper hover:text-copper-bright mt-3">
               Visit pricing page
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
             </a>

@@ -32,7 +32,7 @@ export default function AgentFilters({
         <select
           value={selectedCategory}
           onChange={(e) => onCategoryChange(e.target.value)}
-          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-purple-500"
+          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-copper"
         >
           <option value="">All Categories</option>
           {categories.map((cat) => (
@@ -46,7 +46,7 @@ export default function AgentFilters({
         <select
           value={selectedPricing}
           onChange={(e) => onPricingChange(e.target.value)}
-          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-purple-500"
+          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-copper"
         >
           <option value="">All Pricing</option>
           <option value="free">Free</option>
@@ -58,7 +58,7 @@ export default function AgentFilters({
         <select
           value={selectedAccess}
           onChange={(e) => onAccessChange(e.target.value)}
-          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-purple-500"
+          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-copper"
         >
           <option value="">All Access</option>
           <option value="open-source">Open Source</option>
@@ -70,7 +70,7 @@ export default function AgentFilters({
         <select
           value={selectedSort}
           onChange={(e) => onSortChange(e.target.value)}
-          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-purple-500 ml-auto"
+          className="px-3 py-2 rounded-lg bg-[var(--gray-800)] text-white border border-[var(--gray-700)] text-sm focus:outline-none focus:border-copper ml-auto"
         >
           <option value="popular">Popular</option>
           <option value="trending">Trending</option>

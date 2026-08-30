@@ -101,7 +101,7 @@ export default function BrowseCategories({ toolCount, agentCount }: BrowseCatego
               onClick={() => handleClick(cat)}
               className={`group relative text-left p-4 rounded-xl border transition-colors cursor-pointer ${
                 cat.active
-                  ? 'bg-[var(--gray-900)] border-purple-500/40 hover:border-purple-500/60'
+                  ? 'bg-[var(--gray-900)] border-copper/40 hover:border-copper/60'
                   : 'bg-[var(--gray-900)] border-[var(--gray-800)] hover:border-[var(--gray-700)] opacity-80'
               }`}
             >
@@ -114,7 +114,7 @@ export default function BrowseCategories({ toolCount, agentCount }: BrowseCatego
               <h3 className="text-sm font-semibold text-white mb-1">{cat.title}</h3>
               <p className="text-xs text-[var(--gray-400)] mb-2">{cat.description}</p>
               {cat.cta && (
-                <span className="text-xs font-medium text-purple-400 group-hover:text-purple-300 transition-colors">
+                <span className="text-xs font-medium text-copper group-hover:text-copper-bright transition-colors">
                   {cat.cta} &rarr;
                 </span>
               )}

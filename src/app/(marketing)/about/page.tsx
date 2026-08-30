@@ -69,7 +69,7 @@ export default async function AboutPage() {
               <p className="text-sm text-[var(--gray-400)]">Backed by IIT Bombay</p>
             </div>
             <div className="bg-[var(--gray-900)] rounded-xl p-4 border border-[var(--gray-700)] flex flex-col items-center justify-center">
-              <svg className="w-8 h-8 text-purple-400 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-8 h-8 text-copper mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <p className="text-sm text-[var(--gray-400)]">Serving Founders Across India</p>
@@ -113,14 +113,14 @@ export default async function AboutPage() {
               <h3 className="text-xl font-bold text-white mb-3">Security-First Validation</h3>
               <p className="text-[var(--gray-300)]">
                 Tools we have fully assessed go through our{' '}
-                <Link href="/methodology" className="text-purple-400 hover:text-purple-300 underline">10-point security assessment</Link>
+                <Link href="/methodology" className="text-copper hover:text-copper-bright underline">10-point security assessment</Link>
                 {' '}covering data privacy, encryption standards, compliance certifications, and third-party data sharing. Unassessed listings are labeled clearly.
               </p>
             </div>
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F9E0;</span>
               <h3 className="text-xl font-bold text-white mb-3">
-                <Link href="/llms" className="hover:text-purple-300 transition-colors">LLM Explorer</Link>
+                <Link href="/llms" className="hover:text-copper-bright transition-colors">LLM Explorer</Link>
               </h3>
               <p className="text-[var(--gray-300)]">
                 {STATS.llmsCompared} language models compared on input/output pricing, Arena rankings, context windows, parameter counts, and India-affordability tags.
@@ -129,7 +129,7 @@ export default async function AboutPage() {
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F916;</span>
               <h3 className="text-xl font-bold text-white mb-3">
-                <Link href="/agents" className="hover:text-purple-300 transition-colors">{agentCount ? `${agentCount} AI Agents` : 'AI Agents'}</Link>
+                <Link href="/agents" className="hover:text-copper-bright transition-colors">{agentCount ? `${agentCount} AI Agents` : 'AI Agents'}</Link>
               </h3>
               <p className="text-[var(--gray-300)]">
                 A growing directory of autonomous AI agents organized by capability - from coding and marketing to sales and operations.
@@ -145,7 +145,7 @@ export default async function AboutPage() {
             <div className="bg-[var(--gray-800)] rounded-xl p-6 border border-[var(--gray-700)]">
               <span className="text-3xl mb-4 block">&#x1F4C4;</span>
               <h3 className="text-xl font-bold text-white mb-3">
-                <Link href="/research" className="hover:text-purple-300 transition-colors">{STATS.researchPapers} Research Papers</Link>
+                <Link href="/research" className="hover:text-copper-bright transition-colors">{STATS.researchPapers} Research Papers</Link>
               </h3>
               <p className="text-[var(--gray-300)]">
                 Daily-ingested AI papers from arXiv and HuggingFace, covering {STATS.researchAuthors} authors, with AI summaries and difficulty ratings.
@@ -195,13 +195,13 @@ export default async function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:hello@one9founders.com"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white btn-primary"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold btn-primary"
             >
               Talk to Us
             </a>
             <Link
               href="/learn/organizations"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-purple-400 border border-purple-500/40 hover:bg-purple-500/10 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-copper border border-copper/40 hover:bg-copper/10 transition-colors"
             >
               Learn More About Our Programs
             </Link>
@@ -262,7 +262,7 @@ export default async function AboutPage() {
                 </div>
                 <div className="flex-1 text-center lg:text-left">
                   <h3 className="text-2xl font-bold text-white mb-2">Dr. Ramesh Kuruva</h3>
-                  <p className="text-brand-primary mb-4">Assistant Professor, Desai Sethi School of Entrepreneurship, IIT Bombay</p>
+                  <p className="text-copper mb-4">Assistant Professor, Desai Sethi School of Entrepreneurship, IIT Bombay</p>
                   <div className="text-sm text-[var(--gray-400)] space-y-1">
                     <p>&bull; Co-founder &amp; Former CEO of YNOS Venture Engine</p>
                     <p>&bull; PhD in Entrepreneurial Finance from IIT Madras</p>
@@ -338,7 +338,7 @@ export default async function AboutPage() {
               <h3 className="text-lg font-bold text-white mb-3">For Colleges &amp; Universities</h3>
               <Link
                 href="/learn/organizations#college-form"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-semibold text-sm text-white btn-primary"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-semibold text-sm btn-primary"
               >
                 Contact Us
               </Link>
@@ -347,7 +347,7 @@ export default async function AboutPage() {
               <h3 className="text-lg font-bold text-white mb-3">For Corporates &amp; Enterprises</h3>
               <Link
                 href="/learn/organizations#corporate-form"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-semibold text-sm text-white btn-primary"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-semibold text-sm btn-primary"
               >
                 Contact Us
               </Link>
@@ -356,7 +356,7 @@ export default async function AboutPage() {
               <h3 className="text-lg font-bold text-white mb-3">For AI Startups</h3>
               <Link
                 href="/submit"
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-semibold text-sm text-white btn-primary"
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg font-semibold text-sm btn-primary"
               >
                 Submit Your Tool
               </Link>
@@ -364,7 +364,7 @@ export default async function AboutPage() {
           </div>
           <p className="text-center text-[var(--gray-400)]">
             General inquiries:{' '}
-            <a href="mailto:hello@one9founders.com" className="text-purple-400 hover:text-purple-300 underline">
+            <a href="mailto:hello@one9founders.com" className="text-copper hover:text-copper-bright underline">
               hello@one9founders.com
             </a>
           </p>

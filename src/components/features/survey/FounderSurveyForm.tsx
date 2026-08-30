@@ -65,7 +65,7 @@ export default function FounderSurveyForm() {
       <div className="max-w-xl mx-auto px-4 py-20 text-center">
         <div className="w-14 h-14 rounded-full bg-[var(--brand-primary)] bg-opacity-20 flex items-center justify-center mx-auto mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12l5 5 9-9" stroke="#7828D9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M5 12l5 5 9-9" stroke="#C47A3A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <h2 className="text-2xl font-bold text-white mb-3">Got it. Thank you.</h2>
@@ -124,7 +124,7 @@ export default function FounderSurveyForm() {
                 onClick={() => set('stage', s)}
                 className={`px-4 py-2 rounded-full text-sm border transition-all ${
                   form.stage === s
-                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white'
+                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--ink)]'
                     : 'bg-transparent border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)]'
                 }`}
               >
@@ -164,7 +164,7 @@ export default function FounderSurveyForm() {
                 onClick={() => set('area', a)}
                 className={`px-4 py-2 rounded-full text-sm border transition-all ${
                   form.area === a
-                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white'
+                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--ink)]'
                     : 'bg-transparent border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)]'
                 }`}
               >
@@ -185,7 +185,7 @@ export default function FounderSurveyForm() {
                 onClick={() => set('hours_per_week', h)}
                 className={`py-2.5 rounded-lg text-sm border transition-all ${
                   form.hours_per_week === h
-                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white'
+                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--ink)]'
                     : 'bg-transparent border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)]'
                 }`}
               >
@@ -206,7 +206,7 @@ export default function FounderSurveyForm() {
                 onClick={() => set('pain_score', p)}
                 className={`py-2.5 rounded-lg text-sm border transition-all ${
                   form.pain_score === p
-                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white'
+                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--ink)]'
                     : 'bg-transparent border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)]'
                 }`}
               >
@@ -257,7 +257,7 @@ export default function FounderSurveyForm() {
                 onClick={() => set('willingness_to_pay', o)}
                 className={`px-4 py-2 rounded-full text-sm border transition-all ${
                   form.willingness_to_pay === o
-                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white'
+                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--ink)]'
                     : 'bg-transparent border-[var(--gray-700)] text-[var(--gray-400)] hover:border-[var(--gray-500)]'
                 }`}
               >
@@ -289,7 +289,7 @@ export default function FounderSurveyForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3.5 rounded-lg font-semibold text-white text-sm transition-all bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-3.5 rounded-lg font-semibold text-[var(--ink)] text-sm transition-all bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? 'Submitting...' : 'Submit →'}
         </button>

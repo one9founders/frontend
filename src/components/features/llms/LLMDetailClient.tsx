@@ -35,7 +35,7 @@ export default function LLMDetailClient({
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       {/* Breadcrumb */}
       <nav className="mb-6 text-sm">
-        <Link href="/llms" className="text-[var(--gray-500)] hover:text-purple-400">
+        <Link href="/llms" className="text-[var(--gray-500)] hover:text-copper">
           ← Back to LLM Explorer
         </Link>
       </nav>
@@ -91,7 +91,7 @@ export default function LLMDetailClient({
                 href={hfLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-copper hover:bg-copper-dim text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors"
               >
                 Download Model →
               </a>
@@ -100,7 +100,7 @@ export default function LLMDetailClient({
                 href={tryItLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-copper hover:bg-copper-dim text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors"
               >
                 Try in Playground →
               </a>
@@ -196,11 +196,11 @@ export default function LLMDetailClient({
 
       {/* One9Founders Verdict */}
       {m.one9_summary && (
-        <div className="bg-gradient-to-br from-purple-900/20 to-[var(--gray-900)] border border-purple-500/20 rounded-xl p-6 mb-8">
+        <div className="bg-gradient-to-br from-copper/20 to-[var(--gray-900)] border border-copper/20 rounded-xl p-6 mb-8">
           <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-            <span className="text-purple-400">One9</span>Founders Verdict
+            <span className="text-copper">One9</span>Founders Verdict
             {m.one9_value_rating && (
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 ml-2">
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-copper/20 text-copper-bright ml-2">
                 {m.one9_value_rating}
               </span>
             )}
@@ -249,8 +249,8 @@ export default function LLMDetailClient({
           </div>
 
           {m.startup_recommendation && (
-            <div className="mt-4 pt-4 border-t border-purple-500/10">
-              <h3 className="text-sm font-semibold text-purple-300 mb-1">
+            <div className="mt-4 pt-4 border-t border-copper/10">
+              <h3 className="text-sm font-semibold text-copper-bright mb-1">
                 Startup Recommendation
               </h3>
               <p className="text-sm text-[var(--gray-300)]">
@@ -405,7 +405,7 @@ export default function LLMDetailClient({
               <Link
                 key={sm.slug}
                 href={`/llms/${sm.slug}`}
-                className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg p-4 hover:border-purple-500/40 transition-colors"
+                className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg p-4 hover:border-copper/40 transition-colors"
               >
                 <div className="flex items-center gap-2 mb-1">
                   <span

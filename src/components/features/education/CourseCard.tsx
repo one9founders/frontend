@@ -41,7 +41,7 @@ export default function CourseCard({ course }: CourseCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors line-clamp-2">
+        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-copper-bright transition-colors line-clamp-2">
           {course.title}
         </h3>
 
@@ -60,8 +60,8 @@ export default function CourseCard({ course }: CourseCardProps) {
 
         {/* CTA */}
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-sm text-purple-400 font-medium">Contact for Pricing</span>
-          <span className="text-sm text-purple-400 group-hover:text-purple-300 font-medium inline-flex items-center gap-1">
+          <span className="text-sm text-copper font-medium">Contact for Pricing</span>
+          <span className="text-sm text-copper group-hover:text-copper-bright font-medium inline-flex items-center gap-1">
             Learn More
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

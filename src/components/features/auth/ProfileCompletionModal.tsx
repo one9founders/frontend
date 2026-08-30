@@ -52,7 +52,7 @@ function PillGroup({
             onClick={() => onToggle(opt)}
             className={`px-3 py-1 rounded-full text-xs border transition-colors cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed ${
               isSelected
-                ? 'border-[var(--brand-primary)] bg-[rgba(120,40,217,0.15)] text-white'
+                ? 'border-[var(--brand-primary)] bg-[rgba(196,122,58,0.15)] text-[var(--paper)]'
                 : 'border-[var(--gray-700)] bg-[var(--gray-800)] text-[var(--gray-400)]'
             }`}
           >
@@ -154,7 +154,7 @@ export default function ProfileCompletionModal({ onComplete }: ProfileCompletion
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {ROLES.map((r) => (
                   <button key={r.id} type="button" onClick={() => setSelectedRole(r.id)}
-                    className={`border rounded-lg p-3 text-left transition-colors cursor-pointer ${selectedRole === r.id ? 'border-[var(--brand-primary)] bg-[rgba(120,40,217,0.12)]' : 'border-[var(--gray-800)] bg-[var(--gray-800)]'}`}>
+                    className={`border rounded-lg p-3 text-left transition-colors cursor-pointer ${selectedRole === r.id ? 'border-[var(--brand-primary)] bg-[rgba(196,122,58,0.12)]' : 'border-[var(--gray-800)] bg-[var(--gray-800)]'}`}>
                     <span className="text-lg">{r.icon}</span>
                     <p className="text-sm font-medium text-white mt-1">{r.label}</p>
                     <p className="text-xs text-[var(--gray-500)]">{r.desc}</p>
@@ -162,7 +162,7 @@ export default function ProfileCompletionModal({ onComplete }: ProfileCompletion
                 ))}
               </div>
               <button disabled={!selectedRole || isPending} onClick={() => { if (isFounder) { setStep('startup_profile'); } else { handleSubmit(); } }}
-                className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
+                className="w-full py-2.5 rounded-lg text-[var(--ink)] disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer">
                 {isFounder ? 'Continue' : 'Save'}
               </button>
               <button onClick={handleSkip} disabled={isPending} className="w-full text-center text-sm text-[var(--gray-500)] hover:text-white cursor-pointer mt-3">
@@ -209,7 +209,7 @@ export default function ProfileCompletionModal({ onComplete }: ProfileCompletion
                 </div>
               </div>
               <button onClick={() => { if (!validateStartupProfile()) return; setStep('ai_prefs'); }}
-                className="w-full py-2.5 rounded-lg text-white bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">Continue</button>
+                className="w-full py-2.5 rounded-lg text-[var(--ink)] bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">Continue</button>
               <button onClick={() => setStep('role')} className="w-full text-center text-sm text-[var(--gray-500)] hover:text-white cursor-pointer mt-3">&larr; Back</button>
               <button onClick={handleSkip} disabled={isPending} className="w-full text-center text-sm text-[var(--gray-500)] hover:text-white cursor-pointer mt-2">
                 Skip for now
@@ -238,7 +238,7 @@ export default function ProfileCompletionModal({ onComplete }: ProfileCompletion
                 </div>
               </div>
               <button disabled={isPending} onClick={handleSubmit}
-                className="w-full py-2.5 rounded-lg text-white disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">
+                className="w-full py-2.5 rounded-lg text-[var(--ink)] disabled:opacity-50 bg-[var(--brand-primary)] hover:bg-[var(--brand-secondary)] transition-colors cursor-pointer mt-6">
                 {isPending ? 'Saving\u2026' : 'Save profile'}
               </button>
               <button onClick={() => setStep('startup_profile')} className="w-full text-center text-sm text-[var(--gray-500)] hover:text-white cursor-pointer mt-3">&larr; Back</button>

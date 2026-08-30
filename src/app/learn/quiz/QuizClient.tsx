@@ -83,14 +83,14 @@ const trackMap: Record<string, TrackRecommendation> = {
     description: 'Upskill in AI tools transforming your industry. Learn to automate workflows and boost productivity.',
     href: '/learn/professionals',
     tag: 'Best for Professionals',
-    color: 'border-purple-500/30 bg-purple-500/5',
+    color: 'border-rose-500/30 bg-rose-500/5',
   },
   entrepreneurs: {
     title: 'Entrepreneur Track',
     description: 'Build faster, spend less, scale smarter. AI tools for founders who want to move fast without a technical co-founder.',
     href: '/learn/entrepreneurs',
     tag: 'Best for Entrepreneurs',
-    color: 'border-orange-500/30 bg-orange-500/5',
+    color: 'border-copper/30 bg-copper/5',
   },
   business_owners: {
     title: 'Business Owner Track',
@@ -167,7 +167,7 @@ export default function QuizClient() {
         <div className="mb-8">
           <div className="h-1.5 w-full rounded-full bg-[var(--gray-800)]">
             <div
-              className="h-1.5 rounded-full bg-purple-500 transition-all duration-500"
+              className="h-1.5 rounded-full bg-copper transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -191,7 +191,7 @@ export default function QuizClient() {
                   onClick={() => handleAnswer(option.value)}
                   className={`w-full text-left p-4 rounded-xl border transition-all ${
                     answers[questions[currentQuestion].id] === option.value
-                      ? 'border-purple-500 bg-purple-500/10 text-white'
+                      ? 'border-copper bg-copper/10 text-white'
                       : 'border-[var(--gray-700)] bg-[var(--gray-900)] text-[var(--gray-300)] hover:border-[var(--gray-600)] hover:text-white'
                   }`}
                 >
@@ -225,7 +225,7 @@ export default function QuizClient() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white placeholder-[var(--gray-500)] focus:outline-none focus:border-purple-500"
+                  className="w-full px-4 py-3 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white placeholder-[var(--gray-500)] focus:outline-none focus:border-copper"
                   placeholder="Your full name"
                 />
               </div>
@@ -236,7 +236,7 @@ export default function QuizClient() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white placeholder-[var(--gray-500)] focus:outline-none focus:border-purple-500"
+                  className="w-full px-4 py-3 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white placeholder-[var(--gray-500)] focus:outline-none focus:border-copper"
                   placeholder="you@example.com"
                 />
               </div>
@@ -247,7 +247,7 @@ export default function QuizClient() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white placeholder-[var(--gray-500)] focus:outline-none focus:border-purple-500"
+                  className="w-full px-4 py-3 rounded-lg bg-[var(--gray-800)] border border-[var(--gray-700)] text-white placeholder-[var(--gray-500)] focus:outline-none focus:border-copper"
                   placeholder="+91 98765 43210"
                 />
               </div>
@@ -275,8 +275,8 @@ export default function QuizClient() {
         {step === 'result' && (
           <div className="animate-fadeIn">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple-500/20 flex items-center justify-center">
-                <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-copper/20 flex items-center justify-center">
+                <svg className="w-8 h-8 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -289,7 +289,7 @@ export default function QuizClient() {
             </div>
 
             <div className={`rounded-xl border p-6 ${recommendation.color}`}>
-              <span className="text-xs font-medium text-purple-400 mb-2 block">{recommendation.tag}</span>
+              <span className="text-xs font-medium text-copper mb-2 block">{recommendation.tag}</span>
               <h3 className="text-xl font-bold text-white mb-3">{recommendation.title}</h3>
               <p className="text-[var(--gray-300)] mb-6">{recommendation.description}</p>
               <div className="flex flex-wrap gap-3">

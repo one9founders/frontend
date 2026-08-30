@@ -42,16 +42,16 @@ function GridBackground() {
 
           ctx.beginPath();
           ctx.arc(x, y, 1.2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(56, 189, 248, ${alpha})`;
+          ctx.fillStyle = `rgba(196, 122, 58, ${alpha})`;
           ctx.fill();
         }
       }
 
       const scanY = ((time * 80) % (canvas.height + 200)) - 100;
       const grad = ctx.createLinearGradient(0, scanY - 40, 0, scanY + 40);
-      grad.addColorStop(0, 'rgba(56, 189, 248, 0)');
-      grad.addColorStop(0.5, 'rgba(56, 189, 248, 0.03)');
-      grad.addColorStop(1, 'rgba(56, 189, 248, 0)');
+      grad.addColorStop(0, 'rgba(196, 122, 58, 0)');
+      grad.addColorStop(0.5, 'rgba(196, 122, 58, 0.03)');
+      grad.addColorStop(1, 'rgba(196, 122, 58, 0)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, scanY - 40, canvas.width, 80);
 
@@ -126,7 +126,7 @@ function Ticker() {
           <span
             key={i}
             className="text-xs font-semibold tracking-wide uppercase shrink-0"
-            style={{ color: '#38bdf833' }}
+            style={{ color: '#C47A3A33' }}
           >
             {item}
           </span>
@@ -191,9 +191,9 @@ export default function FintechClient() {
           to { opacity: 1; transform: translateY(0); }
         }
         @keyframes fintech-pulseRing {
-          0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
-          70% { box-shadow: 0 0 0 12px rgba(56, 189, 248, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+          0% { box-shadow: 0 0 0 0 rgba(196, 122, 58, 0.4); }
+          70% { box-shadow: 0 0 0 12px rgba(196, 122, 58, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(196, 122, 58, 0); }
         }
         @keyframes fintech-shimmer {
           0% { background-position: -200% 0; }
@@ -212,21 +212,21 @@ export default function FintechClient() {
         }
         .fintech-card-hover:hover {
           transform: translateY(-2px);
-          border-color: #38bdf844 !important;
+          border-color: #C47A3A44 !important;
           background: #0a1e30 !important;
         }
         .fintech-input-glow:focus {
           outline: none;
-          border-color: #38bdf8 !important;
-          box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+          border-color: #C47A3A !important;
+          box-shadow: 0 0 0 3px rgba(196, 122, 58, 0.15);
         }
         .fintech-btn-primary {
           transition: all 0.2s ease;
         }
         .fintech-btn-primary:hover {
-          background: #2ba8e0 !important;
+          background: #D4924A !important;
           transform: translateY(-1px);
-          box-shadow: 0 6px 24px rgba(56, 189, 248, 0.3);
+          box-shadow: 0 6px 24px rgba(196, 122, 58, 0.3);
         }
       `}</style>
 
@@ -261,7 +261,7 @@ export default function FintechClient() {
           <br />
           <span
             style={{
-              background: 'linear-gradient(90deg, #38bdf8, #818cf8, #38bdf8)',
+              background: 'linear-gradient(90deg, #C47A3A, #E0A85C, #C47A3A)',
               backgroundSize: '200%',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -313,7 +313,7 @@ export default function FintechClient() {
                   disabled={loading || !email}
                   className="fintech-btn-primary rounded-[10px] px-7 py-[14px] text-sm font-bold whitespace-nowrap cursor-pointer disabled:opacity-50"
                   style={{
-                    background: '#38bdf8',
+                    background: '#C47A3A',
                     border: 'none',
                     color: '#030a14',
                     fontFamily: 'inherit',
@@ -333,8 +333,8 @@ export default function FintechClient() {
                     className="rounded-md px-3 py-[5px] text-[11px] cursor-pointer transition-all duration-150"
                     style={{
                       background: startupType === t ? '#1a3450' : 'transparent',
-                      border: `1px solid ${startupType === t ? '#38bdf844' : '#1a3450'}`,
-                      color: startupType === t ? '#38bdf8' : '#5a7a8a',
+                      border: `1px solid ${startupType === t ? '#C47A3A44' : '#1a3450'}`,
+                      color: startupType === t ? '#C47A3A' : '#5a7a8a',
                       fontFamily: 'inherit',
                       fontWeight: startupType === t ? 600 : 400,
                     }}
@@ -380,8 +380,8 @@ export default function FintechClient() {
         >
           {[
             { val: 8, suffix: '', label: 'Regulations Tracked', color: '#ef4444' },
-            { val: 25, suffix: '+', label: 'AI Tools In Process of Evaluation', color: '#38bdf8' },
-            { val: 33, suffix: '', label: 'Compliance Checks', color: '#a78bfa' },
+            { val: 25, suffix: '+', label: 'AI Tools In Process of Evaluation', color: '#C47A3A' },
+            { val: 33, suffix: '', label: 'Compliance Checks', color: '#D4924A' },
             { val: 7, suffix: '', label: 'Startup Categories', color: '#22c55e' },
           ].map((s, i) => (
             <div
@@ -451,7 +451,7 @@ export default function FintechClient() {
       <section className="relative z-10 max-w-[900px] mx-auto py-12 px-6">
         <div
           className="text-[11px] font-bold uppercase mb-2"
-          style={{ color: '#38bdf8', letterSpacing: '2px' }}
+          style={{ color: '#C47A3A', letterSpacing: '2px' }}
         >
           How It Works
         </div>
@@ -482,7 +482,7 @@ export default function FintechClient() {
             >
               <div
                 className="text-[10px] font-medium mb-2"
-                style={{ fontFamily: 'monospace', color: '#38bdf844' }}
+                style={{ fontFamily: 'monospace', color: '#C47A3A44' }}
               >
                 CHECK_{String(i + 1).padStart(2, '0')}
               </div>
@@ -501,7 +501,7 @@ export default function FintechClient() {
       <section className="relative z-10 max-w-[900px] mx-auto py-12 px-6">
         <div
           className="text-[11px] font-bold uppercase mb-2"
-          style={{ color: '#a78bfa', letterSpacing: '2px' }}
+          style={{ color: '#D4924A', letterSpacing: '2px' }}
         >
           The Stack
         </div>
@@ -541,9 +541,9 @@ export default function FintechClient() {
                 className="inline-block px-2.5 py-[3px] rounded-[10px] text-[10px] font-bold uppercase"
                 style={{
                   letterSpacing: '0.5px',
-                  background: c.status === 'Evaluating' ? '#38bdf815' : '#a78bfa15',
-                  color: c.status === 'Evaluating' ? '#38bdf8' : '#a78bfa',
-                  border: `1px solid ${c.status === 'Evaluating' ? '#38bdf833' : '#a78bfa33'}`,
+                  background: c.status === 'Evaluating' ? '#C47A3A15' : '#D4924A15',
+                  color: c.status === 'Evaluating' ? '#C47A3A' : '#D4924A',
+                  border: `1px solid ${c.status === 'Evaluating' ? '#C47A3A33' : '#D4924A33'}`,
                 }}
               >
                 {c.status}
@@ -645,7 +645,7 @@ export default function FintechClient() {
                 disabled={loading || !email}
                 className="fintech-btn-primary rounded-[10px] px-6 py-[14px] text-sm font-bold cursor-pointer disabled:opacity-50"
                 style={{
-                  background: '#38bdf8',
+                  background: '#C47A3A',
                   border: 'none',
                   color: '#030a14',
                   fontFamily: 'inherit',
