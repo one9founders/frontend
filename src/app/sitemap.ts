@@ -112,6 +112,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { route: '/internship', priority: 0.5, changeFrequency: 'monthly' as const },
     { route: '/worker', priority: 0.8, changeFrequency: 'weekly' as const },
     { route: '/stack', priority: 0.8, changeFrequency: 'weekly' as const },
+    { route: '/fintech', priority: 0.7, changeFrequency: 'weekly' as const },
     { route: '/open-source', priority: 0.8, changeFrequency: 'daily' as const },
   ].map((page) => ({
     url: `${baseUrl}${page.route}`,

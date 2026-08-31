@@ -89,11 +89,19 @@ export async function seedDatabase() {
   return { success: false, error: 'Use Django backend seed_data.py instead' };
 }
 
-export async function subscribeToNewsletter(email: string) {
+export async function subscribeToNewsletter(
+  email: string,
+  source: string = 'homepage'
+) {
   try {
-    await newsletterAPI.subscribe(email);
+    await newsletterAPI.subscribe(email, source);
     return { success: true };
   } catch (error: any) {
+    const message = String(error?.message || '');
+    // Duplicate email is success for waitlists — the founder is already on a list.
+    if (/already subscribed/i.test(message)) {
+      return { success: true };
+    }
     console.error('Newsletter subscription error:', error);
     return { success: false, error: error.message || 'Failed to subscribe' };
   }

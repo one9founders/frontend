@@ -56,8 +56,11 @@ export interface DirectoryColumnsResponse {
 
 export interface CriterionAssessment {
   name: string;
-  score: number | null;
+  /** Directory listings may include a 0–10 score. Fintech published-evidence checks use result instead. */
+  score?: number | null;
+  result?: 'pass' | 'fail' | 'unknown';
   evidence_url: string | null;
+  evidence_label?: string | null;
   reasoning: string;
   automated: boolean;
 }
@@ -67,6 +70,8 @@ export interface AssessmentDetail {
   method?: string;
   hands_on?: boolean;
   model?: string;
+  stack?: string;
+  reviewed_at?: string | null;
   criteria?: Record<string, CriterionAssessment>;
   unassessed?: string[];
   manual_only?: string[];
