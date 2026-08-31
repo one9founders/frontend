@@ -1,142 +1,142 @@
 [
   {
-    "title": "What It Took to Dismantle the Most Powerful Company in the World",
-    "url": "https://www.nytimes.com/2026/08/28/opinion/ai-power-lobbying-military-britain-east-india-company.html",
+    "title": "The corporate espionage firm exposing Chinese state actors",
+    "url": "https://www.thetimes.com/business/companies-markets/article/london-firm-ai-global-espionage-d2533mdt8",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-30T11:08:14Z"
+    "createdAt": "2026-08-31T12:30:19Z"
   },
   {
-    "title": "Show HN: Get your free AI search visibility scan",
-    "url": "https://www.visiscan.app",
+    "title": "AI is hurting US politics. Here’s how candidates could use it for good",
+    "url": "https://www.theguardian.com/commentisfree/2026/aug/31/ai-politics-voters",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-08-31T12:27:58Z"
+  },
+  {
+    "title": "Catching logs trying to gaslight your security agents",
+    "url": "https://github.com/nimishaaa/gaslit-aisoc",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-08-30T10:50:35Z"
+    "createdAt": "2026-08-31T12:23:55Z"
   },
   {
-    "title": "Only believe what you can validate: a verification framework for agentic AI",
-    "url": "https://devblogs.microsoft.com/all-things-azure/only-believe-what-you-can-validate/",
+    "title": "An AI coding agent silently erased 92% of AI nodes in n8n's most-cited dataset",
+    "url": "https://sevenedge.pl/en/blog/an-ai-agent-erased-n8ns-ai-agent-nodes",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-31T12:16:30Z"
+  },
+  {
+    "title": "Azriel Blackman, Airline Mechanic for 80 Years, Dies at 100",
+    "url": "https://www.nytimes.com/2026/08/29/us/azriel-al-blackman-dead.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-31T12:11:29Z"
+  },
+  {
+    "title": "AI-Written Code Is Still *Your* Code. Are You OK with That?",
+    "url": "https://martiansoftware.com/articles/ai-written-code-is-still-yours",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-30T10:36:16Z"
+    "createdAt": "2026-08-31T12:08:25Z"
   },
   {
-    "title": "VibeGuard – security linter for AI-generated code",
-    "url": "https://github.com/zeroFhacker/vibeguard",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-30T10:26:10Z"
-  },
-  {
-    "title": "Observations Around Prominent Programmer Sentiment and AI",
-    "url": "https://blog.g9n.com/observations-around-prominent-programmer-sentiment-and-ai",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-30T10:20:20Z"
-  },
-  {
-    "title": "Fair Work Commission condemns 'plain wrong' AI legal advice",
-    "url": "https://www.abc.net.au/news/2026-08-29/fair-work-commission-condemns-ai-legal-advice/107089766",
-    "points": 11,
-    "numComments": 0,
-    "createdAt": "2026-08-30T10:20:11Z"
-  },
-  {
-    "title": "What We Tell AI",
-    "url": "https://www.whatwetellai.com/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-08-30T10:16:14Z"
-  },
-  {
-    "title": "Ask HN: Which repos have merged PRs worth reading?",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-30T10:05:18Z"
-  },
-  {
-    "title": "Which repos have merged PRs worth reading?",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-30T10:03:07Z"
-  },
-  {
-    "title": "We built this after an AI agent misread a risk signal and moved $1.2M in trades",
-    "url": "https://runplane.ai",
+    "title": "Energy biz SSE smacked around in court by a guy and AI",
+    "url": "https://www.theregister.com/ai-and-ml/2026/08/31/energy-biz-sse-smacked-around-in-court-by-a-guy-and-ai/5293391",
     "points": 2,
     "numComments": 1,
-    "createdAt": "2026-08-30T09:57:59Z"
+    "createdAt": "2026-08-31T12:07:07Z"
   },
   {
-    "title": "Nvidia's AI advantage is moving beyond the GPU",
-    "url": "https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/",
+    "title": "Ask HN: What companies have discussed their AI/agentic workflows?",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-08-31T12:05:25Z"
+  },
+  {
+    "title": "Advertisers are trying to influence AI bots with secret ads",
+    "url": "https://www.theregister.com/ai-and-ml/2026/08/10/advertisers-are-trying-to-influence-ai-bots-with-secret-ads/5285093",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-31T12:03:18Z"
+  },
+  {
+    "title": "Build good decks using your AI",
+    "url": "https://github.com/kritikmodi/deckloom",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-08-31T12:00:55Z"
+  },
+  {
+    "title": "Hollywood studios have sued over AI. Now Google's courting them to use its tools",
+    "url": "https://www.latimes.com/entertainment-arts/business/story/2026-08-31/how-google-is-courting-hollywood-to-use-its-ai-tools",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-31T11:58:16Z"
+  },
+  {
+    "title": "Datadog saves over $1M each month by optimizing AI usage",
+    "url": "https://www.datadoghq.com/blog/how-datadog-saves-money-by-optimizing-ai-usage/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-31T11:44:50Z"
+  },
+  {
+    "title": "What I Learned About AI Trust from Reconciling over 100B Transactions",
+    "url": "https://engineering.moniepoint.com/what-i-learned-about-ai-trust-from-reconciling",
     "points": 7,
-    "numComments": 4,
-    "createdAt": "2026-08-30T09:57:06Z"
-  },
-  {
-    "title": "Workers in their 40s, 50s and 60s are the most positive about AI",
-    "url": "https://www.bloomberg.com/news/articles/2026-08-27/older-workers-are-more-upbeat-about-ai-than-20-somethings",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-08-30T09:55:58Z"
-  },
-  {
-    "title": "Infinite Slop",
-    "url": "https://infiniteslop.ai/",
-    "points": 2,
     "numComments": 2,
-    "createdAt": "2026-08-30T09:34:55Z"
+    "createdAt": "2026-08-31T11:34:28Z"
   },
   {
-    "title": "The AI Delegation Audit Webinar, October 6, 2026",
-    "url": "https://berlin-product-people.com/ai-delegation-audit-webinar/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-08-30T09:01:13Z"
+    "title": "DeepSeek-V4-Flash-Vision-Exp",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+    "points": 10,
+    "numComments": 2,
+    "createdAt": "2026-08-31T11:25:09Z"
   },
   {
-    "title": "Large language models take the original politicalcompass.org test",
-    "url": "https://aipolcom.net/",
+    "title": "Andrew Ng: the biggest opportunities in AI",
+    "url": "https://www.youtube.com/watch?v=o-wv_szZ0V0",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-30T08:37:26Z"
+    "createdAt": "2026-08-31T11:09:59Z"
   },
   {
-    "title": "AI Effect",
-    "url": "https://en.wikipedia.org/wiki/AI_effect",
+    "title": "You Know Who Hates AI? Insurance Claims Adjusters",
+    "url": "https://www.wired.com/story/insurance-claims-adjusters-really-hate-ai/",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-08-30T08:32:36Z"
+    "createdAt": "2026-08-31T11:01:19Z"
   },
   {
-    "title": "Google's Dreambeans, weirdest-named AI tool, will turn your life to a cartoon",
-    "url": "https://techcrunch.com/2026/06/03/googles-dreambeans-its-weirdest-named-ai-tool-to-date-will-turn-your-life-into-a-cartoon/",
+    "title": "An AI agent is a background job, not a web request",
+    "url": "https://nitishagar.medium.com/an-agent-is-a-job-not-an-api-7673b837bd11",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-08-30T08:04:11Z"
+    "createdAt": "2026-08-31T11:01:06Z"
   },
   {
-    "title": "Show HN: Photo Manager That Find and Organize Screenshots with Private, Local AI",
-    "url": "https://ringlochid.me/imagesage/index.html",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-08-30T07:28:44Z"
-  },
-  {
-    "title": "Hotline for AI Agents to Report Safety Incidents",
-    "url": "https://agenthotline.ai/",
-    "points": 1,
+    "title": "The AI-Native SDLC Starts with Your Infrastructure",
+    "url": "https://metalbear.com/blog/ai-native-sdlc-infrastructure/",
+    "points": 5,
     "numComments": 0,
-    "createdAt": "2026-08-30T07:11:44Z"
+    "createdAt": "2026-08-31T10:57:30Z"
   },
   {
-    "title": "How AI Is Reshaping Pediatric Imaging",
-    "url": "https://www.childrenshospitals.org/news/childrens-hospitals-today/2026/08/how-ai-is-reshaping-pediatric-imaging",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-08-30T07:07:53Z"
+    "title": "What happens when a GPU writes memory",
+    "url": "https://blog.doubleword.ai/what-happens-when-a-gpu-writes-memory",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-08-31T10:54:42Z"
+  },
+  {
+    "title": "Show HN: AI studio with 500 models for headshots, video and images",
+    "url": "https://magicshot.ai",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-08-31T10:52:14Z"
   }
 ]
