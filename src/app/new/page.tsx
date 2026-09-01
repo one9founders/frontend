@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
-import { generateSEO } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ToolCard from '@/components/features/tools/ToolCard';
@@ -41,8 +42,28 @@ export default async function NewToolsPage() {
     console.error('Error fetching new tools:', error);
   }
 
+  const structuredData = generateStructuredData({
+    '@type': 'CollectionPage',
+    name: 'New AI Tools This Week',
+    url: siteUrl('/new'),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: tools.length,
+      itemListElement: tools.slice(0, 20).map((tool, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: siteUrl(`/tool/${tool.slug}`),
+        name: tool.name,
+      })),
+    },
+  });
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Navbar />
       <main className="max-w-7xl mx-auto py-12 px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">

@@ -1,19 +1,29 @@
 # One9Founders
-> India's largest AI tools, agents, and LLMs directory for startup founders.
 
-One9Founders helps Indian startup founders discover, compare, and choose AI tools. The directory lists AI tools, agents, LLMs, and RAG/Vector DB solutions with INR pricing, editorial ratings when assessment is complete, and use-case guidance.
+> India's AI ecosystem directory: tools, agents, 250+ LLMs, and
+> 8,300+ research papers, compared with security-first, evidence-backed ratings.
+
+One9Founders helps Indian startup founders discover, compare, and choose AI tools.
+Assessed listings use a published-evidence methodology. Unassessed listings are
+labeled Not Yet Rated. There is no affiliate bias in scores.
 
 ## Key pages
-- Homepage: https://one9founders.com
-- Compare AI Tools: https://one9founders.com/compare
-- AI Agents Directory: https://one9founders.com/agents
-- LLM Explorer: https://one9founders.com/llms
-- AI Tool Stacks: https://one9founders.com/stacks
-- AI News: https://one9founders.com/news
-- Submit a Tool: https://one9founders.com/submit
+- [Home](https://www.one9founders.com/): AI tools, agents, LLMs, and research directory
+- [Compare AI Tools](https://www.one9founders.com/compare): side-by-side tool comparison
+- [Methodology](https://www.one9founders.com/methodology): how ratings are scored
+- [LLM Directory](https://www.one9founders.com/llms): 250+ language models compared
+- [Research Papers](https://www.one9founders.com/research): 8,300+ papers, updated daily
+- [AI Agents](https://www.one9founders.com/agents): autonomous agents directory
+- [AI Tool Stacks](https://www.one9founders.com/stacks): curated founder stacks with INR pricing
+- [RAG & Vector DBs](https://www.one9founders.com/rag-vector-dbs): retrieval and embedding tools
+- [New AI Tools](https://www.one9founders.com/new): recently added listings
+- [Open Source](https://www.one9founders.com/open-source): repos, skills, and MCP servers
+- [AI Training](https://www.one9founders.com/learn): courses, guides, and paths
+- [About](https://www.one9founders.com/about): who we are and how we work
 
 ## About
 - Founded for Indian startup founders
-- Assessed tools use a 10-point security-first framework; unassessed listings are labeled Not Yet Rated
+- Supported by IIT Bombay
+- Assessed tools use a 10-point security-first framework
 - INR pricing shown wherever available
-- New listings are added regularly; research feed updates daily from arXiv and HuggingFace
+- Contact: hello@one9founders.com
