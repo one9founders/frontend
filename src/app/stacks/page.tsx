@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { generateSEO } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { allStacks } from '@/components/features/stacks/stackData';
@@ -13,9 +14,28 @@ export const metadata: Metadata = generateSEO({
 
 export default function StacksPage() {
   const stacks = Object.values(allStacks);
+  const structuredData = generateStructuredData({
+    '@type': 'CollectionPage',
+    name: 'AI Tool Stacks for Indian Founders',
+    url: siteUrl('/stacks'),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: stacks.length,
+      itemListElement: stacks.map((stack, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: stack.title,
+        url: siteUrl(`/stacks/${stack.slug}`),
+      })),
+    },
+  });
 
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Navbar />
       <div className="max-w-5xl mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">AI Tool Stacks for Indian Founders</h1>

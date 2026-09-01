@@ -7,7 +7,7 @@ import { STATS, formatToolCount } from '@/lib/constants/stats';
 import { fetchDirectoryStats } from '@/lib/api/toolsStats';
 
 export const metadata: Metadata = generateSEO({
-  title: 'How We Rate AI Tools | Published Evidence, Not Hands-On for Every Listing | One9Founders',
+  title: 'How We Rate AI Tools',
   description: `We score published posture on seven evidence-backed criteria, each citing a source URL. Ease of use, reliability, and hands-on security testing are not automated. Zero affiliate bias.`,
   path: '/methodology',
   keywords: ['AI tool rating', 'tool evaluation methodology', 'security assessment', 'unbiased reviews', 'AI tool criteria', 'LLM evaluation', 'AI research papers'],
@@ -171,12 +171,64 @@ export default async function MethodologyPage() {
     url: 'https://www.one9founders.com/methodology',
   });
 
+  const faqSchema = generateStructuredData({
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How does One9Founders rate AI tools?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'We score published posture on ten evidence-backed criteria. Each scored criterion cites a source URL. Ease of use, reliability, and hands-on security testing are not automated.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What does Not Yet Rated mean?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Fewer than 6 of 10 criteria have a citable source. No numeric score is shown on cards, comparison tables, FAQ copy, or structured data.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is a Provisional score?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Six or more criteria evidenced from published pages, and no hands-on testing yet. The number is an unweighted mean of the evidenced criteria.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you perform security testing?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. We check published security posture such as HTTPS, a reachable privacy policy, and stated compliance commitments. We do not perform security testing.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do affiliate relationships affect ratings?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. One9Founders publishes scores from cited sources with zero affiliate bias.',
+        },
+      },
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
         }}
       />
       <Navbar />

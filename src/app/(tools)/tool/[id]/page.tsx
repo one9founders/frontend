@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
   ].filter(Boolean).join(' ').slice(0, 155);
 
   return generateSEO({
-    title: `${tool.name} | AI Tool for ${primaryCategory} | Review & Pricing`,
+    title: `${tool.name} review & pricing`,
     description,
     path: `/tool/${tool.slug}`,
     image: tool.logo_url || tool.landing_page_screenshot || '/og-image.png',
@@ -115,7 +115,8 @@ export default async function ToolPage({ params }: ToolPageProps) {
     '@type': 'SoftwareApplication',
     name: tool.name,
     description: tool.description,
-    url: tool.website,
+    url: siteUrl(`/tool/${tool.slug}`),
+    sameAs: tool.website || undefined,
     applicationCategory: tool.categories?.map((c: { name: string }) => c.name).join(', ') || 'AI Tool',
     operatingSystem: tool.platforms?.join(', ') || 'Web',
     offers: tool.pricing_models?.includes('Free') ? {

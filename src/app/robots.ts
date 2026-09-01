@@ -35,6 +35,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
       },
       {
+        userAgent: 'Google-Extended',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/'],
+      },
+      {
         userAgent: 'Googlebot',
         allow: '/',
         disallow: ['/admin/', '/api/', '/_next/', '/login', '/dashboard/', '/*?sort=', '/*?filter=', '/*?page=', '/*?search='],

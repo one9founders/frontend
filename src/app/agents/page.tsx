@@ -6,7 +6,8 @@ import AgentsDirectoryClient from '@/components/features/agents/AgentsDirectoryC
 import { AgentListResponse, AgentCategoriesResponse, AgentStats } from '@/types/agent';
 import { fetchDirectoryStats } from '@/lib/api/toolsStats';
 import { formatToolCount, withLiveCount } from '@/lib/constants/stats';
-import { generateSEO } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -16,8 +17,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const stats = await fetchDirectoryStats();
   const agentCount = formatToolCount(stats?.agent_count);
   const title = agentCount
-    ? `${agentCount} AI Agents Directory | Autonomous AI Tools | One9Founders`
-    : 'AI Agents Directory | Autonomous AI Tools | One9Founders';
+    ? `${agentCount} AI Agents Directory`
+    : 'AI Agents Directory';
   const description = `Browse ${withLiveCount(stats?.agent_count, 'AI agents')} that go beyond chat. Autonomous tools for coding, sales, support, research, and operations. Filtered by category, use case, and pricing. Updated weekly.`;
   return generateSEO({
     title,
@@ -47,9 +48,28 @@ async function fetchInitialData() {
 
 export default async function AgentsPage() {
   const { agents, categories, stats } = await fetchInitialData();
+  const structuredData = generateStructuredData({
+    '@type': 'CollectionPage',
+    name: 'AI Agents Directory',
+    url: siteUrl('/agents'),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: agents.count,
+      itemListElement: agents.results.slice(0, 20).map((agent, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: agent.name,
+        url: siteUrl(`/agents/${agent.slug}`),
+      })),
+    },
+  });
 
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Navbar />
       <main className="py-8 md:py-12 px-4 md:px-6">
         <Suspense fallback={<div className="text-center text-white py-20">Loading agents...</div>}>
