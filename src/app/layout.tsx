@@ -6,6 +6,7 @@ import { CurrencyProvider } from "@/lib/currency";
 import { STATS, withLiveCount } from "@/lib/constants/stats";
 import { SITE_URL } from "@/lib/constants/site";
 import { fetchDirectoryStats } from "@/lib/api/toolsStats";
+import { organizationJsonLd } from "@/lib/utils/seo";
 import ProfileCompletionCheck from "@/components/features/auth/ProfileCompletionCheck";
 
 const inter = Inter({
@@ -109,6 +110,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${bricolageGrotesque.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
         <CurrencyProvider>
           <ReCaptchaProvider>
             {children}
