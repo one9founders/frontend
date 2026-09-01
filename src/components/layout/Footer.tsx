@@ -112,6 +112,31 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
+                    <Link href="/compare" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Compare AI Tools
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/writing" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Writing Tools
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/code" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Code Tools
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools/marketing" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Marketing Tools
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/stacks" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Founder Stacks
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/open-source" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       Open Source
                     </Link>

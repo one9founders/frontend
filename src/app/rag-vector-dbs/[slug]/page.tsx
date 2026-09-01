@@ -4,7 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import RagToolDetailClient from '@/components/rag/RagToolDetailClient';
-import { generateStructuredData } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { RagTool } from '@/types/rag';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -40,20 +40,12 @@ export async function generateMetadata({ params }: RagToolDetailPageProps): Prom
     'Reviewed with zero affiliate bias. Security validated by One9Founders.',
   ].filter(Boolean).join(' ').slice(0, 155);
 
-  return {
+  return generateSEO({
     title: `${tool.name} - RAG & Vector DB | One9Founders`,
     description,
-    openGraph: {
-      title: `${tool.name} | One9Founders RAG Directory`,
-      description: tool.description?.substring(0, 200) || description,
-      type: 'website',
-      url: `https://one9founders.com/rag-vector-dbs/${tool.slug}`,
-      images: tool.logo_url ? [{ url: tool.logo_url }] : undefined,
-    },
-    alternates: {
-      canonical: `https://one9founders.com/rag-vector-dbs/${tool.slug}`,
-    },
-  };
+    path: `/rag-vector-dbs/${tool.slug}`,
+    image: tool.logo_url || '/og-image.png',
+  });
 }
 
 const PREBUILD_RAG_SLUG_LIMIT = 20;

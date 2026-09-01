@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import AgentsDirectoryClient from '@/components/features/agents/AgentsDirectoryClient';
 import { AgentListResponse, AgentCategoriesResponse, AgentCategory, AgentStats } from '@/types/agent';
+import { generateSEO } from '@/lib/utils/seo';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -53,21 +54,11 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     ? `Explore ${count}+ ${label} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`
     : `Explore ${label} AI agents. Compare features, pricing, and ratings. Security-validated by One9Founders.`;
 
-  return {
+  return generateSEO({
     title,
     description,
-    openGraph: {
-      title: `Top ${label} AI Agents | One9Founders`,
-      description: count != null
-        ? `Explore ${count}+ ${label} AI agents. Compare features, pricing, and ratings.`
-        : `Explore ${label} AI agents. Compare features, pricing, and ratings.`,
-      type: 'website',
-      url: `https://one9founders.com/agents/category/${slug}`,
-    },
-    alternates: {
-      canonical: `https://one9founders.com/agents/category/${slug}`,
-    },
-  };
+    path: `/agents/category/${slug}`,
+  });
 }
 
 export default async function AgentCategoryPage({ params }: CategoryPageProps) {

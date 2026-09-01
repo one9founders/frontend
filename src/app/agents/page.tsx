@@ -6,6 +6,7 @@ import AgentsDirectoryClient from '@/components/features/agents/AgentsDirectoryC
 import { AgentListResponse, AgentCategoriesResponse, AgentStats } from '@/types/agent';
 import { fetchDirectoryStats } from '@/lib/api/toolsStats';
 import { formatToolCount, withLiveCount } from '@/lib/constants/stats';
+import { generateSEO } from '@/lib/utils/seo';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -18,19 +19,11 @@ export async function generateMetadata(): Promise<Metadata> {
     ? `${agentCount} AI Agents Directory | Autonomous AI Tools | One9Founders`
     : 'AI Agents Directory | Autonomous AI Tools | One9Founders';
   const description = `Browse ${withLiveCount(stats?.agent_count, 'AI agents')} that go beyond chat. Autonomous tools for coding, sales, support, research, and operations. Filtered by category, use case, and pricing. Updated weekly.`;
-  return {
-    title: { absolute: title },
+  return generateSEO({
+    title,
     description,
-    openGraph: {
-      title,
-      description: `Browse ${withLiveCount(stats?.agent_count, 'AI agents')} that go beyond chat. Autonomous tools for coding, sales, support, research, and operations.`,
-      type: 'website',
-      url: 'https://one9founders.com/agents',
-    },
-    alternates: {
-      canonical: 'https://one9founders.com/agents',
-    },
-  };
+    path: '/agents',
+  });
 }
 
 async function fetchInitialData() {

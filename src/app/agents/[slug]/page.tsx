@@ -4,7 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import AgentDetailClient from '@/components/features/agents/AgentDetailClient';
-import { generateStructuredData } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { AgentDetail } from '@/types/agent';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -37,27 +37,12 @@ export async function generateMetadata({ params }: AgentDetailPageProps): Promis
     'Reviewed with zero affiliate bias. Security validated by One9Founders.',
   ].filter(Boolean).join(' ').slice(0, 155);
 
-  const ogDescription = [
-    agent.short_description,
-    agent.category_name ? `Category: ${agent.category_name}.` : '',
-    agent.pricing_model ? `Pricing: ${agent.pricing_model}.` : '',
-    'Reviewed with zero affiliate bias. Security validated by One9Founders.',
-  ].filter(Boolean).join(' ').slice(0, 200);
-
-  return {
+  return generateSEO({
     title: `${agent.name} - Review, Features & Alternatives | One9Founders`,
     description,
-    openGraph: {
-      title: `${agent.name} | One9Founders AI Agents`,
-      description: ogDescription,
-      type: 'website',
-      url: `https://one9founders.com/agents/${agent.slug}`,
-      images: agent.logo_url ? [{ url: agent.logo_url }] : undefined,
-    },
-    alternates: {
-      canonical: `https://one9founders.com/agents/${agent.slug}`,
-    },
-  };
+    path: `/agents/${agent.slug}`,
+    image: agent.logo_url || '/og-image.png',
+  });
 }
 
 export default async function AgentDetailPage({ params }: AgentDetailPageProps) {

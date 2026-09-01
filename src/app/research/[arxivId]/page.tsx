@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import PaperDetailClient from '@/components/research/PaperDetailClient';
-import { generateStructuredData } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { Paper } from '@/types/paper';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -45,19 +45,12 @@ export async function generateMetadata({ params }: PaperDetailPageProps): Promis
     ? paper.ai_summary.substring(0, 155)
     : paper.abstract?.substring(0, 155) || `AI research paper: ${paper.title}`;
 
-  return {
+  return generateSEO({
     title: `${paper.title} - AI Research | One9Founders`,
     description,
-    openGraph: {
-      title: `${paper.title} | One9Founders Research`,
-      description: paper.ai_summary?.substring(0, 200) || description,
-      type: 'article',
-      url: `https://one9founders.com/research/${paper.arxiv_id}`,
-    },
-    alternates: {
-      canonical: `https://one9founders.com/research/${paper.arxiv_id}`,
-    },
-  };
+    path: `/research/${paper.arxiv_id}`,
+    type: 'article',
+  });
 }
 
 export default async function PaperDetailPage({ params }: PaperDetailPageProps) {

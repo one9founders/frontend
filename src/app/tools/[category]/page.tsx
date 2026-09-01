@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
 import { fetchDirectoryStats, getCategoryCount } from '@/lib/api/toolsStats';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 import { hasSubstantiveContent } from '@/lib/tool-content';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -9,6 +10,7 @@ import ToolCard from '@/components/features/tools/ToolCard';
 import { Tool } from '@/types';
 
 export const revalidate = 3600;
+export const dynamicParams = true;
 
 const CATEGORIES: Record<string, { name: string; description: string; editorial: string }> = {
   writing: {
@@ -62,9 +64,40 @@ export async function generateStaticParams() {
   return Object.keys(CATEGORIES).map((category) => ({ category }));
 }
 
+function titleCaseSlug(slug: string) {
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function hubFromTools(slug: string, tools: Tool[]) {
+  if (CATEGORIES[slug]) return { slug, ...CATEGORIES[slug] };
+  const named = tools
+    .flatMap((tool) => tool.categories || [])
+    .find((category) => category.slug === slug);
+  if (!named && tools.length === 0) return null;
+  const name = named?.name || titleCaseSlug(slug);
+  return {
+    slug,
+    name,
+    description: `Browse ${name} AI tools for startup founders. Compare pricing, features, and security-first ratings.`,
+    editorial: `${name} tools in the One9Founders directory, scored from published evidence with zero affiliate bias.`,
+  };
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
   const { category } = await params;
-  const cat = CATEGORIES[category];
+  if (CATEGORIES[category]) {
+    const cat = CATEGORIES[category];
+    return generateSEO({
+      title: `Best AI ${cat.name} Tools for Startups (2026)`,
+      description: cat.description,
+      path: `/tools/${category}`,
+      keywords: [`AI ${cat.name.toLowerCase()} tools`, `best ${cat.name.toLowerCase()} AI`, 'startup tools', 'founder tools', 'security validated'],
+    });
+  }
+
+  const data = await getAllTools({ category, page_size: 1 });
+  const tools: Tool[] = Array.isArray(data) ? data : (data?.results || []);
+  const cat = hubFromTools(category, tools);
   if (!cat) {
     return generateSEO({
       title: 'AI Tools Directory',
@@ -82,7 +115,12 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
-  const cat = CATEGORIES[category];
+  const [data, stats] = await Promise.all([
+    getAllTools({ category, page_size: 100 }),
+    fetchDirectoryStats(),
+  ]);
+  const tools: Tool[] = Array.isArray(data) ? data : (data?.results || []);
+  const cat = hubFromTools(category, tools);
 
   if (!cat) {
     return (
@@ -96,12 +134,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       </div>
     );
   }
-
-  const [data, stats] = await Promise.all([
-    getAllTools({ category, page_size: 50 }),
-    fetchDirectoryStats(),
-  ]);
-  const tools: Tool[] = Array.isArray(data) ? data : (data?.results || []);
   const indexedTools = tools.filter((tool) => tool.assessed === true || hasSubstantiveContent(tool));
   const categoryCount = getCategoryCount(stats, category, cat.name);
 
@@ -109,7 +141,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     '@type': 'CollectionPage',
     name: `Best AI ${cat.name} Tools for Startups`,
     description: cat.description,
-    url: `https://www.one9founders.com/tools/${category}`,
+    url: siteUrl(`/tools/${category}`),
     mainEntity: {
       '@type': 'ItemList',
       name: `AI ${cat.name} Tools`,
@@ -120,7 +152,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
         item: {
           '@type': 'SoftwareApplication',
           name: tool.name,
-          url: `https://www.one9founders.com/tool/${tool.slug}`,
+          url: siteUrl(`/tool/${tool.slug}`),
           description: tool.short_description,
           applicationCategory: cat.name,
         },
@@ -131,8 +163,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const breadcrumbSchema = generateStructuredData({
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.one9founders.com' },
-      { '@type': 'ListItem', position: 2, name: `${cat.name} Tools`, item: `https://www.one9founders.com/tools/${category}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: `${cat.name} Tools`, item: siteUrl(`/tools/${category}`) },
     ],
   });
 

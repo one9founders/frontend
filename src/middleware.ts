@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { SITE_APEX_HOST, SITE_CANONICAL_HOST } from '@/lib/constants/site';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -24,7 +25,23 @@ async function isStaffSession(token: string): Promise<boolean> {
   }
 }
 
+function hostnameOf(host: string | null): string {
+  return (host || '').split(':')[0].toLowerCase();
+}
+
 export async function middleware(request: NextRequest) {
+  if (hostnameOf(request.headers.get('host')) === SITE_APEX_HOST) {
+    const destination = request.nextUrl.clone();
+    destination.hostname = SITE_CANONICAL_HOST;
+    destination.protocol = 'https:';
+    destination.port = '';
+    return NextResponse.redirect(destination, 308);
+  }
+
+  if (!request.nextUrl.pathname.startsWith('/admin')) {
+    return NextResponse.next();
+  }
+
   const token = request.cookies.get('access_token')?.value;
   if (!token) return hiddenNotFound();
   if (!(await isStaffSession(token))) return hiddenNotFound();
@@ -32,5 +49,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin', '/admin/:path*'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 };
