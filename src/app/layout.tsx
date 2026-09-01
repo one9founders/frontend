@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReCaptchaProvider } from "@/lib/recaptcha";
 import { CurrencyProvider } from "@/lib/currency";
 import { STATS, withLiveCount } from "@/lib/constants/stats";
+import { SITE_URL } from "@/lib/constants/site";
 import { fetchDirectoryStats } from "@/lib/api/toolsStats";
 import ProfileCompletionCheck from "@/components/features/auth/ProfileCompletionCheck";
 
@@ -23,10 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = `Discover ${withLiveCount(stats?.total_tools, 'AI tools')}, ${withLiveCount(stats?.agent_count, 'agents')}, ${STATS.llmsCompared} LLMs, and ${STATS.researchPapers} research papers. Compare pricing, benchmarks, and security ratings. Built for startup founders.`;
 
   return {
-    metadataBase: new URL('https://one9founders.com'),
-    alternates: {
-      canonical: './',
-    },
+    metadataBase: new URL(SITE_URL),
     title: {
       default: 'One9Founders | India\'s #1 AI Ecosystem Navigator',
       template: '%s | One9Founders',
@@ -55,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: 'https://www.one9founders.com',
+      url: SITE_URL,
       siteName: 'One9Founders',
       title: 'One9Founders | India\'s #1 AI Ecosystem Navigator',
       description,

@@ -1,17 +1,16 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
+import { generateSEO } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ToolCard from '@/components/features/tools/ToolCard';
 import { Tool } from '@/types';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: 'New AI Tools This Week | One9Founders',
   description: 'Discover the newest AI tools, agents, and LLMs added to One9Founders this week. Stay ahead with daily updated AI tools.',
-  alternates: {
-    canonical: 'https://one9founders.com/new',
-  },
-};
+  path: '/new',
+});
 
 export default async function NewToolsPage() {
   let tools: Tool[] = [];

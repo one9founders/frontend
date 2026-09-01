@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ResearchFeedClient from '@/components/research/ResearchFeedClient';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 import { STATS, formatCatalogCount } from '@/lib/constants/stats';
 import { getPaperStats, getPapers, getTrendingPapers } from '@/lib/api/papersApi';
 import { PaperListResponse, PaperStats, Paper } from '@/types/paper';
@@ -69,7 +70,7 @@ export default async function ResearchPage() {
               '@type': 'CollectionPage',
               name: `${paperCount} AI Research Papers`,
               description: `Browse ${paperCount} AI research papers from ${authorCount} authors. Updated daily from arXiv and HuggingFace.`,
-              url: 'https://one9founders.com/research',
+              url: siteUrl('/research'),
               mainEntity: {
                 '@type': 'ItemList',
                 name: 'AI Research Papers',

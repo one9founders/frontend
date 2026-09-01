@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SITE_NAME, SITE_URL, siteUrl } from '@/lib/constants/site';
 
 interface SEOProps {
   title: string;
@@ -24,13 +25,11 @@ export function generateSEO({
   keywords = [],
   robots,
 }: SEOProps): Metadata {
-  const baseUrl = 'https://one9founders.com';
-  const url = `${baseUrl}${path}`;
-  const fullTitle = title.includes('One9Founders') ? title : `${title} | One9Founders`;
-  
-  // Ensure description is within 150-160 characters
-  const metaDescription = description.length > 160 
-    ? description.substring(0, 157) + '...' 
+  const url = siteUrl(path);
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+
+  const metaDescription = description.length > 160
+    ? `${description.substring(0, 157)}...`
     : description;
 
   return {
@@ -39,10 +38,10 @@ export function generateSEO({
     },
     description: metaDescription,
     keywords: keywords.join(', '),
-    authors: [{ name: 'One9Founders' }],
-    creator: 'One9Founders',
-    publisher: 'One9Founders',
-    metadataBase: new URL(baseUrl),
+    authors: [{ name: SITE_NAME }],
+    creator: SITE_NAME,
+    publisher: SITE_NAME,
+    metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: url,
     },
@@ -51,7 +50,7 @@ export function generateSEO({
       url,
       title: fullTitle,
       description: metaDescription,
-      siteName: 'One9Founders',
+      siteName: SITE_NAME,
       images: [
         {
           url: image,
@@ -82,7 +81,7 @@ export function generateSEO({
   };
 }
 
-export function generateStructuredData(data: any) {
+export function generateStructuredData(data: object) {
   return {
     '@context': 'https://schema.org',
     ...data,

@@ -3,26 +3,19 @@ import { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import RagDirectoryClient from '@/components/rag/RagDirectoryClient';
-import { generateStructuredData } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 import { RagToolListResponse } from '@/types/rag';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
 export const revalidate = 300;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEO({
   title: 'RAG & Vector DB Directory | One9Founders',
   description: 'Explore and compare vector databases, RAG frameworks, and embedding models. Security-validated with zero affiliate bias. Supported by IIT Bombay.',
-  openGraph: {
-    title: 'RAG & Vector DB Directory | One9Founders',
-    description: 'Explore and compare vector databases, RAG frameworks, and embedding models.',
-    type: 'website',
-    url: 'https://one9founders.com/rag-vector-dbs',
-  },
-  alternates: {
-    canonical: 'https://one9founders.com/rag-vector-dbs',
-  },
-};
+  path: '/rag-vector-dbs',
+});
 
 async function fetchTools() {
   try {
@@ -51,7 +44,7 @@ export default async function RagVectorDbsPage() {
               '@type': 'CollectionPage',
               name: 'RAG & Vector DB Directory',
               description: 'Explore and compare vector databases, RAG frameworks, and embedding models.',
-              url: 'https://one9founders.com/rag-vector-dbs',
+              url: siteUrl('/rag-vector-dbs'),
             })
           ),
         }}

@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getToolBySlug, getReviewsByToolId, getToolUsageCount, getAllToolSlugs } from '@/lib/actions/tools';
+import { getToolBySlug, getReviewsByToolId, getToolUsageCount, getAllToolSlugs, getAllTools } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
+import RelatedTools, { mergeRelatedTools } from '@/components/features/tools/RelatedTools';
+import Link from 'next/link';
 import { hasSubstantiveContent } from '@/lib/tool-content';
 import Navbar from '@/components/layout/Navbar';
 import ToolLogo from '@/components/shared/ToolLogo';
@@ -90,10 +93,20 @@ export default async function ToolPage({ params }: ToolPageProps) {
     notFound();
   }
 
-  const [reviews, usageCount] = await Promise.all([
+  const primaryCategorySlug = tool.categories?.[0]?.slug || '';
+  const primaryCategoryName = tool.categories?.[0]?.name || 'AI Tools';
+
+  const [reviews, usageCount, categoryData] = await Promise.all([
     getReviewsByToolId(tool.id),
     getToolUsageCount(tool.id),
+    primaryCategorySlug
+      ? getAllTools({ category: primaryCategorySlug, page_size: 12, ordering: '-views_count' })
+      : Promise.resolve({ results: [] as Tool[] }),
   ]);
+  const related = mergeRelatedTools(
+    tool,
+    Array.isArray(categoryData) ? categoryData : categoryData?.results || [],
+  );
 
   const ratingDisplay = getToolRatingDisplay(tool);
   const securityDisplay = getToolSecurityDisplay(tool);
@@ -147,9 +160,6 @@ export default async function ToolPage({ params }: ToolPageProps) {
     })),
   });
 
-  const primaryCategorySlug = tool.categories?.[0]?.slug || '';
-  const primaryCategoryName = tool.categories?.[0]?.name || 'AI Tools';
-
   const breadcrumbSchema = generateStructuredData({
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -157,19 +167,19 @@ export default async function ToolPage({ params }: ToolPageProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://www.one9founders.com',
+        item: siteUrl('/'),
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: primaryCategoryName,
-        item: `https://www.one9founders.com/tools/${primaryCategorySlug || 'all'}`,
+        item: siteUrl(`/tools/${primaryCategorySlug || 'all'}`),
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: tool.name,
-        item: `https://www.one9founders.com/tool/${tool.slug}`,
+        item: siteUrl(`/tool/${tool.slug}`),
       },
     ],
   });
@@ -283,7 +293,20 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 <div className="mb-2">
                   <span className="text-[var(--gray-400)] text-sm">Categories: </span>
                   <span className="text-white text-sm">
-                    {tool.categories?.map((c: { name: string }) => c.name).join(', ') || 'N/A'}
+                    {tool.categories?.length
+                      ? tool.categories.map((c: { name: string; slug?: string }, index: number) => (
+                          <span key={c.slug || c.name}>
+                            {index > 0 && ', '}
+                            {c.slug ? (
+                              <Link href={`/tools/${c.slug}`} className="text-copper hover:text-copper-bright underline">
+                                {c.name}
+                              </Link>
+                            ) : (
+                              c.name
+                            )}
+                          </span>
+                        ))
+                      : 'N/A'}
                   </span>
                 </div>
                 
@@ -445,22 +468,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
               : `Listed: ${new Date(tool.created_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}`}
           </div>
 
-          <div className="mt-8">
-            <h2 className="text-xl font-semibold text-white mb-4">Looking for Alternatives?</h2>
-            <p className="text-[var(--gray-300)]">
-              If {tool.name} doesn&apos;t fit your needs, explore other{' '}
-              <a href={primaryCategorySlug ? `/?category=${primaryCategorySlug}` : '/'} className="text-copper hover:text-copper-bright underline">
-                AI tools for {tool.categories?.[0]?.name?.toLowerCase() || 'startups'}
-              </a>{' '}
-              in our directory.
-            </p>
-            <p className="text-[var(--gray-400)] text-sm mt-3">
-              Want to understand how we evaluate tools?{' '}
-              <a href="/methodology" className="text-copper hover:text-copper-bright underline">
-                Read our rating methodology
-              </a>.
-            </p>
-          </div>
+          <RelatedTools tool={tool} related={related} />
         </div>
       </div>
     </div>
