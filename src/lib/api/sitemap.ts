@@ -39,12 +39,21 @@ export function toUrlsetXml(entries: SitemapEntry[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`;
 }
 
+/**
+ * Browsers and third-party fetchers must revalidate. Vercel was stripping
+ * `s-maxage` and leaving only `public`, which lets heuristic caches keep the
+ * old prerendered urlset after HTML (max-age=0) has already flipped.
+ */
+export const SITEMAP_CACHE_HEADERS = {
+  'Content-Type': 'application/xml; charset=utf-8',
+  'Cache-Control': 'public, max-age=0, must-revalidate',
+  'CDN-Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=600',
+  'Vercel-CDN-Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=600',
+} as const;
+
 export function sitemapXmlResponse(xml: string) {
   return new Response(xml, {
-    headers: {
-      'Content-Type': 'application/xml; charset=utf-8',
-      'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-    },
+    headers: SITEMAP_CACHE_HEADERS,
   });
 }
 
