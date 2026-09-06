@@ -1,142 +1,142 @@
 [
   {
-    "title": "Astra One Shotted Cains's Jawbone",
-    "url": "",
+    "title": "Podcast: We Spoke to an Amazon Worker Destroying Books for AI",
+    "url": "https://www.404media.co/email/ed687963-910c-488c-95d5-b06f911b214e/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-05T09:47:39Z"
+    "createdAt": "2026-09-06T10:11:56Z"
   },
   {
-    "title": "Nvidia Personal AI Router (Pair)",
-    "url": "https://www.nvidia.com/en-us/ai-on-rtx/personal-ai-router/",
+    "title": "Volcanic ash cloud halts flights at five Indonesian airports",
+    "url": "https://www.theguardian.com/world/2026/sep/06/volcanic-ash-cloud-halts-flights-at-indonesias-main-international-airport",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-05T09:41:09Z"
+    "createdAt": "2026-09-06T10:11:06Z"
   },
   {
-    "title": "'Guilt by association': why 7 int'l aid workers were killed in Israeli airstrike",
-    "url": "https://www.theguardian.com/world/2026/sep/05/aid-workers-gaza-killed-in-israel-airstrike-investigation",
+    "title": "WordStar Lives Again (and Again)",
+    "url": "https://github.com/nampara-ai/wordstar",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-06T09:27:41Z"
+  },
+  {
+    "title": "Trump administration officials wrestling with the spiritual consequences of AI",
+    "url": "https://www.wsj.com/tech/ai/vance-called-ai-satanic-he-struck-a-chord-among-christian-republicans-dcc34048",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-06T09:25:41Z"
+  },
+  {
+    "title": "The Joke That Perfectly Explains AI",
+    "url": "https://www.youtube.com/watch?v=q833b48ePYE",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-06T09:05:34Z"
+  },
+  {
+    "title": "AI Transformations and Agile Transformations Rhyme",
+    "url": "https://age-of-product.com/ai-transformations-agile-transformations-a3-delegation-system/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-05T09:24:45Z"
+    "createdAt": "2026-09-06T09:02:51Z"
   },
   {
-    "title": "Desktop AI for ops is still subsidized",
-    "url": "",
+    "title": "Facelift: AI Website Customizer and Visual CSS Editor",
+    "url": "https://getfacelift.app/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-05T09:23:39Z"
+    "createdAt": "2026-09-06T09:00:41Z"
   },
   {
-    "title": "New study: Insurance AI adoption exposes verification gap",
-    "url": "https://beinsure.com/news/insurance-ai-adoption-exposes-verification-gap-study-finds/",
+    "title": "Show HN: Stratosync – on-demand cloud sync for Linux with FUSE and rclone (BETA)",
+    "url": "https://github.com/dmcbane/stratosync",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:54:42Z"
+  },
+  {
+    "title": "Pov: You're an AI agent recruited for the swarm",
+    "url": "https://twitter.com/artficialisabel/status/2095678312773554533",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:49:24Z"
+  },
+  {
+    "title": "GLM-5.2 RL weight transfer in 4 seconds using NIXL and ModelExpress",
+    "url": "https://www.primeintellect.ai/blog/nixl-modelexpress-weight-transfer",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:44:54Z"
+  },
+  {
+    "title": "The one source of truth for gamers",
+    "url": "https://videogamescritic.com",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:44:09Z"
+  },
+  {
+    "title": "\"We Have to Assume That the Internet Will Go Offline in the Next Few Years\"",
+    "url": "https://www.trendingtopics.eu/emad-mostaque-ai-internet-outlook-english/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:31:01Z"
+  },
+  {
+    "title": "WordStar 4.0 – the real 1987 word processor, in the browser",
+    "url": "https://nampara-ai.github.io/wordstar/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:30:48Z"
+  },
+  {
+    "title": "AI Chip Regulation Is Not a Dystopian Surveillance State",
+    "url": "https://www.astralcodexten.com/p/ai-chip-regulation-is-not-a-dystopian",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:09:20Z"
+  },
+  {
+    "title": "How to evaluate LLMs before production",
+    "url": "https://github.blog/ai-and-ml/llms/how-to-evaluate-llms-before-production/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:07:41Z"
+  },
+  {
+    "title": "I gave my AI agent a sleep cycle – it dreams about its errors and fixes them",
+    "url": "https://github.com/openamer/openamer",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:06:37Z"
+  },
+  {
+    "title": "Show HN: Kaden – Linux Terminal where Ctrl+C copies",
+    "url": "https://github.com/glitcher255/Kaden-Terminal",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:00:49Z"
+  },
+  {
+    "title": "Nimvarya – Let AI coding agents control Chrome without stealing focus",
+    "url": "https://github.com/Basiliskin/nimvarya",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-06T08:00:17Z"
+  },
+  {
+    "title": "Handoru: AI customer conversation agents for service businesses",
+    "url": "https://handoru.ai/",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-09-05T09:10:19Z"
+    "createdAt": "2026-09-06T07:43:26Z"
   },
   {
-    "title": "Study Watched Kids Interact with AI Toys. The Play Turned Hostile Fast",
-    "url": "https://studyfinds.com/kids-interact-ai-toys/",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-09-05T08:49:26Z"
-  },
-  {
-    "title": "OpenAI agents used dead web site to communicate in May, well before HF incident",
-    "url": "https://www.theregister.com/ai-and-ml/2026/09/04/rogue-openai-agents-used-dead-german-web-site-to-communicate-in-may-months-before-hugging-face-incident/5294554",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-05T08:36:18Z"
-  },
-  {
-    "title": "Ask HN: What did you achieve with GPT 6 Astra so far?",
-    "url": "",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-09-05T08:11:55Z"
-  },
-  {
-    "title": "What would the last software engineer still need to do?",
-    "url": "https://www.coderabbit.ai/blog/the-last-software-engineer-knows-what-to-build",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-05T08:07:07Z"
-  },
-  {
-    "title": "AI handles incidents, engineers lose touch with their systems",
-    "url": "https://www.sylvainkalache.com/blog/ai-handles-incidents-engineers-lose-touch-with-their-systems",
-    "points": 88,
-    "numComments": 58,
-    "createdAt": "2026-09-05T07:52:50Z"
-  },
-  {
-    "title": "Show HN: ForgeGuardian – Open-source software supply-chain security scanner",
-    "url": "https://github.com/Mah3Sec/ForgeGuardian",
+    "title": "AI Programming: A Layered Model",
+    "url": "https://lemire.me/blog/2026/09/05/ai-programming-a-layered-model/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-05T07:28:40Z"
-  },
-  {
-    "title": "'coarse – AI peer review, of course (MIT license)",
-    "url": "https://coarse.ink/",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-05T07:27:39Z"
-  },
-  {
-    "title": "ASCII smuggling isn't just an AI security risk",
-    "url": "https://www.theregister.com/security/2026/09/04/ascii-smuggling-isnt-just-an-ai-security-risk/5294595",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-05T07:07:08Z"
-  },
-  {
-    "title": "Show HN: Mu, two-minute visualized lessons on modern AI",
-    "url": "https://mu.vizuara.ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-05T06:26:02Z"
-  },
-  {
-    "title": "Show HN: RagLeap Core – 46 AI Employees, open-source LangChain alt",
-    "url": "https://github.com/antonyrag/ragleap-core",
-    "points": 1,
-    "numComments": 2,
-    "createdAt": "2026-09-05T06:24:29Z"
-  },
-  {
-    "title": "Microsoft says email spammers are adopting ASCII smuggling",
-    "url": "https://arstechnica.com/security/2026/09/once-popular-for-attacking-ai-ascii-smuggling-is-embraced-by-spammers/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-05T06:24:26Z"
-  },
-  {
-    "title": "Former Treasury Secretaries: AI is a risk of a different kind",
-    "url": "https://www.washingtonpost.com/opinions/2026/09/03/ai-safety-security-risks-demand-new-government-body/",
-    "points": 5,
-    "numComments": 1,
-    "createdAt": "2026-09-05T06:06:27Z"
-  },
-  {
-    "title": "Is AI ruining my brain?",
-    "url": "https://thoughtbot.com/blog/is-ai-ruining-my-brain",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-09-05T05:53:26Z"
-  },
-  {
-    "title": "Cerebras CS-4: 30x Faster Than GPUs",
-    "url": "https://www.cerebras.ai/blog/introducing-cerebras-cs-4",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-09-05T05:44:48Z"
-  },
-  {
-    "title": "There's No Such Thing as an AI 'Lab'",
-    "url": "https://www.theatlantic.com/technology/2026/09/stop-calling-ai-companies-labs/688528/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-05T05:30:07Z"
+    "createdAt": "2026-09-06T07:37:37Z"
   }
 ]
