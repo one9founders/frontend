@@ -1,142 +1,142 @@
 [
   {
-    "title": "Podcast: We Spoke to an Amazon Worker Destroying Books for AI",
-    "url": "https://www.404media.co/email/ed687963-910c-488c-95d5-b06f911b214e/",
+    "title": "How Scared Should We Be of A.I.?",
+    "url": "https://www.nytimes.com/2026/09/05/opinion/ai-silicon-valley.html",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-06T10:11:56Z"
+    "createdAt": "2026-09-07T11:21:27Z"
   },
   {
-    "title": "Volcanic ash cloud halts flights at five Indonesian airports",
-    "url": "https://www.theguardian.com/world/2026/sep/06/volcanic-ash-cloud-halts-flights-at-indonesias-main-international-airport",
+    "title": "AI in Test Automation: Real Limitations vs. User Error",
+    "url": "https://www.davidmello.com/software-testing/test-automation/ai-test-automation-pitfalls-vs-user-error",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-06T10:11:06Z"
+    "createdAt": "2026-09-07T11:15:30Z"
   },
   {
-    "title": "WordStar Lives Again (and Again)",
-    "url": "https://github.com/nampara-ai/wordstar",
+    "title": "Ask HN: Are agent orchestrators an anti-pattern?",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-07T11:15:04Z"
+  },
+  {
+    "title": "AI 2027",
+    "url": "https://ai-2027.com/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-06T09:27:41Z"
+    "createdAt": "2026-09-07T11:10:32Z"
   },
   {
-    "title": "Trump administration officials wrestling with the spiritual consequences of AI",
-    "url": "https://www.wsj.com/tech/ai/vance-called-ai-satanic-he-struck-a-chord-among-christian-republicans-dcc34048",
+    "title": "Early Data Indicates an A.I.-Generated Drug Could Slow Aging",
+    "url": "https://www.nytimes.com/2026/09/07/science/ai-generated-drug-longevity.html",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-07T11:00:07Z"
+  },
+  {
+    "title": "Tencent/Teamai-CLI: Make Every Team AI Native",
+    "url": "https://github.com/Tencent/teamai-cli",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-06T09:25:41Z"
+    "createdAt": "2026-09-07T10:52:10Z"
   },
   {
-    "title": "The Joke That Perfectly Explains AI",
-    "url": "https://www.youtube.com/watch?v=q833b48ePYE",
+    "title": "Timing Is Everything: The Terrence Tao Effect",
+    "url": "https://nonlineartransform.substack.com/p/ai-swarms-timing-is-everything",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-07T10:42:09Z"
+  },
+  {
+    "title": "The jobs apocalypse is postponed. An AI jobs boom is here",
+    "url": "https://www.economist.com/finance-and-economics/2026/09/04/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-06T09:05:34Z"
+    "createdAt": "2026-09-07T10:38:32Z"
   },
   {
-    "title": "AI Transformations and Agile Transformations Rhyme",
-    "url": "https://age-of-product.com/ai-transformations-agile-transformations-a3-delegation-system/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T09:02:51Z"
-  },
-  {
-    "title": "Facelift: AI Website Customizer and Visual CSS Editor",
-    "url": "https://getfacelift.app/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T09:00:41Z"
-  },
-  {
-    "title": "Show HN: Stratosync – on-demand cloud sync for Linux with FUSE and rclone (BETA)",
-    "url": "https://github.com/dmcbane/stratosync",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T08:54:42Z"
-  },
-  {
-    "title": "Pov: You're an AI agent recruited for the swarm",
-    "url": "https://twitter.com/artficialisabel/status/2095678312773554533",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T08:49:24Z"
-  },
-  {
-    "title": "GLM-5.2 RL weight transfer in 4 seconds using NIXL and ModelExpress",
-    "url": "https://www.primeintellect.ai/blog/nixl-modelexpress-weight-transfer",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T08:44:54Z"
-  },
-  {
-    "title": "The one source of truth for gamers",
-    "url": "https://videogamescritic.com",
+    "title": "K2 Horizon",
+    "url": "https://mbzuai.ac.ae/news/mbzuais-institute-of-foundation-models-launches-k2-horizon-the-worlds-largest-fully-open-ai-models-in-history/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-06T08:44:09Z"
+    "createdAt": "2026-09-07T10:33:10Z"
   },
   {
-    "title": "\"We Have to Assume That the Internet Will Go Offline in the Next Few Years\"",
-    "url": "https://www.trendingtopics.eu/emad-mostaque-ai-internet-outlook-english/",
+    "title": "GraphMemix: Query-Aware Evidence Forests for Long-Term Multimodal Agent Memory",
+    "url": "https://twitter.com/MemoraX_AI/status/2095038508331401668",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-06T08:31:01Z"
+    "createdAt": "2026-09-07T10:30:25Z"
   },
   {
-    "title": "WordStar 4.0 – the real 1987 word processor, in the browser",
-    "url": "https://nampara-ai.github.io/wordstar/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-06T08:30:48Z"
-  },
-  {
-    "title": "AI Chip Regulation Is Not a Dystopian Surveillance State",
-    "url": "https://www.astralcodexten.com/p/ai-chip-regulation-is-not-a-dystopian",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T08:09:20Z"
-  },
-  {
-    "title": "How to evaluate LLMs before production",
-    "url": "https://github.blog/ai-and-ml/llms/how-to-evaluate-llms-before-production/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T08:07:41Z"
-  },
-  {
-    "title": "I gave my AI agent a sleep cycle – it dreams about its errors and fixes them",
-    "url": "https://github.com/openamer/openamer",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-06T08:06:37Z"
-  },
-  {
-    "title": "Show HN: Kaden – Linux Terminal where Ctrl+C copies",
-    "url": "https://github.com/glitcher255/Kaden-Terminal",
+    "title": "Claude Fable 5.1 Solves the Cyphral Distich",
+    "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-06T08:00:49Z"
+    "createdAt": "2026-09-07T10:29:38Z"
   },
   {
-    "title": "Nimvarya – Let AI coding agents control Chrome without stealing focus",
-    "url": "https://github.com/Basiliskin/nimvarya",
-    "points": 1,
+    "title": "Terrence Tao – AI math solutions hurting the field",
+    "url": "https://mathstodon.xyz/@tao/117219548485446992",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-06T08:00:17Z"
+    "createdAt": "2026-09-07T10:18:00Z"
   },
   {
-    "title": "Handoru: AI customer conversation agents for service businesses",
-    "url": "https://handoru.ai/",
+    "title": "Ask HN: How to roll out Agents for knowledge workers?",
+    "url": "",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-09-06T07:43:26Z"
+    "createdAt": "2026-09-07T10:14:59Z"
   },
   {
-    "title": "AI Programming: A Layered Model",
-    "url": "https://lemire.me/blog/2026/09/05/ai-programming-a-layered-model/",
+    "title": "CodexBar: Every AI coding limit, in your menu bar",
+    "url": "https://codexbar.app/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-07T10:10:35Z"
+  },
+  {
+    "title": "GPT-6 Astra demos: Games, Blender, websites and video workflows",
+    "url": "https://github.com/magiccreator-ai/awesome-gpt-6-astra",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-06T07:37:37Z"
+    "createdAt": "2026-09-07T10:03:58Z"
+  },
+  {
+    "title": "We Can't Know Our A.I. Future If We Don't Study It",
+    "url": "https://www.nytimes.com/2026/09/06/opinion/ai-social-sciences.html",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-07T09:59:01Z"
+  },
+  {
+    "title": "Speculative Decoding in vLLM on AMD GPUs",
+    "url": "https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus",
+    "points": 27,
+    "numComments": 4,
+    "createdAt": "2026-09-07T09:26:41Z"
+  },
+  {
+    "title": "Raptor turns Claude Code into a general-purpose AI",
+    "url": "https://github.com/gadievron/raptor",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-09-07T09:24:37Z"
+  },
+  {
+    "title": "Ask HN: How do you keep AI coding agents in sync with a changing Figma file?",
+    "url": "",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-07T09:17:00Z"
+  },
+  {
+    "title": "Show HN: The Token Times · a monthly newspaper on AI",
+    "url": "https://befailproof.ai/thetokentimes/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-07T08:56:19Z"
   }
 ]
