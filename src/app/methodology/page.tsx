@@ -417,8 +417,8 @@ export default async function MethodologyPage() {
                 <h3 className="text-lg font-semibold text-white">Data Sources</h3>
                 <ul className="space-y-2">
                   {[
-                    'Arena (arena.ai) text and WebDev leaderboards',
-                    'Artificial Analysis Intelligence Index',
+                    'Arena (arena.ai) text and Agent leaderboards',
+                    'Artificial Analysis Intelligence Index v4.3 (headline max/high only)',
                     'OpenRouter and official provider list prices',
                     'Model cards, Hugging Face, and release notes',
                   ].map((item, i) => (
