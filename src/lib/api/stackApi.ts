@@ -1,3 +1,5 @@
+import { applyVerifiedToolFacts } from '@/lib/verifiedToolFacts';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
 const EXCHANGE_RATE = 83.5;
@@ -54,14 +56,15 @@ export async function fetchToolsForStack(
     const data = await fetchToolBySlug(slug);
     if (!data) return;
 
-    const priceUSD = data.pricing_from; // null means "unknown", 0 means "free"
+    const verified = applyVerifiedToolFacts(data) ?? data;
+    const priceUSD = verified.pricing_from; // null means "unknown", 0 means "free"
     let priceINR: number | null;
 
     // Priority: override > API INR > computed from USD > null (unknown)
-    if (data.pricing_inr_override != null) {
-      priceINR = data.pricing_inr_override;
-    } else if (data.pricing_inr != null) {
-      priceINR = data.pricing_inr;
+    if (verified.pricing_inr_override != null) {
+      priceINR = verified.pricing_inr_override;
+    } else if (verified.pricing_inr != null) {
+      priceINR = verified.pricing_inr;
     } else if (priceUSD != null) {
       priceINR = Math.round(priceUSD * EXCHANGE_RATE);
     } else {
@@ -71,7 +74,7 @@ export async function fetchToolsForStack(
     results[slug] = {
       priceUSD,
       priceINR,
-      freeTier: data.free_tier_available,
+      freeTier: verified.free_tier_available,
       score: data.overall_score != null
         ? Number((Number(data.overall_score) * 2).toFixed(1))
         : 0,

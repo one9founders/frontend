@@ -1,5 +1,6 @@
 import { Tool } from '@/types';
 import { getToolRatingDisplay, getToolSecurityDisplay } from '@/lib/toolRating';
+import { hasPublishedTrial } from '@/lib/verifiedToolFacts';
 
 interface ToolQASectionProps {
   tool: Tool;
@@ -44,7 +45,10 @@ function generateQAPairs(tool: Tool): QAPair[] {
   const pricingAnswer = [
     `${tool.name} ${priceIndia}.`,
     tool.pricing_has_india_plan ? `India-specific pricing plans are available.` : '',
-    tool.free_tier_available ? `A free tier is available to get started.` : '',
+    tool.free_tier_available ? `A free plan is available to get started.` : '',
+    hasPublishedTrial(tool.free_trial_days)
+      ? `A ${tool.free_trial_days}-day free trial is published for paid plans.`
+      : '',
   ].filter(Boolean).join(' ');
 
   // Security Q&A — from shared status helper

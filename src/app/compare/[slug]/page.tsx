@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Tool } from '@/types';
 import { getToolRatingDisplay, getToolSecurityDisplay } from '@/lib/toolRating';
+import { hasPublishedTrial } from '@/lib/verifiedToolFacts';
 
 export const revalidate = 3600;
 
@@ -109,10 +110,14 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
 
   const formatPricing = (tool: Tool) => {
     const parts: string[] = [];
-    if (tool.pricing_models?.length) parts.push(tool.pricing_models.join(', '));
+    if (tool.pricing_models?.length) {
+      parts.push(
+        tool.pricing_models.filter((model) => model.toLowerCase() !== 'trial').join(', ')
+      );
+    }
     if (tool.pricing_from) parts.push(`From $${tool.pricing_from}/mo`);
     if (tool.free_tier_available) parts.push('Free tier available');
-    if (tool.free_trial_days) parts.push(`${tool.free_trial_days}-day trial`);
+    if (hasPublishedTrial(tool.free_trial_days)) parts.push(`${tool.free_trial_days}-day trial`);
     return parts.length ? parts.join(' | ') : 'Contact for pricing';
   };
 

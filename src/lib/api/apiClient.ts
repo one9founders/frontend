@@ -1,3 +1,5 @@
+import { applyVerifiedToolFacts, applyVerifiedToolList } from '@/lib/verifiedToolFacts';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
 function getCookie(name: string): string | null {
@@ -66,7 +68,7 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 }
 
 export const toolsAPI = {
-  getAll: (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string; track?: string }) => {
+  getAll: async (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string; track?: string }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
     if (params?.pricing) query.append('pricing', params.pricing);
@@ -77,15 +79,25 @@ export const toolsAPI = {
     if (params?.page_size) query.append('page_size', params.page_size.toString());
     if (params?.ordering) query.append('ordering', params.ordering);
     if (params?.track) query.append('track', params.track);
-    return fetchAPI(`/tools/?${query.toString()}`);
+    const data = await fetchAPI(`/tools/?${query.toString()}`);
+    if (data && typeof data === 'object' && Array.isArray(data.results)) {
+      return { ...data, results: applyVerifiedToolList(data.results) };
+    }
+    return Array.isArray(data) ? applyVerifiedToolList(data) : data;
   },
   getStats: () => fetchAPI('/tools/stats/'),
-  getBySlug: (slug: string) => fetchAPI(`/tools/${slug}/`),
-  search: (query: string) => 
-    fetchAPI('/tools/search/', {
+  getBySlug: async (slug: string) => applyVerifiedToolFacts(await fetchAPI(`/tools/${slug}/`)),
+  search: async (query: string) => {
+    const data = await fetchAPI('/tools/search/', {
       method: 'POST',
       body: JSON.stringify({ query }),
-    }),
+    });
+    if (Array.isArray(data)) return applyVerifiedToolList(data);
+    if (data && typeof data === 'object' && Array.isArray(data.results)) {
+      return { ...data, results: applyVerifiedToolList(data.results) };
+    }
+    return data;
+  },
   create: (data: any, extraHeaders?: Record<string, string>) =>
     fetchAPI('/tools/', {
       method: 'POST',
@@ -103,11 +115,17 @@ export const toolsAPI = {
       method: 'DELETE',
       headers: extraHeaders,
     }),
-  smartSearch: (query: string) =>
-    fetchAPI('/tools/smart-search/', {
+  smartSearch: async (query: string) => {
+    const data = await fetchAPI('/tools/smart-search/', {
       method: 'POST',
       body: JSON.stringify({ query }),
-    }),
+    });
+    if (Array.isArray(data)) return applyVerifiedToolList(data);
+    if (data && typeof data === 'object' && Array.isArray(data.results)) {
+      return { ...data, results: applyVerifiedToolList(data.results) };
+    }
+    return data;
+  },
   decomposeSearch: (query: string) =>
     fetchAPI('/tools/decompose-search/', {
       method: 'POST',

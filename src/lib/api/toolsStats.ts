@@ -6,6 +6,7 @@ import type {
   TrackStat,
 } from '@/types';
 import { isToolTrack, TRACK_LABELS } from '@/lib/constants/tracks';
+import { applyVerifiedToolList } from '@/lib/verifiedToolFacts';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -135,9 +136,9 @@ export async function fetchToolsByTrack(
     if (!response.ok) return { tools: [], count: 0 };
     const data = await response.json();
     if (data && typeof data === 'object' && Array.isArray(data.results)) {
-      return { tools: data.results, count: optionalCount(data.count) ?? data.results.length };
+      return { tools: applyVerifiedToolList(data.results), count: optionalCount(data.count) ?? data.results.length };
     }
-    const tools = Array.isArray(data) ? data : [];
+    const tools = applyVerifiedToolList(Array.isArray(data) ? data : []);
     return { tools, count: tools.length };
   } catch (error) {
     console.error('Get tools by track error:', error);

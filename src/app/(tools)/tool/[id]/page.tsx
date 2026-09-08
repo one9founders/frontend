@@ -20,6 +20,7 @@ import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
 import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
 import ToolCriteriaList from '@/components/features/tools/ToolCriteriaList';
 import IndiaFitCard from '@/components/features/tools/IndiaFitCard';
+import { hasPublishedTrial, pricingSourceLinks } from '@/lib/verifiedToolFacts';
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
 export const dynamicParams = true;
@@ -110,6 +111,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
   const ratingDisplay = getToolRatingDisplay(tool);
   const securityDisplay = getToolSecurityDisplay(tool);
+  const sourceLinks = pricingSourceLinks(tool);
 
   const structuredData = generateStructuredData({
     '@type': 'SoftwareApplication',
@@ -369,7 +371,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                     {tool.pricing_from != null && tool.pricing_from > 0
                       ? `From $${tool.pricing_from}/mo`
                       : tool.pricing_models?.length > 0
-                        ? tool.pricing_models.join(', ')
+                        ? tool.pricing_models.filter((model) => model.toLowerCase() !== 'trial').join(', ')
                         : tool.free_tier_available
                           ? 'Free'
                           : tool.pricing_type
@@ -377,14 +379,49 @@ export default async function ToolPage({ params }: ToolPageProps) {
                             : 'Pricing not available'}
                   </span>
                   {tool.free_tier_available && tool.pricing_from != null && tool.pricing_from > 0 && (
-                    <span className="text-green-400 ml-2 text-xs">(Free tier available)</span>
+                    <span className="text-green-400 ml-2 text-xs">(Free plan available)</span>
                   )}
                   <INRPriceDisplay tool={tool} className="mt-1" />
                 </div>
-                {tool.free_trial_days && (
+                {hasPublishedTrial(tool.free_trial_days) && (
                   <div>
                     <span className="text-[var(--gray-400)]">Free Trial:</span>
                     <span className="text-green-400 ml-2">{tool.free_trial_days} days</span>
+                  </div>
+                )}
+                {tool.pricing_tiers && tool.pricing_tiers.length > 0 && (
+                  <div>
+                    <span className="text-[var(--gray-400)]">Plans:</span>
+                    <ul className="mt-2 space-y-1 text-[var(--gray-300)] text-sm">
+                      {tool.pricing_tiers.map((tier) => (
+                        <li key={tier.name}>
+                          <span className="text-white">{tier.name}</span>
+                          {tier.price === 0
+                            ? ' — $0'
+                            : ` — $${tier.price}${tier.billing === 'monthly' ? '/mo' : ''}`}
+                          {tier.note ? <span className="text-[var(--gray-500)]"> · {tier.note}</span> : null}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {sourceLinks.length > 0 && (
+                  <div>
+                    <span className="text-[var(--gray-400)]">Sources:</span>
+                    <ul className="mt-1 space-y-1">
+                      {sourceLinks.map((link) => (
+                        <li key={link.href}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-copper text-xs hover:underline"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </div>

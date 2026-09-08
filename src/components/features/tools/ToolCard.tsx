@@ -11,6 +11,7 @@ import ToolLogo from '@/components/shared/ToolLogo';
 import { useCurrency } from '@/lib/currency';
 import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
 import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
+import { hasPublishedTrial } from '@/lib/verifiedToolFacts';
 
 interface ToolCardProps {
   tool: Tool;
@@ -21,7 +22,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
 
   const getPricingDisplay = () => {
     if (tool.free_tier_available) return 'Free';
-    if (tool.free_trial_days) return `${tool.free_trial_days} days trial`;
+    if (hasPublishedTrial(tool.free_trial_days)) return `${tool.free_trial_days} days trial`;
     if (tool.pricing_from != null && tool.pricing_from > 0) {
       if (currency === 'INR') {
         const inr = formatPrice(tool.pricing_from, tool.pricing_inr);

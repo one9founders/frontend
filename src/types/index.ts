@@ -90,11 +90,17 @@ export interface Tool {
   video_demo_url?: string;
   landing_page_screenshot?: string;
   pricing_models: string[];
-  pricing_tiers?: any[];
+  pricing_tiers?: Array<{
+    name: string;
+    price: number;
+    billing?: string;
+    note?: string;
+    source?: string;
+  }>;
   pricing_from?: number;
   pricing_type?: string;
   free_tier_available: boolean;
-  free_trial_days?: number;
+  free_trial_days?: number | null;
   tags: string[];
   use_cases: string[];
   integrations: string[];
