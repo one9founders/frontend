@@ -7,6 +7,7 @@ import ToolLogo from '@/components/shared/ToolLogo';
 import { getToolRatingDisplay } from '@/lib/toolRating';
 import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
 import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
+import { hasPublishedTrial } from '@/lib/verifiedToolFacts';
 
 interface CompareTableProps {
   tools: Tool[];
@@ -28,7 +29,7 @@ export default function CompareTable({ tools, onRemoveTool }: CompareTableProps)
       case 'free_tier':
         return { available: tool.free_tier_available || tool.pricing_models?.some(p => p.toLowerCase() === 'free') || false };
       case 'free_trial':
-        return { available: !!tool.free_trial_days, text: tool.free_trial_days ? `${tool.free_trial_days} days` : undefined };
+        return { available: hasPublishedTrial(tool.free_trial_days), text: hasPublishedTrial(tool.free_trial_days) ? `${tool.free_trial_days} days` : undefined };
       case 'api_access':
         return { available: tool.features?.some(f => f.toLowerCase().includes('api')) || false };
       case 'mobile_app':
