@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Rebuild public/data/llm-models.json from live OpenRouter + Aug 2026 leaderboards.
+"""Rebuild public/data/llm-models.json from live OpenRouter + Sep 2026 leaderboards.
 
-Sources (as of 2026-08-15):
+Sources (as of 2026-09-08):
   - OpenRouter /api/v1/models (live list prices + context)
-  - Artificial Analysis Intelligence Index v4.1.1 (headline max/high only)
-  - Arena text leaderboard (arena.ai, 2026-08-12) and WebDev coding ranks
+  - Artificial Analysis Intelligence Index v4.3 (headline max/high only; do not mix v4.1 scores)
+  - Arena text leaderboard (arena.ai, 2026-09-02) and Agent Arena ranks (2026-09-05)
   - Curated open-weight extras (Sarvam, Param2, Gemma 4 12B, Llama 3.1 405B, …)
 """
 
@@ -22,7 +22,7 @@ SRC = ROOT / "public" / "data" / "llm-models.json"
 OR_CACHE = Path("/tmp/or-models.json")
 
 INR = 95.4
-TODAY = "2026-08-15"
+TODAY = "2026-09-08"
 
 US_LAB = {
     "soc2_type2": True,
@@ -79,156 +79,183 @@ IN_OPEN = {
     "dpdp_act_notes": "Trained in India. Self-host or use India-region API for DPDP control.",
 }
 
-# Headline AA Intelligence Index v4.1.1 (max/high). Do not mix effort variants.
+# Headline AA Intelligence Index v4.3 (max/high). Do not mix v4.1 scores or effort variants.
 AA = {
-    "claude-opus-5": 63,
-    "claude-fable-5": 62,
-    "grok-4-6": 61,
-    "gpt-5-6-sol": 61,
-    "kimi-k3": 60,
-    "qwen3-8-max": 58,
-    "qwen3-8-2-4t-a95b": 58,
-    "muse-spark-1-2": 57,
-    "gpt-5-6-terra": 57,
-    "gemini-3-7-flash": 56,
-    "grok-4-5": 56,
-    "claude-sonnet-5": 55,
-    "deepseek-v4-pro-0813": 53,
-    "glm-5-2": 53,
-    "gpt-5-6-luna": 52,
-    "deepseek-v4-flash-0731": 52,
-    "gemini-3-6-flash": 52,
-    "gemini-3-1-pro-preview": 48,
-    "gemini-3-5-flash": 47,
-    "minimax-m3": 45,
-    "deepseek-v4-pro": 45,
-    "kimi-k2-7-code": 43,
-    "mimo-v2-5-pro": 43,
-    "inkling": 42,
-    "hy3": 42,
-    "nex-n2-pro": 42,
-    "solar-pro4": 42,
-    "inkling-small": 41,
-    "qwen3-7-plus": 39,
-    "nemotron-3-ultra-550b-a55b": 38,
-    "mimo-v2-5": 38,
-    "ling-3-0-flash": 38,
-    "qwen3-6-27b": 38,
-    "gemini-3-5-flash-lite": 37,
-    "grok-4-3": 37,
-    "muse-glimmer-30b": 35,
-    "glm-5": 35,
-    "qwen3-5-397b-a17b": 34,
-    "longcat-2-0": 34,
-    "qwen3-5-122b-a10b": 33,
-    "qwen3-6-35b-a3b": 32,
-    "o3": 31,
-    "mistral-medium-3-5": 30,
-    "claude-haiku-4-5": 30,
-    "gemma-4-31b-it": 30,
-    "deepseek-v4-flash": 29,
-    "gemma-4-26b-a4b-it": 26,
-    "nemotron-3-super-120b-a12b": 26,
-    "gpt-oss-120b": 24,
-    "nemotron-3-5-lightning": 24,
-    "command-a": 23,
-    "qwen3-coder-next": 21,
-    "mistral-small-2603": 20,
-    "qwen3-next-80b-a3b-instruct": 17,
-    "mistral-large-2512": 16,
-    "gpt-oss-20b": 15,
-    "llama-4-maverick": 14,
-    "llama-4-scout": 10,
-    "sarvam-105b": 12,
-    "sarvam-30b": 6,
+    "claude-fable-5-1": 53,
+    "gpt-6-astra": 53,
+    "claude-opus-5": 51,
+    "claude-fable-5": 50,
+    "muse-spark-1-3": 48,
+    "gpt-5-6-sol": 47,
+    "glm-5-3": 45,
+    "grok-4-6": 44,
+    "kimi-k3": 44,
+    "gpt-5-6-terra": 42,
+    "qwen3-8-flash": 42,
+    "glm-5-3-flash": 42,
+    "gemini-3-8-flash": 41,
+    "qwen3-8-max": 40,
+    "qwen3-8-2-4t-a95b": 40,
+    "muse-spark-1-2": 40,
+    "gemini-3-7-flash": 39,
+    "grok-4-5": 39,
+    "glm-5-2": 39,
+    "claude-sonnet-5": 38,
+    "gpt-5-6-luna": 38,
+    "deepseek-v4-pro-0813": 36,
+    "deepseek-v4-flash-vision-exp": 35,
+    "deepseek-v4-flash-0731": 35,
+    "gemini-3-6-flash": 34,
+    "qwen3-8-27b": 34,
+    "gemini-3-5-flash": 34,
+    "deepseek-v4-pro": 31,
+    "gemini-3-1-pro-preview": 30,
+    "minimax-m3": 30,
+    "nex-n2-pro": 28,
+    "solar-pro4": 28,
+    "mimo-v2-5-pro": 26,
+    "kimi-k2-7-code": 26,
+    "inkling-small": 26,
+    "qwen3-7-plus": 26,
+    "hy3": 26,
+    "inkling": 26,
+    "ling-3-0-flash": 25,
+    "grok-4-3": 25,
+    "nemotron-3-ultra-550b-a55b": 23,
+    "gemini-3-5-flash-lite": 23,
+    "mimo-v2-5": 22,
+    "qwen3-6-27b": 22,
+    "qwen3-6-35b-a3b": 22,
+    "longcat-2-0": 20,
+    "o3": 20,
+    "qwen3-5-397b-a17b": 19,
+    "muse-glimmer-30b": 18,
+    "claude-haiku-4-5": 18,
+    "qwen3-5-122b-a10b": 16,
+    "gemma-4-26b-a4b-it": 17,
+    "gemma-4-31b-it": 15,
+    "mistral-medium-3-5": 15,
+    "deepseek-v4-flash": 19,
+    "gpt-oss-120b": 12,
+    "nemotron-3-5-lightning": 14,
+    "nemotron-3-super-120b-a12b": 14,
+    "command-a": 7,
+    "qwen3-coder-next": 10,
+    "mistral-small-2603": 11,
+    "mistral-large-2512": 10,
+    "qwen3-next-80b-a3b-instruct": 10,
+    "gpt-oss-20b": 9,
+    "llama-4-maverick": 9,
+    "llama-4-scout": 6,
+    "sarvam-105b": 9,
+    "sarvam-30b": 7,
+    "llama-3-1-405b": 7,
+    "gemma-4-12b-it": 14,
 }
-
-# Arena text rank (arena.ai 2026-08-12). Lower is better. Best SKU rank only.
+# Arena text rank (arena.ai 2026-09-02). Lower is better. Best SKU rank only.
 ARENA = {
     "claude-fable-5": 1,
     "claude-opus-4-6": 2,
-    "claude-opus-4-7": 3,
-    "muse-spark-1-2": 4,
-    "claude-opus-5": 7,
-    "qwen3-8-max": 8,
-    "gemini-3-7-flash": 9,
-    "muse-spark-1-1": 11,
+    "claude-fable-5-1": 3,
+    "claude-opus-4-7": 4,
+    "muse-spark-1-2": 5,
+    "gemini-3-8-flash": 8,
+    "claude-opus-5": 9,
+    "muse-spark-1-1": 10,
+    "gemini-3-7-flash": 11,
     "kimi-k3": 12,
-    "gemini-3-1-pro-preview": 14,
-    "gemini-3-pro-preview": 15,
-    "gemini-3-6-flash": 16,
-    "gpt-5-5": 17,
+    "gemini-3-1-pro-preview": 15,
+    "gemini-3-pro-preview": 16,
+    "gpt-5-6-sol": 17,
     "claude-opus-4-8": 18,
-    "gpt-5-6-sol": 19,
-    "gemini-3-5-flash": 20,
-    "gpt-5-4": 22,
-    "gpt-5-2": 23,
-    "grok-4-20": 24,
-    "qwen3-7-max": 26,
-    "claude-sonnet-4-6": 31,
-    "glm-5-2": 33,
-    "claude-opus-4-5": 35,
-    "grok-4-5": 36,
-    "mimo-v2-5-pro": 38,
-    "glm-5-1": 39,
+    "gpt-5-5": 19,
+    "glm-5-3": 20,
+    "gemini-3-6-flash": 21,
+    "qwen3-8-max": 22,
+    "gemini-3-5-flash": 23,
+    "gpt-5-4": 25,
+    "gpt-5-2": 26,
+    "grok-4-20": 28,
+    "glm-5-3-flash": 29,
+    "qwen3-7-max": 32,
+    "claude-opus-4-5": 34,
+    "claude-sonnet-4-6": 35,
+    "glm-5-2": 37,
+    "grok-4-5": 38,
+    "mimo-v2-5-pro": 41,
     "gpt-5-6-terra": 43,
-    "grok-4-6": 44,
-    "claude-sonnet-5": 45,
-    "kimi-k2-6": 46,
-    "qwen3-7-plus": 49,
-    "deepseek-v4-pro": 51,
-    "gemini-3-5-flash-lite": 52,
-    "glm-5": 53,
-    "hy3": 54,
-    "gemma-4-31b-it": 60,
-    "kimi-k2-5": 61,
-    "gpt-5-6-luna": 62,
+    "glm-5-1": 44,
+    "claude-sonnet-5": 48,
+    "grok-4-6": 49,
+    "kimi-k2-6": 50,
+    "deepseek-v4-pro-0813": 52,
+    "deepseek-v4-pro": 55,
+    "glm-5": 56,
+    "gemini-3-5-flash-lite": 57,
+    "hy3": 60,
+    "qwen3-7-plus": 61,
+    "gpt-5-6-luna": 65,
+    "gemma-4-31b-it": 66,
+    "kimi-k2-5": 67,
     "claude-opus-4-1": 68,
-    "gemini-2-5-pro": 70,
-    "minimax-m3": 72,
-    "inkling": 75,
-    "qwen3-5-397b-a17b": 76,
-    "gemma-4-26b-a4b-it": 80,
-    "deepseek-v4-flash": 85,
-    "mimo-v2-5": 88,
-    "o3": 92,
-    "mistral-medium-3-5": 96,
-    "muse-glimmer-30b": 99,
-    "deepseek-v3-2": 101,
-    "deepseek-r1-0528": 109,
-    "qwen3-5-122b-a10b": 116,
-    "minimax-m2-7": 118,
-    "mistral-large-2512": 120,
-    "claude-haiku-4-5": 125,
-    "gemini-2-5-flash": 129,
-    "qwen3-next-80b-a3b-instruct": 139,
-    "deepseek-r1": 142,
-    "minimax-m2-5": 151,
-    "o4-mini": 152,
-    "qwen3-coder": 157,
-    "solar-pro4": 167,
-    "qwen3-235b-a22b": 170,
-    "gemma-3-27b-it": 178,
-    "nemotron-3-super-120b-a12b": 183,
-    "gpt-oss-120b": 192,
-    "qwen3-32b": 201,
-    "command-a": 189,
+    "gemini-2-5-pro": 75,
+    "minimax-m3": 80,
+    "qwen3-5-397b-a17b": 82,
+    "inkling": 83,
+    "gemma-4-26b-a4b-it": 86,
+    "qwen3-8-27b": 89,
+    "deepseek-v4-flash": 91,
+    "mimo-v2-5": 94,
+    "o3": 97,
+    "muse-glimmer-30b": 102,
+    "mistral-medium-3-5": 103,
+    "deepseek-v3-2": 108,
+    "deepseek-r1-0528": 115,
+    "qwen3-5-122b-a10b": 122,
+    "minimax-m2-7": 124,
+    "mistral-large-2512": 130,
+    "claude-haiku-4-5": 131,
+    "gemini-2-5-flash": 136,
+    "qwen3-next-80b-a3b-instruct": 148,
+    "deepseek-r1": 149,
+    "minimax-m2-5": 159,
+    "o4-mini": 158,
+    "qwen3-coder": 166,
+    "solar-pro4": 175,
+    "qwen3-235b-a22b": 176,
+    "gemma-3-27b-it": 186,
+    "nemotron-3-super-120b-a12b": 190,
+    "command-a": 197,
+    "gpt-oss-120b": 200,
+    "qwen3-32b": 207,
 }
 
+# Arena Agent ranks (arena.ai 2026-09-05). Lower is better. Best SKU rank only.
 ARENA_CODING = {
-    "claude-opus-5": 1,
-    "kimi-k3": 2,
-    "qwen3-8-max": 3,
-    "grok-4-6": 5,
-    "claude-fable-5": 6,
-    "gpt-5-6-sol": 7,
-    "claude-opus-4-8": 11,
+    "claude-fable-5-1": 1,
+    "claude-opus-5": 2,
+    "claude-fable-5": 4,
+    "gpt-5-6-sol": 5,
+    "claude-opus-4-8": 6,
+    "kimi-k3": 7,
+    "claude-sonnet-5": 8,
+    "hy4-preview": 10,
+    "glm-5-2": 12,
+    "qwen3-8-max": 16,
+    "gemini-3-8-flash": 17,
+    "deepseek-v4-pro-0813": 18,
+    "grok-4-6": 19,
+    "glm-5-3": 22,
+    "glm-5-3-flash": 23,
+    "deepseek-v4-flash-0731": 24,
+    "qwen3-8-flash": 27,
+    "muse-spark-1-2": 34,
 }
-
 # Official list prices when they differ from a random OpenRouter route.
 PRICE = {
     "claude-opus-5": (5.0, 25.0, 0.5, 2.5, 12.5),
     "claude-fable-5": (10.0, 50.0, 1.0, 5.0, 25.0),
+    "claude-fable-5-1": (10.0, 50.0, 0.25, 5.0, 25.0),
     "claude-sonnet-5": (2.0, 10.0, 0.2, 1.0, 5.0),
     "claude-opus-4-8": (5.0, 25.0, 0.5, 2.5, 12.5),
     "claude-opus-4-7": (5.0, 25.0, 0.5, 2.5, 12.5),
@@ -236,17 +263,21 @@ PRICE = {
     "claude-opus-4-5": (5.0, 25.0, 0.5, 2.5, 12.5),
     "claude-sonnet-4-6": (3.0, 15.0, 0.3, 1.5, 7.5),
     "claude-haiku-4-5": (1.0, 5.0, 0.1, 0.5, 2.5),
-    "gpt-5-6-sol": (5.0, 30.0, 0.5, 2.5, 15.0),
-    "gpt-5-6-terra": (1.0, 6.0, 0.1, 0.5, 3.0),
-    "gpt-5-6-luna": (0.10, 0.60, 0.02, 0.05, 0.30),
+    "gpt-6-astra": (10.0, 50.0, 1.0, 5.0, 25.0),
+    "gpt-5-6-sol": (4.0, 20.0, 0.4, 2.0, 10.0),
+    "gpt-5-6-terra": (2.0, 12.0, 0.2, 1.0, 6.0),
+    "gpt-5-6-luna": (0.20, 1.20, 0.02, 0.10, 0.60),
     "gpt-5-5": (5.0, 30.0, 0.5, 2.5, 15.0),
     "gpt-5-5-pro": (30.0, 180.0, 3.0, 15.0, 90.0),
     "grok-4-6": (2.0, 6.0, 0.50, None, None),
     "grok-4-5": (2.0, 6.0, 0.50, None, None),
-    "gemini-3-7-flash": (0.375, 1.875, None, 0.188, 0.938),
+    "gemini-3-8-flash": (0.75, 3.75, 0.075, 0.375, 1.875),
     "kimi-k3": (3.0, 15.0, 0.30, None, None),
+    "muse-spark-1-3": (1.25, 4.25, 0.15, None, None),
+    "glm-5-3": (1.40, 4.40, 0.26, None, None),
+    "glm-5-3-flash": (0.15, 0.50, 0.03, None, None),
+    "qwen3-8-max": (2.0, 6.0, None, None, None),
 }
-
 PROVIDER = {
     "anthropic": ("Anthropic", "US", "anthropic"),
     "openai": ("OpenAI", "US", "openai"),
@@ -321,7 +352,7 @@ OPEN_ID_RE = re.compile(
     r"gpt-oss|gemma-|llama-|qwen3|qwen2|glm-|kimi-|deepseek-|nemotron|"
     r"olmo-|phi-|granite-|hermes-|command-a|mistral-nemo|mixtral|"
     r"ministral|mistral-small|mistral-large-2512|devstral|ling-|ring-|"
-    r"hy3|mimo-|longcat|trinity|intellect|apertus|exaone|sarvam|param2|"
+    r"hy3|hy4|mimo-|longcat|trinity|intellect|apertus|exaone|sarvam|param2|"
     r"minimax-m",
     re.I,
 )
@@ -336,14 +367,16 @@ SKIP_ID = re.compile(
     r"gemini-3\.1-flash-lite-preview|gemini-3\.1-pro-preview-custom|"
     r"qwen3\.5-plus-202|qwen3\.5-plus-02|qwen3\.5-flash-02|"
     r"qwen-plus-2025|qwen3-max-thinking|"
-    r"-fast$|gpt-5\.6-.*-pro$|gpt-5\.2-chat|gpt-5\.2-pro|"
+    r"-fast$|gpt-5\.6-.*-pro$|gpt-6-astra-pro|gpt-5\.2-chat|gpt-5\.2-pro|"
     r"gpt-4o-2024|gpt-4o-mini-2024|"
+    r"contributor|hy-mt2|"
     r"claude-3-haiku|relace-|morph-|mercury-2",
     re.I,
 )
 
 FAMILY_HINTS = [
     (r"claude", "Claude"),
+    (r"gpt-6", "GPT-6"),
     (r"gpt-5\.6|gpt-5-6", "GPT-5.6"),
     (r"gpt-5\.5|gpt-5-5", "GPT-5.5"),
     (r"gpt-5\.4|gpt-5-4", "GPT-5.4"),
@@ -412,10 +445,16 @@ def completeness(m):
     return round(100.0 * n / len(keys), 1)
 
 
+SLUG_ALIAS = {
+    "qwen3-8-max-0902": "qwen3-8-max",
+}
+
+
 def slugify(or_id: str) -> str:
     last = or_id.split("/")[-1]
     last = last.split(":")[0]
-    return last.replace(".", "-").lower()
+    slug = last.replace(".", "-").lower()
+    return SLUG_ALIAS.get(slug, slug)
 
 
 NAME_FIX = {
@@ -425,13 +464,15 @@ NAME_FIX = {
     "GLM 5.2": "GLM-5.2",
     "GLM 5.1": "GLM-5.1",
     "GLM 5": "GLM-5",
+    "GLM 5.3": "GLM-5.3",
+    "GLM 5.3 Flash": "GLM-5.3 Flash",
 }
 
 
 def clean_name(name: str) -> str:
     if ": " in name:
         name = name.split(": ", 1)[1]
-    name = re.sub(r"\s*\((batch|free|preview)\)\s*$", "", name, flags=re.I)
+    name = re.sub(r"\s*\((batch|free|preview|\d{4})\)\s*$", "", name, flags=re.I)
     name = name.strip()
     return NAME_FIX.get(name, name)
 
@@ -447,9 +488,11 @@ def family_of(slug: str, name: str) -> str:
 def is_open(or_id: str, hf: str | None, license_hint: str | None) -> bool:
     org = or_id.split("/")[0]
     if org in OPEN_PROVIDERS and "muse-spark" not in or_id:
-        if org == "qwen" and re.search(r"max(?!-)|plus|flash", or_id) and "qwen3.8-2.4t" not in or_id:
-            # Qwen Max/Plus/Flash API SKUs are usually proprietary; open siblings have HF ids.
-            return bool(hf) and "Qwen/" in (hf or "")
+        if org == "qwen":
+            if re.search(r"max|plus", or_id) and "a95b" not in or_id.lower() and "2.4t" not in or_id.lower():
+                return False
+            if "flash" in or_id:
+                return bool(hf) and "Qwen/" in (hf or "")
         if org == "mistralai" and re.search(r"medium|saba|large-2407|large$", or_id):
             return False
         if org == "google" and "gemma" not in or_id:
@@ -559,13 +602,102 @@ def param_display(name: str, slug: str, hf: str | None) -> tuple[int | None, str
 
 
 EDITORIAL = {
-    "claude-opus-5": {
-        "one9_summary": "Anthropic's July 2026 flagship. Artificial Analysis #1 (Intelligence 63). Same $5/$25 as Opus 4.8, with a Fast mode at 2×. Leads Arena WebDev. Best default for serious coding agents if you can afford frontier rates.",
-        "one9_best_for": ["autonomous coding agents", "computer use", "complex knowledge work"],
+    "claude-fable-5-1": {
+        "one9_summary": "Anthropic's 1 Sep 2026 refresh of Fable. Tied #1 on Artificial Analysis Intelligence Index v4.3 (53) with GPT-6 Astra, and #1 on Arena Agent. Same $10/$50 as Fable 5, but cache reads are $0.25 (75% cheaper). The coding and knowledge-work ceiling if you can pay frontier rates.",
+        "one9_best_for": ["autonomous coding agents", "long-horizon research", "computer use"],
         "one9_not_great_for": ["high-volume cheap inference", "bootstrapped token budgets"],
-        "one9_verdict": "The model to beat in August 2026 — if budget allows.",
+        "one9_verdict": "The model to beat in September 2026 — if budget allows.",
+        "one9_value_rating": "fair",
+        "startup_recommendation": "Use for hard coding/research; route volume to Sonnet 5, Muse Spark 1.3, or GLM-5.3 Flash.",
+        "tags": ["frontier", "coding", "agents", "writing"],
+        "use_cases": ["coding", "agents", "research", "writing"],
+        "pricing_notes": "Cache reads $0.25/MTok (75% cheaper than Fable 5). Batch is 50% of standard.",
+        "tier": "frontier",
+    },
+    "gpt-6-astra": {
+        "one9_summary": "OpenAI's 3 Sep 2026 flagship. Tied #1 on Intelligence Index v4.3 (53) at $10/$50. Stronger token efficiency than GPT-5.6 Sol, weaker than Fable 5.1 on Agent Arena so far. Prompts above ~272K input bill at 2×.",
+        "one9_best_for": ["hard reasoning", "ChatGPT-aligned UX", "long-horizon OpenAI stacks"],
+        "one9_not_great_for": ["cost-sensitive volume", "workloads that already fit Sol/Terra"],
+        "one9_verdict": "OpenAI's new ceiling. Priced like Fable, not like Sol.",
+        "one9_value_rating": "fair",
+        "startup_recommendation": "Reserve Astra for the hardest jobs; keep Sol/Terra/Luna for volume.",
+        "tags": ["frontier", "reasoning", "chatgpt"],
+        "use_cases": ["reasoning", "coding", "chat"],
+        "pricing_notes": ">272K input tokens billed at 2× input and 1.5× output. Fast mode is 2× standard.",
+        "tier": "frontier",
+    },
+    "muse-spark-1-3": {
+        "one9_summary": "Meta's 2 Sep 2026 API model (not Llama). Intelligence 48 at $1.25/$4.25 — near Fable/Astra quality at a fraction of the price. Contributor tier $0.10/$0.20 trains on prompts.",
+        "one9_best_for": ["agentic coding on a budget", "long-horizon Meta API work"],
+        "one9_not_great_for": ["zero-training-data contracts on Contributor tier", "enterprise compliance-heavy stacks"],
+        "one9_verdict": "Best closed-model value in September 2026. Read the Contributor ToS.",
+        "one9_value_rating": "excellent",
+        "startup_recommendation": "Default Meta SKU at full price unless you explicitly accept training on prompts.",
+        "tags": ["frontier", "coding", "agents", "value", "meta"],
+        "use_cases": ["coding", "agents"],
+        "pricing_notes": "Contributor tier $0.10/$0.20 trains on prompts. Standard tier does not.",
+        "tier": "frontier",
+        "license": "Proprietary",
+    },
+    "gemini-3-8-flash": {
+        "one9_summary": "Google's 2 Sep 2026 Flash. Intelligence 41, Arena text #8, ~280 tok/s. Introductory $0.75/$3.75 until 31 Dec 2026, then doubles. Mumbai residency available.",
+        "one9_best_for": ["low-latency chat", "multimodal apps", "India-region Google stacks"],
+        "one9_not_great_for": ["max intelligence", "workloads that must stay cheap after the intro price ends"],
+        "one9_verdict": "Fastest near-frontier Flash. Watch the Jan 2027 price step.",
+        "one9_value_rating": "excellent",
+        "startup_recommendation": "Strong default for Indian startups already on GCP, while the intro price holds.",
+        "tags": ["fast", "multimodal", "value", "india-affordable"],
+        "use_cases": ["chat", "multimodal", "agents"],
+        "has_free_tier": True,
+        "pricing_notes": "Introductory price through 31 Dec 2026. Then $1.50/$7.50.",
+        "tier": "near-frontier",
+    },
+    "glm-5-3": {
+        "one9_summary": "Z.ai's MIT open-weight flagship (Aug 2026). Highest open-weight Intelligence Index v4.3 score (45), Arena text #20. API $1.40/$4.40. The open-weight king after the v4.3 rescore, just ahead of Kimi K3.",
+        "one9_best_for": ["open-weight coding", "MIT self-host", "SWE agents"],
+        "one9_not_great_for": ["Western enterprise procurement without a China-hosting review"],
+        "one9_verdict": "Top open-weight model on the current Index. Operationally lighter than Kimi K3.",
+        "one9_value_rating": "excellent",
+        "startup_recommendation": "Shortlist with Kimi K3 and DeepSeek V4 for open stacks; prefer Flash if you need cheap volume.",
+        "tags": ["open-weights", "coding", "frontier", "mit"],
+        "use_cases": ["coding", "agents"],
+        "license": "MIT",
+        "tier": "frontier",
+    },
+    "glm-5-3-flash": {
+        "one9_summary": "Z.ai's MIT 320B/18B MoE Flash. Intelligence 42 at list $0.15/$0.50. Launch promo $0.075/$0.25 ends 9 Sep 2026 (UTC+8). Best price/intelligence open-weight for Indian bootstrapped backends if China-hosted API is acceptable, else self-host.",
+        "one9_best_for": ["bootstrapped production inference", "MIT self-host", "high-volume coding"],
+        "one9_not_great_for": ["enterprise certifications", "DPDP without self-hosting"],
+        "one9_verdict": "The September 2026 price-performance pick.",
+        "one9_value_rating": "excellent",
+        "startup_recommendation": "Best default for Indian bootstrapped backends if the API region is acceptable; pin list prices after the promo.",
+        "tags": ["open-weights", "budget", "moe", "india-affordable", "mit"],
+        "use_cases": ["coding", "chat", "batch"],
+        "license": "MIT",
+        "pricing_notes": "List $0.15/$0.50. 50% launch promo through 9 Sep 2026 UTC+8.",
+        "tier": "near-frontier",
+        "parameter_display": "320B MoE (18B active)",
+    },
+    "hy4-preview": {
+        "one9_summary": "Tencent's 28 Aug 2026 Apache-2.0 open-weight MoE (770B / 49B active), 1M context. #10 on Arena Agent. Early, but already a serious open agentic coder beside GLM-5.3.",
+        "one9_best_for": ["open-weight agents", "Apache self-host", "long-context coding"],
+        "one9_not_great_for": ["laptop inference", "mature eval coverage vs GLM-5.3"],
+        "one9_verdict": "The Apache open-weight to watch. Preview, not a finished product.",
         "one9_value_rating": "good",
-        "startup_recommendation": "Use for agentic coding and hard reasoning; route routine tokens to Sonnet 5 or Luna.",
+        "startup_recommendation": "Evaluate beside GLM-5.3; do not bet production on a preview SKU without evals.",
+        "tags": ["open-weights", "coding", "agents", "apache", "moe"],
+        "use_cases": ["coding", "agents"],
+        "license": "Apache 2.0",
+        "tier": "near-frontier",
+        "parameter_display": "770B MoE (49B active)",
+    },
+    "claude-opus-5": {
+        "one9_summary": "Anthropic's July 2026 workhorse flagship. Intelligence 51 on Index v4.3 (behind Fable 5.1 / Astra). Same $5/$25 as Opus 4.8, with a Fast mode at 2×. Still #2 on Arena Agent. The cheaper Claude when you do not need Fable 5.1.",
+        "one9_best_for": ["autonomous coding agents", "computer use", "complex knowledge work"],
+        "one9_not_great_for": ["absolute ceiling vs Fable 5.1", "bootstrapped token budgets"],
+        "one9_verdict": "Still a top coding agent. No longer the Index leader.",
+        "one9_value_rating": "good",
+        "startup_recommendation": "Use when Fable 5.1 is too expensive; route routine tokens to Sonnet 5 or GLM-5.3 Flash.",
         "tags": ["frontier", "coding", "agents", "mcp"],
         "use_cases": ["coding", "agents", "research"],
         "pricing_notes": "Fast mode is ~2.5× quicker at 2× the base price.",
@@ -594,10 +726,10 @@ EDITORIAL = {
         "tier": "frontier",
     },
     "gpt-5-6-sol": {
-        "one9_summary": "OpenAI's July 2026 flagship. Intelligence 61, tied with Grok 4.6, at $5/$30. Strongest LiveBench math/reasoning crown. Prompts above ~272K input bill at 2×.",
+        "one9_summary": "OpenAI's July 2026 high SKU. Intelligence 47 on Index v4.3, now behind Astra. List $4/$20. Still a strong ChatGPT-shaped workhorse; Astra is the new ceiling.",
         "one9_best_for": ["hard reasoning", "math/science", "ChatGPT-aligned UX"],
         "one9_not_great_for": ["cost-sensitive volume", "long prompts without watching the surcharge"],
-        "one9_verdict": "OpenAI's current frontier. Pricey vs Grok 4.6 for the same AA score.",
+        "one9_verdict": "OpenAI's previous flagship. Use unless you need Astra.",
         "one9_value_rating": "fair",
         "startup_recommendation": "Use Sol for hard tasks; Terra/Luna for volume.",
         "tags": ["frontier", "reasoning", "chatgpt"],
@@ -606,7 +738,7 @@ EDITORIAL = {
         "tier": "frontier",
     },
     "gpt-5-6-terra": {
-        "one9_summary": "Mid GPT-5.6 tier. Intelligence 57 at $1/$6 — the practical OpenAI production model. Faster than Sol, much cheaper, still agent-capable.",
+        "one9_summary": "Mid GPT-5.6 tier. Intelligence 42 at $2/$12 — OpenAI's practical production model after the Sep price card. Faster than Sol, cheaper, still agent-capable.",
         "one9_best_for": ["production agents", "coding copilots", "high-throughput OpenAI stacks"],
         "one9_not_great_for": ["absolute hardest reasoning"],
         "one9_verdict": "Best OpenAI SKU for most startups.",
@@ -617,7 +749,7 @@ EDITORIAL = {
         "tier": "near-frontier",
     },
     "gpt-5-6-luna": {
-        "one9_summary": "Cheapest GPT-5.6. ~$0.10/$0.60 with Intelligence ~52 — Gemini Flash / DeepSeek Flash band at OpenAI-shaped tooling.",
+        "one9_summary": "Cheapest GPT-5.6. $0.20/$1.20 with Intelligence 38. GLM-5.3 Flash is smarter and cheaper if you can leave OpenAI.",
         "one9_best_for": ["high-volume classification", "cheap tool calling", "bootstrapped OpenAI stacks"],
         "one9_not_great_for": ["frontier coding agents", "long agentic jobs"],
         "one9_verdict": "The OpenAI bargain bin, still actually smart.",
@@ -629,10 +761,10 @@ EDITORIAL = {
         "tier": "strong",
     },
     "grok-4-6": {
-        "one9_summary": "August 12 post-training refresh of Grok 4.5. Intelligence 61, tying GPT-5.6 Sol, at $2/$6. Watch the 200K-token 2× rebill trap.",
+        "one9_summary": "August 12 post-training refresh of Grok 4.5. Intelligence 44 at $2/$6. Muse Spark 1.3 now beats it on the Index at a similar bill. Watch the 200K-token 2× rebill trap.",
         "one9_best_for": ["agentic jobs on a budget", "frontier quality without Sol prices"],
         "one9_not_great_for": ["prompts over 200K tokens", "enterprise compliance-heavy workloads"],
-        "one9_verdict": "Best frontier value in August 2026.",
+        "one9_verdict": "Still good value. No longer the obvious pick vs Muse Spark 1.3.",
         "one9_value_rating": "excellent",
         "startup_recommendation": "Serious alternative to Opus 5 / Sol when compliance allows.",
         "tags": ["frontier", "value", "new"],
@@ -641,10 +773,10 @@ EDITORIAL = {
         "tier": "frontier",
     },
     "gemini-3-7-flash": {
-        "one9_summary": "Fastest frontier-adjacent Flash. Intelligence 56 at $0.375/$1.875 and ~300 tok/s. Mumbai residency available. Google default for speed + multimodal.",
+        "one9_summary": "Previous Google Flash. Intelligence 39 at $0.75/$3.75. Prefer 3.8 Flash unless you are pinned to 3.7.",
         "one9_best_for": ["low-latency chat", "multimodal apps", "India-region Google stacks"],
         "one9_not_great_for": ["max intelligence", "strict US-only data residency"],
-        "one9_verdict": "Best speed/intelligence blend on Google right now.",
+        "one9_verdict": "Superseded by Gemini 3.8 Flash.",
         "one9_value_rating": "excellent",
         "startup_recommendation": "Strong default for Indian startups already on GCP.",
         "tags": ["fast", "multimodal", "value", "india-affordable"],
@@ -653,10 +785,10 @@ EDITORIAL = {
         "tier": "near-frontier",
     },
     "kimi-k3": {
-        "one9_summary": "Largest open-weight model released (2.8T MoE). Highest open-weight AA score (60). #2 Arena WebDev. API $3/$15; self-host is a multi-node job under the Kimi K3 License, not MIT.",
+        "one9_summary": "Largest open-weight model released (2.8T MoE). Intelligence 44 on Index v4.3 — a point behind GLM-5.3. Still #7 on Arena Agent. API $3/$15; self-host is a multi-node job under the Kimi K3 License, not MIT.",
         "one9_best_for": ["open-weight coding frontier", "agentic coding", "self-host when you can afford the cluster"],
         "one9_not_great_for": ["laptop inference", "simple MIT licensing", "DPDP-sensitive SaaS without self-hosting"],
-        "one9_verdict": "Open-weight king on quality. Operationally heavy.",
+        "one9_verdict": "Still a top open coder. GLM-5.3 is now ahead on the Index and MIT-licensed.",
         "one9_value_rating": "good",
         "startup_recommendation": "Use the API for experiments; only self-host if you already run multi-node GPUs.",
         "tags": ["open-weights", "coding", "frontier", "moe"],
@@ -666,10 +798,10 @@ EDITORIAL = {
         "license": "Kimi K3 License",
     },
     "deepseek-v4-flash-0731": {
-        "one9_summary": "July 31 post-train of V4-Flash. MIT 284B/13B MoE at $0.14/$0.28, Intelligence ~52. Artificial Analysis's cheapest $ per index task among current models.",
+        "one9_summary": "July 31 post-train of V4-Flash. MIT 284B/13B MoE. Intelligence 35 on Index v4.3 — GLM-5.3 Flash now leads this band. Still a cheap MIT option.",
         "one9_best_for": ["bootstrapped production inference", "high-volume MIT self-host", "price/performance"],
         "one9_not_great_for": ["enterprise certifications", "DPDP without self-hosting"],
-        "one9_verdict": "The August 2026 price-performance pick.",
+        "one9_verdict": "Still cheap. No longer the price-performance leader.",
         "one9_value_rating": "excellent",
         "startup_recommendation": "Best default for Indian bootstrapped backends if China-hosted API is acceptable, else self-host.",
         "tags": ["open-weights", "budget", "moe", "india-affordable"],
@@ -703,19 +835,19 @@ EDITORIAL = {
         "tier": "near-frontier",
     },
     "qwen3-8-max": {
-        "one9_summary": "Alibaba's 2.4T multimodal flagship, GA August 3. Intelligence 58, Arena text #8. Flat $2/$6 across 1M context. Open weights for the A95B sibling; Max itself is the API SKU.",
+        "one9_summary": "Alibaba's 2.4T multimodal flagship. Intelligence 40 on Index v4.3, Arena text #22. Flat $2/$6 across 1M context. 0902 post-train is the current OpenRouter SKU.",
         "one9_best_for": ["multimodal at frontier-adjacent quality", "long context at flat price"],
         "one9_not_great_for": ["DPDP without Alibaba Cloud region review"],
         "one9_verdict": "Serious multimodal frontier from Alibaba.",
         "one9_value_rating": "good",
         "startup_recommendation": "Use if you already run on Alibaba Cloud; otherwise Grok 4.6 is simpler globally.",
-        "tags": ["frontier", "multimodal", "moe"],
+        "tags": ["near-frontier", "multimodal", "moe"],
         "use_cases": ["multimodal", "chat", "agents"],
-        "tier": "frontier",
+        "tier": "near-frontier",
         "parameter_display": "2.4T MoE (~95B active)",
     },
     "qwen3-8-2-4t-a95b": {
-        "one9_summary": "Open-weight Qwen3.8 2.4T A95B. Same Intelligence 58 as Max at $2/$6. The weights NVIDIA documented for GB300 NVL72 serving.",
+        "one9_summary": "Open-weight Qwen3.8 2.4T A95B. Same Intelligence 40 as Max at $2/$6. The weights NVIDIA documented for GB300 NVL72 serving.",
         "one9_best_for": ["open-weight Qwen3.8 self-host", "high-throughput Qwen"],
         "one9_not_great_for": ["laptop inference"],
         "one9_verdict": "The open-weight sibling of Qwen3.8 Max.",
@@ -823,20 +955,22 @@ def apply_price(m: dict) -> None:
 
 
 def assign_tier(m: dict) -> None:
-    if m.get("tier") in {"frontier", "near-frontier"} and m.get("aa_intelligence_index"):
-        return
     aa = m.get("aa_intelligence_index") or 0
     arena = m.get("arena_elo_overall")
-    if aa >= 58 or (arena is not None and arena <= 8):
-        m["tier"] = "frontier"
-    elif aa >= 50 or (arena is not None and arena <= 20):
-        m["tier"] = "near-frontier"
-    elif aa >= 30 or (arena is not None and arena <= 50):
-        m["tier"] = "strong"
-    elif aa >= 12 or m.get("input_price_per_mtok") is not None:
-        m["tier"] = "capable"
+    if aa >= 44 or (arena is not None and arena <= 8):
+        computed = "frontier"
+    elif aa >= 34 or (arena is not None and arena <= 20):
+        computed = "near-frontier"
+    elif aa >= 18 or (arena is not None and arena <= 50):
+        computed = "strong"
+    elif aa >= 8 or m.get("input_price_per_mtok") is not None:
+        computed = "capable"
     else:
-        m["tier"] = "unranked"
+        computed = "unranked"
+    rank = {"frontier": 4, "near-frontier": 3, "strong": 2, "capable": 1, "unranked": 0}
+    current = m.get("tier") or "unranked"
+    if rank[computed] >= rank.get(current, 0):
+        m["tier"] = computed
 
 
 def auto_summary(m: dict) -> str:
@@ -874,7 +1008,7 @@ def auto_tags(m: dict) -> list[str]:
     if m.get("country") == "IN":
         tags.append("india")
         tags.append("indic")
-    if m.get("aa_intelligence_index") and m["aa_intelligence_index"] >= 55:
+    if m.get("aa_intelligence_index") and m["aa_intelligence_index"] >= 44:
         tags.append("frontier")
     if m.get("arena_elo_coding") and m["arena_elo_coding"] <= 10:
         tags.append("top-coder")
@@ -1071,6 +1205,8 @@ def from_openrouter(row: dict) -> dict | None:
             license_ = "Kimi K3 License"
         elif "gemma" in or_id:
             license_ = "Gemma / Apache 2.0"
+        elif "hy4" in or_id:
+            license_ = "Apache 2.0"
         elif any(x in or_id for x in ("deepseek", "glm", "gpt-oss", "olmo", "qwen3", "granite")):
             license_ = "Apache 2.0" if "glm" not in or_id and "deepseek" not in or_id else (
                 "MIT" if "deepseek" in or_id or "glm" in or_id else "Apache 2.0"
@@ -1312,29 +1448,29 @@ def main() -> None:
         },
         "quick_picks": {
             "best_overall": {
-                "slug": "claude-opus-5",
-                "name": "Claude Opus 5",
-                "reason": "AA #1 (63) and Arena WebDev #1",
+                "slug": "claude-fable-5-1",
+                "name": "Claude Fable 5.1",
+                "reason": "Tied #1 on AA Intelligence Index v4.3 (53); #1 Agent Arena",
             },
             "best_value": {
-                "slug": "grok-4-6",
-                "name": "Grok 4.6",
-                "reason": "Intelligence 61 at $2/$6",
+                "slug": "muse-spark-1-3",
+                "name": "Muse Spark 1.3",
+                "reason": "Intelligence 48 at $1.25/$4.25",
             },
             "best_for_code": {
-                "slug": "claude-opus-5",
-                "name": "Claude Opus 5",
-                "reason": "#1 Arena WebDev",
+                "slug": "claude-fable-5-1",
+                "name": "Claude Fable 5.1",
+                "reason": "#1 Arena Agent",
             },
             "best_for_indian_startups": {
-                "slug": "deepseek-v4-flash-0731",
-                "name": "DeepSeek V4 Flash 0731",
-                "reason": "Intelligence ~52 at $0.14/$0.28, MIT",
+                "slug": "glm-5-3-flash",
+                "name": "GLM-5.3 Flash",
+                "reason": "Intelligence 42 at $0.15/$0.50 list, MIT open weights",
             },
             "best_open_source": {
-                "slug": "kimi-k3",
-                "name": "Kimi K3",
-                "reason": "Highest open-weight AA (60), 2.8T MoE",
+                "slug": "glm-5-3",
+                "name": "GLM-5.3",
+                "reason": "Highest open-weight AA v4.3 (45), MIT",
             },
             "cheapest": {
                 "slug": "mistral-nemo",

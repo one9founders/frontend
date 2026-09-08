@@ -38,7 +38,7 @@ export default function BrowseCategories({ toolCount, agentCount }: BrowseCatego
   },
   {
     title: 'Open Source Models',
-    description: '140+ open-weight models to self-host — Kimi K3, DeepSeek V4, Qwen3.8, GLM-5.2, Llama 4, Sarvam, Gemma 4. Full specs for every model.',
+    description: '140+ open-weight models to self-host — GLM-5.3, Kimi K3, DeepSeek V4, Qwen3.8, Llama 4, Sarvam, Gemma 4. Full specs for every model.',
     emoji: '🔓',
     active: true,
     href: '/llms?type=open-weights',
