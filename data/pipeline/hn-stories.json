@@ -1,142 +1,142 @@
 [
   {
-    "title": "How Scared Should We Be of A.I.?",
-    "url": "https://www.nytimes.com/2026/09/05/opinion/ai-silicon-valley.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-07T11:21:27Z"
+    "title": "Automatically detecting AI text in my browser",
+    "url": "https://www.seangoedecke.com/deckard/",
+    "points": 4,
+    "numComments": 1,
+    "createdAt": "2026-09-08T10:22:34Z"
   },
   {
-    "title": "AI in Test Automation: Real Limitations vs. User Error",
-    "url": "https://www.davidmello.com/software-testing/test-automation/ai-test-automation-pitfalls-vs-user-error",
-    "points": 1,
+    "title": "Project Tapestry",
+    "url": "https://thealliance.ai/projects/tapestry",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-07T11:15:30Z"
+    "createdAt": "2026-09-08T10:16:55Z"
   },
   {
-    "title": "Ask HN: Are agent orchestrators an anti-pattern?",
+    "title": "A continuing problem: human-generated content",
+    "url": "https://github.com/geoff1111/AI-post/blob/main/README.md",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T10:13:42Z"
+  },
+  {
+    "title": "Vaenyx – A personal AI app for family",
+    "url": "https://github.com/vaenyxai/core",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T10:09:52Z"
+  },
+  {
+    "title": "Show HN: Wirebot – talk to your Codex in messengers",
+    "url": "https://wirebot.ai/codex",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-09-08T09:32:51Z"
+  },
+  {
+    "title": "TrustFinder: Deep Search AI",
+    "url": "https://play.google.com/store/apps/details?id=com.popyakter.cheaterbusterai&hl=en_US",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T09:32:21Z"
+  },
+  {
+    "title": "PicWish – AI photo editing for product images",
+    "url": "https://picwish.com/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-08T09:27:41Z"
+  },
+  {
+    "title": "Arguments in Favor of AI Fair Use",
+    "url": "https://kevinkelly.substack.com/p/arguments-in-favor-of-ai-fair-use",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T09:22:26Z"
+  },
+  {
+    "title": "Show HN: Pomeroy v1, give any AI assistant secure access to native macOS apps",
+    "url": "https://pomeroy.app/connect",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T08:58:26Z"
+  },
+  {
+    "title": "Türk urges action before AI becomes an 'existential risk to humanity'",
+    "url": "https://news.un.org/en/story/2026/09/1168288",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T08:52:29Z"
+  },
+  {
+    "title": "The most advanced and easy to use local AI builder you'll ever see",
+    "url": "https://github.com/markdr-hue/open-fabrica",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-09-08T08:50:57Z"
+  },
+  {
+    "title": "Ask HN: Tagging AI-Related Posts",
     "url": "",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T08:49:04Z"
+  },
+  {
+    "title": "Logitech launches MX Keypad for developers",
+    "url": "https://news.logitech.com/press-releases/news-details/2026/Logitech-Unveils-MX-Keypad-for-Developers-The-Customizable-Multi-App-AI-Control-Center/default.aspx",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-08T08:19:00Z"
+  },
+  {
+    "title": "Is the UK government the new training ground for AI execs?",
+    "url": "https://www.theguardian.com/technology/2026/sep/07/architect-uk-ai-policy-quits-anthropic-conflict-of-interest-concerns",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-07T11:15:04Z"
+    "createdAt": "2026-09-08T08:18:06Z"
   },
   {
-    "title": "AI 2027",
-    "url": "https://ai-2027.com/",
+    "title": "I talked to deep buddy about AI solving Navier Stokes rumors",
+    "url": "https://www.echohive.ai/deep-talk-buddy/navier-stokes",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-08T07:50:24Z"
+  },
+  {
+    "title": "How AI based programming could work (2016)",
+    "url": "https://bjenik.com/AIBasedProgramming/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-08T07:46:51Z"
+  },
+  {
+    "title": "Stable Singularity of the Euler Equations on R^3 without forcing – Anima on AI",
+    "url": "https://anima-ai.org/2026/09/07/stable-singularity-of-the-euler-equations-on-r3-without-forcing/",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-09-08T07:34:27Z"
+  },
+  {
+    "title": "Bodhan.ai releases 1.2B ASR model that covers 22 Indian Languages",
+    "url": "https://bodhan.ai/research/blogs/indic-transcribe",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-07T11:10:32Z"
+    "createdAt": "2026-09-08T07:32:39Z"
   },
   {
-    "title": "Early Data Indicates an A.I.-Generated Drug Could Slow Aging",
-    "url": "https://www.nytimes.com/2026/09/07/science/ai-generated-drug-longevity.html",
-    "points": 2,
+    "title": "Show HN: Am I replacable – a harness to help humans keep up with AI",
+    "url": "https://amireplaceable.app/",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-07T11:00:07Z"
+    "createdAt": "2026-09-08T07:24:14Z"
   },
   {
-    "title": "Tencent/Teamai-CLI: Make Every Team AI Native",
-    "url": "https://github.com/Tencent/teamai-cli",
+    "title": "In the age of AI what use is left for a personal computer?",
+    "url": "",
     "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:52:10Z"
-  },
-  {
-    "title": "Timing Is Everything: The Terrence Tao Effect",
-    "url": "https://nonlineartransform.substack.com/p/ai-swarms-timing-is-everything",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:42:09Z"
-  },
-  {
-    "title": "The jobs apocalypse is postponed. An AI jobs boom is here",
-    "url": "https://www.economist.com/finance-and-economics/2026/09/04/the-jobs-apocalypse-is-postponed-an-ai-jobs-boom-is-here",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:38:32Z"
-  },
-  {
-    "title": "K2 Horizon",
-    "url": "https://mbzuai.ac.ae/news/mbzuais-institute-of-foundation-models-launches-k2-horizon-the-worlds-largest-fully-open-ai-models-in-history/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:33:10Z"
-  },
-  {
-    "title": "GraphMemix: Query-Aware Evidence Forests for Long-Term Multimodal Agent Memory",
-    "url": "https://twitter.com/MemoraX_AI/status/2095038508331401668",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:30:25Z"
-  },
-  {
-    "title": "Claude Fable 5.1 Solves the Cyphral Distich",
-    "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:29:38Z"
-  },
-  {
-    "title": "Terrence Tao – AI math solutions hurting the field",
-    "url": "https://mathstodon.xyz/@tao/117219548485446992",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:18:00Z"
-  },
-  {
-    "title": "Ask HN: How to roll out Agents for knowledge workers?",
-    "url": "",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-07T10:14:59Z"
-  },
-  {
-    "title": "CodexBar: Every AI coding limit, in your menu bar",
-    "url": "https://codexbar.app/",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-07T10:10:35Z"
-  },
-  {
-    "title": "GPT-6 Astra demos: Games, Blender, websites and video workflows",
-    "url": "https://github.com/magiccreator-ai/awesome-gpt-6-astra",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-07T10:03:58Z"
-  },
-  {
-    "title": "We Can't Know Our A.I. Future If We Don't Study It",
-    "url": "https://www.nytimes.com/2026/09/06/opinion/ai-social-sciences.html",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T09:59:01Z"
-  },
-  {
-    "title": "Speculative Decoding in vLLM on AMD GPUs",
-    "url": "https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus",
-    "points": 27,
-    "numComments": 4,
-    "createdAt": "2026-09-07T09:26:41Z"
-  },
-  {
-    "title": "Raptor turns Claude Code into a general-purpose AI",
-    "url": "https://github.com/gadievron/raptor",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-09-07T09:24:37Z"
-  },
-  {
-    "title": "Ask HN: How do you keep AI coding agents in sync with a changing Figma file?",
-    "url": "",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T09:17:00Z"
-  },
-  {
-    "title": "Show HN: The Token Times · a monthly newspaper on AI",
-    "url": "https://befailproof.ai/thetokentimes/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-07T08:56:19Z"
+    "numComments": 6,
+    "createdAt": "2026-09-08T07:20:27Z"
   }
 ]
