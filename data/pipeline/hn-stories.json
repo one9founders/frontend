@@ -1,142 +1,142 @@
 [
   {
-    "title": "Nvidia and Palantir want to speed up the AI buildout. Nvidia is first in line",
-    "url": "https://www.fastcompany.com/91604370/nvidia-palantir-sovereign-ai-supply-chains",
+    "title": "Gavin Newsom imposes strict new rules on AI, social media, chatbots for children",
+    "url": "https://www.theguardian.com/media/2026/sep/10/gavin-newsom-social-media-bill",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-10T10:27:49Z"
+    "createdAt": "2026-09-11T10:24:48Z"
   },
   {
-    "title": "Show HN: Community curated list of 310 AI providers offering $4.3k free credits",
-    "url": "https://www.uprouter.online/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-10T10:00:54Z"
-  },
-  {
-    "title": "Ask HN: As a teacher how should I teach kids to use AI?",
-    "url": "",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-10T09:57:31Z"
-  },
-  {
-    "title": "Laid-Off Developers Create AI Model to Replace CEOs and Other Executives",
-    "url": "https://uk.pcmag.com/ai/167048/laid-off-developers-create-ai-model-to-replace-ceos-and-other-executives",
-    "points": 7,
-    "numComments": 2,
-    "createdAt": "2026-09-10T09:35:42Z"
-  },
-  {
-    "title": "Zynthoro",
-    "url": "https://zynthoro.ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-10T09:25:42Z"
-  },
-  {
-    "title": "Monitor AI visibility with n8n in five nodes",
-    "url": "https://heeb.ai/blog/monitor-ai-visibility-with-n8n",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-10T09:15:51Z"
-  },
-  {
-    "title": "Show HN: Stroq – a firewall that knows why your AI agent ran that command",
-    "url": "https://github.com/AGGIB/Stroq",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-09-10T09:05:14Z"
-  },
-  {
-    "title": "Show HN: Starkomand – Mission Control for Your Agents. One Canvas",
-    "url": "https://starkomand.com/",
+    "title": "Resist \"AI\"",
+    "url": "https://ronjeffries.com/articles/-v026/x/t/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-10T09:04:58Z"
+    "createdAt": "2026-09-11T10:19:59Z"
   },
   {
-    "title": "AI-Translation-Stack",
-    "url": "https://github.com/antonihabek/AI-translation-stack",
+    "title": "An adult AI image, video and companion chat platform [NSFW AI]",
+    "url": "https://aifapper.com",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-10T09:01:23Z"
+    "createdAt": "2026-09-11T10:17:06Z"
   },
   {
-    "title": "Lawmakers blast AI companies after researcher warns of human extinction by 2030",
-    "url": "https://www.theguardian.com/technology/2026/sep/09/lawmakers-blast-ai-human-extinct-2030",
-    "points": 1,
+    "title": "Yemeni militants used Anthropic AI to try to build ballistic missiles",
+    "url": "https://www.ft.com/content/8310cf56-ce60-4e6e-8254-5bb470e9a880",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-10T08:33:05Z"
+    "createdAt": "2026-09-11T10:07:08Z"
   },
   {
-    "title": "Call of Duty 2 running in Browser. Ported in 10 hours with GPT-6 Astra",
-    "url": "https://www.reddit.com/r/aigamedev/comments/1wa11xy/call_of_duty_2_running_in_browser_ported_in_10/",
+    "title": "Meta is asking some of its employees to become managers again in a new reorg",
+    "url": "https://www.businessinsider.com/meta-asks-some-ai-employees-to-become-managers-again-2026-9",
     "points": 3,
-    "numComments": 2,
-    "createdAt": "2026-09-10T08:31:14Z"
+    "numComments": 0,
+    "createdAt": "2026-09-11T10:02:19Z"
   },
   {
-    "title": "I Was Offered Money to Tell You AI Will Kill Us [video]",
-    "url": "https://www.youtube.com/watch?v=lPdmYMHrWKg",
+    "title": "AI boom helps drive surprise UK growth in July",
+    "url": "https://www.bbc.co.uk/news/articles/cq5xjlvn71lo",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-11T09:40:04Z"
+  },
+  {
+    "title": "(Re)Building an AI-Ready Data Universe at BlaBlaCar",
+    "url": "https://medium.com/blablacar/building-an-ai-ready-data-universe-at-blablacar-cb15fbc42020",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-11T09:35:52Z"
+  },
+  {
+    "title": "Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin",
+    "url": "https://vllm.ai/blog/2026-09-07-vllm-tt-plugin",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-11T09:35:19Z"
+  },
+  {
+    "title": "Build your own custom benchmark",
+    "url": "https://artificialanalysis.ai/optima",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-11T09:14:31Z"
+  },
+  {
+    "title": "How big is the open-model threat to AI hyperscalers?",
+    "url": "https://www.ft.com/content/48588acb-8026-4c8e-aac7-8b5588294dbf",
     "points": 5,
+    "numComments": 0,
+    "createdAt": "2026-09-11T08:51:13Z"
+  },
+  {
+    "title": "Anthropic says it stopped scientists potentially developing bioweapons with AI",
+    "url": "https://www.ft.com/content/845cf3bf-59c5-4e53-a45e-e11d2339df9d",
+    "points": 1,
     "numComments": 1,
-    "createdAt": "2026-09-10T08:14:07Z"
+    "createdAt": "2026-09-11T08:49:58Z"
   },
   {
-    "title": "Resource for AI Safety and Ethics",
-    "url": "https://library.iaseai.org/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-10T08:12:18Z"
+    "title": "DSCI goes pre beta testing – need early feedback",
+    "url": "",
+    "points": 5,
+    "numComments": 2,
+    "createdAt": "2026-09-11T08:46:34Z"
   },
   {
-    "title": "OpenClaw Dashboards: Personal Use, Team Workflows, and Building Your Own",
-    "url": "https://openclaw.ai/podcast/episode-10",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-10T07:34:00Z"
+    "title": "Latham and Watkins buys Nvidia servers to set up in-house AI systems",
+    "url": "https://www.ft.com/content/a2aaa848-92c3-4f7a-b758-5858bfb29e70",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-09-11T08:39:54Z"
   },
   {
-    "title": "In this era of AI, it is important to remember what it is like to be a child",
-    "url": "https://mathstodon.xyz/@tao/117244104044239500",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-10T07:33:30Z"
-  },
-  {
-    "title": "Anthropic Researcher Quits over 'Out-of-Control' AI Fears",
-    "url": "https://www.wsj.com/tech/ai/anthropic-researcher-quits-over-out-of-control-ai-fears-707b7628",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-10T07:25:20Z"
-  },
-  {
-    "title": "Nvidia Personal-AI-Router",
-    "url": "https://github.com/NVIDIA/Personal-AI-Router",
+    "title": "Oracle says AI will save it from the SaaSpocalypse, not bring it on",
+    "url": "https://www.theregister.com/software/2026/09/11/oracle-says-ai-will-save-it-from-the-saaspocalypse-not-bring-it-on/5295736",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-10T07:23:31Z"
+    "createdAt": "2026-09-11T08:39:52Z"
   },
   {
-    "title": "Ex-Anthropic researcher Jacob Coxon says AI development poses risk to humans",
-    "url": "https://apnews.com/article/anthropic-ai-safety-jacob-coxon-2ed549e07f2f941600a135070487d83d",
+    "title": "We Fired the Consultants. Copilot Has a Lovely Slide Template",
+    "url": "https://greentic-ai.medium.com/we-fired-the-consultants-copilot-has-a-lovely-slide-template-af2270d2fc56",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-10T07:20:44Z"
+    "createdAt": "2026-09-11T08:32:48Z"
   },
   {
-    "title": "How to make GPT-6 Astra creative",
-    "url": "https://www.echohive.ai/how-to-make-astra-creative",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-10T07:08:25Z"
-  },
-  {
-    "title": "Show HN: Botbin.io – pastebin for AI agent artifacts",
-    "url": "https://botbin.io/?v=next",
+    "title": "Anthropic to Track Anti-AI Activists Before Crime Using Predictive Surveillance",
+    "url": "https://www.techtimes.co.uk/anthropic-security-strategy-threats-activism-1808634",
     "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-09-11T08:20:49Z"
+  },
+  {
+    "title": "Pentagon in Talks to Get into AI Infrastructure Funding with a $5B Loan",
+    "url": "https://www.wsj.com/tech/ai/pentagon-in-talks-to-get-into-ai-infrastructure-funding-with-a-5-billion-loan-0367eeb0",
+    "points": 6,
     "numComments": 1,
-    "createdAt": "2026-09-10T07:00:22Z"
+    "createdAt": "2026-09-11T08:11:42Z"
+  },
+  {
+    "title": "Act as a Conversational AI Prompt",
+    "url": "https://prompts.chat/prompts/cmjbfdtbb0001sc0rtm5gh8f5",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-11T08:02:36Z"
+  },
+  {
+    "title": "Duck.ai is a feature that allows you to have private conversations",
+    "url": "https://duckduckgo.com/duckduckgo-help-pages/duckai",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-11T07:54:42Z"
+  },
+  {
+    "title": "How Emmanuel Macron brought France's AI darling to the world stage",
+    "url": "https://www.politico.eu/article/mistral-ai-arthur-mensch-emmanuel-macron-gouvernement-france/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-11T07:49:10Z"
   }
 ]
