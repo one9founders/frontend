@@ -120,7 +120,7 @@ Generate dynamic Open Graph images using `next/og`.
 
 ## Important Rules
 
-1. **Use `next/og`** - not `@vercel/og` (it's built into Next.js)
+1. **Use `next/og`** - ImageResponse is built into Next.js
 2. **No searchParams** - OG images can't access search params, use route params instead
 3. **Avoid Edge runtime** - Use default Node.js runtime
 
@@ -128,8 +128,7 @@ Generate dynamic Open Graph images using `next/og`.
 // Good
 import { ImageResponse } from 'next/og'
 
-// Bad
-// import { ImageResponse } from '@vercel/og'
+// Avoid legacy package imports and Edge runtime for OG routes
 // export const runtime = 'edge'
 ```
 

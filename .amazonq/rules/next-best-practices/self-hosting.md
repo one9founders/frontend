@@ -1,6 +1,6 @@
 # Self-Hosting Next.js
 
-Deploy Next.js outside of Vercel with confidence.
+Deploy Next.js on your own infrastructure with confidence.
 
 ## Quick Start: Standalone Output
 
@@ -306,7 +306,7 @@ export async function GET() {
 }
 ```
 
-## OpenNext: Serverless Without Vercel
+## OpenNext: Serverless Self-Hosting
 
 [OpenNext](https://open-next.js.org/) adapts Next.js for AWS Lambda, Cloudflare Workers, etc.
 
