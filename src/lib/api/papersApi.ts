@@ -1,4 +1,4 @@
-import { Paper, PaperListResponse, PaperStats } from '@/types/paper';
+import { AuthorPaperListResponse, Paper, PaperListResponse, PaperStats } from '@/types/paper';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -15,6 +15,18 @@ export async function getPaper(arxivId: string) {
   const res = await fetch(`${API_URL}/api/v1/papers/${arxivId}/`, {
     next: { revalidate: 86400 },
   });
+  if (!res.ok) return null;
+  return res.json();
+}
+
+export async function getAuthor(
+  slug: string,
+  page = 1,
+): Promise<AuthorPaperListResponse | null> {
+  const res = await fetch(
+    `${API_URL}/api/v1/papers/authors/${encodeURIComponent(slug)}/?page=${page}`,
+    { next: { revalidate: 3600 } },
+  );
   if (!res.ok) return null;
   return res.json();
 }

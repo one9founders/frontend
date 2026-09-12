@@ -1,5 +1,6 @@
 import { SITE_URL } from '@/lib/constants/site';
 import {
+  getAuthorSitemapPage,
   getPaperSitemapPage,
   getStaticSitemapEntries,
   getToolSitemapPage,
@@ -54,6 +55,24 @@ export async function GET(
             url: `${SITE_URL}/research/${paper.arxiv_id}`,
             lastModified: paper.published_at ? new Date(paper.published_at) : new Date(),
             changeFrequency: 'monthly',
+            priority: 0.5,
+          })),
+      ),
+    );
+  }
+
+  const authors = name.match(/^authors-(\d+)$/);
+  if (authors) {
+    const page = Number(authors[1]);
+    const items = await getAuthorSitemapPage(page);
+    return sitemapXmlResponse(
+      toUrlsetXml(
+        items
+          .filter((author) => author.slug)
+          .map((author) => ({
+            url: `${SITE_URL}/research/authors/${author.slug}`,
+            lastModified: author.last_seen ? new Date(author.last_seen) : new Date(),
+            changeFrequency: 'weekly',
             priority: 0.5,
           })),
       ),

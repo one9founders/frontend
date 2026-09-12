@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import PaperDetailClient from '@/components/research/PaperDetailClient';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 import { Paper } from '@/types/paper';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -64,6 +65,9 @@ export default async function PaperDetailPage({ params }: PaperDetailPageProps) 
     notFound();
   }
 
+  const authorSlugs = new Map(
+    (paper.authors_detail || []).map((author) => [author.name, author.slug]),
+  );
   const structuredData = generateStructuredData({
     '@type': 'ScholarlyArticle',
     name: paper.title,
@@ -73,6 +77,9 @@ export default async function PaperDetailPage({ params }: PaperDetailPageProps) 
     author: paper.authors?.map((name: string) => ({
       '@type': 'Person',
       name,
+      ...(authorSlugs.has(name)
+        ? { url: siteUrl(`/research/authors/${authorSlugs.get(name)}`) }
+        : {}),
     })),
   });
 

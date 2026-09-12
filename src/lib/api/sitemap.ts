@@ -99,17 +99,27 @@ export async function getPaperSitemapCount(): Promise<number> {
   return list?.count ?? 0;
 }
 
+export async function getAuthorSitemapCount(): Promise<number> {
+  const compact = await fetchPaginated<{ slug: string }>(
+    `${API_URL}/api/v1/papers/authors/sitemap/?page=1&page_size=1`,
+  );
+  return compact?.count ?? 0;
+}
+
 export async function getSitemapIndexLocs(): Promise<string[]> {
-  const [toolCount, paperCount] = await Promise.all([
+  const [toolCount, paperCount, authorCount] = await Promise.all([
     getToolSitemapCount(),
     getPaperSitemapCount(),
+    getAuthorSitemapCount(),
   ]);
   const toolPages = Math.max(1, Math.ceil(toolCount / SITEMAP_CHUNK));
   const paperPages = Math.max(1, Math.ceil(paperCount / SITEMAP_CHUNK));
+  const authorPages = Math.max(1, Math.ceil(authorCount / SITEMAP_CHUNK));
   return [
     `${SITE_URL}/sitemaps/static.xml`,
     ...Array.from({ length: toolPages }, (_, i) => `${SITE_URL}/sitemaps/tools-${i + 1}.xml`),
     ...Array.from({ length: paperPages }, (_, i) => `${SITE_URL}/sitemaps/papers-${i + 1}.xml`),
+    ...Array.from({ length: authorPages }, (_, i) => `${SITE_URL}/sitemaps/authors-${i + 1}.xml`),
   ];
 }
 
@@ -145,6 +155,15 @@ export async function getPaperSitemapPage(
   );
   if (compact) return compact.results;
   return listFallbackPage(`${API_URL}/api/v1/papers/`, page);
+}
+
+export async function getAuthorSitemapPage(
+  page: number,
+): Promise<{ slug: string; last_seen?: string }[]> {
+  const compact = await fetchPaginated<{ slug: string; last_seen?: string }>(
+    `${API_URL}/api/v1/papers/authors/sitemap/?page=${page}&page_size=${SITEMAP_CHUNK}`,
+  );
+  return compact?.results ?? [];
 }
 
 async function collectAll<T>(firstUrl: string, pick: (data: unknown) => T[]): Promise<T[]> {

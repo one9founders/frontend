@@ -3,6 +3,7 @@ export interface Paper {
   title: string;
   abstract: string;
   authors: string[];
+  authors_detail?: AuthorLink[];
   categories: string[];
   published_at: string;
   updated_at_arxiv: string;
@@ -19,6 +20,24 @@ export interface Paper {
   is_enriched: boolean;
   is_trending: boolean;
   created_at: string;
+}
+
+export interface AuthorLink {
+  name: string;
+  slug: string;
+}
+
+export interface ResearchAuthor {
+  id: number;
+  name: string;
+  slug: string;
+  paper_count: number;
+  first_seen: string;
+  last_seen: string;
+}
+
+export interface AuthorPaperListResponse extends PaperListResponse {
+  author: ResearchAuthor;
 }
 
 export interface PaperListResponse {

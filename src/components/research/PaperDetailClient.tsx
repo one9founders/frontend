@@ -35,6 +35,9 @@ function formatDate(dateStr: string): string {
 export default function PaperDetailClient({ paper, relatedPapers }: PaperDetailClientProps) {
   const [showAbstract, setShowAbstract] = useState(false);
   const diffConfig = difficultyConfig[paper.ai_difficulty] || { label: paper.ai_difficulty, variant: 'gray' as const };
+  const authorSlugs = new Map(
+    (paper.authors_detail || []).map((author) => [author.name, author.slug]),
+  );
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -63,12 +66,16 @@ export default function PaperDetailClient({ paper, relatedPapers }: PaperDetailC
         <div className="flex flex-wrap gap-1 mb-6">
           {paper.authors.map((author, i) => (
             <span key={i}>
-              <Link
-                href={`/research?search=${encodeURIComponent(author)}`}
-                className="text-sm text-[var(--gray-400)] hover:text-copper transition-colors"
-              >
-                {author}
-              </Link>
+              {authorSlugs.has(author) ? (
+                <Link
+                  href={`/research/authors/${authorSlugs.get(author)}`}
+                  className="text-sm text-[var(--gray-400)] hover:text-copper transition-colors"
+                >
+                  {author}
+                </Link>
+              ) : (
+                <span className="text-sm text-[var(--gray-400)]">{author}</span>
+              )}
               {i < paper.authors.length - 1 && <span className="text-[var(--gray-600)]">, </span>}
             </span>
           ))}
