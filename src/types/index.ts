@@ -77,6 +77,23 @@ export interface AssessmentDetail {
   manual_only?: string[];
 }
 
+export type ToolSourceKey =
+  | 'producthunt'
+  | 'taaft'
+  | 'g2'
+  | 'linkedin'
+  | 'github'
+  | 'hackernews';
+
+export interface ToolSourceReference {
+  source: ToolSourceKey;
+  source_label: string;
+  label?: string;
+  url: string;
+  external_id?: string;
+  observed_at: string;
+}
+
 export interface Tool {
   id: number;
   name: string;
@@ -84,6 +101,7 @@ export interface Tool {
   short_description: string;
   description: string;
   categories: Category[];
+  sources?: ToolSourceReference[];
   website?: string;
   affiliate_url?: string;
   logo_url?: string;

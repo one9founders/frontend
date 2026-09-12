@@ -20,13 +20,24 @@ import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
 import ToolSecurityBadge from '@/components/features/tools/ToolSecurityBadge';
 import ToolCriteriaList from '@/components/features/tools/ToolCriteriaList';
 import IndiaFitCard from '@/components/features/tools/IndiaFitCard';
-import { hasPublishedTrial, pricingSourceLinks } from '@/lib/verifiedToolFacts';
+import { hasPublishedTrial, toolSourceLinks } from '@/lib/verifiedToolFacts';
 
 export const revalidate = 300; // 5 minutes - faster updates for ratings and reviews
 export const dynamicParams = true;
 
 interface ToolPageProps {
   params: Promise<{ id: string }>;
+}
+
+function formatObservedDate(value?: string) {
+  if (!value) return '';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return '';
+  return new Intl.DateTimeFormat('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(date);
 }
 
 export async function generateStaticParams() {
@@ -111,7 +122,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
   const ratingDisplay = getToolRatingDisplay(tool);
   const securityDisplay = getToolSecurityDisplay(tool);
-  const sourceLinks = pricingSourceLinks(tool);
+  const sourceLinks = toolSourceLinks(tool);
 
   const structuredData = generateStructuredData({
     '@type': 'SoftwareApplication',
@@ -407,21 +418,29 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 )}
                 {sourceLinks.length > 0 && (
                   <div>
-                    <span className="text-[var(--gray-400)]">Sources:</span>
+                    <span className="text-[var(--gray-400)]">Sources and references:</span>
                     <ul className="mt-1 space-y-1">
                       {sourceLinks.map((link) => (
                         <li key={link.href}>
                           <a
                             href={link.href}
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noopener noreferrer nofollow"
                             className="text-copper text-xs hover:underline"
                           >
                             {link.label}
                           </a>
+                          {formatObservedDate(link.observedAt) && (
+                            <span className="ml-2 text-[var(--gray-500)] text-xs">
+                              Observed {formatObservedDate(link.observedAt)}
+                            </span>
+                          )}
                         </li>
                       ))}
                     </ul>
+                    <p className="mt-2 text-[var(--gray-500)] text-xs">
+                      External references do not determine the One9Founders rating.
+                    </p>
                   </div>
                 )}
               </div>
