@@ -38,6 +38,14 @@ export const ECOSYSTEM: EcosystemItem[] = [
     countKind: null,
   },
   {
+    id: 'hacker-news',
+    name: 'Hacker News',
+    blurb: 'AI tools spotted on HN.',
+    href: '/hacker-news',
+    group: 'catalog',
+    countKind: null,
+  },
+  {
     id: 'agents',
     name: 'Agents',
     blurb: 'Workflows that take action.',
