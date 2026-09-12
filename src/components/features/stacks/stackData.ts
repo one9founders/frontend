@@ -100,14 +100,14 @@ export const saasSeedStageStack: StackPageData = {
     {
       name: 'Infrastructure & DevOps',
       tools: [
-        { name: 'Vercel', slug: 'vercel', category: 'Hosting', priceUSD: 0, priceINR: 0, freeTier: true, keyFeature: 'Frontend deployment', score: 9.2, securityRating: 90, isPick: true },
-        { name: 'Railway', slug: 'railway', category: 'Hosting', priceUSD: 5, priceINR: 418, freeTier: true, keyFeature: 'Backend deployment', score: 8.5, securityRating: 82, isPick: false },
+        { name: 'Railway', slug: 'railway', category: 'Hosting', priceUSD: 5, priceINR: 418, freeTier: true, keyFeature: 'App deployment platform', score: 8.5, securityRating: 82, isPick: true },
+        { name: 'Render', slug: 'render', category: 'Hosting', priceUSD: 0, priceINR: 0, freeTier: true, keyFeature: 'Web services & static sites', score: 8.2, securityRating: 84, isPick: false },
       ],
     },
   ],
   faqs: [
     { question: 'What is the total monthly cost for a seed-stage SaaS startup using this stack?', answer: 'The core stack costs approximately ₹10,000-25,000/month depending on which tools you upgrade. Many tools have generous free tiers for startups.' },
-    { question: 'Which tools offer startup credits or discounts?', answer: 'Many tools in this stack offer startup programs: GitHub Copilot via GitHub for Startups, HubSpot for Startups, Intercom Early Stage, and Vercel\'s hobby tier is free.' },
+    { question: 'Which tools offer startup credits or discounts?', answer: 'Many tools in this stack offer startup programs: GitHub Copilot via GitHub for Startups, HubSpot for Startups, Intercom Early Stage, and Railway and Render both offer free tiers to get started.' },
     { question: 'Is this stack suitable for a remote Indian SaaS team?', answer: 'Yes, all tools are cloud-based and work globally. Many have data residency options in Asia. INR pricing makes budgeting straightforward for Indian startups.' },
     { question: 'How do I choose between the alternatives listed?', answer: 'Each category has a "Top Pick" based on our security-first scoring. Alternatives are listed for teams with different priorities — e.g., privacy-focused teams may prefer Tabnine over Copilot.' },
     { question: 'Can I scale this stack to Series A?', answer: 'Absolutely. Every tool here scales from 2-person teams to 50+ employees. Upgrade tiers as you grow without needing to switch tools.' },
