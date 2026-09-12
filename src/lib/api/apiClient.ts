@@ -68,7 +68,7 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 }
 
 export const toolsAPI = {
-  getAll: async (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string; track?: string }) => {
+  getAll: async (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string; track?: string; source?: string }) => {
     const query = new URLSearchParams();
     if (params?.category) query.append('category', params.category);
     if (params?.pricing) query.append('pricing', params.pricing);
@@ -79,6 +79,7 @@ export const toolsAPI = {
     if (params?.page_size) query.append('page_size', params.page_size.toString());
     if (params?.ordering) query.append('ordering', params.ordering);
     if (params?.track) query.append('track', params.track);
+    if (params?.source) query.append('source', params.source);
     const data = await fetchAPI(`/tools/?${query.toString()}`);
     if (data && typeof data === 'object' && Array.isArray(data.results)) {
       return { ...data, results: applyVerifiedToolList(data.results) };

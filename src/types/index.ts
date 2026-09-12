@@ -28,6 +28,11 @@ export interface TrackStat {
   count: number;
 }
 
+export interface SourceStat {
+  source: string;
+  count: number;
+}
+
 export interface DirectoryStats {
   total_tools: number | null;
   count: number | null;
@@ -36,6 +41,7 @@ export interface DirectoryStats {
   agent_count: number | null;
   by_category: CategoryStat[];
   by_track: TrackStat[];
+  by_source?: SourceStat[];
 }
 
 export interface DirectoryColumn {

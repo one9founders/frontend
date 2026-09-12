@@ -4,6 +4,7 @@ import type {
   Tool,
   ToolTrack,
   TrackStat,
+  SourceStat,
 } from '@/types';
 import { isToolTrack, TRACK_LABELS } from '@/lib/constants/tracks';
 import { applyVerifiedToolList } from '@/lib/verifiedToolFacts';
@@ -66,6 +67,20 @@ function parseByTrack(raw: unknown): TrackStat[] {
   });
 }
 
+
+function parseBySource(raw: unknown): SourceStat[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.flatMap((row) => {
+    if (!row || typeof row !== 'object') return [];
+    const r = row as Record<string, unknown>;
+    const source = String(r.source ?? '').trim();
+    if (!source) return [];
+    const count = optionalCount(r.count);
+    if (count == null) return [];
+    return [{ source, count }];
+  });
+}
+
 export function parseDirectoryStats(data: unknown): DirectoryStats {
   const raw = data && typeof data === 'object' ? (data as Record<string, unknown>) : {};
   const total = optionalCount(raw.total_tools) ?? optionalCount(raw.count);
@@ -77,6 +92,7 @@ export function parseDirectoryStats(data: unknown): DirectoryStats {
     agent_count: optionalCount(raw.agent_count),
     by_category: parseByCategory(raw.by_category),
     by_track: parseByTrack(raw.by_track),
+    by_source: parseBySource(raw.by_source),
   };
 }
 
@@ -142,6 +158,38 @@ export async function fetchToolsByTrack(
     return { tools, count: tools.length };
   } catch (error) {
     console.error('Get tools by track error:', error);
+    return { tools: [], count: 0 };
+  }
+}
+
+
+export async function fetchToolsBySource(
+  source: string,
+  pageSize = 12,
+  page = 1,
+): Promise<{ tools: Tool[]; count: number }> {
+  try {
+    const query = new URLSearchParams({
+      source,
+      page: String(page),
+      page_size: String(pageSize),
+    });
+    const response = await fetch(`${API_URL}/tools/?${query.toString()}`, {
+      next: { revalidate: 600 },
+      signal: AbortSignal.timeout(12000),
+    });
+    if (!response.ok) return { tools: [], count: 0 };
+    const data = await response.json();
+    if (data && typeof data === 'object' && Array.isArray(data.results)) {
+      return {
+        tools: applyVerifiedToolList(data.results),
+        count: optionalCount(data.count) ?? data.results.length,
+      };
+    }
+    const tools = applyVerifiedToolList(Array.isArray(data) ? data : []);
+    return { tools, count: tools.length };
+  } catch (error) {
+    console.error('Get tools by source error:', error);
     return { tools: [], count: 0 };
   }
 }
