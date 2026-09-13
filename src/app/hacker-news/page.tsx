@@ -28,7 +28,9 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     title: page > 1 ? `${title} · page ${page}` : title,
     description:
       'Browse AI tools catalogued from Hacker News Show HN and AI threads. Each listing credits the original discussion.',
-    path: page > 1 ? `/hacker-news?page=${page}` : '/hacker-news',
+    // Canonical stays on the hub URL; paginated query URLs are noindex (and
+    // already disallowed in robots.txt via /*?page=).
+    path: '/hacker-news',
     keywords: [
       'Hacker News AI tools',
       'Show HN',
@@ -36,6 +38,10 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
       'HN tools directory',
       'One9Founders',
     ],
+    robots:
+      page > 1
+        ? { index: false, follow: true }
+        : { index: true, follow: true },
   });
 }
 

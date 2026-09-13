@@ -7,6 +7,10 @@ One9Founders helps Indian startup founders discover, compare, and choose AI tool
 Assessed listings use a published-evidence methodology. Unassessed listings are
 labeled Not Yet Rated. There is no affiliate bias in scores.
 
+Individual tool pages live at https://www.one9founders.com/tool/{slug} and are
+listed in the XML sitemap index at https://www.one9founders.com/sitemap.xml
+(including 4,000+ tools catalogued from Hacker News).
+
 ## Key pages
 - [Home](https://www.one9founders.com/): AI tools, agents, LLMs, and research directory
 - [Compare AI Tools](https://www.one9founders.com/compare): side-by-side tool comparison
@@ -16,10 +20,16 @@ labeled Not Yet Rated. There is no affiliate bias in scores.
 - [AI Agents](https://www.one9founders.com/agents): autonomous agents directory
 - [AI Tool Stacks](https://www.one9founders.com/stacks): curated founder stacks with INR pricing
 - [RAG & Vector DBs](https://www.one9founders.com/rag-vector-dbs): retrieval and embedding tools
+- [Hacker News Tools](https://www.one9founders.com/hacker-news): AI tools from Show HN and HN AI threads
 - [New AI Tools](https://www.one9founders.com/new): recently added listings
 - [Open Source](https://www.one9founders.com/open-source): repos, skills, and MCP servers
 - [AI Training](https://www.one9founders.com/learn): courses, guides, and paths
 - [About](https://www.one9founders.com/about): who we are and how we work
+
+## Optional
+- [AEO guidance](https://www.one9founders.com/aeo.txt): answer-engine citation preferences
+- [GEO guidance](https://www.one9founders.com/geo.txt): generative-engine citation preferences
+- [XML sitemap](https://www.one9founders.com/sitemap.xml): full indexable URL set for crawlers
 
 ## About
 - Founded for Indian startup founders

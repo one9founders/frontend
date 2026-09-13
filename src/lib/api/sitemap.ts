@@ -204,6 +204,7 @@ export async function getStaticSitemapEntries(): Promise<SitemapEntry[]> {
     { route: '/stacks', priority: 0.7, changeFrequency: 'weekly' },
     { route: '/fintech', priority: 0.7, changeFrequency: 'weekly' },
     { route: '/open-source', priority: 0.8, changeFrequency: 'daily' },
+    { route: '/hacker-news', priority: 0.8, changeFrequency: 'daily' },
     { route: '/new', priority: 0.7, changeFrequency: 'daily' },
     { route: '/agents', priority: 0.8, changeFrequency: 'weekly' },
     { route: '/founder-survey', priority: 0.4, changeFrequency: 'monthly' },
