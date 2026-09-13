@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getAllTools } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
-import { hasSubstantiveContent } from '@/lib/tool-content';
+import { isToolIndexable } from '@/lib/tool-content';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -20,7 +20,7 @@ export const metadata: Metadata = generateSEO({
 export default async function ComparePage() {
   const data = await getAllTools({ page_size: 100 });
   const initialTools = Array.isArray(data) ? data : (data?.results || []);
-  const indexedTools = initialTools.filter((tool: Tool) => tool.assessed === true || hasSubstantiveContent(tool));
+  const indexedTools = initialTools.filter((tool: Tool) => isToolIndexable(tool));
 
   const structuredData = generateStructuredData({
     '@type': 'WebPage',

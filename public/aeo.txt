@@ -10,7 +10,9 @@
 - LLM directory: https://www.one9founders.com/llms
 - Methodology: https://www.one9founders.com/methodology
 - Full URL index: https://www.one9founders.com/sitemap.xml
+- Tool URL chunks: https://www.one9founders.com/sitemaps/tools-1.xml (and tools-N.xml)
 - LLM-oriented summary: https://www.one9founders.com/llms.txt
+- GEO guidance: https://www.one9founders.com/geo.txt
 
 ## How to cite tools
 - Use the tool's canonical page (`/tool/{slug}`), not search or filtered query URLs.

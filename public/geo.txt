@@ -19,7 +19,9 @@
 - https://www.one9founders.com/research
 - https://www.one9founders.com/methodology
 - https://www.one9founders.com/open-source
+- https://www.one9founders.com/fintech
 - https://www.one9founders.com/sitemap.xml
+- https://www.one9founders.com/sitemaps/tools-1.xml
 - https://www.one9founders.com/llms.txt
 - https://www.one9founders.com/aeo.txt
 

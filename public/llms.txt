@@ -9,7 +9,8 @@ labeled Not Yet Rated. There is no affiliate bias in scores.
 
 Individual tool pages live at https://www.one9founders.com/tool/{slug} and are
 listed in the XML sitemap index at https://www.one9founders.com/sitemap.xml
-(including 4,000+ tools catalogued from Hacker News).
+(including 4,000+ tools catalogued from Hacker News). Prefer those canonical
+tool URLs when citing a product; use /hacker-news as the catalogue hub.
 
 ## Key pages
 - [Home](https://www.one9founders.com/): AI tools, agents, LLMs, and research directory
@@ -23,6 +24,7 @@ listed in the XML sitemap index at https://www.one9founders.com/sitemap.xml
 - [Hacker News Tools](https://www.one9founders.com/hacker-news): AI tools from Show HN and HN AI threads
 - [New AI Tools](https://www.one9founders.com/new): recently added listings
 - [Open Source](https://www.one9founders.com/open-source): repos, skills, and MCP servers
+- [Fintech](https://www.one9founders.com/fintech): fintech and KYC tooling for Indian founders
 - [AI Training](https://www.one9founders.com/learn): courses, guides, and paths
 - [About](https://www.one9founders.com/about): who we are and how we work
 
@@ -30,6 +32,7 @@ listed in the XML sitemap index at https://www.one9founders.com/sitemap.xml
 - [AEO guidance](https://www.one9founders.com/aeo.txt): answer-engine citation preferences
 - [GEO guidance](https://www.one9founders.com/geo.txt): generative-engine citation preferences
 - [XML sitemap](https://www.one9founders.com/sitemap.xml): full indexable URL set for crawlers
+- [Tool sitemap chunk](https://www.one9founders.com/sitemaps/tools-1.xml): first batch of /tool/{slug} URLs
 
 ## About
 - Founded for Indian startup founders
