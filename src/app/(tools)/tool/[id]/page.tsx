@@ -5,7 +5,7 @@ import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { siteUrl } from '@/lib/constants/site';
 import RelatedTools, { mergeRelatedTools } from '@/components/features/tools/RelatedTools';
 import Link from 'next/link';
-import { hasSubstantiveContent } from '@/lib/tool-content';
+import { isToolIndexable } from '@/lib/tool-content';
 import Navbar from '@/components/layout/Navbar';
 import ToolLogo from '@/components/shared/ToolLogo';
 import ToolDetailClient from '@/components/features/tools/ToolDetailClient';
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     path: `/tool/${tool.slug}`,
     image: tool.logo_url || tool.landing_page_screenshot || '/og-image.png',
     keywords,
-    robots: tool.assessed === true || hasSubstantiveContent(tool)
+    robots: isToolIndexable(tool)
       ? { index: true, follow: true }
       : { index: false, follow: true },
   });

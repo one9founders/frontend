@@ -4,8 +4,9 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HackerNewsDirectoryClient from '@/components/features/tools/HackerNewsDirectoryClient';
 import { fetchDirectoryStats, fetchToolsBySource } from '@/lib/api/toolsStats';
-import { generateSEO } from '@/lib/utils/seo';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { formatToolCount } from '@/lib/constants/stats';
+import { siteUrl } from '@/lib/constants/site';
 
 export const revalidate = 600;
 
@@ -60,8 +61,35 @@ export default async function HackerNewsPage({ searchParams }: PageProps) {
     stats?.by_source?.find((row) => row.source === 'hackernews')?.count ||
     0;
 
+  const structuredData = generateStructuredData({
+    '@type': 'CollectionPage',
+    name: 'AI tools from Hacker News',
+    description:
+      'AI tools catalogued from Hacker News Show HN and AI threads, with attribution back to the original discussion.',
+    url: siteUrl('/hacker-news'),
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'One9Founders',
+      url: siteUrl('/'),
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: count,
+      itemListElement: (listing.tools || []).slice(0, 24).map((tool, index) => ({
+        '@type': 'ListItem',
+        position: (page - 1) * 24 + index + 1,
+        url: siteUrl(`/tool/${tool.slug}`),
+        name: tool.name,
+      })),
+    },
+  });
+
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Navbar />
       <main className="py-8 md:py-12 px-4 md:px-6">
         <Suspense

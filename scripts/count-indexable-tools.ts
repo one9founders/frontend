@@ -1,4 +1,4 @@
-import { hasSubstantiveContent } from '../src/lib/tool-content';
+import { hasSubstantiveContent, isToolIndexable } from '../src/lib/tool-content';
 import type { Tool } from '../src/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -35,29 +35,33 @@ async function main() {
   if (missingDescription > 0) {
     console.error(
       `warning: ${missingDescription}/${tools.length} list records omit description; ` +
-        'hasSubstantiveContent will treat those as 0 words until the list serializer includes it.'
+        'page-robots checks that need description may under-count until the list serializer includes it.'
     );
   }
 
   let assessed = 0;
   let content = 0;
-  let either = 0;
+  let indexable = 0;
   let neither = 0;
 
   for (const tool of tools) {
     const isAssessed = tool.assessed === true;
     const hasContent = hasSubstantiveContent(tool);
+    const canIndex = isToolIndexable(tool);
     if (isAssessed) assessed += 1;
     if (hasContent) content += 1;
-    if (isAssessed || hasContent) either += 1;
+    if (canIndex) indexable += 1;
     else neither += 1;
   }
 
   console.log(`total: ${tools.length}`);
   console.log(`assessed === true: ${assessed}`);
   console.log(`hasSubstantiveContent() === true: ${content}`);
-  console.log(`either (indexable / sitemap): ${either}`);
-  console.log(`neither (noindex / excluded): ${neither}`);
+  console.log(`isToolIndexable() === true (page robots index): ${indexable}`);
+  console.log(`neither (page robots noindex): ${neither}`);
+  console.log(
+    'note: XML sitemap membership is separate — publishable tools appear in /sitemaps/tools-N.xml regardless of page robots.'
+  );
 }
 
 main().catch((error) => {

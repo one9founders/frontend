@@ -96,6 +96,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="author" href="/llms.txt" type="text/plain" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+        <link rel="alternate" type="text/plain" href="/aeo.txt" title="aeo.txt" />
+        <link rel="alternate" type="text/plain" href="/geo.txt" title="geo.txt" />
         <script src="https://t.contentsquare.net/uxa/d11fb4e793d48.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-455BX3CJP8"></script>
         <script dangerouslySetInnerHTML={{
