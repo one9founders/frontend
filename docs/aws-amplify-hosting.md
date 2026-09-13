@@ -42,8 +42,7 @@ Use the generated `*.amplifyapp.com` URL to verify:
 
 After verification, add `one9founders.com` in **Hosting > Custom domains** and
 map both the apex and `www` hostnames to `main`. Apply the DNS records Amplify
-provides. Keep the Vercel records until the Amplify domain is healthy, then
-remove the conflicting Vercel records.
+provides. Cut over DNS only after the Amplify domain is healthy.
 
 Amplify provisions and renews the TLS certificate. Do not redeploy solely for
 the DNS change.

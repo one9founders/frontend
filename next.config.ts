@@ -64,7 +64,6 @@ const nextConfig: NextConfig = {
     const sitemapCache = [
       { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
       { key: 'CDN-Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=600' },
-      { key: 'Vercel-CDN-Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=600' },
     ];
     return [
       { source: '/sitemap.xml', headers: sitemapCache },
