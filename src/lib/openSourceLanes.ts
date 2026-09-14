@@ -186,10 +186,20 @@ export function openSourceLaneLabel(id: OpenSourceLaneId): string {
   return LANE_BY_ID[id].label;
 }
 
-export function countByLane(tools: Tool[]): Record<OpenSourceLaneId, number> {
-  const counts = Object.fromEntries(
+export function isOpenSourceLaneId(
+  value: string | null | undefined,
+): value is OpenSourceLaneId {
+  return !!value && value in LANE_BY_ID;
+}
+
+export function emptyLaneCounts(): Record<OpenSourceLaneId, number> {
+  return Object.fromEntries(
     OPEN_SOURCE_LANES.map((lane) => [lane.id, 0]),
   ) as Record<OpenSourceLaneId, number>;
+}
+
+export function countByLane(tools: Tool[]): Record<OpenSourceLaneId, number> {
+  const counts = emptyLaneCounts();
   for (const tool of tools) {
     counts[inferOpenSourceLane(tool).id] += 1;
   }

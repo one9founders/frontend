@@ -19,6 +19,7 @@ import {
   inferOpenSourceLane,
   type OpenSourceLaneId,
 } from '@/lib/openSourceLanes';
+import { formatToolCount } from '@/lib/constants/stats';
 
 const PAGE_SIZE = 24;
 
@@ -26,12 +27,6 @@ type SortKey = 'relevant' | 'newest' | 'name';
 
 function countFor(trackCounts: TrackStat[], track: TrackStat['track']) {
   return trackCounts.find((row) => row.track === track)?.count ?? 0;
-}
-
-function directoryHref(kind: OpenSourceKind, page: number) {
-  const base = openSourceHref(kind);
-  if (page <= 1) return base;
-  return `${base}${base.includes('?') ? '&' : '?'}page=${page}`;
 }
 
 function popularity(tool: Tool): number {
@@ -65,21 +60,25 @@ export default function OpenSourceDirectoryClient({
   initialPage,
   initialTools,
   initialCount,
+  initialLane,
   trackCounts,
+  catalogLaneCounts,
 }: {
   initialKind: OpenSourceKind;
   initialPage: number;
   initialTools: Tool[];
   initialCount: number;
+  initialLane: OpenSourceLaneId | '';
   trackCounts: TrackStat[];
+  catalogLaneCounts: Record<OpenSourceLaneId, number>;
 }) {
   const router = useRouter();
   const tab = openSourceTabFromKind(initialKind);
   const [searching, setSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<Tool[] | null>(null);
-  const [lane, setLane] = useState<OpenSourceLaneId | ''>('');
   const [sort, setSort] = useState<SortKey>('relevant');
+  const lane = initialLane;
 
   const counts = {
     repos: countFor(trackCounts, 'open_source') || (initialKind === 'repos' ? initialCount : 0),
@@ -87,8 +86,21 @@ export default function OpenSourceDirectoryClient({
     mcp: countFor(trackCounts, 'mcp_server') || (initialKind === 'mcp' ? initialCount : 0),
   };
 
+  const navigate = useCallback(
+    (opts: { page?: number; lane?: OpenSourceLaneId | '' }) => {
+      const nextLane = opts.lane === undefined ? lane : opts.lane;
+      router.push(
+        openSourceHref(initialKind, {
+          page: opts.page ?? 1,
+          lane: nextLane || undefined,
+        }),
+      );
+    },
+    [router, initialKind, lane],
+  );
+
   const handlePageChange = (nextPage: number) => {
-    router.push(directoryHref(initialKind, nextPage));
+    navigate({ page: nextPage });
   };
 
   const handleSearch = useCallback(
@@ -122,27 +134,27 @@ export default function OpenSourceDirectoryClient({
 
   const isSearch = searchResults !== null;
   const baseList = searchResults ?? initialTools;
-  // Lane chip counts only when searching: browse mode is one API page (~24 rows),
-  // so page-local tallies next to catalog totals (e.g. Repos 1,646) read as broken.
+  // Browse: full-catalog lane totals. Search: counts inside the current hit set.
   const laneCounts = useMemo(
-    () => (isSearch ? countByLane(baseList) : null),
-    [baseList, isSearch],
+    () => (isSearch ? countByLane(baseList) : catalogLaneCounts),
+    [baseList, isSearch, catalogLaneCounts],
   );
 
   const visible = useMemo(() => {
-    const filtered = lane
-      ? baseList.filter((tool) => inferOpenSourceLane(tool).id === lane)
-      : baseList;
+    // Server already applied the lane for browse; re-apply only on search hits.
+    const filtered =
+      isSearch && lane
+        ? baseList.filter((tool) => inferOpenSourceLane(tool).id === lane)
+        : baseList;
     return sortTools(filtered, sort);
-  }, [baseList, lane, sort]);
+  }, [baseList, lane, sort, isSearch]);
 
   const totalPages = Math.max(1, Math.ceil(initialCount / PAGE_SIZE));
   const page = Math.min(Math.max(initialPage, 1), totalPages);
   const activeLane = OPEN_SOURCE_LANES.find((row) => row.id === lane);
-  // Format tabs already cover Skills / MCP; hide those as job lanes on Repos.
   const laneOptions = OPEN_SOURCE_LANES.filter((row) => {
     if (row.id === 'mcp' || row.id === 'skills') return initialKind !== 'repos';
-    if (row.id === 'other') return !laneCounts || laneCounts.other > 0;
+    if (row.id === 'other') return (laneCounts.other ?? 0) > 0 || lane === 'other';
     return true;
   });
 
@@ -157,8 +169,8 @@ export default function OpenSourceDirectoryClient({
         </h1>
         <p className="text-sm md:text-base text-[var(--gray-400)] leading-relaxed max-w-2xl">
           Scan by job first — local models, agents, RAG, MCP — then open the repo.
-          No logos: every listing is GitHub. We surface what it does and which lane it
-          fits so you can pick fast.{' '}
+          Lane numbers are catalog-wide totals, not this page. No logos: every listing
+          is GitHub.{' '}
           <a
             href="/llms?type=open-weights"
             className="text-[var(--copper)] hover:text-[var(--copper-bright)]"
@@ -192,7 +204,7 @@ export default function OpenSourceDirectoryClient({
         <div className="flex flex-wrap gap-2" role="group" aria-label="Job lanes">
           <button
             type="button"
-            onClick={() => setLane('')}
+            onClick={() => navigate({ lane: '', page: 1 })}
             aria-pressed={lane === ''}
             className={`px-3 py-1.5 text-sm border transition-colors cursor-pointer ${
               lane === ''
@@ -203,13 +215,14 @@ export default function OpenSourceDirectoryClient({
             All lanes
           </button>
           {laneOptions.map((row) => {
-            const n = laneCounts?.[row.id] ?? 0;
+            const n = laneCounts[row.id] ?? 0;
             const selected = lane === row.id;
+            const label = n > 0 ? formatToolCount(n) : null;
             return (
               <button
                 key={row.id}
                 type="button"
-                onClick={() => setLane(selected ? '' : row.id)}
+                onClick={() => navigate({ lane: selected ? '' : row.id, page: 1 })}
                 aria-pressed={selected}
                 title={row.hint}
                 className={`px-3 py-1.5 text-sm border transition-colors cursor-pointer ${
@@ -219,8 +232,8 @@ export default function OpenSourceDirectoryClient({
                 }`}
               >
                 {row.label}
-                {laneCounts && n > 0 ? (
-                  <span className="ml-1.5 tabular-nums text-[var(--gray-500)]">{n}</span>
+                {label ? (
+                  <span className="ml-1.5 tabular-nums text-[var(--gray-500)]">{label}</span>
                 ) : null}
               </button>
             );
@@ -235,7 +248,7 @@ export default function OpenSourceDirectoryClient({
             : isSearch
               ? `${visible.length} match${visible.length === 1 ? '' : 'es'} for “${searchQuery}”`
               : lane
-                ? `${visible.length} in this lane on page ${page}`
+                ? `${initialCount.toLocaleString('en-US')} in this lane · page ${page}`
                 : `Showing ${Math.min((page - 1) * PAGE_SIZE + 1, initialCount)}–${Math.min(page * PAGE_SIZE, initialCount)} of ${initialCount.toLocaleString('en-US')}`}
         </p>
         <label className="flex items-center gap-2 text-sm text-[var(--gray-400)]">
@@ -270,7 +283,7 @@ export default function OpenSourceDirectoryClient({
         </div>
       )}
 
-      {!isSearch && !searching && !lane && totalPages > 1 && (
+      {!isSearch && !searching && totalPages > 1 && (
         <Pagination
           currentPage={page}
           totalPages={totalPages}
