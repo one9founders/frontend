@@ -20,32 +20,6 @@ interface AgentDetailClientProps {
   agent: AgentDetail;
 }
 
-function getPricingColor(pricing: string): string {
-  switch (pricing?.toLowerCase()) {
-    case 'free':
-      return 'bg-green-600/20 text-green-400 border-green-600/30';
-    case 'freemium':
-      return 'bg-blue-600/20 text-blue-400 border-blue-600/30';
-    case 'paid':
-      return 'bg-gray-600/20 text-gray-400 border-gray-600/30';
-    default:
-      return 'bg-gray-600/20 text-gray-400 border-gray-600/30';
-  }
-}
-
-function getAccessColor(access: string): string {
-  switch (access?.toLowerCase()) {
-    case 'open source':
-      return 'bg-green-600/20 text-green-400 border-green-600/30';
-    case 'closed source':
-      return 'bg-gray-600/20 text-gray-400 border-gray-600/30';
-    case 'api':
-      return 'bg-blue-600/20 text-blue-400 border-blue-600/30';
-    default:
-      return 'bg-gray-600/20 text-gray-400 border-gray-600/30';
-  }
-}
-
 type TabType = 'overview' | 'features' | 'use-cases';
 
 export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
@@ -69,16 +43,15 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
 
   return (
     <div className="max-w-7xl mx-auto">
-      {/* Hero Section */}
-      <div className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-xl p-6 md:p-8 mb-8">
+      <div className="tool-meta-panel mb-8 p-6 md:p-8">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Left: Logo, Name, Meta */}
           <div className="flex-1">
             <div className="flex items-start gap-4 mb-4">
-              <ToolLogo logoUrl={agent.logo_url} name={agent.name} size="lg" />
+              <ToolLogo logoUrl={agent.logo_url} name={agent.name} size="lg" containerClassName="shadow-[0_0_0_1px_var(--line)]" />
               <div className="flex-1">
-                <h1 className="text-2xl md:text-3xl font-bold text-white">{agent.name}</h1>
-                <div className="flex flex-wrap items-center gap-2 mt-1 text-sm text-[var(--gray-400)]">
+                <p className="tool-section-label mb-2">AI agent</p>
+                <h1 className="font-display text-3xl md:text-4xl font-bold text-[var(--paper)] leading-tight tracking-tight">{agent.name}</h1>
+                <div className="flex flex-wrap items-center gap-2 mt-2 text-sm text-[var(--gray-400)]">
                   {agent.category_name && agent.category_slug && (
                     <Link
                       href={`/agents/category/${agent.category_slug}`}
@@ -93,16 +66,15 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                   {agent.industry && <span>{agent.industry}</span>}
                 </div>
 
-                {/* Rating */}
                 {rating > 0 && (
-                  <div className="flex items-center gap-2 mt-2">
+                  <div className="flex items-center gap-2 mt-3">
                     <div className="flex">
                       {stars.map((filled, i) => (
                         <HugeiconsIcon
                           key={i}
                           icon={StarIcon}
                           size={18}
-                          className={filled ? 'text-yellow-400' : 'text-[var(--gray-600)]'}
+                          className={filled ? 'text-copper-bright' : 'text-[var(--gray-600)]'}
                         />
                       ))}
                     </div>
@@ -112,31 +84,25 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                   </div>
                 )}
 
-                {/* Badges */}
-                <div className="flex flex-wrap gap-2 mt-3">
+                <div className="flex flex-wrap gap-2 mt-4">
                   {agent.pricing_model && (
-                    <span className={`px-3 py-1 text-sm rounded-full border ${getPricingColor(agent.pricing_model)}`}>
-                      {agent.pricing_model}
-                    </span>
+                    <span className="tool-chip">{agent.pricing_model}</span>
                   )}
                   {agent.access && (
-                    <span className={`px-3 py-1 text-sm rounded-full border ${getAccessColor(agent.access)}`}>
-                      {agent.access}
-                    </span>
+                    <span className="tool-chip tool-chip-accent">{agent.access}</span>
                   )}
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: CTA + Social Links */}
           <div className="flex flex-col gap-3 md:items-end">
             {agent.website && (
               <a
                 href={agent.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors bg-copper text-white hover:bg-copper-dim"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors btn-primary"
               >
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={18} />
                 Visit Site
@@ -147,7 +113,7 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                 href={agent.video_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors bg-[var(--gray-800)] text-white border border-[var(--gray-700)] hover:bg-[var(--gray-700)]"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors border border-[var(--line)] text-[var(--paper)] hover:border-copper/40"
               >
                 Watch Video
               </a>
@@ -160,7 +126,7 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-[var(--gray-800)] text-[var(--gray-400)] hover:text-white hover:bg-[var(--gray-700)] transition-colors"
+                    className="p-2 rounded-lg border border-[var(--line)] text-[var(--gray-400)] hover:text-[var(--paper)] hover:border-copper/40 transition-colors"
                     title={link.label}
                   >
                     <HugeiconsIcon icon={link.icon} size={20} />
@@ -172,20 +138,17 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
         </div>
       </div>
 
-      {/* Content + Metrics layout */}
       <div className="flex flex-col lg:flex-row gap-6">
-        {/* Main Content */}
         <div className="flex-1">
-          {/* Tabs */}
-          <div className="flex border-b border-[var(--gray-800)] mb-6">
+          <div className="flex border-b border-[var(--line)] mb-6">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-4 py-3 text-sm font-medium transition-colors border-b-2 cursor-pointer ${
                   activeTab === tab.key
-                    ? 'text-white border-copper'
-                    : 'text-[var(--gray-400)] border-transparent hover:text-white hover:border-[var(--gray-600)]'
+                    ? 'text-[var(--paper)] border-copper'
+                    : 'text-[var(--gray-400)] border-transparent hover:text-[var(--paper)] hover:border-[var(--gray-600)]'
                 }`}
               >
                 {tab.label}

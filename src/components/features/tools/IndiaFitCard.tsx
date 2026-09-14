@@ -25,48 +25,44 @@ export default function IndiaFitCard({ tool }: { tool: Tool }) {
   if (!hasIndiaFitData(tool)) return null;
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-semibold text-white mb-4">India Fit</h2>
-      <div className="bg-[var(--gray-800)] rounded-lg p-6">
+    <section className="tool-section">
+      <p className="tool-section-label">India</p>
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--paper)] mb-5 leading-tight">
+        India fit
+      </h2>
+      <div className="tool-meta-panel">
         <div className="flex flex-wrap items-center gap-2">
           {typeof tool.indiaCompliant === 'boolean' && (
             <span
-              className={`px-2 py-1 rounded text-xs font-medium ${
-                tool.indiaCompliant
-                  ? 'bg-green-600 text-white'
-                  : 'bg-[var(--gray-700)] text-[var(--gray-300)]'
-              }`}
+              className={
+                tool.indiaCompliant ? 'tool-chip tool-chip-ok' : 'tool-chip'
+              }
             >
               {tool.indiaCompliant ? 'India Compliant' : 'Not India Compliant'}
             </span>
           )}
           {hasText(tool.inrPricing) && (
-            <span className="px-2 py-1 rounded text-xs font-medium bg-copper/20 text-copper-bright border border-copper/30">
-              {tool.inrPricing}
-            </span>
+            <span className="tool-chip tool-chip-accent">{tool.inrPricing}</span>
           )}
           {hasText(tool.dataResidency) && (
-            <span className="px-2 py-1 rounded text-xs font-medium bg-blue-600/20 text-blue-300 border border-blue-600/30">
-              {tool.dataResidency}
-            </span>
+            <span className="tool-chip">{tool.dataResidency}</span>
           )}
         </div>
         {hasText(tool.dpdpNotes) && (
-          <p className="text-[var(--gray-300)] text-sm mt-3 leading-relaxed">{tool.dpdpNotes}</p>
+          <p className="text-[var(--gray-300)] text-sm mt-4 leading-relaxed">
+            {tool.dpdpNotes}
+          </p>
         )}
         {tool.jobClusters && tool.jobClusters.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-3">
+          <div className="flex flex-wrap gap-1.5 mt-4">
             {tool.jobClusters.map((cluster) => (
-              <span
-                key={cluster}
-                className="bg-[var(--gray-700)] text-[var(--gray-300)] px-2 py-1 rounded-full text-xs"
-              >
+              <span key={cluster} className="tool-chip">
                 {clusterLabel(cluster)}
               </span>
             ))}
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }

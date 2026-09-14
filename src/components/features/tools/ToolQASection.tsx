@@ -106,17 +106,24 @@ export default function ToolQASection({ tool }: ToolQASectionProps) {
   const qaPairs = generateQAPairs(tool);
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-semibold text-white mb-4">Frequently Asked Questions</h2>
-      <div className="space-y-4">
+    <section className="tool-section">
+      <p className="tool-section-label">FAQ</p>
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--paper)] mb-6 leading-tight">
+        Frequently asked questions
+      </h2>
+      <div className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
         {qaPairs.map((qa, index) => (
-          <div key={index} className="bg-[var(--gray-800)] rounded-lg p-4">
-            <h3 className="text-white font-medium mb-2">{qa.question}</h3>
-            <p className="text-[var(--gray-300)] text-sm leading-relaxed">{qa.answer}</p>
+          <div key={index} className="py-5">
+            <h3 className="text-[var(--paper)] font-medium mb-2 leading-snug">
+              {qa.question}
+            </h3>
+            <p className="text-[var(--gray-400)] text-sm leading-relaxed">
+              {qa.answer}
+            </p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
