@@ -7,13 +7,157 @@ export interface BlogPost {
   publishedAt: string;
   readingTime: string;
   category: string;
+  /** Optional SEO keywords used in generateMetadata */
+  keywords?: string[];
 }
 
 const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'best-ai-agents-for-startup-founders-2026',
+    title: 'Best AI Agents for Startup Founders in 2026',
+    excerpt: 'AI agents are the highest-demand discovery category right now. Here is how founders should pick agents for research, coding, sales, and ops — with security and runway in mind.',
+    keywords: [
+      'ai agents',
+      'best ai agents',
+      'ai agents for startups',
+      'ai agent directory',
+      'autonomous ai agents',
+      'startup AI agents 2026',
+    ],
+    content: `<h2>Why AI agents matter more than another chatbot</h2>
+<p>Search interest for <strong>AI agents</strong> now outpaces generic “AI tools directory” queries by a wide margin. Founders are not looking for another chat box — they want systems that can research, draft, code, or operate workflows with less babysitting.</p>
+<p>One9Founders maintains an <a href="/agents">AI agents directory</a> so you can browse by category, check published evidence, and avoid affiliate-ranked lists.</p>
+
+<h2>What “AI agent” actually means in 2026</h2>
+<p>An agent is software that can take multi-step actions toward a goal: browse, call tools, write code, update CRM fields, or coordinate other models. Chatbots answer. Agents attempt to finish work.</p>
+<ul>
+<li><strong>Research agents</strong> — competitive scans, paper summaries, market briefs</li>
+<li><strong>Coding agents</strong> — repo-aware assistants and autonomous coding loops</li>
+<li><strong>Ops / sales agents</strong> — outreach, ticketing, enrichment, scheduling</li>
+<li><strong>Browser agents</strong> — click-through workflows on the open web</li>
+</ul>
+
+<h2>How founders should evaluate agents (before you buy)</h2>
+<ol>
+<li><strong>Blast radius</strong> — What can it write, send, or delete without a human? Default to least privilege.</li>
+<li><strong>Data boundary</strong> — Does it see production customer data, secrets, or source code? Prefer local or VPC options when risk is high. See our <a href="/blog/ai-security-what-founders-need-to-know">AI security guide</a>.</li>
+<li><strong>Failure mode</strong> — Agents fail silently. Require logs, approvals for external actions, and easy kill switches.</li>
+<li><strong>Cost curve</strong> — Agent runs burn tokens and tool calls. Model the cost of a successful task, not the sticker seat price.</li>
+<li><strong>Vendor viability</strong> — Prefer tools with clear ownership, status history, and a path that will still exist in 12 months.</li>
+</ol>
+
+<h2>Where to start on One9Founders</h2>
+<p>Use the <a href="/agents">agents catalog</a>, then cross-check related <a href="/llms">LLMs</a> if the agent is model-locked. For stack decisions, browse <a href="/stacks">founder stacks</a> instead of collecting random subscriptions.</p>
+<p>If you are still early, pair this with our <a href="/blog/how-to-evaluate-ai-tools-for-your-startup">10-point evaluation framework</a> and only pay for agents that clear security + ROI.</p>
+
+<h2>Bottom line</h2>
+<p>Do not optimize for owning the phrase “AI ecosystem navigator.” Optimize for helping founders choose <em>agents that ship work safely</em>. That is what people are actually searching — and what our directory is built to answer.</p>`,
+    author: 'Amit Bhartiya',
+    publishedAt: '2026-09-14',
+    readingTime: '7 min read',
+    category: 'Guides',
+  },
+  {
+    slug: 'best-ai-tools-for-indian-startups-2026',
+    title: 'Best AI Tools for Indian Startups in 2026 (INR, Practical Stack)',
+    excerpt: 'Global AI directories ignore INR pricing, DPDP, and bootstrapped constraints. Here is how Indian founders should build a lean AI stack in 2026.',
+    keywords: [
+      'best ai tools',
+      'ai tools for startups',
+      'ai tools india',
+      'best ai tools for indian startups',
+      'INR AI tools',
+      'AI tools for founders India',
+    ],
+    content: `<h2>The India-specific problem global directories miss</h2>
+<p>Most “best AI tools” lists are written for US SaaS budgets. Indian founders care about <strong>INR cash outflow</strong>, GST invoices, UPI-friendly billing, DPDP exposure, and whether a tool still works when the dollar jumps.</p>
+<p>One9Founders is built as an India-first <a href="/">AI tools directory</a> for startup founders — with security-first ratings and zero affiliate bias.</p>
+
+<h2>A practical stack order (not a 40-tool zoo)</h2>
+<ol>
+<li><strong>One primary LLM</strong> — Pick a default for writing + reasoning. Compare options on <a href="/llms">our LLM board</a> and <a href="/llms/compare">side-by-side compare</a>.</li>
+<li><strong>One coding assistant</strong> — If you ship software, this usually pays for itself first.</li>
+<li><strong>One research / browsing agent</strong> — For competitive and customer research without hiring a full analyst. Browse <a href="/agents">AI agents</a>.</li>
+<li><strong>Ops automation</strong> — Email, support, or finance workflows only after the first three are stable.</li>
+<li><strong>Fintech / compliance-aware tools</strong> — If you touch payments or KYC, start from <a href="/fintech">India fintech ratings</a>.</li>
+</ol>
+
+<h2>What to filter for (India lens)</h2>
+<ul>
+<li><strong>INR pricing or startup credits</strong> — Avoid tools that only quote USD enterprise seats.</li>
+<li><strong>Data residency &amp; DPDP</strong> — Know where prompts and customer data land.</li>
+<li><strong>Security evidence</strong> — Prefer published controls over marketing claims. Our methodology is public on <a href="/methodology">/methodology</a>.</li>
+<li><strong>Time-to-value</strong> — Bootstrapped teams cannot afford 6-week pilots.</li>
+</ul>
+
+<h2>How to use One9Founders for this</h2>
+<p>Start on the homepage directory, filter by category on <a href="/tools/productivity">productivity</a>, <a href="/tools/coding">coding</a>, or <a href="/tools/writing">writing</a>, then validate with <a href="/compare">compare</a>. For curated combinations, see <a href="/stacks">founder stacks</a>.</p>
+<p>Also read: <a href="/blog/top-ai-tools-bootstrapped-startups-2026">Top AI tools for bootstrapped startups</a> and <a href="/blog/how-to-evaluate-ai-tools-for-your-startup">how to evaluate AI tools</a>.</p>
+
+<h2>Bottom line</h2>
+<p>“AI tools India” and “AI tools for startups” lose to brand queries in raw volume — but they convert when the page speaks INR, compliance, and runway. That is the wedge against Futurepedia/Toolify-style global catalogs.</p>`,
+    author: 'Shreya Nair',
+    publishedAt: '2026-09-14',
+    readingTime: '8 min read',
+    category: 'Lists',
+  },
+  {
+    slug: 'claude-vs-chatgpt-vs-gemini-for-founders',
+    title: 'Claude vs ChatGPT vs Gemini for Founders: How to Choose in 2026',
+    excerpt: 'Founders do not need every frontier model. Compare Claude, ChatGPT, and Gemini on coding, writing, cost, and India-relevant constraints — then lock a default.',
+    keywords: [
+      'claude vs chatgpt',
+      'chatgpt vs gemini',
+      'best llm',
+      'llm comparison',
+      'claude vs chatgpt vs gemini',
+      'best LLM for startups',
+      'gemini pricing india',
+    ],
+    content: `<h2>Pick a default model, not a model zoo</h2>
+<p>LLM comparison queries (and India pricing searches like Gemini cost) already show up in founder discovery paths. Spreading spend across every frontier model usually means worse prompts, worse memory, and higher bills.</p>
+<p>Use <a href="/llms/compare">One9Founders LLM compare</a> and the <a href="/llms">LLM directory</a> to lock a default, then add a specialist only when a workload demands it.</p>
+
+<h2>Decision framework</h2>
+<table>
+<thead><tr><th>Job to be done</th><th>Usually lean toward</th><th>Watch-outs</th></tr></thead>
+<tbody>
+<tr><td>Long-form writing, careful reasoning</td><td>Claude-class models</td><td>Higher token cost at the top tier</td></tr>
+<tr><td>General assistant + plugins/ecosystem</td><td>ChatGPT-class models</td><td>Data-sharing defaults; check workspace settings</td></tr>
+<tr><td>Google Workspace, multimodal, India distribution</td><td>Gemini-class models</td><td>Confirm region, pricing steps, and residency</td></tr>
+<tr><td>Coding agents in-repo</td><td>Whatever your coding agent is optimized for</td><td>Agent wrappers can lock you to one model</td></tr>
+</tbody>
+</table>
+
+<h2>Cost and India realities</h2>
+<p>Price lists move monthly. Before you standardize:</p>
+<ul>
+<li>Compare <strong>input/output token price</strong>, not just “Pro seat” marketing.</li>
+<li>Check whether INR billing / local cards / startup credits exist.</li>
+<li>For customer data, map DPDP exposure the same way you would any SaaS vendor.</li>
+</ul>
+<p>We track model cards with pricing context on <a href="/llms">/llms</a>. For security posture across the wider stack, see <a href="/blog/ai-security-what-founders-need-to-know">AI security for founders</a>.</p>
+
+<h2>A simple founder policy</h2>
+<ol>
+<li>Choose <strong>one default</strong> for 80% of work.</li>
+<li>Document what data is allowed in prompts.</li>
+<li>Revisit quarterly — or when a coding agent / research agent forces a better fit.</li>
+<li>Put the rest of the budget into workflow tools you can find in the <a href="/">AI tools directory</a>, not extra chat subscriptions.</li>
+</ol>
+
+<h2>Bottom line</h2>
+<p>Category vanity keywords will not move the needle. Clear LLM comparison content that links into live model pages will — because that matches how founders already search.</p>`,
+    author: 'Arnav Gautam',
+    publishedAt: '2026-09-13',
+    readingTime: '6 min read',
+    category: 'Guides',
+  },
+  {
     slug: 'how-to-evaluate-ai-tools-for-your-startup',
     title: 'How to Evaluate AI Tools for Your Startup: A Founder\'s Guide',
     excerpt: 'Choosing the right AI tool can make or break your startup\'s productivity. Learn our 10-point evaluation framework that covers security, pricing, and ROI.',
+    keywords: ['how to evaluate AI tools', 'AI tools for startups', 'startup AI evaluation', 'compare AI tools'],
     content: `<h2>Why Evaluation Matters</h2>
 <p>With over 27,000 AI tools on the market, choosing the right one for your startup is overwhelming. The wrong choice can waste months of integration effort, expose sensitive data, or drain your runway on overpriced subscriptions.</p>
 <p>At One9Founders, we developed a 10-point evaluation framework specifically for startup founders. Here's how to use it.</p>
@@ -60,6 +204,7 @@ const BLOG_POSTS: BlogPost[] = [
     slug: 'ai-security-what-founders-need-to-know',
     title: 'AI Security: What Every Startup Founder Needs to Know in 2026',
     excerpt: 'With data breaches on the rise, understanding AI tool security is critical. We break down the key security factors founders should evaluate before adopting any AI tool.',
+    keywords: ['AI security', 'AI tool security for startups', 'SOC 2 AI tools', 'DPDP AI tools', 'secure AI for founders'],
     content: `<h2>The Security Landscape</h2>
 <p>In 2026, AI tools process more sensitive business data than ever before. From customer conversations in chatbots to proprietary code in AI coding assistants, the attack surface has expanded dramatically.</p>
 <p>For startups, a single data breach can mean losing customer trust, regulatory fines, and potentially your entire business. Here's what you need to know.</p>
@@ -92,6 +237,7 @@ const BLOG_POSTS: BlogPost[] = [
     slug: 'top-ai-tools-bootstrapped-startups-2026',
     title: 'Top 10 AI Tools for Bootstrapped Startups in 2026',
     excerpt: 'Running lean? These AI tools offer the best value for bootstrapped founders, with free tiers and startup-friendly pricing that won\'t drain your runway.',
+    keywords: ['best ai tools', 'AI tools for bootstrapped startups', 'free AI tools for startups', 'startup AI stack 2026'],
     content: `<h2>Building on a Budget</h2>
 <p>Bootstrapped startups don't have the luxury of enterprise budgets, but that doesn't mean you can't leverage AI. The best AI tools in 2026 offer generous free tiers and startup-friendly pricing that lets you get started without draining your runway.</p>
 

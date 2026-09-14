@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: post.excerpt,
     path: `/blog/${slug}`,
     type: 'article',
-    keywords: ['AI tools', 'startup', post.category.toLowerCase(), 'founder guide'],
+    keywords: post.keywords ?? ['AI tools', 'startup', post.category.toLowerCase(), 'founder guide'],
   });
 }
 
