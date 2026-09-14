@@ -107,28 +107,33 @@ export default function ToolDetailClient({
 
   return (
     <>
-      <div className="mt-4">
+      <div className="mb-8 flex flex-wrap items-center gap-3">
         <button
           onClick={handleIUseThis}
           disabled={hasMarkedUsage}
-          className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors ${
+          className={`px-4 py-2 rounded-lg font-medium text-sm transition-colors border ${
             hasMarkedUsage
-              ? 'bg-green-600 text-white cursor-default'
-              : 'bg-[var(--gray-800)] text-white hover:bg-[var(--gray-700)]'
+              ? 'border-emerald-500/40 bg-emerald-600/20 text-emerald-300 cursor-default'
+              : 'border-[var(--line)] bg-[var(--ink-2)] text-[var(--paper)] hover:border-copper/40'
           }`}
         >
           {hasMarkedUsage ? 'You use this tool' : 'I use this tool'}
         </button>
         {usageCount > 0 && (
-          <span className="ml-2 text-[var(--gray-400)] text-sm">
+          <span className="text-[var(--gray-500)] text-sm">
             {usageCount} {usageCount === 1 ? 'user' : 'users'}
           </span>
         )}
       </div>
 
-      <div className="mt-8 md:mt-12">
+      <div>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-white">Reviews & Comments</h2>
+          <div>
+            <p className="tool-section-label">Community</p>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--paper)] leading-tight">
+              Reviews & comments
+            </h2>
+          </div>
           {!showReviewForm && (
             <button
               onClick={handleWriteReview}
@@ -148,7 +153,7 @@ export default function ToolDetailClient({
             />
             <button
               onClick={() => setShowReviewForm(false)}
-              className="mt-4 text-[var(--gray-400)] hover:text-white"
+              className="mt-4 text-[var(--gray-400)] hover:text-[var(--paper)]"
             >
               Cancel
             </button>
@@ -156,7 +161,7 @@ export default function ToolDetailClient({
         )}
         
         {reviews && reviews.length === 0 ? (
-          <div className="text-center py-12 bg-[var(--gray-900)] rounded-lg">
+          <div className="text-center py-12 rounded-xl border border-dashed border-[var(--line)] bg-[var(--ink-2)]/50">
             <p className="text-[var(--gray-400)] mb-4">
               {user ? 
                 "Be the first to write about this tool!" : 

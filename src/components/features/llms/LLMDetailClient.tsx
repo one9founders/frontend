@@ -6,7 +6,6 @@ import { LLMModel, CurrencyMode } from '@/types/llm';
 import {
   PROVIDER_COLORS,
   TIER_LABELS,
-  TIER_COLORS,
   CAPABILITY_LABELS,
   formatContext,
   formatPrice,
@@ -32,124 +31,107 @@ export default function LLMDetailClient({
   const hfLink = m.links.huggingface || null;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-      {/* Breadcrumb */}
-      <nav className="mb-6 text-sm">
-        <Link href="/llms" className="text-[var(--gray-500)] hover:text-copper">
-          ← Back to LLM Explorer
-        </Link>
-      </nav>
+    <div className="relative">
+      <div className="tool-page-hero border-b border-[var(--line)]">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-10">
+          <nav className="mb-6 text-sm">
+            <Link href="/llms" className="text-[var(--gray-500)] hover:text-copper">
+              ← Back to LLM Explorer
+            </Link>
+          </nav>
 
-      {/* Hero */}
-      <div className="flex flex-col md:flex-row gap-6 mb-8">
-        <div className="flex-1">
-          <div className="flex items-center gap-3 mb-3">
-            <span
-              className="w-3 h-3 rounded-full"
-              style={{ backgroundColor: PROVIDER_COLORS[m.provider] || '#666' }}
-            />
-            <span className="text-[var(--gray-400)] text-sm">{m.provider}</span>
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-            {m.name}
-          </h1>
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span
-              className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold"
-              style={{
-                backgroundColor: `${TIER_COLORS[m.tier] || '#4B5563'}20`,
-                color: TIER_COLORS[m.tier] || '#9CA3AF',
-              }}
-            >
-              {TIER_LABELS[m.tier] || 'Unranked'}
-            </span>
-            <span
-              className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold ${
-                m.model_type === 'open-weights'
-                  ? 'bg-emerald-500/10 text-emerald-400'
-                  : 'bg-[var(--gray-800)] text-[var(--gray-400)]'
-              }`}
-            >
-              {m.model_type === 'open-weights' ? 'Open Weights' : 'Proprietary'}
-            </span>
-            {m.is_reasoning && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400">
-                Reasoning
-              </span>
-            )}
-            {m.license && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-[var(--gray-800)] text-[var(--gray-400)]">
-                {m.license}
-              </span>
-            )}
-          </div>
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-3">
+                <span
+                  className="w-3 h-3 rounded-full"
+                  style={{ backgroundColor: PROVIDER_COLORS[m.provider] || '#666' }}
+                />
+                <span className="text-[var(--gray-400)] text-sm">{m.provider}</span>
+              </div>
+              <p className="tool-section-label mb-2">Large language model</p>
+              <h1 className="font-display text-3xl sm:text-5xl font-bold text-[var(--paper)] mb-4 leading-[0.95] tracking-tight">
+                {m.name}
+              </h1>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="tool-chip tool-chip-accent">
+                  {TIER_LABELS[m.tier] || 'Unranked'}
+                </span>
+                <span className="tool-chip">
+                  {m.model_type === 'open-weights' ? 'Open Weights' : 'Proprietary'}
+                </span>
+                {m.is_reasoning && (
+                  <span className="tool-chip">Reasoning</span>
+                )}
+                {m.license && (
+                  <span className="tool-chip">{m.license}</span>
+                )}
+              </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-3">
-            {m.model_type === 'open-weights' && hfLink ? (
-              <a
-                href={hfLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-copper hover:bg-copper-dim text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors"
-              >
-                Download Model →
-              </a>
-            ) : tryItLink ? (
-              <a
-                href={tryItLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-copper hover:bg-copper-dim text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors"
-              >
-                Try in Playground →
-              </a>
-            ) : null}
-            {apiDocsLink && (
-              <a
-                href={apiDocsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[var(--gray-800)] hover:bg-[var(--gray-700)] text-white rounded-lg px-5 py-2.5 text-sm font-medium transition-colors border border-[var(--gray-700)]"
-              >
-                API Docs →
-              </a>
-            )}
-            {hfLink && m.model_type !== 'open-weights' && (
-              <a
-                href={hfLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[var(--gray-400)] hover:text-white text-sm transition-colors"
-              >
-                View on HuggingFace
-              </a>
-            )}
-            <button
-              onClick={() => setCurrency((c) => (c === 'usd' ? 'inr' : 'usd'))}
-              className="inline-flex items-center gap-1 bg-[var(--gray-800)] hover:bg-[var(--gray-700)] text-white rounded-lg px-4 py-2.5 text-sm font-medium transition-colors border border-[var(--gray-700)] cursor-pointer"
-            >
-              {currency === 'usd' ? '$ USD' : '₹ INR'}
-            </button>
-          </div>
-        </div>
+              <div className="flex flex-wrap gap-3">
+                {m.model_type === 'open-weights' && hfLink ? (
+                  <a
+                    href={hfLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 btn-primary rounded-lg px-5 py-2.5 text-sm font-semibold"
+                  >
+                    Download Model →
+                  </a>
+                ) : tryItLink ? (
+                  <a
+                    href={tryItLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 btn-primary rounded-lg px-5 py-2.5 text-sm font-semibold"
+                  >
+                    Try in Playground →
+                  </a>
+                ) : null}
+                {apiDocsLink && (
+                  <a
+                    href={apiDocsLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-[var(--line)] hover:border-copper/40 text-[var(--paper)] rounded-lg px-5 py-2.5 text-sm font-medium transition-colors"
+                  >
+                    API Docs →
+                  </a>
+                )}
+                {hfLink && m.model_type !== 'open-weights' && (
+                  <a
+                    href={hfLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[var(--gray-400)] hover:text-[var(--paper)] text-sm transition-colors"
+                  >
+                    View on HuggingFace
+                  </a>
+                )}
+                <button
+                  onClick={() => setCurrency((c) => (c === 'usd' ? 'inr' : 'usd'))}
+                  className="inline-flex items-center gap-1 border border-[var(--line)] hover:border-copper/40 text-[var(--paper)] rounded-lg px-4 py-2.5 text-sm font-medium transition-colors cursor-pointer"
+                >
+                  {currency === 'usd' ? '$ USD' : '₹ INR'}
+                </button>
+              </div>
+            </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:w-80">
-          {m.input_price_per_mtok !== null && (
-            <StatCard
-              label="Input Price"
-              value={formatPrice(m.input_price_per_mtok, currency)}
-              sub="/M tokens"
-            />
-          )}
-          {m.output_price_per_mtok !== null && (
-            <StatCard
-              label="Output Price"
-              value={formatPrice(m.output_price_per_mtok, currency)}
-              sub="/M tokens"
-            />
-          )}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:w-80">
+              {m.input_price_per_mtok !== null && (
+                <StatCard
+                  label="Input Price"
+                  value={formatPrice(m.input_price_per_mtok, currency)}
+                  sub="/M tokens"
+                />
+              )}
+              {m.output_price_per_mtok !== null && (
+                <StatCard
+                  label="Output Price"
+                  value={formatPrice(m.output_price_per_mtok, currency)}
+                  sub="/M tokens"
+                />
+              )}
           {m.input_price_per_mtok === null && (
             <StatCard label="Price" value="Free" sub="Self-host" highlight />
           )}
@@ -191,16 +173,20 @@ export default function LLMDetailClient({
           {m.parameter_display && m.parameter_display !== 'Unknown' && (
             <StatCard label="Parameters" value={m.parameter_display} sub="" />
           )}
+            </div>
+          </div>
         </div>
       </div>
 
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       {/* One9Founders Verdict */}
       {m.one9_summary && (
-        <div className="bg-gradient-to-br from-copper/20 to-[var(--gray-900)] border border-copper/20 rounded-xl p-6 mb-8">
-          <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+        <div className="rounded-xl border border-copper/25 bg-gradient-to-br from-copper/15 via-copper/5 to-transparent p-6 mb-8">
+          <p className="tool-section-label mb-2">Verdict</p>
+          <h2 className="font-display text-xl font-bold text-[var(--paper)] mb-3 flex items-center gap-2 flex-wrap">
             <span className="text-copper">One9</span>Founders Verdict
             {m.one9_value_rating && (
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-copper/20 text-copper-bright ml-2">
+              <span className="tool-chip tool-chip-accent">
                 {m.one9_value_rating}
               </span>
             )}
@@ -210,7 +196,7 @@ export default function LLMDetailClient({
           </p>
 
           {m.one9_verdict && (
-            <p className="text-white font-semibold text-sm mb-4 italic">
+            <p className="text-[var(--paper)] font-semibold text-sm mb-4 italic">
               &ldquo;{m.one9_verdict}&rdquo;
             </p>
           )}
@@ -438,6 +424,7 @@ export default function LLMDetailClient({
           </div>
         </Section>
       )}
+      </div>
     </div>
   );
 }
@@ -454,12 +441,12 @@ function StatCard({
   highlight?: boolean;
 }) {
   return (
-    <div className="bg-[var(--gray-900)] border border-[var(--gray-800)] rounded-lg p-3 text-center">
+    <div className="bg-[var(--ink-2)] border border-[var(--line)] rounded-lg p-3 text-center">
       <div className="text-[10px] text-[var(--gray-500)] uppercase tracking-wider mb-1">
         {label}
       </div>
       <div
-        className={`text-lg font-bold font-mono ${highlight ? 'text-emerald-400' : 'text-white'}`}
+        className={`text-lg font-bold font-mono ${highlight ? 'text-emerald-400' : 'text-[var(--paper)]'}`}
       >
         {value}
       </div>

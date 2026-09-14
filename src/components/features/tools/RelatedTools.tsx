@@ -39,24 +39,27 @@ export default function RelatedTools({
     : '/compare';
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-semibold text-white mb-4">
+    <div>
+      <p className="tool-section-label">Alternatives</p>
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--paper)] mb-6 leading-tight">
         Alternatives to {tool.name}
       </h2>
       {related.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
           {related.map((item) => (
             <Link
               key={item.slug}
               href={`/tool/${item.slug}`}
-              className="bg-[var(--gray-800)] border border-[var(--gray-700)] rounded-lg p-4 hover:border-copper/50 transition-colors"
+              className="group rounded-xl border border-[var(--line)] bg-[var(--ink-2)]/60 p-4 hover:border-copper/40 transition-colors"
             >
               <div className="flex items-center gap-3 mb-2">
                 <ToolLogo logoUrl={item.logo_url} name={item.name} size="sm" />
-                <span className="text-white font-medium leading-tight">{item.name}</span>
+                <span className="text-[var(--paper)] font-medium leading-tight group-hover:text-copper-bright transition-colors">
+                  {item.name}
+                </span>
               </div>
               {item.short_description && (
-                <p className="text-[var(--gray-400)] text-sm line-clamp-2">
+                <p className="text-[var(--gray-500)] text-sm line-clamp-2 leading-relaxed">
                   {item.short_description}
                 </p>
               )}
@@ -64,7 +67,7 @@ export default function RelatedTools({
           ))}
         </div>
       ) : (
-        <p className="text-[var(--gray-300)] mb-4">
+        <p className="text-[var(--gray-400)] mb-6 text-sm leading-relaxed">
           Browse other tools in this category while we add more direct alternatives.
         </p>
       )}

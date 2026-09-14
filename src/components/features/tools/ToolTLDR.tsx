@@ -58,9 +58,14 @@ export default function ToolTLDR({ tool }: ToolTLDRProps) {
   const summary = parts.join(' ');
 
   return (
-    <div className="mt-8 bg-[var(--gray-800)] border-l-4 border-copper rounded-r-lg p-5">
-      <h2 className="text-lg font-semibold text-white mb-2">TL;DR — {tool.name}</h2>
-      <p className="text-[var(--gray-300)] text-sm leading-relaxed">{summary}</p>
+    <div className="mt-8 relative overflow-hidden rounded-xl border border-copper/25 bg-gradient-to-br from-copper/15 via-copper/5 to-transparent p-5 md:p-6">
+      <p className="tool-section-label mb-2">TL;DR</p>
+      <h2 className="font-display text-xl md:text-2xl font-bold text-[var(--paper)] mb-3 leading-tight">
+        {tool.name} at a glance
+      </h2>
+      <p className="text-[var(--gray-300)] text-sm md:text-base leading-relaxed max-w-3xl">
+        {summary}
+      </p>
     </div>
   );
 }
