@@ -252,6 +252,6 @@ async function computeLaneCountsForTrack(
 /** Catalog-wide lane totals only (small) — safe for Next.js data cache. */
 export const fetchLaneCountsForTrack = unstable_cache(
   computeLaneCountsForTrack,
-  ['open-source-lane-counts-by-track'],
+  ['open-source-lane-counts-by-track-v2'],
   { revalidate: 3600 },
 );

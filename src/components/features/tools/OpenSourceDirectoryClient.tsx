@@ -154,8 +154,9 @@ export default function OpenSourceDirectoryClient({
   const activeLane = OPEN_SOURCE_LANES.find((row) => row.id === lane);
   const laneOptions = OPEN_SOURCE_LANES.filter((row) => {
     if (row.id === 'mcp' || row.id === 'skills') return initialKind !== 'repos';
-    if (row.id === 'other') return (laneCounts.other ?? 0) > 0 || lane === 'other';
-    return true;
+    const n = laneCounts[row.id] ?? 0;
+    // Hide empty lanes; keep the active one so a deep link still makes sense.
+    return n > 0 || lane === row.id;
   });
 
   return (
@@ -168,9 +169,9 @@ export default function OpenSourceDirectoryClient({
           Open repos founders can actually run
         </h1>
         <p className="text-sm md:text-base text-[var(--gray-400)] leading-relaxed max-w-2xl">
-          Scan by job first — local models, agents, RAG, MCP — then open the repo.
-          Lane numbers are catalog-wide totals, not this page. No logos: every listing
-          is GitHub.{' '}
+          Scan by job first — local models, agents, RAG, chat clients, training —
+          then open the repo. Lane numbers are catalog-wide totals, not this page.
+          No logos: every listing is GitHub.{' '}
           <a
             href="/llms?type=open-weights"
             className="text-[var(--copper)] hover:text-[var(--copper-bright)]"
