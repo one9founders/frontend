@@ -85,9 +85,10 @@ const KEYWORD_LANES: { id: OpenSourceLaneId; needles: string[] }[] = [
   {
     id: 'local-models',
     needles: [
-      'llama', 'llm', 'gguf', 'ollama', 'vllm', 'inference', 'open-weight',
-      'open weight', 'local model', 'language model', 'gpt-oss', 'mlx',
-      'llamafile', 'llama.cpp', 'text-generation', 'chat model',
+      'llamafile', 'llama.cpp', 'ollama', 'vllm', 'gguf', 'mlx',
+      'local model', 'local llm', 'run llms', 'run llm', 'open-weight',
+      'open weight', 'text-generation-webui', 'inference server',
+      'distribute and run llms', 'single file',
     ],
   },
   {
@@ -95,6 +96,7 @@ const KEYWORD_LANES: { id: OpenSourceLaneId; needles: string[] }[] = [
     needles: [
       'agent', 'autonomous', 'multi-agent', 'orchestration', 'crewai',
       'langchain agent', 'tool use', 'tool-calling', 'swarm', 'browser agent',
+      'memories, knowledge and tools', 'manage memories',
     ],
   },
   {
@@ -118,7 +120,7 @@ const KEYWORD_LANES: { id: OpenSourceLaneId; needles: string[] }[] = [
     needles: [
       'eval', 'evaluation', 'observability', 'tracing', 'langsmith',
       'benchmark', 'prompt testing', 'monitoring', 'hallucination',
-      'guardrail', 'red team',
+      'guardrail', 'red team', 'session replay', 'feature flags',
     ],
   },
   {
@@ -126,15 +128,15 @@ const KEYWORD_LANES: { id: OpenSourceLaneId; needles: string[] }[] = [
     needles: [
       'coding assistant', 'code assistant', 'ide', 'copilot', 'cursor',
       'vscode', 'refactor', 'pull request', 'github action', 'cli for',
-      'developer tool', 'static analysis',
+      'developer tool', 'static analysis', 'recursively searches',
     ],
   },
   {
     id: 'infra',
     needles: [
-      'postgres', 'database', 'self-host', 'self host', 'platform',
-      'kubernetes', 'docker', 'backend', 'supabase', 'posthog',
-      'infrastructure', 'deploy', 'api gateway',
+      'postgres', 'database', 'self-host', 'self host',
+      'kubernetes', 'docker', 'backend', 'infrastructure',
+      'api gateway', 'development platform',
     ],
   },
 ];
@@ -164,12 +166,20 @@ export function inferOpenSourceLane(tool: Tool): OpenSourceLane {
   if (fromTrack) return LANE_BY_ID[fromTrack];
 
   const haystack = haystackFor(tool);
+  let best: { id: OpenSourceLaneId; score: number } | null = null;
   for (const { id, needles } of KEYWORD_LANES) {
-    if (needles.some((needle) => haystack.includes(needle))) {
-      return LANE_BY_ID[id];
+    let score = 0;
+    for (const needle of needles) {
+      if (haystack.includes(needle)) {
+        // Longer phrases are more specific ("stable diffusion" > "audio").
+        score += Math.max(1, Math.min(4, Math.ceil(needle.length / 6)));
+      }
+    }
+    if (score > 0 && (!best || score > best.score)) {
+      best = { id, score };
     }
   }
-  return LANE_BY_ID.other;
+  return best ? LANE_BY_ID[best.id] : LANE_BY_ID.other;
 }
 
 export function openSourceLaneLabel(id: OpenSourceLaneId): string {
