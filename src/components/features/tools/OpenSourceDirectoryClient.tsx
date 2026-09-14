@@ -120,8 +120,14 @@ export default function OpenSourceDirectoryClient({
     setSearching(false);
   }, []);
 
+  const isSearch = searchResults !== null;
   const baseList = searchResults ?? initialTools;
-  const laneCounts = useMemo(() => countByLane(baseList), [baseList]);
+  // Lane chip counts only when searching: browse mode is one API page (~24 rows),
+  // so page-local tallies next to catalog totals (e.g. Repos 1,646) read as broken.
+  const laneCounts = useMemo(
+    () => (isSearch ? countByLane(baseList) : null),
+    [baseList, isSearch],
+  );
 
   const visible = useMemo(() => {
     const filtered = lane
@@ -131,9 +137,14 @@ export default function OpenSourceDirectoryClient({
   }, [baseList, lane, sort]);
 
   const totalPages = Math.max(1, Math.ceil(initialCount / PAGE_SIZE));
-  const isSearch = searchResults !== null;
   const page = Math.min(Math.max(initialPage, 1), totalPages);
   const activeLane = OPEN_SOURCE_LANES.find((row) => row.id === lane);
+  // Format tabs already cover Skills / MCP; hide those as job lanes on Repos.
+  const laneOptions = OPEN_SOURCE_LANES.filter((row) => {
+    if (row.id === 'mcp' || row.id === 'skills') return initialKind !== 'repos';
+    if (row.id === 'other') return !laneCounts || laneCounts.other > 0;
+    return true;
+  });
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -191,31 +202,29 @@ export default function OpenSourceDirectoryClient({
           >
             All lanes
           </button>
-          {OPEN_SOURCE_LANES.filter((row) => row.id !== 'other' || laneCounts.other > 0).map(
-            (row) => {
-              const n = laneCounts[row.id];
-              const selected = lane === row.id;
-              return (
-                <button
-                  key={row.id}
-                  type="button"
-                  onClick={() => setLane(selected ? '' : row.id)}
-                  aria-pressed={selected}
-                  title={row.hint}
-                  className={`px-3 py-1.5 text-sm border transition-colors cursor-pointer ${
-                    selected
-                      ? 'border-[var(--copper)] text-[var(--paper)] bg-[var(--ink-2)]'
-                      : 'border-[var(--line)] text-[var(--gray-400)] hover:border-[var(--gray-600)] hover:text-[var(--paper)]'
-                  }`}
-                >
-                  {row.label}
-                  {n > 0 ? (
-                    <span className="ml-1.5 tabular-nums text-[var(--gray-500)]">{n}</span>
-                  ) : null}
-                </button>
-              );
-            },
-          )}
+          {laneOptions.map((row) => {
+            const n = laneCounts?.[row.id] ?? 0;
+            const selected = lane === row.id;
+            return (
+              <button
+                key={row.id}
+                type="button"
+                onClick={() => setLane(selected ? '' : row.id)}
+                aria-pressed={selected}
+                title={row.hint}
+                className={`px-3 py-1.5 text-sm border transition-colors cursor-pointer ${
+                  selected
+                    ? 'border-[var(--copper)] text-[var(--paper)] bg-[var(--ink-2)]'
+                    : 'border-[var(--line)] text-[var(--gray-400)] hover:border-[var(--gray-600)] hover:text-[var(--paper)]'
+                }`}
+              >
+                {row.label}
+                {laneCounts && n > 0 ? (
+                  <span className="ml-1.5 tabular-nums text-[var(--gray-500)]">{n}</span>
+                ) : null}
+              </button>
+            );
+          })}
         </div>
       </div>
 
