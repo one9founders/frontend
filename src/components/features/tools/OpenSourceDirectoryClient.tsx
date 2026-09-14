@@ -169,9 +169,9 @@ export default function OpenSourceDirectoryClient({
           Open repos founders can actually run
         </h1>
         <p className="text-sm md:text-base text-[var(--gray-400)] leading-relaxed max-w-2xl">
-          Scan by job first — local models, agents, RAG, chat clients, training —
-          then open the repo. Lane numbers are catalog-wide totals, not this page.
-          No logos: every listing is GitHub.{' '}
+          Scan by job first — local models, agents, RAG, chat, training, demos —
+          then open the repo. Every repo sits in a lane (no Other dump). Counts are
+          catalog-wide, not this page. No logos: every listing is GitHub.{' '}
           <a
             href="/llms?type=open-weights"
             className="text-[var(--copper)] hover:text-[var(--copper-bright)]"

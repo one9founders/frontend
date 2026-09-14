@@ -1,9 +1,12 @@
 import type { Tool, ToolTrack } from '@/types';
+import openSourceLaneOverrides from '@/data/openSourceLaneOverrides.json';
 
 /**
  * Founder-facing job lanes for the open-source directory.
  * ICP: early teams who need to know "what can I ship with this?"
  * at a glance — not SaaS marketing categories.
+ * Legacy `other` is gone — every repo maps to a real lane
+ * (fallback: experiments).
  */
 export type OpenSourceLaneId =
   | 'local-models'
@@ -22,9 +25,13 @@ export type OpenSourceLaneId =
   | 'data-ops'
   | 'infra'
   | 'research'
+  | 'hardware'
+  | 'directories'
+  | 'experiments'
   | 'mcp'
-  | 'skills'
-  | 'other';
+  | 'skills';
+
+const LANE_OVERRIDES = openSourceLaneOverrides as Record<string, OpenSourceLaneId>;
 
 export type OpenSourceLane = {
   id: OpenSourceLaneId;
@@ -112,7 +119,22 @@ export const OPEN_SOURCE_LANES: OpenSourceLane[] = [
   {
     id: 'research',
     label: 'Research & learning',
-    hint: 'Papers, tutorials, curated lists, experiments',
+    hint: 'Papers, tutorials, and educational implementations',
+  },
+  {
+    id: 'hardware',
+    label: 'Hardware & devices',
+    hint: 'Wearables, robots, and on-device edge gear',
+  },
+  {
+    id: 'directories',
+    label: 'Directories & lists',
+    hint: 'Awesome lists, catalogs, and model registries',
+  },
+  {
+    id: 'experiments',
+    label: 'Experiments & demos',
+    hint: 'Toys, Show HN demos, and early experiments',
   },
   {
     id: 'mcp',
@@ -123,11 +145,6 @@ export const OPEN_SOURCE_LANES: OpenSourceLane[] = [
     id: 'skills',
     label: 'Skills',
     hint: 'SKILL.md packs for Claude, Cursor, agents',
-  },
-  {
-    id: 'other',
-    label: 'Other',
-    hint: 'Useful repos that do not fit a lane yet',
   },
 ];
 
@@ -389,6 +406,10 @@ export function inferOpenSourceLane(tool: Tool): OpenSourceLane {
   const fromTrack = trackLane(tool.track);
   if (fromTrack) return LANE_BY_ID[fromTrack];
 
+  // Curated LLM overrides beat heuristics for formerly-uncategorized repos.
+  const overrideId = tool.slug ? LANE_OVERRIDES[tool.slug] : undefined;
+  if (overrideId && LANE_BY_ID[overrideId]) return LANE_BY_ID[overrideId];
+
   const haystack = haystackFor(tool);
   let best: { id: OpenSourceLaneId; score: number } | null = null;
   for (const { id, needles } of KEYWORD_LANES) {
@@ -410,7 +431,8 @@ export function inferOpenSourceLane(tool: Tool): OpenSourceLane {
     if (fromCategory) return LANE_BY_ID[fromCategory];
   }
 
-  return best ? LANE_BY_ID[best.id] : LANE_BY_ID.other;
+  // Never leave founders in an "Other" dump — demos land in Experiments.
+  return best ? LANE_BY_ID[best.id] : LANE_BY_ID.experiments;
 }
 
 export function openSourceLaneLabel(id: OpenSourceLaneId): string {
