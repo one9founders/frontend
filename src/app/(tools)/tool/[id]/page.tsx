@@ -55,6 +55,14 @@ function pricingSummary(tool: Tool): string {
   return 'Pricing not available';
 }
 
+/** Only render landing-page media when we have a real http(s) screenshot URL. */
+function hasLandingScreenshot(url?: string | null): url is string {
+  if (!url) return false;
+  const value = url.trim();
+  if (!value) return false;
+  return /^https?:\/\//i.test(value);
+}
+
 export async function generateStaticParams() {
   const slugs = await getAllToolSlugs();
   return slugs.map((slug: string) => ({ id: slug }));
@@ -270,74 +278,64 @@ export default async function ToolPage({ params }: ToolPageProps) {
             <span className="text-[var(--gray-300)]">{tool.name}</span>
           </nav>
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-end">
-            <div className="flex-1 min-w-0">
-              <div className="tool-animate-in tool-animate-in-delay-1 flex flex-col sm:flex-row gap-5 md:gap-6 items-start">
-                <ToolLogo
-                  logoUrl={tool.logo_url}
-                  name={tool.name}
-                  size="xl"
-                  containerClassName="shadow-[0_0_0_1px_var(--line)] shrink-0"
-                />
-                <div className="min-w-0 pt-1">
-                  <p className="tool-section-label mb-3">
-                    AI tool · {primaryCategoryName}
+          <div className="max-w-3xl">
+            <div className="tool-animate-in tool-animate-in-delay-1 flex flex-col sm:flex-row gap-5 md:gap-6 items-start">
+              <ToolLogo
+                logoUrl={tool.logo_url}
+                name={tool.name}
+                size="xl"
+                containerClassName="shadow-[0_0_0_1px_var(--line)] shrink-0"
+              />
+              <div className="min-w-0 pt-1">
+                <p className="tool-section-label mb-3">
+                  AI tool · {primaryCategoryName}
+                </p>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-[var(--paper)] leading-[0.95] tracking-tight">
+                  {tool.name}
+                </h1>
+                {tool.short_description && (
+                  <p className="mt-4 text-[var(--gray-400)] text-base md:text-lg leading-relaxed">
+                    {tool.short_description}
                   </p>
-                  <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-[var(--paper)] leading-[0.95] tracking-tight">
-                    {tool.name}
-                  </h1>
-                  {tool.short_description && (
-                    <p className="mt-4 text-[var(--gray-400)] text-base md:text-lg max-w-2xl leading-relaxed">
-                      {tool.short_description}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className="tool-animate-in tool-animate-in-delay-2 mt-6 flex flex-wrap gap-2">
-                {tool.verified && <span className="tool-chip tool-chip-ok">Verified</span>}
-                {tool.is_featured && <span className="tool-chip tool-chip-accent">Featured</span>}
-                {tool.startup_friendly && (
-                  <span className="tool-chip tool-chip-ok">Startup Friendly</span>
                 )}
-                {tool.ideal_for?.slice(0, 4).map((item: string) => (
-                  <span key={item} className="tool-chip">
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="tool-animate-in tool-animate-in-delay-3 mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
-                <VisitToolButton
-                  href={visitHref}
-                  toolId={tool.id}
-                  toolName={tool.name}
-                  toolSlug={tool.slug}
-                  categories={tool.categories?.map((c: { name: string }) => c.name) || []}
-                  isAffiliate={!!tool.affiliate_url}
-                  className="btn-primary inline-flex px-6 py-3 font-semibold text-sm"
-                >
-                  Visit {tool.name}
-                </VisitToolButton>
-                <div className="flex items-center gap-3 flex-wrap">
-                  <span className="text-[var(--gray-500)] text-sm">Rating</span>
-                  <ToolRatingBadge tool={tool} className="text-sm" />
-                </div>
               </div>
             </div>
 
-            {(tool.tags?.length ?? 0) > 0 && (
-              <div className="tool-animate-in tool-animate-in-delay-2 lg:max-w-xs">
-                <p className="tool-section-label">Tags</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {tool.tags!.slice(0, 8).map((tag: string) => (
-                    <span key={tag} className="tool-chip">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+            <div className="tool-animate-in tool-animate-in-delay-2 mt-6 flex flex-wrap gap-2">
+              {tool.verified && <span className="tool-chip tool-chip-ok">Verified</span>}
+              {tool.is_featured && <span className="tool-chip tool-chip-accent">Featured</span>}
+              {tool.startup_friendly && (
+                <span className="tool-chip tool-chip-ok">Startup Friendly</span>
+              )}
+              {tool.ideal_for?.slice(0, 4).map((item: string) => (
+                <span key={item} className="tool-chip">
+                  {item}
+                </span>
+              ))}
+              {tool.tags?.slice(0, 6).map((tag: string) => (
+                <span key={`tag-${tag}`} className="tool-chip">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className="tool-animate-in tool-animate-in-delay-3 mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
+              <VisitToolButton
+                href={visitHref}
+                toolId={tool.id}
+                toolName={tool.name}
+                toolSlug={tool.slug}
+                categories={tool.categories?.map((c: { name: string }) => c.name) || []}
+                isAffiliate={!!tool.affiliate_url}
+                className="btn-primary inline-flex px-6 py-3 font-semibold text-sm"
+              >
+                Visit {tool.name}
+              </VisitToolButton>
+              <div className="flex items-center gap-3 flex-wrap">
+                <span className="text-[var(--gray-500)] text-sm">Rating</span>
+                <ToolRatingBadge tool={tool} className="text-sm" />
               </div>
-            )}
+            </div>
           </div>
         </div>
       </header>
@@ -345,18 +343,20 @@ export default async function ToolPage({ params }: ToolPageProps) {
       <main className="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           <div className="lg:col-span-8 min-w-0">
-            {(tool.landing_page_screenshot || tool.video_demo_url) && (
+            {/* Landing-page screenshots are omitted from the layout when missing —
+                most catalog tools have none, so we never reserve empty media space. */}
+            {hasLandingScreenshot(tool.landing_page_screenshot) && (
               <a
                 href={visitHref}
                 target="_blank"
                 rel="noopener nofollow"
                 aria-label={`Go to the ${tool.name} website`}
-                className="block group mb-2"
+                className="block group mb-8"
               >
                 <div className="relative overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--ink-2)]">
                   <img
-                    src={tool.landing_page_screenshot || tool.video_demo_url}
-                    alt={`${tool.name} landing page preview`}
+                    src={tool.landing_page_screenshot!}
+                    alt={`${tool.name} landing page`}
                     className="w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink)]/50 via-transparent to-transparent opacity-80 pointer-events-none" />
