@@ -54,7 +54,14 @@ export function openSourceTabFromKind(kind: string | null | undefined) {
   return OPEN_SOURCE_TABS.find((tab) => tab.kind === kind) ?? OPEN_SOURCE_TABS[0];
 }
 
-export function openSourceHref(kind?: OpenSourceKind) {
-  if (!kind || kind === 'repos') return '/open-source';
-  return `/open-source?kind=${kind}`;
+export function openSourceHref(
+  kind?: OpenSourceKind,
+  opts?: { page?: number; lane?: string },
+) {
+  const params = new URLSearchParams();
+  if (kind && kind !== 'repos') params.set('kind', kind);
+  if (opts?.lane) params.set('lane', opts.lane);
+  if (opts?.page && opts.page > 1) params.set('page', String(opts.page));
+  const query = params.toString();
+  return query ? `/open-source?${query}` : '/open-source';
 }

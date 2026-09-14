@@ -1,3 +1,4 @@
+import { unstable_cache } from 'next/cache';
 import type {
   CategoryStat,
   DirectoryStats,
@@ -8,6 +9,11 @@ import type {
 } from '@/types';
 import { isToolTrack, TRACK_LABELS } from '@/lib/constants/tracks';
 import { applyVerifiedToolList } from '@/lib/verifiedToolFacts';
+import {
+  countByLane,
+  emptyLaneCounts,
+  type OpenSourceLaneId,
+} from '@/lib/openSourceLanes';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -193,3 +199,59 @@ export async function fetchToolsBySource(
     return { tools: [], count: 0 };
   }
 }
+
+const LANE_COUNT_PAGE_SIZE = 100;
+const LANE_COUNT_MAX_PAGES = 40;
+
+type ToolsCacheEntry = { track: ToolTrack; tools: Tool[]; loadedAt: number };
+
+function toolsMemoryCache(): Map<string, ToolsCacheEntry> {
+  const g = globalThis as typeof globalThis & {
+    __openSourceToolsCache?: Map<string, ToolsCacheEntry>;
+  };
+  if (!g.__openSourceToolsCache) g.__openSourceToolsCache = new Map();
+  return g.__openSourceToolsCache;
+}
+
+/** Paginate the track. Kept out of unstable_cache — full payloads exceed the 2MB limit. */
+export async function fetchAllToolsByTrack(track: ToolTrack): Promise<Tool[]> {
+  const cache = toolsMemoryCache();
+  const hit = cache.get(track);
+  if (hit && Date.now() - hit.loadedAt < 60 * 60 * 1000) return hit.tools;
+
+  const first = await fetchToolsByTrack(track, LANE_COUNT_PAGE_SIZE, 1);
+  if (!first.tools.length) {
+    cache.set(track, { track, tools: [], loadedAt: Date.now() });
+    return [];
+  }
+  const totalPages = Math.min(
+    LANE_COUNT_MAX_PAGES,
+    Math.max(1, Math.ceil(first.count / LANE_COUNT_PAGE_SIZE)),
+  );
+  const rest =
+    totalPages === 1
+      ? []
+      : await Promise.all(
+          Array.from({ length: totalPages - 1 }, (_, index) =>
+            fetchToolsByTrack(track, LANE_COUNT_PAGE_SIZE, index + 2),
+          ),
+        );
+  const tools = first.tools.concat(...rest.map((row) => row.tools));
+  cache.set(track, { track, tools, loadedAt: Date.now() });
+  return tools;
+}
+
+async function computeLaneCountsForTrack(
+  track: ToolTrack,
+): Promise<Record<OpenSourceLaneId, number>> {
+  const tools = await fetchAllToolsByTrack(track);
+  if (!tools.length) return emptyLaneCounts();
+  return countByLane(tools);
+}
+
+/** Catalog-wide lane totals only (small) — safe for Next.js data cache. */
+export const fetchLaneCountsForTrack = unstable_cache(
+  computeLaneCountsForTrack,
+  ['open-source-lane-counts-by-track'],
+  { revalidate: 3600 },
+);
