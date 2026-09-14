@@ -22,16 +22,17 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   const count = stats?.by_track.find((row) => row.track === tab.track)?.count;
   const counted = formatToolCount(count);
   const title = counted
-    ? `${counted} ${tab.label} you can run locally`
-    : `${tab.label} you can run locally`;
+    ? `${counted} ${tab.label} founders can run`
+    : `${tab.label} founders can run`;
   return generateSEO({
     title,
     description:
-      'GitHub repos, SKILL.md packs, and MCP servers you can clone, self-host, or call as an API. Free for teams who cannot buy a hosted seat.',
+      'Browse open-source AI by job lane — local models, agents, RAG, MCP, and skills. Clone and self-host without buying a hosted seat.',
     path: tab.kind === 'repos' ? '/open-source' : `/open-source?kind=${tab.kind}`,
     keywords: [
       'open source AI',
       'GitHub AI repos',
+      'local LLMs',
       'SKILL.md',
       'MCP servers',
       'self-host AI',

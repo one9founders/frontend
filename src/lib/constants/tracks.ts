@@ -26,19 +26,19 @@ export const OPEN_SOURCE_TABS: {
     kind: 'repos',
     track: 'open_source',
     label: 'Repos',
-    blurb: 'GitHub projects you can clone, self-host, or call as an API.',
+    blurb: 'Full projects — clone, self-host, or call as an API.',
   },
   {
     kind: 'skills',
     track: 'agent_skill',
     label: 'Skills',
-    blurb: 'SKILL.md packs you can drop into Claude, Cursor, or an agent.',
+    blurb: 'SKILL.md packs you drop into Claude, Cursor, or an agent.',
   },
   {
     kind: 'mcp',
     track: 'mcp_server',
     label: 'MCP servers',
-    blurb: 'Model Context Protocol servers that plug tools into an agent.',
+    blurb: 'Protocol servers that plug tools into an agent runtime.',
   },
 ];
 

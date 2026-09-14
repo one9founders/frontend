@@ -148,6 +148,8 @@ export interface Tool {
   /** Editorial per-criterion scores with evidence URLs. */
   assessment_detail?: AssessmentDetail | null;
   track?: ToolTrack;
+  /** 0–1 blended ranking signal from hygiene (Tranco / HN / etc.). */
+  popularity_score?: number | string | null;
   rating_status?: 'NOT_YET_RATED' | 'PROVISIONAL' | 'RATED';
   security_status?: 'NOT_ASSESSED' | 'FLAGGED' | 'VERIFIED';
   language_review_needed?: boolean;
