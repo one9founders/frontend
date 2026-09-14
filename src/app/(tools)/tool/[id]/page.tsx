@@ -272,7 +272,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
 
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 lg:items-end">
             <div className="flex-1 min-w-0">
-              <div className="tool-animate-in tool-animate-in-delay-1 flex gap-5 md:gap-6 items-start">
+              <div className="tool-animate-in tool-animate-in-delay-1 flex flex-col sm:flex-row gap-5 md:gap-6 items-start">
                 <ToolLogo
                   logoUrl={tool.logo_url}
                   name={tool.name}
