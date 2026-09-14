@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import type { Tool, TrackStat } from '@/types';
-import ToolCard from '@/components/features/tools/ToolCard';
 import { openSourceHref } from '@/lib/constants/tracks';
 import { formatToolCount } from '@/lib/constants/stats';
 import OpenSourceTabs from '@/components/features/tools/OpenSourceTabs';
+import OpenSourceRepoRow from '@/components/features/tools/OpenSourceRepoRow';
 
 function countFor(trackCounts: TrackStat[], track: TrackStat['track']) {
   return trackCounts.find((row) => row.track === track)?.count ?? 0;
@@ -30,19 +30,19 @@ export default function OpenSourceHome({
   return (
     <section
       id="open-source-section"
-      className="py-8 md:py-16 px-4 md:px-6 bg-[var(--ink-2)] border-y border-[var(--line)]"
+      className="py-10 md:py-16 px-4 md:px-6 bg-[var(--ink-2)] border-y border-[var(--line)]"
     >
-      <div className="max-w-7xl mx-auto">
-        <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] text-center mb-3">
-          Free to run
+      <div className="max-w-6xl mx-auto">
+        <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-3">
+          Clone · self-host · ship
         </p>
-        <h2 className="text-2xl md:text-4xl font-bold text-center mb-3 text-white">
-          Open Source Directory
+        <h2 className="font-display text-2xl md:text-4xl text-[var(--paper)] mb-3 max-w-2xl leading-tight">
+          Open repos founders can actually run
         </h2>
-        <p className="text-center text-sm text-[var(--gray-400)] mb-8 max-w-2xl mx-auto leading-relaxed">
-          {formatted ? `${formatted} GitHub repos` : 'GitHub repos'}, skills.md packs, and MCP servers
-          you can clone and run locally or over an API. Built for developers and teams who cannot buy
-          a hosted seat.
+        <p className="text-sm text-[var(--gray-400)] mb-8 max-w-2xl leading-relaxed">
+          {formatted ? `${formatted} GitHub repos` : 'GitHub repos'}, skills, and MCP
+          servers — sorted by what you are trying to ship, not by favicon. No logos;
+          every row is a repo you can open.
         </p>
 
         <OpenSourceTabs
@@ -52,23 +52,23 @@ export default function OpenSourceHome({
         />
 
         {initialTools.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 mt-8">
-            {initialTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
+          <div className="mt-2 border-t border-[var(--line)]">
+            {initialTools.slice(0, 6).map((tool) => (
+              <OpenSourceRepoRow key={tool.id} tool={tool} />
             ))}
           </div>
         ) : (
-          <p className="text-center text-[var(--gray-500)] mt-8">
+          <p className="text-[var(--gray-500)] mt-8">
             Open-source listings are being classified. Check back shortly.
           </p>
         )}
 
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3">
           <Link
             href={openSourceHref('repos')}
             className="px-4 py-2.5 text-sm font-medium bg-[var(--copper)] text-[var(--ink)] hover:bg-[var(--copper-bright)]"
           >
-            Browse all open source
+            Browse by job lane
           </Link>
           <Link
             href="/llms?type=open-weights"
