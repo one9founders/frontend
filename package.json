@@ -11,7 +11,8 @@
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "count-indexable-tools": "npx --yes tsx scripts/count-indexable-tools.ts",
     "pipeline:run": "tsx pipeline/run-all.ts",
-    "content:generate": "tsx pipeline/generate-posts.ts"
+    "content:generate": "tsx pipeline/generate-posts.ts",
+    "content:trends": "tsx pipeline/trend-to-drafts.ts"
   },
   "dependencies": {
     "@hugeicons/core-free-icons": "^3.1.1",

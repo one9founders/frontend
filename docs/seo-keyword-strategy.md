@@ -121,3 +121,26 @@ Track monthly in GSC:
 - Indexed page count (Coverage) trending down on “discovered not indexed”
 
 Success in 60–90 days is **not** ranking #1 for “AI tools directory.” Success is ranking for **best AI agents / best AI tools for startups / LLM comparisons / India pricing**, with rising non-brand clicks into the directory.
+
+## Trend → blog automation
+
+Daily drafts (human approve before go-live):
+
+```bash
+npm run content:trends
+# optional: TREND_GEOS=IN,US,GB TREND_LIMIT=5 npm run content:trends
+```
+
+Writes MDX templates to `content/blog/drafts/` from Google Daily Trends RSS. Editors rewrite the checklist into real analysis, deep-link directory pages, then promote into `src/lib/blog.ts` (or the sheet → `npm run content:generate` path). Auto-publishing unedited trend spam will hurt rankings — approval is intentional.
+
+## Traffic goal (plain language)
+
+**Average interest** on Google Trends is the mean of the daily 0–100 relative score for a keyword over the selected window (e.g. 12 months), *within the compared set*. It is not search volume and not “how many people searched.” A keyword at avg 0.7 next to one at 51 is tiny demand by comparison.
+
+Goal = grow total site traffic. Path that works:
+
+1. Rank page 1 for **many long-tail tool/agent/LLM queries** (already starting) + improve CTR.  
+2. Publish trend-tied blog posts that route to directory pages.  
+3. Keep core phrases (`AI tools directory`, `AI ecosystem navigator`) on homepage / `llms.txt` / about for AI crawlers and eventual authority — but do not wait on those head terms alone for traffic.  
+4. Nobody ranks #1 for “anything trending related to AI” overnight; treat it as a system (trends → drafts → approve → index → internal links), not a single keyword win.
+

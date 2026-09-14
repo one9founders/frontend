@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# generated trend drafts (review locally; do not auto-commit spam)
+content/blog/drafts/*.mdx
+!content/blog/drafts/.gitkeep
+
 # vercel
 .vercel/
 .dev.vars

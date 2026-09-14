@@ -28,6 +28,16 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-[var(--gray-200)]">2. Description of Service</h2>
             <p>One9Founders is a platform that helps founders and startups discover, compare, and choose AI tools. We provide information, reviews, and comparisons of various AI tools and services.</p>
+            <p>
+              Our directory may list third-party tools, agents, models, companies, and research.
+              Inclusion in the directory is for informational and comparison purposes only. One9Founders
+              is <strong className="text-[var(--gray-200)]">not affiliated with, endorsed by, or an official partner of</strong>{' '}
+              any listed organization or product unless we state that relationship in writing on the site.
+              Vendors retain ownership of their names, marks, and products. See our{' '}
+              <a href="/privacy" className="text-copper hover:text-copper-bright">privacy policy</a>{' '}
+              (Directory Listings) and{' '}
+              <a href="/methodology" className="text-copper hover:text-copper-bright">methodology</a>.
+            </p>
           </section>
 
           <section>
