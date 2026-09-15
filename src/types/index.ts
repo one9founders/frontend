@@ -173,6 +173,8 @@ export interface Tool {
   jobClusters?: string[];
   created_at: string;
   updated_at: string;
+  /** True when the signed-in user submitted this listing. */
+  can_edit?: boolean;
 }
 
 export interface PricingConfig {

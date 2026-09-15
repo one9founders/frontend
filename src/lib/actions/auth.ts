@@ -14,6 +14,8 @@ interface AuthResponse {
     is_startup: boolean;
     user_role: string;
     profile_completed: boolean;
+    is_staff?: boolean;
+    owned_listings?: { slug: string; name: string }[];
   };
 }
 

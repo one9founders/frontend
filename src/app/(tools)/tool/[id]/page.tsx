@@ -15,6 +15,7 @@ import ToolQASection, { generateQAPairs } from '@/components/features/tools/Tool
 import INRPriceDisplay from '@/components/shared/INRPriceDisplay';
 import { addRefToUrl } from '@/lib/utils/url';
 import VisitToolButton from '@/components/features/tools/VisitToolButton';
+import ListingOwnerControls from '@/components/features/tools/ListingOwnerControls';
 import { Tool, Review } from '@/types';
 import { getToolRatingDisplay, getToolSecurityDisplay, formatAssessedDate } from '@/lib/toolRating';
 import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
@@ -298,6 +299,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
                     {tool.short_description}
                   </p>
                 )}
+                <ListingOwnerControls slug={tool.slug} />
               </div>
             </div>
 

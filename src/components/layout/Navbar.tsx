@@ -204,6 +204,16 @@ export default function Navbar() {
             <p className="text-[var(--paper)] text-sm font-medium truncate">{user.name}</p>
             <p className="text-[var(--gray-500)] text-xs truncate">{user.email}</p>
           </div>
+          {(user.owned_listings || []).slice(0, 3).map((listing: { slug: string; name: string }) => (
+            <Link
+              key={listing.slug}
+              href={`/tool/${listing.slug}/edit`}
+              className="block px-4 py-2 text-sm text-[var(--gray-500)] hover:text-[var(--paper)] hover:bg-[var(--ink)]"
+              onClick={() => setIsProfileMenuOpen(false)}
+            >
+              Edit {listing.name}
+            </Link>
+          ))}
           <button
             onClick={handleLogout}
             className="w-full px-4 py-2 text-left text-[var(--gray-500)] hover:text-[var(--paper)] hover:bg-[var(--ink)] flex items-center gap-2 cursor-pointer"
@@ -361,6 +371,16 @@ export default function Navbar() {
                       <p className="text-[var(--gray-500)] text-xs truncate">{user.email}</p>
                     </div>
                   </div>
+                  {(user.owned_listings || []).slice(0, 3).map((listing: { slug: string; name: string }) => (
+                    <Link
+                      key={listing.slug}
+                      href={`/tool/${listing.slug}/edit`}
+                      className="text-[var(--paper)] text-sm"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Edit {listing.name}
+                    </Link>
+                  ))}
                   <button
                     onClick={handleLogout}
                     className="text-[var(--gray-500)] hover:text-[var(--paper)] text-left flex items-center gap-2 cursor-pointer"
