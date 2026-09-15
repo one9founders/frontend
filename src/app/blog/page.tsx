@@ -6,10 +6,18 @@ import Link from 'next/link';
 import { getBlogPosts } from '@/lib/blog';
 
 export const metadata: Metadata = generateSEO({
-  title: 'Blog - AI Tools Insights for Startup Founders',
-  description: 'Expert insights, guides, and analysis on AI tools for startup founders. Learn how to evaluate, implement, and secure AI tools for your business.',
+  title: 'Blog - Best AI Tools, Agents & LLM Guides for Founders',
+  description: 'Practical guides on best AI tools, AI agents, LLM comparisons, and security for startup founders — with India/INR context and links into the One9Founders directory.',
   path: '/blog',
-  keywords: ['AI tools blog', 'startup AI', 'founder insights', 'AI security', 'tool reviews'],
+  keywords: [
+    'best ai tools',
+    'ai agents',
+    'AI tools for startups',
+    'LLM comparison',
+    'AI tools India',
+    'founder insights',
+    'AI security',
+  ],
 });
 
 export default function BlogPage() {
