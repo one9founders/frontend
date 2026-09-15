@@ -1,29 +1,58 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { toolsAPI } from '@/lib/api/apiClient';
 import type { Tool, TrackStat } from '@/types';
-import ToolCard from '@/components/features/tools/ToolCard';
 import Pagination from '@/components/shared/Pagination';
 import SearchInput from '@/components/shared/SearchInput';
 import OpenSourceTabs from '@/components/features/tools/OpenSourceTabs';
+import OpenSourceRepoRow from '@/components/features/tools/OpenSourceRepoRow';
 import {
   openSourceHref,
   openSourceTabFromKind,
   type OpenSourceKind,
 } from '@/lib/constants/tracks';
+import {
+  OPEN_SOURCE_LANES,
+  countByLane,
+  inferOpenSourceLane,
+  type OpenSourceLaneId,
+} from '@/lib/openSourceLanes';
+import { formatToolCount } from '@/lib/constants/stats';
 
 const PAGE_SIZE = 24;
+
+type SortKey = 'relevant' | 'newest' | 'name';
 
 function countFor(trackCounts: TrackStat[], track: TrackStat['track']) {
   return trackCounts.find((row) => row.track === track)?.count ?? 0;
 }
 
-function directoryHref(kind: OpenSourceKind, page: number) {
-  const base = openSourceHref(kind);
-  if (page <= 1) return base;
-  return `${base}${base.includes('?') ? '&' : '?'}page=${page}`;
+function popularity(tool: Tool): number {
+  const raw = tool.popularity_score;
+  if (raw == null || raw === '') return 0;
+  const n = Number(raw);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function sortTools(tools: Tool[], sort: SortKey): Tool[] {
+  const next = [...tools];
+  switch (sort) {
+    case 'newest':
+      return next.sort(
+        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime(),
+      );
+    case 'name':
+      return next.sort((a, b) => a.name.localeCompare(b.name));
+    case 'relevant':
+    default:
+      return next.sort((a, b) => {
+        const pop = popularity(b) - popularity(a);
+        if (pop !== 0) return pop;
+        return (b.views_count || 0) - (a.views_count || 0);
+      });
+  }
 }
 
 export default function OpenSourceDirectoryClient({
@@ -31,19 +60,25 @@ export default function OpenSourceDirectoryClient({
   initialPage,
   initialTools,
   initialCount,
+  initialLane,
   trackCounts,
+  catalogLaneCounts,
 }: {
   initialKind: OpenSourceKind;
   initialPage: number;
   initialTools: Tool[];
   initialCount: number;
+  initialLane: OpenSourceLaneId | '';
   trackCounts: TrackStat[];
+  catalogLaneCounts: Record<OpenSourceLaneId, number>;
 }) {
   const router = useRouter();
   const tab = openSourceTabFromKind(initialKind);
   const [searching, setSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<Tool[] | null>(null);
+  const [sort, setSort] = useState<SortKey>('relevant');
+  const lane = initialLane;
 
   const counts = {
     repos: countFor(trackCounts, 'open_source') || (initialKind === 'repos' ? initialCount : 0),
@@ -51,8 +86,21 @@ export default function OpenSourceDirectoryClient({
     mcp: countFor(trackCounts, 'mcp_server') || (initialKind === 'mcp' ? initialCount : 0),
   };
 
+  const navigate = useCallback(
+    (opts: { page?: number; lane?: OpenSourceLaneId | '' }) => {
+      const nextLane = opts.lane === undefined ? lane : opts.lane;
+      router.push(
+        openSourceHref(initialKind, {
+          page: opts.page ?? 1,
+          lane: nextLane || undefined,
+        }),
+      );
+    },
+    [router, initialKind, lane],
+  );
+
   const handlePageChange = (nextPage: number) => {
-    router.push(directoryHref(initialKind, nextPage));
+    navigate({ page: nextPage });
   };
 
   const handleSearch = useCallback(
@@ -84,65 +132,151 @@ export default function OpenSourceDirectoryClient({
     setSearching(false);
   }, []);
 
-  const visible = searchResults ?? initialTools;
-  const totalPages = Math.max(1, Math.ceil(initialCount / PAGE_SIZE));
   const isSearch = searchResults !== null;
+  const baseList = searchResults ?? initialTools;
+  // Browse: full-catalog lane totals. Search: counts inside the current hit set.
+  const laneCounts = useMemo(
+    () => (isSearch ? countByLane(baseList) : catalogLaneCounts),
+    [baseList, isSearch, catalogLaneCounts],
+  );
+
+  const visible = useMemo(() => {
+    // Server already applied the lane for browse; re-apply only on search hits.
+    const filtered =
+      isSearch && lane
+        ? baseList.filter((tool) => inferOpenSourceLane(tool).id === lane)
+        : baseList;
+    return sortTools(filtered, sort);
+  }, [baseList, lane, sort, isSearch]);
+
+  const totalPages = Math.max(1, Math.ceil(initialCount / PAGE_SIZE));
   const page = Math.min(Math.max(initialPage, 1), totalPages);
+  const activeLane = OPEN_SOURCE_LANES.find((row) => row.id === lane);
+  const laneOptions = OPEN_SOURCE_LANES.filter((row) => {
+    if (row.id === 'mcp' || row.id === 'skills') return initialKind !== 'repos';
+    const n = laneCounts[row.id] ?? 0;
+    // Hide empty lanes; keep the active one so a deep link still makes sense.
+    return n > 0 || lane === row.id;
+  });
 
   return (
-    <div>
-      <div className="text-center max-w-3xl mx-auto mb-8">
+    <div className="max-w-6xl mx-auto">
+      <header className="mb-10 md:mb-12">
         <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-3">
-          Free to run
+          Clone · self-host · ship
         </p>
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
-          Open Source Directory
+        <h1 className="font-display text-3xl md:text-5xl text-[var(--paper)] mb-4 max-w-3xl leading-[1.1]">
+          Open repos founders can actually run
         </h1>
-        <p className="text-sm md:text-base text-[var(--gray-400)] leading-relaxed">
-          Repos, SKILL.md packs, and MCP servers you can clone, self-host, or call as an API.
-          For developers and teams who cannot buy a hosted seat.{' '}
-          <a href="/llms?type=open-weights" className="text-[var(--copper)] hover:text-[var(--copper-bright)]">
-            Open-weight models live in the LLM explorer.
+        <p className="text-sm md:text-base text-[var(--gray-400)] leading-relaxed max-w-2xl">
+          Scan by job first — local models, agents, RAG, chat, training, demos —
+          then open the repo. Every repo sits in a lane (no Other dump). Counts are
+          catalog-wide, not this page. No logos: every listing is GitHub.{' '}
+          <a
+            href="/llms?type=open-weights"
+            className="text-[var(--copper)] hover:text-[var(--copper-bright)]"
+          >
+            Open-weight model cards live in the LLM explorer.
           </a>
         </p>
-      </div>
+      </header>
 
       <OpenSourceTabs counts={counts} active={initialKind} asLinks />
 
-      <p className="text-center text-sm text-[var(--gray-500)] mt-4 mb-8">
-        {tab.blurb}
+      <p className="text-sm text-[var(--gray-500)] mt-4 mb-6">
+        {activeLane ? activeLane.hint : tab.blurb}
       </p>
 
-      <div className="mb-8">
+      <div className="mb-6">
         <SearchInput
           key={initialKind}
           onSearch={handleSearch}
           onClear={handleClearSearch}
           loading={searching}
-          placeholder="Search repos, skills, MCP servers…"
+          placeholder="Search by job, stack, or repo name…"
           label="Search open source"
         />
       </div>
 
-      {!searching && (isSearch || initialCount > 0) && (
-        <div className="mb-6 text-[var(--gray-400)] text-sm">
-          {isSearch
-            ? `${visible.length} result${visible.length === 1 ? '' : 's'} for “${searchQuery}”`
-            : `Showing ${Math.min((page - 1) * PAGE_SIZE + 1, initialCount)}–${Math.min(page * PAGE_SIZE, initialCount)} of ${initialCount.toLocaleString('en-US')}`}
+      <div className="mb-8">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--gray-500)] mb-3">
+          What are you trying to ship?
+        </p>
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Job lanes">
+          <button
+            type="button"
+            onClick={() => navigate({ lane: '', page: 1 })}
+            aria-pressed={lane === ''}
+            className={`px-3 py-1.5 text-sm border transition-colors cursor-pointer ${
+              lane === ''
+                ? 'border-[var(--copper)] text-[var(--paper)] bg-[var(--ink-2)]'
+                : 'border-[var(--line)] text-[var(--gray-400)] hover:border-[var(--gray-600)] hover:text-[var(--paper)]'
+            }`}
+          >
+            All lanes
+          </button>
+          {laneOptions.map((row) => {
+            const n = laneCounts[row.id] ?? 0;
+            const selected = lane === row.id;
+            const label = n > 0 ? formatToolCount(n) : null;
+            return (
+              <button
+                key={row.id}
+                type="button"
+                onClick={() => navigate({ lane: selected ? '' : row.id, page: 1 })}
+                aria-pressed={selected}
+                title={row.hint}
+                className={`px-3 py-1.5 text-sm border transition-colors cursor-pointer ${
+                  selected
+                    ? 'border-[var(--copper)] text-[var(--paper)] bg-[var(--ink-2)]'
+                    : 'border-[var(--line)] text-[var(--gray-400)] hover:border-[var(--gray-600)] hover:text-[var(--paper)]'
+                }`}
+              >
+                {row.label}
+                {label ? (
+                  <span className="ml-1.5 tabular-nums text-[var(--gray-500)]">{label}</span>
+                ) : null}
+              </button>
+            );
+          })}
         </div>
-      )}
+      </div>
+
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-2">
+        <p className="text-[var(--gray-400)] text-sm">
+          {searching
+            ? 'Searching…'
+            : isSearch
+              ? `${visible.length} match${visible.length === 1 ? '' : 'es'} for “${searchQuery}”`
+              : lane
+                ? `${initialCount.toLocaleString('en-US')} in this lane · page ${page}`
+                : `Showing ${Math.min((page - 1) * PAGE_SIZE + 1, initialCount)}–${Math.min(page * PAGE_SIZE, initialCount)} of ${initialCount.toLocaleString('en-US')}`}
+        </p>
+        <label className="flex items-center gap-2 text-sm text-[var(--gray-400)]">
+          <span className="sr-only">Sort</span>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value as SortKey)}
+            className="bg-[var(--ink-2)] border border-[var(--line)] text-[var(--paper)] px-3 py-1.5 text-sm cursor-pointer"
+          >
+            <option value="relevant">Most relevant</option>
+            <option value="newest">Newest first</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </label>
+      </div>
 
       {searching ? (
-        <div className="text-center text-white py-12">Searching…</div>
+        <div className="text-center text-[var(--gray-400)] py-16">Searching…</div>
       ) : visible.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        <div className="border-t border-[var(--line)]">
           {visible.map((tool) => (
-            <ToolCard key={tool.id} tool={tool} />
+            <OpenSourceRepoRow key={tool.id} tool={tool} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 text-[var(--gray-400)]">
-          Nothing in this lane yet. Try another tab, or{' '}
+        <div className="text-center py-16 text-[var(--gray-400)] border-t border-[var(--line)]">
+          Nothing in this lane yet. Try another filter, or{' '}
           <a href="/#tools-section" className="text-[var(--copper)]">
             browse hosted AI tools
           </a>

@@ -1,12 +1,19 @@
+import { unstable_cache } from 'next/cache';
 import type {
   CategoryStat,
   DirectoryStats,
   Tool,
   ToolTrack,
   TrackStat,
+  SourceStat,
 } from '@/types';
 import { isToolTrack, TRACK_LABELS } from '@/lib/constants/tracks';
 import { applyVerifiedToolList } from '@/lib/verifiedToolFacts';
+import {
+  countByLane,
+  emptyLaneCounts,
+  type OpenSourceLaneId,
+} from '@/lib/openSourceLanes';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
 
@@ -66,6 +73,20 @@ function parseByTrack(raw: unknown): TrackStat[] {
   });
 }
 
+
+function parseBySource(raw: unknown): SourceStat[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.flatMap((row) => {
+    if (!row || typeof row !== 'object') return [];
+    const r = row as Record<string, unknown>;
+    const source = String(r.source ?? '').trim();
+    if (!source) return [];
+    const count = optionalCount(r.count);
+    if (count == null) return [];
+    return [{ source, count }];
+  });
+}
+
 export function parseDirectoryStats(data: unknown): DirectoryStats {
   const raw = data && typeof data === 'object' ? (data as Record<string, unknown>) : {};
   const total = optionalCount(raw.total_tools) ?? optionalCount(raw.count);
@@ -77,6 +98,7 @@ export function parseDirectoryStats(data: unknown): DirectoryStats {
     agent_count: optionalCount(raw.agent_count),
     by_category: parseByCategory(raw.by_category),
     by_track: parseByTrack(raw.by_track),
+    by_source: parseBySource(raw.by_source),
   };
 }
 
@@ -145,3 +167,91 @@ export async function fetchToolsByTrack(
     return { tools: [], count: 0 };
   }
 }
+
+
+export async function fetchToolsBySource(
+  source: string,
+  pageSize = 12,
+  page = 1,
+): Promise<{ tools: Tool[]; count: number }> {
+  try {
+    const query = new URLSearchParams({
+      source,
+      page: String(page),
+      page_size: String(pageSize),
+    });
+    const response = await fetch(`${API_URL}/tools/?${query.toString()}`, {
+      next: { revalidate: 600 },
+      signal: AbortSignal.timeout(12000),
+    });
+    if (!response.ok) return { tools: [], count: 0 };
+    const data = await response.json();
+    if (data && typeof data === 'object' && Array.isArray(data.results)) {
+      return {
+        tools: applyVerifiedToolList(data.results),
+        count: optionalCount(data.count) ?? data.results.length,
+      };
+    }
+    const tools = applyVerifiedToolList(Array.isArray(data) ? data : []);
+    return { tools, count: tools.length };
+  } catch (error) {
+    console.error('Get tools by source error:', error);
+    return { tools: [], count: 0 };
+  }
+}
+
+const LANE_COUNT_PAGE_SIZE = 100;
+const LANE_COUNT_MAX_PAGES = 40;
+
+type ToolsCacheEntry = { track: ToolTrack; tools: Tool[]; loadedAt: number };
+
+function toolsMemoryCache(): Map<string, ToolsCacheEntry> {
+  const g = globalThis as typeof globalThis & {
+    __openSourceToolsCache?: Map<string, ToolsCacheEntry>;
+  };
+  if (!g.__openSourceToolsCache) g.__openSourceToolsCache = new Map();
+  return g.__openSourceToolsCache;
+}
+
+/** Paginate the track. Kept out of unstable_cache — full payloads exceed the 2MB limit. */
+export async function fetchAllToolsByTrack(track: ToolTrack): Promise<Tool[]> {
+  const cache = toolsMemoryCache();
+  const hit = cache.get(track);
+  if (hit && Date.now() - hit.loadedAt < 60 * 60 * 1000) return hit.tools;
+
+  const first = await fetchToolsByTrack(track, LANE_COUNT_PAGE_SIZE, 1);
+  if (!first.tools.length) {
+    cache.set(track, { track, tools: [], loadedAt: Date.now() });
+    return [];
+  }
+  const totalPages = Math.min(
+    LANE_COUNT_MAX_PAGES,
+    Math.max(1, Math.ceil(first.count / LANE_COUNT_PAGE_SIZE)),
+  );
+  const rest =
+    totalPages === 1
+      ? []
+      : await Promise.all(
+          Array.from({ length: totalPages - 1 }, (_, index) =>
+            fetchToolsByTrack(track, LANE_COUNT_PAGE_SIZE, index + 2),
+          ),
+        );
+  const tools = first.tools.concat(...rest.map((row) => row.tools));
+  cache.set(track, { track, tools, loadedAt: Date.now() });
+  return tools;
+}
+
+async function computeLaneCountsForTrack(
+  track: ToolTrack,
+): Promise<Record<OpenSourceLaneId, number>> {
+  const tools = await fetchAllToolsByTrack(track);
+  if (!tools.length) return emptyLaneCounts();
+  return countByLane(tools);
+}
+
+/** Catalog-wide lane totals only (small) — safe for Next.js data cache. */
+export const fetchLaneCountsForTrack = unstable_cache(
+  computeLaneCountsForTrack,
+  ['open-source-lane-counts-by-track-v3'],
+  { revalidate: 3600 },
+);

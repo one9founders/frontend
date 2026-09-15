@@ -3,7 +3,7 @@ import { getAllTools } from '@/lib/actions/tools';
 import { fetchDirectoryStats, getCategoryCount } from '@/lib/api/toolsStats';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { siteUrl } from '@/lib/constants/site';
-import { hasSubstantiveContent } from '@/lib/tool-content';
+import { isToolIndexable } from '@/lib/tool-content';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ToolCard from '@/components/features/tools/ToolCard';
@@ -134,7 +134,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       </div>
     );
   }
-  const indexedTools = tools.filter((tool) => tool.assessed === true || hasSubstantiveContent(tool));
+  const indexedTools = tools.filter((tool) => isToolIndexable(tool));
   const categoryCount = getCategoryCount(stats, category, cat.name);
 
   const structuredData = generateStructuredData({

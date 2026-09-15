@@ -50,9 +50,12 @@ export default function ToolCriteriaList({ detail }: ToolCriteriaListProps) {
   );
 
   return (
-    <div className="mt-8">
-      <h2 className="text-xl font-semibold text-white mb-2">How this score was built</h2>
-      <p className="text-[var(--gray-500)] text-sm mb-4">
+    <section className="tool-section">
+      <p className="tool-section-label">Methodology</p>
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-[var(--paper)] mb-3 leading-tight">
+        How this score was built
+      </h2>
+      <p className="text-[var(--gray-500)] text-sm mb-6 max-w-2xl leading-relaxed">
         Each scored criterion links to the published page it was derived from.
         Unscored criteria are marked, not guessed.
         {detail?.hands_on
@@ -68,13 +71,15 @@ export default function ToolCriteriaList({ detail }: ToolCriteriaListProps) {
           return (
             <li
               key={id}
-              className="bg-[var(--gray-800)] rounded-lg p-4 border border-[var(--gray-700)]"
+              className="rounded-xl border border-[var(--line)] bg-[var(--ink-2)]/80 p-4"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="text-white font-medium">{name}</p>
+                  <p className="text-[var(--paper)] font-medium">{name}</p>
                   {entry?.reasoning && (
-                    <p className="text-[var(--gray-400)] text-sm mt-1">{entry.reasoning}</p>
+                    <p className="text-[var(--gray-400)] text-sm mt-1 leading-relaxed">
+                      {entry.reasoning}
+                    </p>
                   )}
                   {url && (
                     <a
@@ -88,8 +93,8 @@ export default function ToolCriteriaList({ detail }: ToolCriteriaListProps) {
                   )}
                 </div>
                 <span
-                  className={`flex-shrink-0 text-sm font-medium ${
-                    score == null ? 'text-[var(--gray-500)]' : 'text-white'
+                  className={`flex-shrink-0 text-sm font-medium tabular-nums ${
+                    score == null ? 'text-[var(--gray-500)]' : 'text-copper-bright'
                   }`}
                 >
                   {score == null ? 'Not assessed' : `${score}/10`}
@@ -99,6 +104,6 @@ export default function ToolCriteriaList({ detail }: ToolCriteriaListProps) {
           );
         })}
       </ul>
-    </div>
+    </section>
   );
 }

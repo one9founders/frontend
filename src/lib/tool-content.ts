@@ -1,6 +1,8 @@
 import { Tool } from '../types';
 
 export const MIN_DESCRIPTION_WORDS = 40;
+/** Lower bar for attributed catalogue rows (HN, etc.) that already have a source URL. */
+export const MIN_CATALOGUE_DESCRIPTION_WORDS = 15;
 
 export const JOB_CLUSTERS = [
   { value: 'performance-marketing', label: 'Performance Marketing', color: 'bg-rose-600' },
@@ -33,6 +35,16 @@ function hasPresentValue(value: unknown): boolean {
   return false;
 }
 
+function toolDescriptionText(tool: Tool): string {
+  return [tool.description, tool.short_description].filter(Boolean).join(' ');
+}
+
+export function hasHackerNewsAttribution(tool: Tool): boolean {
+  if (Array.isArray(tool.tags) && tool.tags.includes('hackernews')) return true;
+  if (!Array.isArray(tool.sources)) return false;
+  return tool.sources.some((row) => row.source === 'hackernews');
+}
+
 export function hasSubstantiveContent(tool: Tool): boolean {
   const wordCount = descriptionWordCount(tool.description);
   if (wordCount < MIN_DESCRIPTION_WORDS) return false;
@@ -46,4 +58,26 @@ export function hasSubstantiveContent(tool: Tool): boolean {
     hasPresentValue(tool.use_cases);
 
   return secondarySignal;
+}
+
+/**
+ * Whether `/tool/{slug}` should be indexable for search / answer engines.
+ * Sitemap membership is broader (all publishable tools); this gate controls
+ * the page `robots` meta so thin stubs stay noindex.
+ */
+export function isToolIndexable(tool: Tool): boolean {
+  if (tool.assessed === true) return true;
+  if (hasSubstantiveContent(tool)) return true;
+
+  // HN-attributed catalogue rows: allow indexing with a shorter blurb when we
+  // still have a public website or secondary product signal.
+  if (!hasHackerNewsAttribution(tool)) return false;
+  const words = descriptionWordCount(toolDescriptionText(tool));
+  if (words < MIN_CATALOGUE_DESCRIPTION_WORDS) return false;
+  return (
+    hasPresentValue(tool.website) ||
+    hasPresentValue(tool.pricing_models) ||
+    hasPresentValue(tool.pricing_type) ||
+    hasPresentValue(tool.use_cases)
+  );
 }

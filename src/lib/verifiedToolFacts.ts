@@ -97,13 +97,31 @@ export function hasPublishedTrial(days: number | null | undefined): days is numb
   return typeof days === 'number' && Number.isFinite(days) && days > 0;
 }
 
-export function pricingSourceLinks(tool: Tool): { href: string; label: string }[] {
+export interface ToolSourceLink {
+  href: string;
+  label: string;
+  observedAt?: string;
+}
+
+export function toolSourceLinks(tool: Tool): ToolSourceLink[] {
   const seen = new Set<string>();
-  const links: { href: string; label: string }[] = [];
+  const links: ToolSourceLink[] = [];
+  for (const source of tool.sources ?? []) {
+    const href = typeof source?.url === 'string' ? source.url.trim() : '';
+    const key = href.toLowerCase().replace(/\/$/, '');
+    if (!href || seen.has(key)) continue;
+    seen.add(key);
+    links.push({
+      href,
+      label: source.label || source.source_label || source.source,
+      observedAt: source.observed_at,
+    });
+  }
   for (const tier of tool.pricing_tiers ?? []) {
-    const href = typeof tier?.source === 'string' ? tier.source : '';
-    if (!href || seen.has(href)) continue;
-    seen.add(href);
+    const href = typeof tier?.source === 'string' ? tier.source.trim() : '';
+    const key = href.toLowerCase().replace(/\/$/, '');
+    if (!href || seen.has(key)) continue;
+    seen.add(key);
     links.push({ href, label: tier.name ? `${tier.name} plan` : 'Pricing source' });
   }
   return links;

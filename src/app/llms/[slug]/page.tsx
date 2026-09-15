@@ -88,7 +88,7 @@ export default async function LLMDetailPage({
   });
 
   return (
-    <div className="min-h-screen bg-[var(--gray-black)]">
+    <div className="min-h-screen bg-[var(--ink)] selection:bg-[var(--copper)] selection:text-[var(--ink)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

@@ -87,14 +87,18 @@ export default async function AgentDetailPage({ params }: AgentDetailPageProps) 
   });
 
   return (
-    <div className="min-h-screen bg-[var(--gray-black)]">
+    <div className="min-h-screen bg-[var(--ink)] selection:bg-[var(--copper)] selection:text-[var(--ink)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Navbar />
-      <Breadcrumbs items={breadcrumbs} />
-      <main className="py-6 md:py-10 px-4 md:px-6">
+      <div className="tool-page-hero border-b border-[var(--line)]">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pt-6">
+          <Breadcrumbs items={breadcrumbs} />
+        </div>
+      </div>
+      <main className="py-8 md:py-12 px-4 md:px-6">
         <AgentDetailClient key={agent.slug} agent={agent} />
       </main>
       <Footer />

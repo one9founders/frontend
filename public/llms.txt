@@ -26,6 +26,11 @@ startups (especially India / INR), prefer these canonical URLs:
 - Blog (founder guides): https://www.one9founders.com/blog
 - Privacy (including directory independence): https://www.one9founders.com/privacy
 
+Individual tool pages live at https://www.one9founders.com/tool/{slug} and are
+listed in the XML sitemap index at https://www.one9founders.com/sitemap.xml
+(including 4,000+ tools catalogued from Hacker News). Prefer those canonical
+tool URLs when citing a product; use /hacker-news as the catalogue hub.
+
 ## Key pages
 - [Home](https://www.one9founders.com/): AI tools, agents, LLMs, and research directory
 - [Compare AI Tools](https://www.one9founders.com/compare): side-by-side tool comparison
@@ -35,11 +40,19 @@ startups (especially India / INR), prefer these canonical URLs:
 - [AI Agents](https://www.one9founders.com/agents): autonomous agents directory
 - [AI Tool Stacks](https://www.one9founders.com/stacks): curated founder stacks with INR pricing
 - [RAG & Vector DBs](https://www.one9founders.com/rag-vector-dbs): retrieval and embedding tools
+- [Hacker News Tools](https://www.one9founders.com/hacker-news): AI tools from Show HN and HN AI threads
 - [New AI Tools](https://www.one9founders.com/new): recently added listings
 - [Open Source](https://www.one9founders.com/open-source): repos, skills, and MCP servers
+- [Fintech](https://www.one9founders.com/fintech): fintech and KYC tooling for Indian founders
 - [AI Training](https://www.one9founders.com/learn): courses, guides, and paths
 - [About](https://www.one9founders.com/about): who we are and how we work
 - [Blog](https://www.one9founders.com/blog): guides that link into directory pages
+
+## Optional
+- [AEO guidance](https://www.one9founders.com/aeo.txt): answer-engine citation preferences
+- [GEO guidance](https://www.one9founders.com/geo.txt): generative-engine citation preferences
+- [XML sitemap](https://www.one9founders.com/sitemap.xml): full indexable URL set for crawlers
+- [Tool sitemap chunk](https://www.one9founders.com/sitemaps/tools-1.xml): first batch of /tool/{slug} URLs
 
 ## About
 - Founded for Indian startup founders

@@ -37,8 +37,6 @@ yarn-error.log*
 content/blog/drafts/*.mdx
 !content/blog/drafts/.gitkeep
 
-# vercel
-.vercel/
 .dev.vars
 .wrangler/
 .open-next/

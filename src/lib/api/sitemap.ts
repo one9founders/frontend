@@ -40,15 +40,13 @@ export function toUrlsetXml(entries: SitemapEntry[]): string {
 }
 
 /**
- * Browsers and third-party fetchers must revalidate. Vercel was stripping
- * `s-maxage` and leaving only `public`, which lets heuristic caches keep the
- * old prerendered urlset after HTML (max-age=0) has already flipped.
+ * Browsers and third-party fetchers must revalidate. CDN-Cache-Control keeps
+ * edge caches at s-maxage while Cache-Control forces clients to revalidate.
  */
 export const SITEMAP_CACHE_HEADERS = {
   'Content-Type': 'application/xml; charset=utf-8',
   'Cache-Control': 'public, max-age=0, must-revalidate',
   'CDN-Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=600',
-  'Vercel-CDN-Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=600',
 } as const;
 
 export function sitemapXmlResponse(xml: string) {
@@ -206,6 +204,7 @@ export async function getStaticSitemapEntries(): Promise<SitemapEntry[]> {
     { route: '/stacks', priority: 0.7, changeFrequency: 'weekly' },
     { route: '/fintech', priority: 0.7, changeFrequency: 'weekly' },
     { route: '/open-source', priority: 0.8, changeFrequency: 'daily' },
+    { route: '/hacker-news', priority: 0.8, changeFrequency: 'daily' },
     { route: '/new', priority: 0.7, changeFrequency: 'daily' },
     { route: '/agents', priority: 0.8, changeFrequency: 'weekly' },
     { route: '/founder-survey', priority: 0.4, changeFrequency: 'monthly' },

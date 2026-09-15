@@ -28,6 +28,11 @@ export interface TrackStat {
   count: number;
 }
 
+export interface SourceStat {
+  source: string;
+  count: number;
+}
+
 export interface DirectoryStats {
   total_tools: number | null;
   count: number | null;
@@ -36,6 +41,7 @@ export interface DirectoryStats {
   agent_count: number | null;
   by_category: CategoryStat[];
   by_track: TrackStat[];
+  by_source?: SourceStat[];
 }
 
 export interface DirectoryColumn {
@@ -77,6 +83,23 @@ export interface AssessmentDetail {
   manual_only?: string[];
 }
 
+export type ToolSourceKey =
+  | 'producthunt'
+  | 'taaft'
+  | 'g2'
+  | 'linkedin'
+  | 'github'
+  | 'hackernews';
+
+export interface ToolSourceReference {
+  source: ToolSourceKey;
+  source_label: string;
+  label?: string;
+  url: string;
+  external_id?: string;
+  observed_at: string;
+}
+
 export interface Tool {
   id: number;
   name: string;
@@ -84,6 +107,7 @@ export interface Tool {
   short_description: string;
   description: string;
   categories: Category[];
+  sources?: ToolSourceReference[];
   website?: string;
   affiliate_url?: string;
   logo_url?: string;
@@ -124,6 +148,8 @@ export interface Tool {
   /** Editorial per-criterion scores with evidence URLs. */
   assessment_detail?: AssessmentDetail | null;
   track?: ToolTrack;
+  /** 0–1 blended ranking signal from hygiene (Tranco / HN / etc.). */
+  popularity_score?: number | string | null;
   rating_status?: 'NOT_YET_RATED' | 'PROVISIONAL' | 'RATED';
   security_status?: 'NOT_ASSESSED' | 'FLAGGED' | 'VERIFIED';
   language_review_needed?: boolean;

@@ -142,6 +142,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/hacker-news" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
+                      Hacker News
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/new" className="hover:text-[var(--copper)] transition-colors text-[var(--gray-400)]">
                       New AI Tools
                     </Link>
