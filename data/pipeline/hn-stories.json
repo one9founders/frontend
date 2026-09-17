@@ -1,142 +1,142 @@
 [
   {
-    "title": "Show HN: Modern RSS reader with social capabilities based on AT Proto",
-    "url": "https://sunred.app/",
+    "title": "Migrating the GitHub Copilot Runtime to Rust, Using Copilot",
+    "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-16T10:42:39Z"
+    "createdAt": "2026-09-17T10:51:54Z"
   },
   {
-    "title": "Accelerating Large-Scale Test Migration with LLMs",
-    "url": "https://airbnb.tech/infrastructure/accelerating-large-scale-test-migration-with-llms/",
+    "title": "OpenAI admits its agents went off the rails another six times",
+    "url": "https://www.theregister.com/ai-and-ml/2026/09/17/openai-admits-its-agents-went-off-the-rails-another-six-times/5297016",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-16T10:37:30Z"
+    "createdAt": "2026-09-17T10:47:49Z"
   },
   {
-    "title": "Bringing macOS to Devin",
-    "url": "https://devin.ai/blog/devin-gets-a-mac",
+    "title": "The White House Tussle to Sway Trump on AI",
+    "url": "https://www.wsj.com/tech/ai/inside-the-white-house-tussle-to-sway-trump-on-ai-0043d567",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-17T10:25:12Z"
+  },
+  {
+    "title": "Show HN: Knowhere-Rebuilds the document structure that chunking throws away",
+    "url": "https://github.com/Ontos-AI/knowhere",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-16T10:28:46Z"
+    "createdAt": "2026-09-17T10:08:17Z"
   },
   {
-    "title": "Salesforce's AI Bet: Benioff, Jensen Huang, Dario Amodei on Stage Together",
-    "url": "https://www.salesforce.com/plus/experience/dreamforce_2026/series/dreamforce_2026_must-see_moments/episode/episode-s1e1?bc=HL",
-    "points": 1,
+    "title": "Don't build tools for AI agents",
+    "url": "https://www.seangoedecke.com/dont-build-tools-for-ai-agents/",
+    "points": 4,
     "numComments": 1,
-    "createdAt": "2026-09-16T10:28:20Z"
+    "createdAt": "2026-09-17T09:48:25Z"
   },
   {
-    "title": "Why Six Millennium Problems May Be Hard for the Same Reason",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-16T10:25:38Z"
-  },
-  {
-    "title": "ASK HN : Is there still room for new SaaS products in 2026?",
-    "url": "",
+    "title": "Show HN: SyntaxCue – local-first AI interview copilot (whisper.cpp and BYOK)",
+    "url": "https://syntaxcue.com/how-syntaxcue-captures-system-audio/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-16T10:24:10Z"
+    "createdAt": "2026-09-17T09:48:19Z"
   },
   {
-    "title": "AI Is Reshaping Open Source Software and Straining the Systems That Sustain It",
-    "url": "https://www.acm.org/media-center/2026/september/techbrief-ai-effects-open-source",
-    "points": 1,
+    "title": "Apple reportedly building server packed with M-series Ultra chips for AI",
+    "url": "https://arstechnica.com/ai/2026/09/apple-reportedly-building-server-packed-with-m-series-ultra-chips-for-ai/",
+    "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-16T10:20:56Z"
+    "createdAt": "2026-09-17T09:45:33Z"
   },
   {
-    "title": "The Liftoff Scenario That Terrifies A.I. Doomsayers",
-    "url": "https://www.nytimes.com/2026/09/16/science/ai-recursive-self-improvement.html",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-09-16T10:12:47Z"
-  },
-  {
-    "title": "Show HN: I built a digital wrap tool for Tesla owners",
-    "url": "https://teslawrap.studio",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-16T09:58:41Z"
-  },
-  {
-    "title": "DocMind – I built an AI document parser to end manual data entry solo",
-    "url": "https://docmind.neomindintelligence.com/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-16T09:52:28Z"
-  },
-  {
-    "title": "Scikit-Decide AI Framework for RL, Auto Planning and Scheduling",
-    "url": "https://airbus.github.io/scikit-decide/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-16T09:26:41Z"
-  },
-  {
-    "title": "AI stocks get drilled because of Anthropic CEO Dario Amodei's 3,800-word warning",
-    "url": "https://finance.yahoo.com/markets/stocks/article/ai-stocks-get-drilled-because-of-anthropic-ceo-dario-amodeis-3800-word-warning-093637548.html",
+    "title": "Sex, AI, and the Apocalypse",
+    "url": "https://www.iankduncan.com/personal/2026-09-16-sex-ai-and-the-apocalypse/",
     "points": 4,
     "numComments": 0,
-    "createdAt": "2026-09-16T09:21:47Z"
+    "createdAt": "2026-09-17T09:43:19Z"
   },
   {
-    "title": "Graduating into Disruption: Labor Market Outcomes for AI-Exposed Majors [pdf]",
-    "url": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf",
+    "title": "LLM Inference vs. the OOM Killer",
+    "url": "https://www.nobodywho.ai/posts/inference-oom/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-17T09:42:45Z"
+  },
+  {
+    "title": "Show HN: Eukovy – AI Outfit Changer",
+    "url": "https://eukovy.com",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-16T09:16:23Z"
+    "createdAt": "2026-09-17T09:40:45Z"
   },
   {
-    "title": "HN: VS-Opt – Cutting AI Browser Token Overhead by 40% Without Web Re-Crawling",
-    "url": "https://github.com/filippocarrucciu1-lang/vs-opt-deterministic-search",
+    "title": "Netflix doc on AI, if you need bad sleep afterwards",
+    "url": "https://www.netflix.com/title/82792555",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-16T09:07:56Z"
+    "createdAt": "2026-09-17T09:33:47Z"
   },
   {
-    "title": "Show HN: AI accounting harness for finance teams",
-    "url": "https://totumai.in",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-16T08:59:10Z"
-  },
-  {
-    "title": "ExposurAI – External attack surface and Shadow AI discovery engine",
-    "url": "https://exposurai.com",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-16T08:57:48Z"
-  },
-  {
-    "title": "Cost of AI Slop in Software Development Report",
-    "url": "https://www.qawolf.com/blog/cost-of-ai-slop-in-software-development-report",
+    "title": "Lattice Prompt brings AI agents into the full FPGA design flow via MCP",
+    "url": "https://www.businesswire.com/news/home/20260916317324/en/Lattice-Advances-FPGA-Design-with-New-Leadership-AI-Driven-Development-Tool-Lattice-Prompt",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-16T08:56:23Z"
+    "createdAt": "2026-09-17T08:59:56Z"
   },
   {
-    "title": "Political Bias in AI Is No Longer a Matter of Opinion. Now It Can Be Measured",
-    "url": "https://latticeflow.ai/lp/political-bias-framework",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-16T08:51:44Z"
+    "title": "The paradox of AI automation at the workplace",
+    "url": "",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-17T08:52:52Z"
   },
   {
-    "title": "Google released Artemis for AI-driven Android automation",
-    "url": "https://github.com/google/artemis",
+    "title": "Artificial Analysis Capability Indices v1.1",
+    "url": "https://artificialanalysis.ai/articles/artificial-analysis-capability-indices-v1-1",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-16T08:40:14Z"
+    "createdAt": "2026-09-17T08:51:47Z"
   },
   {
-    "title": "A new privacy savy openrouter",
-    "url": "https://openrouter.ai/docs/guides/features/in-region-routing",
+    "title": "Reckless Expansion Plans Blow Past European Airports Carbon Limits",
+    "url": "https://cleantechnica.com/2026/09/16/reckless-expansion-plans-blow-past-european-airports-carbon-limits/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-17T08:38:05Z"
+  },
+  {
+    "title": "AI Safety Is Mostly a Sex Cult",
+    "url": "https://skywriter.blue/@segyges.bsky.social/3mvom4b4dn22q",
+    "points": 116,
+    "numComments": 67,
+    "createdAt": "2026-09-17T08:36:37Z"
+  },
+  {
+    "title": "Show HN: Airy TTS – 2K characters/second, $2 per 1M characters",
+    "url": "https://airy.so/home",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-17T08:28:15Z"
+  },
+  {
+    "title": "GLM Built Its Own Inference Infrastructure",
+    "url": "https://z.ai/blog/glm-built-its-inference-infrastructure",
+    "points": 59,
+    "numComments": 35,
+    "createdAt": "2026-09-17T08:27:09Z"
+  },
+  {
+    "title": "Jev Is the Missing Piece in Production AI Systems",
+    "url": "https://blog.nimendra.xyz/blog/jev-decision-layer-for-production-ai/",
     "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-16T08:32:55Z"
+    "numComments": 0,
+    "createdAt": "2026-09-17T08:21:14Z"
+  },
+  {
+    "title": "EpicSemi Contrail AIX RISC-V Servers",
+    "url": "https://www.epicsemi.com/products/contrail/compute/contrail-aix/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-17T08:13:11Z"
   }
 ]
