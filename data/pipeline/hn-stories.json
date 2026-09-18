@@ -1,142 +1,142 @@
 [
   {
-    "title": "Migrating the GitHub Copilot Runtime to Rust, Using Copilot",
-    "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-17T10:51:54Z"
-  },
-  {
-    "title": "OpenAI admits its agents went off the rails another six times",
-    "url": "https://www.theregister.com/ai-and-ml/2026/09/17/openai-admits-its-agents-went-off-the-rails-another-six-times/5297016",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-17T10:47:49Z"
-  },
-  {
-    "title": "The White House Tussle to Sway Trump on AI",
-    "url": "https://www.wsj.com/tech/ai/inside-the-white-house-tussle-to-sway-trump-on-ai-0043d567",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-17T10:25:12Z"
-  },
-  {
-    "title": "Show HN: Knowhere-Rebuilds the document structure that chunking throws away",
-    "url": "https://github.com/Ontos-AI/knowhere",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-17T10:08:17Z"
-  },
-  {
-    "title": "Don't build tools for AI agents",
-    "url": "https://www.seangoedecke.com/dont-build-tools-for-ai-agents/",
-    "points": 4,
+    "title": "Anthropic sets up biology lab as it ramps AI drug program",
+    "url": "https://www.reuters.com/world/anthropic-quietly-sets-up-biology-lab-it-ramps-ai-drug-program-2026-09-18/",
+    "points": 2,
     "numComments": 1,
-    "createdAt": "2026-09-17T09:48:25Z"
+    "createdAt": "2026-09-18T10:17:03Z"
   },
   {
-    "title": "Show HN: SyntaxCue – local-first AI interview copilot (whisper.cpp and BYOK)",
-    "url": "https://syntaxcue.com/how-syntaxcue-captures-system-audio/",
-    "points": 2,
+    "title": "Show HN: tuisheet, a terminal spreadsheet compatible with OpenXML (xlsx) files",
+    "url": "https://github.com/krackout/tuisheet",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-17T09:48:19Z"
+    "createdAt": "2026-09-18T09:55:28Z"
   },
   {
-    "title": "Apple reportedly building server packed with M-series Ultra chips for AI",
-    "url": "https://arstechnica.com/ai/2026/09/apple-reportedly-building-server-packed-with-m-series-ultra-chips-for-ai/",
+    "title": "Microsoft exec called AI scraping 'the largest theft of labor in human history'",
+    "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+    "points": 40,
+    "numComments": 6,
+    "createdAt": "2026-09-18T09:45:07Z"
+  },
+  {
+    "title": "Slop Grenades, AI Didn't Make Delivery Free – Food for Agile Thought 562",
+    "url": "https://age-of-product.com/food-agile-thought-562-slop-grenades/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-18T09:30:58Z"
+  },
+  {
+    "title": "Proton partners with Apertus, Switzerland's sovereign AI model",
+    "url": "https://proton.me/blog/lumo-apertus-partnership",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-09-18T09:26:03Z"
+  },
+  {
+    "title": "Reception answers calls 24/7",
+    "url": "https://www.reception.ai/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-18T09:21:32Z"
+  },
+  {
+    "title": "Could AI and synthetic biology = bioweapons?",
+    "url": "https://www.celinegounder.com/p/anthropic-claude-ai-bioweapons-biosecurity",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-17T09:45:33Z"
+    "createdAt": "2026-09-18T09:02:31Z"
   },
   {
-    "title": "Sex, AI, and the Apocalypse",
-    "url": "https://www.iankduncan.com/personal/2026-09-16-sex-ai-and-the-apocalypse/",
+    "title": "Unbiased is our platform. Pareto is our own blended AI model",
+    "url": "https://unbiased.ai/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-18T08:49:10Z"
+  },
+  {
+    "title": "Anthropic says its model Claude is helping to build the next version of itself",
+    "url": "https://apnews.com/article/anthropic-claude-ai-model-self-improvement-4d3a7430f57cbc7c39e1c5f2b7d7e132",
     "points": 4,
     "numComments": 0,
-    "createdAt": "2026-09-17T09:43:19Z"
+    "createdAt": "2026-09-18T08:48:42Z"
   },
   {
-    "title": "LLM Inference vs. the OOM Killer",
-    "url": "https://www.nobodywho.ai/posts/inference-oom/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-17T09:42:45Z"
-  },
-  {
-    "title": "Show HN: Eukovy – AI Outfit Changer",
-    "url": "https://eukovy.com",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-17T09:40:45Z"
-  },
-  {
-    "title": "Netflix doc on AI, if you need bad sleep afterwards",
-    "url": "https://www.netflix.com/title/82792555",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-17T09:33:47Z"
-  },
-  {
-    "title": "Lattice Prompt brings AI agents into the full FPGA design flow via MCP",
-    "url": "https://www.businesswire.com/news/home/20260916317324/en/Lattice-Advances-FPGA-Design-with-New-Leadership-AI-Driven-Development-Tool-Lattice-Prompt",
+    "title": "AI software should be treated like any other software [video]",
+    "url": "https://www.youtube.com/watch?v=9tr7Mby62bo",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-17T08:59:56Z"
+    "createdAt": "2026-09-18T08:46:41Z"
   },
   {
-    "title": "The paradox of AI automation at the workplace",
+    "title": "What to Read to Stay Grounded Amidst AI Doomerism",
+    "url": "https://buttondown.com/maiht3k/archive/what-to-read-to-stay-grounded-amidst-ai-doomerism/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-18T08:03:14Z"
+  },
+  {
+    "title": "The Cost of AI Is Now My Main Blocker",
+    "url": "https://www.vincentschmalbach.com/cost-of-ai-is-now-my-main-blocker/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-18T07:53:40Z"
+  },
+  {
+    "title": "Altman, Huang: \"trust me; gonna b fine\"; Sanders: \"AI more dangerous than nukes\"",
+    "url": "https://garymarcus.substack.com/p/sam-altman-says-trust-me-jensen-huang",
+    "points": 4,
+    "numComments": 3,
+    "createdAt": "2026-09-18T07:49:05Z"
+  },
+  {
+    "title": "How to Unslop a Commit?",
     "url": "",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-17T08:52:52Z"
-  },
-  {
-    "title": "Artificial Analysis Capability Indices v1.1",
-    "url": "https://artificialanalysis.ai/articles/artificial-analysis-capability-indices-v1-1",
     "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-17T08:51:47Z"
+    "numComments": 3,
+    "createdAt": "2026-09-18T07:34:27Z"
   },
   {
-    "title": "Reckless Expansion Plans Blow Past European Airports Carbon Limits",
-    "url": "https://cleantechnica.com/2026/09/16/reckless-expansion-plans-blow-past-european-airports-carbon-limits/",
+    "title": "Jev vs. Luna for AI Observability",
+    "url": "https://fatliverfreddy.substack.com/p/a-different-kind-of-model-for-ai",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-17T08:38:05Z"
+    "createdAt": "2026-09-18T07:19:19Z"
   },
   {
-    "title": "AI Safety Is Mostly a Sex Cult",
-    "url": "https://skywriter.blue/@segyges.bsky.social/3mvom4b4dn22q",
-    "points": 116,
-    "numComments": 67,
-    "createdAt": "2026-09-17T08:36:37Z"
-  },
-  {
-    "title": "Show HN: Airy TTS – 2K characters/second, $2 per 1M characters",
-    "url": "https://airy.so/home",
+    "title": "Free Unlimited AI Text to Speech – No Sign Up",
+    "url": "https://www.aitexttospeech.net/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-17T08:28:15Z"
+    "createdAt": "2026-09-18T07:09:19Z"
   },
   {
-    "title": "GLM Built Its Own Inference Infrastructure",
-    "url": "https://z.ai/blog/glm-built-its-inference-infrastructure",
-    "points": 59,
-    "numComments": 35,
-    "createdAt": "2026-09-17T08:27:09Z"
-  },
-  {
-    "title": "Jev Is the Missing Piece in Production AI Systems",
-    "url": "https://blog.nimendra.xyz/blog/jev-decision-layer-for-production-ai/",
+    "title": "Here’s How an OpenAI Model Went Rogue and Hacked Hugging Face",
+    "url": "https://www.hacktron.ai/blog/here-is-how-openai-model-hacked-huggingface",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-17T08:21:14Z"
+    "createdAt": "2026-09-18T07:06:33Z"
   },
   {
-    "title": "EpicSemi Contrail AIX RISC-V Servers",
-    "url": "https://www.epicsemi.com/products/contrail/compute/contrail-aix/",
-    "points": 1,
+    "title": "LLMs respond differently to harmful prompts when AI watermarking is used",
+    "url": "https://arstechnica.com/security/2026/09/ai-text-watermarking-can-make-models-more-vulnerable-to-adversarial-prompts/",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-17T08:13:11Z"
+    "createdAt": "2026-09-18T07:02:24Z"
+  },
+  {
+    "title": "Chinese AI not powerful enough to see rogue-AI risks, says Huawei",
+    "url": "https://www.reuters.com/world/china/huaweis-xu-says-chinese-ai-not-powerful-enough-yet-see-frontier-risks-2026-09-17/",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-09-18T06:51:34Z"
+  },
+  {
+    "title": "I built a free AI tarot reader for Android",
+    "url": "https://play.google.com/store/apps/details?id=com.earthbound_tarot&hl=en_US",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-18T06:43:47Z"
   }
 ]
