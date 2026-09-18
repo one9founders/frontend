@@ -1,76 +1,110 @@
-'use client';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import { getNewsById } from '@/lib/api/newsService';
+import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { siteUrl } from '@/lib/constants/site';
 
-import { useParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
-import Navbar from '../../../../components/layout/Navbar';
-import Footer from '../../../../components/layout/Footer';
-import { getNewsById, NewsArticle } from '../../../../lib/api/newsService';
+export const revalidate = 600;
 
-export default function NewsDetailPage() {
-  const params = useParams();
-  const id = params.id as string;
-  const [article, setArticle] = useState<NewsArticle | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+type NewsDetailPageProps = {
+  params: Promise<{ id: string }>;
+};
 
-  useEffect(() => {
-    async function fetchArticle() {
-      try {
-        const data = await getNewsById(id);
-        setArticle(data);
-      } catch (error) {
-        console.error('Error fetching article:', error);
-        setError('Failed to load article');
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchArticle();
-  }, [id]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="max-w-4xl mx-auto px-6 py-12 text-center">
-          <div className="text-white">Loading...</div>
-        </div>
-        <Footer />
-      </div>
-    );
+export async function generateMetadata({ params }: NewsDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
+  try {
+    const article = await getNewsById(id);
+    return generateSEO({
+      title: article.title,
+      description: article.description || article.excerpt || 'AI news for startup founders.',
+      path: `/news/${article.slug || id}`,
+      type: 'article',
+      image: article.image || article.featured_image || '/og-image.png',
+      keywords: [
+        'AI news',
+        article.category || 'AI',
+        'startup founders',
+        'AI tools',
+        article.title,
+      ].filter(Boolean),
+    });
+  } catch {
+    return generateSEO({
+      title: 'Article Not Found',
+      description: 'This news article could not be found.',
+      path: `/news/${id}`,
+      robots: { index: false, follow: false },
+    });
   }
+}
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="max-w-4xl mx-auto px-6 py-12 text-center">
-          <h1 className="text-2xl text-white">Error</h1>
-          <p className="text-[var(--gray-400)] mt-4">{error}</p>
-        </div>
-        <Footer />
-      </div>
-    );
+export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
+  const { id } = await params;
+  let article;
+  try {
+    article = await getNewsById(id);
+  } catch {
+    notFound();
   }
 
   if (!article) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="max-w-4xl mx-auto px-6 py-12 text-center">
-          <h1 className="text-2xl text-white">Article not found</h1>
-        </div>
-        <Footer />
-      </div>
-    );
+    notFound();
   }
+
+  const articleUrl = siteUrl(`/news/${article.slug || id}`);
+  const published = article.published_at || article.date;
+
+  const articleSchema = generateStructuredData({
+    '@type': 'NewsArticle',
+    headline: article.title,
+    description: article.description || article.excerpt,
+    image: article.image || article.featured_image || siteUrl('/og-image.png'),
+    datePublished: published,
+    dateModified: published,
+    author: {
+      '@type': 'Person',
+      name: article.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'One9Founders',
+      url: siteUrl('/'),
+      logo: {
+        '@type': 'ImageObject',
+        url: siteUrl('/logo-light.png'),
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleUrl,
+    },
+    articleSection: article.category || 'AI News',
+  });
+
+  const breadcrumbSchema = generateStructuredData({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'News', item: siteUrl('/news') },
+      { '@type': 'ListItem', position: 3, name: article.title, item: articleUrl },
+    ],
+  });
 
   return (
     <div className="min-h-screen bg-[var(--gray-black)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
-      
+
       <article className="max-w-4xl mx-auto px-6 py-12">
-        {/* Header */}
         <div className="mb-8">
           <div className="mb-4">
             <span className="text-[var(--ink)] text-sm px-3 py-1 rounded-full bg-[var(--brand-primary)]">
@@ -81,79 +115,41 @@ export default function NewsDetailPage() {
           <div className="flex items-center text-[var(--gray-400)] text-sm space-x-4">
             <span>By {article.author}</span>
             <span>•</span>
-            <span>{new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span>
+              {new Date(article.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </span>
             <span>•</span>
             <span>{article.readTime}</span>
           </div>
         </div>
 
-        {/* Featured Image */}
-        <div className="mb-8">
-          <img 
-            src={article.image} 
-            alt={article.title}
-            className="w-full h-64 object-cover rounded-lg"
-            onError={(e) => {
-              try {
-                const target = e.target as HTMLImageElement;
-                target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDgwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMzc0MTUxIi8+CjxwYXRoIGQ9Ik0zNTAgMTc1SDQ1MFYyMjVIMzUwVjE3NVoiIGZpbGw9IiM2QjcyODAiLz4KPHA+';
-              } catch (fallbackError) {
-                console.error('Failed to set fallback image:', fallbackError);
-              }
-            }}
-          />
-        </div>
+        {article.image ? (
+          <div className="mb-8">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-64 object-cover rounded-lg"
+            />
+          </div>
+        ) : null}
 
-        {/* Content */}
-        <div 
-          className="article-content"
-          dangerouslySetInnerHTML={{ 
-            __html: (() => {
-              try {
-                return article.content || '';
-              } catch (error) {
-                console.error('Error rendering article content:', error);
-                return '<p>Content could not be displayed.</p>';
-              }
-            })()
+        <div
+          className="article-content prose prose-invert max-w-none
+            [&_h1]:text-white [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-4
+            [&_h2]:text-white [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-4
+            [&_h3]:text-white [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:mt-6 [&_h3]:mb-2
+            [&_p]:text-gray-300 [&_p]:my-4 [&_p]:leading-relaxed
+            [&_ul]:my-4 [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:pl-6
+            [&_li]:my-2 [&_li]:text-gray-300"
+          dangerouslySetInnerHTML={{
+            __html: article.content || '<p>Content could not be displayed.</p>',
           }}
         />
-        
-        <style jsx global>{`
-          .article-content {
-            color: rgb(209 213 219);
-            line-height: 1.7;
-          }
-          .article-content h1 {
-            color: white;
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 2rem 0 1rem 0;
-          }
-          .article-content h2 {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem 0;
-          }
-          .article-content h3 {
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 1.5rem 0 0.5rem 0;
-          }
-          .article-content p {
-            margin: 1rem 0;
-            color: rgb(209 213 219);
-          }
-          .article-content ul, .article-content ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-          }
-          .article-content li {
-            margin: 0.5rem 0;
-          }
-        `}</style>
       </article>
 
       <Footer />

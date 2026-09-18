@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -16,7 +17,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return generateSEO({
       title: 'Blog Post Not Found',
       description: 'The blog post you are looking for does not exist.',
-      path: `/blog/${slug}`,
+      path: '/blog',
+      robots: { index: false, follow: true },
     });
   }
   return generateSEO({
@@ -33,19 +35,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = getBlogPostBySlug(slug);
 
   if (!post) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold text-white mb-4">Post Not Found</h1>
-          <p className="text-[var(--gray-400)]">The blog post you&apos;re looking for doesn&apos;t exist.</p>
-          <Link href="/blog" className="text-copper hover:text-copper-bright underline mt-4 inline-block">
-            Back to Blog
-          </Link>
-        </div>
-        <Footer />
-      </div>
-    );
+    notFound();
   }
 
   const structuredData = generateStructuredData({

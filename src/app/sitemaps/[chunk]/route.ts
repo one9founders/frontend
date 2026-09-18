@@ -1,6 +1,7 @@
 import { SITE_URL } from '@/lib/constants/site';
 import {
   getAuthorSitemapPage,
+  getNewsSitemapPage,
   getPaperSitemapPage,
   getStaticSitemapEntries,
   getToolSitemapPage,
@@ -74,6 +75,28 @@ export async function GET(
             lastModified: author.last_seen ? new Date(author.last_seen) : new Date(),
             changeFrequency: 'weekly',
             priority: 0.5,
+          })),
+      ),
+    );
+  }
+
+  const news = name.match(/^news-(\d+)$/);
+  if (news) {
+    const page = Number(news[1]);
+    const items = await getNewsSitemapPage(page);
+    return sitemapXmlResponse(
+      toUrlsetXml(
+        items
+          .filter((article) => article.slug)
+          .map((article) => ({
+            url: `${SITE_URL}/news/${article.slug}`,
+            lastModified: article.updated_at
+              ? new Date(article.updated_at)
+              : article.published_at
+                ? new Date(article.published_at)
+                : new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.6,
           })),
       ),
     );

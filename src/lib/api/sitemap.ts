@@ -1,5 +1,6 @@
 import { SITE_URL } from '@/lib/constants/site';
 import { allStacks } from '@/components/features/stacks/stackData';
+import { getBlogPosts } from '@/lib/blog';
 import llmData from '../../../public/data/llm-models.json';
 import type { LLMDataset } from '@/types/llm';
 
@@ -104,20 +105,32 @@ export async function getAuthorSitemapCount(): Promise<number> {
   return compact?.count ?? 0;
 }
 
+export async function getNewsSitemapCount(): Promise<number> {
+  const compact = await fetchPaginated<{ slug: string }>(
+    `${API_URL}/news/sitemap/?page=1&page_size=1`,
+  );
+  if (compact) return compact.count;
+  const list = await fetchPaginated<unknown>(`${API_URL}/news/?page=1&page_size=1`);
+  return list?.count ?? 0;
+}
+
 export async function getSitemapIndexLocs(): Promise<string[]> {
-  const [toolCount, paperCount, authorCount] = await Promise.all([
+  const [toolCount, paperCount, authorCount, newsCount] = await Promise.all([
     getToolSitemapCount(),
     getPaperSitemapCount(),
     getAuthorSitemapCount(),
+    getNewsSitemapCount(),
   ]);
   const toolPages = Math.max(1, Math.ceil(toolCount / SITEMAP_CHUNK));
   const paperPages = Math.max(1, Math.ceil(paperCount / SITEMAP_CHUNK));
   const authorPages = Math.max(1, Math.ceil(authorCount / SITEMAP_CHUNK));
+  const newsPages = Math.max(1, Math.ceil(newsCount / SITEMAP_CHUNK));
   return [
     `${SITE_URL}/sitemaps/static.xml`,
     ...Array.from({ length: toolPages }, (_, i) => `${SITE_URL}/sitemaps/tools-${i + 1}.xml`),
     ...Array.from({ length: paperPages }, (_, i) => `${SITE_URL}/sitemaps/papers-${i + 1}.xml`),
     ...Array.from({ length: authorPages }, (_, i) => `${SITE_URL}/sitemaps/authors-${i + 1}.xml`),
+    ...Array.from({ length: newsPages }, (_, i) => `${SITE_URL}/sitemaps/news-${i + 1}.xml`),
   ];
 }
 
@@ -164,6 +177,16 @@ export async function getAuthorSitemapPage(
   return compact?.results ?? [];
 }
 
+export async function getNewsSitemapPage(
+  page: number,
+): Promise<{ slug: string; updated_at?: string; published_at?: string }[]> {
+  const compact = await fetchPaginated<{ slug: string; updated_at?: string; published_at?: string }>(
+    `${API_URL}/news/sitemap/?page=${page}&page_size=${SITEMAP_CHUNK}`,
+  );
+  if (compact) return compact.results;
+  return listFallbackPage(`${API_URL}/news/`, page);
+}
+
 async function collectAll<T>(firstUrl: string, pick: (data: unknown) => T[]): Promise<T[]> {
   const items: T[] = [];
   let nextUrl: string | null = firstUrl;
@@ -196,6 +219,11 @@ export async function getStaticSitemapEntries(): Promise<SitemapEntry[]> {
     { route: '/learn/paths', priority: 0.5, changeFrequency: 'monthly' },
     { route: '/learn/labs', priority: 0.5, changeFrequency: 'monthly' },
     { route: '/learn/workshops', priority: 0.5, changeFrequency: 'monthly' },
+    { route: '/learn/students', priority: 0.5, changeFrequency: 'monthly' },
+    { route: '/learn/professionals', priority: 0.5, changeFrequency: 'monthly' },
+    { route: '/learn/entrepreneurs', priority: 0.5, changeFrequency: 'monthly' },
+    { route: '/learn/organizations', priority: 0.5, changeFrequency: 'monthly' },
+    { route: '/learn/quiz', priority: 0.4, changeFrequency: 'monthly' },
     { route: '/submit', priority: 0.5, changeFrequency: 'monthly' },
     { route: '/terms', priority: 0.3, changeFrequency: 'yearly' },
     { route: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
@@ -215,6 +243,13 @@ export async function getStaticSitemapEntries(): Promise<SitemapEntry[]> {
     lastModified: now,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
+  }));
+
+  const blogEntries = getBlogPosts().map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
   }));
 
   const courseCompact = await fetchPaginated<{ slug: string; updated_at?: string }>(
@@ -257,6 +292,7 @@ export async function getStaticSitemapEntries(): Promise<SitemapEntry[]> {
 
   return [
     ...staticEntries,
+    ...blogEntries,
     ...categories.map((category) => ({
       url: `${SITE_URL}/tools/${category.slug}`,
       lastModified: now,

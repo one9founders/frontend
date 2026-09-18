@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { fetchDirectoryStats, fetchToolsByTrack, getTrackCount } from '@/lib/api/toolsStats';
 import { STATS, withLiveCount } from '@/lib/constants/stats';
-import { SITE_URL, siteUrl } from '@/lib/constants/site';
+import { SITE_URL } from '@/lib/constants/site';
 import { generateSEO } from '@/lib/utils/seo';
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/layout/HeroSection";
@@ -46,7 +46,10 @@ export default async function Home() {
             "description": `India's largest AI tools, agents, LLMs, and ${STATS.researchPapers} research papers directory for startup founders`,
             "potentialAction": {
               "@type": "SearchAction",
-              "target": `${siteUrl('/search')}?q={search_term_string}`,
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": `${SITE_URL}/?q={search_term_string}#tools-section`,
+              },
               "query-input": "required name=search_term_string"
             }
           })

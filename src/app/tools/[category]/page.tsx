@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getAllTools } from '@/lib/actions/tools';
 import { fetchDirectoryStats, getCategoryCount } from '@/lib/api/toolsStats';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
@@ -100,9 +101,10 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const cat = hubFromTools(category, tools);
   if (!cat) {
     return generateSEO({
-      title: 'AI Tools Directory',
+      title: 'Category Not Found',
       description: 'Browse security-validated AI tools for startup founders.',
-      path: '/tools',
+      path: '/',
+      robots: { index: false, follow: true },
     });
   }
   return generateSEO({
@@ -123,16 +125,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const cat = hubFromTools(category, tools);
 
   if (!cat) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold text-white mb-4">Category Not Found</h1>
-          <p className="text-[var(--gray-400)]">The category you&apos;re looking for doesn&apos;t exist.</p>
-        </div>
-        <Footer />
-      </div>
-    );
+    notFound();
   }
   const indexedTools = tools.filter((tool) => isToolIndexable(tool));
   const categoryCount = getCategoryCount(stats, category, cat.name);
