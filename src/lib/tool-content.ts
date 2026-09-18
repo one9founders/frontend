@@ -62,8 +62,8 @@ export function hasSubstantiveContent(tool: Tool): boolean {
 
 /**
  * Whether `/tool/{slug}` should be indexable for search / answer engines.
- * Sitemap membership is broader (all publishable tools); this gate controls
- * the page `robots` meta so thin stubs stay noindex.
+ * Keep aligned with backend `api.hygiene.indexability.indexable_queryset`
+ * so the XML sitemap and page `robots` meta describe the same URL set.
  */
 export function isToolIndexable(tool: Tool): boolean {
   if (tool.assessed === true) return true;

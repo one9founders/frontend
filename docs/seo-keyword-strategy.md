@@ -44,7 +44,11 @@ India geo (relative to Gemini/Claude in the same batch): Gemini dominates; `"bes
 
 Homepage sits ~position 17 (~39 clicks). `/llms` gets impressions at ~position 43 with near-zero CTR — authority gap, not a missing H1.
 
-Coverage (2026-09-12): ~10.9k **Discovered – not indexed**, ~3k blocked by robots (query params — intentional), plus soft 404 / 404 / noindex. Indexing capacity is a bottleneck alongside keywords.
+Coverage (2026-09-14 GSC): ~43k **Not indexed** vs ~29k indexed. Critical buckets:
+~3k blocked by robots (query params — intentional), ~39k Discovered–not indexed,
+~950 Crawled–not indexed, plus soft 404 / 404 / noindex / redirects. Indexing
+capacity is a bottleneck alongside keywords — prefer sitemap ≈ indexable pages
+only, hard 404s instead of soft 404s, and SSR metadata on news.
 
 ## Strategy pillars (priority order)
 

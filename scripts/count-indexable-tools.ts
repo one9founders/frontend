@@ -60,7 +60,7 @@ async function main() {
   console.log(`isToolIndexable() === true (page robots index): ${indexable}`);
   console.log(`neither (page robots noindex): ${neither}`);
   console.log(
-    'note: XML sitemap membership is separate — publishable tools appear in /sitemaps/tools-N.xml regardless of page robots.'
+    'note: XML sitemap should match page robots — backend /tools/sitemap/ returns indexable tools only.',
   );
 }
 

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { getToolBySlug } from '@/lib/actions/tools';
 import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import Navbar from '@/components/layout/Navbar';
@@ -22,7 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return generateSEO({
       title: 'Compare AI Tools',
       description: 'Compare AI tools side by side for your startup.',
-      path: `/compare/${slug}`,
+      path: '/compare',
+      robots: { index: false, follow: true },
     });
   }
 
@@ -31,14 +33,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     getToolBySlug(parsed.toolBSlug),
   ]);
 
-  const nameA = toolA?.name || parsed.toolASlug;
-  const nameB = toolB?.name || parsed.toolBSlug;
+  if (!toolA || !toolB) {
+    return generateSEO({
+      title: 'Comparison Not Found',
+      description: 'One or both tools could not be found for this comparison.',
+      path: '/compare',
+      robots: { index: false, follow: true },
+    });
+  }
 
   return generateSEO({
-    title: `${nameA} vs ${nameB} - AI Tool Comparison (2026)`,
-    description: `Compare ${nameA} and ${nameB} side by side. Features, pricing, security scores, and ratings compared for startup founders.`,
+    title: `${toolA.name} vs ${toolB.name} - AI Tool Comparison (2026)`,
+    description: `Compare ${toolA.name} and ${toolB.name} side by side. Features, pricing, security scores, and ratings compared for startup founders.`,
     path: `/compare/${slug}`,
-    keywords: [`${nameA} vs ${nameB}`, 'AI tool comparison', 'startup tools', 'founder tools'],
+    keywords: [`${toolA.name} vs ${toolB.name}`, 'AI tool comparison', 'startup tools', 'founder tools'],
   });
 }
 
@@ -57,16 +65,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
   const parsed = parseComparisonSlug(slug);
 
   if (!parsed) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold text-white mb-4">Invalid Comparison</h1>
-          <p className="text-[var(--gray-400)]">Use the format /compare/tool-a-vs-tool-b to compare two tools.</p>
-        </div>
-        <Footer />
-      </div>
-    );
+    notFound();
   }
 
   const [rawToolA, rawToolB] = await Promise.all([
@@ -75,18 +74,7 @@ export default async function ComparisonPage({ params }: { params: Promise<{ slu
   ]);
 
   if (!rawToolA || !rawToolB) {
-    return (
-      <div className="min-h-screen bg-[var(--gray-black)]">
-        <Navbar />
-        <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold text-white mb-4">Tool Not Found</h1>
-          <p className="text-[var(--gray-400)]">
-            One or both tools could not be found. Please check the URL and try again.
-          </p>
-        </div>
-        <Footer />
-      </div>
-    );
+    notFound();
   }
 
   const toolA = rawToolA as Tool;
