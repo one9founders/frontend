@@ -1,6 +1,7 @@
 import { ReticleDev } from './reticle-dev';
 import type { Metadata } from "next";
 import { Inter, Bricolage_Grotesque } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ReCaptchaProvider } from "@/lib/recaptcha";
 import { CurrencyProvider } from "@/lib/currency";
@@ -113,7 +114,7 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
         <link rel="alternate" type="text/plain" href="/aeo.txt" title="aeo.txt" />
         <link rel="alternate" type="text/plain" href="/geo.txt" title="geo.txt" />
-        <script src="https://t.contentsquare.net/uxa/d11fb4e793d48.js"></script>
+        {/* gtag stays async; Contentsquare loads after the page is interactive to protect mobile INP */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-455BX3CJP8"></script>
         <script dangerouslySetInnerHTML={{
           __html: `
@@ -128,6 +129,11 @@ export default function RootLayout({
         className={`${inter.variable} ${bricolageGrotesque.variable} antialiased`}
       >
         {process.env.NODE_ENV === 'development' ? <ReticleDev /> : null}
+        <Script
+          id="contentsquare"
+          src="https://t.contentsquare.net/uxa/d11fb4e793d48.js"
+          strategy="lazyOnload"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}

@@ -14,9 +14,18 @@ interface SEOProps {
 const TITLE_MAX = 60;
 const BRAND_SUFFIX = ` | ${SITE_NAME}`;
 
-/** Indexable only when assessed is explicitly true. Missing/undefined is false. */
-export function isToolAssessed(tool: { assessed?: boolean | null }): boolean {
-  return tool.assessed === true;
+/**
+ * Editorial assessment gate for SEO helpers.
+ * Prefer `criteria_completed` (what the API actually sends); `assessed` is a
+ * legacy boolean that is rarely populated on list/detail payloads.
+ */
+export function isToolAssessed(tool: {
+  assessed?: boolean | null;
+  criteria_completed?: number | null;
+}): boolean {
+  if (tool.assessed === true) return true;
+  const completed = Number(tool.criteria_completed ?? 0);
+  return Number.isFinite(completed) && completed >= 6;
 }
 
 /** Cap a title at ~60 characters, keeping a single brand suffix. */

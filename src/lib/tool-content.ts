@@ -1,4 +1,5 @@
 import { Tool } from '../types';
+import { RATING_MIN_PROVISIONAL } from './toolRating';
 
 export const MIN_DESCRIPTION_WORDS = 40;
 /** Lower bar for attributed catalogue rows (HN, etc.) that already have a source URL. */
@@ -46,7 +47,10 @@ export function hasHackerNewsAttribution(tool: Tool): boolean {
 }
 
 export function hasSubstantiveContent(tool: Tool): boolean {
-  const wordCount = descriptionWordCount(tool.description);
+  // Prefer full description; fall back to combined text when list payloads omit it.
+  const primary = descriptionWordCount(tool.description);
+  const wordCount =
+    primary > 0 ? primary : descriptionWordCount(toolDescriptionText(tool));
   if (wordCount < MIN_DESCRIPTION_WORDS) return false;
 
   // Tool has no pros/cons fields; only pricing and use_cases exist on the type.
@@ -60,13 +64,20 @@ export function hasSubstantiveContent(tool: Tool): boolean {
   return secondarySignal;
 }
 
+/** Provisional+ editorial assessment — mirrors backend RATING_MIN_PROVISIONAL. */
+export function isToolAssessedForIndex(tool: Tool): boolean {
+  if (tool.assessed === true) return true;
+  const completed = Number(tool.criteria_completed ?? 0);
+  return Number.isFinite(completed) && completed >= RATING_MIN_PROVISIONAL;
+}
+
 /**
  * Whether `/tool/{slug}` should be indexable for search / answer engines.
  * Keep aligned with backend `api.hygiene.indexability.indexable_queryset`
  * so the XML sitemap and page `robots` meta describe the same URL set.
  */
 export function isToolIndexable(tool: Tool): boolean {
-  if (tool.assessed === true) return true;
+  if (isToolAssessedForIndex(tool)) return true;
   if (hasSubstantiveContent(tool)) return true;
 
   // HN-attributed catalogue rows: allow indexing with a shorter blurb when we
