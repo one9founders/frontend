@@ -44,11 +44,13 @@ India geo (relative to Gemini/Claude in the same batch): Gemini dominates; `"bes
 
 Homepage sits ~position 17 (~39 clicks). `/llms` gets impressions at ~position 43 with near-zero CTR — authority gap, not a missing H1.
 
-Coverage (2026-09-14 GSC): ~43k **Not indexed** vs ~29k indexed. Critical buckets:
-~3k blocked by robots (query params — intentional), ~39k Discovered–not indexed,
-~950 Crawled–not indexed, plus soft 404 / 404 / noindex / redirects. Indexing
-capacity is a bottleneck alongside keywords — prefer sitemap ≈ indexable pages
-only, hard 404s instead of soft 404s, and SSR metadata on news.
+Coverage (2026-09-20 GSC refresh): ~43k **Not indexed** vs ~29k indexed. Critical buckets:
+~3.1k blocked by robots (query params + private paths — **intentional**),
+~35.9k Discovered–not indexed, ~1.9k Crawled–not indexed, plus soft 404 / 404 /
+noindex / redirects. Also **INP &gt; 200ms on mobile** across ~2.3k URLs (third-party
+scripts in the shared shell). Indexing capacity is a bottleneck alongside keywords —
+prefer sitemap ≈ indexable pages only, hard 404s instead of soft 404s, SSR metadata,
+and deferred analytics so interactions stay under the INP budget.
 
 ## Strategy pillars (priority order)
 
@@ -91,6 +93,8 @@ People searching directories often land on **roundups** (“best AI tool directo
 2. Keep `www` canonical consistent (apex still appears in GSC).
 3. Strengthen `/llms` and category hubs with FAQ schema + unique copy (titles already exist).
 4. Avoid letting NSFW/low-trust agent pages become the brand SERP face without clear categorization.
+5. Keep page `robots` aligned with `/tools/sitemap/` (`criteria_completed >= 6` / substantive / HN catalogue) — never sitemap a noindex URL.
+6. Defer Contentsquare + load reCAPTCHA on demand to shrink mobile INP regressions sitewide.
 
 ## Content cadence (first 30 days)
 

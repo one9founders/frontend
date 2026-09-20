@@ -5,7 +5,6 @@ import llmData from '../../../public/data/llm-models.json';
 import type { LLMDataset } from '@/types/llm';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
-const LIST_PAGE_SIZE = 100;
 const REVALIDATE = 3600;
 
 export const SITEMAP_CHUNK = 2000;
@@ -81,21 +80,19 @@ async function fetchPaginated<T>(url: string): Promise<Paginated<T> | null> {
 }
 
 export async function getToolSitemapCount(): Promise<number> {
+  // Never fall back to /tools/ — that list includes thin/noindex stubs and
+  // would ask Google to crawl URLs we intentionally keep out of the index.
   const compact = await fetchPaginated<{ slug: string }>(
     `${API_URL}/tools/sitemap/?page=1&page_size=1`,
   );
-  if (compact) return compact.count;
-  const list = await fetchPaginated<unknown>(`${API_URL}/tools/?page=1&page_size=1`);
-  return list?.count ?? 0;
+  return compact?.count ?? 0;
 }
 
 export async function getPaperSitemapCount(): Promise<number> {
   const compact = await fetchPaginated<{ arxiv_id: string }>(
     `${API_URL}/api/v1/papers/sitemap/?page=1&page_size=1`,
   );
-  if (compact) return compact.count;
-  const list = await fetchPaginated<unknown>(`${API_URL}/api/v1/papers/?page=1&page_size=1`);
-  return list?.count ?? 0;
+  return compact?.count ?? 0;
 }
 
 export async function getAuthorSitemapCount(): Promise<number> {
@@ -109,9 +106,7 @@ export async function getNewsSitemapCount(): Promise<number> {
   const compact = await fetchPaginated<{ slug: string }>(
     `${API_URL}/news/sitemap/?page=1&page_size=1`,
   );
-  if (compact) return compact.count;
-  const list = await fetchPaginated<unknown>(`${API_URL}/news/?page=1&page_size=1`);
-  return list?.count ?? 0;
+  return compact?.count ?? 0;
 }
 
 export async function getSitemapIndexLocs(): Promise<string[]> {
@@ -134,28 +129,11 @@ export async function getSitemapIndexLocs(): Promise<string[]> {
   ];
 }
 
-async function listFallbackPage<T>(
-  baseUrl: string,
-  page: number,
-): Promise<T[]> {
-  const start = (page - 1) * (SITEMAP_CHUNK / LIST_PAGE_SIZE) + 1;
-  const end = start + SITEMAP_CHUNK / LIST_PAGE_SIZE - 1;
-  const results: T[] = [];
-  for (let listPage = start; listPage <= end; listPage += 1) {
-    const data = await fetchPaginated<T>(`${baseUrl}?page=${listPage}&page_size=${LIST_PAGE_SIZE}`);
-    if (!data?.results?.length) break;
-    results.push(...data.results);
-    if (!data.next) break;
-  }
-  return results;
-}
-
 export async function getToolSitemapPage(page: number): Promise<{ slug: string; updated_at?: string }[]> {
   const compact = await fetchPaginated<{ slug: string; updated_at?: string }>(
     `${API_URL}/tools/sitemap/?page=${page}&page_size=${SITEMAP_CHUNK}`,
   );
-  if (compact) return compact.results;
-  return listFallbackPage(`${API_URL}/tools/`, page);
+  return compact?.results ?? [];
 }
 
 export async function getPaperSitemapPage(
@@ -164,8 +142,7 @@ export async function getPaperSitemapPage(
   const compact = await fetchPaginated<{ arxiv_id: string; published_at?: string }>(
     `${API_URL}/api/v1/papers/sitemap/?page=${page}&page_size=${SITEMAP_CHUNK}`,
   );
-  if (compact) return compact.results;
-  return listFallbackPage(`${API_URL}/api/v1/papers/`, page);
+  return compact?.results ?? [];
 }
 
 export async function getAuthorSitemapPage(
@@ -183,8 +160,7 @@ export async function getNewsSitemapPage(
   const compact = await fetchPaginated<{ slug: string; updated_at?: string; published_at?: string }>(
     `${API_URL}/news/sitemap/?page=${page}&page_size=${SITEMAP_CHUNK}`,
   );
-  if (compact) return compact.results;
-  return listFallbackPage(`${API_URL}/news/`, page);
+  return compact?.results ?? [];
 }
 
 async function collectAll<T>(firstUrl: string, pick: (data: unknown) => T[]): Promise<T[]> {

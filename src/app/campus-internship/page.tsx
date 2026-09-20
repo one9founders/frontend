@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from 'next/navigation';
 
+/** Legacy path — permanent redirect also declared in next.config.ts. */
 export default function CampusInternshipPage() {
-  redirect("/internship");
+  permanentRedirect('/internship');
 }

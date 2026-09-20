@@ -59,6 +59,26 @@ const nextConfig: NextConfig = {
         destination: '/privacy',
         permanent: true,
       },
+      {
+        source: '/campus-internship',
+        destination: '/internship',
+        permanent: true,
+      },
+      {
+        source: '/campus-internship/',
+        destination: '/internship',
+        permanent: true,
+      },
+      {
+        source: '/learn/for-organizations',
+        destination: '/learn/organizations',
+        permanent: true,
+      },
+      {
+        source: '/learn/for-organizations/',
+        destination: '/learn/organizations',
+        permanent: true,
+      },
     ];
   },
   async headers() {

@@ -1,4 +1,4 @@
-import { hasSubstantiveContent, isToolIndexable } from '../src/lib/tool-content';
+import { hasSubstantiveContent, isToolAssessedForIndex, isToolIndexable } from '../src/lib/tool-content';
 import type { Tool } from '../src/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -35,7 +35,7 @@ async function main() {
   if (missingDescription > 0) {
     console.error(
       `warning: ${missingDescription}/${tools.length} list records omit description; ` +
-        'page-robots checks that need description may under-count until the list serializer includes it.'
+        'substantive checks fall back to short_description + criteria_completed.',
     );
   }
 
@@ -45,7 +45,7 @@ async function main() {
   let neither = 0;
 
   for (const tool of tools) {
-    const isAssessed = tool.assessed === true;
+    const isAssessed = isToolAssessedForIndex(tool);
     const hasContent = hasSubstantiveContent(tool);
     const canIndex = isToolIndexable(tool);
     if (isAssessed) assessed += 1;
@@ -55,7 +55,7 @@ async function main() {
   }
 
   console.log(`total: ${tools.length}`);
-  console.log(`assessed === true: ${assessed}`);
+  console.log(`assessed (criteria_completed >= 6 or assessed flag): ${assessed}`);
   console.log(`hasSubstantiveContent() === true: ${content}`);
   console.log(`isToolIndexable() === true (page robots index): ${indexable}`);
   console.log(`neither (page robots noindex): ${neither}`);
