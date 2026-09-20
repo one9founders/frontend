@@ -1,10 +1,9 @@
-import { requireAdminSession } from '@/lib/auth/admin';
+import type { Metadata } from 'next';
 
-export default async function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  await requireAdminSession();
-  return <>{children}</>;
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return children;
 }
