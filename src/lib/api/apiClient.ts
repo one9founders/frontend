@@ -362,4 +362,9 @@ export const trackingAPI = {
     if (limit) params.append('limit', limit.toString());
     return fetchAPI(`/tools/trending/?${params.toString()}`);
   },
+  getCommunitySubmittedTools: (limit?: number) => {
+    const params = new URLSearchParams();
+    if (limit) params.append('limit', limit.toString());
+    return fetchAPI(`/tools/community-submissions/?${params.toString()}`);
+  },
 };

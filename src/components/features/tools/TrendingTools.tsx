@@ -3,11 +3,10 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { trackingAPI } from '@/lib/api/apiClient';
-import { addRefToUrl } from '@/lib/utils/url';
 import { HugeiconsIcon, ArrowLeft01Icon, ArrowRight01Icon } from '@/components/ui/icons';
 import { getToolRatingDisplay, type ToolRatingFields } from '@/lib/toolRating';
 
-interface TrendingTool extends ToolRatingFields {
+interface CommunityTool extends ToolRatingFields {
   id: number;
   name: string;
   slug: string;
@@ -17,28 +16,27 @@ interface TrendingTool extends ToolRatingFields {
   rating: number;
   review_count: number;
   views_count: number;
-  usage_count: number;
-  click_count: number;
+  submitted_at?: string;
 }
 
 export default function TrendingTools() {
-  const [tools, setTools] = useState<TrendingTool[]>([]);
+  const [tools, setTools] = useState<CommunityTool[]>([]);
   const [loading, setLoading] = useState(true);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const loadTrendingTools = async () => {
+    const loadCommunityTools = async () => {
       try {
-        const data = await trackingAPI.getTrendingTools(7, 8);
+        const data = await trackingAPI.getCommunitySubmittedTools(160);
         setTools(data || []);
       } catch (error) {
-        console.error('Error loading trending tools:', error);
+        console.error('Error loading community submissions:', error);
       } finally {
         setLoading(false);
       }
     };
 
-    loadTrendingTools();
+    loadCommunityTools();
   }, []);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -55,8 +53,8 @@ export default function TrendingTools() {
     return (
       <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--ink)] border-t border-[var(--line)]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-2">This week</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)] mb-6">Trending</h2>
+          <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-2">Community</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)] mb-6">Founder submissions</h2>
           <div className="flex gap-4 overflow-hidden">
             {[1, 2, 3, 4].map((i) => (
               <div key={i} className="min-w-[240px] bg-[var(--ink-2)] p-4 animate-pulse border border-[var(--line)]">
@@ -82,21 +80,27 @@ export default function TrendingTools() {
   return (
     <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--ink)] border-t border-[var(--line)]">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-2">This week</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)]">Trending</h2>
+        <div className="flex justify-between items-end gap-4 mb-6">
+          <div className="max-w-2xl">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-2">Community</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)]">Founder submissions</h2>
+            <p className="mt-2 text-sm text-[var(--gray-400)]">
+              Tools submitted by founders on One9Founders — browse the latest listings from people
+              building AI and SaaS products.
+            </p>
           </div>
-          <div className="hidden md:flex gap-2">
+          <div className="hidden md:flex gap-2 shrink-0">
             <button
               onClick={() => scroll('left')}
               className="p-1.5 border border-[var(--line)] text-[var(--gray-400)] hover:text-[var(--paper)] hover:border-[var(--copper-dim)] transition-colors cursor-pointer"
+              aria-label="Scroll submissions left"
             >
               <HugeiconsIcon icon={ArrowLeft01Icon} size={18} />
             </button>
             <button
               onClick={() => scroll('right')}
               className="p-1.5 border border-[var(--line)] text-[var(--gray-400)] hover:text-[var(--paper)] hover:border-[var(--copper-dim)] transition-colors cursor-pointer"
+              aria-label="Scroll submissions right"
             >
               <HugeiconsIcon icon={ArrowRight01Icon} size={18} />
             </button>
@@ -127,11 +131,27 @@ export default function TrendingTools() {
                   </span>
                 </div>
               </div>
+              <p className="text-[10px] uppercase tracking-[0.14em] text-[var(--copper)] mb-1.5">
+                Community submission
+              </p>
               <p className="text-xs text-[var(--gray-400)] line-clamp-2">
                 {tool.short_description}
               </p>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3 text-sm">
+          <Link
+            href="/submit"
+            className="text-[var(--copper)] hover:text-[var(--copper-bright)]"
+          >
+            Submit your tool
+          </Link>
+          <span className="text-[var(--gray-600)]">·</span>
+          <span className="text-[var(--gray-500)]">
+            {tools.length} founder listing{tools.length === 1 ? '' : 's'} featured
+          </span>
         </div>
       </div>
     </section>
