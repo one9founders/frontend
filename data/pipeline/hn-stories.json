@@ -1,142 +1,142 @@
 [
   {
-    "title": "Ask HN: How do you guys stay on top of the code that is generated?",
-    "url": "",
+    "title": "Travel disruption around UK after second air traffic control issue in two weeks",
+    "url": "https://www.bbc.co.uk/news/live/cq4g5r4e949jt",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-21T11:44:24Z"
+    "createdAt": "2026-09-22T10:53:19Z"
   },
   {
-    "title": "Jev Use Cases Tested: Where This Decision-Only AI Fits",
-    "url": "https://www.mindstudio.ai/blog/jev-use-cases-automation",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:41:41Z"
-  },
-  {
-    "title": "Show HN: See what ChatGPT, Claude and Gemini say about your business",
-    "url": "https://kelriva.ai/ai-visibility-score",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:41:07Z"
-  },
-  {
-    "title": "What defenders need from frontier AI labs",
-    "url": "https://vincenzoiozzo.com/blog/offense-winning-ai-race",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:39:22Z"
-  },
-  {
-    "title": "Show HN: Accordia – Structured 1-on-1s for engineering managers",
-    "url": "https://www.getaccordia.com",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:39:14Z"
-  },
-  {
-    "title": "MIT uses AI to identify aging \"zombie cells.\"",
-    "url": "https://news.mit.edu/2026/unmasking-zombie-cells-aging-tissue-ai-powered-barcode-0921",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:34:43Z"
-  },
-  {
-    "title": "AI-controlled robot arms attempted harmful tasks 97% of the time",
-    "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-controlled-robot-arms-attempted-harmful-tasks-97-percent-of-the-time-experiments-included-stabbing-a-baby-doll-mixing-chemicals-openai-and-anthropic-models-try-mixing-bleach-and-stabbing-dolls-without-jailbreaks",
-    "points": 2,
+    "title": "America is getting its AI race with China wrong",
+    "url": "https://restofworld.org/2026/america-china-ai-race-trust/",
+    "points": 3,
     "numComments": 1,
-    "createdAt": "2026-09-21T11:31:53Z"
+    "createdAt": "2026-09-22T10:49:40Z"
   },
   {
-    "title": "Show HN: Audit your site's structure for AI search crawlers (ChatGPT, Claude)",
-    "url": "https://ukaiseoconsultant.co.uk/ai-driven-seo-audits/",
+    "title": "Gemini 2.5 models extended indefinitely for aactive users",
+    "url": "https://ai.google.dev/gemini-api/docs/changelog",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-21T11:15:35Z"
+    "createdAt": "2026-09-22T10:44:03Z"
   },
   {
-    "title": "Amazon blocks Meta's Muse AI agent from checkouts",
-    "url": "https://www.neowin.net/news/amazon-blocks-metas-muse-ai-agent-from-checkouts/",
+    "title": "Where Jev worked for us, and where it didn't",
+    "url": "https://gitloom.ai/blog/jev-in-production",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-21T11:10:37Z"
+    "createdAt": "2026-09-22T10:34:23Z"
   },
   {
-    "title": "Show HN: An extension to capture and annotate screenshots, with a terminal skin",
-    "url": "https://chromewebstore.google.com/detail/webmend-â-full-page-scree/blfeopjadgdflmnibdobadhonmoenijj",
+    "title": "A Self-Evident Essay Arguing for the Use of AI in Writing",
+    "url": "https://github.com/Sheer-Economics/the-sins-of-AI-writing",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-21T11:05:49Z"
+    "createdAt": "2026-09-22T10:28:56Z"
   },
   {
-    "title": "Show HN: Witdem – Did your AI Agent accomplish its task? and at what cost?",
-    "url": "https://demo.witdem.com",
-    "points": 3,
-    "numComments": 3,
-    "createdAt": "2026-09-21T11:05:49Z"
-  },
-  {
-    "title": "Show HN: Skillgesture – versioned, on-demand skills for AI agents",
-    "url": "https://github.com/Gabry848/skillgesture",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:02:41Z"
-  },
-  {
-    "title": "US and China Discuss Alerting Each Other to AI National Security Threats",
-    "url": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:01:16Z"
-  },
-  {
-    "title": "What re AI in software engineering are you struggling with the most?",
-    "url": "https://twitter.com/mitsuhiko/status/2101401648543195328",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T11:01:01Z"
-  },
-  {
-    "title": "Been thinking about our platforms and information diet we consume lately",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T10:42:47Z"
-  },
-  {
-    "title": "AI is reaching new highs with AROM Labs",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-21T10:34:28Z"
-  },
-  {
-    "title": "Show HN: Open Source AI Employees",
-    "url": "https://github.com/markfulton/ai-employees",
+    "title": "Migrating the GitHub Copilot Runtime to Rust, Using Copilot",
+    "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-21T10:28:45Z"
+    "createdAt": "2026-09-22T10:26:22Z"
   },
   {
-    "title": "A thing we may be able to learn from AI",
-    "url": "https://wilsoniumite.com/2026/09/21/a-thing-we-may-be-able-to-learn-from-ai/",
+    "title": "Adventures in AI Apathy",
+    "url": "https://iconsolutions.com/blog/adventures-in-ai-apathy",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-21T10:21:35Z"
+    "createdAt": "2026-09-22T10:25:42Z"
   },
   {
-    "title": "AI Poster Prompts Improved",
-    "url": "https://john.hartnup.uk/2026/09/20/poster-prompts-v2.html",
-    "points": 1,
-    "numComments": 7,
-    "createdAt": "2026-09-21T10:05:14Z"
+    "title": "TypeSafe AI Jev vs. GPT-6 Astra",
+    "url": "https://vercel.com/i/jev-vs-gpt-6-astra",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-22T09:53:35Z"
   },
   {
-    "title": "New air traffic control failure delays flights at UK airports",
-    "url": "https://www.reuters.com/world/uk/delays-uks-manchester-airport-over-air-traffic-control-failure-telegraph-reports-2026-09-21/",
+    "title": "Nvidia boss says there is '0% chance' AI destroys the world by 2030",
+    "url": "https://www.theguardian.com/technology/2026/sep/21/nvidia-boss-jensen-huang-dismisses-warnings-ai-destroys-world-anthropic",
     "points": 5,
     "numComments": 0,
-    "createdAt": "2026-09-21T09:59:47Z"
+    "createdAt": "2026-09-22T09:36:53Z"
+  },
+  {
+    "title": "An AI bot appeared on the StarCraft ladder. Can you tell who's playing?",
+    "url": "https://marianogappa.github.io/software/2026/09/22/player-fingerprinting-in-the-age-of-ai-bots/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-22T09:30:47Z"
+  },
+  {
+    "title": "Ask HN: What's with the forced lower-casing texts?",
+    "url": "",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-22T09:26:56Z"
+  },
+  {
+    "title": "Same prompt, same endpoint, different score",
+    "url": "https://codecut.ai/prompt-tweak-score-gain/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-22T09:24:00Z"
+  },
+  {
+    "title": "FAA debuts its AI-powered tool for managing flight traffic",
+    "url": "https://www.politico.com/news/2026/09/21/faa-ai-tool-flight-traffic-01086258",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-22T09:22:09Z"
+  },
+  {
+    "title": "Study: Young users (9 to 18Y) ditch Google for AI, with unknown consequences",
+    "url": "https://norwegianscitechnews.com/2026/09/young-users-ditch-google-for-ai-with-unknown-consequences/",
+    "points": 46,
+    "numComments": 65,
+    "createdAt": "2026-09-22T09:18:54Z"
+  },
+  {
+    "title": "Ask HN: What do you expect from the next 5 years of AI?",
+    "url": "",
+    "points": 3,
+    "numComments": 5,
+    "createdAt": "2026-09-22T09:17:12Z"
+  },
+  {
+    "title": "Organizing with Bayes",
+    "url": "https://heat-shield.space/organizing_with_bayes.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-22T09:16:10Z"
+  },
+  {
+    "title": "How AI is impacting who gets to cross borders",
+    "url": "https://newsroom.taylorandfrancisgroup.com/how-ai-is-impacting-who-gets-to-cross-borders/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-22T08:59:05Z"
+  },
+  {
+    "title": "AI Mode for Emacs",
+    "url": "https://github.com/ai-mode/ai-mode",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-22T08:52:02Z"
+  },
+  {
+    "title": "Et Tu, Brute? Economic Misalignment in Personal AI Agents",
+    "url": "https://arxiv.org/abs/2609.24927",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-22T08:07:09Z"
+  },
+  {
+    "title": "Police hugging AI so tight, soon we'll all be pre-crime suspects",
+    "url": "https://responsiblestatecraft.org/pentagon-artificial-intelligence/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-22T07:57:18Z"
   }
 ]
