@@ -1,142 +1,142 @@
 [
   {
-    "title": "AI is dominating the conversation at Climate Week",
-    "url": "https://www.technologyreview.com/2026/09/24/1145048/ai-climate-week/",
+    "title": "The Pentagon wants $30M to build an AI-powered lie detector",
+    "url": "https://www.technologyreview.com/2026/09/25/1145144/pentagon-ai-lie-detector/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-24T11:01:31Z"
+    "createdAt": "2026-09-25T11:01:16Z"
   },
   {
-    "title": "Ten AI models debated fixes for 15 problems",
-    "url": "https://fixtheworld.io/ai/debate",
+    "title": "Uproar in France over award-winning author accused of using AI",
+    "url": "https://www.bbc.com/news/articles/ck7v4y45893go",
+    "points": 10,
+    "numComments": 3,
+    "createdAt": "2026-09-25T10:48:32Z"
+  },
+  {
+    "title": "Four things I learned throughout the last years working with AI",
+    "url": "https://www.ssp.sh/brain/what-i-learned-writing-with-ai/",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-09-25T10:38:25Z"
+  },
+  {
+    "title": "Show HN: Agentic CUDA Kernel Optimizer",
+    "url": "https://github.com/bertaye/agentic-cuda-optimizer",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-24T10:58:14Z"
+    "createdAt": "2026-09-25T10:32:58Z"
   },
   {
-    "title": "Evolving programming languages in the AI era",
-    "url": "https://dashbit.co/blog/evolving-ai-era",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-24T10:52:53Z"
-  },
-  {
-    "title": "I built aiFlow, a free and open-source macOS file manager",
-    "url": "https://github.com/nnikolaandric-sudo/aiFlow",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-24T10:49:52Z"
-  },
-  {
-    "title": "Utyansky Index: Deterministic O(1) slot isolation for AI vibe coding",
-    "url": "https://github.com/vlad-utyansky/utyansky-index",
+    "title": "AI-Powered Fuzzing with the GitHub Security Lab Taskflow Agent",
+    "url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-24T10:45:09Z"
+    "createdAt": "2026-09-25T10:23:41Z"
   },
   {
-    "title": "Show HN: Forkbench – boundaries and supervision for AI coding agents",
-    "url": "https://forkbench.com/l/FAUiWl3f",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-24T10:44:24Z"
-  },
-  {
-    "title": "First Autonomous Agentic System",
-    "url": "https://blog.cloudgeni.ai/cloudgeni-first-truly-autonomous-cloud-platform/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-24T10:44:21Z"
-  },
-  {
-    "title": "I am looking for GTM co-founder for my anti AI slop startup I am building",
+    "title": "Tell HN: PSA: AI can make old games run on 64-bit macOS",
     "url": "",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-24T10:42:23Z"
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-25T10:19:20Z"
   },
   {
-    "title": "The Invisible Way Companies Are Using AI to Set Salaries",
-    "url": "https://www.wsj.com/lifestyle/careers/the-invisible-way-companies-are-using-ai-to-set-salaries-ad3f74a8",
+    "title": "'We didn't need air conditioning': the airport cooled by natural ventilation",
+    "url": "https://www.theguardian.com/environment/2026/sep/25/didnt-need-air-conditioning-airport-cooled-natural-ventilation-reunion",
+    "points": 5,
+    "numComments": 0,
+    "createdAt": "2026-09-25T10:16:50Z"
+  },
+  {
+    "title": "Show HN: Rigo Studio | AI Farm Intelligence",
+    "url": "https://agririgo.com",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-25T10:02:08Z"
+  },
+  {
+    "title": "How Does AI Change Labor Demand? Evidence from 41 Countries",
+    "url": "https://digitaleconomy.stanford.edu/publication/how-does-ai-change-labor-demand/",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-24T10:41:25Z"
+    "createdAt": "2026-09-25T10:00:19Z"
   },
   {
-    "title": "Agent IAP – Little Snitch Meets 1Password for AI Agents",
-    "url": "https://vpetersson.com/2026/09/23/little-snitch-meets-1password-for-ai-agents/",
-    "points": 6,
-    "numComments": 1,
-    "createdAt": "2026-09-24T10:40:59Z"
-  },
-  {
-    "title": "ACTx486 turns a podcast or video into a responsive AI conversation",
-    "url": "https://runtimewire.com/article/actx486-turns-a-podcast-or-video-into-a-responsive-ai-conversation",
-    "points": 1,
+    "title": "NASA Modernizes Commercial Airline Systems",
+    "url": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
+    "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-24T10:38:30Z"
+    "createdAt": "2026-09-25T09:58:37Z"
   },
   {
-    "title": "Polytender – AI for Public Tenders",
-    "url": "https://polytender.com/en",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-24T10:37:47Z"
-  },
-  {
-    "title": "Show HN: I built AgeDB, a database for AI agents to store context and data",
-    "url": "https://github.com/sivsivsree/agedb",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-24T10:34:05Z"
-  },
-  {
-    "title": "Pro-Human AI Declaration",
-    "url": "https://prohumandeclaration.com/en/sign/demand-ai-accountability",
+    "title": "Show HN: AtlasBurn – Know what your AI costs and stop runaway agents",
+    "url": "https://atlasburn.com/",
     "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-09-24T10:30:04Z"
-  },
-  {
-    "title": "I miss old Google: readers tell us how they search the internet in the age of AI",
-    "url": "https://www.theguardian.com/technology/2026/sep/23/google-readers-respond-ai-overview-internet-searches",
-    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-24T10:24:53Z"
+    "createdAt": "2026-09-25T09:37:55Z"
   },
   {
-    "title": "AI meets trade Global linkages and the cross-country distribution of AI gains",
-    "url": "https://www.oecd.org/en/publications/ai-meets-trade_13081644-en.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-24T10:08:40Z"
-  },
-  {
-    "title": "Mark Zuckerberg unveils AI 'charm' device that can fit on a keychain",
-    "url": "https://www.ft.com/content/f4770cdf-626e-41e3-9db0-3dc0b64b8c00",
+    "title": "AI as a Tool in Taste Research: decoding the taste of bitterness",
+    "url": "https://www.leibniz-lsb.de/en/press-public-relations/pm-20260922-press-release-ai-as-a-tool-in-taste-research",
     "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-09-24T09:59:55Z"
+    "numComments": 0,
+    "createdAt": "2026-09-25T09:25:11Z"
   },
   {
-    "title": "AI has no intent and no motivation",
-    "url": "https://www.i-programmer.info/news/245-view-point/19164-ai-has-no-motivation.html",
-    "points": 35,
-    "numComments": 41,
-    "createdAt": "2026-09-24T09:13:25Z"
-  },
-  {
-    "title": "Cutting the 'coordination tax': How agentic AI can reshape workflows",
-    "url": "https://www.mckinsey.com/industries/industrials/our-insights/cutting-the-coordination-tax-how-agentic-ai-can-reshape-workflows",
+    "title": "Show HN: Proxima Forma – Designs that my AI agents understand",
+    "url": "https://proximaforma.com/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-24T09:12:19Z"
+    "createdAt": "2026-09-25T09:22:55Z"
   },
   {
-    "title": "Proposed bill to ban artificial superintelligence and create Department of AI",
-    "url": "https://apnews.com/article/ai-superintelligence-bernie-sanders-d6a6a2cd8e71d7c95bdc394595aa85d1",
-    "points": 4,
+    "title": "Show HN: Apowerb, the open-source AI agent runtime (RAG, Text-to-SQL, webhooks)",
+    "url": "https://github.com/apowerb/apowerb",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-25T09:12:30Z"
+  },
+  {
+    "title": "Show HN: The last day of the dinosaurs, as an interactive painting",
+    "url": "https://www.echohive.ai/experiments/dinosaurs",
+    "points": 13,
+    "numComments": 11,
+    "createdAt": "2026-09-25T08:58:13Z"
+  },
+  {
+    "title": "BigQuery FinOps Framework",
+    "url": "https://www.alvin.ai/blog/bigquery-cost-optimization-the-complete-finops-framework",
+    "points": 7,
+    "numComments": 1,
+    "createdAt": "2026-09-25T08:30:59Z"
+  },
+  {
+    "title": "AI for Creativity",
+    "url": "https://twitter.com/jeffreykWNDR/status/2102774995315245469",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-25T08:18:58Z"
+  },
+  {
+    "title": "Legal AI Harvey's margins went from +50% to -50% in 6 months on frontier costs",
+    "url": "https://finance.yahoo.com/technology/ai/articles/openai-anthropic-costs-push-more-160523322.html",
+    "points": 3,
     "numComments": 2,
-    "createdAt": "2026-09-24T08:59:32Z"
+    "createdAt": "2026-09-25T08:08:30Z"
+  },
+  {
+    "title": "Real-Time AI Simplification (A2, B1, B2) of BBC World News Live",
+    "url": "https://voicefrom.ai/restate/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-25T08:06:55Z"
+  },
+  {
+    "title": "Show HN: Can an AI agent bypass a post-quantum signed authorization policy?",
+    "url": "https://github.com/max-russo-com/MAX_AUTHORIZATION_SANDBOX",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-25T07:55:01Z"
   }
 ]
