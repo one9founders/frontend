@@ -1,142 +1,142 @@
 [
   {
-    "title": "The Pentagon wants $30M to build an AI-powered lie detector",
-    "url": "https://www.technologyreview.com/2026/09/25/1145144/pentagon-ai-lie-detector/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-25T11:01:16Z"
-  },
-  {
-    "title": "Uproar in France over award-winning author accused of using AI",
-    "url": "https://www.bbc.com/news/articles/ck7v4y45893go",
-    "points": 10,
-    "numComments": 3,
-    "createdAt": "2026-09-25T10:48:32Z"
-  },
-  {
-    "title": "Four things I learned throughout the last years working with AI",
-    "url": "https://www.ssp.sh/brain/what-i-learned-writing-with-ai/",
-    "points": 3,
-    "numComments": 1,
-    "createdAt": "2026-09-25T10:38:25Z"
-  },
-  {
-    "title": "Show HN: Agentic CUDA Kernel Optimizer",
-    "url": "https://github.com/bertaye/agentic-cuda-optimizer",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-25T10:32:58Z"
-  },
-  {
-    "title": "AI-Powered Fuzzing with the GitHub Security Lab Taskflow Agent",
-    "url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/",
+    "title": "Alex Karp: AI Models Are Stealing Your Data and the AI Safety Truth [video]",
+    "url": "https://www.youtube.com/watch?v=2YVCdwvG548",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-25T10:23:41Z"
+    "createdAt": "2026-09-26T10:42:01Z"
   },
   {
-    "title": "Tell HN: PSA: AI can make old games run on 64-bit macOS",
+    "title": "Show HN: CStructSharp – C-struct (de)serialization for C# and JavaScript (WASM)",
+    "url": "https://github.com/vvollers/cstructsharp",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-26T10:31:25Z"
+  },
+  {
+    "title": "One Month Without AI",
+    "url": "https://blog.bustikiller.com/2026/09/25/one-month-without-ai.html",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-26T10:08:21Z"
+  },
+  {
+    "title": "The Copilot+ PC brand is dead",
+    "url": "https://www.windowscentral.com/microsoft/windows-11/the-copilot-pc-brand-is-dead-microsoft-and-pc-makers-quietly-pull-back-on-tarnished-windows-11-ai-pc-branding",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-26T09:55:38Z"
+  },
+  {
+    "title": "I am the only one who still uses sublime text daily?",
     "url": "",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-25T10:19:20Z"
+    "createdAt": "2026-09-26T09:30:20Z"
   },
   {
-    "title": "'We didn't need air conditioning': the airport cooled by natural ventilation",
-    "url": "https://www.theguardian.com/environment/2026/sep/25/didnt-need-air-conditioning-airport-cooled-natural-ventilation-reunion",
-    "points": 5,
-    "numComments": 0,
-    "createdAt": "2026-09-25T10:16:50Z"
-  },
-  {
-    "title": "Show HN: Rigo Studio | AI Farm Intelligence",
-    "url": "https://agririgo.com",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-25T10:02:08Z"
-  },
-  {
-    "title": "How Does AI Change Labor Demand? Evidence from 41 Countries",
-    "url": "https://digitaleconomy.stanford.edu/publication/how-does-ai-change-labor-demand/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-25T10:00:19Z"
-  },
-  {
-    "title": "NASA Modernizes Commercial Airline Systems",
-    "url": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-25T09:58:37Z"
-  },
-  {
-    "title": "Show HN: AtlasBurn – Know what your AI costs and stop runaway agents",
-    "url": "https://atlasburn.com/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-25T09:37:55Z"
-  },
-  {
-    "title": "AI as a Tool in Taste Research: decoding the taste of bitterness",
-    "url": "https://www.leibniz-lsb.de/en/press-public-relations/pm-20260922-press-release-ai-as-a-tool-in-taste-research",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-25T09:25:11Z"
-  },
-  {
-    "title": "Show HN: Proxima Forma – Designs that my AI agents understand",
-    "url": "https://proximaforma.com/",
+    "title": "Show HN: App2Api – Give your AI the API behind your app",
+    "url": "https://app2api.com/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-25T09:22:55Z"
+    "createdAt": "2026-09-26T09:27:27Z"
   },
   {
-    "title": "Show HN: Apowerb, the open-source AI agent runtime (RAG, Text-to-SQL, webhooks)",
-    "url": "https://github.com/apowerb/apowerb",
+    "title": "Flashcat – a local AI assistant for the Mac terminal that asks first",
+    "url": "https://github.com/TomTomsen765/flashcat",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-25T09:12:30Z"
+    "createdAt": "2026-09-26T09:24:14Z"
   },
   {
-    "title": "Show HN: The last day of the dinosaurs, as an interactive painting",
-    "url": "https://www.echohive.ai/experiments/dinosaurs",
-    "points": 13,
-    "numComments": 11,
-    "createdAt": "2026-09-25T08:58:13Z"
+    "title": "Using Pomodoro to limit interaction with AI",
+    "url": "https://anaivebidder.com/posts/the-agentic-pomodoro-iterating-faster/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-26T08:53:58Z"
   },
   {
-    "title": "BigQuery FinOps Framework",
-    "url": "https://www.alvin.ai/blog/bigquery-cost-optimization-the-complete-finops-framework",
-    "points": 7,
+    "title": "Trump admin using AI to deny medical care for seniors in disastrous experiment",
+    "url": "https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment/",
+    "points": 4,
+    "numComments": 3,
+    "createdAt": "2026-09-26T08:52:57Z"
+  },
+  {
+    "title": "EU Member States plan \"digital expropriation\" of Europeans in the interest of AI",
+    "url": "https://noyb.eu/en/ai-eu-member-states-plan-digital-expropriation-europeans-interest-ai-companies",
+    "points": 6,
     "numComments": 1,
-    "createdAt": "2026-09-25T08:30:59Z"
+    "createdAt": "2026-09-26T08:51:00Z"
   },
   {
-    "title": "AI for Creativity",
-    "url": "https://twitter.com/jeffreykWNDR/status/2102774995315245469",
+    "title": "Linux Kernel Developers Consider Adding Agents.md to Help Guide AI/LLM Agents",
+    "url": "https://www.phoronix.com/news/Linux-Considers-AGENTS-MD",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-25T08:18:58Z"
+    "createdAt": "2026-09-26T08:36:59Z"
   },
   {
-    "title": "Legal AI Harvey's margins went from +50% to -50% in 6 months on frontier costs",
-    "url": "https://finance.yahoo.com/technology/ai/articles/openai-anthropic-costs-push-more-160523322.html",
+    "title": "Nobody wanted an \"AI PC,\" so Microsoft stopped calling it that",
+    "url": "https://www.techspot.com/news/113985-nobody-wanted-ai-pc-microsoft-stopped-calling.html",
+    "points": 6,
+    "numComments": 2,
+    "createdAt": "2026-09-26T08:23:22Z"
+  },
+  {
+    "title": "Who is behind the AI safety backlash?",
+    "url": "https://twitter.com/TheMidasProj/status/2103577207700365719",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-26T08:03:46Z"
+  },
+  {
+    "title": "Thought on how to deal with AI crawlers",
+    "url": "https://copepod.dev/human-required",
     "points": 3,
     "numComments": 2,
-    "createdAt": "2026-09-25T08:08:30Z"
+    "createdAt": "2026-09-26T06:48:42Z"
   },
   {
-    "title": "Real-Time AI Simplification (A2, B1, B2) of BBC World News Live",
-    "url": "https://voicefrom.ai/restate/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-25T08:06:55Z"
-  },
-  {
-    "title": "Show HN: Can an AI agent bypass a post-quantum signed authorization policy?",
-    "url": "https://github.com/max-russo-com/MAX_AUTHORIZATION_SANDBOX",
+    "title": "It's a Jev's World",
+    "url": "https://www.bolna.ai/blog/testing-jev-on-real-phone-calls",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-25T07:55:01Z"
+    "createdAt": "2026-09-26T06:44:56Z"
+  },
+  {
+    "title": "AI was supposed to hit new grads hard. So far, unemployment data says otherwise",
+    "url": "https://arstechnica.com/ai/2026/09/ai-was-supposed-to-hit-new-grads-hard-so-far-unemployment-data-says-otherwise/",
+    "points": 7,
+    "numComments": 4,
+    "createdAt": "2026-09-26T06:37:38Z"
+  },
+  {
+    "title": "Novelist accused of using AI to write book removed from French prize list",
+    "url": "https://www.theguardian.com/books/2026/sep/25/thelyson-orelien-goncourt-prize-france",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-09-26T06:33:39Z"
+  },
+  {
+    "title": "US DOE will give $5.25B to upgrade the grid for AI datacenters",
+    "url": "https://www.theregister.com/systems/2026/09/25/uncle-sam-coughs-up-19b-for-grid-upgrades-as-datacenters-hit-a-power-wall/5299276",
+    "points": 10,
+    "numComments": 0,
+    "createdAt": "2026-09-26T06:15:37Z"
+  },
+  {
+    "title": "One company is at the center of a wave of rogue AI attacks",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1000644/irregular-rogue-ai-cyberattacks-hacking-openai-meta-anthropic-google",
+    "points": 5,
+    "numComments": 0,
+    "createdAt": "2026-09-26T06:08:44Z"
+  },
+  {
+    "title": "Legendary US spy plane vanishes from CA base amid mystery over new NASA aircraft",
+    "url": "https://economictimes.indiatimes.com/news/international/global-trends/legendary-us-spy-plane-vanishes-from-california-base-amid-mystery-over-new-nasa-aircraft/articleshow/134488118.cms?from=mdr",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-26T06:04:07Z"
   }
 ]
