@@ -82,7 +82,7 @@ describe('catalog query', () => {
   it('defaults a search to relevance and a browse to name', () => {
     const searched = catalogQueryFromParams({ get: (name) => (name === 'q' ? 'inbox' : null) });
     assert.equal(searched.sort, 'relevance');
-    assert.equal(catalogApiQuery(searched).ordering, 'relevance');
+    assert.equal(catalogApiQuery(searched).ordering, undefined);
     const browse = catalogQueryFromParams({ get: () => null });
     assert.equal(browse.sort, 'name');
     assert.equal(catalogApiQuery(browse).ordering, 'name');

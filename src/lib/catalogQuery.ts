@@ -109,7 +109,8 @@ export function catalogApiQuery(query: CatalogQuery): Record<string, string> {
   if (query.deployment) params.deployment = query.deployment;
   if (query.integration) params.integration = query.integration;
   if (query.q && (query.sort === 'relevance' || !query.sort)) {
-    params.ordering = 'relevance';
+    // Omit ordering. The current API treats a search with no ordering as relevance.
+    // Sending ordering=relevance makes older APIs try to sort on a column and 500.
   } else if (query.sort === 'rating') {
     params.ordering = '-overall_score';
   } else if (query.sort === 'newest') {
