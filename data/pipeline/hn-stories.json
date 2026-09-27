@@ -1,142 +1,142 @@
 [
   {
-    "title": "Alex Karp: AI Models Are Stealing Your Data and the AI Safety Truth [video]",
-    "url": "https://www.youtube.com/watch?v=2YVCdwvG548",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-26T10:42:01Z"
-  },
-  {
-    "title": "Show HN: CStructSharp – C-struct (de)serialization for C# and JavaScript (WASM)",
-    "url": "https://github.com/vvollers/cstructsharp",
+    "title": "'Things will never be chill again': The doomers who shaped AI safety freakout",
+    "url": "https://www.msn.com/en-us/money/general/things-will-never-be-chill-again-the-doomers-who-shaped-the-ai-safety-freakout/ar-AA2d2d6t",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-26T10:31:25Z"
+    "createdAt": "2026-09-27T11:08:43Z"
   },
   {
-    "title": "One Month Without AI",
-    "url": "https://blog.bustikiller.com/2026/09/25/one-month-without-ai.html",
-    "points": 2,
+    "title": "Anthropic's Secretive AI-Powered Wet Lab Breaks Cover and Makes First Discovery",
+    "url": "https://www.the-scientist.com/anthropic-s-secretive-ai-powered-wet-lab-breaks-cover-and-makes-first-discovery-75037",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-26T10:08:21Z"
+    "createdAt": "2026-09-27T11:03:32Z"
   },
   {
-    "title": "The Copilot+ PC brand is dead",
-    "url": "https://www.windowscentral.com/microsoft/windows-11/the-copilot-pc-brand-is-dead-microsoft-and-pc-makers-quietly-pull-back-on-tarnished-windows-11-ai-pc-branding",
+    "title": "Being Mentioned in AI Answers Is Not the Same as Being Recommended",
+    "url": "https://cuescout.com/blog/mentioned-is-not-recommended",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-26T09:55:38Z"
+    "createdAt": "2026-09-27T10:35:43Z"
   },
   {
-    "title": "I am the only one who still uses sublime text daily?",
+    "title": "Trying GPT-6 Sol with AI SDK Evaluation API",
+    "url": "https://vercel.com/i/using-gpt-6-sol-with-ai-sdk-evaluation",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-27T10:14:21Z"
+  },
+  {
+    "title": "Show HN: TanStack Start and TanStack AI Jev Integration",
+    "url": "https://vercel.com/i/using-jev-in-tanstack-start-with-tanstack-ai",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-27T10:13:46Z"
+  },
+  {
+    "title": "Ask HN: What does your AI workflow look like?",
     "url": "",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-26T09:30:20Z"
-  },
-  {
-    "title": "Show HN: App2Api – Give your AI the API behind your app",
-    "url": "https://app2api.com/",
     "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-26T09:27:27Z"
-  },
-  {
-    "title": "Flashcat – a local AI assistant for the Mac terminal that asks first",
-    "url": "https://github.com/TomTomsen765/flashcat",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-26T09:24:14Z"
-  },
-  {
-    "title": "Using Pomodoro to limit interaction with AI",
-    "url": "https://anaivebidder.com/posts/the-agentic-pomodoro-iterating-faster/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-26T08:53:58Z"
-  },
-  {
-    "title": "Trump admin using AI to deny medical care for seniors in disastrous experiment",
-    "url": "https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment/",
-    "points": 4,
     "numComments": 3,
-    "createdAt": "2026-09-26T08:52:57Z"
+    "createdAt": "2026-09-27T10:11:31Z"
   },
   {
-    "title": "EU Member States plan \"digital expropriation\" of Europeans in the interest of AI",
-    "url": "https://noyb.eu/en/ai-eu-member-states-plan-digital-expropriation-europeans-interest-ai-companies",
-    "points": 6,
+    "title": "The Importance of Human Knowledge in the AI Era",
+    "url": "https://jonbehnken.substack.com/p/the-case-for-learning",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-27T10:08:26Z"
+  },
+  {
+    "title": "How AI Is Accelerating PCB Design and Prototyping",
+    "url": "https://www.eetimes.com/how-ai-is-accelerating-pcb-design-and-prototyping/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-27T10:01:30Z"
+  },
+  {
+    "title": "Genius AI APı Anahtarı",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-27T09:57:22Z"
+  },
+  {
+    "title": "Sandbox-first AI coding harness",
+    "url": "https://chock.ws/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-27T09:52:06Z"
+  },
+  {
+    "title": "Show HN: Gigantua – A Black Hole in your Browser",
+    "url": "https://claude.ai/artifact/XmWGFtQPgn8aJvU193Ksf8",
+    "points": 3,
     "numComments": 1,
-    "createdAt": "2026-09-26T08:51:00Z"
+    "createdAt": "2026-09-27T09:22:47Z"
   },
   {
-    "title": "Linux Kernel Developers Consider Adding Agents.md to Help Guide AI/LLM Agents",
-    "url": "https://www.phoronix.com/news/Linux-Considers-AGENTS-MD",
-    "points": 3,
+    "title": "Scoop: Top AI companies probing security incidents",
+    "url": "https://www.axios.com/2026/09/26/openai-anthropic-thousands-ai-security-incidents",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-26T08:36:59Z"
+    "createdAt": "2026-09-27T09:18:05Z"
   },
   {
-    "title": "Nobody wanted an \"AI PC,\" so Microsoft stopped calling it that",
-    "url": "https://www.techspot.com/news/113985-nobody-wanted-ai-pc-microsoft-stopped-calling.html",
-    "points": 6,
-    "numComments": 2,
-    "createdAt": "2026-09-26T08:23:22Z"
-  },
-  {
-    "title": "Who is behind the AI safety backlash?",
-    "url": "https://twitter.com/TheMidasProj/status/2103577207700365719",
+    "title": "What is an AI sandbox, and why do AI agents keep escaping them?",
+    "url": "https://madrobot.blog/2026/09/27/what-is-an-ai-sandbox-why-ai-agents-escape/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-26T08:03:46Z"
+    "createdAt": "2026-09-27T09:14:54Z"
   },
   {
-    "title": "Thought on how to deal with AI crawlers",
-    "url": "https://copepod.dev/human-required",
-    "points": 3,
-    "numComments": 2,
-    "createdAt": "2026-09-26T06:48:42Z"
+    "title": "Ask HN: Is answering GitHub issues with AI without declaring it a big deal?",
+    "url": "",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-09-27T09:10:31Z"
   },
   {
-    "title": "It's a Jev's World",
-    "url": "https://www.bolna.ai/blog/testing-jev-on-real-phone-calls",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-26T06:44:56Z"
-  },
-  {
-    "title": "AI was supposed to hit new grads hard. So far, unemployment data says otherwise",
-    "url": "https://arstechnica.com/ai/2026/09/ai-was-supposed-to-hit-new-grads-hard-so-far-unemployment-data-says-otherwise/",
+    "title": "OpenAI pauses training of latest models after agents probed US Government sites",
+    "url": "https://apnews.com/article/ai-openai-anthropic-agents-rogue-hack-2f8a2b9024d4f06793bcca12f8089d20",
     "points": 7,
-    "numComments": 4,
-    "createdAt": "2026-09-26T06:37:38Z"
-  },
-  {
-    "title": "Novelist accused of using AI to write book removed from French prize list",
-    "url": "https://www.theguardian.com/books/2026/sep/25/thelyson-orelien-goncourt-prize-france",
-    "points": 4,
     "numComments": 0,
-    "createdAt": "2026-09-26T06:33:39Z"
+    "createdAt": "2026-09-27T09:07:03Z"
   },
   {
-    "title": "US DOE will give $5.25B to upgrade the grid for AI datacenters",
-    "url": "https://www.theregister.com/systems/2026/09/25/uncle-sam-coughs-up-19b-for-grid-upgrades-as-datacenters-hit-a-power-wall/5299276",
-    "points": 10,
+    "title": "Majority of YouTube comments seem AI generated to me now",
+    "url": "",
+    "points": 1,
+    "numComments": 3,
+    "createdAt": "2026-09-27T09:04:08Z"
+  },
+  {
+    "title": "Rezzmo – an AI-native communication app with live AI during calls",
+    "url": "http://rezzmo.com/",
+    "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-26T06:15:37Z"
+    "createdAt": "2026-09-27T09:00:12Z"
   },
   {
-    "title": "One company is at the center of a wave of rogue AI attacks",
-    "url": "https://www.theverge.com/ai-artificial-intelligence/1000644/irregular-rogue-ai-cyberattacks-hacking-openai-meta-anthropic-google",
-    "points": 5,
+    "title": "The Jobs Matrix for AI: Four Boxes Instead of Forty Tools",
+    "url": "https://age-of-product.com/jobs-matrix-ai/",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-26T06:08:44Z"
+    "createdAt": "2026-09-27T08:54:22Z"
   },
   {
-    "title": "Legendary US spy plane vanishes from CA base amid mystery over new NASA aircraft",
-    "url": "https://economictimes.indiatimes.com/news/international/global-trends/legendary-us-spy-plane-vanishes-from-california-base-amid-mystery-over-new-nasa-aircraft/articleshow/134488118.cms?from=mdr",
+    "title": "Moondream Parakeet Redux and Parakeet Ultra",
+    "url": "https://moondream.ai/blog/introducing-parakeet-redux-and-ultra",
     "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-09-27T08:52:00Z"
+  },
+  {
+    "title": "AirCard: Customize Apple Pay card artwork without a jailbreak",
+    "url": "https://github.com/Mak5er/AirCard",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-26T06:04:07Z"
+    "createdAt": "2026-09-27T08:48:49Z"
   }
 ]
