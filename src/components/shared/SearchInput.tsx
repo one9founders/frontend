@@ -23,19 +23,22 @@ export default function SearchInput({
   const [query, setQuery] = useState(initialValue || '');
   const onSearchRef = useRef(onSearch);
   const onClearRef = useRef(onClear);
+  const edited = useRef(false);
 
   useEffect(() => { onSearchRef.current = onSearch; }, [onSearch]);
   useEffect(() => { onClearRef.current = onClear; }, [onClear]);
 
   useEffect(() => {
+    if (typeof document !== 'undefined' && document.activeElement?.id === 'search-input') return;
     if (initialValue !== undefined && initialValue !== query) {
       setQuery(initialValue);
     }
-    // Only sync when initialValue changes from parent
+    // Sync from the URL when the field is not being edited.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialValue]);
 
   useEffect(() => {
+    if (!edited.current) return;
     const timer = setTimeout(() => {
       try {
         if (query.trim()) {
@@ -52,6 +55,7 @@ export default function SearchInput({
   }, [query]);
 
   const handleClear = () => {
+    edited.current = true;
     setQuery('');
   };
 
@@ -65,7 +69,10 @@ export default function SearchInput({
           id="search-input"
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            edited.current = true;
+            setQuery(e.target.value);
+          }}
           placeholder={placeholder}
           aria-label={label}
           autoComplete="off"
@@ -73,13 +80,14 @@ export default function SearchInput({
         />
         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
           {loading && (
-            <svg className="animate-spin h-5 w-5 text-copper" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <svg className="animate-spin h-5 w-5 text-copper" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
             </svg>
           )}
           {query && !loading && (
             <button
+              type="button"
               onClick={handleClear}
               className="text-[var(--gray-500)] hover:text-white transition-colors"
               aria-label="Clear search"

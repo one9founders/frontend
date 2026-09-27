@@ -1,6 +1,6 @@
 'use client';
 
-import { useAnalytics } from '@/hooks/useAnalytics';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
 
 interface VisitToolButtonProps {
   href: string;
@@ -16,23 +16,17 @@ interface VisitToolButtonProps {
 export default function VisitToolButton({
   href,
   toolId,
-  toolName,
   toolSlug,
-  categories = [],
-  isAffiliate = false,
   className,
   children,
 }: VisitToolButtonProps) {
-  const { trackEvent } = useAnalytics();
-
   const handleClick = () => {
-    trackEvent('tool_visited_from_detail', {
-      tool_id: toolId,
-      tool_name: toolName,
-      tool_slug: toolSlug,
-      categories,
-      is_affiliate: isAffiliate,
-      source: 'tool_detail_page',
+    trackCatalogEvent({
+      event_name: 'official_site_click',
+      entity_type: 'tool',
+      entity_id: toolId,
+      entity_slug: toolSlug,
+      surface: 'tool_detail',
     });
   };
 

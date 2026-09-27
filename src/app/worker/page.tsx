@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { generateSEO } from '@/lib/utils/seo';
+import ProductDownloadLink from '@/components/features/products/ProductDownloadLink';
 
 export const metadata: Metadata = generateSEO({
   title: 'One9 Worker — Local AI Coworker for Founders',
@@ -81,18 +82,18 @@ export default function One9WorkerPage() {
             keys stay on device.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a
+            <ProductDownloadLink
               href={WINDOWS_EXE_URL}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-copper text-[var(--ink)] font-semibold hover:bg-copper-bright transition-colors"
             >
               Download for Windows
-            </a>
-            <a
+            </ProductDownloadLink>
+            <ProductDownloadLink
               href={DMG_URL}
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--gray-600)] text-white hover:bg-[var(--gray-900)] transition-colors"
             >
               Download for macOS
-            </a>
+            </ProductDownloadLink>
             <a
               href="#setup"
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--gray-600)] text-white hover:bg-[var(--gray-900)] transition-colors"

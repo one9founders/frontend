@@ -147,8 +147,8 @@ export async function getPaperSitemapPage(
 
 export async function getAuthorSitemapPage(
   page: number,
-): Promise<{ slug: string; last_seen?: string }[]> {
-  const compact = await fetchPaginated<{ slug: string; last_seen?: string }>(
+): Promise<{ slug: string; content_updated_at?: string; first_seen?: string; last_seen?: string }[]> {
+  const compact = await fetchPaginated<{ slug: string; content_updated_at?: string; first_seen?: string; last_seen?: string }>(
     `${API_URL}/api/v1/papers/authors/sitemap/?page=${page}&page_size=${SITEMAP_CHUNK}`,
   );
   return compact?.results ?? [];
@@ -201,6 +201,16 @@ export async function getStaticSitemapEntries(): Promise<SitemapEntry[]> {
     { route: '/learn/organizations', priority: 0.5, changeFrequency: 'monthly' },
     { route: '/learn/quiz', priority: 0.4, changeFrequency: 'monthly' },
     { route: '/submit', priority: 0.5, changeFrequency: 'monthly' },
+    { route: '/services', priority: 0.7, changeFrequency: 'monthly' },
+    { route: '/services/workflow-audit', priority: 0.6, changeFrequency: 'monthly' },
+    { route: '/services/implementation', priority: 0.6, changeFrequency: 'monthly' },
+    { route: '/services/maintenance', priority: 0.6, changeFrequency: 'monthly' },
+    { route: '/solutions', priority: 0.7, changeFrequency: 'monthly' },
+    { route: '/solutions/customer-support', priority: 0.6, changeFrequency: 'monthly' },
+    { route: '/solutions/content-production', priority: 0.6, changeFrequency: 'monthly' },
+    { route: '/solutions/coding-assistance', priority: 0.6, changeFrequency: 'monthly' },
+    { route: '/solutions/knowledge-search', priority: 0.6, changeFrequency: 'monthly' },
+    { route: '/products', priority: 0.7, changeFrequency: 'monthly' },
     { route: '/terms', priority: 0.3, changeFrequency: 'yearly' },
     { route: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { route: '/worker', priority: 0.8, changeFrequency: 'weekly' },

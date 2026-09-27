@@ -22,11 +22,10 @@ export default function Footer() {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
         posthog.capture('newsletter_subscribed', {
-          email: email,
           source: 'footer',
         });
         setIsSuccess(true);
-        setMessage('Thanks for subscribing!');
+        setMessage('Saved. No email was sent.');
         setEmail('');
       } else {
         setIsSuccess(false);
@@ -49,7 +48,7 @@ export default function Footer() {
           <div className="lg:flex-1">
             <img src="/logo-light.png" alt="ONE9FOUNDERS" className="h-8 mb-6" draggable={false} />
             <p className="mb-2 text-[var(--gray-400)] max-w-80">
-              India&apos;s largest AI ecosystem navigator for startup founders.
+              Find the right AI. Put it to work.
             </p>
             <p className="mb-6 text-[var(--gray-400)] max-w-80">
               Mumbai, Maharashtra, India |{' '}
@@ -254,7 +253,7 @@ export default function Footer() {
                   Get Smarter About AI Tools. Every Tuesday.
                 </h3>
                 <p className="mb-4 text-sm text-[var(--gray-400)]">
-                  Join 5,000+ founders getting weekly security alerts, exclusive deals, and our honest picks.
+                  Save an email if you want directory updates later. This form does not send a message.
                 </p>
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
                   <input

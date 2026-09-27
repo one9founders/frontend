@@ -175,6 +175,8 @@ export interface Tool {
   updated_at: string;
   /** True when the signed-in user submitted this listing. */
   can_edit?: boolean;
+  /** Preferred public URL when this tool duplicates an agent listing. */
+  preferred_path?: string | null;
 }
 
 export interface PricingConfig {

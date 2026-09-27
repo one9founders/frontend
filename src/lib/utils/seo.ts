@@ -11,8 +11,32 @@ interface SEOProps {
   robots?: Metadata['robots'];
 }
 
-const TITLE_MAX = 60;
+const TITLE_MAX = 110;
 const BRAND_SUFFIX = ` | ${SITE_NAME}`;
+const DANGLING_WORDS = new Set([
+  'and',
+  'or',
+  '&',
+  'with',
+  'for',
+  'of',
+  'the',
+  'a',
+  'an',
+  'to',
+  'in',
+  'on',
+]);
+
+function stripDanglingWords(value: string): string {
+  const parts = value.split(/\s+/).filter(Boolean);
+  while (parts.length > 2) {
+    const last = parts[parts.length - 1].replace(/[&,.:]+$/u, '').toLowerCase();
+    if (!DANGLING_WORDS.has(last)) break;
+    parts.pop();
+  }
+  return parts.join(' ').replace(/[\s|,:–—&-]+$/u, '').trim();
+}
 
 /**
  * Editorial assessment gate for SEO helpers.
@@ -28,22 +52,30 @@ export function isToolAssessed(tool: {
   return Number.isFinite(completed) && completed >= 6;
 }
 
-/** Cap a title at ~60 characters, keeping a single brand suffix. */
+/**
+ * Keep a complete title. Do not chop a phrase to a 60-character budget.
+ * Extremely long titles are trimmed on a word boundary, never after "and" or "&".
+ */
 export function fitSeoTitle(title: string, max = TITLE_MAX): string {
-  const withBrand = title.includes(SITE_NAME) ? title : `${title}${BRAND_SUFFIX}`;
+  const stripped = title
+    .replace(new RegExp(`\\s*\\|\\s*${SITE_NAME}\\s*$`), '')
+    .trim();
+  const core = stripDanglingWords(stripped.replace(/[\s|,:–—&-]+$/u, ''));
+  const withBrand = `${core}${BRAND_SUFFIX}`;
   if (withBrand.length <= max) return withBrand;
 
-  if (withBrand.endsWith(BRAND_SUFFIX)) {
-    const budget = max - BRAND_SUFFIX.length;
-    if (budget < 16) return `${withBrand.slice(0, max - 1).trimEnd()}…`;
-    const core = withBrand.slice(0, -BRAND_SUFFIX.length);
-    const sliced = core.slice(0, budget).trimEnd();
-    const atWord = sliced.replace(/\s+\S*$/, '').replace(/[\s|,:–—-]+$/u, '');
-    const trimmed = atWord.length >= 16 ? atWord : sliced.replace(/[\s|,:–—-]+$/u, '');
-    return `${trimmed}${BRAND_SUFFIX}`;
-  }
+  const budget = Math.max(16, max - BRAND_SUFFIX.length);
+  const sliced = stripDanglingWords(
+    core.slice(0, budget).replace(/\s+\S*$/, ''),
+  );
+  return `${sliced}${BRAND_SUFFIX}`;
+}
 
-  return `${withBrand.slice(0, max - 1).trimEnd()}…`;
+/** Directory titles name the page contents and do not claim a hands-on review. */
+export function directoryPageTitle(name: string, assessed = false): string {
+  const subject = (name || 'AI product').trim();
+  if (assessed) return `${subject}: Pricing, Features & Alternatives`;
+  return `${subject}: Features, Pricing & Alternatives`;
 }
 
 export function generateSEO({

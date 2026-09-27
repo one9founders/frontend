@@ -15,6 +15,12 @@ export interface AgentListItem {
   review_count: number;
   is_featured: boolean;
   website: string;
+  github_url?: string;
+  display_access?: string | null;
+  popularity?: {
+    state: 'unavailable' | 'bounded' | 'unbounded';
+    value: number | null;
+  } | null;
 }
 
 export interface AgentDetail extends AgentListItem {

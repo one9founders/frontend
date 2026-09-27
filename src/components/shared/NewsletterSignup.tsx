@@ -20,11 +20,7 @@ export default function NewsletterSignup() {
       const result = await subscribeToNewsletter(email);
       if (result.success) {
         // Capture newsletter subscription event
-        posthog.capture('newsletter_subscribed', {
-          email: email,
-          source: 'homepage',
-        });
-        setMessage('Thanks for subscribing!');
+        setMessage('Saved. No email was sent.');
         setEmail('');
       } else {
         setMessage(result.error || 'Something went wrong');
@@ -40,9 +36,9 @@ export default function NewsletterSignup() {
   return (
     <section className="py-16 px-4 bg-[var(--gray-900)]">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-white mb-4">Get Weekly AI Tool Intelligence</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Save an email for later updates</h2>
         <p className="mb-8 text-[var(--gray-400)]">
-          Security alerts, exclusive deals, and our top picks - free every Tuesday.
+          This stores the address. It does not send a weekly email from this form.
         </p>
         
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -66,7 +62,7 @@ export default function NewsletterSignup() {
         </form>
         
         <p className="mt-4 text-xs text-[var(--gray-500)]">
-          Join 5,000+ founders. No spam, unsubscribe anytime.
+          Optional. No message is sent by submitting this form.
         </p>
         
         {message && (
