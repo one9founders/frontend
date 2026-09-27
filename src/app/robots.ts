@@ -3,7 +3,6 @@ import { MetadataRoute } from 'next';
 const PRIVATE_PATHS = [
   '/admin/',
   '/api/',
-  '/_next/',
   '/login',
   '/dashboard/',
   '/tool/*/edit',

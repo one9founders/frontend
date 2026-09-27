@@ -1,11 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { AgentDetail } from '@/types/agent';
 import ToolLogo from '@/components/shared/ToolLogo';
 import AgentMetrics from './AgentMetrics';
 import SimilarAgents from './SimilarAgents';
+import { displayAccessLabel } from '@/lib/accessLabel';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
+import SaveListingButton from '@/components/features/tools/SaveListingButton';
 import {
   HugeiconsIcon,
   StarIcon,
@@ -24,6 +27,17 @@ type TabType = 'overview' | 'features' | 'use-cases';
 
 export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
+  const access = displayAccessLabel(agent);
+
+  useEffect(() => {
+    trackCatalogEvent({
+      event_name: 'detail_view',
+      entity_type: 'agent',
+      entity_id: agent.id,
+      entity_slug: agent.slug,
+      surface: 'agent_detail',
+    });
+  }, [agent.id, agent.slug]);
 
   const rating = agent.average_rating || 0;
   const stars = Array.from({ length: 5 }, (_, i) => i < Math.floor(rating));
@@ -86,12 +100,17 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
 
                 <div className="flex flex-wrap gap-2 mt-4">
                   {agent.pricing_model && (
-                    <span className="tool-chip">{agent.pricing_model}</span>
+                    <span className="tool-chip" title="Catalog label. Not a verified price.">
+                      {agent.pricing_model}
+                    </span>
                   )}
-                  {agent.access && (
-                    <span className="tool-chip tool-chip-accent">{agent.access}</span>
+                  {access && (
+                    <span className="tool-chip tool-chip-accent">{access}</span>
                   )}
                 </div>
+                <p className="mt-3 text-xs text-[var(--gray-500)] max-w-xl">
+                  Pricing and license labels come from the catalog record. This page is not a hands-on review.
+                </p>
               </div>
             </div>
           </div>
@@ -103,6 +122,15 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors btn-primary"
+                onClick={() => {
+                  trackCatalogEvent({
+                    event_name: 'official_site_click',
+                    entity_type: 'agent',
+                    entity_id: agent.id,
+                    entity_slug: agent.slug,
+                    surface: 'agent_detail',
+                  });
+                }}
               >
                 <HugeiconsIcon icon={ArrowUpRight01Icon} size={18} />
                 Visit Site
@@ -118,6 +146,18 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
                 Watch Video
               </a>
             )}
+            <div className="flex flex-wrap gap-2">
+              <SaveListingButton
+                slug={agent.slug}
+                name={agent.name}
+                path={`/agents/${agent.slug}`}
+                kind="agent"
+                entityId={agent.id}
+              />
+              <Link href="/compare" className="px-3 py-2 text-sm border border-[var(--line)] text-[var(--paper)] hover:border-[var(--copper-dim)]">
+                Compare tools
+              </Link>
+            </div>
             {socialLinks.length > 0 && (
               <div className="flex gap-2 mt-1">
                 {socialLinks.map((link) => (
@@ -137,6 +177,43 @@ export default function AgentDetailClient({ agent }: AgentDetailClientProps) {
           </div>
         </div>
       </div>
+
+      <section className="mb-8 grid gap-4 md:grid-cols-2 text-sm">
+        <div className="border border-[var(--line)] p-4">
+          <h2 className="text-[var(--paper)] font-medium mb-2">What it does</h2>
+          <p className="text-[var(--gray-400)]">{agent.short_description || 'No short description is recorded.'}</p>
+        </div>
+        <div className="border border-[var(--line)] p-4">
+          <h2 className="text-[var(--paper)] font-medium mb-2">Fit and limits</h2>
+          <p className="text-[var(--gray-400)]">
+            {agent.industry
+              ? `Catalog industry: ${agent.industry}.`
+              : 'No audience is recorded.'}{' '}
+            Capabilities below are catalog text, not an independent test.
+          </p>
+        </div>
+        <div className="border border-[var(--line)] p-4">
+          <h2 className="text-[var(--paper)] font-medium mb-2">Record</h2>
+          <p className="text-[var(--gray-400)]">
+            {agent.updated_at
+              ? `Catalog record updated ${new Date(agent.updated_at).toLocaleDateString('en-GB')}.`
+              : 'No update date is recorded.'}{' '}
+            {agent.website ? 'Official site is linked above.' : 'No official site is recorded.'}
+          </p>
+        </div>
+        <div className="border border-[var(--line)] p-4">
+          <h2 className="text-[var(--paper)] font-medium mb-2">Alternatives</h2>
+          <p className="text-[var(--gray-400)]">
+            {agent.category_slug ? (
+              <Link href={`/agents/category/${agent.category_slug}`} className="text-[var(--copper)]">
+                Other agents in {agent.category_name || 'this category'}
+              </Link>
+            ) : (
+              <Link href="/agents" className="text-[var(--copper)]">Browse agents</Link>
+            )}
+          </p>
+        </div>
+      </section>
 
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="flex-1">

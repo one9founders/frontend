@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { submissionAPI } from '@/lib/api/apiClient';
 import { showSuccess, showError } from '@/lib/utils/sweetAlert';
 import { useReCaptcha } from '@/lib/recaptcha';
-import posthog from 'posthog-js';
+import Link from 'next/link';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
 
 export default function SubmitToolPageClient() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,8 @@ export default function SubmitToolPageClient() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error'>('success');
+  const [statusToken, setStatusToken] = useState('');
+  const [started, setStarted] = useState(false);
   const { executeRecaptcha } = useReCaptcha();
 
 
@@ -30,6 +33,11 @@ export default function SubmitToolPageClient() {
     if (!formData.name || !formData.description || !formData.website || !formData.submitter_email || !formData.submitter_name) {
       setMessage('Please fill in all required fields.');
       setMessageType('error');
+      trackCatalogEvent({
+        event_name: 'submission_validation_failed',
+        entity_type: 'tool',
+        surface: 'submit_form',
+      });
       return;
     }
 
@@ -45,19 +53,20 @@ export default function SubmitToolPageClient() {
         submissionData.recaptcha_token = recaptchaToken;
       }
 
-      await submissionAPI.submit(submissionData);
+      const saved = await submissionAPI.submit(submissionData);
+      const token = saved?.public_token || '';
+      setStatusToken(token);
 
-      // Capture tool submission event
-      posthog.capture('tool_submitted', {
-        tool_name: formData.name,
-        tool_website: formData.website,
-        submitter_email: formData.submitter_email,
-        submitter_name: formData.submitter_name,
-        has_pricing_info: !!formData.pricing_info,
-        has_logo: !!formData.logo_url,
+      trackCatalogEvent({
+        event_name: 'submission_completed',
+        entity_type: 'tool',
+        entity_slug: formData.name,
+        surface: 'submit_form',
       });
 
-      await showSuccess('Success!', 'Tool submitted successfully! It will be reviewed and added to the directory.');
+      setMessageType('success');
+      setMessage('Saved. Enrichment runs after this and can fail without deleting the submission. Approval is not a fact check.');
+      await showSuccess('Saved', 'The submission is stored. Enrichment runs after that and can fail without deleting it. Approval is not a fact check.');
       setFormData({
         name: '',
         description: '',
@@ -69,7 +78,6 @@ export default function SubmitToolPageClient() {
         pricing_info: ''
       });
     } catch (error) {
-      posthog.captureException(error);
       await showError('Error', 'Failed to submit tool. Please try again.');
     } finally {
       setLoading(false);
@@ -77,6 +85,14 @@ export default function SubmitToolPageClient() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    if (!started) {
+      setStarted(true);
+      trackCatalogEvent({
+        event_name: 'submission_started',
+        entity_type: 'tool',
+        surface: 'submit_form',
+      });
+    }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -255,7 +271,14 @@ export default function SubmitToolPageClient() {
               {/* Message */}
               {message && (
                 <div className={`p-4 rounded-lg ${messageType === 'success' ? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'}`}>
-                  {message}
+                  <p>{message}</p>
+                  {statusToken && messageType === 'success' && (
+                    <p className="mt-2">
+                      <Link href={`/submit/status?token=${encodeURIComponent(statusToken)}`} className="underline">
+                        Open your status page
+                      </Link>
+                    </p>
+                  )}
                 </div>
               )}
             </form>

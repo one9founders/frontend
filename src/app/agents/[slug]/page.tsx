@@ -4,7 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import AgentDetailClient from '@/components/features/agents/AgentDetailClient';
-import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { directoryPageTitle, generateSEO, generateStructuredData } from '@/lib/utils/seo';
 import { AgentDetail } from '@/types/agent';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://api.one9founders.com';
@@ -33,12 +33,12 @@ export async function generateMetadata({ params }: AgentDetailPageProps): Promis
   const description = [
     agent.short_description,
     agent.category_name ? `Category: ${agent.category_name}.` : '',
-    agent.pricing_model ? `Pricing: ${agent.pricing_model}.` : '',
-    'Reviewed with zero affiliate bias. Security validated by One9Founders.',
+    agent.pricing_model ? `Catalog pricing label: ${agent.pricing_model}.` : '',
+    'Directory listing. Not a hands-on review.',
   ].filter(Boolean).join(' ').slice(0, 155);
 
   return generateSEO({
-    title: `${agent.name} - Review, Features & Alternatives | One9Founders`,
+    title: directoryPageTitle(agent.name, false),
     description,
     path: `/agents/${agent.slug}`,
     image: agent.logo_url || '/og-image.png',
@@ -69,13 +69,7 @@ export default async function AgentDetailPage({ params }: AgentDetailPageProps) 
     description: agent.short_description,
     url: agent.website,
     applicationCategory: agent.category_name,
-    offers: {
-      '@type': 'Offer',
-      price: agent.pricing_model?.toLowerCase() === 'free' ? '0' : undefined,
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/OnlineOnly',
-    },
-    ...(agent.review_count > 0
+    ...(agent.review_count > 0 && agent.average_rating > 0
       ? {
           aggregateRating: {
             '@type': 'AggregateRating',

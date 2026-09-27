@@ -32,8 +32,10 @@ export default function PricingFilter({ selectedPricing, onPricingChange }: Pric
         {pricingOptions.map((option) => (
           <button
             key={option.value}
+            type="button"
+            aria-pressed={selectedPricing.includes(option.value)}
             onClick={() => togglePricing(option.value)}
-            className={`px-3 py-1 text-sm rounded-full transition-all ${
+            className={`px-3 py-1 text-sm rounded-full transition-all cursor-pointer ${
               selectedPricing.includes(option.value)
                 ? `${option.color} text-white`
                 : 'bg-[var(--gray-700)] text-[var(--gray-300)] hover:bg-[var(--gray-600)]'

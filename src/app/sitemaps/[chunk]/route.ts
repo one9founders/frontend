@@ -72,7 +72,11 @@ export async function GET(
           .filter((author) => author.slug)
           .map((author) => ({
             url: `${SITE_URL}/research/authors/${author.slug}`,
-            lastModified: author.last_seen ? new Date(author.last_seen) : new Date(),
+            lastModified: author.content_updated_at
+              ? new Date(author.content_updated_at)
+              : author.first_seen
+                ? new Date(author.first_seen)
+                : new Date('2024-01-01'),
             changeFrequency: 'weekly',
             priority: 0.5,
           })),

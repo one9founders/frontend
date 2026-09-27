@@ -7,6 +7,7 @@ import ReviewForm from '@/components/features/reviews/ReviewForm';
 import ReviewsList from '@/components/features/reviews/ReviewsList';
 import { Tool, Review } from '@/types';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
 
 interface ToolDetailClientProps {
   tool: Tool;
@@ -31,7 +32,14 @@ export default function ToolDetailClient({
     setMounted(true);
     loadUser();
     checkUsageStatus();
-  }, []);
+    trackCatalogEvent({
+      event_name: 'detail_view',
+      entity_type: 'tool',
+      entity_id: tool.id,
+      entity_slug: tool.slug,
+      surface: 'tool_detail',
+    });
+  }, [tool.id, tool.slug]);
 
   const loadUser = async () => {
     const userData = await getCurrentUser();

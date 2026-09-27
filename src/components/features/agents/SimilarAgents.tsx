@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { agentsAPI } from '@/lib/api/apiClient';
 import { AgentListItem } from '@/types/agent';
 import ToolLogo from '@/components/shared/ToolLogo';
+import PopularityReadout from '@/components/features/tools/PopularityReadout';
 
 interface SimilarAgentsProps {
   categorySlug: string;
@@ -67,17 +68,7 @@ export default function SimilarAgents({ categorySlug, currentSlug }: SimilarAgen
               <ToolLogo logoUrl={agent.logo_url} name={agent.name} size="xs" />
               <span className="text-sm font-medium text-white truncate">{agent.name}</span>
             </div>
-            {agent.popularity_score > 0 && (
-              <div className="flex items-center gap-1.5">
-                <div className="flex-1 h-1 bg-[var(--gray-700)] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-copper rounded-full"
-                    style={{ width: `${Math.min(agent.popularity_score, 100)}%` }}
-                  />
-                </div>
-                <span className="text-xs text-[var(--gray-400)]">{agent.popularity_score}</span>
-              </div>
-            )}
+            <PopularityReadout score={agent.popularity_score} payload={agent.popularity} compact />
           </Link>
         ))}
       </div>

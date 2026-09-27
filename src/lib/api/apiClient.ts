@@ -68,11 +68,15 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
 }
 
 export const toolsAPI = {
-  getAll: async (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string; track?: string; source?: string }) => {
+  getAll: async (params?: { category?: string; pricing?: string; pricing_type?: string; featured?: boolean; startup_friendly?: boolean; page?: number; page_size?: number; ordering?: string; track?: string; source?: string; q?: string; job_cluster?: string; deployment?: string; integration?: string }) => {
     const query = new URLSearchParams();
+    if (params?.q) query.append('q', params.q);
     if (params?.category) query.append('category', params.category);
     if (params?.pricing) query.append('pricing', params.pricing);
     if (params?.pricing_type) query.append('pricing_type', params.pricing_type);
+    if (params?.job_cluster) query.append('job_cluster', params.job_cluster);
+    if (params?.deployment) query.append('deployment', params.deployment);
+    if (params?.integration) query.append('integration', params.integration);
     if (params?.featured) query.append('featured', 'true');
     if (params?.startup_friendly) query.append('startup_friendly', 'true');
     if (params?.page) query.append('page', params.page.toString());
@@ -186,6 +190,16 @@ export const submissionAPI = {
   getAll: () => fetchAPI('/submissions/'),
   submit: (data: any) =>
     fetchAPI('/submissions/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+  getStatus: (token: string) =>
+    fetchAPI(`/submissions/status/?token=${encodeURIComponent(token)}`),
+};
+
+export const servicesAPI = {
+  inquire: (data: Record<string, string>) =>
+    fetchAPI('/services/inquiries/', {
       method: 'POST',
       body: JSON.stringify(data),
     }),

@@ -5,8 +5,9 @@ import Link from 'next/link';
 import { HugeiconsIcon, ArrowUpRight01Icon, GithubIcon, ViewIcon } from '@/components/ui/icons';
 import TrackBadge from '@/components/features/tools/TrackBadge';
 import { isSelfHostTrack } from '@/lib/constants/tracks';
-import posthog from 'posthog-js';
 import { addRefToUrl } from '@/lib/utils/url';
+import { listingHref } from '@/lib/listingIdentity';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
 import ToolLogo from '@/components/shared/ToolLogo';
 import { useCurrency } from '@/lib/currency';
 import ToolRatingBadge from '@/components/features/tools/ToolRatingBadge';
@@ -15,9 +16,11 @@ import { hasPublishedTrial } from '@/lib/verifiedToolFacts';
 
 interface ToolCardProps {
   tool: Tool;
+  position?: number;
+  surface?: string;
 }
 
-export default function ToolCard({ tool }: ToolCardProps) {
+export default function ToolCard({ tool, position, surface = 'card' }: ToolCardProps) {
   const { currency, formatPrice } = useCurrency();
 
   const getPricingDisplay = () => {
@@ -35,25 +38,27 @@ export default function ToolCard({ tool }: ToolCardProps) {
     return 'Paid';
   };
 
+  const href = listingHref(tool);
+
   const handleViewDetails = () => {
-    posthog.capture('tool_details_viewed', {
-      tool_id: tool.id,
-      tool_name: tool.name,
-      tool_slug: tool.slug,
-      categories: tool.categories?.map(c => c.name) || [],
-      is_featured: tool.is_featured,
-      rating: tool.rating,
+    trackCatalogEvent({
+      event_name: 'result_selected',
+      entity_type: 'tool',
+      entity_id: tool.id,
+      entity_slug: tool.slug,
+      surface,
+      result_position: position ?? null,
     });
   };
 
   const handleVisitTool = () => {
-    posthog.capture('tool_visited', {
-      tool_id: tool.id,
-      tool_name: tool.name,
-      tool_slug: tool.slug,
-      tool_website: tool.website,
-      is_affiliate: !!tool.affiliate_url,
-      categories: tool.categories?.map(c => c.name) || [],
+    trackCatalogEvent({
+      event_name: 'official_site_click',
+      entity_type: 'tool',
+      entity_id: tool.id,
+      entity_slug: tool.slug,
+      surface,
+      result_position: position ?? null,
     });
   };
 
@@ -95,7 +100,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </div>
         <div className="flex gap-2 mt-3">
           <Link
-            href={`/tool/${tool.slug}`}
+            href={href}
             className="flex-1 text-center py-2 px-3 rounded-lg font-medium transition-colors bg-[var(--gray-700)] text-white hover:bg-[var(--gray-600)] text-sm flex items-center justify-center gap-2"
             onClick={handleViewDetails}
           >

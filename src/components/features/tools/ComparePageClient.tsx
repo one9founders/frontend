@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Tool } from '@/types';
 import CompareTable from '@/components/features/tools/CompareTable';
 import ToolSelector from '@/components/features/tools/ToolSelector';
-import posthog from 'posthog-js';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
 
 interface ComparePageClientProps {
   initialTools: Tool[];
@@ -18,27 +18,29 @@ export default function ComparePageClient({ initialTools }: ComparePageClientPro
       const newSelectedTools = [...selectedTools, tool];
       setSelectedTools(newSelectedTools);
 
-      posthog.capture('tool_comparison_started', {
-        tool_id: tool.id,
-        tool_name: tool.name,
-        tool_slug: tool.slug,
-        comparison_count: newSelectedTools.length,
-        tools_in_comparison: newSelectedTools.map(t => t.name),
+      trackCatalogEvent({
+        event_name: 'compare_added',
+        entity_type: 'tool',
+        entity_id: tool.id,
+        entity_slug: tool.slug,
+        surface: 'compare',
+        context: { results_count: newSelectedTools.length },
       });
+      if (newSelectedTools.length === 2) {
+        trackCatalogEvent({
+          event_name: 'compare_completed',
+          entity_type: 'tool',
+          entity_id: tool.id,
+          entity_slug: tool.slug,
+          surface: 'compare',
+          context: { results_count: 2 },
+        });
+      }
     }
   };
 
   const removeTool = (toolId: number) => {
-    const removedTool = selectedTools.find(t => t.id === toolId);
     setSelectedTools(selectedTools.filter(t => t.id !== toolId));
-    
-    if (removedTool) {
-      posthog.capture('tool_removed_from_comparison', {
-        tool_id: removedTool.id,
-        tool_name: removedTool.name,
-        remaining_tools: selectedTools.filter(t => t.id !== toolId).map(t => t.name),
-      });
-    }
   };
 
   return (

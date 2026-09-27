@@ -7,7 +7,8 @@ import { addRefToUrl } from '@/lib/utils/url';
 import { cleanRepoBlurb, githubRefForTool } from '@/lib/githubRepo';
 import { inferOpenSourceLane } from '@/lib/openSourceLanes';
 import { TRACK_LABELS, isSelfHostTrack } from '@/lib/constants/tracks';
-import posthog from 'posthog-js';
+import { listingHref } from '@/lib/listingIdentity';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
 
 function formatLabel(tool: Tool): string {
   if (tool.track === 'agent_skill') return TRACK_LABELS.agent_skill;
@@ -22,29 +23,24 @@ export default function OpenSourceRepoRow({ tool }: { tool: Tool }) {
   const externalUrl = github?.url || tool.website;
   const selfHost = isSelfHostTrack(tool.track);
 
+  const href = listingHref(tool);
   const handleDetails = () => {
-    posthog.capture('tool_details_viewed', {
-      tool_id: tool.id,
-      tool_name: tool.name,
-      tool_slug: tool.slug,
-      categories: tool.categories?.map((c) => c.name) || [],
-      is_featured: tool.is_featured,
-      rating: tool.rating,
+    trackCatalogEvent({
+      event_name: 'result_selected',
+      entity_type: 'tool',
+      entity_id: tool.id,
+      entity_slug: tool.slug,
       surface: 'open_source_row',
-      lane: lane.id,
     });
   };
 
   const handleOpenRepo = () => {
-    posthog.capture('tool_visited', {
-      tool_id: tool.id,
-      tool_name: tool.name,
-      tool_slug: tool.slug,
-      tool_website: externalUrl,
-      is_affiliate: !!tool.affiliate_url,
-      categories: tool.categories?.map((c) => c.name) || [],
+    trackCatalogEvent({
+      event_name: 'official_site_click',
+      entity_type: 'tool',
+      entity_id: tool.id,
+      entity_slug: tool.slug,
       surface: 'open_source_row',
-      lane: lane.id,
     });
   };
 
@@ -65,7 +61,7 @@ export default function OpenSourceRepoRow({ tool }: { tool: Tool }) {
           )}
         </div>
         <Link
-          href={`/tool/${tool.slug}`}
+          href={href}
           onClick={handleDetails}
           className="block"
         >
@@ -86,7 +82,7 @@ export default function OpenSourceRepoRow({ tool }: { tool: Tool }) {
 
       <div className="flex items-center gap-2 md:pt-5 md:justify-end">
         <Link
-          href={`/tool/${tool.slug}`}
+          href={href}
           onClick={handleDetails}
           className="px-3 py-2 text-xs font-medium border border-[var(--line)] text-[var(--paper)] hover:border-[var(--copper-dim)] hover:text-[var(--copper)] transition-colors"
         >

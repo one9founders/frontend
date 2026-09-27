@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getToolBySlug, getReviewsByToolId, getToolUsageCount, getAllToolSlugs, getAllTools } from '@/lib/actions/tools';
-import { generateSEO, generateStructuredData } from '@/lib/utils/seo';
+import { directoryPageTitle, generateSEO, generateStructuredData, isToolAssessed } from '@/lib/utils/seo';
+import { toolCanonicalPath } from '@/lib/listingIdentity';
 import { siteUrl } from '@/lib/constants/site';
 import RelatedTools, { mergeRelatedTools } from '@/components/features/tools/RelatedTools';
 import Link from 'next/link';
@@ -15,6 +16,7 @@ import ToolQASection, { generateQAPairs } from '@/components/features/tools/Tool
 import INRPriceDisplay from '@/components/shared/INRPriceDisplay';
 import { addRefToUrl } from '@/lib/utils/url';
 import VisitToolButton from '@/components/features/tools/VisitToolButton';
+import SaveListingButton from '@/components/features/tools/SaveListingButton';
 import ListingOwnerControls from '@/components/features/tools/ListingOwnerControls';
 import { Tool, Review } from '@/types';
 import { getToolRatingDisplay, getToolSecurityDisplay, formatAssessedDate } from '@/lib/toolRating';
@@ -109,13 +111,16 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     securityDisplay.label + '.',
   ].filter(Boolean).join(' ').slice(0, 155);
 
+  const identity = toolCanonicalPath(tool);
+  const indexable = isToolIndexable(tool) && !identity.duplicateOfAgent;
+
   return generateSEO({
-    title: `${tool.name} review & pricing`,
+    title: directoryPageTitle(tool.name, isToolAssessed(tool)),
     description,
-    path: `/tool/${tool.slug}`,
+    path: identity.path,
     image: tool.logo_url || tool.landing_page_screenshot || '/og-image.png',
     keywords,
-    robots: isToolIndexable(tool)
+    robots: indexable
       ? { index: true, follow: true }
       : { index: false, follow: true },
   });
@@ -149,36 +154,20 @@ export default async function ToolPage({ params }: ToolPageProps) {
   const sourceLinks = toolSourceLinks(tool);
   const visitHref = addRefToUrl(tool.affiliate_url || tool.website || '');
 
+  const identity = toolCanonicalPath(tool);
+  const reviewRatings = reviews.filter((review: Review) => typeof review.rating === 'number' && review.rating > 0);
   const structuredData = generateStructuredData({
     '@type': 'SoftwareApplication',
     name: tool.name,
     description: tool.description,
-    url: siteUrl(`/tool/${tool.slug}`),
+    url: siteUrl(identity.path),
     sameAs: tool.website || undefined,
     applicationCategory: tool.categories?.map((c: { name: string }) => c.name).join(', ') || 'AI Tool',
     operatingSystem: tool.platforms?.join(', ') || 'Web',
-    offers: tool.pricing_models?.includes('Free') ? {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-    } : tool.pricing_from ? {
-      '@type': 'Offer',
-      price: tool.pricing_from,
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      ...(tool.pricing_inr != null ? {
-        priceSpecification: {
-          '@type': 'UnitPriceSpecification',
-          price: tool.pricing_inr,
-          priceCurrency: 'INR',
-        },
-      } : {}),
-    } : undefined,
-    aggregateRating: ratingDisplay.status === 'RATED' && ratingDisplay.score != null ? {
+    aggregateRating: reviewRatings.length > 0 ? {
       '@type': 'AggregateRating',
-      ratingValue: ratingDisplay.score,
-      ratingCount: 1,
+      ratingValue: (reviewRatings.reduce((sum: number, review: Review) => sum + review.rating, 0) / reviewRatings.length).toFixed(1),
+      reviewCount: reviewRatings.length,
       bestRating: 5,
       worstRating: 1,
     } : undefined,
@@ -294,6 +283,18 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-[var(--paper)] leading-[0.95] tracking-tight">
                   {tool.name}
                 </h1>
+                {!isToolAssessed(tool) && (
+                  <p className="mt-3 text-sm text-[var(--gray-400)]">
+                    Directory listing. Scores appear only after an editorial assessment. This is not a hands-on review.
+                  </p>
+                )}
+                {identity.duplicateOfAgent && (
+                  <p className="mt-3 text-sm text-[var(--gray-300)]">
+                    The preferred page for this product is{' '}
+                    <Link href={identity.path} className="text-[var(--copper)]">{identity.path}</Link>.
+                    This URL stays available and is marked noindex.
+                  </p>
+                )}
                 {tool.short_description && (
                   <p className="mt-4 text-[var(--gray-400)] text-base md:text-lg leading-relaxed">
                     {tool.short_description}
@@ -333,6 +334,16 @@ export default async function ToolPage({ params }: ToolPageProps) {
               >
                 Visit {tool.name}
               </VisitToolButton>
+              <SaveListingButton
+                slug={tool.slug}
+                name={tool.name}
+                path={identity.path}
+                kind="tool"
+                entityId={tool.id}
+              />
+              <Link href="/compare" className="px-3 py-2 text-sm border border-[var(--line)] text-[var(--paper)] hover:border-[var(--copper-dim)]">
+                Compare
+              </Link>
               <div className="flex items-center gap-3 flex-wrap">
                 <span className="text-[var(--gray-500)] text-sm">Rating</span>
                 <ToolRatingBadge tool={tool} className="text-sm" />

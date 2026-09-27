@@ -153,10 +153,9 @@ export default function Navbar() {
   };
 
   const navLinkClass = (href: string) => {
-    const active =
-      href === '/learn'
-        ? pathname === '/learn' || pathname.startsWith('/learn/')
-        : pathname === href;
+    const active = href === '/'
+      ? pathname === '/'
+      : pathname === href || pathname.startsWith(`${href}/`);
     return `text-sm ${active ? 'text-[var(--paper)]' : 'text-[var(--gray-400)] hover:text-[var(--paper)]'}`;
   };
 
@@ -271,11 +270,20 @@ export default function Navbar() {
                 onOpen={() => setExploreOpen(true)}
                 onToggle={() => setExploreOpen((value) => !value)}
               />
-              <Link href="/stack" className={navLinkClass('/stack')}>
-                Stack
+              <Link href="/#tools-section" className={navLinkClass('/')}>
+                Discover
               </Link>
-              <Link href="/learn" className={navLinkClass('/learn')}>
-                Learn
+              <Link href="/solutions" className={navLinkClass('/solutions')}>
+                Solutions
+              </Link>
+              <Link href="/services" className={navLinkClass('/services')}>
+                AI Services
+              </Link>
+              <Link href="/products" className={navLinkClass('/products')}>
+                Our Products
+              </Link>
+              <Link href="/submit" className={navLinkClass('/submit')}>
+                Submit a tool
               </Link>
             </div>
             <div className="flex items-center gap-3">
@@ -346,11 +354,23 @@ export default function Navbar() {
             <ExploreGroups live={live} onNavigate={() => setIsMobileMenuOpen(false)} />
 
             <div className="mt-8 pt-6 border-t border-[var(--line)] flex flex-col gap-4">
-              <Link href="/stack" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
-                Stack
+              <Link href="/#tools-section" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
+                Discover
               </Link>
-              <Link href="/learn" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
-                Learn
+              <Link href="/solutions" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
+                Solutions
+              </Link>
+              <Link href="/services" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
+                AI Services
+              </Link>
+              <Link href="/products" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
+                Our Products
+              </Link>
+              <Link href="/submit" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
+                Submit a tool
+              </Link>
+              <Link href="/saved" className="text-[var(--paper)]" onClick={() => setIsMobileMenuOpen(false)}>
+                Saved
               </Link>
             </div>
 

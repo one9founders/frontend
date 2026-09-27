@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { AgentListItem } from '@/types/agent';
 import ToolLogo from '@/components/shared/ToolLogo';
 import { HugeiconsIcon, StarIcon } from '@/components/ui/icons';
+import { displayAccessLabel } from '@/lib/accessLabel';
+import PopularityReadout from '@/components/features/tools/PopularityReadout';
+import { trackCatalogEvent } from '@/lib/catalogEvents';
 
 interface AgentCardProps {
   agent: AgentListItem;
@@ -36,11 +39,20 @@ function getAccessColor(access: string): string {
 }
 
 export default function AgentCard({ agent }: AgentCardProps) {
-  const score = agent.popularity_score || 0;
-  const scorePercent = Math.min(score, 100);
+  const access = displayAccessLabel(agent);
 
   return (
-    <Link href={`/agents/${agent.slug}`}>
+    <Link
+      href={`/agents/${agent.slug}`}
+      onClick={() => {
+        trackCatalogEvent({
+          event_name: 'result_selected',
+          entity_type: 'agent',
+          entity_slug: agent.slug,
+          surface: 'agent_card',
+        });
+      }}
+    >
       <div className="rounded-xl border border-[var(--gray-800)] bg-[var(--gray-900)] p-4 hover:border-copper/50 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col h-full">
         {/* Header: Logo + Name + Featured Star */}
         <div className="flex items-start gap-3 mb-3">
@@ -73,23 +85,15 @@ export default function AgentCard({ agent }: AgentCardProps) {
                 {agent.pricing_model}
               </span>
             )}
-            {agent.access && (
-              <span className={`px-2 py-0.5 text-xs rounded-full border ${getAccessColor(agent.access)}`}>
-                {agent.access}
+            {access && (
+              <span className={`px-2 py-0.5 text-xs rounded-full border ${getAccessColor(access)}`}>
+                {access}
               </span>
             )}
           </div>
-          {score > 0 && (
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <span className="text-xs text-[var(--gray-400)]">{score}</span>
-              <div className="w-16 h-1.5 bg-[var(--gray-700)] rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-copper rounded-full"
-                  style={{ width: `${scorePercent}%` }}
-                />
-              </div>
-            </div>
-          )}
+          <div className="w-28 flex-shrink-0">
+            <PopularityReadout score={agent.popularity_score} payload={agent.popularity} compact />
+          </div>
         </div>
       </div>
     </Link>

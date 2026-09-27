@@ -27,8 +27,10 @@ export default function JobClusterFilter({ selectedClusters, onClustersChange }:
         {JOB_CLUSTERS.map((option) => (
           <button
             key={option.value}
+            type="button"
+            aria-pressed={selectedClusters.includes(option.value)}
             onClick={() => toggleCluster(option.value)}
-            className={`px-3 py-1 text-sm rounded-full transition-all ${
+            className={`px-3 py-1 text-sm rounded-full transition-all cursor-pointer ${
               selectedClusters.includes(option.value)
                 ? `${option.color} text-white`
                 : 'bg-[var(--gray-700)] text-[var(--gray-300)] hover:bg-[var(--gray-600)]'

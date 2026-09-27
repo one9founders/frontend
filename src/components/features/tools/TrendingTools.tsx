@@ -19,25 +19,29 @@ interface CommunityTool extends ToolRatingFields {
   submitted_at?: string;
 }
 
-export default function TrendingTools() {
-  const [tools, setTools] = useState<CommunityTool[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function TrendingTools({ initialTools }: { initialTools?: CommunityTool[] | null }) {
+  const hasInitial = Array.isArray(initialTools);
+  const [tools, setTools] = useState<CommunityTool[]>(hasInitial ? initialTools : []);
+  const [loading, setLoading] = useState(!hasInitial);
+  const [failed, setFailed] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (hasInitial) return;
     const loadCommunityTools = async () => {
       try {
-        const data = await trackingAPI.getCommunitySubmittedTools(160);
+        const data = await trackingAPI.getCommunitySubmittedTools(8);
         setTools(data || []);
       } catch (error) {
         console.error('Error loading community submissions:', error);
+        setFailed(true);
       } finally {
         setLoading(false);
       }
     };
 
     loadCommunityTools();
-  }, []);
+  }, [hasInitial]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -73,8 +77,27 @@ export default function TrendingTools() {
     );
   }
 
+  if (failed) {
+    return (
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--ink)] border-t border-[var(--line)]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)]">Founder submissions</h2>
+          <p className="mt-2 text-sm text-red-200" role="alert">New listings could not be loaded.</p>
+        </div>
+      </section>
+    );
+  }
+
   if (tools.length === 0) {
-    return null;
+    return (
+      <section className="py-12 md:py-16 px-4 md:px-6 bg-[var(--ink)] border-t border-[var(--line)]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)]">Founder submissions</h2>
+          <p className="mt-2 text-sm text-[var(--gray-400)]">No founder submissions are available to show right now.</p>
+          <Link href="/submit" className="mt-4 inline-block text-sm text-[var(--copper)]">Submit a tool</Link>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -85,8 +108,7 @@ export default function TrendingTools() {
             <p className="text-[11px] uppercase tracking-[0.2em] text-[var(--copper)] mb-2">Community</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[var(--paper)]">Founder submissions</h2>
             <p className="mt-2 text-sm text-[var(--gray-400)]">
-              Tools submitted by founders on One9Founders — browse the latest listings from people
-              building AI and SaaS products.
+              Recently submitted listings. The label is the submission, not an editorial review or a checked freshness date.
             </p>
           </div>
           <div className="hidden md:flex gap-2 shrink-0">
@@ -150,7 +172,7 @@ export default function TrendingTools() {
           </Link>
           <span className="text-[var(--gray-600)]">·</span>
           <span className="text-[var(--gray-500)]">
-            {tools.length} founder listing{tools.length === 1 ? '' : 's'} featured
+            {tools.length} founder listing{tools.length === 1 ? '' : 's'} shown
           </span>
         </div>
       </div>
