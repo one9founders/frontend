@@ -1,142 +1,142 @@
 [
   {
-    "title": "What is the AI capex breakeven rate?",
-    "url": "https://www.ft.com/content/f83b44e9-406b-4004-9fdb-83357c3ac977",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-28T12:48:20Z"
-  },
-  {
-    "title": "The next AI divide is between learning and earning",
-    "url": "https://www.weforum.org/stories/artificial-intelligence/ai-young-skills-jobs/",
+    "title": "When will the AI price wars begin?",
+    "url": "https://sancho.bearblog.dev/ai-price-wars/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-09-28T12:43:17Z"
+    "createdAt": "2026-09-29T11:56:21Z"
   },
   {
-    "title": "Show HN: EDA Benchmark Leaderboard",
-    "url": "https://deepsense.ai/blog/eda-benchmark-leaderboard-july-14-2026-update/",
+    "title": "The Mythology of Conscious AI",
+    "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
     "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-09-28T12:22:45Z"
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:50:45Z"
   },
   {
-    "title": "CortextAI – A private, offline AI operating system for personal productivity",
-    "url": "https://cortextai.saposs.com",
+    "title": "DesktopBrain – AI File Organizer for Mac and All Folders – Private On-Device AI",
+    "url": "https://desktopbrain.saposs.com/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:45:13Z"
+  },
+  {
+    "title": "Show HN: A terminal where AI coding CLIs can mention each other",
+    "url": "https://github.com/styleio/ShikishaTerm",
+    "points": 1,
+    "numComments": 2,
+    "createdAt": "2026-09-29T11:42:59Z"
+  },
+  {
+    "title": "Oracle's Jupiter datacenter in Mexico on hold",
+    "url": "https://finance.yahoo.com/technology/ai/articles/oracle-ai-expansion-faces-test-202208976.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:39:52Z"
+  },
+  {
+    "title": "Meta Has Hired MongoDB CEO Chirantan Desai for AI Push",
+    "url": "https://www.moneycontrol.com/artificial-intelligence/meta-taps-indian-origin-mongodb-ceo-chirantan-cj-desai-to-lead-its-enterprise-ai-push-article-14040379.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:37:54Z"
+  },
+  {
+    "title": "AI Coding Agents: Between Two Uncomfortable Choices",
+    "url": "https://sidekernel.com/essay/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-09-28T12:19:18Z"
+    "createdAt": "2026-09-29T11:19:57Z"
   },
   {
-    "title": "Chatbots give a narrow slice of knowledge:Researchers warn of knowledge collapse",
-    "url": "https://news.ku.dk/all_news/2026/09/ai-chatbots-give-us-a-narrow-slice-of-knowledge-researchers-warn-of-knowledge-collapse/",
-    "points": 2,
+    "title": "An AI agent escaped Google's kvmCTF sandbox",
+    "url": "https://pwn.ai/blog/kvmescape",
+    "points": 3,
     "numComments": 0,
-    "createdAt": "2026-09-28T12:07:15Z"
+    "createdAt": "2026-09-29T11:09:29Z"
+  },
+  {
+    "title": "Best Open-Source AI Models for Cybersecurity",
+    "url": "https://twitter.com/0x0SojalSec/status/2074622871771717837",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:05:46Z"
+  },
+  {
+    "title": "Timnit Gebru Believes There Is No 'Existential Threat' from AI",
+    "url": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:04:32Z"
   },
   {
     "title": "China Broadens Travel Curbs to Encompass Family of Top AI Talent",
     "url": "https://www.bloomberg.com/news/articles/2026-09-28/china-broadens-travel-curbs-to-encompass-family-of-top-ai-talent",
     "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:03:47Z"
+  },
+  {
+    "title": "How to Red-Team Your AI Agent's Pull Requests in GitHub Actions",
+    "url": "https://www.humanbound.ai/blog/red-team-ai-agent-pull-requests-github-actions",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:03:23Z"
+  },
+  {
+    "title": "20 seconds of speech could help detect type 2 diabetes using AI-based tool",
+    "url": "https://medicalxpress.com/news/2026-09-seconds-speech-diabetes-ai-based.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:02:36Z"
+  },
+  {
+    "title": "Testing in the Open Air: a shared test range for AI agents",
+    "url": "https://www.asticouisland.com/governance/essays/testing-in-the-open-air",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T11:02:30Z"
+  },
+  {
+    "title": "Holo4: Powering generalist computer-use agents",
+    "url": "https://hcompany.ai/newsroom/holo4",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-09-29T10:56:33Z"
+  },
+  {
+    "title": "Gradual Disempowerment",
+    "url": "https://gradual-disempowerment.ai/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T10:52:46Z"
+  },
+  {
+    "title": "U.K. funder uses 'AI triage' to reject grant proposals",
+    "url": "https://www.science.org/content/article/u-k-funder-uses-ai-triage-reject-grant-proposals-leaving-researchers-dismayed",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T10:51:45Z"
+  },
+  {
+    "title": "Show HN: SideKernel – a usable MicroVM sandbox for AI coding agents on macOS",
+    "url": "https://github.com/minoansecurity/sidekernel",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-09-29T10:45:43Z"
+  },
+  {
+    "title": "Show HN: Ismail, a DAW that AI agents operate through text",
+    "url": "https://github.com/newsbubbles/ismail",
+    "points": 1,
     "numComments": 1,
-    "createdAt": "2026-09-28T12:07:08Z"
+    "createdAt": "2026-09-29T10:44:42Z"
   },
   {
-    "title": "Cohesix – find out what happened to a local AI job",
-    "url": "https://github.com/lukeb-aidev/cohesix/releases/tag/v1.2.0",
+    "title": "AI is turning the world into slop",
+    "url": "https://spectator.com/article/ai-is-turning-the-world-into-slop/",
     "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-28T12:05:22Z"
-  },
-  {
-    "title": "SlopTotal, a Self-hosted AI text detector that runs 23 open models",
-    "url": "https://github.com/pablocaeg/sloptotal",
-    "points": 3,
     "numComments": 1,
-    "createdAt": "2026-09-28T12:00:05Z"
-  },
-  {
-    "title": "Hospitals use AI to find more things to bill for. Insurers use AI to deny them.",
-    "url": "https://twitter.com/HedgieMarkets/status/2104266774766039301",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:53:18Z"
-  },
-  {
-    "title": "How NOT to detect residential proxies",
-    "url": "https://blog.truesign.ai/posts/how-NOT-to-detect-residential-proxies/",
-    "points": 15,
-    "numComments": 5,
-    "createdAt": "2026-09-28T11:51:31Z"
-  },
-  {
-    "title": "Corporate America embraces cheaper 'open' AI models",
-    "url": "https://www.ft.com/content/d9de4776-1fc9-4f2b-aaaf-9961c35d8acd",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:49:12Z"
-  },
-  {
-    "title": "A Replacement for Bert: Introducing ModernBERT",
-    "url": "https://www.answer.ai/posts/2024-12-19-modernbert.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:48:17Z"
-  },
-  {
-    "title": "Applying Deming's Continuous Improvement to Multi-Agent AI Systems",
-    "url": "https://medium.com/@zrkjsy/deming-in-the-machine-running-an-ai-assisted-film-production-on-continuous-improvement-0337a3112111",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:47:08Z"
-  },
-  {
-    "title": "Show HN: Onesie – An expressive CLI for System One models like Jev",
-    "url": "https://github.com/frodi-karlsson/onesie",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:37:25Z"
-  },
-  {
-    "title": "Show HN: Algebrix Identity – B2B SaaS IAM for Users, Services, and AI Agents",
-    "url": "https://identity.algebrix.co",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:30:33Z"
-  },
-  {
-    "title": "Show HN: RoadRash revival race against Jev",
-    "url": "https://riderashonline.vercel.app/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:23:42Z"
-  },
-  {
-    "title": "OpenAI, Anthropic CEOs called to appear at Australian AI probe",
-    "url": "https://www.reuters.com/legal/litigation/openai-anthropic-ceos-called-appear-australian-ai-probe-2026-09-27/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:21:57Z"
-  },
-  {
-    "title": "Understanding LLMs with an Interactive Tutorial",
-    "url": "https://thousandmiles-ai.github.io/open-the-black-box-how-llms-actually-work.html",
-    "points": 6,
-    "numComments": 2,
-    "createdAt": "2026-09-28T11:14:05Z"
-  },
-  {
-    "title": "Tesla workers balk at training Optimus humanoid robots as replacements",
-    "url": "https://arstechnica.com/ai/2026/09/tesla-workers-balk-at-training-optimus-humanoid-robots-as-replacements/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-09-28T11:07:29Z"
-  },
-  {
-    "title": "Controversial Sydney data centre project pulled amid community anger",
-    "url": "https://www.abc.net.au/news/2026-09-28/lane-cove-ai-data-centre-plans-abandoned-by-goodman-group/107205120",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-09-28T11:02:21Z"
+    "createdAt": "2026-09-29T10:30:45Z"
   }
 ]
