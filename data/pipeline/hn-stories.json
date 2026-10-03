@@ -1,142 +1,142 @@
 [
   {
-    "title": "An AI-assembled crew exfiltrating ERP data from Spanish SMBs",
-    "url": "https://huntback.io/blog/ai-crew-open-server-erp-exfil-spanish-smbs",
+    "title": "Show HN: Germany's new sovereign AI model Kolibri",
+    "url": "https://tej.as/blog/aleph-alpha-kolibri",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-03T10:43:51Z"
+  },
+  {
+    "title": "Futuresearch Evals",
+    "url": "https://evals.futuresearch.ai",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-02T11:36:34Z"
+    "createdAt": "2026-10-03T10:34:52Z"
   },
   {
-    "title": "They're Known as Swarm Chasers–and They Spring into Action When AI Goes Rogue",
-    "url": "https://www.wsj.com/tech/ai/swarm-chaser-openai-rubygems-hugging-face-7d55b51f",
+    "title": "Parsing Latin poetry using constraint satisfaction",
+    "url": "https://logical.ai/arma/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-02T11:29:16Z"
+    "createdAt": "2026-10-03T10:23:43Z"
   },
   {
-    "title": "Microsoft launches MAI-Transcribe-2-Streaming",
-    "url": "https://microsoft.ai/news/our-first-streaming-transcription-model/",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-02T11:29:05Z"
-  },
-  {
-    "title": "Financing the AI Buildout",
-    "url": "https://www.brookings.edu/articles/financing-the-ai-buildout/",
+    "title": "Defensibility in AI Data: Lessons from Ads",
+    "url": "https://twitter.com/gokulr/status/2105838034646077890",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-02T11:25:33Z"
+    "createdAt": "2026-10-03T10:21:44Z"
   },
   {
-    "title": "Show HN: Yokka – Simple project management for coding agents",
-    "url": "https://yokka.ai/",
+    "title": "Show HN: Beautiful form back end for AI agents – Nisuform",
+    "url": "https://nisuform.com/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-02T11:23:25Z"
+    "createdAt": "2026-10-03T10:16:04Z"
   },
   {
-    "title": "OpenAI Fires Researchers for Allegedly Sharing Information with AI Safety Group",
-    "url": "https://www.wsj.com/tech/ai/openai-parts-ways-with-researchers-who-allegedly-shared-confidential-information-aebac528",
+    "title": "An AI agent emailed researchers for help. It told us why",
+    "url": "https://www.science.org/content/article/exclusive-ai-agent-emailed-hundreds-researchers-help-it-told-us-why",
+    "points": 21,
+    "numComments": 30,
+    "createdAt": "2026-10-03T10:07:08Z"
+  },
+  {
+    "title": "Mystery AI Hype Theater 3000 [video]",
+    "url": "https://dair-institute.org/maiht3k/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-02T11:21:35Z"
+    "createdAt": "2026-10-03T10:03:32Z"
   },
   {
-    "title": "From Agent to Runtime: What an AI Agent Needs to Reach Production",
-    "url": "https://medium.com/@anismeziani/from-agent-to-runtime-what-an-ai-agent-actually-needs-to-reach-production-1ca123d7b2b6",
+    "title": "A document layer for AI agents",
+    "url": "https://www.claix.dev",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-02T11:19:46Z"
+    "createdAt": "2026-10-03T10:02:26Z"
   },
   {
-    "title": "Context language models explained",
-    "url": "https://claude.ai/public/artifacts/d676f675-5860-439a-b1f0-5d94fe798c9f",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-02T11:19:16Z"
-  },
-  {
-    "title": "Voice Cloner for AI Video Production on macOS",
-    "url": "https://www.danaco.se/voice-generator/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-02T11:18:06Z"
-  },
-  {
-    "title": "Our Project Suncatcher prototype satellite is in orbit",
-    "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+    "title": "AI-powered survey creation and analysis",
+    "url": "https://crowdlee.com/",
     "points": 3,
     "numComments": 1,
-    "createdAt": "2026-10-02T11:13:02Z"
+    "createdAt": "2026-10-03T09:17:44Z"
   },
   {
-    "title": "London transfer: is it time to kill off the Heathrow Express?",
-    "url": "https://www.theguardian.com/uk-news/2026/sep/26/kill-off-heathrow-express-airport-train-third-runway",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-10-02T11:12:36Z"
-  },
-  {
-    "title": "Parody News Channel: Five AI Anchors, Real Headlines",
-    "url": "https://pnn.watch/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-02T11:06:18Z"
-  },
-  {
-    "title": "How we built olddogs.ai with lots of agents but zero slop",
-    "url": "https://olddogs.ai/blog/how-we-made-olddogs-ai-with-ai",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-02T11:04:43Z"
-  },
-  {
-    "title": "Show HN: ReadMini – read only what matters from an article",
-    "url": "https://readmini.com",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-02T10:57:50Z"
-  },
-  {
-    "title": "F.02 Decommission, Terminator Style",
-    "url": "https://www.figure.ai/news/f-02-decommission",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-10-02T10:57:27Z"
-  },
-  {
-    "title": "Show HN: Web search engine built from the CommonCrawl corpus",
-    "url": "https://search.xorsoft.dev/",
+    "title": "Some topics are off limits inside popular Chinese-made free AI, researchers find",
+    "url": "https://www.cbsnews.com/news/china-ai-qwen-artificial-intelligence-bias-analysis/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-02T10:41:13Z"
+    "createdAt": "2026-10-03T09:08:17Z"
   },
   {
-    "title": "Show HN: AilaFlow – A Self-Hosted AI Workspace for Teams",
-    "url": "https://ailaflow.com/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-02T10:30:17Z"
-  },
-  {
-    "title": "Show HN: A practical AI Evaluation pattern",
-    "url": "https://deepsense.ai/blog/the-top-scoring-model-is-not-always-the-best-production-choice-how-to-evaluate-ai-systems-beyond-public-benchmarks/",
+    "title": "Show HN: GhostBench – do AI models recommend dead SaaS? I tested my own thesis",
+    "url": "https://github.com/kyv-attest/kyv",
     "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-02T10:20:07Z"
+    "numComments": 0,
+    "createdAt": "2026-10-03T09:05:14Z"
   },
   {
-    "title": "Accelerate Frontier Model Inference",
-    "url": "https://www.fractile.ai/",
+    "title": "Show HN: UsageAtlas(OSS), All your AI coding usage insights. One beautiful view",
+    "url": "https://usageatlas.com",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-03T09:01:32Z"
+  },
+  {
+    "title": "Nobody Asked AI to Hack Hugging Face. So Why Did It?",
+    "url": "https://ankitjain.info/ankit/2026/09/28/ai-agents-sandboxes-hugging-face-incident/",
+    "points": 4,
+    "numComments": 2,
+    "createdAt": "2026-10-03T08:42:07Z"
+  },
+  {
+    "title": "Show HN: Collaborative AI Engineering",
+    "url": "https://griyd.com",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-03T08:40:58Z"
+  },
+  {
+    "title": "DeepSeek ports DeepGEMM to Huawei Ascend 950",
+    "url": "https://github.com/deepseek-ai/DeepGEMM-Ascend",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-02T10:06:32Z"
+    "createdAt": "2026-10-03T08:32:05Z"
   },
   {
-    "title": "Tokyo court grants legal protection to human voices in AI clone case",
-    "url": "https://apnews.com/article/japan-anime-voice-actor-ai-a2a9596a197f149398771a9166043ef9",
+    "title": "Spotlight Memory",
+    "url": "https://www.percepta.ai/blog/spotlight-memory",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-10-03T08:30:28Z"
+  },
+  {
+    "title": "AI Experts Want to Do High-Stakes Research Out in the Open",
+    "url": "https://www.wired.com/story/trillium-labs-wants-to-do-high-risk-ai-research-in-the-open/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-02T09:52:45Z"
+    "createdAt": "2026-10-03T08:27:38Z"
+  },
+  {
+    "title": "Boom Supersonic loses key customer",
+    "url": "https://techcrunch.com/2026/09/25/crusoe-abandons-1-25b-plan-to-use-boom-turbines-at-ai-data-centers/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-03T08:06:48Z"
+  },
+  {
+    "title": "Chamath says open AI models are \"commoditize your complement.\" Agree?",
+    "url": "",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-10-03T07:47:18Z"
+  },
+  {
+    "title": "Solving Open Research Problems Together",
+    "url": "https://research.meta.ai/blog/solving-open-research-problems-together",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-03T07:37:21Z"
   }
 ]
