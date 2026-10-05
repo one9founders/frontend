@@ -1,142 +1,142 @@
 [
   {
-    "title": "Asia-Pacific Journal Series – Introduction: Military AI Has Left the Laboratory",
-    "url": "https://lieber.westpoint.edu/asia-pacific-ai-series-introduction-military-ai-has-left-laboratory/",
+    "title": "Noah Shinn Turns Privacy Complaints into a $10B Round",
+    "url": "https://ailately.com/articles/noah-shinn-instinct-10-billion",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-04T11:39:21Z"
+    "createdAt": "2026-10-05T13:23:54Z"
   },
   {
-    "title": "The Mythology of Conscious AI",
-    "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+    "title": "Inference Economics: Gartner's 96 Percent",
+    "url": "https://ailately.com/articles/inference-economics-gartner-96-percent",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-04T11:38:46Z"
+    "createdAt": "2026-10-05T13:23:24Z"
   },
   {
-    "title": "Meta Uses A.I. Data Centers to Avoid Billions in Federal Taxes",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T11:33:52Z"
-  },
-  {
-    "title": "Bait and Switch",
-    "url": "https://www.theatlantic.com/magazine/2026/11/ai-images-hobbies/688674/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T11:25:04Z"
-  },
-  {
-    "title": "MentaAgent – a self-hosted AI analyst for a company's own files",
-    "url": "https://github.com/DanielKim03/mentaagent",
+    "title": "Spending on AI Is Becoming Almost Impossible for Businesses to Budget",
+    "url": "https://www.wsj.com/tech/personal-tech/ai-token-spending-businesses-431ee94a",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-04T11:06:39Z"
+    "createdAt": "2026-10-05T13:22:31Z"
   },
   {
-    "title": "The ML4Good Technical AI Safety Bootcamp: What to Expect",
-    "url": "https://www.lesswrong.com/posts/a7Lds5i5rfEE2doFa/inside-the-ml4good-technical-ai-safety-bootcamp-what-to-1",
+    "title": "Show HN: Twrctrl – Browser-Based Tower and Ground ATC Simulator",
+    "url": "https://twrctrl.com/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-04T11:04:14Z"
+    "createdAt": "2026-10-05T13:20:02Z"
   },
   {
-    "title": "AI Policy Enforcement Report",
-    "url": "https://delinea.com/resources/ai-policy-enforcement-report",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T10:55:01Z"
-  },
-  {
-    "title": "[No] Use for Humans in the Age of AI",
-    "url": "https://blog.hackflow.ru/blog/2026/10/04/ai-balance-of-power/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T10:53:01Z"
-  },
-  {
-    "title": "Show HN: ViralReel – Make the viral Hotel Lobby AI template video in 60 seconds",
-    "url": "https://www.viralreel.app/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T10:21:56Z"
-  },
-  {
-    "title": "Show HN: Telegram AI Video Generator – Create AI Videos in Chat",
-    "url": "https://videoall.ai/telegram-ai-video-generator",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T10:19:12Z"
-  },
-  {
-    "title": "NIST AI SEC Core",
-    "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T09:37:41Z"
-  },
-  {
-    "title": "EU Enforcement AI Act",
-    "url": "https://digital-strategy.ec.europa.eu/en/policies/enforcement-ai-act",
-    "points": 3,
-    "numComments": 1,
-    "createdAt": "2026-10-04T09:36:32Z"
-  },
-  {
-    "title": "Show HN: AI search for every photo and every frame of video on macOS",
-    "url": "https://github.com/allenv0/SCM",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-04T09:24:52Z"
-  },
-  {
-    "title": "AI, Desire, and Fictional Characters",
-    "url": "https://endsdontjustifythemeans.com/p/on-ai-desire-and-fictional-characters",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T08:45:05Z"
-  },
-  {
-    "title": "AI as Normal Technology (2025)",
-    "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-04T08:44:48Z"
-  },
-  {
-    "title": "Aura – a self-hosted AI agent with temporal graph memory, written in Go",
-    "url": "https://github.com/chetto1983/Aura",
+    "title": "F.02 Robot Decommission",
+    "url": "https://www.figure.ai/news/f-02-decommission?shem=aimgspe,",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-04T08:42:20Z"
+    "createdAt": "2026-10-05T13:04:42Z"
   },
   {
-    "title": "How to scale intent, quality, and artistry with AI [video]",
-    "url": "https://www.youtube.com/watch?v=GLvFTMtw4Jk",
+    "title": "What Still Gets Paid If AI Changes the Interface?",
+    "url": "https://michaelhillaert1.substack.com/p/what-still-gets-paid-if-ai-changes",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:56:20Z"
+  },
+  {
+    "title": "Accept 'bad things' in return for benefits of AI, says Sam Altman",
+    "url": "https://www.theguardian.com/technology/2026/oct/05/sam-altman-open-ai-chatgpt-benefits-risks",
+    "points": 27,
+    "numComments": 54,
+    "createdAt": "2026-10-05T12:56:18Z"
+  },
+  {
+    "title": "AI coding agents implemented six ways to update a Matter device on real hardware",
+    "url": "https://groundrun.io/blog/ai-agents-matter-ota-updates-esp32-h2/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:44:17Z"
+  },
+  {
+    "title": "One runaway AI agent racked up a $50k cloud bill",
+    "url": "https://www.helpnetsecurity.com/2026/09/16/google-mandiant-enterprise-ai-security-risks-report/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:43:45Z"
+  },
+  {
+    "title": "The State of AI in Software Development: Data from 400 Orgs [video]",
+    "url": "https://www.youtube.com/watch?v=Se8jHLliLXE",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:38:18Z"
+  },
+  {
+    "title": "Show HN: Seylo, project files and references your AI can use",
+    "url": "https://seylo.co",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:30:51Z"
+  },
+  {
+    "title": "How (and Why) to Build an AI Agent from Scratch in Python",
+    "url": "https://machinelearningmastery.com/how-and-why-to-build-an-ai-agent-from-scratch-in-python/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:30:48Z"
+  },
+  {
+    "title": "Anthropic wants your thoughts on AI",
+    "url": "https://www.anthropic.com/research/your-thoughts-on-ai",
+    "points": 3,
+    "numComments": 3,
+    "createdAt": "2026-10-05T12:21:02Z"
+  },
+  {
+    "title": "My New Course at UT Austin: AI Alignment Theory",
+    "url": "https://scottaaronson.blog/?p=10125",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:06:25Z"
+  },
+  {
+    "title": "Self-host your own AI text detector on CPU to filter out slop",
+    "url": "https://github.com/pablocaeg/sloptotal",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-10-05T12:06:10Z"
+  },
+  {
+    "title": "Do people prefer stories written by AI?",
+    "url": "https://www.cambridge.org/dk/universitypress/about-us/news-and-blogs/do-people-prefer-stories-written-by-ai",
     "points": 2,
     "numComments": 1,
-    "createdAt": "2026-10-04T08:41:58Z"
+    "createdAt": "2026-10-05T11:59:52Z"
   },
   {
-    "title": "Impact of AI Search Summaries on Website Traffic",
-    "url": "https://arxiv.org/abs/2602.18455",
-    "points": 3,
-    "numComments": 1,
-    "createdAt": "2026-10-04T08:40:59Z"
+    "title": "Hindsight – An open-source memory system for AI agents",
+    "url": "https://github.com/vectorize-io/hindsight",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-05T11:42:24Z"
   },
   {
-    "title": "Agentic Video Understanding with Gemini",
-    "url": "https://aistudio.google.com/learn/agentic-video-understanding-with-gemini",
+    "title": "First Agentic AI Design System to Bootstrap Products",
+    "url": "https://vitadesignsystem.com/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-04T08:40:22Z"
+    "createdAt": "2026-10-05T11:33:13Z"
   },
   {
-    "title": "How does the AI and Agent Gateway market will shape up going forward",
-    "url": "",
-    "points": 1,
+    "title": "How to build an AI-native software factory",
+    "url": "https://www.theaithinker.com/p/how-to-build-an-ai-native-software",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-04T08:39:15Z"
+    "createdAt": "2026-10-05T11:05:01Z"
+  },
+  {
+    "title": "People hate AI, so why can't they get enough?",
+    "url": "https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
+    "points": 4,
+    "numComments": 0,
+    "createdAt": "2026-10-05T11:02:58Z"
   }
 ]
