@@ -1,142 +1,142 @@
 [
   {
-    "title": "Teenager rescued from B.C. 'Widowmaker' after getting stranded following Claude",
-    "url": "https://www.ctvnews.ca/vancouver/article/teenager-rescued-from-bcs-widowmaker-after-getting-stranded-using-ai-instructions/",
+    "title": "Show HN: PanelAlpha Engine – Turn your VPS into a programmable hosting layer",
+    "url": "https://engine.panelalpha.com/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-06T12:35:45Z"
+    "createdAt": "2026-10-07T12:28:51Z"
   },
   {
-    "title": "AI training of copyrighted material not fair use: Third Circuit",
-    "url": "https://www.courthousenews.com/ai-training-of-copyrighted-material-not-fair-use-third-circuit/",
+    "title": "Google Playground: Create and play custom games",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-06T12:35:07Z"
+    "createdAt": "2026-10-07T12:28:36Z"
   },
   {
-    "title": "VMPal – Virtual Machines for Apple Silicon and AI Agents",
-    "url": "https://vmpal.com/",
+    "title": "Why the AI Vulnpocalypse Isn't the Breachpocalypse",
+    "url": "https://medium.com/@TalBeerySec/why-the-vulnpocalypse-isnt-the-breachpocalypse-yet-it-s-the-economy-stupid-81928725968a",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-06T12:30:55Z"
+    "createdAt": "2026-10-07T12:26:27Z"
   },
   {
-    "title": "SAP to Acquire TechWolf",
-    "url": "https://news.sap.com/2026/10/sap-to-acquire-techwolf-evidence-based-work-age-of-ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:27:18Z"
-  },
-  {
-    "title": "Hermes Agent on Kubernetes: no Helm chart, and the image needs root at init",
-    "url": "https://www.revos.ai/blog/hermes-agent-kubernetes",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:26:43Z"
-  },
-  {
-    "title": "Lightsaber-like plasma antenna uses laser-ionized air to transmit radio waves",
-    "url": "https://phys.org/news/2026-10-lightsaber-plasma-antenna-laser-ionized.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:25:51Z"
-  },
-  {
-    "title": "Tennessee Emergency Alerts Redirect to a Facebook Page",
-    "url": "https://sk500.online/tech/tennessee-emergency-alerts-redirect-to-a-facebook-page/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:24:23Z"
-  },
-  {
-    "title": "Liberty AI Project One",
-    "url": "https://github.com/julialennonofficial-art/LIBERTY-AI-PROJECT-ONE",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:20:53Z"
-  },
-  {
-    "title": "Show HN: Paganel – Data migration with a receipt you can verify later",
-    "url": "https://github.com/stanstork/paganel",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:12:00Z"
-  },
-  {
-    "title": "What Would You Do If Your Employer Could Destroy the World?",
-    "url": "https://nymag.com/intelligencer/article/ai-researchers-quit-openai-anthropic.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:08:30Z"
-  },
-  {
-    "title": "Monitoring an AI agent trains it to evade the monitor (100-day simulation)",
-    "url": "https://aixiv.science/abs/aixiv.261005.000003",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T12:06:00Z"
-  },
-  {
-    "title": "Pure Math Research Ideas: AI X Physics",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T11:59:52Z"
-  },
-  {
-    "title": "Who's Ahead in the Global AI Talent Race?",
-    "url": "https://carnegieendowment.org/features/whos-ahead-in-the-global-ai-talent-race",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T11:58:24Z"
-  },
-  {
-    "title": "Show HN: Golem – Zero-dependency, type-safe AI agent framework in pure Go",
-    "url": "https://github.com/abubakarsiddik31/golem",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-06T11:55:21Z"
-  },
-  {
-    "title": "Facehugging.ai",
-    "url": "https://facehugging.ai/",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-06T11:51:33Z"
-  },
-  {
-    "title": "Q&A with the Michigan Tech ML/AI Club",
-    "url": "https://www.mtu.edu/computing/gateway/2026/stories/qa-ml-ai-club/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-06T11:48:01Z"
-  },
-  {
-    "title": "DesktopBrain – Automatically Organize Files on Mac with On-Device AI",
-    "url": "https://desktopbrain.saposs.com",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-06T11:36:45Z"
-  },
-  {
-    "title": "Show HN: A Deterministic-First Local Control Center Leveraging AI for Routing",
-    "url": "https://github.com/JuanVeranoMesa/natta-toolkit",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-06T11:28:33Z"
-  },
-  {
-    "title": "Is AI the End of Math as We Know It?",
-    "url": "https://www.quantamagazine.org/is-ai-the-end-of-math-as-we-know-it-20261005/",
+    "title": "Show HN: Engineering judgment in AI-assisted development [video]",
+    "url": "https://www.youtube.com/watch?v=oMd9R_8O6uY",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-10-06T11:24:37Z"
+    "createdAt": "2026-10-07T12:13:59Z"
   },
   {
-    "title": "Misuse of AI is brands' top reputational threat, new survey says",
-    "url": "https://www.theguardian.com/technology/2026/oct/06/ai-misuse-brand-reputation",
+    "title": "Show HN: Monolith / an engine-building game about software startups",
+    "url": "https://monolithgame.app/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-07T12:12:48Z"
+  },
+  {
+    "title": "Can AI Make a Game Engine? [video]",
+    "url": "https://www.youtube.com/watch?v=R_uf5OfMGio",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-07T12:11:10Z"
+  },
+  {
+    "title": "Cosmic shuts the door on AI code as GNOME debates letting bug reports in",
+    "url": "https://www.theregister.com/software/2026/10/07/cosmic-shuts-the-door-on-ai-code-as-gnome-debates-letting-bug-reports-in/5301141",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-06T11:22:27Z"
+    "createdAt": "2026-10-07T12:07:09Z"
+  },
+  {
+    "title": "Show HN: CloudGrip – Open-source AI proxy to cap LLM API budgets",
+    "url": "https://github.com/Aliyunazeer/cloudgrip-backend",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-07T12:03:53Z"
+  },
+  {
+    "title": "Ask HN: Whats the future of marketplaces going to be like",
+    "url": "",
+    "points": 1,
+    "numComments": 3,
+    "createdAt": "2026-10-07T11:59:41Z"
+  },
+  {
+    "title": "AI vs. Human Creativity",
+    "url": "https://matiasmobilia.substack.com/p/ai-vs-human-creativity",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-07T11:58:30Z"
+  },
+  {
+    "title": "\"Good\" AI",
+    "url": "https://thoughts.wyounas.com/p/what-does-good-ai-mean",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-07T11:57:53Z"
+  },
+  {
+    "title": "AI Just Became Humanity's Biggest Threat [video]",
+    "url": "https://www.youtube.com/watch?v=ujkD4SxPKOI",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-07T11:43:46Z"
+  },
+  {
+    "title": "Valkey 9.2 Targets Memory Overhead with AI Used to Improve Its Code",
+    "url": "https://techstrong.it/featured/valkey-9-2-targets-memory-overhead-with-ai-used-to-improve-its-code/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-07T11:28:38Z"
+  },
+  {
+    "title": "LLMs and Data Poisoning Are Weaponized to Manufacture Consensus",
+    "url": "https://medium.com/@eslam.elsewedy/synthetic-truth-how-marketing-power-and-ai-bend-reality-cd8a1173b968",
+    "points": 8,
+    "numComments": 4,
+    "createdAt": "2026-10-07T11:23:55Z"
+  },
+  {
+    "title": "A faster Bluetooth Over-The-Air update for the ESP32: from minutes to seconds",
+    "url": "https://groundrun.io/blog/faster-bluetooth-over-the-air-update-esp32/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-07T11:17:53Z"
+  },
+  {
+    "title": "Jev made me rethink AI Ops Engineering",
+    "url": "https://arminn.com/writing/jev-made-me-rethink-ai-ops-engineering/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-07T11:15:14Z"
+  },
+  {
+    "title": "Musician sent to prison for $10M streaming fraud using AI bots",
+    "url": "https://www.bleepingcomputer.com/news/security/musician-gets-18-months-in-prison-for-10-million-streaming-fraud-using-ai-bots/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-07T11:13:16Z"
+  },
+  {
+    "title": "AI agent posted personal bank balances into company Slack",
+    "url": "https://twitter.com/ShaneMac/status/2107486740491669879",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-10-07T10:59:17Z"
+  },
+  {
+    "title": "Rex – Superlogical's AI multiplexer, now in beta",
+    "url": "https://www.superlogical.com/updates/public-testing-beginning",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-07T10:51:22Z"
+  },
+  {
+    "title": "Saaras-V4",
+    "url": "https://www.sarvam.ai/blogs/introducing-saaras-v4",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-07T10:37:35Z"
   }
 ]
