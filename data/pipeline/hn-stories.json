@@ -1,142 +1,142 @@
 [
   {
-    "title": "US Air Force pilots used malware-laden USB drives to plan Afghanistan missions",
-    "url": "https://www.theregister.com/security/2026/10/15/us-air-force-pilots-used-malware-laden-usb-drives-to-plan-afghanistan-missions/5303156",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-15T10:43:51Z"
+    "title": "How pro-China are Chinese models?",
+    "url": "https://www.vals.ai/blogs/china-us-analysis",
+    "points": 2,
+    "numComments": 2,
+    "createdAt": "2026-10-16T10:23:29Z"
   },
   {
-    "title": "What Is Jev Good For?",
-    "url": "https://sayora.ai/many-hands/what-is-jev-good-for/",
+    "title": "AlbertCode, an AI software engineering agent for building applications",
+    "url": "https://www.albertcode.dev",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-10-16T10:16:12Z"
+  },
+  {
+    "title": "Memory Under Noise: Why AI-Assistant Memory Engines Lose the Evidence",
+    "url": "https://www.aai-labs.com/en/research/memory-under-noise",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-16T10:06:26Z"
+  },
+  {
+    "title": "Study: Human–machine interaction is better than its reputation",
+    "url": "https://www.mpg.de/27037803/human-learning-is-an-underestimated-factor-in-the-success-of-human-ai-teams",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-16T09:57:30Z"
+  },
+  {
+    "title": "Show HN: Control how much your AI agent can spend with Keydris",
+    "url": "https://www.youtube.com/watch?v=fboNucIC3uU",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-16T09:56:12Z"
+  },
+  {
+    "title": "Agent or Flowchart? Find the Box You Can't Finish Drawing",
+    "url": "https://frankdenneman.ai/2026-10-13-agent-or-flowchart-find-the-box-you-cant-finish-drawing/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-16T09:49:55Z"
+  },
+  {
+    "title": "We reverse-engineered Blender and made it open source. Introducing BlenderCraft",
+    "url": "https://reddit.com/r/blender/comments/1x79j0p/we_did_it_we_reverseengineered_blender_with_ai/",
     "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-10-16T09:26:01Z"
+  },
+  {
+    "title": "Writing Books with AI: How Do Manually Written Books Stay Relevant?",
+    "url": "https://www.ssp.sh/brain/writing-books-with-ai-study/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-10-16T09:25:11Z"
+  },
+  {
+    "title": "Geoffrey Hinton: 'We're creating alien beings. I'm willing to choose humans'",
+    "url": "https://www.theguardian.com/us-news/2026/oct/13/geoffrey-hinton-trump-ai-tech",
+    "points": 12,
     "numComments": 1,
-    "createdAt": "2026-10-15T10:39:36Z"
+    "createdAt": "2026-10-16T09:13:43Z"
   },
   {
-    "title": "Anthropic warns of AI 'worms' spreading across smart gadgets",
-    "url": "https://techxplore.com/news/2026-10-anthropic-ai-worms-smart-gadgets.html",
+    "title": "AI Safety Is Not a Corporate Plot",
+    "url": "https://www.astralcodexten.com/p/ai-safety-is-not-a-corporate-plot",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-15T10:37:46Z"
+    "createdAt": "2026-10-16T09:07:25Z"
   },
   {
-    "title": "Sipeed announces MaixStation local AI computer",
-    "url": "https://sipeed.com/maixstation/",
+    "title": "LibreNT – how AI slop infects Windows clean-room engineering",
+    "url": "https://github.com/ahmedarif193/LiberNT",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-10-16T08:44:45Z"
+  },
+  {
+    "title": "Video Cutter AI – turn long videos into short clips",
+    "url": "https://video-cutter.ai/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-15T10:36:30Z"
+    "createdAt": "2026-10-16T08:42:49Z"
   },
   {
-    "title": "Management in the Age of AI",
-    "url": "https://staysaasy.com/management-in-the-age-of-ai/",
+    "title": "Skill that will matter most in the AI age: computationalizing (S.Wolfram)[video]",
+    "url": "https://www.youtube.com/shorts/DmA01hM5B4E",
+    "points": 2,
+    "numComments": 2,
+    "createdAt": "2026-10-16T08:32:30Z"
+  },
+  {
+    "title": "AI will lose to Human when it comes to gambling",
+    "url": "https://www.youtube.com/watch?v=19hdzsbeBHY",
+    "points": 2,
+    "numComments": 2,
+    "createdAt": "2026-10-16T08:20:08Z"
+  },
+  {
+    "title": "Show HN: WP Replai – AI chatbot built right into WordPress",
+    "url": "https://wpreplai.com/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-16T08:06:46Z"
+  },
+  {
+    "title": "Hopper HQ: An office building where Claude agents gets a desk",
+    "url": "https://github.com/FairMind-Gen-AI-Studio/hopper-hq",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-16T07:59:01Z"
+  },
+  {
+    "title": "Mistral announces Timestral: SOTA time-series foundation models",
+    "url": "https://mistral.ai/news/timestral/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-15T10:33:52Z"
+    "createdAt": "2026-10-16T07:57:26Z"
   },
   {
-    "title": "How Researchers Made Contact with a Chinese AI Agent Fleet",
-    "url": "https://quickchat.ai/post/chinese-ai-agent-fleet",
-    "points": 3,
+    "title": "Kern – a zero-trust verification gateway for AI-generated code",
+    "url": "https://github.com/newmathphys/kern",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-15T10:26:04Z"
+    "createdAt": "2026-10-16T07:49:53Z"
   },
   {
-    "title": "How are you centralising AI for development at your company?",
+    "title": "Jev is NOT a reranker (but it's close)",
+    "url": "https://www.kapa.ai/blog/jev-reranker-benchmark",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-16T07:40:53Z"
+  },
+  {
+    "title": "AI as a part of capitalism – the right way to go",
     "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T10:15:21Z"
-  },
-  {
-    "title": "Anthropic's Claude AI submitted false murder tip to Philadelphia police",
-    "url": "https://arstechnica.com/tech-policy/2026/10/anthropics-claude-ai-submitted-false-murder-tip-to-philadelphia-police/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-15T10:15:07Z"
-  },
-  {
-    "title": "Costs of Switching AI Models",
-    "url": "https://www.youtube.com/watch?v=zUCeaaGCRuc",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-15T10:00:28Z"
-  },
-  {
-    "title": "Show HN: I built a rogue AI game, then let five AI models play it",
-    "url": "https://www.viberant.app/view.php?id=82",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T09:31:45Z"
-  },
-  {
-    "title": "AI has changed my engineering leadership role",
-    "url": "https://bjorg.bjornroche.com/management/AI-leadership/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T09:23:12Z"
-  },
-  {
-    "title": "Even Without AI, the Risk of a Biological Attack Is Terrifying",
-    "url": "https://www.motherjones.com/politics/2026/09/ai-anthropic-pandemic-biological-war-scenario-bioterrorism-annie-jacobsen-book-gain-function-research-pathogens-ethics/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T09:17:14Z"
-  },
-  {
-    "title": "Show HN: Reproducible failure drills for AI coding agents",
-    "url": "https://github.com/second-time-is-a-bug-book/book-companion",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T09:14:09Z"
-  },
-  {
-    "title": "WSP MCP – Free WordPress MCP for Connecting AI Coding Agents",
-    "url": "https://github.com/bilalnaseer/wsp-wordpress-mcp",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T08:45:10Z"
-  },
-  {
-    "title": "Movietonight",
-    "url": "https://movietonight.ai",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T08:43:32Z"
-  },
-  {
-    "title": "Kerno 1.0 – AI Back End Runtime QA Engineer",
-    "url": "https://kerno.io/blog/kerno-v1/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-15T08:31:15Z"
-  },
-  {
-    "title": "REA – I tested AI agent reverse engineering",
-    "url": "https://korben.info/en/rea-ai-agent-reverse-engineering-test.html",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-15T08:27:13Z"
-  },
-  {
-    "title": "AI was great until it was not",
-    "url": "https://thetheorygirlie.substack.com/p/ai-was-great-until-it-was-not",
-    "points": 73,
-    "numComments": 54,
-    "createdAt": "2026-10-15T08:18:38Z"
-  },
-  {
-    "title": "Step 5 Preview: Architecture and Training for Agentic Work",
-    "url": "https://platform.stepfun.ai/blog/inside-step-5-preview",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T08:17:06Z"
-  },
-  {
-    "title": "Forensic Analysis of RL/RLHF-Induced Privilege Escalation in AI Agents",
-    "url": "https://arxiv.org/abs/2610.20437",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-15T08:07:08Z"
+    "createdAt": "2026-10-16T07:38:27Z"
   }
 ]
