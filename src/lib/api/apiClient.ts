@@ -36,7 +36,7 @@ async function fetchAPI(endpoint: string, options: RequestInit = {}) {
     
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      const errorMessage = errorData.detail || response.statusText;
+      const errorMessage = errorData.detail || errorData.error || response.statusText;
       const method = (options.method || 'GET').toUpperCase();
 
       if (response.status === 404 && method === 'GET') {
@@ -188,6 +188,11 @@ export const categoriesAPI = {
 
 export const submissionAPI = {
   getAll: () => fetchAPI('/submissions/'),
+  requestEmailCode: (data: { email: string; name?: string; recaptcha_token?: string }) =>
+    fetchAPI('/submissions/request-email-code/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
   submit: (data: any) =>
     fetchAPI('/submissions/', {
       method: 'POST',

@@ -18,6 +18,9 @@ export default function SubmitToolPageClient() {
     short_description: '',
     pricing_info: ''
   });
+  const [emailCode, setEmailCode] = useState('');
+  const [codeSentTo, setCodeSentTo] = useState('');
+  const [sendingCode, setSendingCode] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error'>('success');
@@ -25,7 +28,41 @@ export default function SubmitToolPageClient() {
   const [started, setStarted] = useState(false);
   const { executeRecaptcha } = useReCaptcha();
 
+  const errorText = (error: unknown, fallback: string) => {
+    if (error instanceof Error) {
+      const text = error.message.replace(/^API Error:\s*/, '').trim();
+      if (text) return text;
+    }
+    return fallback;
+  };
 
+  const handleSendCode = async () => {
+    const email = formData.submitter_email.trim();
+    if (!email) {
+      setMessage('Enter your email first.');
+      setMessageType('error');
+      return;
+    }
+
+    setSendingCode(true);
+    setMessage('');
+    try {
+      const recaptchaToken = await executeRecaptcha('verify_submitter_email');
+      await submissionAPI.requestEmailCode({
+        email,
+        name: formData.submitter_name,
+        ...(recaptchaToken ? { recaptcha_token: recaptchaToken } : {}),
+      });
+      setCodeSentTo(email.toLowerCase());
+      setMessage(`We emailed a 6-digit code to ${email}. It expires in 10 minutes.`);
+      setMessageType('success');
+    } catch (error) {
+      setMessage(errorText(error, 'Could not send the verification code. Try again.'));
+      setMessageType('error');
+    } finally {
+      setSendingCode(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +78,18 @@ export default function SubmitToolPageClient() {
       return;
     }
 
+    if (!/^\d{6}$/.test(emailCode.trim())) {
+      setMessage('Enter the 6-digit code we emailed you.');
+      setMessageType('error');
+      return;
+    }
+
+    if (codeSentTo && codeSentTo !== formData.submitter_email.trim().toLowerCase()) {
+      setMessage('That code was sent to a different email. Request a new code.');
+      setMessageType('error');
+      return;
+    }
+
     setLoading(true);
     setMessage('');
 
@@ -48,7 +97,10 @@ export default function SubmitToolPageClient() {
       // Get reCAPTCHA token
       const recaptchaToken = await executeRecaptcha('submit_tool');
 
-      const submissionData: Record<string, unknown> = { ...formData };
+      const submissionData: Record<string, unknown> = {
+        ...formData,
+        email_code: emailCode.trim(),
+      };
       if (recaptchaToken) {
         submissionData.recaptcha_token = recaptchaToken;
       }
@@ -64,9 +116,17 @@ export default function SubmitToolPageClient() {
         surface: 'submit_form',
       });
 
+      const submission = saved && !Array.isArray(saved) ? saved : null;
+      const accountNote = submission?.account_created
+        ? ' We created your One9Founders account for this email.'
+        : submission?.email_verified
+          ? ' Your email is verified on One9Founders.'
+          : '';
       setMessageType('success');
-      setMessage('Saved. Enrichment runs after this and can fail without deleting the submission. Approval is not a fact check.');
-      await showSuccess('Saved', 'The submission is stored. Enrichment runs after that and can fail without deleting it. Approval is not a fact check.');
+      setMessage(`Saved. Enrichment runs after this and can fail without deleting the submission. Approval is not a fact check.${accountNote}`);
+      await showSuccess('Saved', `The submission is stored. Enrichment runs after that and can fail without deleting it. Approval is not a fact check.${accountNote}`);
+      setEmailCode('');
+      setCodeSentTo('');
       setFormData({
         name: '',
         description: '',
@@ -78,7 +138,10 @@ export default function SubmitToolPageClient() {
         pricing_info: ''
       });
     } catch (error) {
-      await showError('Error', 'Failed to submit tool. Please try again.');
+      const text = errorText(error, 'Failed to submit tool. Please try again.');
+      setMessage(text);
+      setMessageType('error');
+      await showError('Error', text);
     } finally {
       setLoading(false);
     }
@@ -97,6 +160,9 @@ export default function SubmitToolPageClient() {
       ...formData,
       [e.target.name]: e.target.value
     });
+    if (e.target.name === 'submitter_email') {
+      setEmailCode('');
+    }
   };
 
   return (
@@ -253,7 +319,40 @@ export default function SubmitToolPageClient() {
                   className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white"
                   required
                 />
+                <p className="text-sm text-[var(--gray-400)] mt-1">
+                  We email a code to confirm this address, then create your One9Founders account so the directory only keeps real inboxes.
+                </p>
+                <button
+                  type="button"
+                  onClick={handleSendCode}
+                  disabled={sendingCode}
+                  className="mt-3 w-full py-3 px-6 rounded-lg font-medium border border-[var(--gray-600)] text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {sendingCode ? 'Sending code...' : codeSentTo ? 'Resend code' : 'Email me a code'}
+                </button>
               </div>
+
+              {codeSentTo && (
+                <div>
+                  <label htmlFor="email_code" className="block text-sm font-medium text-white mb-2">
+                    Verification code *
+                  </label>
+                  <input
+                    type="text"
+                    id="email_code"
+                    name="email_code"
+                    inputMode="numeric"
+                    autoComplete="one-time-code"
+                    pattern="[0-9]{6}"
+                    maxLength={6}
+                    value={emailCode}
+                    onChange={(event) => setEmailCode(event.target.value.replace(/\D/g, '').slice(0, 6))}
+                    placeholder="6-digit code"
+                    className="w-full px-4 py-3 rounded-lg focus:outline-none focus:border-copper transition-colors bg-[var(--gray-800)] border border-[var(--gray-700)] text-white tracking-[0.3em]"
+                    required
+                  />
+                </div>
+              )}
 
               {/* Submit Button */}
               <div className="pt-4">
