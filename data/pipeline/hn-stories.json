@@ -1,142 +1,142 @@
 [
   {
-    "title": "How pro-China are Chinese models?",
-    "url": "https://www.vals.ai/blogs/china-us-analysis",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-10-16T10:23:29Z"
-  },
-  {
-    "title": "AlbertCode, an AI software engineering agent for building applications",
-    "url": "https://www.albertcode.dev",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-10-16T10:16:12Z"
-  },
-  {
-    "title": "Memory Under Noise: Why AI-Assistant Memory Engines Lose the Evidence",
-    "url": "https://www.aai-labs.com/en/research/memory-under-noise",
+    "title": "EmbedIDS: Open-source intrusion detection for embedded systems and physical AI",
+    "url": "https://embedids.linuscent.com/main/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-16T10:06:26Z"
+    "createdAt": "2026-10-17T09:58:19Z"
   },
   {
-    "title": "Study: Human–machine interaction is better than its reputation",
-    "url": "https://www.mpg.de/27037803/human-learning-is-an-underestimated-factor-in-the-success-of-human-ai-teams",
+    "title": "Deleted AI Chats May Leave Clues Behind",
+    "url": "https://news.research.gatech.edu/2026/10/13/deleted-ai-chats-may-leave-clues-behind",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-16T09:57:30Z"
+    "createdAt": "2026-10-17T09:38:18Z"
   },
   {
-    "title": "Show HN: Control how much your AI agent can spend with Keydris",
-    "url": "https://www.youtube.com/watch?v=fboNucIC3uU",
+    "title": "Show HN: CiteLadder – open-source AI search visibility tracker",
+    "url": "https://github.com/abhij1306/CiteLadder",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-16T09:56:12Z"
+    "createdAt": "2026-10-17T08:49:44Z"
   },
   {
-    "title": "Agent or Flowchart? Find the Box You Can't Finish Drawing",
-    "url": "https://frankdenneman.ai/2026-10-13-agent-or-flowchart-find-the-box-you-cant-finish-drawing/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-16T09:49:55Z"
-  },
-  {
-    "title": "We reverse-engineered Blender and made it open source. Introducing BlenderCraft",
-    "url": "https://reddit.com/r/blender/comments/1x79j0p/we_did_it_we_reverseengineered_blender_with_ai/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-16T09:26:01Z"
-  },
-  {
-    "title": "Writing Books with AI: How Do Manually Written Books Stay Relevant?",
-    "url": "https://www.ssp.sh/brain/writing-books-with-ai-study/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-16T09:25:11Z"
-  },
-  {
-    "title": "Geoffrey Hinton: 'We're creating alien beings. I'm willing to choose humans'",
-    "url": "https://www.theguardian.com/us-news/2026/oct/13/geoffrey-hinton-trump-ai-tech",
-    "points": 12,
-    "numComments": 1,
-    "createdAt": "2026-10-16T09:13:43Z"
-  },
-  {
-    "title": "AI Safety Is Not a Corporate Plot",
-    "url": "https://www.astralcodexten.com/p/ai-safety-is-not-a-corporate-plot",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-16T09:07:25Z"
-  },
-  {
-    "title": "LibreNT – how AI slop infects Windows clean-room engineering",
-    "url": "https://github.com/ahmedarif193/LiberNT",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-10-16T08:44:45Z"
-  },
-  {
-    "title": "Video Cutter AI – turn long videos into short clips",
-    "url": "https://video-cutter.ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-16T08:42:49Z"
-  },
-  {
-    "title": "Skill that will matter most in the AI age: computationalizing (S.Wolfram)[video]",
-    "url": "https://www.youtube.com/shorts/DmA01hM5B4E",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-10-16T08:32:30Z"
-  },
-  {
-    "title": "AI will lose to Human when it comes to gambling",
-    "url": "https://www.youtube.com/watch?v=19hdzsbeBHY",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-10-16T08:20:08Z"
-  },
-  {
-    "title": "Show HN: WP Replai – AI chatbot built right into WordPress",
-    "url": "https://wpreplai.com/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-16T08:06:46Z"
-  },
-  {
-    "title": "Hopper HQ: An office building where Claude agents gets a desk",
-    "url": "https://github.com/FairMind-Gen-AI-Studio/hopper-hq",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-16T07:59:01Z"
-  },
-  {
-    "title": "Mistral announces Timestral: SOTA time-series foundation models",
-    "url": "https://mistral.ai/news/timestral/",
+    "title": "Aviation superfan installs an Airbus A380 suite in his apartment",
+    "url": "https://www.cnn.com/travel/aviation-superfan-a380-etihad-residence-suite",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-16T07:57:26Z"
+    "createdAt": "2026-10-17T08:47:54Z"
   },
   {
-    "title": "Kern – a zero-trust verification gateway for AI-generated code",
-    "url": "https://github.com/newmathphys/kern",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-16T07:49:53Z"
-  },
-  {
-    "title": "Jev is NOT a reranker (but it's close)",
-    "url": "https://www.kapa.ai/blog/jev-reranker-benchmark",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-16T07:40:53Z"
-  },
-  {
-    "title": "AI as a part of capitalism – the right way to go",
+    "title": "Ask HN: Local AI product situation",
     "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-17T08:46:16Z"
+  },
+  {
+    "title": "DeepSeek-v4.1-Flash-1017 is here",
+    "url": "https://twitter.com/deepseek_ai/status/2111375640717033777",
+    "points": 8,
+    "numComments": 0,
+    "createdAt": "2026-10-17T08:39:15Z"
+  },
+  {
+    "title": "DeepSeek: DeepSeek v4.1 Flash 1017",
+    "url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
+    "points": 111,
+    "numComments": 7,
+    "createdAt": "2026-10-17T08:37:46Z"
+  },
+  {
+    "title": "DeepSeek-v4.1-Flash-1017",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "points": 136,
+    "numComments": 56,
+    "createdAt": "2026-10-17T08:21:25Z"
+  },
+  {
+    "title": "Show HN: Sys2txt – transcribe system audio to text in the CLI with a local LLM",
+    "url": "https://Joe-Heffer.github.io/sys2txt/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-16T07:38:27Z"
+    "createdAt": "2026-10-17T08:14:12Z"
+  },
+  {
+    "title": "Meta to scrape content from business customers for model training",
+    "url": "https://www.theregister.com/ai-and-ml/2026/10/16/meta-grants-itself-right-to-scrape-content-from-business-customers-for-model-training/5303658",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-10-17T08:14:06Z"
+  },
+  {
+    "title": "Researchers Stranded an AI Agent on a Virtual Island",
+    "url": "https://gizmodo.com/researchers-stranded-an-ai-agent-on-a-virtual-island-things-got-very-weird-2000825998",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-17T07:45:09Z"
+  },
+  {
+    "title": "I built an open-source Kubernetes dashboard where AI agents ask before they act",
+    "url": "https://lumovi.dev/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-17T07:09:02Z"
+  },
+  {
+    "title": "Glimpse: Visual thinking that stays grounded",
+    "url": "https://elorian.ai/blog/introducing-glimpse",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-17T07:04:23Z"
+  },
+  {
+    "title": "Decomp.dev Shuts Down Because AI Has Made It Too Easy to Decompile Games",
+    "url": "https://www.404media.co/video-game-reverse-engineering-community-shuts-down-because-ai-has-made-it-too-easy/",
+    "points": 4,
+    "numComments": 1,
+    "createdAt": "2026-10-17T06:44:13Z"
+  },
+  {
+    "title": "Show HN: I built a free collection of browser-based 3D tools",
+    "url": "https://3dvalley.com",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-17T06:29:17Z"
+  },
+  {
+    "title": "Ask HN: What is the most useful thing AI has done for you?",
+    "url": "",
+    "points": 3,
+    "numComments": 3,
+    "createdAt": "2026-10-17T06:06:44Z"
+  },
+  {
+    "title": "How an agentic chat interface can break",
+    "url": "https://astralbeam.ai/blog/ten-agentic-chat-interface-failures",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-17T05:56:46Z"
+  },
+  {
+    "title": "Existential Risk from AI: An Exposition for Mathematicians",
+    "url": "https://alkjash.github.io/ai-risk/",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-10-17T05:52:06Z"
+  },
+  {
+    "title": "Claude CRISPR-like sequence may be a parallel discovery of unpublished research",
+    "url": "https://recul.ai/news/claude-viral-dna-pattern-priority-dispute/",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-10-17T05:49:12Z"
+  },
+  {
+    "title": "Mapping the China AI Ecosystem with Rui Ma [video]",
+    "url": "https://www.youtube.com/watch?v=-RDpqweadlE",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-17T05:35:59Z"
   }
 ]
