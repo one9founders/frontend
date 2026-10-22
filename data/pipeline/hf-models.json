@@ -1,352 +1,352 @@
 [
   {
     "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-    "downloads": 42122,
-    "likes": 2066,
+    "downloads": 51911,
+    "likes": 2259,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-17T05:46:55.000Z"
   },
   {
     "id": "black-forest-labs/flux-3-image-klein-comfy",
-    "downloads": 490447,
-    "likes": 1126,
+    "downloads": 512524,
+    "likes": 1236,
     "pipeline_tag": "image-to-image",
     "lastModified": "2026-10-17T07:10:12.000Z"
   },
   {
-    "id": "fishaudio/drama-3",
-    "downloads": 15274,
-    "likes": 859,
-    "pipeline_tag": "text-to-speech",
-    "lastModified": "2026-10-17T05:06:07.000Z"
-  },
-  {
     "id": "meta-models/Muse-Spark-Open-816B-A42B",
-    "downloads": 2891,
-    "likes": 617,
+    "downloads": 3163,
+    "likes": 648,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-15T15:46:43.000Z"
   },
   {
     "id": "black-forest-labs/flux-3-image-klein",
-    "downloads": 92604,
-    "likes": 585,
+    "downloads": 102903,
+    "likes": 618,
     "pipeline_tag": "image-to-image",
     "lastModified": "2026-10-16T04:58:03.000Z"
   },
   {
     "id": "OpenMOSS-Team/MOSS-Image-SFT",
-    "downloads": 5840,
-    "likes": 511,
+    "downloads": 6890,
+    "likes": 546,
     "pipeline_tag": "text-to-image",
     "lastModified": "2026-10-21T01:52:00.000Z"
   },
   {
-    "id": "google/embeddinggemma-2",
-    "downloads": 179734,
-    "likes": 2785,
-    "pipeline_tag": "feature-extraction",
-    "lastModified": "2026-10-06T15:29:23.000Z"
-  },
-  {
-    "id": "Lightricks/LTX-2.5",
-    "downloads": 2057942,
-    "likes": 8672,
-    "pipeline_tag": "image-to-video",
-    "lastModified": "2026-10-11T07:00:53.000Z"
+    "id": "fishaudio/drama-3",
+    "downloads": 16305,
+    "likes": 903,
+    "pipeline_tag": "text-to-speech",
+    "lastModified": "2026-10-17T05:06:07.000Z"
   },
   {
     "id": "OpenMOSS-Team/MOSS-Image-Base",
-    "downloads": 4344,
-    "likes": 447,
+    "downloads": 5013,
+    "likes": 476,
     "pipeline_tag": "text-to-image",
     "lastModified": "2026-10-21T01:51:54.000Z"
   },
   {
+    "id": "Lightricks/LTX-2.5",
+    "downloads": 2054990,
+    "likes": 8812,
+    "pipeline_tag": "image-to-video",
+    "lastModified": "2026-10-11T07:00:53.000Z"
+  },
+  {
+    "id": "google/embeddinggemma-2",
+    "downloads": 185259,
+    "likes": 2826,
+    "pipeline_tag": "feature-extraction",
+    "lastModified": "2026-10-06T15:29:23.000Z"
+  },
+  {
+    "id": "RecursiveSI/flint",
+    "downloads": 420,
+    "likes": 373,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-10-21T14:24:03.000Z"
+  },
+  {
     "id": "jialinyyzz/humanizer",
-    "downloads": 120930,
-    "likes": 2040,
+    "downloads": 124773,
+    "likes": 2079,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-10-15T02:09:56.000Z"
   },
   {
+    "id": "Comfy-Org/MOSS-Image",
+    "downloads": 1463386,
+    "likes": 349,
+    "pipeline_tag": "",
+    "lastModified": "2026-10-22T05:20:17.000Z"
+  },
+  {
     "id": "abenzerps/Qwen-Image-2.1-Uncensored-Quantized",
-    "downloads": 2738344,
-    "likes": 4740,
+    "downloads": 2665585,
+    "likes": 4797,
     "pipeline_tag": "text-to-image",
     "lastModified": "2026-10-12T07:10:55.000Z"
   },
   {
-    "id": "Comfy-Org/MOSS-Image",
-    "downloads": 1290080,
-    "likes": 312,
-    "pipeline_tag": "",
-    "lastModified": "2026-10-20T20:24:03.000Z"
-  },
-  {
     "id": "Qwen/Qwen3.8-27B",
-    "downloads": 7729432,
-    "likes": 18096,
+    "downloads": 7758670,
+    "likes": 18171,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-08-14T15:00:01.000Z"
   },
   {
     "id": "nvidia/Qwen3.8-Flash-Next-FP4-Local",
-    "downloads": 9340,
-    "likes": 278,
+    "downloads": 10519,
+    "likes": 301,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-15T19:45:54.000Z"
   },
   {
-    "id": "LiquidAI/LFM2.5-24B-A2B",
-    "downloads": 16939,
-    "likes": 533,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-10-21T01:14:14.000Z"
-  },
-  {
     "id": "tencent/Hy-Memory-30B-A3B",
-    "downloads": 2682,
-    "likes": 264,
+    "downloads": 2966,
+    "likes": 280,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-10-16T08:12:51.000Z"
   },
   {
-    "id": "datalab-to/indra-ocr",
-    "downloads": 3588,
-    "likes": 324,
-    "pipeline_tag": "image-to-text",
-    "lastModified": "2026-10-19T14:36:52.000Z"
-  },
-  {
     "id": "mistralai/Timestral-209M",
-    "downloads": 5488,
-    "likes": 247,
+    "downloads": 6194,
+    "likes": 272,
     "pipeline_tag": "time-series-forecasting",
     "lastModified": "2026-10-15T15:33:49.000Z"
   },
   {
-    "id": "facebook/sam3",
-    "downloads": 1906176,
-    "likes": 4800,
-    "pipeline_tag": "mask-generation",
-    "lastModified": "2025-11-20T22:05:08.000Z"
+    "id": "datalab-to/indra-ocr",
+    "downloads": 3823,
+    "likes": 352,
+    "pipeline_tag": "image-to-text",
+    "lastModified": "2026-10-19T14:36:52.000Z"
   },
   {
     "id": "reflection/Beam-1.0-501B-A23B",
-    "downloads": 3555,
-    "likes": 191,
+    "downloads": 3984,
+    "likes": 219,
     "pipeline_tag": "text-generation",
-    "lastModified": "2026-10-16T13:22:56.000Z"
-  },
-  {
-    "id": "baidu/Unlimited-OCR",
-    "downloads": 2127860,
-    "likes": 4846,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-14T06:17:59.000Z"
-  },
-  {
-    "id": "Qwen/Qwen-Image-2.1-Turbo",
-    "downloads": 29826,
-    "likes": 1019,
-    "pipeline_tag": "text-to-image",
-    "lastModified": "2026-10-12T09:45:49.000Z"
-  },
-  {
-    "id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
-    "downloads": 12910,
-    "likes": 191,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-16T23:39:43.000Z"
-  },
-  {
-    "id": "lodestones/MOSS-Image-SFT-8-steps-dmd",
-    "downloads": 68289,
-    "likes": 187,
-    "pipeline_tag": "",
-    "lastModified": "2026-10-17T03:44:54.000Z"
+    "lastModified": "2026-10-21T23:26:37.000Z"
   },
   {
     "id": "lodestones/Kromoss",
-    "downloads": 11608,
-    "likes": 185,
+    "downloads": 14415,
+    "likes": 213,
     "pipeline_tag": "text-to-image",
     "lastModified": "2026-10-20T14:31:08.000Z"
   },
   {
     "id": "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8",
-    "downloads": 3458,
-    "likes": 198,
+    "downloads": 3808,
+    "likes": 229,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-18T12:45:29.000Z"
   },
   {
+    "id": "XHToken/Spark-X2.6-4B",
+    "downloads": 482,
+    "likes": 214,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-10-21T08:51:53.000Z"
+  },
+  {
+    "id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
+    "downloads": 13739,
+    "likes": 210,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-10-16T23:39:43.000Z"
+  },
+  {
+    "id": "lodestones/MOSS-Image-SFT-8-steps-dmd",
+    "downloads": 75389,
+    "likes": 201,
+    "pipeline_tag": "",
+    "lastModified": "2026-10-17T03:44:54.000Z"
+  },
+  {
+    "id": "facebook/sam3",
+    "downloads": 1864206,
+    "likes": 4878,
+    "pipeline_tag": "mask-generation",
+    "lastModified": "2025-11-20T22:05:08.000Z"
+  },
+  {
+    "id": "InternScience/Sage-A1.5",
+    "downloads": 396,
+    "likes": 188,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-10-22T04:13:27.000Z"
+  },
+  {
+    "id": "LiquidAI/LFM2.5-24B-A2B",
+    "downloads": 17637,
+    "likes": 553,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-10-21T01:14:14.000Z"
+  },
+  {
+    "id": "baidu/Unlimited-OCR",
+    "downloads": 2218090,
+    "likes": 4865,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-10-14T06:17:59.000Z"
+  },
+  {
     "id": "meta-models/Muse-Spark-Open-816B-A42B-NVFP4",
-    "downloads": 6507,
-    "likes": 197,
+    "downloads": 6857,
+    "likes": 204,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-15T17:18:42.000Z"
   },
   {
-    "id": "Qwen/Qwen3.8-Flash-Next",
-    "downloads": 2633567,
-    "likes": 6374,
+    "id": "orcarouter/OrcaCyber-Nano-1.0",
+    "downloads": 21727,
+    "likes": 177,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-08-27T05:03:36.000Z"
-  },
-  {
-    "id": "deepseek-ai/DeepSeek-V4.1-Flash",
-    "downloads": 1468263,
-    "likes": 4680,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-16T09:27:28.000Z"
+    "lastModified": "2026-10-22T03:16:13.000Z"
   },
   {
     "id": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
-    "downloads": 3062,
-    "likes": 150,
+    "downloads": 3375,
+    "likes": 160,
     "pipeline_tag": "text-generation",
     "lastModified": "2026-10-16T23:54:11.000Z"
   },
   {
-    "id": "orcarouter/OrcaCyber-Nano-1.0",
-    "downloads": 19697,
-    "likes": 154,
+    "id": "Qwen/Qwen3.8-Flash-Next",
+    "downloads": 2706809,
+    "likes": 6393,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-19T04:06:28.000Z"
-  },
-  {
-    "id": "inclusionAI/Ling-3.1-flash",
-    "downloads": 3292,
-    "likes": 143,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-10-20T08:23:10.000Z"
+    "lastModified": "2026-08-27T05:03:36.000Z"
   },
   {
     "id": "black-forest-labs/flux-3-image-klein-base",
-    "downloads": 87973,
-    "likes": 159,
+    "downloads": 105206,
+    "likes": 162,
     "pipeline_tag": "image-to-image",
     "lastModified": "2026-10-16T04:58:07.000Z"
   },
   {
     "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-24GB",
-    "downloads": 7494,
-    "likes": 142,
+    "downloads": 8023,
+    "likes": 147,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-20T20:02:05.000Z"
   },
   {
-    "id": "unsloth/Qwen3.8-27B-GGUF",
-    "downloads": 6291461,
-    "likes": 5236,
-    "pipeline_tag": "",
-    "lastModified": "2026-08-20T12:04:25.000Z"
+    "id": "Qwen/Qwen-Image-2.1-Turbo",
+    "downloads": 30766,
+    "likes": 1026,
+    "pipeline_tag": "text-to-image",
+    "lastModified": "2026-10-12T09:45:49.000Z"
   },
   {
     "id": "DavidAU/Qwen3.8-27B-TURBO-Fable-Cold-Fusion-735-882-Heretic-Uncensored-NEO-CODER-MAX-MTP-GGUF",
-    "downloads": 1726519,
-    "likes": 1921,
+    "downloads": 1692261,
+    "likes": 1956,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-17T22:34:07.000Z"
   },
   {
-    "id": "pyannote/speaker-diarization-community-1",
-    "downloads": 5110125,
-    "likes": 3194,
-    "pipeline_tag": "automatic-speech-recognition",
-    "lastModified": "2025-09-29T08:43:24.000Z"
+    "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "downloads": 1488213,
+    "likes": 4693,
+    "pipeline_tag": "image-text-to-text",
+    "lastModified": "2026-10-16T09:27:28.000Z"
+  },
+  {
+    "id": "unsloth/Qwen3.8-27B-GGUF",
+    "downloads": 5937802,
+    "likes": 5265,
+    "pipeline_tag": "",
+    "lastModified": "2026-08-20T12:04:25.000Z"
+  },
+  {
+    "id": "Comfy-Org/Fibo-2.0",
+    "downloads": 56780,
+    "likes": 131,
+    "pipeline_tag": "",
+    "lastModified": "2026-10-21T10:28:29.000Z"
+  },
+  {
+    "id": "ornith-ai/Ornith-1.5-122B",
+    "downloads": 4828,
+    "likes": 132,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-10-21T08:29:30.000Z"
   },
   {
     "id": "convaiinnovations/laya",
-    "downloads": 53877,
-    "likes": 5747,
+    "downloads": 54527,
+    "likes": 5770,
     "pipeline_tag": "text-classification",
     "lastModified": "2026-10-03T18:00:07.000Z"
   },
   {
-    "id": "LiquidAI/LFM2.5-24B-A2B-GGUF",
-    "downloads": 143838,
-    "likes": 227,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-10-13T21:33:53.000Z"
-  },
-  {
     "id": "HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-MTP-GGUF",
-    "downloads": 2354693,
-    "likes": 1972,
+    "downloads": 2315548,
+    "likes": 1995,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-08-17T22:02:10.000Z"
   },
   {
-    "id": "stepfun-ai/Step-5-Preview",
-    "downloads": 2065,
-    "likes": 120,
-    "pipeline_tag": "",
-    "lastModified": "2026-10-15T01:28:10.000Z"
-  },
-  {
-    "id": "ConwayResearch/Underdog-Saluki-27B-1.0",
-    "downloads": 483698,
-    "likes": 584,
-    "pipeline_tag": "text-generation",
-    "lastModified": "2026-10-15T11:43:02.000Z"
-  },
-  {
-    "id": "AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF",
-    "downloads": 444083,
-    "likes": 586,
-    "pipeline_tag": "text-to-image",
-    "lastModified": "2026-10-13T20:02:46.000Z"
-  },
-  {
-    "id": "orcarouter/Qwen3.8-Flash-Next-Uncensored-GGUF",
-    "downloads": 877264,
-    "likes": 1004,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-18T13:59:35.000Z"
-  },
-  {
     "id": "unsloth/DeepSeek-V4.1-Flash-1017-GGUF",
-    "downloads": 18769,
-    "likes": 112,
+    "downloads": 24733,
+    "likes": 125,
     "pipeline_tag": "image-text-to-text",
     "lastModified": "2026-10-20T10:18:03.000Z"
   },
   {
-    "id": "MiniMaxAI/MiniMax-H3",
-    "downloads": 5007397,
-    "likes": 6260,
-    "pipeline_tag": "image-text-to-video",
-    "lastModified": "2026-08-13T01:46:29.000Z"
+    "id": "pyannote/speaker-diarization-community-1",
+    "downloads": 5063972,
+    "likes": 3244,
+    "pipeline_tag": "automatic-speech-recognition",
+    "lastModified": "2025-09-29T08:43:24.000Z"
   },
   {
-    "id": "prism-ml/Ternary-Bonsai-2-9B-gguf",
-    "downloads": 96490,
-    "likes": 115,
+    "id": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+    "downloads": 738000,
+    "likes": 1471,
+    "pipeline_tag": "image-feature-extraction",
+    "lastModified": "2025-08-19T09:00:52.000Z"
+  },
+  {
+    "id": "unsloth/flint-GGUF",
+    "downloads": 7401,
+    "likes": 119,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-10-21T23:54:26.000Z"
+  },
+  {
+    "id": "KRAFTON/Raon-1-mini-preview",
+    "downloads": 249,
+    "likes": 122,
+    "pipeline_tag": "text-generation",
+    "lastModified": "2026-10-22T04:22:46.000Z"
+  },
+  {
+    "id": "nvidia/GLM-5.3-Flash-FP4-Local",
+    "downloads": 3929,
+    "likes": 114,
     "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-15T16:04:11.000Z"
+    "lastModified": "2026-10-16T20:28:36.000Z"
   },
   {
     "id": "akatz-ai/MiniMax-H3-Character-Swap-LoRA",
-    "downloads": 90313,
-    "likes": 566,
+    "downloads": 94336,
+    "likes": 584,
     "pipeline_tag": "video-to-video",
     "lastModified": "2026-10-17T23:41:56.000Z"
   },
   {
-    "id": "nerkyor/Qwen3.8-27B-Coder390-EfficientThink-Opus5.5-GPT6Astra-Grok4.7-DSV4Pro-K3-SFT-RLOO-MTP-DFlash2",
-    "downloads": 346227,
-    "likes": 458,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-18T15:45:42.000Z"
-  },
-  {
-    "id": "nvidia/GLM-5.3-Flash-FP4-Local",
-    "downloads": 3548,
-    "likes": 109,
-    "pipeline_tag": "image-text-to-text",
-    "lastModified": "2026-10-16T20:28:36.000Z"
+    "id": "briaai/Fibo-2.0-dev",
+    "downloads": 645,
+    "likes": 111,
+    "pipeline_tag": "text-to-image",
+    "lastModified": "2026-10-22T08:26:28.000Z"
   }
 ]
