@@ -1,142 +1,142 @@
 [
   {
-    "title": "The AI Agents Trying to Be Real-Life Journalists",
+    "title": "Wikipedia's Cleanup of AI-Generated Content",
+    "url": "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup",
+    "points": 4,
+    "numComments": 1,
+    "createdAt": "2026-10-27T11:08:15Z"
+  },
+  {
+    "title": "AI promised less work. I've never worked more",
+    "url": "https://oioannou.com/blog/ai-promised-less-work/",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-10-27T11:08:14Z"
+  },
+  {
+    "title": "Fabric – All-in-One Agent Gateway",
+    "url": "https://fabricgateway.ai/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-27T11:03:04Z"
+  },
+  {
+    "title": "Meet The AI Agents Trying to Be Real-Life Journalists",
     "url": "https://www.wired.com/story/ai-agents-are-trying-to-be-journalists-now/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-26T12:02:38Z"
+    "createdAt": "2026-10-27T10:51:36Z"
   },
   {
-    "title": "Meta Plans to Raise Up to $95B for AI Push",
-    "url": "https://www.wsj.com/tech/ai/meta-plans-35-billion-stock-offering-to-power-ai-buildout-eyes-95-billion-total-plan-10b8947e",
+    "title": "Highlighting What Changed: A Go Diff-Mask for AI Agent Screenshots",
+    "url": "https://towardsdev.com/highlighting-what-changed-a-go-diff-mask-for-ai-agent-screenshots-64551334911a?sk=5efd0778f96236fa3fbefdb52727b5d5",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-26T12:01:59Z"
+    "createdAt": "2026-10-27T10:48:38Z"
   },
   {
-    "title": "Nobody Could Say Which AI Agent Did It",
-    "url": "https://www.anuclei.com/blog/nobody-could-say-which-agent-did-it",
+    "title": "Show HN: HypeSeoul – AI-painted isometric map of Seoul that runs on Seoul time",
+    "url": "https://hypeseoul.xyz/?s=hn",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-26T12:01:50Z"
-  },
-  {
-    "title": "Grok releases the first seven minutes of its AI-generated 'Odyssey'",
-    "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T12:01:46Z"
-  },
-  {
-    "title": "Show HN: Render your Windows desktop GUI on the NPU",
-    "url": "https://github.com/labscommunity/npu-render",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T11:55:53Z"
-  },
-  {
-    "title": "Anthropic's Claude AI model accessed Georgia voter data in US",
-    "url": "https://www.theguardian.com/technology/2026/oct/26/anthropics-claude-ai-model-accessed-georgia-voter-data-in-us",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-26T11:48:22Z"
-  },
-  {
-    "title": "AI Scope Creep and Productivity",
-    "url": "https://ayende.com/blog/204195-a/ai-scope-creep-productivity",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-26T11:39:30Z"
-  },
-  {
-    "title": "Show HN: Ankita v2.7.1 – desktop AI companion with undo",
-    "url": "https://github.com/akyourowngames/A.N.K.I.T.A/releases/tag/v2.7.1",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T11:14:26Z"
-  },
-  {
-    "title": "AI Is Making Verification the Bottleneck for Companies",
-    "url": "https://hbr.org/2026/10/ai-is-making-verification-the-bottleneck-for-companies",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-26T11:14:19Z"
-  },
-  {
-    "title": "Build your first AI agent from scratch in Python: a web research agent",
-    "url": "https://github.com/iayanpahwa/research-agent-from-scratch",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-26T11:13:18Z"
-  },
-  {
-    "title": "Show HN: Retro AI Concept",
-    "url": "https://airetro.vercel.app",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-26T11:09:32Z"
-  },
-  {
-    "title": "Cleanyourtv.ai",
-    "url": "https://cleanyourtv.ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T10:58:52Z"
-  },
-  {
-    "title": "Show HN: Ultimidi – piano learning web game",
-    "url": "https://game.ultimidi.com/",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-26T10:58:23Z"
-  },
-  {
-    "title": "The higher self: why the AI copy of your way of working should be yours",
-    "url": "https://isaac-correa.github.io/higher-self/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T10:57:54Z"
-  },
-  {
-    "title": "Show HN: Mob programming with AI agents, built on OpenSpec and OpenCode",
-    "url": "https://griyd.com",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-10-26T10:46:16Z"
-  },
-  {
-    "title": "Young Creators Who Cannot Draw Are Making Their First Comics with AI",
-    "url": "https://grsai.com",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T10:29:54Z"
-  },
-  {
-    "title": "AMD Ryzen AI Halo",
-    "url": "https://www.amd.com/en/products/processors/desktops/ryzen/ryzen-ai-halo.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T10:26:16Z"
-  },
-  {
-    "title": "AI cloud computing firms face 'guppy-level death', Elon Musk warns",
-    "url": "https://www.theguardian.com/business/live/2026/oct/26/ai-cloud-computing-companies-guppy-level-death-elon-musk-stock-markets-dollar-oil-bond-yieds-latest-news-updates",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-26T10:09:25Z"
+    "createdAt": "2026-10-27T10:47:54Z"
   },
   {
     "title": "MCP-warden local credential broker so AI agents never see your secrets",
-    "url": "",
-    "points": 1,
-    "numComments": 2,
-    "createdAt": "2026-10-26T09:57:32Z"
-  },
-  {
-    "title": "Show HN: Claude optimizes mel-band roformer to run 4x faster on Mac",
-    "url": "https://github.com/aipdv/fast-melroformer",
+    "url": "https://github.com/ermoluk/mcp-warden",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-26T09:55:54Z"
+    "createdAt": "2026-10-27T10:28:15Z"
+  },
+  {
+    "title": "Hey, Y Combinator - What will happen to humans?",
+    "url": "",
+    "points": 6,
+    "numComments": 5,
+    "createdAt": "2026-10-27T10:21:56Z"
+  },
+  {
+    "title": "GDPR change lets companies train AI on Europeans' personal data without consent",
+    "url": "https://twitter.com/IntCyberDigest/status/2114838732197224927",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-27T10:10:40Z"
+  },
+  {
+    "title": "Keeping API keys out of our AI agent's sandbox, and what that doesn't solve",
+    "url": "https://askdoozy.com/blog/ai-agent-api-keys-sandbox",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-27T10:10:25Z"
+  },
+  {
+    "title": "1 in 8B – An AI-Powered Life Simulator",
+    "url": "https://1in8billion.games",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-27T09:39:14Z"
+  },
+  {
+    "title": "I tested 12 small AI models on 2,500 design-system questions",
+    "url": "https://www.designsystemscollective.com/i-tested-12-small-ai-models-on-2-500-design-system-questions-the-model-wasnt-what-mattered-4ef16e69ad64",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-10-27T09:34:32Z"
+  },
+  {
+    "title": "RFC AI Tooling: 40x fewer tokens while reading the RFC corpus",
+    "url": "https://github.com/shbernal/rfc-ai-tooling",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-27T09:29:57Z"
+  },
+  {
+    "title": "Putting the Cart Before the AI",
+    "url": "https://blog.tohojo.dk/2025/06/putting-the-cart-before-the-ai.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-27T09:27:44Z"
+  },
+  {
+    "title": "Tell HN: Last night, I had a dream",
+    "url": "",
+    "points": 4,
+    "numComments": 1,
+    "createdAt": "2026-10-27T09:17:57Z"
+  },
+  {
+    "title": "Ask HN: Can we do something about this impending AI dystopia",
+    "url": "",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-10-27T09:05:20Z"
+  },
+  {
+    "title": "Offcut, design furniture by chatting with AI",
+    "url": "https://offcut.diy",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-27T08:56:00Z"
+  },
+  {
+    "title": "Just Eat apologises for AI food mistakes",
+    "url": "https://www.bbc.com/news/articles/crz981p0klvgo",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-10-27T08:55:50Z"
+  },
+  {
+    "title": "AI is ruining haunted houses",
+    "url": "https://www.plagiarismtoday.com/2026/10/26/ai-is-ruining-haunted-attractions/",
+    "points": 37,
+    "numComments": 55,
+    "createdAt": "2026-10-27T08:50:33Z"
+  },
+  {
+    "title": "Police Pulling People over Because AI Deems Their Driving Patterns Suspicious",
+    "url": "https://www.aclu.org/news/privacy-technology/ai-driven-police-stops",
+    "points": 6,
+    "numComments": 2,
+    "createdAt": "2026-10-27T08:42:41Z"
   }
 ]
