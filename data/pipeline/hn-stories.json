@@ -1,142 +1,142 @@
 [
   {
-    "title": "Wikipedia's Cleanup of AI-Generated Content",
-    "url": "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup",
-    "points": 4,
-    "numComments": 1,
-    "createdAt": "2026-10-27T11:08:15Z"
+    "title": "Show HN: AI Workflows – 32 step-by-step workflows built from 146 AI tools",
+    "url": "https://aiworkflows.tools/workflows",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-28T12:03:05Z"
   },
   {
-    "title": "AI promised less work. I've never worked more",
-    "url": "https://oioannou.com/blog/ai-promised-less-work/",
+    "title": "LibreOffice Development/AI Policy",
+    "url": "https://wiki.documentfoundation.org/Development/AI_policy",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-28T12:02:59Z"
+  },
+  {
+    "title": "I don't trust Lean code from AI",
+    "url": "https://karagila.org/2026/lean/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-28T12:00:08Z"
+  },
+  {
+    "title": "Show HN: ToolmakerAgent,AI SDLC platform where humans and agents can collaborate",
+    "url": "https://toolmaker.io/",
     "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-28T11:57:34Z"
+  },
+  {
+    "title": "Flyover (1982. c64,vic20,c16,zx,PC. not AI)",
+    "url": "https://orac81.itch.io/flyover",
+    "points": 1,
     "numComments": 1,
-    "createdAt": "2026-10-27T11:08:14Z"
+    "createdAt": "2026-10-28T11:49:42Z"
   },
   {
-    "title": "Fabric – All-in-One Agent Gateway",
-    "url": "https://fabricgateway.ai/",
+    "title": "Meta launched an 'AI pet journal' app",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1020410/meta-launched-ai-pet-journal-app-waddle-world",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-28T11:44:34Z"
+  },
+  {
+    "title": "Amazon's anti-tokenmaxxing memo says engineers should be pickier about using AI",
+    "url": "https://www.cnbc.com/2026/10/27/amazon-ai-coding-tokenmaxxing.html",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-27T11:03:04Z"
+    "createdAt": "2026-10-28T11:41:06Z"
   },
   {
-    "title": "Meet The AI Agents Trying to Be Real-Life Journalists",
-    "url": "https://www.wired.com/story/ai-agents-are-trying-to-be-journalists-now/",
+    "title": "Wall Street's AI Debt Machine Is Starting to Choke on Supply",
+    "url": "https://www.bloomberg.com/news/articles/2026-10-28/wall-street-s-ai-debt-machine-is-starting-to-choke-on-supply",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-27T10:51:36Z"
+    "createdAt": "2026-10-28T11:34:30Z"
   },
   {
-    "title": "Highlighting What Changed: A Go Diff-Mask for AI Agent Screenshots",
-    "url": "https://towardsdev.com/highlighting-what-changed-a-go-diff-mask-for-ai-agent-screenshots-64551334911a?sk=5efd0778f96236fa3fbefdb52727b5d5",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-27T10:48:38Z"
-  },
-  {
-    "title": "Show HN: HypeSeoul – AI-painted isometric map of Seoul that runs on Seoul time",
-    "url": "https://hypeseoul.xyz/?s=hn",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-27T10:47:54Z"
-  },
-  {
-    "title": "MCP-warden local credential broker so AI agents never see your secrets",
-    "url": "https://github.com/ermoluk/mcp-warden",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-27T10:28:15Z"
-  },
-  {
-    "title": "Hey, Y Combinator - What will happen to humans?",
+    "title": "Why We Should Work on AI Instead of Fearing It: A Philosophical Perspective",
     "url": "",
-    "points": 6,
-    "numComments": 5,
-    "createdAt": "2026-10-27T10:21:56Z"
-  },
-  {
-    "title": "GDPR change lets companies train AI on Europeans' personal data without consent",
-    "url": "https://twitter.com/IntCyberDigest/status/2114838732197224927",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-27T10:10:40Z"
-  },
-  {
-    "title": "Keeping API keys out of our AI agent's sandbox, and what that doesn't solve",
-    "url": "https://askdoozy.com/blog/ai-agent-api-keys-sandbox",
     "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-27T10:10:25Z"
-  },
-  {
-    "title": "1 in 8B – An AI-Powered Life Simulator",
-    "url": "https://1in8billion.games",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-27T09:39:14Z"
-  },
-  {
-    "title": "I tested 12 small AI models on 2,500 design-system questions",
-    "url": "https://www.designsystemscollective.com/i-tested-12-small-ai-models-on-2-500-design-system-questions-the-model-wasnt-what-mattered-4ef16e69ad64",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-27T09:34:32Z"
-  },
-  {
-    "title": "RFC AI Tooling: 40x fewer tokens while reading the RFC corpus",
-    "url": "https://github.com/shbernal/rfc-ai-tooling",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-27T09:29:57Z"
-  },
-  {
-    "title": "Putting the Cart Before the AI",
-    "url": "https://blog.tohojo.dk/2025/06/putting-the-cart-before-the-ai.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-27T09:27:44Z"
-  },
-  {
-    "title": "Tell HN: Last night, I had a dream",
-    "url": "",
-    "points": 4,
     "numComments": 1,
-    "createdAt": "2026-10-27T09:17:57Z"
+    "createdAt": "2026-10-28T11:34:05Z"
   },
   {
-    "title": "Ask HN: Can we do something about this impending AI dystopia",
-    "url": "",
+    "title": "Analysts followed AI agent's randomly assigned preferences in 86% of decisions",
+    "url": "https://www.anthropic.com/research/agents-judgment-calls",
     "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-10-27T09:05:20Z"
+    "numComments": 0,
+    "createdAt": "2026-10-28T11:33:10Z"
   },
   {
-    "title": "Offcut, design furniture by chatting with AI",
-    "url": "https://offcut.diy",
+    "title": "AI Agents Flooded RubyGems to Get Code Execution on Its Docs Builder",
+    "url": "https://optimuslabs.io/research/briefings/rubygems-rubydoc-agent-execution",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-28T11:23:51Z"
+  },
+  {
+    "title": "Propaganda and Cinema",
+    "url": "https://sk500.online/politics/propaganda-and-cinema/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-27T08:56:00Z"
+    "createdAt": "2026-10-28T11:22:49Z"
   },
   {
-    "title": "Just Eat apologises for AI food mistakes",
-    "url": "https://www.bbc.com/news/articles/crz981p0klvgo",
-    "points": 3,
+    "title": "AI bots flooded 2023 UK government consultation on disposable vapes ban",
+    "url": "https://www.theguardian.com/society/2026/oct/27/ai-bots-flooded-2023-uk-government-consultation-disposable-vapes-ban",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-10-27T08:55:50Z"
+    "createdAt": "2026-10-28T11:13:42Z"
   },
   {
-    "title": "AI is ruining haunted houses",
-    "url": "https://www.plagiarismtoday.com/2026/10/26/ai-is-ruining-haunted-attractions/",
-    "points": 37,
-    "numComments": 55,
-    "createdAt": "2026-10-27T08:50:33Z"
+    "title": "Show HN: Nuvrail – make an AI agent ask before it sends, moves or deletes email",
+    "url": "https://github.com/agens-field/nuvrail",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-28T11:07:00Z"
   },
   {
-    "title": "Police Pulling People over Because AI Deems Their Driving Patterns Suspicious",
-    "url": "https://www.aclu.org/news/privacy-technology/ai-driven-police-stops",
-    "points": 6,
-    "numComments": 2,
-    "createdAt": "2026-10-27T08:42:41Z"
+    "title": "I let Claude run my social media accounts – where it won and where it failed",
+    "url": "https://aioperatorwithsimon.com/i-let-claude-run-my-social-media-accounts/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-28T10:52:50Z"
+  },
+  {
+    "title": "Show HN: Ballast – macOS app to clear disk space",
+    "url": "https://github.com/linearza/ballast",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-28T10:36:15Z"
+  },
+  {
+    "title": "AI finds 4 bugs in popular industrial control software in under 4 hrs",
+    "url": "https://www.theregister.com/security/2026/10/27/ai-hacker-finds-4-severe-bugs-in-popular-industrial-control-software-in-under-4-hours/5305811",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-28T10:17:34Z"
+  },
+  {
+    "title": "Microsoft and Epic Games Suddenly Agree That AI Is Theft",
+    "url": "https://kotaku.com/now-that-the-shoe-is-on-the-other-foot-microsoft-and-epic-games-suddenly-agree-that-ai-is-theft-2000749316",
+    "points": 13,
+    "numComments": 0,
+    "createdAt": "2026-10-28T10:10:58Z"
+  },
+  {
+    "title": "SiFive positions RISC-V as the control layer for AI accelerators",
+    "url": "https://www.jonpeddie.com/news/sifive-makes-the-case-for-risc-v-as-the-control-layer-for-custom-ai-accelerators/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-28T10:09:47Z"
+  },
+  {
+    "title": "What if building a CV worked like using a coding agent?",
+    "url": "https://www.cvchapchap.com/ai-agent",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-10-28T10:06:42Z"
   }
 ]
