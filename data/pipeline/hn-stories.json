@@ -1,142 +1,142 @@
 [
   {
-    "title": "What to consider if a company that made AI-related job cuts wants you back",
-    "url": "https://apnews.com/article/ai-jobs-layoffs-hiring-rebounding-skills-04662acffb7beba822129118dde3f0a7",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-30T11:51:50Z"
-  },
-  {
-    "title": "Google Faces Criminal Probe over 816 Acres Cleared for Finnish AI Data Center",
-    "url": "https://www.tomshardware.com/tech-industry/data-centers/criminal-investigation-launched-into-googles-ai-data-center-deforestation-in-finland-local-police-act-over-multiple-complaints-about-breaches-of-environmental-law",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-30T11:35:17Z"
-  },
-  {
-    "title": "Sikaru: self-improving agents, with the lab built in",
-    "url": "https://www.sikaru.ai/blog/introducing-sikaru",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-30T11:26:50Z"
-  },
-  {
-    "title": "AI Builder Compare",
-    "url": "https://aibuildercompare.com/",
+    "title": "Collaborative AI agents for autonomous experimental research",
+    "url": "https://arxiv.org/abs/2610.40589",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-30T11:22:48Z"
+    "createdAt": "2026-10-31T11:34:17Z"
   },
   {
-    "title": "Greece showcases new air defense systems at Thessaloniki military parade",
-    "url": "https://www.ekathimerini.com/news/1319500/greece-showcases-new-air-defense-systems-at-thessaloniki-military-parade/",
+    "title": "What Is Work For? Labor, Politics, and Meaning in the Age of AI",
+    "url": "https://arxiv.org/abs/2610.39375",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-30T11:17:10Z"
+    "createdAt": "2026-10-31T11:28:42Z"
   },
   {
-    "title": "Fiber lasts decades, GPUs last three years: the AI boom isn't the dot-com boom [video]",
-    "url": "https://www.youtube.com/watch?v=MENoB3Rex28",
-    "points": 6,
-    "numComments": 4,
-    "createdAt": "2026-10-30T11:16:15Z"
-  },
-  {
-    "title": "Moonshot AI asking influencers not to disclose posts as paid when promoting Kimi",
-    "url": "https://twitter.com/elshayib_/status/2113710752741892476",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-30T10:47:35Z"
-  },
-  {
-    "title": "Stripe Made Agentic Payments Possible. Why Your Server Still Blocks the Agents",
-    "url": "https://thebossmagazine.com/post/agentic-payments-ai-agents-retail-blocking/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-30T10:44:30Z"
-  },
-  {
-    "title": "Strategies Senior AI Developers Use to Deliver High-Quality Code in 2026",
-    "url": "https://dailybusinessgroup.co.uk/2026/10/9-strategies-senior-ai-developers-use-to-deliver-high-quality-code-for-startups-in-2026/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-30T10:43:36Z"
-  },
-  {
-    "title": "Antigenic operating system for my AI agents Claude Code, open claw, codex etc.",
-    "url": "https://github.com/Dodaios/Dodaios",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-30T10:30:56Z"
-  },
-  {
-    "title": "Invasion of the Sexy A.I. Joke Thieves",
-    "url": "https://www.nytimes.com/2026/10/29/arts/ai-bots-jokes-theft-comedians.html",
-    "points": 2,
-    "numComments": 2,
-    "createdAt": "2026-10-30T10:25:24Z"
-  },
-  {
-    "title": "Mistral 4 had a release, makes it comparable to Chinese open-weight models",
-    "url": "https://www.reuters.com/world/china/mistral-ceo-says-new-ai-model-beats-chinese-ones-some-areas-2026-10-06/",
+    "title": "Entire Insurance industry could be overwhelmed by catastrophic AI event",
+    "url": "https://www.intelligentinsurer.com/entire-insurance-industry-could-be-overwhelmed-by-catastrophic-ai-event-anthropic",
     "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-10-31T11:02:58Z"
+  },
+  {
+    "title": "We Took over ChatGPT Accounts",
+    "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+    "points": 5,
     "numComments": 1,
-    "createdAt": "2026-10-30T09:27:45Z"
+    "createdAt": "2026-10-31T10:30:11Z"
   },
   {
-    "title": "Ask HN: Are you tired too in this AI era?",
+    "title": "Estimate and track the environmental footprint of GenAI models at inference",
+    "url": "https://ecologits.ai/latest/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T10:19:08Z"
+  },
+  {
+    "title": "The supercomputer powering Greece's AI ambitions",
+    "url": "https://www.ekathimerini.com/economy/1319798/inside-the-supercomputer-powering-greeces-ai-ambitions/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-10-31T09:56:52Z"
+  },
+  {
+    "title": "Show HN: JJ Suna AI – Open 5B Flow-Matching DiT for 48 KHz Music Synthesis",
+    "url": "https://suna.jjcoders.com/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T09:55:29Z"
+  },
+  {
+    "title": "Ask HN: Seeking physics collaborators and compute for emergent spacetime ideas",
     "url": "",
-    "points": 100,
-    "numComments": 96,
-    "createdAt": "2026-10-30T09:17:43Z"
-  },
-  {
-    "title": "Last night an AI agent performed surgery on a mouse",
-    "url": "https://twitter.com/OcanaSantero/status/2115442964574908902",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-30T09:07:47Z"
-  },
-  {
-    "title": "The AI bubble could expose your deepest secrets",
-    "url": "https://www.bbc.com/future/article/20261029-the-ai-bubble-could-expose-your-deepest-secrets",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-30T08:52:19Z"
-  },
-  {
-    "title": "Timestral Tested: How Much Data AI Demand Forecasting Needs",
-    "url": "https://winder.ai/timestral-ai-demand-forecasting/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-30T08:34:52Z"
+    "createdAt": "2026-10-31T09:28:00Z"
   },
   {
-    "title": "Show HN: Send21 – Crypto pay links an AI agent can create but can't spend",
-    "url": "https://send21.io/demo",
+    "title": "Are There Problems Beyond the Reach of AI [video]",
+    "url": "https://www.youtube.com/watch?v=NWNbAEivyvs",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-30T08:26:44Z"
+    "createdAt": "2026-10-31T09:19:58Z"
   },
   {
-    "title": "Etsy to restrict AI-generated content in effort to combat seller slop",
-    "url": "https://www.nbcnews.com/business/consumer/etsy-restricts-ai-generated-seller-slop-rcna605216",
+    "title": "Show HN: I benchmarked a voice AI against real people. It scored at chance",
+    "url": "https://mundi.chat/try",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T09:18:05Z"
+  },
+  {
+    "title": "We're looking at a 30-year run: UK pair aim to complete most complex game",
+    "url": "https://www.theguardian.com/lifeandstyle/2026/oct/31/uk-complete-worlds-most-complex-board-game-the-campaign-for-north-africa",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-31T09:17:40Z"
+  },
+  {
+    "title": "Ask HN: Books about AI Revolution happening now",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T09:08:51Z"
+  },
+  {
+    "title": "An AI agent read a Shift_JIS page as 208,953 replacement characters",
+    "url": "https://github.com/openclaw/openclaw/pull/188766",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T09:05:23Z"
+  },
+  {
+    "title": "Open-weight AI models can exploit the patch gap",
+    "url": "https://epoch.ai/publications/open-weight-models-patch-gap",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T08:53:31Z"
+  },
+  {
+    "title": "Why Google, Microsoft, Anthropic and OpenAI need their own AI detection tools",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T08:36:25Z"
+  },
+  {
+    "title": "Custom GPTs Are Retiring: How to Migrate Before Dec 11",
+    "url": "https://quickchat.ai/post/custom-gpt-retirement-migration",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T08:04:01Z"
+  },
+  {
+    "title": "State of the Prompt: What People Ask AI",
+    "url": "https://stateoftheprompt.net/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-10-31T08:02:35Z"
+  },
+  {
+    "title": "Keyword Search 101: How BM25 Scores",
+    "url": "https://deployed-ai.io/blog/bm25-explained/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-10-31T07:57:04Z"
+  },
+  {
+    "title": "Ask HN: Is anyone else struggling with AI wealth FOMO?",
+    "url": "",
     "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-30T08:23:31Z"
+    "numComments": 5,
+    "createdAt": "2026-10-31T06:14:28Z"
   },
   {
-    "title": "How (not) to use AI for pull requests and code reviews",
-    "url": "https://paulbakker.io/writing/how-not-to-use-ai-for-pull-requests-and-code-changes/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-30T08:23:22Z"
-  },
-  {
-    "title": "Spotify aims to launch AI music remix service early next year",
-    "url": "https://www.ft.com/content/50286bd0-7158-4347-81d8-011cd164f75b",
-    "points": 4,
-    "numComments": 0,
-    "createdAt": "2026-10-30T08:16:44Z"
+    "title": "Google Adopts New AI Training Control",
+    "url": "https://www.seroundtable.com/google-ai-training-control-42430.html",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-10-31T06:01:40Z"
   }
 ]
