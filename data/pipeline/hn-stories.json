@@ -1,142 +1,142 @@
 [
   {
-    "title": "Collaborative AI agents for autonomous experimental research",
-    "url": "https://arxiv.org/abs/2610.40589",
+    "title": "Context Mode – An Open-Source MCP Server That Reduces AI Coding Context Usage",
+    "url": "https://github.com/mksglu/context-mode",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-31T11:34:17Z"
+    "createdAt": "2026-11-01T11:56:19Z"
   },
   {
-    "title": "What Is Work For? Labor, Politics, and Meaning in the Age of AI",
-    "url": "https://arxiv.org/abs/2610.39375",
+    "title": "When AI Writes the Code, Show Your Judgment",
+    "url": "https://www.eyosias.dev/case-studies/ai-mailbox-analysis",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-31T11:28:42Z"
+    "createdAt": "2026-11-01T11:44:25Z"
   },
   {
-    "title": "Entire Insurance industry could be overwhelmed by catastrophic AI event",
-    "url": "https://www.intelligentinsurer.com/entire-insurance-industry-could-be-overwhelmed-by-catastrophic-ai-event-anthropic",
+    "title": "Will Agent Resource Registries ever have their moment, the way AI gateways did?",
+    "url": "https://agenticresourcediscovery.org/",
     "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-31T11:02:58Z"
-  },
-  {
-    "title": "We Took over ChatGPT Accounts",
-    "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
-    "points": 5,
     "numComments": 1,
-    "createdAt": "2026-10-31T10:30:11Z"
+    "createdAt": "2026-11-01T11:39:35Z"
   },
   {
-    "title": "Estimate and track the environmental footprint of GenAI models at inference",
-    "url": "https://ecologits.ai/latest/",
+    "title": "Show HN: AIOps Cockpit – An open-source AI SRE with human-in-the-loop safety",
+    "url": "https://github.com/matricphase-dot/aiops",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-31T10:19:08Z"
+    "createdAt": "2026-11-01T10:48:39Z"
   },
   {
-    "title": "The supercomputer powering Greece's AI ambitions",
-    "url": "https://www.ekathimerini.com/economy/1319798/inside-the-supercomputer-powering-greeces-ai-ambitions/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-10-31T09:56:52Z"
-  },
-  {
-    "title": "Show HN: JJ Suna AI – Open 5B Flow-Matching DiT for 48 KHz Music Synthesis",
-    "url": "https://suna.jjcoders.com/",
+    "title": "AI Warning for Steam – Increases Visibility of AI Generated Content Disclosures",
+    "url": "https://github.com/seeeeew/aiwarningforsteam",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-10-31T09:55:29Z"
+    "createdAt": "2026-11-01T10:47:55Z"
   },
   {
-    "title": "Ask HN: Seeking physics collaborators and compute for emergent spacetime ideas",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T09:28:00Z"
-  },
-  {
-    "title": "Are There Problems Beyond the Reach of AI [video]",
-    "url": "https://www.youtube.com/watch?v=NWNbAEivyvs",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T09:19:58Z"
-  },
-  {
-    "title": "Show HN: I benchmarked a voice AI against real people. It scored at chance",
-    "url": "https://mundi.chat/try",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T09:18:05Z"
-  },
-  {
-    "title": "We're looking at a 30-year run: UK pair aim to complete most complex game",
-    "url": "https://www.theguardian.com/lifeandstyle/2026/oct/31/uk-complete-worlds-most-complex-board-game-the-campaign-for-north-africa",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-31T09:17:40Z"
-  },
-  {
-    "title": "Ask HN: Books about AI Revolution happening now",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T09:08:51Z"
-  },
-  {
-    "title": "An AI agent read a Shift_JIS page as 208,953 replacement characters",
-    "url": "https://github.com/openclaw/openclaw/pull/188766",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T09:05:23Z"
-  },
-  {
-    "title": "Open-weight AI models can exploit the patch gap",
-    "url": "https://epoch.ai/publications/open-weight-models-patch-gap",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T08:53:31Z"
-  },
-  {
-    "title": "Why Google, Microsoft, Anthropic and OpenAI need their own AI detection tools",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T08:36:25Z"
-  },
-  {
-    "title": "Custom GPTs Are Retiring: How to Migrate Before Dec 11",
-    "url": "https://quickchat.ai/post/custom-gpt-retirement-migration",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T08:04:01Z"
-  },
-  {
-    "title": "State of the Prompt: What People Ask AI",
-    "url": "https://stateoftheprompt.net/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-10-31T08:02:35Z"
-  },
-  {
-    "title": "Keyword Search 101: How BM25 Scores",
-    "url": "https://deployed-ai.io/blog/bm25-explained/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-10-31T07:57:04Z"
-  },
-  {
-    "title": "Ask HN: Is anyone else struggling with AI wealth FOMO?",
-    "url": "",
-    "points": 3,
-    "numComments": 5,
-    "createdAt": "2026-10-31T06:14:28Z"
-  },
-  {
-    "title": "Google Adopts New AI Training Control",
-    "url": "https://www.seroundtable.com/google-ai-training-control-42430.html",
+    "title": "Fruth – A semantic state inference engine for AI",
+    "url": "https://github.com/fl0ri0/fruth",
     "points": 2,
     "numComments": 1,
-    "createdAt": "2026-10-31T06:01:40Z"
+    "createdAt": "2026-11-01T10:14:07Z"
+  },
+  {
+    "title": "Securing Internet-Critical Software: How We Could Have Backdoored Bash",
+    "url": "https://www.hacktron.ai/blog/hacking-gnu-savannah",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-01T09:54:40Z"
+  },
+  {
+    "title": "Magic vs. Wonder: memories of a distant future",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-01T09:51:13Z"
+  },
+  {
+    "title": "DeepSeek Harness Superagent Prototype",
+    "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-01T09:29:43Z"
+  },
+  {
+    "title": "FreeGent: Free Agentic AI for Everyone",
+    "url": "https://freegent.ai",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-01T09:20:16Z"
+  },
+  {
+    "title": "OpenIDEA: The IDE you know, rebuilt in Rust",
+    "url": "https://github.com/l0ng-ai/openidea",
+    "points": 35,
+    "numComments": 41,
+    "createdAt": "2026-11-01T09:15:26Z"
+  },
+  {
+    "title": "DeepSeek launches advanced coding agent to rival Claude Code",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-01/deepseek-drops-enhanced-coding-agent-with-aim-to-rival-anthropic",
+    "points": 3,
+    "numComments": 2,
+    "createdAt": "2026-11-01T09:07:49Z"
+  },
+  {
+    "title": "AI-driven layoffs are creating a new class of boomerang employees",
+    "url": "https://www.reddit.com/r/technology/s/bU94PCfFwr",
+    "points": 4,
+    "numComments": 1,
+    "createdAt": "2026-11-01T09:07:46Z"
+  },
+  {
+    "title": "Show HN: OpenProject Agent Engine – Automated Workflow and Agent Dispatch",
+    "url": "https://github.com/310networks/openproject-agent-engine",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-01T09:06:06Z"
+  },
+  {
+    "title": "What operational task would you hand to a 7-day custom AI tool?",
+    "url": "https://www.indiehackers.com/post/i-m-building-25-free-ai-tools-for-small-businesses-in-7-days-each-here-s-why-and-what-i-need-from-you-e253531348",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-01T09:02:12Z"
+  },
+  {
+    "title": "Early Career Researcher Responses to AI in Math",
+    "url": "https://arxiv.org/abs/2610.40584",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-01T08:47:22Z"
+  },
+  {
+    "title": "We're Living in the Age of the Imperial CEO",
+    "url": "https://www.wsj.com/tech/ai/anthropic-ipo-dual-class-stock-founder-control-4c43a56d",
+    "points": 7,
+    "numComments": 0,
+    "createdAt": "2026-11-01T08:09:48Z"
+  },
+  {
+    "title": "Is AI Cheap Enough to Replace Developers?",
+    "url": "https://zyvop.com/is-ai-actually-cheap-enough-to-replace-developers-8i74u",
+    "points": 1,
+    "numComments": 2,
+    "createdAt": "2026-11-01T08:04:48Z"
+  },
+  {
+    "title": "Ghost in the machine: how AI is haunting the search for the supernatural",
+    "url": "https://www.theguardian.com/technology/ng-interactive/2026/oct/30/ai-ghost-hunting",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-01T07:46:28Z"
+  },
+  {
+    "title": "Bubbuild/republic: A Python library for AI providers",
+    "url": "https://github.com/bubbuild/republic",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-01T07:32:47Z"
   }
 ]
