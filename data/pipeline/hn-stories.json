@@ -1,142 +1,142 @@
 [
   {
-    "title": "Can AI ever build itself? A deeper look into autonomous AI research",
-    "url": "https://www.nachoplanas.com/articles/rsi-stacked-s-curves",
+    "title": "How much faster are agents with WebMCP? We measured it",
+    "url": "https://alpic.ai/blog/how-much-faster-are-agents-with-webmcp",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-03T13:30:24Z"
+    "createdAt": "2026-11-04T13:35:56Z"
   },
   {
-    "title": "The Mystery of the Snowden Saga – Solved",
-    "url": "https://backlit.neocities.org/snowden",
+    "title": "The RevOS Metric Store: one definition of every metric, for people and agents",
+    "url": "https://www.revos.ai/blog/introducing-revos-metric-store",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-03T13:30:13Z"
+    "createdAt": "2026-11-04T13:35:00Z"
   },
   {
-    "title": "Consumer Appetite for Personal AI Goes Mainstream",
-    "url": "https://spectrum.ieee.org/ai-personal-assistant-intelligent-wearables",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T13:30:01Z"
-  },
-  {
-    "title": "The PHP2Shell Vulnerability Heralds Cybersecurity Hell",
-    "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-03T13:29:06Z"
-  },
-  {
-    "title": "Google's Gemini 4 Carbon edges Claude Opus 5.5, claims fewest hallucinations",
-    "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/google-reveals-new-gemini-4-carbon-ai-model-narrowly-beating-claude-opus-5-5-frontier-ai-model-is-also-the-least-likely-to-hallucinate-benchmarks-claim",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T13:28:23Z"
-  },
-  {
-    "title": "Show HN: Duckity – Abuse protection for the AI agent era",
-    "url": "https://duckity.com/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T13:17:28Z"
-  },
-  {
-    "title": "Anthropic warns its AI could be dangerous. So why do people want to invest?",
-    "url": "https://www.bbc.com/audio/play/w3ct8mcy",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T13:12:40Z"
-  },
-  {
-    "title": "Btc247 – Non-custodial algorithmic execution engine for BTC",
-    "url": "https://www.btc247.org/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T13:09:39Z"
-  },
-  {
-    "title": "Common Ground:AI agent that plans one night two different tastes will both enjoy",
-    "url": "https://common-ground-pho7.onrender.com/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T12:50:09Z"
-  },
-  {
-    "title": "Ask HN: Do you have any kind of sandboxing for those who run LLMs locally?",
-    "url": "",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T12:38:57Z"
-  },
-  {
-    "title": "Show HN: A tool to optimize AI model cost without benchmark score trade-offs",
-    "url": "https://jeff-kline.github.io/posts/same-ai-results-for-less/index.html",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-03T12:38:49Z"
-  },
-  {
-    "title": "Show HN: Onira Self Hypnosis App",
-    "url": "https://play.google.com/store/apps/details?id=com.oytaub.mindease&hl=en_US",
+    "title": "Deterministic Agents with Aigenos Engine",
+    "url": "https://github.com/aigenos/flow",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-11-03T12:38:26Z"
+    "createdAt": "2026-11-04T13:27:27Z"
   },
   {
-    "title": "The Beleaguered Chip Sellers Getting Their Revenge on Apple",
-    "url": "https://www.wsj.com/tech/apple-iphone-memory-chips-ai-c0084cc9",
+    "title": "WikiAnesthesia: Airway Fire",
+    "url": "https://wikianesthesia.org/wiki/Airway_fire",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:17:24Z"
+  },
+  {
+    "title": "Aizome: Sekka's Own Desktop",
+    "url": "https://sekka.computer/aizome/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:17:22Z"
+  },
+  {
+    "title": "Block training, keep answers? What 13,938 sites ask of AI bots",
+    "url": "https://trakis.io/research/block-training-keep-answers",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:16:29Z"
+  },
+  {
+    "title": "Microsoft Files Patent to Rewrite What Speakers Say in Live Video",
+    "url": "https://patentlyze.com/patent/microsoft-live-ai-video-rewrites-speech/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:16:12Z"
+  },
+  {
+    "title": "Show HN: Gradevibes-Is your AI-written app finished?",
+    "url": "https://gradevibes.com/?tab=upload",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:09:44Z"
+  },
+  {
+    "title": "EdgeDAE: Acceleration of Diffusion Action Experts for Real-Time Physical AI",
+    "url": "https://arxiv.org/abs/2610.00311",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:06:44Z"
+  },
+  {
+    "title": "Disaster is still better than AI",
+    "url": "https://jasonpolak.substack.com/p/disaster-is-still-better-than-ai",
+    "points": 5,
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:05:26Z"
+  },
+  {
+    "title": "Show HN: Backup your ChatGPT and Claude conversation free",
+    "url": "https://www.samewindow.com/",
     "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-11-03T12:32:05Z"
+    "numComments": 0,
+    "createdAt": "2026-11-04T13:04:25Z"
   },
   {
-    "title": "Fujifilm to boost tape production 5x as AI fuels archiving demand",
-    "url": "https://arstechnica.com/gadgets/2026/10/fujifilm-to-boost-tape-production-5x-as-ai-fuels-archiving-demand/",
+    "title": "Show HN: Shield KYA – Open-source audit trail and gate for AI agent tool calls",
+    "url": "https://github.com/The-Pixel-Boys/shield-kya",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-11-03T12:31:23Z"
+    "createdAt": "2026-11-04T12:33:39Z"
   },
   {
-    "title": "'A serious failure': CPS prosecutor cites fake case after AI search",
-    "url": "https://www.theguardian.com/technology/2026/nov/03/a-serious-failure-cps-prosecutor-cites-imaginary-case-to-high-court-after-ai-search",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-03T12:29:24Z"
-  },
-  {
-    "title": "Harms of the Generative AI",
-    "url": "https://andreyor.st/posts/2026-11-02-harms-of-the-generative-ai/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-03T12:26:05Z"
-  },
-  {
-    "title": "A350",
-    "url": "https://en.wikipedia.org/wiki/Airbus_A350",
+    "title": "Spec-driven AI development for insurance claims rule changes [video]",
+    "url": "https://www.youtube.com/watch?v=FRw3Og9tylE",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-03T12:15:01Z"
+    "createdAt": "2026-11-04T12:25:03Z"
   },
   {
-    "title": "Show HN: Airy Studio – Free TTS in 7 languages (zh, hi, ar, th, vi, ko, en)",
-    "url": "https://airy.so/studio",
+    "title": "Revolut slashes AI coding costs 10x by cutting out Claude and going self-hosted",
+    "url": "https://www.theregister.com/ai-and-ml/2026/11/03/british-fintech-revolut-slashes-ai-coding-costs-10x-by-cutting-out-claude-and-going-self-hosted/5307345",
+    "points": 7,
+    "numComments": 1,
+    "createdAt": "2026-11-04T12:14:23Z"
+  },
+  {
+    "title": "Show HN: Rivermark, a superfast AI graphic design canvas",
+    "url": "https://rivermark.ai/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T12:13:58Z"
+  },
+  {
+    "title": "Can Advertising Fund Free AI? Evidence from ChatGPT's Advertising Rollout",
+    "url": "https://ecommerceresearch.org/chatgpt-ads/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-04T12:12:36Z"
+  },
+  {
+    "title": "Why the Term \"Smart City Surveillance\" Needs an Update in the Era of AI and 5G",
+    "url": "https://www.red5.net/blog/smart-city-surveillance-in-the-era-of-ai-and-5g/",
     "points": 4,
     "numComments": 1,
-    "createdAt": "2026-11-03T12:07:19Z"
+    "createdAt": "2026-11-04T12:03:24Z"
   },
   {
-    "title": "nRF71 Series: Wi-Fi, Bluetooth LE, Thread, and On-Device AI on a Single Chip",
-    "url": "https://www.nordicsemi.com/Nordic-news/2026/11/Nordic-brings-edge-AI-to-battery-powered-WiFi-devices-20-times-lower-standby-power-with-nRF71-Series",
+    "title": "AI is forcing us to pay off 40 years of technical debt",
+    "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+    "points": 228,
+    "numComments": 118,
+    "createdAt": "2026-11-04T11:52:17Z"
+  },
+  {
+    "title": "AI Slop Threatens Trust in Science",
+    "url": "https://spectrum.ieee.org/ai-slop-trust-science",
+    "points": 6,
+    "numComments": 0,
+    "createdAt": "2026-11-04T11:51:32Z"
+  },
+  {
+    "title": "iOS Simulator MCP benchmark: eight tools for AI agents",
+    "url": "https://simulator-use.dev/benchmarks",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-03T12:03:33Z"
-  },
-  {
-    "title": "A Human Corrected the AI. Then the Data Changed",
-    "url": "https://www.zingg.ai/post/human-corrected-the-ai-then-the-data-changed",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-03T12:01:49Z"
+    "createdAt": "2026-11-04T11:47:01Z"
   }
 ]
