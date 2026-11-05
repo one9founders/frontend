@@ -1,142 +1,142 @@
 [
   {
-    "title": "How much faster are agents with WebMCP? We measured it",
-    "url": "https://alpic.ai/blog/how-much-faster-are-agents-with-webmcp",
+    "title": "Design API: Programatically create and edit on-brand designs at scale",
+    "url": "https://rivermark.ai/design-api",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-04T13:35:56Z"
+    "createdAt": "2026-11-05T13:50:19Z"
   },
   {
-    "title": "The RevOS Metric Store: one definition of every metric, for people and agents",
-    "url": "https://www.revos.ai/blog/introducing-revos-metric-store",
+    "title": "Abra, an AI creator crew built on Meta's Muse models",
+    "url": "https://github.com/amyboissoneau/AbraMeta",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-04T13:35:00Z"
+    "createdAt": "2026-11-05T13:49:37Z"
   },
   {
-    "title": "Deterministic Agents with Aigenos Engine",
-    "url": "https://github.com/aigenos/flow",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-11-04T13:27:27Z"
-  },
-  {
-    "title": "WikiAnesthesia: Airway Fire",
-    "url": "https://wikianesthesia.org/wiki/Airway_fire",
+    "title": "The efficient frontier of AI models",
+    "url": "https://luizsol.com/writing/ai-efficient-frontier/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-04T13:17:24Z"
+    "createdAt": "2026-11-05T13:48:40Z"
   },
   {
-    "title": "Aizome: Sekka's Own Desktop",
-    "url": "https://sekka.computer/aizome/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T13:17:22Z"
-  },
-  {
-    "title": "Block training, keep answers? What 13,938 sites ask of AI bots",
-    "url": "https://trakis.io/research/block-training-keep-answers",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T13:16:29Z"
-  },
-  {
-    "title": "Microsoft Files Patent to Rewrite What Speakers Say in Live Video",
-    "url": "https://patentlyze.com/patent/microsoft-live-ai-video-rewrites-speech/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T13:16:12Z"
-  },
-  {
-    "title": "Show HN: Gradevibes-Is your AI-written app finished?",
-    "url": "https://gradevibes.com/?tab=upload",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T13:09:44Z"
-  },
-  {
-    "title": "EdgeDAE: Acceleration of Diffusion Action Experts for Real-Time Physical AI",
-    "url": "https://arxiv.org/abs/2610.00311",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T13:06:44Z"
-  },
-  {
-    "title": "Disaster is still better than AI",
-    "url": "https://jasonpolak.substack.com/p/disaster-is-still-better-than-ai",
-    "points": 5,
-    "numComments": 0,
-    "createdAt": "2026-11-04T13:05:26Z"
-  },
-  {
-    "title": "Show HN: Backup your ChatGPT and Claude conversation free",
-    "url": "https://www.samewindow.com/",
+    "title": "Show HN: Ferry, a highly customizable and feature-rich file manager for macOS",
+    "url": "https://ferry.indus3.org/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-04T13:04:25Z"
+    "createdAt": "2026-11-05T13:42:30Z"
   },
   {
-    "title": "Show HN: Shield KYA – Open-source audit trail and gate for AI agent tool calls",
-    "url": "https://github.com/The-Pixel-Boys/shield-kya",
+    "title": "Setting a new standard for responsible AI infrastructure",
+    "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T13:33:15Z"
+  },
+  {
+    "title": "Show HN: AI Heat Map generated real-time from over 140 News Feeds",
+    "url": "https://ai-news.jagular.io/",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-11-04T12:33:39Z"
+    "createdAt": "2026-11-05T13:33:04Z"
   },
   {
-    "title": "Spec-driven AI development for insurance claims rule changes [video]",
-    "url": "https://www.youtube.com/watch?v=FRw3Og9tylE",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T12:25:03Z"
-  },
-  {
-    "title": "Revolut slashes AI coding costs 10x by cutting out Claude and going self-hosted",
-    "url": "https://www.theregister.com/ai-and-ml/2026/11/03/british-fintech-revolut-slashes-ai-coding-costs-10x-by-cutting-out-claude-and-going-self-hosted/5307345",
-    "points": 7,
-    "numComments": 1,
-    "createdAt": "2026-11-04T12:14:23Z"
-  },
-  {
-    "title": "Show HN: Rivermark, a superfast AI graphic design canvas",
-    "url": "https://rivermark.ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T12:13:58Z"
-  },
-  {
-    "title": "Can Advertising Fund Free AI? Evidence from ChatGPT's Advertising Rollout",
-    "url": "https://ecommerceresearch.org/chatgpt-ads/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-04T12:12:36Z"
-  },
-  {
-    "title": "Why the Term \"Smart City Surveillance\" Needs an Update in the Era of AI and 5G",
-    "url": "https://www.red5.net/blog/smart-city-surveillance-in-the-era-of-ai-and-5g/",
-    "points": 4,
-    "numComments": 1,
-    "createdAt": "2026-11-04T12:03:24Z"
-  },
-  {
-    "title": "AI is forcing us to pay off 40 years of technical debt",
-    "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
-    "points": 228,
-    "numComments": 118,
-    "createdAt": "2026-11-04T11:52:17Z"
-  },
-  {
-    "title": "AI Slop Threatens Trust in Science",
-    "url": "https://spectrum.ieee.org/ai-slop-trust-science",
-    "points": 6,
-    "numComments": 0,
-    "createdAt": "2026-11-04T11:51:32Z"
-  },
-  {
-    "title": "iOS Simulator MCP benchmark: eight tools for AI agents",
-    "url": "https://simulator-use.dev/benchmarks",
+    "title": "Show HN: See an AI-drafted LinkedIn post and quote graphic, no signup or card",
+    "url": "https://engine.goviralpromo.com/try",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-04T11:47:01Z"
+    "createdAt": "2026-11-05T13:31:02Z"
+  },
+  {
+    "title": "Why Vaadin Browserless Testing Is a Game Changer for AI Generated Web Apps",
+    "url": "https://martinelli.ch/why-vaadin-browserless-testing-is-a-game-changer-for-ai-generated-web-applications/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T13:26:59Z"
+  },
+  {
+    "title": "AI Broke Cybersecurity. Visual Programming Can Fix It",
+    "url": "https://medium.com/@toplinesoftsys/ai-broke-cybersecurity-visual-programming-can-fix-it-d7d1dae6f2b5",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-05T13:20:10Z"
+  },
+  {
+    "title": "Systemd WatchdogSec: The Kill Switch for Hung AI-Generated Code",
+    "url": "https://cheikhhseck.medium.com/systemd-watchdogsec-the-kill-switch-for-hung-ai-generated-code-ce221e603e69",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T13:00:15Z"
+  },
+  {
+    "title": "Amazon tells engineers to stop 'tokenmaxxing' to look productive",
+    "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/amazon-tells-engineers-to-stop-tokenmaxxing-to-look-productive-says-ai-will-be-central-to-software-development-but-usage-is-not-the-goal-new-guidelines-claim",
+    "points": 7,
+    "numComments": 4,
+    "createdAt": "2026-11-05T12:55:33Z"
+  },
+  {
+    "title": "Apple cuts employee AI budgets in cost-control push",
+    "url": "https://www.reuters.com/business/retail-consumer/apple-cuts-employee-ai-budgets-cost-control-push-bloomberg-news-reports-2026-11-04/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T12:48:04Z"
+  },
+  {
+    "title": "Changing a patient social background changed LLM care recommendations",
+    "url": "https://medwrite.ai/news/inside-the-dublink-llm-athon",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-11-05T12:47:39Z"
+  },
+  {
+    "title": "Claude Code Phenomenon in ChipDesign",
+    "url": "https://blog.verifai.ai/the-claude-code-phenomenon-tempering-optimism-with-historical-perspective/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T12:44:09Z"
+  },
+  {
+    "title": "Computer use is GA in Gemini API",
+    "url": "https://aistudio.google.com/docs/computer-use",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T12:28:05Z"
+  },
+  {
+    "title": "Leak the exact location of any video using sound of nearby airplanes",
+    "url": "https://twitter.com/0x45o/status/2117332304880169152",
+    "points": 4,
+    "numComments": 2,
+    "createdAt": "2026-11-05T12:24:36Z"
+  },
+  {
+    "title": "Show HN: Ergon - build AI agents in code or on a canvas that generates Python",
+    "url": "https://github.com/shipitamit/ergon",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T12:20:00Z"
+  },
+  {
+    "title": "WebsiteBench: Can AI Agents Rebuild Websites Through Browser Exploration?",
+    "url": "https://github.com/TIGER-AI-Lab/WebsiteBench",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-05T12:19:18Z"
+  },
+  {
+    "title": "Maho 26.11: open-source ecommerce with AI assistant, page builder, S3 storage",
+    "url": "https://mahocommerce.com/blog/2026/11/01/maho-26110-is-out-today/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-05T12:13:15Z"
+  },
+  {
+    "title": "Marvell to buy Lumentum in $115B all-stock deal",
+    "url": "https://www.tomshardware.com/tech-industry/semiconductors/marvell-to-buy-lumentum-in-usd115-billion-all-stock-deal-combined-company-to-supply-scale-up-and-scale-in-optics-for-ai-data-centers",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-05T12:08:16Z"
   }
 ]
