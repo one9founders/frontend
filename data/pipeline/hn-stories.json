@@ -1,142 +1,142 @@
 [
   {
-    "title": "The post-quantum future of web privacy",
-    "url": "https://blog.cloudflare.com/vole-mole/",
+    "title": "One step agents own end to end: how agent.ceo fixes its own bugs",
+    "url": "https://onomos.ai/articles/how-agent-ceo-fixes-its-own-bugs",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-07T12:22:22Z"
+    "createdAt": "2026-11-08T12:37:34Z"
   },
   {
-    "title": "Ask HN: Non-Malicious Bots",
-    "url": "",
+    "title": "LLMs are terrible at designing AI systems",
+    "url": "https://www.seangoedecke.com/llms-are-terrible-at-designing-ai-systems/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-07T12:18:18Z"
+    "createdAt": "2026-11-08T12:33:58Z"
   },
   {
-    "title": "Is Programming That Easy?",
+    "title": "Why Your AI Agent Can't Solve CTF Challenges",
+    "url": "https://h4c.team/en/posts/97",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-08T12:25:54Z"
+  },
+  {
+    "title": "Show HN: No more code reviews. Fuzz instead",
     "url": "",
     "points": 3,
-    "numComments": 5,
-    "createdAt": "2026-11-07T11:42:33Z"
-  },
-  {
-    "title": "Nordic AI Health Map",
-    "url": "https://healthmap.newnordics.ai/",
-    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-07T11:10:38Z"
+    "createdAt": "2026-11-08T12:21:59Z"
   },
   {
-    "title": "US air traffic control enters the 21st century, starts to abandon floppy disks",
-    "url": "https://www.theregister.com/public-sector/2026/11/06/us-air-traffic-control-enters-the-21st-century-starts-to-abandon-floppy-disks/5308210",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T10:57:22Z"
-  },
-  {
-    "title": "The Pentagon wants to know who checks code when AI writes it",
-    "url": "https://about.gitlab.com/blog/department-of-war-instruction-for-ai-generated-code/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T10:52:46Z"
-  },
-  {
-    "title": "Layoffs that smells like conspiracy, hard to digest",
-    "url": "https://www.shuffle-on.com/blog/ai-layoff-wave-2023-2026",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T10:36:30Z"
-  },
-  {
-    "title": "Trace – Crash-safe durable Sagas for autonomous AI agents",
-    "url": "https://github.com/orikami048/trace-agent-lang",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T10:28:19Z"
-  },
-  {
-    "title": "Every Mac comes with an (undocumented) family member classifier",
-    "url": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph",
-    "points": 151,
-    "numComments": 67,
-    "createdAt": "2026-11-07T09:46:03Z"
-  },
-  {
-    "title": "Show HN: Service for the parallel execution of AI agent tasks on remote devices",
-    "url": "https://rungrid.space",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-07T08:53:45Z"
-  },
-  {
-    "title": "AI Source Code Analysis Detection Evasion Techniques",
-    "url": "https://cipher.org.uk/2026/11/06/AI-Source-Code-Analysis-Detection-Evasion-Techniques/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-07T08:52:16Z"
-  },
-  {
-    "title": "APM – A dependency manager for AI agents",
-    "url": "https://microsoft.github.io/apm/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T08:51:43Z"
-  },
-  {
-    "title": "An internet radio station run by AI",
-    "url": "https://radio.neoncurrent.dev/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T08:40:49Z"
-  },
-  {
-    "title": "Solar plane soars to 47,600 ft, on target to fly 100 hours",
-    "url": "https://newatlas.com/aircraft/uavos-apusneo-haps-solar-aircraft-100-hour-flight-fuerteventura/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-07T08:18:48Z"
-  },
-  {
-    "title": "Inter-AI Morality: How AI Systems Treat One Another [pdf]",
-    "url": "https://digitalminds.cam/inter-ai-morality.pdf",
-    "points": 13,
-    "numComments": 0,
-    "createdAt": "2026-11-07T08:02:02Z"
-  },
-  {
-    "title": "Free open API of weekly resale sold-price medians",
-    "url": "https://www.aiplannermail.com/free-resale-price-api/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T07:53:55Z"
-  },
-  {
-    "title": "Church quits role at AI startup claims 'sleazy' behavior stole credit",
-    "url": "https://endpoints.news/church-quits-role-at-ai-startup-radical-claims-sleazy-behavior-stole-credit-from-partner/",
-    "points": 4,
-    "numComments": 0,
-    "createdAt": "2026-11-07T06:16:44Z"
-  },
-  {
-    "title": "Show HN:A tool your AI uses just changed. Would you know?",
-    "url": "https://mcp.brydge-ai.com/diff.html",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-07T05:47:35Z"
-  },
-  {
-    "title": "Why Do We Build Fluxcut?",
-    "url": "",
+    "title": "Empires of AI – The Rise and Fall of a New Global Order",
+    "url": "https://www.foreignaffairs.com/china/empires-artificial-intelligence-niall-ferguson-eric-schmidt",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-11-07T05:35:45Z"
+    "createdAt": "2026-11-08T12:21:47Z"
   },
   {
-    "title": "Open source Matlab Alternative, first release.",
-    "url": "https://github.com/me-farza/opennumlab",
+    "title": "Etsy AI training terms change",
+    "url": "https://consumerrights.wiki/w/Etsy_AI_training_terms_change_(2026)",
     "points": 1,
-    "numComments": 2,
-    "createdAt": "2026-11-07T05:25:54Z"
+    "numComments": 0,
+    "createdAt": "2026-11-08T11:48:06Z"
+  },
+  {
+    "title": "Aiport: A self-improving local LLM gateway for the erratic vibe coder",
+    "url": "https://github.com/harelix/aiport",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-08T11:44:16Z"
+  },
+  {
+    "title": "Ask HN: What are your advice for a CS/IT student for the future?",
+    "url": "",
+    "points": 2,
+    "numComments": 3,
+    "createdAt": "2026-11-08T11:21:07Z"
+  },
+  {
+    "title": "AI Alignment Considered Harmful",
+    "url": "http://togelius.blogspot.com/2026/11/ai-alignment-considered-harmful.html",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-08T11:19:35Z"
+  },
+  {
+    "title": "Show HN: An open-source IDE for software architecture",
+    "url": "https://github.com/swiftbuild-ai/swiftbuild",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-11-08T10:53:21Z"
+  },
+  {
+    "title": "A Faster Bluetooth OTA Update for the ESP32",
+    "url": "https://groundrun.io/blog/faster-bluetooth-over-the-air-update-esp32/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-08T10:31:39Z"
+  },
+  {
+    "title": "Let's talk about Temple's Research (with receipts)",
+    "url": "https://kuber.studio/blog/AI/Lets-talk-about-Temples-Research",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-08T10:02:30Z"
+  },
+  {
+    "title": "Show HN: stardelt.io – a self-hosted lakehouse on k8s (pre-alpha)",
+    "url": "https://stardelt.io/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-08T09:50:33Z"
+  },
+  {
+    "title": "What Can AI Hack? Inside Frontier Labs' Tests",
+    "url": "https://dorcohen.dev/posts/what-can-ai-actually-hack/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-08T09:42:03Z"
+  },
+  {
+    "title": "Researchers unveiled new techniques to protect AI from backdoor attacks",
+    "url": "https://news.ncsu.edu/2026/11/new-techniques-to-prevent-backdoor-attacks/",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-11-08T09:32:43Z"
+  },
+  {
+    "title": "Aina Ring",
+    "url": "https://www.aina.com/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-08T09:26:44Z"
+  },
+  {
+    "title": "Taiwan sets new short-selling limits to aid beaten stock market 1d •",
+    "url": "https://www.msn.com/en-us/money/top-stocks/taiwan-sets-new-short-selling-limits-to-aid-beaten-stock-market/ar-AA2gTsSA",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-08T09:23:22Z"
+  },
+  {
+    "title": "ThinkStream – AI generates the work. We still need to understand it",
+    "url": "https://thinkstream.app/",
+    "points": 10,
+    "numComments": 0,
+    "createdAt": "2026-11-08T09:20:04Z"
+  },
+  {
+    "title": "AI Companies Want to Buy Your Work Files and Emails",
+    "url": "https://www.wired.com/story/ai-companies-really-really-want-to-buy-your-work-files-and-emails/",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-11-08T09:15:06Z"
+  },
+  {
+    "title": "Agentic Development Future and Current Directions – Nov 2026",
+    "url": "https://robotpaper.ai/agentic-development-future-and-current-directions-nov-2026/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-08T09:00:10Z"
   }
 ]
