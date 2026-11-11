@@ -1,142 +1,142 @@
 [
   {
-    "title": "Wake me up when AI can...",
-    "url": "https://stoppels.ch/2026/10/03/wake-me-up-when-ai-can.html",
+    "title": "JetBrains Air: Run and review coding agents inside the IDE",
+    "url": "https://blog.jetbrains.com/ai/2026/11/air-in-jetbrains-ides-ga/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T14:11:54Z"
+    "createdAt": "2026-11-11T13:25:27Z"
   },
   {
-    "title": "Show HN: AppTraction – A Native Mac App for Apple's App Store Connect",
-    "url": "https://apptraction.dev",
+    "title": "Oxford Mathematics in Conversation on AI – Ben Green and James Maynard [video]",
+    "url": "https://www.youtube.com/watch?v=2GsuvsEg28o",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T14:09:13Z"
+    "createdAt": "2026-11-11T13:17:26Z"
   },
   {
-    "title": "We checked 312 AI-built apps: how ready are they to launch?",
-    "url": "https://launchpal.app/guides/vibe-coded-app-statistics",
+    "title": "Show HN: Beam – Pairing machines with passkeys; replace SSH&VPN's with Tailcat",
+    "url": "https://github.com/notaharness/beam",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T14:06:06Z"
+    "createdAt": "2026-11-11T13:17:26Z"
   },
   {
-    "title": "Show HN: ChatCairn, a local, searchable library of your AI chats",
-    "url": "https://lgdventures.github.io/chatcairn/",
+    "title": "Show HN: Editmamei – Giving AI agents access to desktop Photoshop and GIMP",
+    "url": "https://github.com/editmamei/editmamei",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T14:05:42Z"
+    "createdAt": "2026-11-11T13:14:56Z"
   },
   {
-    "title": "Show HN: Padwan AI, an LLM Client for Python with HTTP/2 and HTTP/3",
-    "url": "https://polarsen-io.github.io/padwan-ai/",
+    "title": "Show HN: Episteme AI – Self-healing roadmaps with paywall and dead-link checks",
+    "url": "https://github.com/SreeNaresh1/episteme-ai",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T14:05:12Z"
+    "createdAt": "2026-11-11T13:14:51Z"
   },
   {
-    "title": "The state of decision models: adoption, competition, and the integration gap",
-    "url": "https://seldon-ai.com/blog/state-of-decision-models",
+    "title": "Show HN: I checked 10 AI-written patches to real C++ projects – 6 didn't hold up",
+    "url": "https://unfix.dev/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T14:04:50Z"
+    "createdAt": "2026-11-11T13:14:12Z"
   },
   {
-    "title": "Almanzor – Ask AI and an MCP server for your docs, with cited answers",
-    "url": "https://almanzor.cloud",
+    "title": "Ask HN: \"No AI\" apps/companies/resources?",
+    "url": "",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-11-11T13:11:11Z"
+  },
+  {
+    "title": "Deployment and observability tools for AI agents, scored",
+    "url": "https://rankings.leffke.com/categories/deploy-observability",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T14:02:44Z"
+    "createdAt": "2026-11-11T13:08:45Z"
   },
   {
-    "title": "Is AI code rotting open source? 450 repos, 12 months",
-    "url": "https://coderot.ai/blog/ai-code-rot-in-open-source",
+    "title": "Show HN: Komrad – an AI agent that does not work for you",
+    "url": "https://komr.ad/",
+    "points": 3,
+    "numComments": 3,
+    "createdAt": "2026-11-11T13:04:14Z"
+  },
+  {
+    "title": "Modernizing NetHack's C engine with .NET MAUI, Avalonia and a 31-tool AI advisor",
+    "url": "https://wiki.gnollhack.com/Guides/GnollHack,_Gnoll_Overseer,_and_GnollBench_for_Software_Engineers",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T13:56:43Z"
+    "createdAt": "2026-11-11T13:00:47Z"
   },
   {
-    "title": "Open-Source 2026 AI Cloud GPU and Scraping Proxy Pool Cost Calculator",
-    "url": "https://github.com/alekseev04051988-blip/ai-cost-calculator",
+    "title": "Show HN: Outlier, AI without the data center, private and offline on your Mac",
+    "url": "https://outlier.host/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T13:54:24Z"
+    "createdAt": "2026-11-11T12:54:09Z"
   },
   {
-    "title": "We made the first 1 PFLOP/s FlashAttention on a single H100 GPU",
-    "url": "https://streamhpc.com/blog/2026-11-09/we-made-the-worlds-first-1-pflops-flash-attention-on-a-single-gpu-providing-the-fastest-ai-image-generation-possible/",
+    "title": "TSMC Approves $1B AI Investment",
+    "url": "https://www.macrumors.com/2026/11/11/tsmc-approves-ai-investment/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-10T13:48:41Z"
+    "createdAt": "2026-11-11T12:44:22Z"
   },
   {
-    "title": "Sydney researchers uncover a hidden limit to AI predictability",
-    "url": "https://www.sydney.edu.au/news-opinion/news/2026/11/06/sydney-researchers-uncover-a-hidden-limit-to-ai-predictability.html",
+    "title": "Show HN: Kodelyth ECC – 71 AI agents and MCP and 55% token cuts for Claude Code",
+    "url": "https://ecc.kodelyth.com",
     "points": 3,
     "numComments": 0,
-    "createdAt": "2026-11-10T13:34:54Z"
+    "createdAt": "2026-11-11T12:39:50Z"
   },
   {
-    "title": "Ukraine's Fiber-Optic Drones Compete with Data Centers for Optical Fiber Supply",
-    "url": "https://epyhia.com/ukraine-s-fiber-optic-drones-compete-with-ai-data-centers-for-china-s",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-10T13:33:29Z"
+    "title": "Australia considers criminal penalties for rogue AI in wake of OpenAI hack",
+    "url": "https://www.bbc.co.uk/news/articles/cmp3g37l566po",
+    "points": 3,
+    "numComments": 2,
+    "createdAt": "2026-11-11T12:35:05Z"
   },
   {
-    "title": "Show HN: pvewarden – let an AI agent patch Proxmox VMs without giving it a shell",
-    "url": "https://github.com/matousfiser/pvewarden",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-10T13:33:23Z"
-  },
-  {
-    "title": "Show HN: TeamOnly, free hosting for AI-built apps behind your company login",
-    "url": "https://teamonly.dev/",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-11-10T13:32:11Z"
-  },
-  {
-    "title": "Show HN: ApesTogether - Earn subscription income from your paper-trading bot",
-    "url": "https://apestogether.ai/developers",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-10T13:27:29Z"
-  },
-  {
-    "title": "Show HN: View Markdown like you would on GitHub/Obsidian, right in your terminal",
-    "url": "https://mddog.pages.dev",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-10T13:25:13Z"
-  },
-  {
-    "title": "Memory and RAG tools for AI agents, scored",
-    "url": "https://rankings.leffke.com/categories/memory-rag",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-10T13:08:18Z"
-  },
-  {
-    "title": "Ask HN: How does your small company handle customer security questionnaires?",
-    "url": "",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-11-10T13:06:50Z"
-  },
-  {
-    "title": "Anthropic seeks to be valued at more than $1T",
-    "url": "https://finance.yahoo.com/technology/ai/articles/anthropic-seeks-valued-1-02-115319195.html",
+    "title": "Show HN: Aiproxy – Redact PII locally before it reaches Claude/OpenAI",
+    "url": "https://github.com/cucooOnGithub/aiproxy",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-10T13:00:50Z"
+    "createdAt": "2026-11-11T12:15:32Z"
   },
   {
-    "title": "A Read-Only AI Reviewer for Forgejo Pull Requests",
-    "url": "https://blog.hofstede.it/a-read-only-ai-reviewer-for-forgejo-pull-requests/",
-    "points": 1,
+    "title": "Grok API text watermarking is now 'off' by default",
+    "url": "https://docs.x.ai/developers/advanced-api-usage/watermarking",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-11-11T12:11:01Z"
+  },
+  {
+    "title": "We need more science in the judgment of AI",
+    "url": "https://livingsystems.substack.com/p/we-need-more-science-in-the-judgment",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-10T12:58:11Z"
+    "createdAt": "2026-11-11T12:06:31Z"
+  },
+  {
+    "title": "Show HN: Agent Buddies – Swappable animated characters for AI agents",
+    "url": "https://izr8809.github.io/agent-buddies/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-11T12:05:38Z"
+  },
+  {
+    "title": "Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h",
+    "url": "https://pietromiotti.com/latest/maya-site/?maya",
+    "points": 122,
+    "numComments": 41,
+    "createdAt": "2026-11-11T12:05:22Z"
+  },
+  {
+    "title": "Model Desk – A local-first multi-provider AI workspaceShared via URL-sharer",
+    "url": "https://mrthp.github.io/model-desk/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-11T12:04:22Z"
   }
 ]
