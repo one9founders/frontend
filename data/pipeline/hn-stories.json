@@ -1,142 +1,142 @@
 [
   {
-    "title": "Show HN: AI Red Lines – write down what would make you act on AI",
-    "url": "https://yourairedlines.com",
-    "points": 2,
+    "title": "Politicians Must 'Call Bullshit' on AI Companies [video]",
+    "url": "https://www.youtube.com/watch?v=xpwKob9bjko",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T14:31:21Z"
+    "createdAt": "2026-11-13T13:50:26Z"
   },
   {
-    "title": "Don't build your own harness: lessons from building Paywalls AI Editor",
-    "url": "https://www.revenuecat.com/blog/engineering/lessons-paywalls-ai-editor",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-11-12T14:23:54Z"
-  },
-  {
-    "title": "Writing with AI – Tales and Tips",
-    "url": "https://www.juriopitz.com/2026/11/12/ai-assissted-writing-tales-and-tips.html",
-    "points": 2,
+    "title": "How Microsoft's Principal Software Engineering Manager Works and Uses AI",
+    "url": "https://newsletter.eng-leadership.com/p/how-microsofts-principal-software",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T14:21:09Z"
+    "createdAt": "2026-11-13T13:50:08Z"
   },
   {
-    "title": "Kazakhstan-linked hackers used AI agent to spy on Central Asian governments",
-    "url": "https://therecord.media/kazakhstan-hackers-central-asia",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-12T14:20:29Z"
-  },
-  {
-    "title": "Show HN: Datatomcp – AI agents propose business definitions, a person approves",
-    "url": "https://datatomcp.com/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-12T14:16:53Z"
-  },
-  {
-    "title": "Google Intelligent Eyewear",
-    "url": "https://blog.google/innovation-and-ai/technology/xr-ar/google-intelligent-eyewear-collections-pre-order/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-12T14:14:09Z"
-  },
-  {
-    "title": "Compromised GitHub accounts push CI secret stealer to repositories",
-    "url": "https://www.aikido.dev/blog/compromised-github-accounts-push-ci-secret-stealer-to-tens-of-thousands-of-repositories",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-12T14:02:44Z"
-  },
-  {
-    "title": "Claude Code's API billing depends on how often the cache expires",
+    "title": "What CS bodies are worth studying in the age of AI?",
     "url": "",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T14:02:38Z"
+    "createdAt": "2026-11-13T13:49:28Z"
   },
   {
-    "title": "Show HN: Upstar, GitHub projects ranked by velocity in each topics",
-    "url": "https://upstar.dev/",
+    "title": "A Deep Dive into Decision Models",
+    "url": "https://jbarrow.ai/2026-10-23-deep-dive-into-decision-models/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T14:02:16Z"
+    "createdAt": "2026-11-13T13:49:03Z"
   },
   {
-    "title": "Show HN: Indie Signals – 24h/7d momentum of new AI repos and models",
-    "url": "https://indiesignals.net/",
+    "title": "Show HN: Deccy – software engineering as decision management",
+    "url": "https://edawise.com/deccy-framework/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T13:40:09Z"
+    "createdAt": "2026-11-13T13:44:15Z"
   },
   {
-    "title": "Conscientious Objector: When an AI Says No [video]",
-    "url": "https://www.youtube.com/watch?v=338X8fYgAQA",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-12T13:37:39Z"
-  },
-  {
-    "title": "The Country Building AI Is the Least Excited About It",
-    "url": "https://keithbrown.com/ai-excitement-by-country",
-    "points": 4,
-    "numComments": 0,
-    "createdAt": "2026-11-12T13:36:35Z"
-  },
-  {
-    "title": "Vercel Data Shows AI Models Have Six-Week Half-Life in Production",
-    "url": "https://epyhia.com/vercel-data-shows-ai-models-have-six-week-half-life-in-production",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-12T13:33:15Z"
-  },
-  {
-    "title": "Show HN: MudGym's WebAssembly browser playground for AI agents in MUD2",
-    "url": "https://mudgym.kingrolo.com",
-    "points": 2,
+    "title": "Microsoft's uptime problem, solved (parody)",
+    "url": "https://gomacrohard.ai/",
+    "points": 3,
     "numComments": 1,
-    "createdAt": "2026-11-12T13:29:34Z"
+    "createdAt": "2026-11-13T13:38:41Z"
   },
   {
-    "title": "Show HN: Closed,Mechanical Mould Design AI Agent",
-    "url": "https://closed.sh",
+    "title": "Show HN: Practice coding with AI on real tickets",
+    "url": "https://algocademy.com/ai-coding-practice/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T13:17:42Z"
+    "createdAt": "2026-11-13T13:35:59Z"
   },
   {
-    "title": "Show HN: A free course from engineer to AI engineer, one Git tag per episode",
-    "url": "https://github.com/AiFirstDevelopment/engineer-to-ai-engineer",
+    "title": "Now Nvidia loses on speed – Nvidia's own model 2.45x faster on Macs",
+    "url": "https://nuketorch.ai/blog/#mac-vs-nvidia",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-11-13T13:33:56Z"
+  },
+  {
+    "title": "Show HN: Webcrawl, an open-source web crawling API and MCP server for agents",
+    "url": "https://github.com/brainfish-ai/webcrawl-anything",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T13:15:53Z"
+    "createdAt": "2026-11-13T13:33:42Z"
   },
   {
-    "title": "Bringing Agentic AI to COBOL and the Mainframe with Rich Larin",
-    "url": "https://redmonk.com/videos/rich-larin/",
+    "title": "How to Build Reliable Agentic AI Systems for Vertical AI Companies",
+    "url": "https://medium.com/@MirArshadTalpur/how-to-build-reliable-agentic-ai-systems-for-vertical-ai-companies-290564214ff5",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T13:09:00Z"
+    "createdAt": "2026-11-13T13:27:19Z"
   },
   {
-    "title": "Show HN: Vibetime – see what you ship when coding with AI agents",
-    "url": "https://github.com/iamnotstatic/vibetime",
+    "title": "Never Twice dont let the AI agent do mistake again",
+    "url": "https://clawhub.ai/cognicore-dev/skills/never-twice",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T13:07:34Z"
+    "createdAt": "2026-11-13T13:23:39Z"
   },
   {
-    "title": "Do the top thousand sites charge AI crawlers, block them, or let AI agents buy?",
-    "url": "https://claude.ai/artifact/6GhQxH4Z8pWyCMVdhVwTGG",
+    "title": "Show HN: CloudHike – A backend your AI coding agent can set up over MCP",
+    "url": "https://cloudhike.dev",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T13:02:27Z"
+    "createdAt": "2026-11-13T13:18:41Z"
   },
   {
-    "title": "Show HN: I analyzed all 191 prompts I used to \"vibe-code\" an app",
-    "url": "https://aethermug.com/posts/poft",
-    "points": 2,
+    "title": "Tentative Advice on Building with AI",
+    "url": "https://oath.tech/pub/2026/08/tentative-advice-building-with-ai/",
+    "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-12T12:58:35Z"
+    "createdAt": "2026-11-13T13:08:18Z"
+  },
+  {
+    "title": "AI Mixing and Mastering Services Compared",
+    "url": "https://moozix.com/compare",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-13T13:07:28Z"
+  },
+  {
+    "title": "How Strata Fits a 125B AI Model into Consumer Hardware",
+    "url": "https://www.youtube.com/watch?v=u-yf-HlKhxU",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-13T13:03:02Z"
+  },
+  {
+    "title": "Ask HN: How do you upgrade the models you run in production?",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-13T12:59:06Z"
+  },
+  {
+    "title": "Tech Job Market 2026, Where Is AI's VisiCalc? – Food for Agile Thought #570",
+    "url": "https://age-of-product.com/food-agile-thought-570-tech-job-market-2026/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-13T12:56:28Z"
+  },
+  {
+    "title": "Tests as data: Ensuring AI-generated code does what we want",
+    "url": "https://martinfowler.com/articles/tests-as-data.html",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-13T12:41:43Z"
+  },
+  {
+    "title": "AI agents have a big problem: Nobody wants to let them in",
+    "url": "https://www.pcworld.com/article/3283946/ai-agents-have-a-big-problem-nobody-wants-to-let-them-in.html",
+    "points": 8,
+    "numComments": 2,
+    "createdAt": "2026-11-13T12:37:41Z"
+  },
+  {
+    "title": "AI Room Design from Your Photo – 2 Free Designs",
+    "url": "https://roomdesign-ai.online/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-13T12:32:23Z"
   }
 ]
