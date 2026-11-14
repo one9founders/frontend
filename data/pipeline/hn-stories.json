@@ -1,142 +1,142 @@
 [
   {
-    "title": "Politicians Must 'Call Bullshit' on AI Companies [video]",
-    "url": "https://www.youtube.com/watch?v=xpwKob9bjko",
-    "points": 1,
+    "title": "Timon, an open-source AI workstation for coordinating agents",
+    "url": "https://github.com/ai-timon/timon",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-13T13:50:26Z"
+    "createdAt": "2026-11-14T12:52:01Z"
   },
   {
-    "title": "How Microsoft's Principal Software Engineering Manager Works and Uses AI",
-    "url": "https://newsletter.eng-leadership.com/p/how-microsofts-principal-software",
-    "points": 1,
+    "title": "Open-source AI without Jensen",
+    "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen",
+    "points": 3,
     "numComments": 0,
-    "createdAt": "2026-11-13T13:50:08Z"
+    "createdAt": "2026-11-14T12:44:01Z"
   },
   {
-    "title": "What CS bodies are worth studying in the age of AI?",
+    "title": "Air-Traffic Resilience Portfolio",
+    "url": "https://tilt.now/tilt/MTwqny",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-14T12:34:07Z"
+  },
+  {
+    "title": "Transitive Policies for Agents: Agent Permissions Don't Automatically Compose",
+    "url": "https://glthr.com/transitive-policies-for-ai-agents",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-14T12:33:40Z"
+  },
+  {
+    "title": "Why platform teams fail (and AI makes it worse)",
+    "url": "https://willdady.com/why-platform-teams-fail",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-14T12:32:36Z"
+  },
+  {
+    "title": "Advanced paper aircraft construction (1991)",
+    "url": "https://archive.org/details/advancedpaperair0000morr",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-14T12:19:07Z"
+  },
+  {
+    "title": "Build Your Own AI Coding Agent Harness",
+    "url": "https://vercel.com/academy/build-ai-agent-harness",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-14T12:09:46Z"
+  },
+  {
+    "title": "Amazon's plan to own the product data and fight AI shopping agents",
+    "url": "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-14T12:09:29Z"
+  },
+  {
+    "title": "App like GitHub for your conversations with AI",
+    "url": "http://ainiconva.com",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-11-14T12:09:08Z"
+  },
+  {
+    "title": "Do what must be done",
     "url": "",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-13T13:49:28Z"
+    "createdAt": "2026-11-14T12:08:42Z"
   },
   {
-    "title": "A Deep Dive into Decision Models",
-    "url": "https://jbarrow.ai/2026-10-23-deep-dive-into-decision-models/",
+    "title": "So Far, AI Pessimism Is Observationally Equivalent to AI Optimism",
+    "url": "https://www.betonit.ai/p/so-far-ai-pessimism-is-observationally",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-14T11:53:42Z"
+  },
+  {
+    "title": "Real: Reported Engagement with AI Level Framework",
+    "url": "https://www.realgoodai.org/real-rating",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-13T13:49:03Z"
+    "createdAt": "2026-11-14T11:28:33Z"
   },
   {
-    "title": "Show HN: Deccy – software engineering as decision management",
-    "url": "https://edawise.com/deccy-framework/",
+    "title": "Ask HN: My product makes money, AI does the coding, and I feel useless",
+    "url": "",
+    "points": 5,
+    "numComments": 3,
+    "createdAt": "2026-11-14T10:58:14Z"
+  },
+  {
+    "title": "Anti-Turing for AI: Presumption as a Form of Thought",
+    "url": "https://medium.com/@smoking2man/anti-turing-for-ai-presumption-as-a-form-of-thought-9eb8ae8edc9f",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-13T13:44:15Z"
+    "createdAt": "2026-11-14T10:57:41Z"
   },
   {
-    "title": "Microsoft's uptime problem, solved (parody)",
-    "url": "https://gomacrohard.ai/",
+    "title": "The FAA Rolled Out AI Air Traffic Tool a Few Days Ago?",
+    "url": "https://gizmodo.com/the-faa-is-rolling-out-its-ai-air-traffic-tool-nationwide-2000839347",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-14T10:47:46Z"
+  },
+  {
+    "title": "Show HN: Orty – AI lead qualification for freelancers",
+    "url": "https://getorty.work",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-11-14T10:40:41Z"
+  },
+  {
+    "title": "Behind the Nvidia Affair Sits a Vast Chinese Spying Machine",
+    "url": "https://www.wsj.com/world/nvidia-china-espionage-spy-hacking-ai-174c366b",
     "points": 3,
     "numComments": 1,
-    "createdAt": "2026-11-13T13:38:41Z"
+    "createdAt": "2026-11-14T10:28:28Z"
   },
   {
-    "title": "Show HN: Practice coding with AI on real tickets",
-    "url": "https://algocademy.com/ai-coding-practice/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:35:59Z"
-  },
-  {
-    "title": "Now Nvidia loses on speed – Nvidia's own model 2.45x faster on Macs",
-    "url": "https://nuketorch.ai/blog/#mac-vs-nvidia",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-11-13T13:33:56Z"
-  },
-  {
-    "title": "Show HN: Webcrawl, an open-source web crawling API and MCP server for agents",
-    "url": "https://github.com/brainfish-ai/webcrawl-anything",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:33:42Z"
-  },
-  {
-    "title": "How to Build Reliable Agentic AI Systems for Vertical AI Companies",
-    "url": "https://medium.com/@MirArshadTalpur/how-to-build-reliable-agentic-ai-systems-for-vertical-ai-companies-290564214ff5",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:27:19Z"
-  },
-  {
-    "title": "Never Twice dont let the AI agent do mistake again",
-    "url": "https://clawhub.ai/cognicore-dev/skills/never-twice",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:23:39Z"
-  },
-  {
-    "title": "Show HN: CloudHike – A backend your AI coding agent can set up over MCP",
-    "url": "https://cloudhike.dev",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:18:41Z"
-  },
-  {
-    "title": "Tentative Advice on Building with AI",
-    "url": "https://oath.tech/pub/2026/08/tentative-advice-building-with-ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:08:18Z"
-  },
-  {
-    "title": "AI Mixing and Mastering Services Compared",
-    "url": "https://moozix.com/compare",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:07:28Z"
-  },
-  {
-    "title": "How Strata Fits a 125B AI Model into Consumer Hardware",
-    "url": "https://www.youtube.com/watch?v=u-yf-HlKhxU",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T13:03:02Z"
-  },
-  {
-    "title": "Ask HN: How do you upgrade the models you run in production?",
+    "title": "Show HN: Image Ads Turn Product Shots into Scroll-Stoppers",
     "url": "",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-13T12:59:06Z"
+    "createdAt": "2026-11-14T10:15:07Z"
   },
   {
-    "title": "Tech Job Market 2026, Where Is AI's VisiCalc? – Food for Agile Thought #570",
-    "url": "https://age-of-product.com/food-agile-thought-570-tech-job-market-2026/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-13T12:56:28Z"
+    "title": "Show HN: Autoeditor – AI for retention video editing",
+    "url": "https://www.autoeditor.app/",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-11-14T10:10:13Z"
   },
   {
-    "title": "Tests as data: Ensuring AI-generated code does what we want",
-    "url": "https://martinfowler.com/articles/tests-as-data.html",
+    "title": "Prime Air secure first SAIL 4 approval from UK Civil Aviation Authority",
+    "url": "https://www.aboutamazon.co.uk/news/innovation/prime-air-secures-sail-4-approval-uk-civil-aviation-authority",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-13T12:41:43Z"
-  },
-  {
-    "title": "AI agents have a big problem: Nobody wants to let them in",
-    "url": "https://www.pcworld.com/article/3283946/ai-agents-have-a-big-problem-nobody-wants-to-let-them-in.html",
-    "points": 8,
-    "numComments": 2,
-    "createdAt": "2026-11-13T12:37:41Z"
-  },
-  {
-    "title": "AI Room Design from Your Photo – 2 Free Designs",
-    "url": "https://roomdesign-ai.online/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-13T12:32:23Z"
+    "createdAt": "2026-11-14T09:32:42Z"
   }
 ]
