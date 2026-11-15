@@ -1,142 +1,142 @@
 [
   {
-    "title": "Timon, an open-source AI workstation for coordinating agents",
-    "url": "https://github.com/ai-timon/timon",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-14T12:52:01Z"
-  },
-  {
-    "title": "Open-source AI without Jensen",
-    "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-14T12:44:01Z"
-  },
-  {
-    "title": "Air-Traffic Resilience Portfolio",
-    "url": "https://tilt.now/tilt/MTwqny",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-14T12:34:07Z"
-  },
-  {
-    "title": "Transitive Policies for Agents: Agent Permissions Don't Automatically Compose",
-    "url": "https://glthr.com/transitive-policies-for-ai-agents",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-14T12:33:40Z"
-  },
-  {
-    "title": "Why platform teams fail (and AI makes it worse)",
-    "url": "https://willdady.com/why-platform-teams-fail",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-14T12:32:36Z"
-  },
-  {
-    "title": "Advanced paper aircraft construction (1991)",
-    "url": "https://archive.org/details/advancedpaperair0000morr",
+    "title": "Show HN: K8 Cruft – a Windows dev-junk cleaner with a 30-day undo",
+    "url": "https://lilbuba.ai/k8-cruft.html",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-14T12:19:07Z"
+    "createdAt": "2026-11-15T13:21:38Z"
   },
   {
-    "title": "Build Your Own AI Coding Agent Harness",
-    "url": "https://vercel.com/academy/build-ai-agent-harness",
+    "title": "Stop building new AI agent orchestrators – there are 636",
+    "url": "https://github.com/erson/awesome-agent-orchestrators/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-14T12:09:46Z"
+    "createdAt": "2026-11-15T13:16:16Z"
   },
   {
-    "title": "Amazon's plan to own the product data and fight AI shopping agents",
-    "url": "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/",
+    "title": "AI Adoption Failures: Why Your Successful AI Pilot Is No Reason to Scale",
+    "url": "https://age-of-product.com/ai-adoption-failures/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-15T12:59:22Z"
+  },
+  {
+    "title": "Five Layers of the AI Cake [pdf]",
+    "url": "https://futurumgroup.com/wp-content/uploads/2026/05/Five-Layers-of-the-AI-Cake.pdf",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-15T12:51:33Z"
+  },
+  {
+    "title": "The Backdoor Route That Keeps Beijing in the AI Race",
+    "url": "https://www.wsj.com/tech/jensen-huang-backdoor-ai-data-centers-a5e4499d",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-15T12:50:53Z"
+  },
+  {
+    "title": "Skills for Real Scientists – Steer Away AI Slop",
+    "url": "https://github.com/HiteSit/real-scientist-skills",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-15T12:42:08Z"
+  },
+  {
+    "title": "Sandlock: Confining AI Agent Code with Unprivileged Linux Primitives",
+    "url": "https://arxiv.org/abs/2605.26298",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-14T12:09:29Z"
+    "createdAt": "2026-11-15T12:23:24Z"
   },
   {
-    "title": "App like GitHub for your conversations with AI",
-    "url": "http://ainiconva.com",
+    "title": "Misaligned AI behaviors that indicate loss-of-control risk",
+    "url": "https://guidelight.ai/blog/categories-of-misaligned-ai-behaviors",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-15T12:09:05Z"
+  },
+  {
+    "title": "Show HN: Aurora GeoXAI – Sovereign geospatial AI built out of frustration",
+    "url": "https://github.com/felipetjmg1-bit/aurora-geointelligence-xai",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-15T12:07:53Z"
+  },
+  {
+    "title": "Show HN: Aurora GeoXAI – Sovereign geospatial AI built out of frustration",
+    "url": "",
     "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-15T12:07:30Z"
+  },
+  {
+    "title": "We Need Guidelines for Learning and AI",
+    "url": "https://www.scotthyoung.com/blog/2026/07/22/we-need-guidelines-for-learning-and-ai/",
+    "points": 2,
     "numComments": 1,
-    "createdAt": "2026-11-14T12:09:08Z"
+    "createdAt": "2026-11-15T12:03:33Z"
   },
   {
-    "title": "Do what must be done",
-    "url": "",
+    "title": "AI Slop Papers Published Under Prominent Academics Names",
+    "url": "https://www.insidehighered.com/news/faculty/books-publishing/2026/11/13/ai-slop-papers-published-under-prominent-academics-names",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-14T12:08:42Z"
+    "createdAt": "2026-11-15T11:44:38Z"
   },
   {
-    "title": "So Far, AI Pessimism Is Observationally Equivalent to AI Optimism",
-    "url": "https://www.betonit.ai/p/so-far-ai-pessimism-is-observationally",
+    "title": "US Airspace on a Toothbrush CPU",
+    "url": "https://faa.caseyhandmer.com/",
     "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-14T11:53:42Z"
+    "numComments": 1,
+    "createdAt": "2026-11-15T11:32:55Z"
   },
   {
-    "title": "Real: Reported Engagement with AI Level Framework",
-    "url": "https://www.realgoodai.org/real-rating",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-14T11:28:33Z"
+    "title": "Jensen Huang allegedly manufactured the GPU shortage",
+    "url": "https://wccftech.com/jensen-huang-financed-ai-startups-absorb-excess-silicon/",
+    "points": 15,
+    "numComments": 2,
+    "createdAt": "2026-11-15T10:53:50Z"
   },
   {
-    "title": "Ask HN: My product makes money, AI does the coding, and I feel useless",
+    "title": "Taking AI Seriously",
+    "url": "https://borretti.me/article/taking-ai-seriously",
+    "points": 4,
+    "numComments": 1,
+    "createdAt": "2026-11-15T10:36:07Z"
+  },
+  {
+    "title": "Thoughts on memory layers like mem0",
     "url": "",
-    "points": 5,
+    "points": 2,
     "numComments": 3,
-    "createdAt": "2026-11-14T10:58:14Z"
+    "createdAt": "2026-11-15T10:26:46Z"
   },
   {
-    "title": "Anti-Turing for AI: Presumption as a Form of Thought",
-    "url": "https://medium.com/@smoking2man/anti-turing-for-ai-presumption-as-a-form-of-thought-9eb8ae8edc9f",
+    "title": "Most of AI moats are just fuel",
+    "url": "https://adlrocha.substack.com/p/adlrocha-most-of-ai-moats-are-just",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-14T10:57:41Z"
+    "createdAt": "2026-11-15T10:06:16Z"
   },
   {
-    "title": "The FAA Rolled Out AI Air Traffic Tool a Few Days Ago?",
-    "url": "https://gizmodo.com/the-faa-is-rolling-out-its-ai-air-traffic-tool-nationwide-2000839347",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-14T10:47:46Z"
-  },
-  {
-    "title": "Show HN: Orty – AI lead qualification for freelancers",
-    "url": "https://getorty.work",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-11-14T10:40:41Z"
-  },
-  {
-    "title": "Behind the Nvidia Affair Sits a Vast Chinese Spying Machine",
-    "url": "https://www.wsj.com/world/nvidia-china-espionage-spy-hacking-ai-174c366b",
-    "points": 3,
-    "numComments": 1,
-    "createdAt": "2026-11-14T10:28:28Z"
-  },
-  {
-    "title": "Show HN: Image Ads Turn Product Shots into Scroll-Stoppers",
-    "url": "",
+    "title": "Show HN: Vantage-V-AI – 2-bit ternary KV-cache with attention sinks",
+    "url": "https://github.com/khoadev-vn/VANTAGE-V-AI",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-14T10:15:07Z"
+    "createdAt": "2026-11-15T09:50:15Z"
   },
   {
-    "title": "Show HN: Autoeditor – AI for retention video editing",
-    "url": "https://www.autoeditor.app/",
-    "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-11-14T10:10:13Z"
-  },
-  {
-    "title": "Prime Air secure first SAIL 4 approval from UK Civil Aviation Authority",
-    "url": "https://www.aboutamazon.co.uk/news/innovation/prime-air-secures-sail-4-approval-uk-civil-aviation-authority",
+    "title": "Inkling 2 Small Scores 31 on AAII v5.0.1, best-in-class among \"US\" open weights",
+    "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
     "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-11-15T09:25:09Z"
+  },
+  {
+    "title": "Korea's top tax accountant exam scorer confesses to cheating with AI",
+    "url": "https://inlevel9.com/en/issues/top-score-under-suspicion",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-14T09:32:42Z"
+    "createdAt": "2026-11-15T09:18:35Z"
   }
 ]
