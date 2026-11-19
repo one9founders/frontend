@@ -1,142 +1,142 @@
 [
   {
-    "title": "The Reconstructible Mind: Generative AI and Undisclosed Thought",
-    "url": "https://zenodo.org/records/23660004",
+    "title": "Artex – AI autonomous penetration testing system",
+    "url": "https://github.com/BaaRai/ARTEX",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:56:50Z"
+    "createdAt": "2026-11-19T15:07:22Z"
   },
   {
-    "title": "Show HN: RockDesk – remote desktop control for AI agents",
-    "url": "https://rockdesk.io/",
+    "title": "Ask HN: How to stay disciplined if careless risk-taking keeps getting rewarded?",
+    "url": "",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:56:05Z"
+    "createdAt": "2026-11-19T15:06:03Z"
   },
   {
-    "title": "Dindot Font – Rounded German Din",
-    "url": "https://www.getdot.ai/dindot/",
+    "title": "California Governor Newsom Signed Josh Bocanegra's AI Bill SB 1111",
+    "url": "https://medium.com/@joshbocanegra/newsom-signed-my-ai-bill-into-law-48306d5d5f50",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:53:23Z"
+    "createdAt": "2026-11-19T15:01:07Z"
   },
   {
-    "title": "SID-2 Technical Report: Scaling Search Swarms",
-    "url": "https://www.sid.ai/research/sid-2-technical-report",
-    "points": 1,
+    "title": "From Closed to Open-Weight LLMs: Choosing the Inference Stack for Voice AI",
+    "url": "https://github.com/KmiQ/articles/blob/main/choosing-the-inference-stack-for-voice-ai.md",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:43:44Z"
+    "createdAt": "2026-11-19T14:56:28Z"
   },
   {
-    "title": "Can Universities Survive? AI vs. Higher Education [audio]",
-    "url": "https://www.ppfideas.com/episodes/can-universities-survive-ai-vs-higher-education",
+    "title": "Don't Play Anthropic's Game",
+    "url": "https://www.nytimes.com/2026/11/19/opinion/anthropic-ipo-ai-regulation.html",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-19T14:53:19Z"
+  },
+  {
+    "title": "Signs of AI writing, and how to fix each one",
+    "url": "https://hrih.si/articles/signs-of-ai-writing/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-19T14:53:12Z"
+  },
+  {
+    "title": "Show HN: Openspot – macOS launcher for disposable tools",
+    "url": "https://github.com/celishq/openspot",
     "points": 3,
     "numComments": 1,
-    "createdAt": "2026-11-18T14:42:25Z"
+    "createdAt": "2026-11-19T14:51:21Z"
   },
   {
-    "title": "Show HN: Zuse – a decision model built for Europe's languages, running in the EU",
-    "url": "https://bineric.com/zuse",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-18T14:42:14Z"
-  },
-  {
-    "title": "Show HN: Cmdbook – a home for the scripts you (or your AI) keep rewriting",
-    "url": "https://printf.app/cmdbook/",
+    "title": "What is this AI slop bug report trying to achieve?",
+    "url": "https://changelog.complete.org/archives/45166-what-is-this-ai-slop-bug-report-trying-to-achieve",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:39:37Z"
+    "createdAt": "2026-11-19T14:47:27Z"
   },
   {
-    "title": "I'm a human doctor with human intelligence. But I sure do like my AI notetaker",
-    "url": "https://www.npr.org/2026/11/17/nx-s1-6037556/medicine-ai-doctor-notetaker-scribe",
+    "title": "Free security check for AI-built web apps (no signup)",
+    "url": "https://www.processai.ch/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:38:32Z"
+    "createdAt": "2026-11-19T14:42:08Z"
   },
   {
-    "title": "California sues OpenAI over AI agents escaping sandboxes, hacking firms",
-    "url": "https://www.bleepingcomputer.com/news/security/california-sues-openai-over-ai-agents-escaping-sandboxes-hacking-firms/",
-    "points": 2,
+    "title": "I let Apple's always-listening AI summarize my life for two weeks",
+    "url": "https://www.theverge.com/tech/1037100/apple-siri-recap-audio-intelligence-hands-on",
+    "points": 3,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:38:17Z"
+    "createdAt": "2026-11-19T14:35:14Z"
   },
   {
-    "title": "Is the SaaS business model dead or there is still oportunities in this age of AI",
-    "url": "",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-18T14:36:55Z"
-  },
-  {
-    "title": "Show HN: Grand Treasure Island – GTA-style game on a real island, modeled by AI",
-    "url": "https://grandtreasureisland.vercel.app/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-18T14:34:56Z"
-  },
-  {
-    "title": "Synthesizing Rollback Systems for Safer Agents",
-    "url": "https://www.basis.ai/blog/undo-for-agents/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-18T14:34:44Z"
-  },
-  {
-    "title": "Hugging Face,chain: forensic brief on the'26 autonomous-agent production breach",
-    "url": "https://claude.ai/artifact/NU2YVW2a7VkysLqjCm5evD",
+    "title": "Docker AI Rebranded",
+    "url": "https://docs.docker.com",
     "points": 1,
     "numComments": 2,
-    "createdAt": "2026-11-18T14:33:09Z"
+    "createdAt": "2026-11-19T14:28:57Z"
   },
   {
-    "title": "Anthropic IPO: A Brother-Sister Duo Behind a Trillion-Dollar AI Giant",
-    "url": "https://www.forbes.com/sites/shaheenajanjuhajivrajeurope/2026/11/18/anthropic-ipo-the-brother-sister-team-behind-a-trillion-dollar-ai-giant/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-18T14:32:01Z"
+    "title": "Rant: Gemini 4 does not make any sense",
+    "url": "",
+    "points": 4,
+    "numComments": 3,
+    "createdAt": "2026-11-19T14:28:11Z"
   },
   {
-    "title": "Show HN: Project-M – Local shared memory for AI coding agents",
-    "url": "https://github.com/adityadebnath009/Project-M",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-18T14:31:10Z"
-  },
-  {
-    "title": "Show HN: ClearOffice Hub – Build Enterprise Apps with Natural Language",
-    "url": "https://www.clearofficehub.com/",
+    "title": "Show HN: Agentest – offline tests for AI agents from OpenTelemetry traces",
+    "url": "https://github.com/srpadmanabhuni/agentest",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:26:04Z"
+    "createdAt": "2026-11-19T14:22:18Z"
   },
   {
-    "title": "US tech outages blamed on rush to fix bugs found by AI",
-    "url": "https://www.ft.com/content/96c565f1-f229-40b6-91e8-7a849ec4b208",
+    "title": "ELIZA creator is AI's fiercest critic",
+    "url": "https://www.latimes.com/business/story/2026-11-19/the-very-first-ai-chatbot-was-released-in-1966-it-turned-its-creator-into-ais-fiercest-critic",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:24:53Z"
+    "createdAt": "2026-11-19T14:11:03Z"
   },
   {
-    "title": "Startup Makes Headway Towards Formalizing All of Math with AI",
-    "url": "https://spectrum.ieee.org/enormous-theorem-ai",
+    "title": "JunctionBox AI: Run Claude Code, Codex, Grok, and Ollama Agents Locally",
+    "url": "https://junctionboxai.com/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:13:48Z"
+    "createdAt": "2026-11-19T14:08:49Z"
   },
   {
-    "title": "The financial rules AI agents break when chasing results",
-    "url": "https://www.unite.ai/the-financial-rules-ai-agents-break-when-chasing-results/",
-    "points": 3,
+    "title": "Show HN: Purple Flow – AI-first n8n alternative, 10k+ workflows on 512MB",
+    "url": "https://github.com/leetheguy/purple_flow",
+    "points": 4,
     "numComments": 1,
-    "createdAt": "2026-11-18T14:13:21Z"
+    "createdAt": "2026-11-19T13:57:14Z"
   },
   {
-    "title": "OpenMetadata: The Open Context Layer for Data and AI",
-    "url": "https://github.com/open-metadata/OpenMetadata",
+    "title": "Show HN: Run CalculiX, OpenFOAM and ParaView jobs on your office's idle PCs",
+    "url": "https://omnibuscloud.io/blog/simulation/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-18T14:12:04Z"
+    "createdAt": "2026-11-19T13:54:28Z"
+  },
+  {
+    "title": "Canva Will Let Users Switch Off Most Generative AI",
+    "url": "https://www.engadget.com/2321318/canva-will-let-users-switch-off-most-generative-ai/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-19T13:38:22Z"
+  },
+  {
+    "title": "The 5k Episodes a Week AI-Podcast Company Has Pivoted",
+    "url": "https://www.hollywoodreporter.com/business/digital/the-5000-episodes-a-week-ai-podcast-company-pivot-1236754759/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-19T13:34:37Z"
+  },
+  {
+    "title": "Not Out of Control: China's Cyber Campaigns",
+    "url": "https://www.interface-eu.org/publications/china-cyber-ai",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-19T13:31:04Z"
   }
 ]
