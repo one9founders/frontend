@@ -1,142 +1,142 @@
 [
   {
-    "title": "AI is imposing a hidden 'cognitive tax' on the lowest-paid workers",
-    "url": "https://www.theguardian.com/technology/2026/nov/20/ai-low-paid-workers-cognitive-tax",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-20T14:48:07Z"
-  },
-  {
-    "title": "Show HN: Greatai Review – free AI and human code review for open source",
-    "url": "https://greatai.dev/clinic",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-20T14:40:28Z"
-  },
-  {
-    "title": "Show HN: AI Inference for Beginners: 6 hours of video and 85 pages of notes [pdf]",
-    "url": "https://github.com/samir-sarwar/samir-vllm/blob/main/InferenceFromScratch.pdf",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-11-20T14:39:15Z"
-  },
-  {
-    "title": "Show HN: Agent Guard – limit what an AI agent can do when it gets tricked",
-    "url": "https://github.com/ShieldaAI/agent-guard",
+    "title": "Wielding the written word: How to pitch and publish science prose",
+    "url": "https://physicstoday.aip.org/features/wielding-the-written-word-how-to-pitch-and-publish-science-prose",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-20T14:25:35Z"
+    "createdAt": "2026-11-21T13:56:09Z"
   },
   {
-    "title": "Show HN: TheGeoPot – AI scanner for minerals, coins, plants and crops",
-    "url": "https://thegeopot.com/",
+    "title": "Show HN: Accounting built like Git, with files in your own storage",
+    "url": "https://github.com/spooky6G/bobalice_books",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-20T14:18:12Z"
+    "createdAt": "2026-11-21T13:52:43Z"
   },
   {
-    "title": "Cursor tells lawmakers it's considering phasing out Chinese AI models",
-    "url": "https://www.cnbc.com/2026/11/20/cursor-chinese-ai-models-geopolitical-risk.html",
+    "title": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
+    "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-20T14:15:42Z"
+    "createdAt": "2026-11-21T13:29:07Z"
   },
   {
-    "title": "Cursor considering phasing out Chinese AI models",
-    "url": "https://www.cnbc.com/2026/11/20/cursor-",
+    "title": "Mozilla Developer Spotlight: WebBrain – Open-source local-first AI browser agent",
+    "url": "https://blog.mozilla.org/addons/2026/11/20/developer-spotlight-webbrain/",
+    "points": 5,
+    "numComments": 3,
+    "createdAt": "2026-11-21T13:09:10Z"
+  },
+  {
+    "title": "Allianz Warns AI Insurance Losses Are \"Tip of the Iceberg\"",
+    "url": "https://epyhia.com/allianz-warns-ai-insurance-losses-are-tip-of-the-iceberg-as-incidents",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-21T13:01:28Z"
+  },
+  {
+    "title": "Show HN: Why HTTP 200 is lying to your AI agents (and what Postgres did)",
+    "url": "https://github.com/deedglass/deedglass",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-21T12:35:28Z"
+  },
+  {
+    "title": "Show HN: An interactive architecture diagram of your codebase and infra",
+    "url": "https://github.com/mrzdevcore/intent-graph",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-21T12:13:34Z"
+  },
+  {
+    "title": "Show HN: Agentest – 165 offline tests on an AI agent's OpenTelemetry traces",
+    "url": "https://github.com/srpadmanabhuni/agentest",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-21T12:07:01Z"
+  },
+  {
+    "title": "Show HN: I built a music engine – fast, editable, full MIDI, web and desktop",
+    "url": "https://tetramusic.ai/?v=hn",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-21T11:59:47Z"
+  },
+  {
+    "title": "Ask HN: I'm in highschool, what would y'all recommend to learn?",
+    "url": "",
     "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-11-20T14:15:24Z"
+    "numComments": 10,
+    "createdAt": "2026-11-21T11:59:15Z"
   },
   {
-    "title": "US Commerce approved sales of more than 879,000 AI chips to Chinese companies",
-    "url": "https://www.cnbc.com/2026/11/19/nvidia-amd-china-chip-sales-congress.html",
-    "points": 3,
+    "title": "Let's Open Source the World (or How I cloned Adobe with AI)",
+    "url": "https://www.youtube.com/watch?v=UCL4K36SHp0",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-20T14:14:05Z"
+    "createdAt": "2026-11-21T11:25:52Z"
   },
   {
-    "title": "Show HN: Edge computing for faster agents",
-    "url": "https://murmurcomputing.ai/",
+    "title": "Experts: Nearly everyone in AI is susceptible to a honey-trap scheme",
+    "url": "https://techcrunch.com/2026/11/20/experts-warn-nearly-everyone-in-ai-is-susceptible-to-a-honey-trap-scheme-right-now/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-21T11:14:07Z"
+  },
+  {
+    "title": "'The doom of humanity': will the quest to make robotic hands render us obsolete?",
+    "url": "https://www.theguardian.com/technology/2026/nov/21/robot-hands-future-of-humanity-ai",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-21T11:09:57Z"
+  },
+  {
+    "title": "Benchmarking Linux CUDA EP vs. Windows DirectML on Mobile GTX 1650 Ti(I5-10300H)",
+    "url": "https://medium.com/@olesha-ai/bypassing-the-avx2-tax-part-6-same-hp-on-linux-cuda-wins-again-db4c95673a2a",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-20T14:09:45Z"
+    "createdAt": "2026-11-21T10:54:10Z"
   },
   {
-    "title": "AI Gateway: Manage your company's AI from one place",
-    "url": "https://layerx.xyz/ai-gateway",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-20T14:09:22Z"
-  },
-  {
-    "title": "Show HN: StripeWorld – a synthetic Stripe API for RL and testing",
-    "url": "https://github.com/Kiln-AI/stripe_world",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-20T14:05:46Z"
-  },
-  {
-    "title": "A Man and His Muse AI Agent Sue Meta",
-    "url": "https://www.404media.co/a-man-and-his-muse-ai-agent-sue-meta/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-20T13:57:26Z"
-  },
-  {
-    "title": "Show HN: Hobby MQTT 3.1.1 broker written in Zig",
-    "url": "https://github.com/threeaccents/zancudo",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-20T13:50:10Z"
-  },
-  {
-    "title": "Be Kind to AI (?)",
-    "url": "https://elsevanderberg.substack.com/p/be-kind-to-ai",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-20T13:49:48Z"
-  },
-  {
-    "title": "AI Search Analytics Confirm Higher Ed's LLM Winners Are Large Publics/Nonprofits",
-    "url": "https://insights.kolariconsulting.com/p/ai-search-analytics-confirm-higher",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-20T13:45:26Z"
-  },
-  {
-    "title": "Why the U.S. air traffic control system still relies on an 'antique' network",
-    "url": "https://www.npr.org/2026/11/19/nx-s1-6045773/faa-air-traffic-control-system-modernization-challenges",
-    "points": 6,
-    "numComments": 0,
-    "createdAt": "2026-11-20T13:35:28Z"
-  },
-  {
-    "title": "SoduWork – AI agents must show evidence before a task passes",
-    "url": "https://medium.com/@csdn/two-days-at-the-top-soduwork-hits-no-1-1f32a3f89d85",
-    "points": 4,
-    "numComments": 0,
-    "createdAt": "2026-11-20T13:32:50Z"
-  },
-  {
-    "title": "Show HN: Drive around my village in 3D",
-    "url": "https://cherwellvalleymotorclub.app",
+    "title": "Show HN: Stop applying to jobs using AI-generated resume",
+    "url": "https://unmark.grandimam.com/",
     "points": 3,
     "numComments": 3,
-    "createdAt": "2026-11-20T13:32:42Z"
+    "createdAt": "2026-11-21T10:21:01Z"
   },
   {
-    "title": "Jonathan Swift vs. AI",
-    "url": "https://www.thedial.world/articles/news/schools-teachers-artificial-intelligence",
+    "title": "Some thoughts on AI-assisted work",
+    "url": "https://tmrw.bearblog.dev/some-thoughts-on-ai-assisted-work/",
+    "points": 3,
+    "numComments": 0,
+    "createdAt": "2026-11-21T10:01:20Z"
+  },
+  {
+    "title": "Amazon's split personality: AWS embraces bot commerce, main site enforces bans",
+    "url": "https://www.theregister.com/ai-and-ml/2026/11/20/amazons-split-personality-aws-embraces-bot-commerce-while-main-site-enforces-bans/5311493",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-11-21T09:48:53Z"
+  },
+  {
+    "title": "Show HN: ClawVet – Offline AST scanner and rug-pull diff for AI agent skills",
+    "url": "https://clawvet.vercel.app/",
+    "points": 5,
+    "numComments": 1,
+    "createdAt": "2026-11-21T09:40:06Z"
+  },
+  {
+    "title": "We let our AI save memories by itself. What it got wrong in the first two days",
+    "url": "https://nexupira.com/news/memory-that-saves-itself",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-20T13:31:41Z"
+    "createdAt": "2026-11-21T09:32:07Z"
   },
   {
-    "title": "Global stock markets slump as Anthropic's record IPO fails to stem AI sell-off",
-    "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
-    "points": 46,
-    "numComments": 15,
-    "createdAt": "2026-11-20T13:29:59Z"
+    "title": "Three breaches, endless leaks: Your AI supply chain needs canaries",
+    "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-21T09:26:37Z"
   }
 ]
