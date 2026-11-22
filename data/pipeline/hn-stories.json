@@ -1,142 +1,142 @@
 [
   {
-    "title": "Wielding the written word: How to pitch and publish science prose",
-    "url": "https://physicstoday.aip.org/features/wielding-the-written-word-how-to-pitch-and-publish-science-prose",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-21T13:56:09Z"
-  },
-  {
-    "title": "Show HN: Accounting built like Git, with files in your own storage",
-    "url": "https://github.com/spooky6G/bobalice_books",
+    "title": "How Hong Kong is using AI alerts and a tank to cut flood risks during storms",
+    "url": "https://2tinteractive.com/watch/episodes/5739/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-21T13:52:43Z"
+    "createdAt": "2026-11-22T13:59:05Z"
   },
   {
-    "title": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
-    "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+    "title": "Show HN: ReallySimpleDocs – Modern, AI-ready documentation site with Astro",
+    "url": "https://github.com/hunvreus/reallysimpledocs",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-22T13:58:23Z"
+  },
+  {
+    "title": "Build what other LLMs refuse governed by your rules",
+    "url": "https://abliteration.ai/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-22T13:53:58Z"
+  },
+  {
+    "title": "Italy Approves Tesla Assisted Driving",
+    "url": "https://explainx.ai/blog/italy-tesla-assisted-driving-provisional-approval-november-2026",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-22T13:51:02Z"
+  },
+  {
+    "title": "Why stop at Emacs? Native apps you or an AI reprogram in Clojure while they run",
+    "url": "https://github.com/RiccardoSottini/AffrescoUI",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-22T13:41:29Z"
+  },
+  {
+    "title": "Building a Local Agent Run Production Studio",
+    "url": "https://owain.bearblog.dev/setting-up-a-local-ai-production-studio/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-22T13:32:18Z"
+  },
+  {
+    "title": "Show HN: Cordium – FOSS sandbox platform on Kubernetes to eliminate credentials",
+    "url": "https://github.com/octelium/cordium",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-22T13:07:44Z"
+  },
+  {
+    "title": "AI Explorables: Big Ideas in Machine Learning (People and AI Research (Pair))",
+    "url": "https://pair.withgoogle.com/explorables/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-22T12:34:42Z"
+  },
+  {
+    "title": "I won't leave mathematics, despite AI solving centuries-old problems",
+    "url": "https://www.theguardian.com/commentisfree/2026/nov/22/why-i-wont-leave-mathematics-despite-ai-solving-centuries-old-problems",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-21T13:29:07Z"
+    "createdAt": "2026-11-22T12:29:57Z"
   },
   {
-    "title": "Mozilla Developer Spotlight: WebBrain – Open-source local-first AI browser agent",
-    "url": "https://blog.mozilla.org/addons/2026/11/20/developer-spotlight-webbrain/",
+    "title": "I know who's popping the AI bubble now [video]",
+    "url": "https://www.youtube.com/watch?v=YNTpOLbvKTs",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-22T12:18:34Z"
+  },
+  {
+    "title": "16-year-old awarded $500k by Y Combinator for AI-guided-missile startup",
+    "url": "https://www.wired.com/story/henrijs-dandzbergs-polemos-missiles-ai-warfare/",
     "points": 5,
     "numComments": 3,
-    "createdAt": "2026-11-21T13:09:10Z"
+    "createdAt": "2026-11-22T12:06:55Z"
   },
   {
-    "title": "Allianz Warns AI Insurance Losses Are \"Tip of the Iceberg\"",
-    "url": "https://epyhia.com/allianz-warns-ai-insurance-losses-are-tip-of-the-iceberg-as-incidents",
+    "title": "Show HN: A free website check that starts from what your buyers search",
+    "url": "https://meetadmiral.com/website-seo-checker",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-21T13:01:28Z"
+    "createdAt": "2026-11-22T12:02:25Z"
   },
   {
-    "title": "Show HN: Why HTTP 200 is lying to your AI agents (and what Postgres did)",
-    "url": "https://github.com/deedglass/deedglass",
+    "title": "Show HN: Codeint – Measure duplication and complexity drift in AI-written code",
+    "url": "https://github.com/avidianity/codeint",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-21T12:35:28Z"
+    "createdAt": "2026-11-22T11:58:04Z"
   },
   {
-    "title": "Show HN: An interactive architecture diagram of your codebase and infra",
-    "url": "https://github.com/mrzdevcore/intent-graph",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-21T12:13:34Z"
-  },
-  {
-    "title": "Show HN: Agentest – 165 offline tests on an AI agent's OpenTelemetry traces",
-    "url": "https://github.com/srpadmanabhuni/agentest",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-21T12:07:01Z"
-  },
-  {
-    "title": "Show HN: I built a music engine – fast, editable, full MIDI, web and desktop",
-    "url": "https://tetramusic.ai/?v=hn",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-21T11:59:47Z"
-  },
-  {
-    "title": "Ask HN: I'm in highschool, what would y'all recommend to learn?",
-    "url": "",
+    "title": "Taxi Driver scriptwriter Paul Schrader on unleashing AI at 80",
+    "url": "https://www.theguardian.com/film/2026/nov/21/taxi-driver-scriptwriter-paul-schrader-ai-film-making-martin-scorsese",
     "points": 2,
-    "numComments": 10,
-    "createdAt": "2026-11-21T11:59:15Z"
+    "numComments": 4,
+    "createdAt": "2026-11-22T11:44:02Z"
   },
   {
-    "title": "Let's Open Source the World (or How I cloned Adobe with AI)",
-    "url": "https://www.youtube.com/watch?v=UCL4K36SHp0",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-21T11:25:52Z"
-  },
-  {
-    "title": "Experts: Nearly everyone in AI is susceptible to a honey-trap scheme",
-    "url": "https://techcrunch.com/2026/11/20/experts-warn-nearly-everyone-in-ai-is-susceptible-to-a-honey-trap-scheme-right-now/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-21T11:14:07Z"
-  },
-  {
-    "title": "'The doom of humanity': will the quest to make robotic hands render us obsolete?",
-    "url": "https://www.theguardian.com/technology/2026/nov/21/robot-hands-future-of-humanity-ai",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-21T11:09:57Z"
-  },
-  {
-    "title": "Benchmarking Linux CUDA EP vs. Windows DirectML on Mobile GTX 1650 Ti(I5-10300H)",
-    "url": "https://medium.com/@olesha-ai/bypassing-the-avx2-tax-part-6-same-hp-on-linux-cuda-wins-again-db4c95673a2a",
+    "title": "Hacking Muse: Stealing Private Chats Through Browser Use",
+    "url": "https://nebusec.ai/research/meta-muse-credential-exposure/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-21T10:54:10Z"
+    "createdAt": "2026-11-22T11:39:10Z"
   },
   {
-    "title": "Show HN: Stop applying to jobs using AI-generated resume",
-    "url": "https://unmark.grandimam.com/",
-    "points": 3,
-    "numComments": 3,
-    "createdAt": "2026-11-21T10:21:01Z"
-  },
-  {
-    "title": "Some thoughts on AI-assisted work",
-    "url": "https://tmrw.bearblog.dev/some-thoughts-on-ai-assisted-work/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-21T10:01:20Z"
-  },
-  {
-    "title": "Amazon's split personality: AWS embraces bot commerce, main site enforces bans",
-    "url": "https://www.theregister.com/ai-and-ml/2026/11/20/amazons-split-personality-aws-embraces-bot-commerce-while-main-site-enforces-bans/5311493",
+    "title": "Banks Have Had It Up to Here With Your AI Agent",
+    "url": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-11-21T09:48:53Z"
+    "createdAt": "2026-11-22T11:37:55Z"
   },
   {
-    "title": "Show HN: ClawVet – Offline AST scanner and rug-pull diff for AI agent skills",
-    "url": "https://clawvet.vercel.app/",
+    "title": "By attacking Chinese Al industry, the US has burst its own Al bubble",
+    "url": "https://www.china-translated.com/p/by-attacking-chinese-ai-industry",
+    "points": 10,
+    "numComments": 2,
+    "createdAt": "2026-11-22T11:35:11Z"
+  },
+  {
+    "title": "Zero Trust for AI Agents",
+    "url": "https://claude.com/resources/articles/zero-trust-for-ai-agents",
     "points": 5,
-    "numComments": 1,
-    "createdAt": "2026-11-21T09:40:06Z"
-  },
-  {
-    "title": "We let our AI save memories by itself. What it got wrong in the first two days",
-    "url": "https://nexupira.com/news/memory-that-saves-itself",
-    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-21T09:32:07Z"
+    "createdAt": "2026-11-22T11:12:52Z"
   },
   {
-    "title": "Three breaches, endless leaks: Your AI supply chain needs canaries",
-    "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+    "title": "What I Learned Building Evaluations for Coding Agents",
+    "url": "https://dblc.fyi/blog/a-retrospective-on-ai-evaluations/",
+    "points": 3,
+    "numComments": 1,
+    "createdAt": "2026-11-22T11:01:49Z"
+  },
+  {
+    "title": "Confident predictions and verdicts about AI, and what happened next [video]",
+    "url": "https://www.youtube.com/watch?v=_Zzv15cwG1A",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-21T09:26:37Z"
+    "createdAt": "2026-11-22T10:54:00Z"
   }
 ]
