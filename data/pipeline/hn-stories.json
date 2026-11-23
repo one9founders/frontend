@@ -1,142 +1,142 @@
 [
   {
-    "title": "How Hong Kong is using AI alerts and a tank to cut flood risks during storms",
-    "url": "https://2tinteractive.com/watch/episodes/5739/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T13:59:05Z"
-  },
-  {
-    "title": "Show HN: ReallySimpleDocs – Modern, AI-ready documentation site with Astro",
-    "url": "https://github.com/hunvreus/reallysimpledocs",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T13:58:23Z"
-  },
-  {
-    "title": "Build what other LLMs refuse governed by your rules",
-    "url": "https://abliteration.ai/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T13:53:58Z"
-  },
-  {
-    "title": "Italy Approves Tesla Assisted Driving",
-    "url": "https://explainx.ai/blog/italy-tesla-assisted-driving-provisional-approval-november-2026",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T13:51:02Z"
-  },
-  {
-    "title": "Why stop at Emacs? Native apps you or an AI reprogram in Clojure while they run",
-    "url": "https://github.com/RiccardoSottini/AffrescoUI",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T13:41:29Z"
-  },
-  {
-    "title": "Building a Local Agent Run Production Studio",
-    "url": "https://owain.bearblog.dev/setting-up-a-local-ai-production-studio/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T13:32:18Z"
-  },
-  {
-    "title": "Show HN: Cordium – FOSS sandbox platform on Kubernetes to eliminate credentials",
-    "url": "https://github.com/octelium/cordium",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T13:07:44Z"
-  },
-  {
-    "title": "AI Explorables: Big Ideas in Machine Learning (People and AI Research (Pair))",
-    "url": "https://pair.withgoogle.com/explorables/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-22T12:34:42Z"
-  },
-  {
-    "title": "I won't leave mathematics, despite AI solving centuries-old problems",
-    "url": "https://www.theguardian.com/commentisfree/2026/nov/22/why-i-wont-leave-mathematics-despite-ai-solving-centuries-old-problems",
+    "title": "Show HN: I built an MCP server that gives AI agents a reliable clock",
+    "url": "https://agentclock.andalabx.com/",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-22T12:29:57Z"
+    "createdAt": "2026-11-23T16:57:29Z"
   },
   {
-    "title": "I know who's popping the AI bubble now [video]",
-    "url": "https://www.youtube.com/watch?v=YNTpOLbvKTs",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-22T12:18:34Z"
-  },
-  {
-    "title": "16-year-old awarded $500k by Y Combinator for AI-guided-missile startup",
-    "url": "https://www.wired.com/story/henrijs-dandzbergs-polemos-missiles-ai-warfare/",
-    "points": 5,
-    "numComments": 3,
-    "createdAt": "2026-11-22T12:06:55Z"
-  },
-  {
-    "title": "Show HN: A free website check that starts from what your buyers search",
-    "url": "https://meetadmiral.com/website-seo-checker",
+    "title": "Overwhelmed by AI Bots",
+    "url": "https://blog.miloslavhomer.cz/overwhelmed-by-ai-bots/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-22T12:02:25Z"
+    "createdAt": "2026-11-23T16:50:10Z"
   },
   {
-    "title": "Show HN: Codeint – Measure duplication and complexity drift in AI-written code",
-    "url": "https://github.com/avidianity/codeint",
+    "title": "Ask HN: What Are You Learning?",
+    "url": "",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-22T11:58:04Z"
+    "createdAt": "2026-11-23T16:49:48Z"
   },
   {
-    "title": "Taxi Driver scriptwriter Paul Schrader on unleashing AI at 80",
-    "url": "https://www.theguardian.com/film/2026/nov/21/taxi-driver-scriptwriter-paul-schrader-ai-film-making-martin-scorsese",
-    "points": 2,
-    "numComments": 4,
-    "createdAt": "2026-11-22T11:44:02Z"
-  },
-  {
-    "title": "Hacking Muse: Stealing Private Chats Through Browser Use",
-    "url": "https://nebusec.ai/research/meta-muse-credential-exposure/",
+    "title": "Show HN: Verfy – checks an AI coding agent's tool calls before they run",
+    "url": "https://github.com/verfy-dev/verfy",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-22T11:39:10Z"
+    "createdAt": "2026-11-23T16:49:26Z"
   },
   {
-    "title": "Banks Have Had It Up to Here With Your AI Agent",
-    "url": "https://www.wired.com/story/banks-are-cracking-down-on-ai-agents/",
+    "title": "Applied Digital signs $5.4B AI data center lease with hyperscaler",
+    "url": "https://www.reuters.com/business/applied-digital-signs-54-billion-ai-data-center-lease-with-hyperscaler-2026-11-23/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:42:54Z"
+  },
+  {
+    "title": "Show HN: Find your location from the background noise of aircraft flying over",
+    "url": "https://findme.alexvd.dev",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:38:14Z"
+  },
+  {
+    "title": "Show HN: 11 Three.js towns to practise 9 languages, live voice and open chat",
+    "url": "https://maido.place",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:28:35Z"
+  },
+  {
+    "title": "We went from browser AI to a cloud for agents",
+    "url": "https://hal9.com/company",
     "points": 1,
     "numComments": 1,
-    "createdAt": "2026-11-22T11:37:55Z"
+    "createdAt": "2026-11-23T16:27:26Z"
   },
   {
-    "title": "By attacking Chinese Al industry, the US has burst its own Al bubble",
-    "url": "https://www.china-translated.com/p/by-attacking-chinese-ai-industry",
-    "points": 10,
+    "title": "Show HN: A free creative suite, built in Rust, for AI collaboration",
+    "url": "https://codeyam.com/apps/cadyam",
+    "points": 5,
     "numComments": 2,
-    "createdAt": "2026-11-22T11:35:11Z"
+    "createdAt": "2026-11-23T16:17:11Z"
   },
   {
-    "title": "Zero Trust for AI Agents",
-    "url": "https://claude.com/resources/articles/zero-trust-for-ai-agents",
-    "points": 5,
+    "title": "My AI coding agents spend most of their time waiting",
+    "url": "https://jurajb.dev/coding-agents-mostly-waiting/",
+    "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-22T11:12:52Z"
+    "createdAt": "2026-11-23T16:13:37Z"
   },
   {
-    "title": "What I Learned Building Evaluations for Coding Agents",
-    "url": "https://dblc.fyi/blog/a-retrospective-on-ai-evaluations/",
-    "points": 3,
-    "numComments": 1,
-    "createdAt": "2026-11-22T11:01:49Z"
+    "title": "EasyPost (YC S13) Files for IPO",
+    "url": "https://www.businesswire.com/news/home/20261118748771/en/EasyPost-the-Leading-Shipping-AI-and-API-Platform-for-Modern-Commerce-to-Go-Public-on-Nasdaq-Through-Business-Combination-with-American-Drive-Acquisition-Company",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:10:47Z"
   },
   {
-    "title": "Confident predictions and verdicts about AI, and what happened next [video]",
-    "url": "https://www.youtube.com/watch?v=_Zzv15cwG1A",
+    "title": "Show HN: Clai – AI multitool for terminal powerusers",
+    "url": "https://www.clai.chat/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:10:16Z"
+  },
+  {
+    "title": "'The Code Is Copied Everywhere': The AI Hacking Tool Causing Havoc",
+    "url": "https://www.404media.co/the-code-is-already-copied-everywhere-the-ai-hacking-tool-causing-havoc-around-the-world-artex-github/",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-22T10:54:00Z"
+    "createdAt": "2026-11-23T16:09:17Z"
+  },
+  {
+    "title": "AI Goes Mainstream [pdf]",
+    "url": "https://ai100.stanford.edu/sites/g/files/sbiybj36086/files/media/file/ai100_report_2026.pdf",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:08:41Z"
+  },
+  {
+    "title": "I built a spa for AI agents",
+    "url": "https://www.agentic.spa",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:06:41Z"
+  },
+  {
+    "title": "Buckle Up the AI Bubble Is Popping",
+    "url": "https://mathbabe.org/2026/11/23/buckle-up-the-ai-bubble-is-popping/",
+    "points": 21,
+    "numComments": 47,
+    "createdAt": "2026-11-23T16:01:20Z"
+  },
+  {
+    "title": "Detecting AI agent loops without sending raw payloads",
+    "url": "https://agenttrafficcop.com/blog/detect-agent-loops-without-sending-raw-payloads/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-23T16:00:18Z"
+  },
+  {
+    "title": "Show HN: Wyrd (OSS) – Real-time verification for AI systems",
+    "url": "https://github.com/bohmian-ai/wyrd",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-23T15:57:06Z"
+  },
+  {
+    "title": "42% of business leaders less likely to promote someone sending AI-generated work [pdf]",
+    "url": "https://www.bsigroup.com/siteassets/pdf/en/insights-and-media/insights/white-papers/gl-grp-cross-thght-nss-hsw-mpd-mp-humanbydesignthrivingintheaiworkforce-0026.pdf",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-23T15:50:46Z"
+  },
+  {
+    "title": "The AI Code Review Report 2026",
+    "url": "https://leaddev.com/the-ai-code-review-report-2026",
+    "points": 2,
+    "numComments": 1,
+    "createdAt": "2026-11-23T15:49:10Z"
   }
 ]
