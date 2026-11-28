@@ -1,142 +1,142 @@
 [
   {
-    "title": "AI and the Socratic Method",
-    "url": "https://joelratnasothy.com/aiandthesocraticmethod/",
+    "title": "LA schools block Google's AI features, consider dropping tech giant's products",
+    "url": "https://apnews.com/article/google-artificial-intelligence-schools-search-engine-lausd-762a613b11bd316384430112cc223ed1",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-27T15:55:09Z"
+    "createdAt": "2026-11-28T14:56:01Z"
   },
   {
-    "title": "Show HN: Open-source ESP32 desk body for a local AI assistant",
-    "url": "https://www.bobebot.com/body",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-27T15:29:03Z"
-  },
-  {
-    "title": "I Built IQ-Stream: Streaming LLM Tokens to the Browser Without the Workarounds",
-    "url": "https://www.neuron-ai.dev/blog/why-i-built-iq-stream/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-27T15:10:35Z"
-  },
-  {
-    "title": "Show HN: Targeted Mutation Testing – Observation-guided mutation testing tool",
-    "url": "https://github.com/t-k/targeted-mutation",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-27T15:07:53Z"
-  },
-  {
-    "title": "More code. Not production-ready code [pdf]",
-    "url": "https://pages.faros.ai/hubfs/AI_Engineering_Report_2026_The_Acceleration_Whiplash_Faros.pdf",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-27T15:06:50Z"
-  },
-  {
-    "title": "Show HN: Precitions Until 2030",
+    "title": "Ask HN: Who is still worried about copyright issues with AI generated code?",
     "url": "",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-11-27T15:05:59Z"
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:53:41Z"
   },
   {
-    "title": "Show HN: AI agents can now call you",
-    "url": "https://onair.io/blog/agents-can-call",
-    "points": 3,
+    "title": "Show HN: Free check of whether AI assistants recommend your brand",
+    "url": "https://geo.modelfold.ai/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:53:33Z"
+  },
+  {
+    "title": "Russian Orthodox Church Patriarch Kirill Calls on Christians to Tame AI",
+    "url": "https://www.washingtonpost.com/world/2026/11/05/paraguays-president-out-after-bank-implosion-freezes-millions-accounts/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:53:00Z"
+  },
+  {
+    "title": "Physics Breakthrough Simulator",
+    "url": "https://pages.ethanmdavidson.com/ai-physics-breakthrough",
+    "points": 5,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:52:45Z"
+  },
+  {
+    "title": "Show HN: Orion game launcher, one app to rule them all",
+    "url": "https://orion-launcher.com/en/",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:52:18Z"
+  },
+  {
+    "title": "AI Isn't That Dangerous",
+    "url": "https://www.verysane.ai/p/ai-isnt-that-dangerous",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:42:41Z"
+  },
+  {
+    "title": "GitHub – SeanFDZ/Agentbridge: Let AI Agents Control Classic Mac OS",
+    "url": "https://github.com/SeanFDZ/agentbridge",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:36:57Z"
+  },
+  {
+    "title": "Show HN: Sync MacroFactor CSV to Obsidian for a Local Food Base Usable with AI",
+    "url": "https://github.com/switchupcb/food",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:24:55Z"
+  },
+  {
+    "title": "Show HN: DashPrompts – describe a dashboard, get a working Power BI file",
+    "url": "https://dashprompts.com/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-28T14:11:39Z"
+  },
+  {
+    "title": "Why stop at Emacs? Native apps you or an AI reprogram in Clojure while they run",
+    "url": "https://github.com/RiccardoSottini/AffrescoUI",
+    "points": 11,
+    "numComments": 3,
+    "createdAt": "2026-11-28T14:09:39Z"
+  },
+  {
+    "title": "The AI-designed USB-C LTE Modem is built, and it makes calls",
+    "url": "https://koppar.ai/blog/lte-modem-bring-up/",
+    "points": 11,
     "numComments": 2,
-    "createdAt": "2026-11-27T15:04:12Z"
+    "createdAt": "2026-11-28T14:06:19Z"
   },
   {
-    "title": "Ask HN: Will GPTs Get Stupider?",
-    "url": "",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-11-27T15:03:10Z"
-  },
-  {
-    "title": "Show HN: bouncemarket – a live prediction market game for a bouncing ball",
-    "url": "https://bouncemarket.minhanhday.com/",
-    "points": 61,
-    "numComments": 27,
-    "createdAt": "2026-11-27T15:01:50Z"
-  },
-  {
-    "title": "Stanford Physicist Uses AI to Tackle Quantum Gravity Problem",
-    "url": "https://thequantuminsider.com/2026/11/26/stanford-physicist-uses-ai-to-tackle-quantum-gravity-problem/",
-    "points": 12,
-    "numComments": 5,
-    "createdAt": "2026-11-27T14:55:57Z"
-  },
-  {
-    "title": "Retail Self-Checkouts Targeted in Fight to Shield Jobs from AI",
-    "url": "https://news.bloomberglaw.com/daily-labor-report/retail-self-checkouts-targeted-in-fight-to-shield-jobs-from-ai",
+    "title": "Cyberattacks involving AI agents: First confirmed cases in Switzerland",
+    "url": "https://www.bacs.admin.ch/en/26-ki-agenten-1-en",
     "points": 2,
     "numComments": 0,
-    "createdAt": "2026-11-27T14:48:52Z"
+    "createdAt": "2026-11-28T14:02:10Z"
   },
   {
-    "title": "Show HN: CoDesignFlo – Keep Figma in sync with the code your AI agents ship",
-    "url": "https://github.com/orkestralai/codesignflo",
+    "title": "Show HN: MCP server to make LLMs duel",
+    "url": "",
     "points": 2,
-    "numComments": 1,
-    "createdAt": "2026-11-27T14:48:13Z"
+    "numComments": 0,
+    "createdAt": "2026-11-28T13:57:50Z"
   },
   {
-    "title": "Show HN: I made a FREE note-taking app that connects to your AI",
+    "title": "LangChain DevContainer",
+    "url": "https://github.com/langchain-ai/langchain/tree/master/.devcontainer",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-11-28T13:30:21Z"
+  },
+  {
+    "title": "Ask HN: Is anyone using Gemini Live (3.8) in scaled production",
+    "url": "",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-28T13:25:08Z"
+  },
+  {
+    "title": "My AI-Voice I am the F AI voice assistant",
+    "url": "https://github.com/FLEYRULLET/FLEYRULLET",
+    "points": 1,
+    "numComments": 0,
+    "createdAt": "2026-11-28T13:15:16Z"
+  },
+  {
+    "title": "Mailfact – DMARC you can curl, grep, and give to your AI",
+    "url": "https://mailfact.app/",
+    "points": 1,
+    "numComments": 1,
+    "createdAt": "2026-11-28T13:08:05Z"
+  },
+  {
+    "title": "We run 100s of AI agents – here are the most common cyber attacks",
+    "url": "https://getjavo.com/articles/ai-agent-attacks-what-we-saw/",
+    "points": 2,
+    "numComments": 0,
+    "createdAt": "2026-11-28T12:36:27Z"
+  },
+  {
+    "title": "Show HN: Folio – Share your notes with the AI you use. For Free",
     "url": "https://folio-eta-bay-59.vercel.app",
     "points": 1,
     "numComments": 0,
-    "createdAt": "2026-11-27T14:45:45Z"
-  },
-  {
-    "title": "The great decline of Stack Overflow",
-    "url": "https://sk500.online/tech/the-great-decline-of-stack-overflow",
-    "points": 4,
-    "numComments": 2,
-    "createdAt": "2026-11-27T14:43:37Z"
-  },
-  {
-    "title": "OpenAI offering up to $8k a month to teach small businesses AI",
-    "url": "https://openai.com/openworks/",
-    "points": 1,
-    "numComments": 1,
-    "createdAt": "2026-11-27T14:42:35Z"
-  },
-  {
-    "title": "Our AI QA agent on Momentic's open QA Bench, with every run and verdict",
-    "url": "https://github.com/pluswithai/qa-bench-results",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-27T14:31:17Z"
-  },
-  {
-    "title": "AI is straining America's open records systems",
-    "url": "https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems/",
-    "points": 3,
-    "numComments": 0,
-    "createdAt": "2026-11-27T14:30:36Z"
-  },
-  {
-    "title": "AI Success Factors – Food for Agile Thought 572",
-    "url": "https://age-of-product.com/food-agile-thought-572-ai-success-factors/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-27T14:28:28Z"
-  },
-  {
-    "title": "Show HN: Place AI and math breakthroughs on a timeline vs. Scott Aaronson",
-    "url": "https://youraitimelines.com/",
-    "points": 1,
-    "numComments": 0,
-    "createdAt": "2026-11-27T14:28:08Z"
-  },
-  {
-    "title": "What defenders need to know about agentic AI framework ARTEX threat actors abuse",
-    "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
-    "points": 2,
-    "numComments": 0,
-    "createdAt": "2026-11-27T14:22:57Z"
+    "createdAt": "2026-11-28T12:28:38Z"
   }
 ]
